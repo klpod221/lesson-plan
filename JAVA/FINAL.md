@@ -71,4 +71,3 @@ Xây dựng một ứng dụng Java quản lý thư viện mini có giao diện 
 
 - Thêm chức năng tìm kiếm nâng cao (ví dụ: theo khoảng ngày mượn).
 - Cho phép xuất dữ liệu thống kê ra file CSV.
-- Xây dựng giao diện Swing hoặc JavaFX cho phần frontend.
