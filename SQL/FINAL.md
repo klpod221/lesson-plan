@@ -1,10 +1,10 @@
 # 🧪 BÀI TẬP TỔNG HỢP CUỐI KHÓA
 
-### **Đề bài: Xây dựng CSDL cho ứng dụng Quản lý Thư viện**
+## **Đề bài: Xây dựng CSDL cho ứng dụng Quản lý Thư viện**
 
 Thiết kế và triển khai cơ sở dữ liệu hoàn chỉnh cho ứng dụng quản lý thư viện, tích hợp với ứng dụng Java:
 
-#### Yêu cầu cơ sở dữ liệu
+### Yêu cầu cơ sở dữ liệu
 
 - Bảng `Users` với phân loại độc giả/nhân viên
 - Bảng `Books` với đầy đủ thông tin sách
@@ -12,7 +12,7 @@ Thiết kế và triển khai cơ sở dữ liệu hoàn chỉnh cho ứng dụn
 - Bảng `Categories` để phân loại sách
 - Bảng `Publishers` thông tin nhà xuất bản
 
-#### Chức năng SQL cần triển khai
+### Chức năng SQL cần triển khai
 
 1. **Stored Procedures**:
 

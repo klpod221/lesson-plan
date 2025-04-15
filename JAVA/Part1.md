@@ -414,7 +414,7 @@ Viết chương trình cho phép người dùng:
 
 ### **Kết quả chạy chương trình (Ví dụ):**
 
-```
+```text
 CHƯƠNG TRÌNH QUẢN LÝ ĐIỂM SINH VIÊN
 -----------------------------------
 Nhập tên sinh viên: Nguyễn Văn A
