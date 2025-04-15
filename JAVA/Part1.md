@@ -9,12 +9,6 @@
 
 ## 🧑‍🏫 Bài 1: Cấu trúc chương trình Java
 
-- Tổ chức project Java cơ bản
-- Phân tích điểm bắt đầu chương trình (`main`)
-- Quy ước đặt tên class, file, biến
-
-### Chi tiết bài 1
-
 **Tổ chức project Java cơ bản:**
 
 - File có đuôi `.java` chứa mã nguồn Java
@@ -46,12 +40,6 @@ public class HelloWorld {
 ---
 
 ## 🧑‍🏫 Bài 2: Biến và kiểu dữ liệu
-
-- Khái niệm biến trong Java
-- Các kiểu dữ liệu cơ bản: `int`, `double`, `char`, `boolean`, `String`
-- Khai báo, gán giá trị, ép kiểu dữ liệu
-
-### Chi tiết bài 2
 
 **Khái niệm biến trong Java:**
 
@@ -107,9 +95,6 @@ int wholePi = (int) pi;  // 3
 - Toán tử số học: `+`, `-`, `*`, `/`, `%`
 - Toán tử so sánh: `==`, `!=`, `>`, `<`, `>=`, `<=`
 - Toán tử logic: `&&`, `||`, `!`
-- Thứ tự ưu tiên toán tử
-
-### Chi tiết bài 3
 
 **Toán tử số học:**
 
@@ -184,12 +169,6 @@ int result2 = (5 + 3) * 2;  // 8 * 2 = 16 (dấu ngoặc ưu tiên cao nhất)
 ---
 
 ## 🧑‍🏫 Bài 4: Câu lệnh điều kiện
-
-- Câu lệnh `if`, `if-else`, `else if`
-- Câu lệnh `switch-case`
-- Sử dụng biểu thức điều kiện phức hợp
-
-### Chi tiết bài 4
 
 **Câu lệnh if:**
 
@@ -302,12 +281,6 @@ System.out.println(status);  // Đã trưởng thành
 ---
 
 ## 🧑‍🏫 Bài 5: Câu lệnh lặp
-
-- Vòng lặp `for`: cú pháp và ứng dụng
-- Vòng lặp `while`, `do...while`
-- Từ khóa điều khiển vòng lặp: `break`, `continue`
-
-### Chi tiết bài 5
 
 **Vòng lặp for:**
 
@@ -426,7 +399,7 @@ outerLoop: for (int i = 1; i <= 3; i++) {
 
 ## 🧪 BÀI TẬP LỚN CUỐI PHẦN
 
-## **Đề bài: Quản lý điểm sinh viên**
+### **Đề bài: Quản lý điểm sinh viên**
 
 Viết chương trình cho phép người dùng:
 
@@ -439,67 +412,7 @@ Viết chương trình cho phép người dùng:
   - < 5.0 → Yếu
 - In ra bảng thông tin sinh viên và kết quả xếp loại
 
-## **Mã nguồn tham khảo:**
-
-```java
-import java.util.Scanner;
-
-public class StudentGradeManager {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-
-        // Khai báo biến
-        String studentName;
-        double mathScore, physicsScore, chemistryScore;
-        double averageScore;
-        String classification;
-
-        // Nhập dữ liệu
-        System.out.println("CHƯƠNG TRÌNH QUẢN LÝ ĐIỂM SINH VIÊN");
-        System.out.println("-----------------------------------");
-
-        System.out.print("Nhập tên sinh viên: ");
-        studentName = scanner.nextLine();
-
-        System.out.print("Nhập điểm Toán: ");
-        mathScore = scanner.nextDouble();
-
-        System.out.print("Nhập điểm Lý: ");
-        physicsScore = scanner.nextDouble();
-
-        System.out.print("Nhập điểm Hóa: ");
-        chemistryScore = scanner.nextDouble();
-
-        // Tính điểm trung bình
-        averageScore = (mathScore + physicsScore + chemistryScore) / 3;
-
-        // Xếp loại học lực
-        if (averageScore >= 8.0) {
-            classification = "Giỏi";
-        } else if (averageScore >= 6.5) {
-            classification = "Khá";
-        } else if (averageScore >= 5.0) {
-            classification = "Trung bình";
-        } else {
-            classification = "Yếu";
-        }
-
-        // Hiển thị kết quả
-        System.out.println("\nKẾT QUẢ XẾP LOẠI");
-        System.out.println("-----------------------------------");
-        System.out.println("Sinh viên: " + studentName);
-        System.out.println("Điểm Toán: " + mathScore);
-        System.out.println("Điểm Lý: " + physicsScore);
-        System.out.println("Điểm Hóa: " + chemistryScore);
-        System.out.printf("Điểm trung bình: %.2f\n", averageScore);
-        System.out.println("Xếp loại: " + classification);
-
-        scanner.close();
-    }
-}
-```
-
-## **Kết quả chạy chương trình (Ví dụ):**
+### **Kết quả chạy chương trình (Ví dụ):**
 
 ```
 CHƯƠNG TRÌNH QUẢN LÝ ĐIỂM SINH VIÊN
