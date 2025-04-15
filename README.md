@@ -64,7 +64,7 @@ lesson-plan/
 - Làm quen với lập trình đa luồng (Multithreading).
 - Kết nối và thao tác dữ liệu với cơ sở dữ liệu sử dụng JDBC.
 
-### 8. Dự án tổng hợp cuối khóa tích hợp kiến thức Java và SQL để xây dựng hệ thống quản lý thư viện [/JAVA/FINAL.md](./JAVA/FINAL.md) [/SQL/FINAL.md](./SQL/FINAL.md)
+### 8. Dự án tổng hợp cuối khóa tích hợp kiến thức Java và SQL để xây dựng hệ thống quản lý thư viện [/JAVA/FINAL.md](./JAVA/FINAL.md) | [/SQL/FINAL.md](./SQL/FINAL.md)
 
 ### 9. SQL NÂNG CAO VÀ ỨNG DỤNG [/SQL/Part3.md](./SQL/Part3.md)
 
@@ -92,7 +92,7 @@ Dự án cuối khóa tích hợp kiến thức Java và SQL để xây dựng h
 
 ## 🚀 Bắt Đầu
 
-1. Clone repository về máy tính của bạn.
+1. Clone [repository](https://github.com/klpod221/lesson-plan) về máy tính của bạn.
 2. Cài đặt Java Development Kit (JDK) và hệ quản trị cơ sở dữ liệu SQL (MySQL, PostgreSQL, SQLite).
 3. Mở IDE (IntelliJ IDEA, Eclipse, NetBeans, VS Code) và import dự án.
 4. Thực hiện theo hướng dẫn trong từng phần để hoàn thành bài tập và dự án
