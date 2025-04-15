@@ -1,56 +1,432 @@
-## 📘 PHẦN 1: NHẬP MÔN JAVA
+# 📘 PHẦN 1: NHẬP MÔN JAVA
 
-### 🎯 Mục tiêu tổng quát
+## 🎯 Mục tiêu tổng quát
 
 - Làm quen với cú pháp và cách tổ chức chương trình Java.
 - Biết cách khai báo biến, sử dụng kiểu dữ liệu, câu lệnh điều kiện và vòng lặp.
 
 ---
 
-### 🧑‍🏫 Bài 1: Cấu trúc chương trình Java
+## 🧑‍🏫 Bài 1: Cấu trúc chương trình Java
 
 - Tổ chức project Java cơ bản
 - Phân tích điểm bắt đầu chương trình (`main`)
 - Quy ước đặt tên class, file, biến
 
+### Chi tiết bài 1
+
+**Tổ chức project Java cơ bản:**
+
+- File có đuôi `.java` chứa mã nguồn Java
+- Mỗi file `.java` chứa ít nhất một class
+- Tên file phải trùng với tên class chứa phương thức `main`
+
+**Phương thức main:**
+
+```java
+public class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello, World!");
+    }
+}
+```
+
+**Giải thích:**
+
+- `public class HelloWorld`: Định nghĩa một class có tên HelloWorld
+- `public static void main(String[] args)`: Phương thức main - điểm bắt đầu của chương trình
+- `System.out.println()`: Lệnh in ra màn hình
+
+**Quy ước đặt tên:**
+
+- Class: Viết hoa chữ cái đầu mỗi từ (PascalCase) - `HelloWorld`, `StudentManager`
+- Biến và phương thức: Chữ cái đầu viết thường, từ tiếp theo viết hoa (camelCase) - `studentName`, `calculateTotal`
+- Hằng số: Viết hoa tất cả, các từ cách nhau bởi dấu gạch dưới - `MAX_SIZE`, `PI_VALUE`
+
 ---
 
-### 🧑‍🏫 Bài 2: Biến và kiểu dữ liệu
+## 🧑‍🏫 Bài 2: Biến và kiểu dữ liệu
 
 - Khái niệm biến trong Java
 - Các kiểu dữ liệu cơ bản: `int`, `double`, `char`, `boolean`, `String`
 - Khai báo, gán giá trị, ép kiểu dữ liệu
 
+### Chi tiết bài 2
+
+**Khái niệm biến trong Java:**
+
+- Biến là vùng nhớ để lưu trữ dữ liệu
+- Mỗi biến có tên, kiểu dữ liệu và giá trị
+
+**Kiểu dữ liệu nguyên thủy:**
+
+```java
+int age = 25;                // Số nguyên
+double salary = 5000.50;     // Số thực
+char grade = 'A';            // Ký tự
+boolean isActive = true;     // Giá trị logic
+```
+
+**Kiểu dữ liệu tham chiếu:**
+
+```java
+String name = "Nguyen Van A";  // Chuỗi ký tự
+int[] numbers = {1, 2, 3, 4};  // Mảng số nguyên
+```
+
+**Khai báo và khởi tạo biến:**
+
+```java
+// Khai báo và khởi tạo sau
+int count;
+count = 10;
+
+// Khai báo và khởi tạo cùng lúc
+double price = 19.99;
+
+// Khai báo nhiều biến cùng kiểu
+int x = 1, y = 2, z = 3;
+```
+
+**Ép kiểu:**
+
+```java
+// Ép kiểu ngầm định (mở rộng) - không mất dữ liệu
+int num = 10;
+double numDouble = num;  // 10.0
+
+// Ép kiểu tường minh (thu hẹp) - có thể mất dữ liệu
+double pi = 3.14;
+int wholePi = (int) pi;  // 3
+```
+
 ---
 
-### 🧑‍🏫 Bài 3: Toán tử và biểu thức
+## 🧑‍🏫 Bài 3: Toán tử và biểu thức
 
 - Toán tử số học: `+`, `-`, `*`, `/`, `%`
 - Toán tử so sánh: `==`, `!=`, `>`, `<`, `>=`, `<=`
 - Toán tử logic: `&&`, `||`, `!`
 - Thứ tự ưu tiên toán tử
 
+### Chi tiết bài 3
+
+**Toán tử số học:**
+
+```java
+int a = 10, b = 3;
+int sum = a + b;        // 13
+int difference = a - b; // 7
+int product = a * b;    // 30
+int quotient = a / b;   // 3 (phần nguyên)
+int remainder = a % b;  // 1 (phần dư)
+
+// Toán tử tăng/giảm
+int i = 5;
+i++;                   // i = 6 (tăng sau)
+++i;                   // i = 7 (tăng trước)
+i--;                   // i = 6 (giảm sau)
+--i;                   // i = 5 (giảm trước)
+```
+
+**Toán tử gán:**
+
+```java
+int x = 10;
+x += 5;  // x = x + 5 = 15
+x -= 3;  // x = x - 3 = 12
+x *= 2;  // x = x * 2 = 24
+x /= 4;  // x = x / 4 = 6
+x %= 4;  // x = x % 4 = 2
+```
+
+**Toán tử so sánh:**
+
+```java
+int p = 10, q = 20;
+boolean isEqual = (p == q);       // false
+boolean isNotEqual = (p != q);    // true
+boolean isGreater = (p > q);      // false
+boolean isLess = (p < q);         // true
+boolean isGreaterOrEqual = (p >= q); // false
+boolean isLessOrEqual = (p <= q);    // true
+```
+
+**Toán tử logic:**
+
+```java
+boolean condition1 = true;
+boolean condition2 = false;
+
+boolean andResult = condition1 && condition2;  // false
+boolean orResult = condition1 || condition2;   // true
+boolean notResult = !condition1;               // false
+```
+
+**Thứ tự ưu tiên toán tử:**
+
+1. Toán tử tăng giảm (`++`, `--`), phủ định (`!`)
+2. Toán tử nhân, chia, lấy dư (`*`, `/`, `%`)
+3. Toán tử cộng, trừ (`+`, `-`)
+4. Toán tử so sánh (`<`, `>`, `<=`, `>=`)
+5. Toán tử bằng và khác (`==`, `!=`)
+6. Toán tử logic AND (`&&`)
+7. Toán tử logic OR (`||`)
+8. Toán tử gán (`=`, `+=`, `-=`, `*=`, `/=`, `%=`)
+
+**Ví dụ thứ tự ưu tiên:**
+
+```java
+int result = 5 + 3 * 2;  // 5 + 6 = 11 (nhân trước, cộng sau)
+int result2 = (5 + 3) * 2;  // 8 * 2 = 16 (dấu ngoặc ưu tiên cao nhất)
+```
+
 ---
 
-### 🧑‍🏫 Bài 4: Câu lệnh điều kiện
+## 🧑‍🏫 Bài 4: Câu lệnh điều kiện
 
 - Câu lệnh `if`, `if-else`, `else if`
 - Câu lệnh `switch-case`
 - Sử dụng biểu thức điều kiện phức hợp
 
+### Chi tiết bài 4
+
+**Câu lệnh if:**
+
+```java
+int age = 18;
+
+// Câu lệnh if đơn
+if (age >= 18) {
+    System.out.println("Bạn đã đủ tuổi bầu cử");
+}
+
+// Câu lệnh if-else
+if (age >= 18) {
+    System.out.println("Bạn đã đủ tuổi bầu cử");
+} else {
+    System.out.println("Bạn chưa đủ tuổi bầu cử");
+}
+
+// Câu lệnh if-else if-else
+int score = 75;
+if (score >= 90) {
+    System.out.println("Xuất sắc");
+} else if (score >= 80) {
+    System.out.println("Giỏi");
+} else if (score >= 70) {
+    System.out.println("Khá");
+} else if (score >= 60) {
+    System.out.println("Trung bình");
+} else {
+    System.out.println("Yếu");
+}
+```
+
+**Câu lệnh switch-case:**
+
+```java
+int day = 3;
+String dayName;
+
+switch (day) {
+    case 1:
+        dayName = "Chủ nhật";
+        break;
+    case 2:
+        dayName = "Thứ hai";
+        break;
+    case 3:
+        dayName = "Thứ ba";
+        break;
+    case 4:
+        dayName = "Thứ tư";
+        break;
+    case 5:
+        dayName = "Thứ năm";
+        break;
+    case 6:
+        dayName = "Thứ sáu";
+        break;
+    case 7:
+        dayName = "Thứ bảy";
+        break;
+    default:
+        dayName = "Ngày không hợp lệ";
+}
+System.out.println("Hôm nay là " + dayName);  // Hôm nay là Thứ ba
+```
+
+**Switch với Java 12+ (cú pháp mới):**
+
+```java
+int day = 3;
+String dayType = switch (day) {
+    case 1, 7 -> "Cuối tuần";
+    case 2, 3, 4, 5, 6 -> "Ngày làm việc";
+    default -> "Ngày không hợp lệ";
+};
+```
+
+**Biểu thức điều kiện phức hợp:**
+
+```java
+int age = 25;
+boolean hasID = true;
+boolean isResident = true;
+
+// Sử dụng AND (&&)
+if (age >= 18 && hasID) {
+    System.out.println("Bạn có thể bỏ phiếu");
+}
+
+// Sử dụng OR (||)
+if (isResident || age >= 65) {
+    System.out.println("Bạn được giảm giá vé");
+}
+
+// Kết hợp nhiều điều kiện
+if ((age >= 18 && hasID) || (isResident && age >= 65)) {
+    System.out.println("Bạn có đặc quyền");
+}
+```
+
+**Toán tử ba ngôi:**
+
+```java
+int age = 20;
+String status = (age >= 18) ? "Đã trưởng thành" : "Chưa trưởng thành";
+System.out.println(status);  // Đã trưởng thành
+```
+
 ---
 
-### 🧑‍🏫 Bài 5: Câu lệnh lặp
+## 🧑‍🏫 Bài 5: Câu lệnh lặp
 
 - Vòng lặp `for`: cú pháp và ứng dụng
 - Vòng lặp `while`, `do...while`
 - Từ khóa điều khiển vòng lặp: `break`, `continue`
 
+### Chi tiết bài 5
+
+**Vòng lặp for:**
+
+```java
+// In các số từ 1 đến 5
+for (int i = 1; i <= 5; i++) {
+    System.out.println(i);
+}
+
+// Tính tổng các số từ 1 đến 10
+int sum = 0;
+for (int i = 1; i <= 10; i++) {
+    sum += i;
+}
+System.out.println("Tổng: " + sum);  // Tổng: 55
+
+// Vòng lặp for cải tiến (for-each) - duyệt mảng/collection
+int[] numbers = {1, 2, 3, 4, 5};
+for (int num : numbers) {
+    System.out.println(num);
+}
+```
+
+**Vòng lặp while:**
+
+```java
+// In các số từ 1 đến 5
+int i = 1;
+while (i <= 5) {
+    System.out.println(i);
+    i++;
+}
+
+// Tìm số đầu tiên chia hết cho cả 3 và 5
+int num = 1;
+while (num <= 100) {
+    if (num % 3 == 0 && num % 5 == 0) {
+        System.out.println("Số đầu tiên chia hết cho cả 3 và 5: " + num);
+        break;
+    }
+    num++;
+}
+```
+
+**Vòng lặp do-while:**
+
+```java
+// In các số từ 1 đến 5
+int i = 1;
+do {
+    System.out.println(i);
+    i++;
+} while (i <= 5);
+
+// Mô phỏng menu lựa chọn
+int choice;
+do {
+    System.out.println("\nMenu:");
+    System.out.println("1. Xem danh sách");
+    System.out.println("2. Thêm mới");
+    System.out.println("3. Xóa");
+    System.out.println("0. Thoát");
+
+    choice = 1; // Giả sử người dùng chọn 1
+
+    switch (choice) {
+        case 1:
+            System.out.println("Đang hiển thị danh sách...");
+            break;
+        case 2:
+            System.out.println("Đang thêm mới...");
+            break;
+        case 3:
+            System.out.println("Đang xóa...");
+            break;
+        case 0:
+            System.out.println("Đang thoát...");
+            break;
+        default:
+            System.out.println("Lựa chọn không hợp lệ!");
+    }
+} while (choice != 0);
+```
+
+**Từ khóa break và continue:**
+
+```java
+// Sử dụng break để thoát khỏi vòng lặp
+for (int i = 1; i <= 10; i++) {
+    if (i == 5) {
+        break;  // Thoát khỏi vòng lặp khi i = 5
+    }
+    System.out.println(i);  // In: 1, 2, 3, 4
+}
+
+// Sử dụng continue để bỏ qua lần lặp hiện tại
+for (int i = 1; i <= 5; i++) {
+    if (i == 3) {
+        continue;  // Bỏ qua lần lặp khi i = 3
+    }
+    System.out.println(i);  // In: 1, 2, 4, 5
+}
+
+// Vòng lặp lồng nhau với nhãn (label)
+outerLoop: for (int i = 1; i <= 3; i++) {
+    for (int j = 1; j <= 3; j++) {
+        if (i * j > 5) {
+            break outerLoop;  // Thoát khỏi cả vòng lặp ngoài
+        }
+        System.out.println(i + " * " + j + " = " + (i * j));
+    }
+}
+```
+
 ---
 
 ## 🧪 BÀI TẬP LỚN CUỐI PHẦN
 
-### **Đề bài: Quản lý điểm sinh viên**
+## **Đề bài: Quản lý điểm sinh viên**
 
 Viết chương trình cho phép người dùng:
 
@@ -62,3 +438,83 @@ Viết chương trình cho phép người dùng:
   - 5.0 <= TB < 6.5 → Trung bình
   - < 5.0 → Yếu
 - In ra bảng thông tin sinh viên và kết quả xếp loại
+
+## **Mã nguồn tham khảo:**
+
+```java
+import java.util.Scanner;
+
+public class StudentGradeManager {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Khai báo biến
+        String studentName;
+        double mathScore, physicsScore, chemistryScore;
+        double averageScore;
+        String classification;
+
+        // Nhập dữ liệu
+        System.out.println("CHƯƠNG TRÌNH QUẢN LÝ ĐIỂM SINH VIÊN");
+        System.out.println("-----------------------------------");
+
+        System.out.print("Nhập tên sinh viên: ");
+        studentName = scanner.nextLine();
+
+        System.out.print("Nhập điểm Toán: ");
+        mathScore = scanner.nextDouble();
+
+        System.out.print("Nhập điểm Lý: ");
+        physicsScore = scanner.nextDouble();
+
+        System.out.print("Nhập điểm Hóa: ");
+        chemistryScore = scanner.nextDouble();
+
+        // Tính điểm trung bình
+        averageScore = (mathScore + physicsScore + chemistryScore) / 3;
+
+        // Xếp loại học lực
+        if (averageScore >= 8.0) {
+            classification = "Giỏi";
+        } else if (averageScore >= 6.5) {
+            classification = "Khá";
+        } else if (averageScore >= 5.0) {
+            classification = "Trung bình";
+        } else {
+            classification = "Yếu";
+        }
+
+        // Hiển thị kết quả
+        System.out.println("\nKẾT QUẢ XẾP LOẠI");
+        System.out.println("-----------------------------------");
+        System.out.println("Sinh viên: " + studentName);
+        System.out.println("Điểm Toán: " + mathScore);
+        System.out.println("Điểm Lý: " + physicsScore);
+        System.out.println("Điểm Hóa: " + chemistryScore);
+        System.out.printf("Điểm trung bình: %.2f\n", averageScore);
+        System.out.println("Xếp loại: " + classification);
+
+        scanner.close();
+    }
+}
+```
+
+## **Kết quả chạy chương trình (Ví dụ):**
+
+```
+CHƯƠNG TRÌNH QUẢN LÝ ĐIỂM SINH VIÊN
+-----------------------------------
+Nhập tên sinh viên: Nguyễn Văn A
+Nhập điểm Toán: 8.5
+Nhập điểm Lý: 7.5
+Nhập điểm Hóa: 9.0
+
+KẾT QUẢ XẾP LOẠI
+-----------------------------------
+Sinh viên: Nguyễn Văn A
+Điểm Toán: 8.5
+Điểm Lý: 7.5
+Điểm Hóa: 9.0
+Điểm trung bình: 8.33
+Xếp loại: Giỏi
+```
