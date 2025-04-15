@@ -1,5 +1,3 @@
-[Back to Readme.md](../README.md)
-
 ## 📘 PHẦN 1: NHẬP MÔN SQL
 
 ### 🎯 Mục tiêu tổng quát
