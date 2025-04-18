@@ -1,5 +1,22 @@
 # 📘 PHẦN 2: SQL NÂNG CAO
 
+## Table of Contents
+
+- [📘 PHẦN 2: SQL NÂNG CAO](#-phần-2-sql-nâng-cao)
+  - [Table of Contents](#table-of-contents)
+  - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
+  - [🧑‍🏫 Bài 1: Truy vấn nâng cao](#-bài-1-truy-vấn-nâng-cao)
+  - [🧑‍🏫 Bài 2: Hàm và thủ tục lưu trữ](#-bài-2-hàm-và-thủ-tục-lưu-trữ)
+  - [🧑‍🏫 Bài 3: Tối ưu hóa truy vấn](#-bài-3-tối-ưu-hóa-truy-vấn)
+  - [🧑‍🏫 Bài 4: Thiết kế cơ sở dữ liệu](#-bài-4-thiết-kế-cơ-sở-dữ-liệu)
+  - [🧑‍🏫 Bài 5: Bảo mật và quản trị](#-bài-5-bảo-mật-và-quản-trị)
+    - [Quản lý người dùng và phân quyền](#quản-lý-người-dùng-và-phân-quyền)
+    - [Backup và phục hồi dữ liệu](#backup-và-phục-hồi-dữ-liệu)
+    - [Bảo mật và phòng chống SQL Injection](#bảo-mật-và-phòng-chống-sql-injection)
+    - [Giám sát và điều chỉnh hệ thống](#giám-sát-và-điều-chỉnh-hệ-thống)
+  - [🧪 BÀI TẬP LỚN CUỐI PHẦN](#-bài-tập-lớn-cuối-phần)
+    - [**Đề bài: Quản lý sinh viên và lớp học**](#đề-bài-quản-lý-sinh-viên-và-lớp-học)
+
 ## 🎯 Mục tiêu tổng quát
 
 - Hiểu và sử dụng được các kỹ thuật truy vấn phức tạp

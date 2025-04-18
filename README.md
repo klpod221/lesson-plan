@@ -1,10 +1,10 @@
-# 🎓 Java và SQL - Lộ Trình Học Tích Hợp
+# 🎓 Java, SQL và Web Development - Lộ Trình Học Tích Hợp
 
-Kho lưu trữ này chứa tài liệu học tập và dự án giúp học lập trình Java và kỹ năng cơ sở dữ liệu SQL từ cơ bản đến nâng cao.
+Kho lưu trữ này chứa tài liệu học tập và dự án giúp học lập trình Java, kỹ năng cơ sở dữ liệu SQL, và phát triển Web từ cơ bản đến nâng cao.
 
 ## 📋 Cấu Trúc Kho Lưu Trữ
 
-```
+```text
 lesson-plan/
 ├── JAVA/
 │   ├── Part1.md   # Nhập môn Java
@@ -19,6 +19,11 @@ lesson-plan/
 │   ├── Part3.md   # SQL NÂNG CAO VÀ ỨNG DỤNG
 │   ├── Part4.md   # SQL CHUYÊN SÂU VÀ HIỆU SUẤT
 │   └── FINAL.md   # Dự án tổng hợp cuối khóa: Quản lý Thư viện
+├── WEB/
+│   ├── Part1.md   # NHẬP MÔN HTML
+│   ├── Part2.md   # CSS - ĐỊNH DẠNG TRANG WEB
+│   ├── Part3.md   # JAVASCRIPT - LẬP TRÌNH CHO WEB
+│   └── Part4.md   # FRAMEWORK & CÔNG CỤ PHÁT TRIỂN WEB HIỆN ĐẠI
 └── README.md
 ```
 
@@ -78,27 +83,43 @@ lesson-plan/
 - Xử lý dữ liệu lớn một cách hiệu quả
 - Triển khai giải pháp dữ liệu phức tạp
 
-## 🎯 Dự Án Tổng Hợp: Ứng Dụng Quản Lý Thư Viện
+### 11. NHẬP MÔN HTML [/WEB/Part1.md](./WEB/Part1.md)
 
-Dự án cuối khóa tích hợp kiến thức Java và SQL để xây dựng hệ thống quản lý thư viện:
+- Hiểu về cấu trúc của một trang web HTML
+- Biết cách sử dụng các thẻ HTML cơ bản
+- Tạo được trang web tĩnh đầu tiên
 
-### Chức năng chính
+### 12. CSS - ĐỊNH DẠNG TRANG WEB [/WEB/Part2.md](./WEB/Part2.md)
 
-- **Quản lý người dùng**: `Reader`, `Staff` kế thừa từ `User`
-- **Quản lý sách**: thêm, sửa, xóa, tìm kiếm
-- **Quản lý giao dịch mượn/trả**: theo dõi, cập nhật tồn kho
-- **Lưu trữ dữ liệu**: sử dụng JDBC để tương tác với CSDL
-- **Backup dữ liệu**: sử dụng multithreading để ghi file song song
+- Hiểu về CSS và vai trò của nó trong phát triển web
+- Thành thạo các cách áp dụng CSS vào HTML
+- Nắm vững các thuộc tính CSS cơ bản và cách sử dụng
+
+### 13. JAVASCRIPT - LẬP TRÌNH CHO WEB [/WEB/Part3.md](./WEB/Part3.md)
+
+- Hiểu về JavaScript và vai trò của nó trong phát triển web
+- Thành thạo cú pháp và các cấu trúc cơ bản của JavaScript
+- Biết cách thao tác với DOM để tạo trang web động
+- Xử lý sự kiện, gọi API và xử lý dữ liệu
+
+### 14. FRAMEWORK & CÔNG CỤ PHÁT TRIỂN WEB HIỆN ĐẠI [/WEB/Part4.md](./WEB/Part4.md)
+
+- Hiểu được vai trò và lợi ích của các framework trong phát triển web
+- Làm quen với các công cụ phát triển web hiện đại
+- Biết cách tổ chức và triển khai dự án web chuyên nghiệp
+- Nắm vững các khái niệm về REST API và cách xây dựng
 
 ## 🚀 Bắt Đầu
 
 1. Clone [repository](https://github.com/klpod221/lesson-plan) về máy tính của bạn.
-2. Cài đặt Java Development Kit (JDK) và hệ quản trị cơ sở dữ liệu SQL (MySQL, PostgreSQL, SQLite).
-3. Mở IDE (IntelliJ IDEA, Eclipse, NetBeans, VS Code) và import dự án.
-4. Thực hiện theo hướng dẫn trong từng phần để hoàn thành bài tập và dự án
+2. Cài đặt Java Development Kit (JDK), hệ quản trị cơ sở dữ liệu SQL (MySQL, PostgreSQL, SQLite), Node.js và npm.
+3. Cài đặt trình soạn thảo code (VS Code, Sublime Text) hoặc IDE (IntelliJ IDEA, Eclipse, NetBeans) để phát triển web và Java.
+4. Thực hiện theo hướng dẫn trong từng phần để hoàn thành bài tập và dự án.
 
 ## 📝 Yêu Cầu Tiên Quyết
 
 - Đã cài đặt Java Development Kit (JDK)
 - Đã cài đặt hệ quản trị cơ sở dữ liệu SQL
 - IDE cho phát triển Java (IntelliJ IDEA, Eclipse, NetBeans, VS Code)
+- Trình soạn thảo code cho phát triển web (VS Code, Sublime Text)
+- Trình duyệt web hiện đại (Chrome, Firefox, Edge)

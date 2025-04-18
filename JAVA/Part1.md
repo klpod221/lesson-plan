@@ -1,5 +1,19 @@
 # 📘 PHẦN 1: NHẬP MÔN JAVA
 
+## Table of Contents
+
+- [📘 PHẦN 1: NHẬP MÔN JAVA](#-phần-1-nhập-môn-java)
+  - [Table of Contents](#table-of-contents)
+  - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
+  - [🧑‍🏫 Bài 1: Cấu trúc chương trình Java](#-bài-1-cấu-trúc-chương-trình-java)
+  - [🧑‍🏫 Bài 2: Biến và kiểu dữ liệu](#-bài-2-biến-và-kiểu-dữ-liệu)
+  - [🧑‍🏫 Bài 3: Toán tử và biểu thức](#-bài-3-toán-tử-và-biểu-thức)
+  - [🧑‍🏫 Bài 4: Câu lệnh điều kiện](#-bài-4-câu-lệnh-điều-kiện)
+  - [🧑‍🏫 Bài 5: Câu lệnh lặp](#-bài-5-câu-lệnh-lặp)
+  - [🧪 BÀI TẬP LỚN CUỐI PHẦN](#-bài-tập-lớn-cuối-phần)
+    - [**Đề bài: Quản lý điểm sinh viên**](#đề-bài-quản-lý-điểm-sinh-viên)
+    - [**Kết quả chạy chương trình (Ví dụ):**](#kết-quả-chạy-chương-trình-ví-dụ)
+
 ## 🎯 Mục tiêu tổng quát
 
 - Làm quen với cú pháp và cách tổ chức chương trình Java.

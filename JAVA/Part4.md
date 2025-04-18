@@ -1,5 +1,18 @@
 # 📘 PHẦN 4: XỬ LÝ NGOẠI LỆ, FILE I/O VÀ COLLECTIONS
 
+## Table of Contents
+
+- [📘 PHẦN 4: XỬ LÝ NGOẠI LỆ, FILE I/O VÀ COLLECTIONS](#-phần-4-xử-lý-ngoại-lệ-file-io-và-collections)
+  - [Table of Contents](#table-of-contents)
+  - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
+  - [🧑‍🏫 Bài 1: Xử lý ngoại lệ (Exception Handling)](#-bài-1-xử-lý-ngoại-lệ-exception-handling)
+  - [🧑‍🏫 Bài 2: Đọc ghi file văn bản](#-bài-2-đọc-ghi-file-văn-bản)
+  - [🧑‍🏫 Bài 3: Giới thiệu Collections Framework](#-bài-3-giới-thiệu-collections-framework)
+  - [🧑‍🏫 Bài 4: List, Set và Map](#-bài-4-list-set-và-map)
+  - [🧑‍🏫 Bài 5: Kết hợp File và Collections](#-bài-5-kết-hợp-file-và-collections)
+  - [🧪 BÀI TẬP LỚN CUỐI PHẦN](#-bài-tập-lớn-cuối-phần)
+    - [**Đề bài: Hệ thống quản lý khóa học**](#đề-bài-hệ-thống-quản-lý-khóa-học)
+
 ## 🎯 Mục tiêu tổng quát
 
 - Hiểu và xử lý lỗi bằng cách sử dụng cơ chế ngoại lệ trong Java.

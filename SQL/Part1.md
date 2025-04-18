@@ -1,5 +1,20 @@
 # 📘 PHẦN 1: NHẬP MÔN SQL
 
+## Table of Contents
+
+- [📘 PHẦN 1: NHẬP MÔN SQL](#-phần-1-nhập-môn-sql)
+  - [Table of Contents](#table-of-contents)
+  - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
+  - [🧑‍🏫 Bài 1: Giới thiệu về SQL và CSDL](#-bài-1-giới-thiệu-về-sql-và-csdl)
+  - [🧑‍🏫 Bài 2: Tạo và quản lý cơ sở dữ liệu](#-bài-2-tạo-và-quản-lý-cơ-sở-dữ-liệu)
+  - [🧑‍🏫 Bài 3: Truy vấn dữ liệu](#-bài-3-truy-vấn-dữ-liệu)
+  - [🧑‍🏫 Bài 4: Thao tác dữ liệu](#-bài-4-thao-tác-dữ-liệu)
+  - [🧑‍🏫 Bài 5: Kết hợp dữ liệu](#-bài-5-kết-hợp-dữ-liệu)
+  - [🧪 BÀI TẬP LỚN CUỐI PHẦN](#-bài-tập-lớn-cuối-phần)
+  - [**Đề bài: Quản lý sinh viên**](#đề-bài-quản-lý-sinh-viên)
+    - [**Kết quả chạy chương trình (Ví dụ):**](#kết-quả-chạy-chương-trình-ví-dụ)
+    - [**Nâng cao: tạo stored procedure để tự động cập nhật điểm trung bình và xếp loại**](#nâng-cao-tạo-stored-procedure-để-tự-động-cập-nhật-điểm-trung-bình-và-xếp-loại)
+
 ## 🎯 Mục tiêu tổng quát
 
 - Làm quen với cú pháp và cách sử dụng ngôn ngữ truy vấn SQL

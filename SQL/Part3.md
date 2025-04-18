@@ -1,5 +1,35 @@
 # 📘 PHẦN 3: SQL NÂNG CAO VÀ ỨNG DỤNG
 
+## Table of Contents
+
+- [📘 PHẦN 3: SQL NÂNG CAO VÀ ỨNG DỤNG](#-phần-3-sql-nâng-cao-và-ứng-dụng)
+  - [Table of Contents](#table-of-contents)
+  - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
+  - [🧑‍🏫 Bài 1: Thủ tục lưu trữ nâng cao](#-bài-1-thủ-tục-lưu-trữ-nâng-cao)
+    - [Stored Procedure có tham số](#stored-procedure-có-tham-số)
+    - [Xử lý lỗi trong Stored Procedure](#xử-lý-lỗi-trong-stored-procedure)
+    - [Sử dụng Cursor để xử lý dữ liệu theo dòng](#sử-dụng-cursor-để-xử-lý-dữ-liệu-theo-dòng)
+    - [Thủ tục lưu trữ có trả về giá trị](#thủ-tục-lưu-trữ-có-trả-về-giá-trị)
+  - [🧑‍🏫 Bài 2: Trigger và ràng buộc](#-bài-2-trigger-và-ràng-buộc)
+    - [Trigger BEFORE INSERT](#trigger-before-insert)
+    - [Trigger AFTER UPDATE](#trigger-after-update)
+    - [Trigger BEFORE DELETE](#trigger-before-delete)
+    - [Trigger để duy trì tính toàn vẹn dữ liệu](#trigger-để-duy-trì-tính-toàn-vẹn-dữ-liệu)
+  - [🧑‍🏫 Bài 3: Giao dịch và xử lý đồng thời](#-bài-3-giao-dịch-và-xử-lý-đồng-thời)
+    - [Quản lý transaction](#quản-lý-transaction)
+    - [Các cấp độ cô lập (Isolation Levels)](#các-cấp-độ-cô-lập-isolation-levels)
+    - [Xử lý lock và deadlock](#xử-lý-lock-và-deadlock)
+  - [🧑‍🏫 Bài 4: Bảo mật dữ liệu](#-bài-4-bảo-mật-dữ-liệu)
+    - [Quản lý người dùng và phân quyền](#quản-lý-người-dùng-và-phân-quyền)
+    - [Mã hóa và bảo mật dữ liệu](#mã-hóa-và-bảo-mật-dữ-liệu)
+    - [Phòng chống SQL Injection](#phòng-chống-sql-injection)
+  - [🧑‍🏫 Bài 5: SQL và ứng dụng web](#-bài-5-sql-và-ứng-dụng-web)
+    - [Kết nối cơ sở dữ liệu từ ứng dụng](#kết-nối-cơ-sở-dữ-liệu-từ-ứng-dụng)
+    - [Tối ưu truy vấn cho ứng dụng web](#tối-ưu-truy-vấn-cho-ứng-dụng-web)
+    - [Xử lý vấn đề N+1 và hiệu suất](#xử-lý-vấn-đề-n1-và-hiệu-suất)
+  - [🧪 BÀI TẬP LỚN CUỐI PHẦN](#-bài-tập-lớn-cuối-phần)
+    - [**Đề bài: Quản lý giao dịch mượn sách thư viện**](#đề-bài-quản-lý-giao-dịch-mượn-sách-thư-viện)
+
 ## 🎯 Mục tiêu tổng quát
 
 - Xây dựng được các chức năng phức tạp với thủ tục lưu trữ
@@ -649,7 +679,7 @@ GROUP BY s.student_id, s.first_name, s.last_name;
 
 ## 🧪 BÀI TẬP LỚN CUỐI PHẦN
 
-## **Đề bài: Quản lý giao dịch mượn sách thư viện**
+### **Đề bài: Quản lý giao dịch mượn sách thư viện**
 
 Xây dựng cơ sở dữ liệu quản lý thư viện với các bảng:
 

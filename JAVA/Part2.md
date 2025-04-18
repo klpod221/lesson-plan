@@ -1,5 +1,19 @@
 # 📘 PHẦN 2: MẢNG, CHUỖI VÀ HÀM
 
+## Table of Contents
+
+- [📘 PHẦN 2: MẢNG, CHUỖI VÀ HÀM](#-phần-2-mảng-chuỗi-và-hàm)
+  - [Table of Contents](#table-of-contents)
+  - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
+  - [🧑‍🏫 Bài 1: Mảng trong Java](#-bài-1-mảng-trong-java)
+  - [🧑‍🏫 Bài 2: Chuỗi trong Java](#-bài-2-chuỗi-trong-java)
+  - [🧑‍🏫 Bài 3: Hàm trong Java](#-bài-3-hàm-trong-java)
+  - [🧑‍🏫 Bài 4: Cách sử dụng mảng và chuỗi kết hợp](#-bài-4-cách-sử-dụng-mảng-và-chuỗi-kết-hợp)
+  - [🧑‍🏫 Bài 5: Hàm và mảng](#-bài-5-hàm-và-mảng)
+  - [🧪 BÀI TẬP LỚN CUỐI PHẦN](#-bài-tập-lớn-cuối-phần)
+    - [**Đề bài: Quản lý điểm sinh viên với mảng**](#đề-bài-quản-lý-điểm-sinh-viên-với-mảng)
+    - [**Kết quả chạy chương trình (Ví dụ):**](#kết-quả-chạy-chương-trình-ví-dụ)
+
 ## 🎯 Mục tiêu tổng quát
 
 - Làm quen với việc sử dụng mảng để lưu trữ và xử lý tập hợp dữ liệu.
