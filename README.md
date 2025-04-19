@@ -37,6 +37,10 @@ Tôi đã cố gắng tạo ra một lộ trình học tập rõ ràng và dễ 
 
 - Cuối cùng, việc học lập trình không chỉ dừng lại ở việc nắm vững một ngôn ngữ hay công nghệ nào đó. Bạn cần có tư duy lập trình tốt, khả năng giải quyết vấn đề và kỹ năng tự học liên tục để theo kịp sự phát triển nhanh chóng của ngành công nghệ thông tin.
 
+### **Đã có rất nhiều AI có thể giúp bạn học lập trình, tại sao bạn vẫn cần lộ trình này?**
+
+- Như mục đích ban đầu của lộ trình này, tôi muốn giúp bạn có một lộ trình học tập rõ ràng và dễ hiểu nhất có thể cũng như phát triển tư duy lập trình của bạn theo đúng hướng. AI có thể giúp bạn tìm kiếm thông tin, giải thích các khái niệm và thậm chí viết mã cho bạn. Tuy nhiên, AI không thể thay thế hoàn toàn khả năng tư duy và giải quyết vấn đề của con người và việc học lập trình không chỉ đơn thuần là việc hiểu cú pháp hay cách sử dụng một ngôn ngữ lập trình. Đây là một quá trình liên tục và cần có sự kiên nhẫn, thực hành và trải nghiệm thực tế.
+
 ### **Tại sao lại có lộ trình học tập này?**
 
 - Lộ trình học tập này ban đầu được xây dựng để hỗ trợ tôi trong việc đào tạo nhân viên mới tại công ty. Tuy nhiên, sau khi hoàn thành, tôi nhận thấy rằng lộ trình này có thể hữu ích cho nhiều người khác trong việc học lập trình. Do đó, tôi quyết định chia sẻ nó với cộng đồng lập trình viên.
@@ -48,6 +52,7 @@ Tôi đã cố gắng tạo ra một lộ trình học tập rõ ràng và dễ 
   - [🎯 Giới Thiệu](#-giới-thiệu)
   - [❓ Câu hỏi thường gặp](#-câu-hỏi-thường-gặp)
     - [**Tại sao lại là JAVA, SQL, DSA và WEB?**](#tại-sao-lại-là-java-sql-dsa-và-web)
+    - [**Đã có rất nhiều AI có thể giúp bạn học lập trình, tại sao bạn vẫn cần lộ trình này?**](#đã-có-rất-nhiều-ai-có-thể-giúp-bạn-học-lập-trình-tại-sao-bạn-vẫn-cần-lộ-trình-này)
     - [**Tại sao lại có lộ trình học tập này?**](#tại-sao-lại-có-lộ-trình-học-tập-này)
   - [📖 Nội Dung](#-nội-dung)
   - [🛠️ Phương Pháp Học Tập](#️-phương-pháp-học-tập)
@@ -127,7 +132,6 @@ Bạn có thể tự cài đặt môi trường học tập trên máy tính cá
 - **Java Development Kit (JDK)**: Cài đặt JDK để biên dịch và chạy chương trình Java.
 - **Công cụ quản lý gói**: Sử dụng Maven hoặc Gradle để quản lý các thư viện và phụ thuộc trong dự án Java.
 - **Môi trường phát triển cơ sở dữ liệu**: MySQL, PostgreSQL hoặc SQLite để làm việc với SQL. Bạn có thể sử dụng các công cụ như MySQL Workbench hoặc pgAdmin để quản lý cơ sở dữ liệu.
-- **Môi trường phát triển PHP**: Có thể sử dụng XAMPP, hoặc cài đặt Apache, PHP và MySQL riêng biệt.
 - **Trình duyệt web**: Để kiểm tra và phát triển ứng dụng web, bạn cần một trình duyệt như Google Chrome hoặc Firefox.
 - **Công cụ phát triển web**: Sử dụng các công cụ như Node.js, npm hoặc yarn để quản lý các gói và thư viện JavaScript.
 - **Công cụ quản lý phiên bản**: Sử dụng Git để quản lý mã nguồn và theo dõi thay đổi. Bạn có thể sử dụng GitHub Desktop hoặc dòng lệnh để làm việc với Git.
