@@ -21,10 +21,12 @@
     - [Cập nhật hệ thống và cài đặt các công cụ phát triển](#cập-nhật-hệ-thống-và-cài-đặt-các-công-cụ-phát-triển)
     - [Cài đặt Java cho Ubuntu](#cài-đặt-java-cho-ubuntu)
     - [Cài đặt MySQL cho Ubuntu](#cài-đặt-mysql-cho-ubuntu)
+    - [Cài đặt PHP và Composer cho Ubuntu](#cài-đặt-php-và-composer-cho-ubuntu)
   - [Dành cho MacOS](#dành-cho-macos)
     - [Cài đặt Homebrew](#cài-đặt-homebrew)
     - [Cài đặt Java cho MacOS](#cài-đặt-java-cho-macos)
     - [Cài đặt MySQL cho MacOS](#cài-đặt-mysql-cho-macos)
+    - [Cài đặt PHP và Composer cho MacOS](#cài-đặt-php-và-composer-cho-macos)
   - [Cài đặt Node.js với nvm (Áp dụng cho WSL và tất cả các hệ điều hành khác)](#cài-đặt-nodejs-với-nvm-áp-dụng-cho-wsl-và-tất-cả-các-hệ-điều-hành-khác)
   - [Sử dụng VSCode extension SQLTools để kết nối và quản lý MySQL](#sử-dụng-vscode-extension-sqltools-để-kết-nối-và-quản-lý-mysql)
 
@@ -156,6 +158,33 @@ sudo mysql_secure_installation
 sudo mysql -u root -p
 ```
 
+### Cài đặt PHP và Composer cho Ubuntu
+
+- Nếu bạn cần sử dụng PHP, bạn có thể cài đặt PHP và Composer bằng cách chạy lệnh sau:
+
+```bash
+sudo apt install php php-mysql php-cli php-curl php-zip php-gd php-mbstring -y
+```
+
+- Kiểm tra phiên bản PHP đã cài đặt:
+
+```bash
+php -v
+```
+
+- Cài đặt Composer (trình quản lý gói PHP) bằng cách chạy lệnh sau:
+
+```bash
+curl -sS https://getcomposer.org/installer | php
+sudo mv composer.phar /usr/local/bin/composer
+```
+
+- Kiểm tra phiên bản Composer đã cài đặt:
+
+```bash
+composer -V
+```
+
 ## Dành cho MacOS
 
 ### Cài đặt Homebrew
@@ -212,6 +241,33 @@ mysql_secure_installation
 mysql -u root -p
 ```
 
+### Cài đặt PHP và Composer cho MacOS
+
+- Nếu bạn cần sử dụng PHP, bạn có thể cài đặt PHP và Composer bằng cách chạy lệnh sau:
+
+```bash
+brew install php
+```
+
+- Kiểm tra phiên bản PHP đã cài đặt:
+
+```bash
+php -v
+```
+
+- Cài đặt Composer (trình quản lý gói PHP) bằng cách chạy lệnh sau:
+
+```bash
+curl -sS https://getcomposer.org/installer | php
+sudo mv composer.phar /usr/local/bin/composer
+```
+
+- Kiểm tra phiên bản Composer đã cài đặt:
+
+```bash
+composer -V
+```
+
 ## Cài đặt Node.js với nvm (Áp dụng cho WSL và tất cả các hệ điều hành khác)
 
 - Bạn có thể cài đặt Node.js bằng cách sử dụng nvm (Node Version Manager). Đầu tiên, bạn cần cài đặt nvm bằng cách chạy lệnh sau:
@@ -221,7 +277,7 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
 ```
 
 - Sau khi cài đặt xong, bạn cần khởi động lại terminal hoặc chạy lệnh sau để tải nvm vào terminal:
-  
+
 ```bash
 source ~/.bashrc
 ```
