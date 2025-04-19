@@ -84,7 +84,7 @@ Tôi đã cố gắng tạo ra một lộ trình học tập rõ ràng và dễ 
     - [20. CSS - ĐỊNH DẠNG TRANG WEB (1 tuần) /WEB/Part2.md](#20-css---định-dạng-trang-web-1-tuần-webpart2md)
     - [21. JAVASCRIPT - LẬP TRÌNH CHO WEB (1.5 tuần) /WEB/Part3.md](#21-javascript---lập-trình-cho-web-15-tuần-webpart3md)
     - [22. FRAMEWORK \& CÔNG CỤ PHÁT TRIỂN WEB HIỆN ĐẠI (1.5 tuần) /WEB/Part4.md](#22-framework--công-cụ-phát-triển-web-hiện-đại-15-tuần-webpart4md)
-    - [23. Dự án tổng hợp cuối khóa (2 tuần) /JAVA/FINAL.md | /SQL/FINAL.md](#23-dự-án-tổng-hợp-cuối-khóa-2-tuần-javafinalmd--sqlfinalmd)
+    - [23. Dự án tổng hợp cuối khóa (2 tuần) /JAVA/FINAL.md và /SQL/FINAL.md](#23-dự-án-tổng-hợp-cuối-khóa-2-tuần-javafinalmd-và-sqlfinalmd)
   - [🔄 Cập Nhật và Đóng Góp](#-cập-nhật-và-đóng-góp)
   - [📞 Liên Hệ Hỗ Trợ](#-liên-hệ-hỗ-trợ)
   - [📜 Giấy Phép](#-giấy-phép)
@@ -318,7 +318,7 @@ lesson-plan/
 - Biết cách tổ chức và triển khai dự án web chuyên nghiệp
 - Nắm vững các khái niệm về REST API và cách xây dựng
 
-### 23. Dự án tổng hợp cuối khóa (2 tuần) [/JAVA/FINAL.md](./JAVA/FINAL.md) | [/SQL/FINAL.md](./SQL/FINAL.md)
+### 23. Dự án tổng hợp cuối khóa (2 tuần) [/JAVA/FINAL.md](./JAVA/FINAL.md) và [/SQL/FINAL.md](./SQL/FINAL.md)
 
 - Tích hợp kiến thức Java và SQL để xây dựng hệ thống quản lý thư viện hoàn chỉnh
 - Áp dụng các nguyên tắc thiết kế và kiến trúc phần mềm
