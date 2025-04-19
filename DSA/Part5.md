@@ -2033,7 +2033,7 @@ public class EightPuzzle {
 
 ```java
 public class MazeSolver {
-    private static final int[][] DIRECTIONS = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}}; // Up, Down, Left, Right
+    private static final int[][] DIRECTIONS = { {-1, 0}, {1, 0}, {0, -1}, {0, 1} }; // Up, Down, Left, Right
 
     private static class Point {
         int x, y;
