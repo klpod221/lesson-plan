@@ -1893,7 +1893,7 @@ public class EightPuzzle {
         // Các di chuyển hợp lệ
         List<PuzzleState> getNeighbors() {
             List<PuzzleState> neighbors = new ArrayList<>();
-            int[][] dirs = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}}; // Up, Down, Left, Right
+            int[][] dirs = { {-1, 0}, {1, 0}, {0, -1}, {0, 1} }; // Up, Down, Left, Right
 
             for (int[] dir : dirs) {
                 int newRow = zeroRow + dir[0];
