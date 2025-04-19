@@ -1,10 +1,100 @@
-# Lộ Trình Học Lập Trình
+# Lộ Trình Học Lập Trình Từ Cơ Bản Đến Nâng Cao
 
 ## 🎯 Giới Thiệu
 
-Đây là kho lưu trữ tài liệu học tập được thiết kế để cung cấp một lộ trình học lập trình từ cơ bản đến nâng cao. Tài liệu bao gồm các khóa học về Java, SQL, Cấu trúc dữ liệu & Thuật toán (DSA) và Phát triển Web. Mỗi phần được thiết kế với mục tiêu rõ ràng và có tính tiến triển, giúp người học từng bước làm chủ các kỹ năng lập trình.
+Đây là kho lưu trữ tài liệu học tập với lộ trình lập trình từ cơ bản đến nâng cao, bao gồm Java, SQL, Cấu trúc dữ liệu & Thuật toán (DSA) và Phát triển Web. Mỗi phần được thiết kế có tính tiến triển rõ ràng, giúp bạn từng bước làm chủ các kỹ năng cần thiết và hiểu cách các lĩnh vực này liên kết với nhau.
 
-Đối với lập trình viên, ngoài việc nắm kiến thức liên quan thì khả năng tìm kiếm thông tin, tài liệu và tự học là rất quan trọng. Do đó, tôi khuyến khích bạn nên tìm hiểu thêm về các công nghệ, ngôn ngữ lập trình khác ngoài lộ trình này. Bạn có thể tham khảo các tài liệu, khóa học trực tuyến hoặc tham gia các cộng đồng lập trình để mở rộng kiến thức và kỹ năng của mình.
+Lộ trình này **không phải một quy tắc cứng nhắc mà là một hướng dẫn**. Với người mới bắt đầu, việc có lộ trình học tập có cấu trúc sẽ giúp tiết kiệm thời gian tìm kiếm tài liệu và định hướng học tập. Khi đã nắm vững nền tảng, bạn có thể điều chỉnh theo nhu cầu và sở thích riêng, khám phá thêm các công nghệ và ngôn ngữ lập trình khác thông qua tài liệu trực tuyến hoặc tham gia cộng đồng lập trình.
+
+Đối với lập trình viên (Developer), ngoài việc nắm kiến thức liên quan thì khả năng tìm kiếm thông tin, tài liệu và tự học là rất quan trọng. Do đó, tôi khuyến khích bạn nên tìm hiểu thêm về các công nghệ, ngôn ngữ lập trình khác ngoài lộ trình này. Bạn có thể tham khảo các tài liệu, khóa học trực tuyến hoặc tham gia các cộng đồng lập trình để mở rộng kiến thức và kỹ năng của mình.
+
+Tôi đã cố gắng tạo ra một lộ trình học tập rõ ràng và dễ hiểu nhất có thể. Tuy nhiên, nếu bạn có bất kỳ câu hỏi nào hoặc cần thêm thông tin, đừng ngần ngại liên hệ với tôi qua [trang cá nhân của tôi](https://klpod221.com).
+
+## ❓ Câu hỏi thường gặp
+
+### **Tại sao lại là JAVA, SQL, DSA và WEB?**
+
+- Tư duy lập trình và khả năng giải quyết vấn đề là cốt lõi của lập trình. Các ngôn ngữ lập trình khác nhau có thể có cú pháp và cách tiếp cận khác nhau, nhưng tư duy lập trình vẫn là yếu tố quan trọng nhất. Các bạn có thể coi ngôn ngữ lập trình chỉ là công cụ để thực hiện tư duy lập trình của mình.
+  
+- Về lý do chọn Java:
+  - Java là một ngôn ngữ lập trình phổ biến và mạnh mẽ, được sử dụng rộng rãi trong nhiều lĩnh vực như phát triển ứng dụng doanh nghiệp, ứng dụng di động (Android), và phát triển web.
+  - Java có cú pháp rõ ràng và dễ hiểu mặc dù có thể hơi phức tạp hơn một số ngôn ngữ khác như Python. Điều này giúp người học dễ dàng nắm bắt các khái niệm lập trình cơ bản.
+  - OOP (Programming Object Oriented - Lập trình hướng đối tượng) là một trong những khái niệm quan trọng trong lập trình hiện đại. Java hỗ trợ OOP rất tốt, giúp người học hiểu rõ hơn về cách tổ chức mã nguồn và phát triển ứng dụng.
+- Về lý do chọn SQL:
+  - SQL là ngôn ngữ truy vấn cơ sở dữ liệu phổ biến nhất, được sử dụng để quản lý và truy xuất dữ liệu từ các hệ quản trị cơ sở dữ liệu như MySQL, PostgreSQL, Oracle, v.v.
+  - Kiến thức về SQL là rất quan trọng trong việc phát triển ứng dụng, vì hầu hết các ứng dụng đều cần lưu trữ và truy xuất dữ liệu từ cơ sở dữ liệu.
+- Về lý do chọn DSA:
+  - Cấu trúc dữ liệu và thuật toán là nền tảng của lập trình. Chúng giúp người học hiểu rõ hơn về cách tổ chức và xử lý dữ liệu trong ứng dụng.
+  - Kiến thức về DSA là rất quan trọng trong việc giải quyết các bài toán phức tạp và tối ưu hóa hiệu suất của ứng dụng.
+  - Nhiều công ty công nghệ lớn thường sử dụng các bài toán DSA trong quá trình phỏng vấn tuyển dụng, vì vậy việc nắm vững kiến thức này sẽ giúp bạn tự tin hơn trong các cuộc phỏng vấn.
+  - Kiến thức về DSA cũng giúp bạn phát triển tư duy logic và khả năng giải quyết vấn đề, điều này rất quan trọng trong bất kỳ lĩnh vực nào liên quan đến lập trình.
+- Về lý do chọn WEB:
+  - Phát triển web là một trong những lĩnh vực phát triển nhanh nhất trong ngành công nghệ thông tin. Hầu hết các ứng dụng hiện đại đều có giao diện web hoặc ứng dụng di động.
+  - Kiến thức về phát triển web giúp bạn hiểu rõ hơn về cách xây dựng và triển khai ứng dụng trên nền tảng web, từ việc thiết kế giao diện người dùng đến việc xử lý dữ liệu và tương tác với cơ sở dữ liệu.
+  - Nắm vững kiến thức về phát triển web cũng giúp bạn có khả năng làm việc trong nhiều lĩnh vực khác nhau, từ phát triển ứng dụng doanh nghiệp đến phát triển ứng dụng di động.
+  - Đây cũng là một trong những lĩnh vực có nhu cầu tuyển dụng cao nhất hiện nay, vì vậy việc nắm vững kiến thức về phát triển web sẽ giúp bạn có nhiều cơ hội nghề nghiệp hơn.
+  - Ngoài ra, bạn cũng có thể sử dụng [Electron](https://www.electronjs.org/) để phát triển ứng dụng desktop hoặc [React Native](https://reactnative.dev/) để phát triển ứng dụng di động từ kiến thức về phát triển web.
+
+- Cuối cùng, việc học lập trình không chỉ dừng lại ở việc nắm vững một ngôn ngữ hay công nghệ nào đó. Bạn cần có tư duy lập trình tốt, khả năng giải quyết vấn đề và kỹ năng tự học liên tục để theo kịp sự phát triển nhanh chóng của ngành công nghệ thông tin.
+
+### **Tại sao lại có lộ trình học tập này?**
+
+- Lộ trình học tập này ban đầu được xây dựng để hỗ trợ tôi trong việc đào tạo nhân viên mới tại công ty. Tuy nhiên, sau khi hoàn thành, tôi nhận thấy rằng lộ trình này có thể hữu ích cho nhiều người khác trong việc học lập trình. Do đó, tôi quyết định chia sẻ nó với cộng đồng lập trình viên.
+- Để viết lộ trình này, tôi đã tham khảo nhiều tài liệu, khóa học và kinh nghiệm cá nhân trong quá trình học tập và làm việc. Tôi hy vọng rằng lộ trình này sẽ giúp bạn tiết kiệm thời gian và công sức trong việc tìm kiếm tài liệu và hướng dẫn học tập.
+
+## 📖 Nội Dung
+
+- [Lộ Trình Học Lập Trình Từ Cơ Bản Đến Nâng Cao](#lộ-trình-học-lập-trình-từ-cơ-bản-đến-nâng-cao)
+  - [🎯 Giới Thiệu](#-giới-thiệu)
+  - [❓ Câu hỏi thường gặp](#-câu-hỏi-thường-gặp)
+    - [**Tại sao lại là JAVA, SQL, DSA và WEB?**](#tại-sao-lại-là-java-sql-dsa-và-web)
+    - [**Tại sao lại có lộ trình học tập này?**](#tại-sao-lại-có-lộ-trình-học-tập-này)
+  - [📖 Nội Dung](#-nội-dung)
+  - [🛠️ Phương Pháp Học Tập](#️-phương-pháp-học-tập)
+  - [🚀 Mục Tiêu](#-mục-tiêu)
+  - [📋 Đối Tượng](#-đối-tượng)
+  - [🔍 Yêu Cầu Tiên Quyết](#-yêu-cầu-tiên-quyết)
+  - [📥 Cài đặt môi trường học tập](#-cài-đặt-môi-trường-học-tập)
+  - [📋 Cấu Trúc Kho Lưu Trữ](#-cấu-trúc-kho-lưu-trữ)
+  - [📚 Lộ Trình Học](#-lộ-trình-học)
+    - [1. TÌM KIẾM THÔNG TIN HIỆU QUẢ (0.5 tuần) /SELF-LEARNING/Part1.md](#1-tìm-kiếm-thông-tin-hiệu-quả-05-tuần-self-learningpart1md)
+    - [2. XỬ LÝ TÀI LIỆU CHUYÊN NGÀNH (0.5 tuần) /SELF-LEARNING/Part2.md](#2-xử-lý-tài-liệu-chuyên-ngành-05-tuần-self-learningpart2md)
+    - [3. KỸ THUẬT TỰ HỌC (0.5 tuần) /SELF-LEARNING/Part3.md](#3-kỹ-thuật-tự-học-05-tuần-self-learningpart3md)
+    - [4. PHÁT TRIỂN BẢN THÂN LIÊN TỤC (0.5 tuần) /SELF-LEARNING/Part4.md](#4-phát-triển-bản-thân-liên-tục-05-tuần-self-learningpart4md)
+    - [5. Nhập môn Java (1 tuần) /JAVA/Part1.md](#5-nhập-môn-java-1-tuần-javapart1md)
+    - [6. Mảng, Chuỗi và Hàm (1 tuần) /JAVA/Part2.md](#6-mảng-chuỗi-và-hàm-1-tuần-javapart2md)
+    - [7. Lập trình hướng đối tượng (OOP) (1.5 tuần) /JAVA/Part3.md](#7-lập-trình-hướng-đối-tượng-oop-15-tuần-javapart3md)
+    - [8. Xử lý ngoại lệ, File I/O và Collections (1.5 tuần) /JAVA/Part4.md](#8-xử-lý-ngoại-lệ-file-io-và-collections-15-tuần-javapart4md)
+    - [9. LUỒNG, ĐA LUỒNG VÀ JDBC (1 tuần) /JAVA/Part5.md](#9-luồng-đa-luồng-và-jdbc-1-tuần-javapart5md)
+    - [10. NHẬP MÔN CẤU TRÚC DỮ LIỆU VÀ THUẬT TOÁN (1.5 tuần) /DSA/Part1.md](#10-nhập-môn-cấu-trúc-dữ-liệu-và-thuật-toán-15-tuần-dsapart1md)
+    - [11. CẤU TRÚC DỮ LIỆU NÂNG CAO (1.5 tuần) /DSA/Part2.md](#11-cấu-trúc-dữ-liệu-nâng-cao-15-tuần-dsapart2md)
+    - [12. THUẬT TOÁN NÂNG CAO (1.5 tuần) /DSA/Part3.md](#12-thuật-toán-nâng-cao-15-tuần-dsapart3md)
+    - [13. CÁC CẤU TRÚC DỮ LIỆU CHUYÊN BIỆT (1 tuần) /DSA/Part4.md](#13-các-cấu-trúc-dữ-liệu-chuyên-biệt-1-tuần-dsapart4md)
+    - [14. THUẬT TOÁN ỨNG DỤNG VÀ TỐI ƯU HÓA (1 tuần) /DSA/Part5.md](#14-thuật-toán-ứng-dụng-và-tối-ưu-hóa-1-tuần-dsapart5md)
+    - [15. NHẬP MÔN SQL (1 tuần) /SQL/Part1.md](#15-nhập-môn-sql-1-tuần-sqlpart1md)
+    - [16. SQL NÂNG CAO (1 tuần) /SQL/Part2.md](#16-sql-nâng-cao-1-tuần-sqlpart2md)
+    - [17. SQL NÂNG CAO VÀ ỨNG DỤNG (1 tuần) /SQL/Part3.md](#17-sql-nâng-cao-và-ứng-dụng-1-tuần-sqlpart3md)
+    - [18. SQL CHUYÊN SÂU VÀ HIỆU SUẤT (1 tuần) /SQL/Part4.md](#18-sql-chuyên-sâu-và-hiệu-suất-1-tuần-sqlpart4md)
+    - [19. NHẬP MÔN HTML (0.5 tuần) /WEB/Part1.md](#19-nhập-môn-html-05-tuần-webpart1md)
+    - [20. CSS - ĐỊNH DẠNG TRANG WEB (1 tuần) /WEB/Part2.md](#20-css---định-dạng-trang-web-1-tuần-webpart2md)
+    - [21. JAVASCRIPT - LẬP TRÌNH CHO WEB (1.5 tuần) /WEB/Part3.md](#21-javascript---lập-trình-cho-web-15-tuần-webpart3md)
+    - [22. FRAMEWORK \& CÔNG CỤ PHÁT TRIỂN WEB HIỆN ĐẠI (1.5 tuần) /WEB/Part4.md](#22-framework--công-cụ-phát-triển-web-hiện-đại-15-tuần-webpart4md)
+    - [23. Dự án tổng hợp cuối khóa (2 tuần) /JAVA/FINAL.md | /SQL/FINAL.md](#23-dự-án-tổng-hợp-cuối-khóa-2-tuần-javafinalmd--sqlfinalmd)
+  - [🔄 Cập Nhật và Đóng Góp](#-cập-nhật-và-đóng-góp)
+  - [📞 Liên Hệ Hỗ Trợ](#-liên-hệ-hỗ-trợ)
+  - [📜 Giấy Phép](#-giấy-phép)
+
+## 🛠️ Phương Pháp Học Tập
+
+- **Thực hành thường xuyên**: Lập trình là một kỹ năng cần thực hành liên tục. Hãy dành thời gian để viết mã, giải quyết bài tập và tham gia các dự án thực tế.
+- **Tìm hiểu từ nhiều nguồn**: Đừng chỉ dựa vào một tài liệu hay khóa học duy nhất. Hãy tìm hiểu từ nhiều nguồn khác nhau để có cái nhìn đa chiều về vấn đề.
+- **Tham gia cộng đồng**: Tham gia các diễn đàn, nhóm học tập hoặc cộng đồng lập trình để trao đổi kiến thức và kinh nghiệm với những người khác.
+- **Đặt câu hỏi**: Nếu bạn gặp khó khăn trong quá trình học, đừng ngần ngại đặt câu hỏi. Có rất nhiều người sẵn lòng giúp đỡ bạn.
+- **Kiên nhẫn và kiên trì**: Học lập trình có thể gặp nhiều khó khăn và thử thách. Hãy kiên nhẫn và không bỏ cuộc khi gặp khó khăn. Mỗi lần giải quyết một vấn đề, bạn sẽ học hỏi được nhiều điều mới mẻ.
+- **Thực hiện dự án thực tế**: Sau khi đã nắm vững kiến thức cơ bản, hãy bắt đầu thực hiện các dự án thực tế. Điều này sẽ giúp bạn áp dụng kiến thức vào thực tiễn và củng cố kỹ năng lập trình của mình.
+- **Đánh giá và cải thiện**: Sau mỗi giai đoạn học tập, hãy tự đánh giá lại kiến thức và kỹ năng của mình. Tìm hiểu những điểm mạnh và điểm yếu của bản thân để có kế hoạch cải thiện trong tương lai.
+- **Tạo thói quen học tập**: Hãy tạo cho mình một thói quen học tập đều đặn. Dành thời gian mỗi ngày hoặc mỗi tuần để học và thực hành lập trình. Điều này sẽ giúp bạn duy trì động lực và tiến bộ nhanh chóng.
+- **Ghi chú và tài liệu hóa**: Trong quá trình học, hãy ghi chú lại những điều quan trọng và tạo tài liệu cho bản thân. Điều này sẽ giúp bạn dễ dàng ôn tập lại kiến thức sau này.
 
 ## 🚀 Mục Tiêu
 
@@ -26,39 +116,33 @@
 
 - Kiến thức cơ bản về máy tính
 - Tinh thần học hỏi và kiên trì
-- Máy tính cá nhân với các phần mềm cần thiết (JDK, IDE, DBMS)
+- Máy tính cá nhân với các phần mềm, công cụ lập trình cần thiết
 - Kết nối internet để truy cập tài nguyên bổ sung
 
 ## 📥 Cài đặt môi trường học tập
 
-1. Clone kho lưu trữ này hoặc truy cập trực tiếp vào [link](https://klpod221.com/lesson-plan).
-2. Cài đặt các phần mềm cần thiết:
-   - IDE (VD: IntelliJ IDEA, Eclipse) hoặc trình soạn thảo mã nguồn (VD: Visual Studio Code, Sublime Text) (Với phần lộ trình này, tôi sẽ hướng dẫn bạn sử dụng Visual Studio Code [VSCode](https://code.visualstudio.com/))
-   - Extension cho VSCode: (Bỏ qua nếu bạn không sử dụng VSCode, có thể cài đặt các extension tương tự cho IDE bạn đang sử dụng)
-     - [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) (Bộ extension hỗ trợ lập trình Java trong VSCode)
-     - [SQLTools](https://marketplace.visualstudio.com/items?itemName=mtxr.sqltools) (Extension hỗ trợ SQL trong VSCode)
-     - [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) (Extension hỗ trợ chạy web tĩnh trong VSCode)
-     - [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) (Extension hỗ trợ định dạng mã nguồn trong VSCode)
-     - [HTML CSS Support](https://marketplace.visualstudio.com/items?itemName=ecmel.vscode-html-css) (Extension hỗ trợ HTML và CSS trong VSCode)
-     - [JavaScript (ES6) code snippets](https://marketplace.visualstudio.com/items?itemName=xabikos.JavaScriptSnippets) (Extension hỗ trợ JavaScript trong VSCode)
-3. Các thư viện cần thiết:
-   - Java: Cài đặt JDK (Java Development Kit) từ [Oracle](https://www.oracle.com/java/technologies/downloads/) hoặc [OpenJDK](https://openjdk.java.net/)
-     - Tôi khuyên bạn nên cài đặt OpenJDK vì nó miễn phí và mã nguồn mở.
-     - Sau khi cài đặt extension Java cho VSCode, extension sẽ có phần cài đặt JDK cho bạn, bạn chỉ cần làm theo hướng dẫn của nó.
-   - SQL: Cài đặt MySQL hoặc PostgreSQL từ [MySQL](https://dev.mysql.com/downloads/) hoặc [PostgreSQL](https://www.postgresql.org/download/)
-     - Tôi khuyên bạn nên cài đặt MySQL vì nó phổ biến và dễ sử dụng hơn cho người mới bắt đầu.
-     - Sau khi cài đặt extension SQL cho VSCode, extension sẽ có phần cài đặt DBMS (Database Management System) cho bạn, bạn chỉ cần làm theo hướng dẫn của nó.
-     - Nếu bạn không muốn cài đặt DBMS, bạn có thể sử dụng các dịch vụ SQL trực tuyến như [SQL Fiddle](http://sqlfiddle.com/) hoặc [DB Fiddle](https://www.db-fiddle.com/) để thực hành.
-   - Web: Không cần cài đặt gì thêm, chỉ cần trình duyệt web
-4. Tạo một thư mục mới trên máy tính của bạn để lưu trữ các bài tập và dự án thực hành.
-5. Mở VSCode và mở thư mục vừa tạo.
-6. Tạo các thư mục con cho từng phần trong lộ trình học (Java, SQL, DSA, Web).
-7. Học theo lộ trình và thực hành các bài tập trong từng phần.
+Bạn có thể tự cài đặt môi trường học tập trên máy tính cá nhân của mình sao cho phù hợp hoặc có thể cài đặt theo hướng dẫn của tôi ở [đây](./ENVIROMENT-INSTALL.md). Dù bạn chọn cách nào, hãy đảm bảo rằng bạn đã cài đặt đầy đủ các phần mềm và công cụ cần thiết để bắt đầu học như dưới đây:
+
+- **Môi trường phát triển tích hợp (IDE) hoặc Code Editor**: Sử dụng IDE như IntelliJ IDEA, Eclipse hoặc NetBeans để viết mã Java. Bạn cũng có thể sử dụng Code Editor như Visual Studio Code hoặc Sublime Text.
+- **Java Development Kit (JDK)**: Cài đặt JDK để biên dịch và chạy chương trình Java.
+- **Công cụ quản lý gói**: Sử dụng Maven hoặc Gradle để quản lý các thư viện và phụ thuộc trong dự án Java.
+- **Môi trường phát triển cơ sở dữ liệu**: MySQL, PostgreSQL hoặc SQLite để làm việc với SQL. Bạn có thể sử dụng các công cụ như MySQL Workbench hoặc pgAdmin để quản lý cơ sở dữ liệu.
+- **Môi trường phát triển PHP**: Có thể sử dụng XAMPP, hoặc cài đặt Apache, PHP và MySQL riêng biệt.
+- **Trình duyệt web**: Để kiểm tra và phát triển ứng dụng web, bạn cần một trình duyệt như Google Chrome hoặc Firefox.
+- **Công cụ phát triển web**: Sử dụng các công cụ như Node.js, npm hoặc yarn để quản lý các gói và thư viện JavaScript.
+- **Công cụ quản lý phiên bản**: Sử dụng Git để quản lý mã nguồn và theo dõi thay đổi. Bạn có thể sử dụng GitHub Desktop hoặc dòng lệnh để làm việc với Git.
+- **Công cụ hỗ trợ học tập**: Sử dụng các công cụ như Markdown Editor để viết tài liệu, Notion hoặc Trello để quản lý tiến độ học tập.
 
 ## 📋 Cấu Trúc Kho Lưu Trữ
 
 ```text
 lesson-plan/
+├── DSA/
+│   ├── Part1.md   # NHẬP MÔN CẤU TRÚC DỮ LIỆU VÀ THUẬT TOÁN
+│   ├── Part2.md   # CẤU TRÚC DỮ LIỆU NÂNG CAO
+│   ├── Part3.md   # THUẬT TOÁN NÂNG CAO
+│   ├── Part4.md   # CÁC CẤU TRÚC DỮ LIỆU CHUYÊN BIỆT
+│   └── Part5.md   # THUẬT TOÁN ỨNG DỤNG VÀ TỐI ƯU HÓA
 ├── JAVA/
 │   ├── Part1.md   # Nhập môn Java
 │   ├── Part2.md   # MẢNG, CHUỖI VÀ HÀM
@@ -66,32 +150,28 @@ lesson-plan/
 │   ├── Part4.md   # XỬ LÝ NGOẠI LỆ, FILE I/O VÀ COLLECTIONS
 │   ├── Part5.md   # LUỒNG, ĐA LUỒNG VÀ JDBC
 │   └── FINAL.md   # Dự án tổng hợp cuối khóa: Quản lý Thư viện
+├── SELF-LEARNING/
+│   ├── Part1.md   # TÌM KIẾM THÔNG TIN HIỆU QUẢ
+│   ├── Part2.md   # XỬ LÝ TÀI LIỆU CHUYÊN NGÀNH
+│   ├── Part3.md   # KỸ THUẬT TỰ HỌC
+│   └── Part4.md   # PHÁT TRIỂN BẢN THÂN LIÊN TỤC
 ├── SQL/
 │   ├── Part1.md   # Nhập môn SQL
 │   ├── Part2.md   # SQL NÂNG CAO
 │   ├── Part3.md   # SQL NÂNG CAO VÀ ỨNG DỤNG
 │   ├── Part4.md   # SQL CHUYÊN SÂU VÀ HIỆU SUẤT
 │   └── FINAL.md   # Dự án tổng hợp cuối khóa: Quản lý Thư viện
-├── DSA/
-│   ├── Part1.md   # NHẬP MÔN CẤU TRÚC DỮ LIỆU VÀ THUẬT TOÁN
-│   ├── Part2.md   # CẤU TRÚC DỮ LIỆU NÂNG CAO
-│   ├── Part3.md   # THUẬT TOÁN NÂNG CAO
-│   ├── Part4.md   # CÁC CẤU TRÚC DỮ LIỆU CHUYÊN BIỆT
-│   └── Part5.md   # THUẬT TOÁN ỨNG DỤNG VÀ TỐI ƯU HÓA
 ├── WEB/
 │   ├── Part1.md   # NHẬP MÔN HTML
 │   ├── Part2.md   # CSS - ĐỊNH DẠNG TRANG WEB
 │   ├── Part3.md   # JAVASCRIPT - LẬP TRÌNH CHO WEB
 │   └── Part4.md   # FRAMEWORK & CÔNG CỤ PHÁT TRIỂN WEB HIỆN ĐẠI
-├── SELF-LEARNING/
-│   ├── Part1.md   # TÌM KIẾM THÔNG TIN HIỆU QUẢ
-│   ├── Part2.md   # XỬ LÝ TÀI LIỆU CHUYÊN NGÀNH
-│   ├── Part3.md   # KỸ THUẬT TỰ HỌC
-│   └── Part4.md   # PHÁT TRIỂN BẢN THÂN LIÊN TỤC
 └── README.md
 ```
 
 ## 📚 Lộ Trình Học
+
+**Thời gian ước tính cho mỗi phần là tương đối và có thể thay đổi tùy thuộc vào tốc độ học tập của bạn. Bạn có thể điều chỉnh thời gian học cho phù hợp với lịch trình cá nhân. Dù bạn học nhanh hay chậm, điều quan trọng là bạn cần kiên trì và thực hành thường xuyên.**
 
 ### 1. TÌM KIẾM THÔNG TIN HIỆU QUẢ (0.5 tuần) [/SELF-LEARNING/Part1.md](./SELF-LEARNING/Part1.md)
 
@@ -241,20 +321,6 @@ lesson-plan/
 - Triển khai đầy đủ các chức năng từ giao diện đến cơ sở dữ liệu
 - Xử lý các tình huống thực tế trong dự án phần mềm
 
-## 🛠️ Phương Pháp Học Tập
-
-- **Học qua thực hành**: Mỗi phần đều có bài tập và dự án thực tế
-- **Tiến độ từng bước**: Kiến thức được xây dựng dần từ cơ bản đến nâng cao
-- **Tích hợp kiến thức**: Các chủ đề được kết nối liên quan đến nhau
-- **Dự án thực tế**: Áp dụng kiến thức vào các ứng dụng thực tế
-
-## 📊 Đánh Giá Tiến Độ
-
-- Bài tập thực hành sau mỗi bài học
-- Dự án mini sau mỗi phần lớn
-- Dự án tổng hợp cuối khóa
-- Kiểm tra kiến thức định kỳ
-
 ## 🔄 Cập Nhật và Đóng Góp
 
 Kho lưu trữ này được cập nhật thường xuyên với:
@@ -278,4 +344,4 @@ Nội dung trong kho lưu trữ này được cấp phép theo [MIT License](./L
 
 ---
 
-*Chúc bạn thành công trong hành trình học lập trình!*
+_Chúc bạn thành công trong hành trình học lập trình!_
