@@ -366,7 +366,7 @@ lesson-plan/
 │   ├── Part3.md   # LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG (OOP)
 │   ├── Part4.md   # XỬ LÝ NGOẠI LỆ, FILE I/O VÀ COLLECTIONS
 │   ├── Part5.md   # LUỒNG, ĐA LUỒNG VÀ JDBC
-│   └── FINAL.md   # DỰ ÁN TỔNG HỢP CUỐI KHÓA: QUẢN LÝ THƯ VIỆN
+│   └── FINAL.md   # BÀI TẬP LỚN: QUẢN LÝ THƯ VIỆN
 ├── PHP/
 │   ├── Part1.md   # NHẬP MÔN PHP
 │   ├── Part2.md   # LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG VỚI PHP
@@ -384,13 +384,14 @@ lesson-plan/
 │   ├── Part2.md   # SQL NÂNG CAO
 │   ├── Part3.md   # SQL NÂNG CAO VÀ ỨNG DỤNG
 │   ├── Part4.md   # SQL CHUYÊN SÂU VÀ HIỆU SUẤT
-│   └── FINAL.md   # DỰ ÁN TỔNG HỢP CUỐI KHÓA: QUẢN LÝ THƯ VIỆN
+│   └── FINAL.md   # BÀI TẬP LỚN: QUẢN LÝ THƯ VIỆN
 ├── WEB/
 │   ├── Part1.md   # NHẬP MÔN HTML
 │   ├── Part2.md   # CSS - ĐỊNH DẠNG TRANG WEB
 │   ├── Part3.md   # JAVASCRIPT - LẬP TRÌNH CHO WEB
 │   └── Part4.md   # FRAMEWORK & CÔNG CỤ PHÁT TRIỂN WEB HIỆN ĐẠI
 ├── ENVIROMENT-INSTALL.md # HƯỚNG DẪN CÀI ĐẶT MÔI TRƯỜNG HỌC TẬP
+├── FINAL.md       # DỰ ÁN TỔNG HỢP CUỐI KHÓA
 └── README.md
 ```
 

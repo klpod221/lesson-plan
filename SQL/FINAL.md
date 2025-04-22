@@ -1,4 +1,4 @@
-# 🧪 BÀI TẬP TỔNG HỢP CUỐI KHÓA
+# 🧪 BÀI TẬP LỚN (SQL)
 
 ## **Đề bài: Xây dựng CSDL cho ứng dụng Quản lý Thư viện**
 

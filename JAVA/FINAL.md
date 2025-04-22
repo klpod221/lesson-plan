@@ -1,4 +1,4 @@
-# 🎓 BÀI TẬP TỔNG HỢP CUỐI KHÓA
+# 🎓 BÀI TẬP LỚN (JAVA)
 
 ## **Tên bài: Ứng dụng Quản lý Thư viện**
 
