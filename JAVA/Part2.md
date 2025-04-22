@@ -69,7 +69,7 @@
 
    ```text
    Biến numbers  →  [ Địa chỉ ] → [ 10 | 20 | 30 | 40 | 50 ]
-   (Tham chiếu)      (Heap)       [0]  [1]  [2]  [3]  [4]  (Chỉ số)
+   (Tham chiếu)      (Heap)        [0]  [1]  [2]  [3]  [4]  (index)
    ```
 
    Mảng hai chiều:
