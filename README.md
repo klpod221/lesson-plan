@@ -24,7 +24,6 @@ Tôi đã cố gắng tạo ra một lộ trình học tập rõ ràng và dễ 
   - [📋 Đối Tượng](#-đối-tượng)
   - [🔍 Yêu Cầu Tiên Quyết](#-yêu-cầu-tiên-quyết)
   - [📥 Cài đặt môi trường học tập](#-cài-đặt-môi-trường-học-tập)
-  - [📋 Cấu Trúc Kho Lưu Trữ](#-cấu-trúc-kho-lưu-trữ)
   - [📚 Lộ Trình Học](#-lộ-trình-học)
     - [1. TÌM KIẾM THÔNG TIN HIỆU QUẢ (0.5 tuần) /SELF-LEARNING/Part1.md](#1-tìm-kiếm-thông-tin-hiệu-quả-05-tuần-self-learningpart1md)
     - [2. XỬ LÝ TÀI LIỆU CHUYÊN NGÀNH (0.5 tuần) /SELF-LEARNING/Part2.md](#2-xử-lý-tài-liệu-chuyên-ngành-05-tuần-self-learningpart2md)
@@ -57,6 +56,7 @@ Tôi đã cố gắng tạo ra một lộ trình học tập rõ ràng và dễ 
     - [29. PHÁT TRIỂN VÀ TRIỂN KHAI CHUYÊN NGHIỆP (1 tuần) /PHP/Part6.md](#29-phát-triển-và-triển-khai-chuyên-nghiệp-1-tuần-phppart6md)
     - [30. DOCKER: NỀN TẢNG CONTAINER HÓA (1 tuần) /DOCKER/Docker.md](#30-docker-nền-tảng-container-hóa-1-tuần-dockerdockermd)
     - [31. KUBERNETES: HỆ THỐNG ĐIỀU PHỐI CONTAINER /DOCKER/Kubernetes.md](#31-kubernetes-hệ-thống-điều-phối-container-dockerkubernetesmd)
+  - [📋 Cấu Trúc Kho Lưu Trữ](#-cấu-trúc-kho-lưu-trữ)
   - [🔄 Cập Nhật và Đóng Góp](#-cập-nhật-và-đóng-góp)
   - [📞 Liên Hệ Hỗ Trợ](#-liên-hệ-hỗ-trợ)
   - [📜 Giấy Phép](#-giấy-phép)
@@ -145,50 +145,6 @@ Bạn có thể tự cài đặt môi trường học tập trên máy tính cá
 - **Công cụ phát triển web**: Sử dụng các công cụ như Node.js, npm hoặc yarn để quản lý các gói và thư viện JavaScript.
 - **Công cụ quản lý phiên bản**: Sử dụng Git để quản lý mã nguồn và theo dõi thay đổi. Bạn có thể sử dụng GitHub Desktop hoặc dòng lệnh để làm việc với Git.
 - **Công cụ hỗ trợ học tập**: Sử dụng các công cụ như Markdown Editor để viết tài liệu, Notion hoặc Trello để quản lý tiến độ học tập.
-
-## 📋 Cấu Trúc Kho Lưu Trữ
-
-```text
-lesson-plan/
-├── DSA/
-│   ├── Part1.md   # NHẬP MÔN CẤU TRÚC DỮ LIỆU VÀ THUẬT TOÁN
-│   ├── Part2.md   # CẤU TRÚC DỮ LIỆU NÂNG CAO
-│   ├── Part3.md   # THUẬT TOÁN NÂNG CAO
-│   ├── Part4.md   # CÁC CẤU TRÚC DỮ LIỆU CHUYÊN BIỆT
-│   └── Part5.md   # THUẬT TOÁN ỨNG DỤNG VÀ TỐI ƯU HÓA
-├── JAVA/
-│   ├── Part1.md   # NHẬP MÔN JAVA
-│   ├── Part2.md   # MẢNG, CHUỖI VÀ HÀM
-│   ├── Part3.md   # LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG (OOP)
-│   ├── Part4.md   # XỬ LÝ NGOẠI LỆ, FILE I/O VÀ COLLECTIONS
-│   ├── Part5.md   # LUỒNG, ĐA LUỒNG VÀ JDBC
-│   └── FINAL.md   # DỰ ÁN TỔNG HỢP CUỐI KHÓA: QUẢN LÝ THƯ VIỆN
-├── PHP/
-│   ├── Part1.md   # NHẬP MÔN PHP
-│   ├── Part2.md   # LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG VỚI PHP
-│   ├── Part3.md   # PHP NÂNG CAO VÀ KẾT NỐI DATABASE
-│   ├── Part4.md   # FRAMEWORK VÀ PHÁT TRIỂN ỨNG DỤNG WEB HIỆN ĐẠI
-│   ├── Part5.md   # XU HƯỚNG HIỆN ĐẠI VÀ CÔNG NGHỆ MỚI TRONG PHP
-│   └── Part6.md   # PHÁT TRIỂN VÀ TRIỂN KHAI CHUYÊN NGHIỆP
-├── SELF-LEARNING/
-│   ├── Part1.md   # TÌM KIẾM THÔNG TIN HIỆU QUẢ
-│   ├── Part2.md   # XỬ LÝ TÀI LIỆU CHUYÊN NGÀNH
-│   ├── Part3.md   # KỸ THUẬT TỰ HỌC
-│   └── Part4.md   # PHÁT TRIỂN BẢN THÂN LIÊN TỤC
-├── SQL/
-│   ├── Part1.md   # NHẬP MÔN SQL
-│   ├── Part2.md   # SQL NÂNG CAO
-│   ├── Part3.md   # SQL NÂNG CAO VÀ ỨNG DỤNG
-│   ├── Part4.md   # SQL CHUYÊN SÂU VÀ HIỆU SUẤT
-│   └── FINAL.md   # DỰ ÁN TỔNG HỢP CUỐI KHÓA: QUẢN LÝ THƯ VIỆN
-├── WEB/
-│   ├── Part1.md   # NHẬP MÔN HTML
-│   ├── Part2.md   # CSS - ĐỊNH DẠNG TRANG WEB
-│   ├── Part3.md   # JAVASCRIPT - LẬP TRÌNH CHO WEB
-│   └── Part4.md   # FRAMEWORK & CÔNG CỤ PHÁT TRIỂN WEB HIỆN ĐẠI
-├── ENVIROMENT-INSTALL.md # HƯỚNG DẪN CÀI ĐẶT MÔI TRƯỜNG HỌC TẬP
-└── README.md
-```
 
 ## 📚 Lộ Trình Học
 
@@ -393,6 +349,50 @@ lesson-plan/
 - Biết cách triển khai và quản lý ứng dụng container trên Kubernetes
 - Hiểu được các thành phần cơ bản của Kubernetes
 - Triển khai ứng dụng có tính sẵn sàng cao và khả năng mở rộng
+
+## 📋 Cấu Trúc Kho Lưu Trữ
+
+```text
+lesson-plan/
+├── DSA/
+│   ├── Part1.md   # NHẬP MÔN CẤU TRÚC DỮ LIỆU VÀ THUẬT TOÁN
+│   ├── Part2.md   # CẤU TRÚC DỮ LIỆU NÂNG CAO
+│   ├── Part3.md   # THUẬT TOÁN NÂNG CAO
+│   ├── Part4.md   # CÁC CẤU TRÚC DỮ LIỆU CHUYÊN BIỆT
+│   └── Part5.md   # THUẬT TOÁN ỨNG DỤNG VÀ TỐI ƯU HÓA
+├── JAVA/
+│   ├── Part1.md   # NHẬP MÔN JAVA
+│   ├── Part2.md   # MẢNG, CHUỖI VÀ HÀM
+│   ├── Part3.md   # LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG (OOP)
+│   ├── Part4.md   # XỬ LÝ NGOẠI LỆ, FILE I/O VÀ COLLECTIONS
+│   ├── Part5.md   # LUỒNG, ĐA LUỒNG VÀ JDBC
+│   └── FINAL.md   # DỰ ÁN TỔNG HỢP CUỐI KHÓA: QUẢN LÝ THƯ VIỆN
+├── PHP/
+│   ├── Part1.md   # NHẬP MÔN PHP
+│   ├── Part2.md   # LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG VỚI PHP
+│   ├── Part3.md   # PHP NÂNG CAO VÀ KẾT NỐI DATABASE
+│   ├── Part4.md   # FRAMEWORK VÀ PHÁT TRIỂN ỨNG DỤNG WEB HIỆN ĐẠI
+│   ├── Part5.md   # XU HƯỚNG HIỆN ĐẠI VÀ CÔNG NGHỆ MỚI TRONG PHP
+│   └── Part6.md   # PHÁT TRIỂN VÀ TRIỂN KHAI CHUYÊN NGHIỆP
+├── SELF-LEARNING/
+│   ├── Part1.md   # TÌM KIẾM THÔNG TIN HIỆU QUẢ
+│   ├── Part2.md   # XỬ LÝ TÀI LIỆU CHUYÊN NGÀNH
+│   ├── Part3.md   # KỸ THUẬT TỰ HỌC
+│   └── Part4.md   # PHÁT TRIỂN BẢN THÂN LIÊN TỤC
+├── SQL/
+│   ├── Part1.md   # NHẬP MÔN SQL
+│   ├── Part2.md   # SQL NÂNG CAO
+│   ├── Part3.md   # SQL NÂNG CAO VÀ ỨNG DỤNG
+│   ├── Part4.md   # SQL CHUYÊN SÂU VÀ HIỆU SUẤT
+│   └── FINAL.md   # DỰ ÁN TỔNG HỢP CUỐI KHÓA: QUẢN LÝ THƯ VIỆN
+├── WEB/
+│   ├── Part1.md   # NHẬP MÔN HTML
+│   ├── Part2.md   # CSS - ĐỊNH DẠNG TRANG WEB
+│   ├── Part3.md   # JAVASCRIPT - LẬP TRÌNH CHO WEB
+│   └── Part4.md   # FRAMEWORK & CÔNG CỤ PHÁT TRIỂN WEB HIỆN ĐẠI
+├── ENVIROMENT-INSTALL.md # HƯỚNG DẪN CÀI ĐẶT MÔI TRƯỜNG HỌC TẬP
+└── README.md
+```
 
 ## 🔄 Cập Nhật và Đóng Góp
 
