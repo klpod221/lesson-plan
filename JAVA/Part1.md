@@ -10,9 +10,9 @@
   - [🧑‍🏫 Bài 3: Toán tử và biểu thức](#-bài-3-toán-tử-và-biểu-thức)
   - [🧑‍🏫 Bài 4: Câu lệnh điều kiện](#-bài-4-câu-lệnh-điều-kiện)
   - [🧑‍🏫 Bài 5: Câu lệnh lặp](#-bài-5-câu-lệnh-lặp)
-  - [🧪 BÀI TẬP LỚN CUỐI PHẦN](#-bài-tập-lớn-cuối-phần)
-    - [**Đề bài: Quản lý điểm sinh viên**](#đề-bài-quản-lý-điểm-sinh-viên)
-    - [**Kết quả chạy chương trình (Ví dụ):**](#kết-quả-chạy-chương-trình-ví-dụ)
+  - [🧪 Bài tập lớn cuối phần](#-bài-tập-lớn-cuối-phần)
+    - [Đề bài: Quản lý điểm sinh viên](#đề-bài-quản-lý-điểm-sinh-viên)
+    - [Kết quả chạy chương trình (Ví dụ)](#kết-quả-chạy-chương-trình-ví-dụ)
 
 ## 🎯 Mục tiêu tổng quát
 
@@ -32,6 +32,7 @@
 **Phương thức main:**
 
 ```java
+// file HelloWorld.java
 public class HelloWorld {
     public static void main(String[] args) {
         System.out.println("Hello, World!");
@@ -50,6 +51,28 @@ public class HelloWorld {
 - Class: Viết hoa chữ cái đầu mỗi từ (PascalCase) - `HelloWorld`, `StudentManager`
 - Biến và phương thức: Chữ cái đầu viết thường, từ tiếp theo viết hoa (camelCase) - `studentName`, `calculateTotal`
 - Hằng số: Viết hoa tất cả, các từ cách nhau bởi dấu gạch dưới - `MAX_SIZE`, `PI_VALUE`
+
+**Chạy chương trình:**
+
+- Sử dụng lệnh `javac` để biên dịch mã nguồn thành bytecode
+- Sử dụng lệnh `java` để chạy chương trình
+
+```bash
+javac HelloWorld.java  # Biên dịch
+java HelloWorld        # Chạy chương trình
+```
+
+- Kết quả sẽ là:
+
+```text
+Hello, World!
+```
+
+**Biên dịch và chạy chương trình từ VS Code:**
+
+- Nếu bạn đã cài đặt [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack), bạn có thể mở file `.java` và nhấn `Ctrl + F5` để biên dịch và chạy chương trình.
+- Kết quả sẽ hiển thị trong terminal tích hợp của VS Code.
+- Bạn có thể tham khảo thêm về [debugging Java trong VS Code](https://code.visualstudio.com/docs/java/java-debugging) để biết cách debug chương trình Java.
 
 ---
 
@@ -74,6 +97,36 @@ boolean isActive = true;     // Giá trị logic
 ```java
 String name = "Nguyen Van A";  // Chuỗi ký tự
 int[] numbers = {1, 2, 3, 4};  // Mảng số nguyên
+```
+
+**Cách lưu trữ dữ liệu trong bộ nhớ:**
+
+Đối với kiểu nguyên thủy, giá trị được lưu trực tiếp trong biến.
+Đối với kiểu tham chiếu, biến lưu địa chỉ trỏ đến dữ liệu thực.
+
+```text
+┌─────────────┐
+│  Biến: age  │
+├─────────────┤
+│     25      │  ◄── Giá trị được lưu trong ô nhớ
+└─────────────┘
+
+┌───────────────┐
+│ Biến: salary  │
+├───────────────┤
+│    5000.50    │
+└───────────────┘
+
+┌───────────────┐
+│ Biến: name    │
+├───────────────┤
+│  0x12AB34CD   │  ◄── Địa chỉ (tham chiếu) đến vùng nhớ khác
+└───────────────┘
+    │
+    ▼
+┌───────────────────────┐
+│  "Nguyen Van A"       │  ◄── Dữ liệu thực tế nằm ở vùng nhớ khác
+└───────────────────────┘
 ```
 
 **Khai báo và khởi tạo biến:**
@@ -411,9 +464,9 @@ outerLoop: for (int i = 1; i <= 3; i++) {
 
 ---
 
-## 🧪 BÀI TẬP LỚN CUỐI PHẦN
+## 🧪 Bài tập lớn cuối phần
 
-### **Đề bài: Quản lý điểm sinh viên**
+### Đề bài: Quản lý điểm sinh viên
 
 Viết chương trình cho phép người dùng:
 
@@ -426,7 +479,7 @@ Viết chương trình cho phép người dùng:
   - < 5.0 → Yếu
 - In ra bảng thông tin sinh viên và kết quả xếp loại
 
-### **Kết quả chạy chương trình (Ví dụ):**
+### Kết quả chạy chương trình (Ví dụ)
 
 ```text
 CHƯƠNG TRÌNH QUẢN LÝ ĐIỂM SINH VIÊN
