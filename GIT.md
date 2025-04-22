@@ -12,9 +12,7 @@
   - [🧑‍🏫 Bài 5: Làm việc nhóm và giải quyết xung đột](#-bài-5-làm-việc-nhóm-và-giải-quyết-xung-đột)
   - [🧑‍🏫 Bài 6: Git Flow và quy trình phát triển](#-bài-6-git-flow-và-quy-trình-phát-triển)
   - [🧑‍🏫 Bài 7: Kỹ thuật Git nâng cao](#-bài-7-kỹ-thuật-git-nâng-cao)
-  - [🧪 BÀI TẬP LỚN CUỐI PHẦN](#-bài-tập-lớn-cuối-phần)
-    - [**Đề bài: Hãy tạo và quản lý code mà bạn sẽ thực hiện trong các phần sau của khóa học bằng Git và GitHub.**](#đề-bài-hãy-tạo-và-quản-lý-code-mà-bạn-sẽ-thực-hiện-trong-các-phần-sau-của-khóa-học-bằng-git-và-github)
-      - [Cách thực hiện](#cách-thực-hiện)
+  - [🧪 BÀI TẬP LỚN CUỐI PHẦN: tạo và quản lý code mà bạn sẽ thực hiện trong các phần sau của khóa học bằng Git và GitHub](#-bài-tập-lớn-cuối-phần-tạo-và-quản-lý-code-mà-bạn-sẽ-thực-hiện-trong-các-phần-sau-của-khóa-học-bằng-git-và-github)
 
 ---
 
@@ -767,11 +765,7 @@ git config --global alias.visual '!gitk'
 
 ---
 
-## 🧪 BÀI TẬP LỚN CUỐI PHẦN
-
-### **Đề bài: Hãy tạo và quản lý code mà bạn sẽ thực hiện trong các phần sau của khóa học bằng Git và GitHub.**
-
-#### Cách thực hiện
+## 🧪 BÀI TẬP LỚN CUỐI PHẦN: tạo và quản lý code mà bạn sẽ thực hiện trong các phần sau của khóa học bằng Git và GitHub
 
 1. Đăng ký và đăng nhập vào tài khoản GitHub.
 2. Tạo một repository mới với tên tùy chọn (VD: `sefl-learning`).

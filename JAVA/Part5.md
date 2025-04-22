@@ -1169,6 +1169,6 @@ Yêu cầu:
 
 ---
 
-[⬅️ Trở lại: SQL/Part1.md](../SQL/Part1.md) |
+[⬅️ Trở lại: SQL/FINAL.md](../SQL/FINAL.md) |
 [🏠 Home](../README.md) |
-[➡️ Tiếp theo: SQL/Part2.md](../SQL/Part2.md)
+[➡️ Tiếp theo: JAVA/FINAL.md](../SQL/FINAL.md)

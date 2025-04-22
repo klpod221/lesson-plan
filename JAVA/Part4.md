@@ -10,8 +10,9 @@
   - [🧑‍🏫 Bài 3: Giới thiệu Collections Framework](#-bài-3-giới-thiệu-collections-framework)
   - [🧑‍🏫 Bài 4: List, Set và Map](#-bài-4-list-set-và-map)
   - [🧑‍🏫 Bài 5: Kết hợp File và Collections](#-bài-5-kết-hợp-file-và-collections)
-  - [🧪 BÀI TẬP LỚN CUỐI PHẦN](#-bài-tập-lớn-cuối-phần)
-    - [**Đề bài: Hệ thống quản lý khóa học**](#đề-bài-hệ-thống-quản-lý-khóa-học)
+  - [🧪 BÀI TẬP LỚN CUỐI PHẦN: Hệ thống quản lý khóa học](#-bài-tập-lớn-cuối-phần-hệ-thống-quản-lý-khóa-học)
+    - [Đề bài](#đề-bài)
+    - [Yêu cầu](#yêu-cầu)
 
 ## 🎯 Mục tiêu tổng quát
 
@@ -1125,9 +1126,9 @@
 
 ---
 
-## 🧪 BÀI TẬP LỚN CUỐI PHẦN
+## 🧪 BÀI TẬP LỚN CUỐI PHẦN: Hệ thống quản lý khóa học
 
-### **Đề bài: Hệ thống quản lý khóa học**
+### Đề bài
 
 Viết chương trình quản lý danh sách khóa học:
 
@@ -1138,7 +1139,7 @@ Viết chương trình quản lý danh sách khóa học:
   - Tìm kiếm khóa học theo mã hoặc tên.
   - In danh sách khóa học theo tên giảng viên.
 
-Yêu cầu:
+### Yêu cầu
 
 - Sử dụng `ArrayList` hoặc `HashMap` để lưu danh sách khóa học.
 - Lưu trữ dữ liệu vào file và nạp lại khi khởi động chương trình.

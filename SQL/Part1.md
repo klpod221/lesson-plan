@@ -10,10 +10,11 @@
   - [🧑‍🏫 Bài 3: Truy vấn dữ liệu](#-bài-3-truy-vấn-dữ-liệu)
   - [🧑‍🏫 Bài 4: Thao tác dữ liệu](#-bài-4-thao-tác-dữ-liệu)
   - [🧑‍🏫 Bài 5: Kết hợp dữ liệu](#-bài-5-kết-hợp-dữ-liệu)
-  - [🧪 BÀI TẬP LỚN CUỐI PHẦN](#-bài-tập-lớn-cuối-phần)
-  - [**Đề bài: Quản lý sinh viên**](#đề-bài-quản-lý-sinh-viên)
-    - [**Kết quả chạy chương trình (Ví dụ):**](#kết-quả-chạy-chương-trình-ví-dụ)
-    - [**Nâng cao: tạo stored procedure để tự động cập nhật điểm trung bình và xếp loại**](#nâng-cao-tạo-stored-procedure-để-tự-động-cập-nhật-điểm-trung-bình-và-xếp-loại)
+  - [🧪 BÀI TẬP LỚN CUỐI PHẦN:  Quản lý sinh viên](#-bài-tập-lớn-cuối-phần--quản-lý-sinh-viên)
+    - [Đề bài](#đề-bài)
+    - [Yêu cầu](#yêu-cầu)
+    - [Kết quả chạy chương trình (Ví dụ)](#kết-quả-chạy-chương-trình-ví-dụ)
+    - [Nâng cao](#nâng-cao)
 
 ## 🎯 Mục tiêu tổng quát
 
@@ -567,9 +568,9 @@
 
 ---
 
-## 🧪 BÀI TẬP LỚN CUỐI PHẦN
+## 🧪 BÀI TẬP LỚN CUỐI PHẦN:  Quản lý sinh viên
 
-## **Đề bài: Quản lý sinh viên**
+### Đề bài
 
 Xây dựng cơ sở dữ liệu để lưu trữ và quản lý điểm sinh viên:
 
@@ -583,7 +584,7 @@ Xây dựng cơ sở dữ liệu để lưu trữ và quản lý điểm sinh vi
   - `average_score` (có thể tính toán)
   - `rank` (xếp loại học lực)
 
-Yêu cầu:
+### Yêu cầu
 
 - Viết lệnh SQL để tạo cơ sở dữ liệu và bảng
 - Thêm dữ liệu mẫu cho 5 sinh viên
@@ -595,7 +596,7 @@ Yêu cầu:
   - < 5.0 → Yếu
 - Hiển thị danh sách sinh viên kèm điểm trung bình và xếp loại
 
-### **Kết quả chạy chương trình (Ví dụ):**
+### Kết quả chạy chương trình (Ví dụ)
 
 ```text
 +------------+---------------+------------+---------------+----------------+---------------+-------------+
@@ -609,10 +610,12 @@ Yêu cầu:
 +------------+---------------+------------+---------------+----------------+---------------+-------------+
 ```
 
-### **Nâng cao: tạo stored procedure để tự động cập nhật điểm trung bình và xếp loại**
+### Nâng cao
+
+- Tạo stored procedure để tự động cập nhật điểm trung bình và xếp loại
 
 ---
 
 [⬅️ Trở lại: JAVA/Part4.md](../JAVA/Part4.md) |
 [🏠 Home](../README.md) |
-[➡️ Tiếp theo: JAVA/Part5.md](../JAVA/Part5.md)
+[➡️ Tiếp theo: SQL/Part2.md](../SQL/Part2.md)

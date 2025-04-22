@@ -52,4 +52,4 @@ Bài tập này sẽ kết hợp với bài tập Java để tạo thành một 
 
 [⬅️ Trở lại: SQL/Part4.md](../SQL/Part4.md) |
 [🏠 Home](../README.md) |
-[➡️ Tiếp theo: JAVA/FINAL.md](../JAVA/FINAL.md)
+[➡️ Tiếp theo: JAVA/Part5.md](../JAVA/Part5.md)

@@ -10,8 +10,8 @@
   - [🧑‍🏫 Bài 3: Toán tử và biểu thức](#-bài-3-toán-tử-và-biểu-thức)
   - [🧑‍🏫 Bài 4: Câu lệnh điều kiện](#-bài-4-câu-lệnh-điều-kiện)
   - [🧑‍🏫 Bài 5: Câu lệnh lặp](#-bài-5-câu-lệnh-lặp)
-  - [🧪 Bài tập lớn cuối phần](#-bài-tập-lớn-cuối-phần)
-    - [Đề bài: Quản lý điểm sinh viên](#đề-bài-quản-lý-điểm-sinh-viên)
+  - [🧪 Bài tập lớn cuối phần: Quản lý điểm sinh viên](#-bài-tập-lớn-cuối-phần-quản-lý-điểm-sinh-viên)
+    - [Đề bài](#đề-bài)
     - [Kết quả chạy chương trình (Ví dụ)](#kết-quả-chạy-chương-trình-ví-dụ)
 
 ## 🎯 Mục tiêu tổng quát
@@ -464,9 +464,9 @@ outerLoop: for (int i = 1; i <= 3; i++) {
 
 ---
 
-## 🧪 Bài tập lớn cuối phần
+## 🧪 Bài tập lớn cuối phần: Quản lý điểm sinh viên
 
-### Đề bài: Quản lý điểm sinh viên
+### Đề bài
 
 Viết chương trình cho phép người dùng:
 

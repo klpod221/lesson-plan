@@ -10,8 +10,8 @@
   - [🧑‍🏫 Bài 3: Hàm trong Java](#-bài-3-hàm-trong-java)
   - [🧑‍🏫 Bài 4: Cách sử dụng mảng và chuỗi kết hợp](#-bài-4-cách-sử-dụng-mảng-và-chuỗi-kết-hợp)
   - [🧑‍🏫 Bài 5: Hàm và mảng](#-bài-5-hàm-và-mảng)
-  - [🧪 BÀI TẬP LỚN CUỐI PHẦN](#-bài-tập-lớn-cuối-phần)
-    - [Đề bài: Quản lý điểm sinh viên với mảng](#đề-bài-quản-lý-điểm-sinh-viên-với-mảng)
+  - [🧪 BÀI TẬP LỚN CUỐI PHẦN: Quản lý điểm sinh viên với mảng](#-bài-tập-lớn-cuối-phần-quản-lý-điểm-sinh-viên-với-mảng)
+    - [Đề bài](#đề-bài)
     - [Kết quả chạy chương trình (Ví dụ)](#kết-quả-chạy-chương-trình-ví-dụ)
 
 ## 🎯 Mục tiêu tổng quát
@@ -692,9 +692,9 @@
 
 ---
 
-## 🧪 BÀI TẬP LỚN CUỐI PHẦN
+## 🧪 BÀI TẬP LỚN CUỐI PHẦN: Quản lý điểm sinh viên với mảng
 
-### Đề bài: Quản lý điểm sinh viên với mảng
+### Đề bài
 
 Viết chương trình:
 

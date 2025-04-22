@@ -11,8 +11,9 @@
   - [🧑‍🏫 Bài 4: Đóng gói (Encapsulation)](#-bài-4-đóng-gói-encapsulation)
   - [🧑‍🏫 Bài 5: Đa hình (Polymorphism)](#-bài-5-đa-hình-polymorphism)
   - [🧑‍🏫 Bài 6: Interface và Abstract Class](#-bài-6-interface-và-abstract-class)
-  - [🧪 BÀI TẬP LỚN CUỐI PHẦN](#-bài-tập-lớn-cuối-phần)
-    - [Đề bài: Quản lý sinh viên, giảng viên và khóa học](#đề-bài-quản-lý-sinh-viên-giảng-viên-và-khóa-học)
+  - [🧪 BÀI TẬP LỚN CUỐI PHẦN: Quản lý sinh viên, giảng viên và khóa học](#-bài-tập-lớn-cuối-phần-quản-lý-sinh-viên-giảng-viên-và-khóa-học)
+    - [Đề bài](#đề-bài)
+    - [Các chức năng cần có](#các-chức-năng-cần-có)
 
 ## 🎯 Mục tiêu tổng quát
 
@@ -1460,9 +1461,9 @@
 
 ---
 
-## 🧪 BÀI TẬP LỚN CUỐI PHẦN
+## 🧪 BÀI TẬP LỚN CUỐI PHẦN: Quản lý sinh viên, giảng viên và khóa học
 
-### Đề bài: Quản lý sinh viên, giảng viên và khóa học
+### Đề bài
 
 Viết chương trình:
 
@@ -1472,7 +1473,7 @@ Viết chương trình:
 - Mỗi `Student` và `Teacher` có thể tham gia vào nhiều khóa học.
 - Cung cấp phương thức để đăng ký, hủy đăng ký khóa học.
 
-Các chức năng cần có:
+### Các chức năng cần có
 
 - Lớp `Person` với các thuộc tính cơ bản (tên, tuổi).
 - Lớp `Student` và `Teacher` kế thừa từ `Person`, với phương thức đặc thù.
