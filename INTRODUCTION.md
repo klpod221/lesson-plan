@@ -214,69 +214,42 @@ Lập trình là quá trình viết, kiểm thử, sửa lỗi và bảo trì m�
 
 ## 🧑‍🏫 Bài 2: Cơ bản về máy tính, hệ điều hành và mạng máy tính
 
-**Liên kết giữa máy tính, hệ điều hành và mạng máy tính:**
-
-```mermaid
-graph LR
-    Computer[Máy tính] --> OS[Hệ điều hành]
-    OS --> Network[Kết nối mạng]
-    
-    %% Chi tiết mối quan hệ
-    OS --> NetworkServices[Dịch vụ mạng]
-    OS --> NetworkDrivers[Driver thiết bị mạng]
-    NetworkDrivers --> NIC[Card mạng]
-    NIC --> NetworkProtocols[Giao thức mạng]
-    NetworkProtocols --> NetworkInfrastructure[Cơ sở hạ tầng mạng]
-    NetworkInfrastructure --> Internet[Internet]
-    
-    %% Liên kết giữa các máy tính
-    Computer -.-> Internet
-    Computer2[Máy tính khác] -.-> Internet
-    Server[Máy chủ] -.-> Internet
-    MobileDevice[Thiết bị di động] -.-> Internet
-```
-
 **Kiến trúc máy tính cơ bản:**
 
-```mermaid
-graph TD
-    Computer[Máy tính] --> Hardware[Phần cứng]
-    Computer --> Software[Phần mềm]
-
-    %% Phần cứng
-    Hardware --> CPU[CPU - Đơn vị xử lý trung tâm]
-    Hardware --> Memory[Bộ nhớ]
-    Hardware --> IO[Thiết bị vào/ra]
-    Hardware --> Storage[Thiết bị lưu trữ]
-
-    %% Chi tiết phần cứng
-    CPU --> ALU[ALU - Đơn vị tính toán số học]
-    CPU --> CU[CU - Đơn vị điều khiển]
-    CPU --> Registers[Thanh ghi]
-    CPU --> Cache[Bộ nhớ đệm]
-
-    Memory --> RAM[RAM - Bộ nhớ truy cập ngẫu nhiên]
-    Memory --> ROM[ROM - Bộ nhớ chỉ đọc]
-
-    Storage --> HDD[Ổ cứng HDD]
-    Storage --> SSD[Ổ cứng SSD]
-    Storage --> USB[USB/Thiết bị lưu trữ di động]
-
-    IO --> Input[Thiết bị nhập]
-    IO --> Output[Thiết bị xuất]
-
-    Input --> Keyboard[Bàn phím]
-    Input --> Mouse[Chuột]
-    Input --> Scanner[Máy quét]
-    Input --> Microphone[Microphone]
-
-    Output --> Monitor[Màn hình]
-    Output --> Printer[Máy in]
-    Output --> Speaker[Loa]
-
-    %% Phần mềm
-    Software --> OS[Hệ điều hành]
-    Software --> Application[Phần mềm ứng dụng]
+```text
+Máy tính
+|
+|-- Phần cứng
+|   |-- CPU (Đơn vị xử lý trung tâm)
+|   |   |-- ALU (Đơn vị tính toán số học)
+|   |   |-- CU (Đơn vị điều khiển)
+|   |   |-- Thanh ghi
+|   |   |-- Bộ nhớ đệm (Cache)
+|   |
+|   |-- Bộ nhớ
+|   |   |-- RAM (Bộ nhớ truy cập ngẫu nhiên)
+|   |   |-- ROM (Bộ nhớ chỉ đọc)
+|   |
+|   |-- Thiết bị lưu trữ
+|   |   |-- Ổ cứng HDD
+|   |   |-- Ổ cứng SSD
+|   |   |-- USB/Thiết bị lưu trữ di động
+|   |
+|   |-- Thiết bị vào/ra
+|       |-- Thiết bị nhập
+|       |   |-- Bàn phím
+|       |   |-- Chuột
+|       |   |-- Máy quét
+|       |   |-- Microphone
+|       |
+|       |-- Thiết bị xuất
+|           |-- Màn hình
+|           |-- Máy in
+|           |-- Loa
+|
+|-- Phần mềm
+    |-- Hệ điều hành
+    |-- Phần mềm ứng dụng
 ```
 
 1. **Phần cứng (Hardware)**:
@@ -299,35 +272,33 @@ graph TD
 
 Hệ điều hành là phần mềm quản lý phần cứng và phần mềm của máy tính, cung cấp giao diện cho người dùng và các ứng dụng.
 
-```mermaid
-graph TD
-    OS[Hệ điều hành] --> Kernel[Kernel - Nhân]
-    OS --> Shell[Shell - Vỏ]
-    OS --> FileSystem[Hệ thống tập tin]
-    OS --> GUI[Giao diện đồ họa]
-    
-    %% Chi tiết Kernel
-    Kernel --> ProcessMgmt[Quản lý quy trình]
-    Kernel --> MemoryMgmt[Quản lý bộ nhớ]
-    Kernel --> DeviceDrivers[Driver thiết bị]
-    Kernel --> Security[Bảo mật]
-    Kernel --> NetworkStack[Stack mạng]
-    
-    %% Chi tiết Shell
-    Shell --> CommandLine[Giao diện dòng lệnh]
-    Shell --> ScriptInterpreter[Trình thông dịch script]
-    
-    %% Chi tiết hệ thống tập tin
-    FileSystem --> FSStructure[Cấu trúc thư mục/file]
-    FileSystem --> Permissions[Quyền truy cập]
-    FileSystem --> StorageMgmt[Quản lý không gian lưu trữ]
-    
-    %% Phân loại hệ điều hành
-    OS -.-> Windows[Windows]
-    OS -.-> Linux[Linux]
-    OS -.-> macOS[macOS]
-    OS -.-> Android[Android]
-    OS -.-> iOS[iOS]
+```text
+Hệ điều hành
+|
+|-- Kernel (Nhân)
+|   |-- Quản lý quy trình
+|   |-- Quản lý bộ nhớ
+|   |-- Driver thiết bị
+|   |-- Bảo mật
+|   |-- Stack mạng
+|
+|-- Shell (Vỏ)
+|   |-- Giao diện dòng lệnh
+|   |-- Trình thông dịch script
+|
+|-- Hệ thống tập tin
+|   |-- Cấu trúc thư mục/file
+|   |-- Quyền truy cập
+|   |-- Quản lý không gian lưu trữ
+|
+|-- Giao diện đồ họa
+|
+|-- Phân loại hệ điều hành:
+    |-- Windows
+    |-- Linux
+    |-- macOS
+    |-- Android
+    |-- iOS
 ```
 
 1. **Chức năng của hệ điều hành**:
@@ -353,54 +324,47 @@ graph TD
 
 Mạng máy tính là tập hợp các thiết bị kết nối với nhau để chia sẻ tài nguyên và thông tin.
 
-```mermaid
-graph TD
-    Network[Mạng máy tính] --> Models[Mô hình mạng]
-    Network --> Components[Thành phần mạng]
-    Network --> Types[Loại mạng]
-    Network --> Protocols[Giao thức]
-    
-    %% Mô hình mạng
-    Models --> OSI[Mô hình OSI - 7 tầng]
-    Models --> TCPIP[Mô hình TCP/IP - 4 tầng]
-    
-    %% Thành phần mạng
-    Components --> Router[Router]
-    Components --> Switch[Switch]
-    Components --> Hub[Hub]
-    Components --> Modem[Modem]
-    Components --> NIC[Card mạng]
-    Components --> Cable[Cáp mạng]
-    
-    %% Loại mạng
-    Types --> LAN[LAN - Mạng cục bộ]
-    Types --> WAN[WAN - Mạng diện rộng]
-    Types --> MAN[MAN - Mạng đô thị]
-    Types --> PAN[PAN - Mạng cá nhân]
-    Types --> Internet[Internet - Mạng toàn cầu]
-    
-    %% Giao thức
-    Protocols --> IP[IP - Internet Protocol]
-    Protocols --> TCP[TCP - Transmission Control Protocol]
-    Protocols --> UDP[UDP - User Datagram Protocol]
-    Protocols --> HTTP[HTTP/HTTPS]
-    Protocols --> DNS[DNS - Domain Name System]
-    Protocols --> DHCP[DHCP - Dynamic Host Configuration Protocol]
-    
-    %% Chi tiết mô hình OSI
-    OSI --> Physical[1. Physical - Vật lý]
-    OSI --> DataLink[2. Data Link - Liên kết dữ liệu]
-    OSI --> Network[3. Network - Mạng]
-    OSI --> Transport[4. Transport - Giao vận]
-    OSI --> Session[5. Session - Phiên]
-    OSI --> Presentation[6. Presentation - Trình diễn]
-    OSI --> Application[7. Application - Ứng dụng]
-    
-    %% Chi tiết mô hình TCP/IP
-    TCPIP --> LinkLayer[1. Link Layer - Tầng liên kết]
-    TCPIP --> InternetLayer[2. Internet Layer - Tầng Internet]
-    TCPIP --> TransportLayer[3. Transport Layer - Tầng giao vận]
-    TCPIP --> ApplicationLayer[4. Application Layer - Tầng ứng dụng]
+```text
+Mạng máy tính
+|
+|-- Mô hình mạng
+|   |-- Mô hình OSI - 7 tầng
+|   |   |-- 1. Physical (Vật lý)
+|   |   |-- 2. Data Link (Liên kết dữ liệu)
+|   |   |-- 3. Network (Mạng)
+|   |   |-- 4. Transport (Giao vận)
+|   |   |-- 5. Session (Phiên)
+|   |   |-- 6. Presentation (Trình diễn)
+|   |   |-- 7. Application (Ứng dụng)
+|   |
+|   |-- Mô hình TCP/IP - 4 tầng
+|       |-- 1. Link Layer (Tầng liên kết)
+|       |-- 2. Internet Layer (Tầng Internet)
+|       |-- 3. Transport Layer (Tầng giao vận)
+|       |-- 4. Application Layer (Tầng ứng dụng)
+|
+|-- Thành phần mạng
+|   |-- Router
+|   |-- Switch
+|   |-- Hub
+|   |-- Modem
+|   |-- Card mạng
+|   |-- Cáp mạng
+|
+|-- Loại mạng
+|   |-- LAN (Mạng cục bộ)
+|   |-- WAN (Mạng diện rộng)
+|   |-- MAN (Mạng đô thị)
+|   |-- PAN (Mạng cá nhân)
+|   |-- Internet (Mạng toàn cầu)
+|
+|-- Giao thức
+    |-- IP (Internet Protocol)
+    |-- TCP (Transmission Control Protocol)
+    |-- UDP (User Datagram Protocol)
+    |-- HTTP/HTTPS
+    |-- DNS (Domain Name System)
+    |-- DHCP (Dynamic Host Configuration Protocol)
 ```
 
 1. **Mô hình OSI và TCP/IP**:
