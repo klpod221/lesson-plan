@@ -3,7 +3,7 @@
 ## Nội dung
 
 - [📘 KUBERNETES: HỆ THỐNG ĐIỀU PHỐI CONTAINER](#-kubernetes-hệ-thống-điều-phối-container)
-  - [Table of Contents](#table-of-contents)
+  - [Nội dung](#nội-dung)
   - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
   - [🧑‍🏫 Bài 1: Giới thiệu về Kubernetes](#-bài-1-giới-thiệu-về-kubernetes)
   - [🧑‍🏫 Bài 2: Kiến trúc Kubernetes](#-bài-2-kiến-trúc-kubernetes)
@@ -102,16 +102,19 @@
 **Control Plane Components:**
 
 1. **API Server (kube-apiserver)**:
+
    - Điểm cuối HTTP API để tương tác với Kubernetes
    - Cổng chính để kiểm soát cluster
    - Xác thực và phân quyền tất cả các requests
 
 2. **Scheduler (kube-scheduler)**:
+
    - Quan sát các pods mới chưa được gán node
    - Lựa chọn node phù hợp để chạy pod
    - Cân nhắc tài nguyên, ràng buộc, affinity, anti-affinity...
 
 3. **Controller Manager (kube-controller-manager)**:
+
    - Chạy các quy trình controller
    - Điều khiển trạng thái của cluster
    - Chứa nhiều loại controllers: Node Controller, Replication Controller, Endpoint Controller,...
@@ -124,11 +127,13 @@
 **Node Components:**
 
 1. **Kubelet**:
+
    - Agent chạy trên mỗi node
    - Đảm bảo containers chạy trong pod
    - Báo cáo tình trạng node lên control plane
 
 2. **Kube-proxy**:
+
    - Duy trì network rules trên node
    - Cho phép giao tiếp mạng đến pods từ trong hoặc ngoài cluster
    - Thực hiện chức năng load balancing cho services
@@ -314,19 +319,19 @@ metadata:
     app: nginx
 spec:
   containers:
-  - name: nginx
-    image: nginx:1.19
-    ports:
-    - containerPort: 80
-  - name: log-sidecar
-    image: busybox
-    command: ['sh', '-c', 'tail -f /var/log/nginx/access.log']
-    volumeMounts:
-    - name: logs-volume
-      mountPath: /var/log/nginx
+    - name: nginx
+      image: nginx:1.19
+      ports:
+        - containerPort: 80
+    - name: log-sidecar
+      image: busybox
+      command: ["sh", "-c", "tail -f /var/log/nginx/access.log"]
+      volumeMounts:
+        - name: logs-volume
+          mountPath: /var/log/nginx
   volumes:
-  - name: logs-volume
-    emptyDir: {}
+    - name: logs-volume
+      emptyDir: {}
 ```
 
 **Deployment:**
@@ -354,10 +359,10 @@ spec:
         app: nginx
     spec:
       containers:
-      - name: nginx
-        image: nginx:1.19
-        ports:
-        - containerPort: 80
+        - name: nginx
+          image: nginx:1.19
+          ports:
+            - containerPort: 80
 ```
 
 **Service:**
@@ -376,8 +381,8 @@ spec:
   selector:
     app: nginx
   ports:
-  - port: 80
-    targetPort: 80
+    - port: 80
+      targetPort: 80
   type: ClusterIP
 ```
 
@@ -402,10 +407,10 @@ spec:
         app: node-exporter
     spec:
       containers:
-      - name: node-exporter
-        image: prom/node-exporter
-        ports:
-        - containerPort: 9100
+        - name: node-exporter
+          image: prom/node-exporter
+          ports:
+            - containerPort: 9100
 ```
 
 **StatefulSet:**
@@ -432,21 +437,21 @@ spec:
         app: mongodb
     spec:
       containers:
-      - name: mongodb
-        image: mongo:4.4
-        ports:
-        - containerPort: 27017
-        volumeMounts:
-        - name: data
-          mountPath: /data/db
+        - name: mongodb
+          image: mongo:4.4
+          ports:
+            - containerPort: 27017
+          volumeMounts:
+            - name: data
+              mountPath: /data/db
   volumeClaimTemplates:
-  - metadata:
-      name: data
-    spec:
-      accessModes: ["ReadWriteOnce"]
-      resources:
-        requests:
-          storage: 1Gi
+    - metadata:
+        name: data
+      spec:
+        accessModes: ["ReadWriteOnce"]
+        resources:
+          requests:
+            storage: 1Gi
 ```
 
 **Job và CronJob:**
@@ -461,15 +466,15 @@ kind: CronJob
 metadata:
   name: backup-database
 spec:
-  schedule: "0 1 * * *"  # Mỗi ngày lúc 1 giờ sáng
+  schedule: "0 1 * * *" # Mỗi ngày lúc 1 giờ sáng
   jobTemplate:
     spec:
       template:
         spec:
           containers:
-          - name: backup
-            image: mybackup:1.0
-            command: ["/bin/sh", "-c", "backup.sh"]
+            - name: backup
+              image: mybackup:1.0
+              command: ["/bin/sh", "-c", "backup.sh"]
           restartPolicy: OnFailure
 ```
 
@@ -536,8 +541,8 @@ spec:
   selector:
     app: backend
   ports:
-  - port: 80
-    targetPort: 8080
+    - port: 80
+      targetPort: 8080
   type: ClusterIP
 ```
 
@@ -554,9 +559,9 @@ spec:
   selector:
     app: web
   ports:
-  - port: 80
-    targetPort: 8080
-    nodePort: 30080  # Port 30000-32767
+    - port: 80
+      targetPort: 8080
+      nodePort: 30080 # Port 30000-32767
   type: NodePort
 ```
 
@@ -573,8 +578,8 @@ spec:
   selector:
     app: web
   ports:
-  - port: 80
-    targetPort: 8080
+    - port: 80
+      targetPort: 8080
   type: LoadBalancer
 ```
 
@@ -604,23 +609,23 @@ metadata:
   name: app-ingress
 spec:
   rules:
-  - host: app.example.com
-    http:
-      paths:
-      - path: /api
-        pathType: Prefix
-        backend:
-          service:
-            name: api-service
-            port:
-              number: 80
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: web-service
-            port:
-              number: 80
+    - host: app.example.com
+      http:
+        paths:
+          - path: /api
+            pathType: Prefix
+            backend:
+              service:
+                name: api-service
+                port:
+                  number: 80
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: web-service
+                port:
+                  number: 80
 ```
 
 **Network Policies:**
@@ -638,15 +643,15 @@ spec:
     matchLabels:
       role: db
   policyTypes:
-  - Ingress
+    - Ingress
   ingress:
-  - from:
-    - podSelector:
-        matchLabels:
-          role: backend
-    ports:
-    - protocol: TCP
-      port: 5432
+    - from:
+        - podSelector:
+            matchLabels:
+              role: backend
+      ports:
+        - protocol: TCP
+          port: 5432
 ```
 
 **Debugging Network Issues:**
@@ -697,14 +702,14 @@ metadata:
   name: cache-pod
 spec:
   containers:
-  - name: app
-    image: nginx
-    volumeMounts:
-    - name: cache-volume
-      mountPath: /cache
+    - name: app
+      image: nginx
+      volumeMounts:
+        - name: cache-volume
+          mountPath: /cache
   volumes:
-  - name: cache-volume
-    emptyDir: {}
+    - name: cache-volume
+      emptyDir: {}
 ```
 
 **hostPath:**
@@ -716,16 +721,16 @@ metadata:
   name: log-pod
 spec:
   containers:
-  - name: app
-    image: nginx
-    volumeMounts:
-    - name: log-volume
-      mountPath: /var/log/nginx
+    - name: app
+      image: nginx
+      volumeMounts:
+        - name: log-volume
+          mountPath: /var/log/nginx
   volumes:
-  - name: log-volume
-    hostPath:
-      path: /var/log/pods
-      type: DirectoryOrCreate
+    - name: log-volume
+      hostPath:
+        path: /var/log/pods
+        type: DirectoryOrCreate
 ```
 
 **Persistent Storage Architecture:**
@@ -778,15 +783,15 @@ metadata:
   name: db-pod
 spec:
   containers:
-  - name: db
-    image: postgres:13
-    volumeMounts:
-    - name: db-data
-      mountPath: /var/lib/postgresql/data
+    - name: db
+      image: postgres:13
+      volumeMounts:
+        - name: db-data
+          mountPath: /var/lib/postgresql/data
   volumes:
-  - name: db-data
-    persistentVolumeClaim:
-      claimName: db-storage-claim
+    - name: db-data
+      persistentVolumeClaim:
+        claimName: db-storage-claim
 ```
 
 **StorageClass:**
@@ -842,20 +847,20 @@ spec:
         app: postgres
     spec:
       containers:
-      - name: postgres
-        image: postgres:13
-        volumeMounts:
-        - name: data
-          mountPath: /var/lib/postgresql/data
+        - name: postgres
+          image: postgres:13
+          volumeMounts:
+            - name: data
+              mountPath: /var/lib/postgresql/data
   volumeClaimTemplates:
-  - metadata:
-      name: data
-    spec:
-      accessModes: ["ReadWriteOnce"]
-      storageClassName: "standard"
-      resources:
-        requests:
-          storage: 10Gi
+    - metadata:
+        name: data
+      spec:
+        accessModes: ["ReadWriteOnce"]
+        storageClassName: "standard"
+        resources:
+          requests:
+            storage: 10Gi
 ```
 
 **Best Practices:**
@@ -908,19 +913,19 @@ metadata:
   name: web
 spec:
   containers:
-  - name: web
-    image: nginx
-    env:
-    - name: DB_HOST
-      valueFrom:
-        configMapKeyRef:
-          name: app-config
-          key: database.host
-    - name: DB_PORT
-      valueFrom:
-        configMapKeyRef:
-          name: app-config
-          key: database.port
+    - name: web
+      image: nginx
+      env:
+        - name: DB_HOST
+          valueFrom:
+            configMapKeyRef:
+              name: app-config
+              key: database.host
+        - name: DB_PORT
+          valueFrom:
+            configMapKeyRef:
+              name: app-config
+              key: database.port
 ```
 
 2. **envFrom - tất cả keys làm biến môi trường:**
@@ -932,11 +937,11 @@ metadata:
   name: web
 spec:
   containers:
-  - name: web
-    image: nginx
-    envFrom:
-    - configMapRef:
-        name: app-config
+    - name: web
+      image: nginx
+      envFrom:
+        - configMapRef:
+            name: app-config
 ```
 
 3. **Volume mount:**
@@ -948,15 +953,15 @@ metadata:
   name: web
 spec:
   containers:
-  - name: web
-    image: nginx
-    volumeMounts:
-    - name: config-volume
-      mountPath: /etc/config
+    - name: web
+      image: nginx
+      volumeMounts:
+        - name: config-volume
+          mountPath: /etc/config
   volumes:
-  - name: config-volume
-    configMap:
-      name: app-config
+    - name: config-volume
+      configMap:
+        name: app-config
 ```
 
 **Secrets:**
@@ -975,8 +980,8 @@ metadata:
 type: Opaque
 data:
   # Giá trị phải ở dạng base64
-  username: YWRtaW4=  # admin
-  password: c2VjcmV0  # secret
+  username: YWRtaW4= # admin
+  password: c2VjcmV0 # secret
 ```
 
 **Tạo Secret từ command line:**
@@ -1000,19 +1005,19 @@ metadata:
   name: db-client
 spec:
   containers:
-  - name: app
-    image: myapp
-    env:
-    - name: DB_USERNAME
-      valueFrom:
-        secretKeyRef:
-          name: db-credentials
-          key: username
-    - name: DB_PASSWORD
-      valueFrom:
-        secretKeyRef:
-          name: db-credentials
-          key: password
+    - name: app
+      image: myapp
+      env:
+        - name: DB_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: db-credentials
+              key: username
+        - name: DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: db-credentials
+              key: password
 ```
 
 2. **Volume mount:**
@@ -1024,16 +1029,16 @@ metadata:
   name: db-client
 spec:
   containers:
-  - name: app
-    image: myapp
-    volumeMounts:
-    - name: secret-volume
-      mountPath: /etc/secrets
-      readOnly: true
+    - name: app
+      image: myapp
+      volumeMounts:
+        - name: secret-volume
+          mountPath: /etc/secrets
+          readOnly: true
   volumes:
-  - name: secret-volume
-    secret:
-      secretName: db-credentials
+    - name: secret-volume
+      secret:
+        secretName: db-credentials
 ```
 
 **Secret Types:**
@@ -1064,10 +1069,10 @@ metadata:
   name: private-app
 spec:
   containers:
-  - name: app
-    image: myprivate/repo:tag
+    - name: app
+      image: myprivate/repo:tag
   imagePullSecrets:
-  - name: docker-registry-cred
+    - name: docker-registry-cred
 ```
 
 **Best Practices:**
@@ -1165,23 +1170,20 @@ ingress:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "myapp.fullname" . }}
-  labels:
-    {{- include "myapp.labels" . | nindent 4 }}
+  name: { { include "myapp.fullname" . } }
+  labels: { { - include "myapp.labels" . | nindent 4 } }
 spec:
-  replicas: {{ .Values.replicaCount }}
+  replicas: { { .Values.replicaCount } }
   selector:
-    matchLabels:
-      {{- include "myapp.selectorLabels" . | nindent 6 }}
+    matchLabels: { { - include "myapp.selectorLabels" . | nindent 6 } }
   template:
     metadata:
-      labels:
-        {{- include "myapp.selectorLabels" . | nindent 8 }}
+      labels: { { - include "myapp.selectorLabels" . | nindent 8 } }
     spec:
       containers:
-        - name: {{ .Chart.Name }}
+        - name: { { .Chart.Name } }
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          imagePullPolicy: { { .Values.image.pullPolicy } }
           ports:
             - name: http
               containerPort: 80

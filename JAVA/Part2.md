@@ -3,7 +3,7 @@
 ## Nội dung
 
 - [📘 PHẦN 2: MẢNG, CHUỖI VÀ HÀM](#-phần-2-mảng-chuỗi-và-hàm)
-  - [Table of Contents](#table-of-contents)
+  - [Nội dung](#nội-dung)
   - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
   - [🧑‍🏫 Bài 1: Mảng trong Java](#-bài-1-mảng-trong-java)
   - [🧑‍🏫 Bài 2: Chuỗi trong Java](#-bài-2-chuỗi-trong-java)

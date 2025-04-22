@@ -3,7 +3,7 @@
 ## Nội dung
 
 - [📘 PHẦN 3: LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG (OOP)](#-phần-3-lập-trình-hướng-đối-tượng-oop)
-  - [Table of Contents](#table-of-contents)
+  - [Nội dung](#nội-dung)
   - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
   - [🧑‍🏫 Bài 1: Lớp và Đối tượng](#-bài-1-lớp-và-đối-tượng)
   - [🧑‍🏫 Bài 2: Kế thừa](#-bài-2-kế-thừa)

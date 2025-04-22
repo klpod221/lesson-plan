@@ -3,7 +3,7 @@
 ## Nội dung
 
 - [📘 PHẦN 2: SQL NÂNG CAO](#-phần-2-sql-nâng-cao)
-  - [Table of Contents](#table-of-contents)
+  - [Nội dung](#nội-dung)
   - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
   - [🧑‍🏫 Bài 1: Truy vấn nâng cao](#-bài-1-truy-vấn-nâng-cao)
   - [🧑‍🏫 Bài 2: Hàm và thủ tục lưu trữ](#-bài-2-hàm-và-thủ-tục-lưu-trữ)

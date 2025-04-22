@@ -3,7 +3,7 @@
 ## Nội dung
 
 - [📘 PHẦN 3: THUẬT TOÁN NÂNG CAO](#-phần-3-thuật-toán-nâng-cao)
-  - [Table of Contents](#table-of-contents)
+  - [Nội dung](#nội-dung)
   - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
   - [🧑‍🏫 Bài 1: Thuật toán đệ quy](#-bài-1-thuật-toán-đệ-quy)
     - [**Ví dụ 1: Tính giai thừa**](#ví-dụ-1-tính-giai-thừa)

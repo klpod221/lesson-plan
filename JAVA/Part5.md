@@ -3,7 +3,7 @@
 ## Nội dung
 
 - [📘 PHẦN 5: LUỒNG, ĐA LUỒNG VÀ JDBC](#-phần-5-luồng-đa-luồng-và-jdbc)
-  - [Table of Contents](#table-of-contents)
+  - [Nội dung](#nội-dung)
   - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
   - [🧑‍🏫 Bài 1: Java I/O Streams](#-bài-1-java-io-streams)
   - [🧑‍🏫 Bài 2: Đa luồng trong Java](#-bài-2-đa-luồng-trong-java)

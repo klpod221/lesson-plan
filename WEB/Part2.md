@@ -3,7 +3,7 @@
 ## Nội dung
 
 - [📘 PHẦN 2: CSS - ĐỊNH DẠNG TRANG WEB](#-phần-2-css---định-dạng-trang-web)
-  - [Table of Contents](#table-of-contents)
+  - [Nội dung](#nội-dung)
   - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
   - [🧑‍🏫 Bài 1: Giới thiệu CSS](#-bài-1-giới-thiệu-css)
   - [🧑‍🏫 Bài 2: CSS Selectors (Bộ chọn)](#-bài-2-css-selectors-bộ-chọn)

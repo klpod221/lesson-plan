@@ -3,7 +3,7 @@
 ## Nội dung
 
 - [📘 PHẦN 1: NHẬP MÔN CẤU TRÚC DỮ LIỆU VÀ THUẬT TOÁN](#-phần-1-nhập-môn-cấu-trúc-dữ-liệu-và-thuật-toán)
-  - [Table of Contents](#table-of-contents)
+  - [Nội dung](#nội-dung)
   - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
   - [🧑‍🏫 Bài 1: Giới thiệu về cấu trúc dữ liệu và thuật toán](#-bài-1-giới-thiệu-về-cấu-trúc-dữ-liệu-và-thuật-toán)
   - [🧑‍🏫 Bài 2: Phân tích độ phức tạp thuật toán](#-bài-2-phân-tích-độ-phức-tạp-thuật-toán)

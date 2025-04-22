@@ -3,7 +3,7 @@
 ## Nội dung
 
 - [📘 PHẦN 1: NHẬP MÔN PHP](#-phần-1-nhập-môn-php)
-  - [Table of Contents](#table-of-contents)
+  - [Nội dung](#nội-dung)
   - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
   - [🧑‍🏫 Bài 1: Giới thiệu PHP](#-bài-1-giới-thiệu-php)
   - [🧑‍🏫 Bài 2: Biến và kiểu dữ liệu trong PHP](#-bài-2-biến-và-kiểu-dữ-liệu-trong-php)

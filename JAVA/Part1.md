@@ -3,7 +3,7 @@
 ## Nội dung
 
 - [📘 PHẦN 1: NHẬP MÔN JAVA](#-phần-1-nhập-môn-java)
-  - [Table of Contents](#table-of-contents)
+  - [Nội dung](#nội-dung)
   - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
   - [🧑‍🏫 Bài 1: Cấu trúc chương trình Java](#-bài-1-cấu-trúc-chương-trình-java)
   - [🧑‍🏫 Bài 2: Biến và kiểu dữ liệu](#-bài-2-biến-và-kiểu-dữ-liệu)

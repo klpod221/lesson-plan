@@ -3,7 +3,7 @@
 ## Nội dung
 
 - [📘 PHẦN 4: XỬ LÝ NGOẠI LỆ, FILE I/O VÀ COLLECTIONS](#-phần-4-xử-lý-ngoại-lệ-file-io-và-collections)
-  - [Table of Contents](#table-of-contents)
+  - [Nội dung](#nội-dung)
   - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
   - [🧑‍🏫 Bài 1: Xử lý ngoại lệ (Exception Handling)](#-bài-1-xử-lý-ngoại-lệ-exception-handling)
   - [🧑‍🏫 Bài 2: Đọc ghi file văn bản](#-bài-2-đọc-ghi-file-văn-bản)

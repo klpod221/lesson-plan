@@ -3,7 +3,7 @@
 ## Nội dung
 
 - [📘 PHẦN 1: TÌM KIẾM THÔNG TIN HIỆU QUẢ](#-phần-1-tìm-kiếm-thông-tin-hiệu-quả)
-  - [Table of Contents](#table-of-contents)
+  - [Nội dung](#nội-dung)
   - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
   - [🧑‍🏫 Bài 1: Cơ sở và chiến lược tìm kiếm thông tin](#-bài-1-cơ-sở-và-chiến-lược-tìm-kiếm-thông-tin)
   - [🧑‍🏫 Bài 2: Công cụ tìm kiếm chuyên dụng cho lập trình](#-bài-2-công-cụ-tìm-kiếm-chuyên-dụng-cho-lập-trình)

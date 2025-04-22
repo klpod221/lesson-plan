@@ -3,7 +3,7 @@
 ## Nội dung
 
 - [📘 PHẦN 4: FRAMEWORK VÀ PHÁT TRIỂN ỨNG DỤNG WEB HIỆN ĐẠI](#-phần-4-framework-và-phát-triển-ứng-dụng-web-hiện-đại)
-  - [Table of Contents](#table-of-contents)
+  - [Nội dung](#nội-dung)
   - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
   - [🧑‍🏫 Bài 16: Giới thiệu về MVC và Framework](#-bài-16-giới-thiệu-về-mvc-và-framework)
   - [🧑‍🏫 Bài 17: Laravel Framework](#-bài-17-laravel-framework)

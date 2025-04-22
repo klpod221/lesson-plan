@@ -3,7 +3,7 @@
 ## Nội dung
 
 - [📘 PHẦN 6: PHÁT TRIỂN VÀ TRIỂN KHAI CHUYÊN NGHIỆP](#-phần-6-phát-triển-và-triển-khai-chuyên-nghiệp)
-  - [Table of Contents](#table-of-contents)
+  - [Nội dung](#nội-dung)
   - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
   - [🧑‍🏫 Bài 26: Quy trình phát triển phần mềm chuyên nghiệp](#-bài-26-quy-trình-phát-triển-phần-mềm-chuyên-nghiệp)
   - [🧑‍🏫 Bài 27: CI/CD cho ứng dụng PHP](#-bài-27-cicd-cho-ứng-dụng-php)

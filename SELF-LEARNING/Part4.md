@@ -3,7 +3,7 @@
 ## Nội dung
 
 - [📘 PHẦN 4: PHÁT TRIỂN BẢN THÂN LIÊN TỤC](#-phần-4-phát-triển-bản-thân-liên-tục)
-  - [Table of Contents](#table-of-contents)
+  - [Nội dung](#nội-dung)
   - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
   - [🧑‍🏫 Bài 1: Theo dõi xu hướng công nghệ](#-bài-1-theo-dõi-xu-hướng-công-nghệ)
   - [🧑‍🏫 Bài 2: Mạng lưới chuyên nghiệp và cộng đồng](#-bài-2-mạng-lưới-chuyên-nghiệp-và-cộng-đồng)

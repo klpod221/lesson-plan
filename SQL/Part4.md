@@ -3,7 +3,7 @@
 ## Nội dung
 
 - [📘 PHẦN 4: SQL CHUYÊN SÂU VÀ HIỆU SUẤT](#-phần-4-sql-chuyên-sâu-và-hiệu-suất)
-  - [Table of Contents](#table-of-contents)
+  - [Nội dung](#nội-dung)
   - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
   - [🧑‍🏫 Bài 1: Tối ưu hiệu suất](#-bài-1-tối-ưu-hiệu-suất)
     - [Kế hoạch thực thi truy vấn và cách phân tích](#kế-hoạch-thực-thi-truy-vấn-và-cách-phân-tích)

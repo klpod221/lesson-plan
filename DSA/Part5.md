@@ -3,7 +3,7 @@
 ## Nội dung
 
 - [📘 PHẦN 5: THUẬT TOÁN ỨNG DỤNG VÀ TỐI ƯU HÓA](#-phần-5-thuật-toán-ứng-dụng-và-tối-ưu-hóa)
-  - [Table of Contents](#table-of-contents)
+  - [Nội dung](#nội-dung)
   - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
   - [🧑‍🏫 Bài 1: Thuật toán xử lý chuỗi](#-bài-1-thuật-toán-xử-lý-chuỗi)
     - [1. Tìm kiếm chuỗi con (String Matching)](#1-tìm-kiếm-chuỗi-con-string-matching)
@@ -1499,7 +1499,7 @@ private static int[][] subtractMatrices(int[][]<!-- filepath: /home/klpod221/Dev
 ## Nội dung
 
 - [📘 PHẦN 5: THUẬT TOÁN ỨNG DỤNG VÀ TỐI ƯU HÓA](#-phần-5-thuật-toán-ứng-dụng-và-tối-ưu-hóa)
-  - [Table of Contents](#table-of-contents)
+  - [Nội dung](#nội-dung)
   - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
   - [🧑‍🏫 Bài 1: Thuật toán xử lý chuỗi](#-bài-1-thuật-toán-xử-lý-chuỗi)
   - [🧑‍🏫 Bài 2: Kỹ thuật hai con trỏ và cửa sổ trượt](#-bài-2-kỹ-thuật-hai-con-trỏ-và-cửa-sổ-trượt)

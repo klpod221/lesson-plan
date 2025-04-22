@@ -3,7 +3,7 @@
 ## Nội dung
 
 - [📘 PHẦN 3: SQL NÂNG CAO VÀ ỨNG DỤNG](#-phần-3-sql-nâng-cao-và-ứng-dụng)
-  - [Table of Contents](#table-of-contents)
+  - [Nội dung](#nội-dung)
   - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
   - [🧑‍🏫 Bài 1: Thủ tục lưu trữ nâng cao](#-bài-1-thủ-tục-lưu-trữ-nâng-cao)
     - [Stored Procedure có tham số](#stored-procedure-có-tham-số)

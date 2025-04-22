@@ -3,7 +3,7 @@
 ## Nội dung
 
 - [📘 PHẦN 5: XU HƯỚNG HIỆN ĐẠI VÀ CÔNG NGHỆ MỚI TRONG PHP](#-phần-5-xu-hướng-hiện-đại-và-công-nghệ-mới-trong-php)
-  - [Table of Contents](#table-of-contents)
+  - [Nội dung](#nội-dung)
   - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
   - [🧑‍🏫 Bài 21: PHP và Containers (Docker)](#-bài-21-php-và-containers-docker)
   - [🧑‍🏫 Bài 22: Microservices với PHP](#-bài-22-microservices-với-php)
@@ -1919,7 +1919,7 @@ function mandelbrot($w, $h, $max_iteration) {
 ## Nội dung
 
 - [📘 PHẦN 5: XU HƯỚNG HIỆN ĐẠI VÀ CÔNG NGHỆ MỚI TRONG PHP](#-phần-5-xu-hướng-hiện-đại-và-công-nghệ-mới-trong-php)
-  - [Table of Contents](#table-of-contents)
+  - [Nội dung](#nội-dung)
   - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
   - [🧑‍🏫 Bài 21: PHP và Containers (Docker)](#-bài-21-php-và-containers-docker)
   - [🧑‍🏫 Bài 22: Microservices với PHP](#-bài-22-microservices-với-php)

@@ -13,7 +13,7 @@
 
 - [Cài đặt môi trường học tập JAVA, MySQL, WEB](#cài-đặt-môi-trường-học-tập-java-mysql-web)
   - [**Lưu ý:** Hãy đọc kỹ phần này trước khi bắt đầu cài đặt môi trường học tập](#lưu-ý-hãy-đọc-kỹ-phần-này-trước-khi-bắt-đầu-cài-đặt-môi-trường-học-tập)
-  - [Table of Contents](#table-of-contents)
+  - [Nội dung](#nội-dung)
   - [Cài đặt VSCode](#cài-đặt-vscode)
   - [Dành cho Windows (Windows 10/11)](#dành-cho-windows-windows-1011)
     - [Cài đặt WSL (Windows Subsystem for Linux): Official Documentation](#cài-đặt-wsl-windows-subsystem-for-linux-official-documentation)

@@ -3,7 +3,7 @@
 ## Nội dung
 
 - [📘 PHẦN 3: PHP NÂNG CAO VÀ KẾT NỐI DATABASE](#-phần-3-php-nâng-cao-và-kết-nối-database)
-  - [Table of Contents](#table-of-contents)
+  - [Nội dung](#nội-dung)
   - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
   - [🧑‍🏫 Bài 11: Kết nối và thao tác với Database](#-bài-11-kết-nối-và-thao-tác-với-database)
   - [🧑‍🏫 Bài 12: PHP Data Objects (PDO)](#-bài-12-php-data-objects-pdo)
