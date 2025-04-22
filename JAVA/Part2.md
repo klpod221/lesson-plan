@@ -86,8 +86,8 @@
 
    ```text
    Biến matrix    →  [ Địa chỉ ] → [ Địa chỉ hàng 0 ] → [ 1 | 2 | 3 ]
-   (Tham chiếu)      (Heap)       [ Địa chỉ hàng 1 ] → [ 4 | 5 | 6 ]
-                                            [ Địa chỉ hàng 2 ] → [ 7 | 8 | 9 ]
+   (Tham chiếu)      (Heap)        [ Địa chỉ hàng 1 ] → [ 4 | 5 | 6 ]
+                                   [ Địa chỉ hàng 2 ] → [ 7 | 8 | 9 ]
    ```
 
    Đặc điểm quan trọng:
