@@ -5,13 +5,14 @@
 - [📘 PHẦN 3: LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG (OOP)](#-phần-3-lập-trình-hướng-đối-tượng-oop)
   - [Nội dung](#nội-dung)
   - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
-  - [🧑‍🏫 Bài 1: Lớp và Đối tượng](#-bài-1-lớp-và-đối-tượng)
-  - [🧑‍🏫 Bài 2: Kế thừa](#-bài-2-kế-thừa)
-  - [🧑‍🏫 Bài 3: Đóng gói (Encapsulation)](#-bài-3-đóng-gói-encapsulation)
-  - [🧑‍🏫 Bài 4: Đa hình (Polymorphism)](#-bài-4-đa-hình-polymorphism)
-  - [🧑‍🏫 Bài 5: Interface và Abstract Class](#-bài-5-interface-và-abstract-class)
+  - [🧑‍🏫 Bài 1: Giới thiệu về OOP](#-bài-1-giới-thiệu-về-oop)
+  - [🧑‍🏫 Bài 2: Lớp và Đối tượng](#-bài-2-lớp-và-đối-tượng)
+  - [🧑‍🏫 Bài 3: Kế thừa](#-bài-3-kế-thừa)
+  - [🧑‍🏫 Bài 4: Đóng gói (Encapsulation)](#-bài-4-đóng-gói-encapsulation)
+  - [🧑‍🏫 Bài 5: Đa hình (Polymorphism)](#-bài-5-đa-hình-polymorphism)
+  - [🧑‍🏫 Bài 6: Interface và Abstract Class](#-bài-6-interface-và-abstract-class)
   - [🧪 BÀI TẬP LỚN CUỐI PHẦN](#-bài-tập-lớn-cuối-phần)
-    - [**Đề bài: Quản lý sinh viên, giảng viên và khóa học**](#đề-bài-quản-lý-sinh-viên-giảng-viên-và-khóa-học)
+    - [Đề bài: Quản lý sinh viên, giảng viên và khóa học](#đề-bài-quản-lý-sinh-viên-giảng-viên-và-khóa-học)
 
 ## 🎯 Mục tiêu tổng quát
 
@@ -20,12 +21,22 @@
 
 ---
 
-## 🧑‍🏫 Bài 1: Lớp và Đối tượng
+## 🧑‍🏫 Bài 1: Giới thiệu về OOP
 
-- Khái niệm lớp (class) và đối tượng (object).
-- Cách khai báo lớp và tạo đối tượng.
-- Phương thức khởi tạo (constructor) và cách sử dụng chúng để tạo đối tượng.
-- Cách sử dụng phương thức trong lớp.
+- Lập trình hướng đối tượng (OOP - Object-Oriented Programming) là một phương pháp lập trình dựa trên các đối tượng.
+- Các khái niệm cơ bản trong OOP:
+  - **Lớp (Class)**: Là một bản thiết kế cho các đối tượng, định nghĩa các thuộc tính và phương thức.
+  - **Đối tượng (Object)**: Là một thể hiện cụ thể của lớp, có trạng thái và hành vi riêng.
+  - **4 tính chất cơ bản của OOP**:
+    - **Đóng gói (Encapsulation)**: Giúp bảo vệ dữ liệu bên trong lớp bằng cách sử dụng các mức độ truy cập (private, protected, public).
+    - **Kế thừa (Inheritance)**: Cho phép một lớp kế thừa thuộc tính và phương thức từ một lớp khác.
+    - **Đa hình (Polymorphism)**: Cho phép các đối tượng khác nhau có thể được xử lý như cùng một loại đối tượng.
+    - **Trừu tượng (Abstraction)**: Làm nổi bật các thuộc tính và hành vi quan trọng của đối tượng, ẩn đi các chi tiết không cần thiết.
+- **Tại sao OOP quan trọng?**
+  - Giúp tổ chức mã nguồn tốt hơn, dễ bảo trì và mở rộng, tăng khả năng tái sử dụng mã.
+  - Hỗ trợ mô hình hóa các vấn đề phức tạp trong thế giới thực bằng cách sử dụng các đối tượng.
+
+## 🧑‍🏫 Bài 2: Lớp và Đối tượng
 
 1. **Khai báo lớp và tạo đối tượng:**
 
@@ -159,13 +170,7 @@
 
 ---
 
-## 🧑‍🏫 Bài 2: Kế thừa
-
-- Khái niệm kế thừa (inheritance) và tại sao nó quan trọng trong OOP.
-- Cách sử dụng từ khóa `extends` để kế thừa lớp.
-- Kế thừa các phương thức và thuộc tính của lớp cha.
-- Sử dụng từ khóa `super` để truy cập các thành phần của lớp cha.
-- Kế thừa và ghi đè phương thức (method overriding).
+## 🧑‍🏫 Bài 3: Kế thừa
 
 1. **Cơ bản về kế thừa:**
 
@@ -366,12 +371,7 @@
 
 ---
 
-## 🧑‍🏫 Bài 3: Đóng gói (Encapsulation)
-
-- Khái niệm đóng gói và tại sao nó quan trọng.
-- Quy tắc sử dụng `private`, `protected`, và `public` để hạn chế quyền truy cập.
-- Getter và Setter để truy cập và thay đổi thuộc tính của đối tượng.
-- Đảm bảo tính an toàn và kiểm tra dữ liệu trong quá trình thay đổi trạng thái đối tượng.
+## 🧑‍🏫 Bài 4: Đóng gói (Encapsulation)
 
 1. **Đóng gói dữ liệu:**
 
@@ -476,6 +476,13 @@
    ```
 
 3. **Các mức độ truy cập trong Java:**
+
+   | Mức độ truy cập | Truy cập trong cùng lớp | Truy cập trong cùng package | Truy cập từ lớp con (khác package) | Truy cập từ bất kỳ đâu |
+   | --------------- | ----------------------- | --------------------------- | ---------------------------------- | ---------------------- |
+   | private         | ✅                      | ❌                          | ❌                                 | ❌                     |
+   | default         | ✅                      | ✅                          | ❌                                 | ❌                     |
+   | protected       | ✅                      | ✅                          | ✅                                 | ❌                     |
+   | public          | ✅                      | ✅                          | ✅                                 | ✅                     |
 
    ```java
    public class AccessModifierDemo {
@@ -650,12 +657,7 @@
 
 ---
 
-## 🧑‍🏫 Bài 4: Đa hình (Polymorphism)
-
-- Khái niệm đa hình và tại sao nó hữu ích.
-- Đa hình thời gian biên dịch (method overloading) và đa hình thời gian chạy (method overriding).
-- Sử dụng interface và abstract class để thực hiện đa hình.
-- Các phương thức trừu tượng (abstract methods) và cách sử dụng lớp trừu tượng (abstract class).
+## 🧑‍🏫 Bài 5: Đa hình (Polymorphism)
 
 1. **Đa hình với nạp chồng phương thức (Method Overloading):**
 
@@ -1021,95 +1023,91 @@
 
 ---
 
-## 🧑‍🏫 Bài 5: Interface và Abstract Class
-
-- Sự khác biệt giữa Interface và Abstract Class.
-- Khi nào sử dụng Interface, khi nào sử dụng Abstract Class.
-- Tạo và triển khai Interface.
-- Tạo và kế thừa Abstract Class.
-- Đặc điểm và ứng dụng thực tế của Interface và Abstract Class.
+## 🧑‍🏫 Bài 6: Interface và Abstract Class
 
 1. **Interface trong Java:**
+
+   - Interface là một kiểu dữ liệu đặc biệt trong Java, cho phép định nghĩa các phương thức mà không có thân hàm. Các lớp khác có thể triển khai interface này và cung cấp thân hàm cho các phương thức đã định nghĩa.
 
    ```java
    // Khai báo interface
    interface Drawable {
-       // Các constant (mặc định là public static final)
-       String TOOL = "Bút vẽ";
+      // Các constant (mặc định là public static final)
+      String TOOL = "Bút vẽ";
 
-       // Các phương thức trừu tượng (mặc định là public abstract)
-       void draw();
+      // Các phương thức trừu tượng (mặc định là public abstract)
+      void draw();
 
-       // Java 8 trở lên: default method
-       default void displayInfo() {
-           System.out.println("Đang vẽ bằng " + TOOL);
-       }
+      // Java 8 trở lên: default method
+      default void displayInfo() {
+          System.out.println("Đang vẽ bằng " + TOOL);
+      }
 
-       // Java 8 trở lên: static method
-       static void description() {
-           System.out.println("Interface cho các đối tượng có thể vẽ được");
-       }
+      // Java 8 trở lên: static method
+      static void description() {
+          System.out.println("Interface cho các đối tượng có thể vẽ được");
+      }
    }
 
    // Triển khai interface
    class Circle implements Drawable {
-       private double radius;
+      private double radius;
 
-       public Circle(double radius) {
-           this.radius = radius;
-       }
+      public Circle(double radius) {
+          this.radius = radius;
+      }
 
-       @Override
-       public void draw() {
-           System.out.println("Vẽ hình tròn với bán kính " + radius);
-       }
+      @Override
+      public void draw() {
+          System.out.println("Vẽ hình tròn với bán kính " + radius);
+      }
    }
 
    class Rectangle implements Drawable {
-       private double length;
-       private double width;
+      private double length;
+      private double width;
 
-       public Rectangle(double length, double width) {
-           this.length = length;
-           this.width = width;
-       }
+      public Rectangle(double length, double width) {
+          this.length = length;
+          this.width = width;
+      }
 
-       @Override
-       public void draw() {
-           System.out.println("Vẽ hình chữ nhật với chiều dài " + length + " và chiều rộng " + width);
-       }
+      @Override
+      public void draw() {
+          System.out.println("Vẽ hình chữ nhật với chiều dài " + length + " và chiều rộng " + width);
+      }
 
-       // Ghi đè phương thức default
-       @Override
-       public void displayInfo() {
-           System.out.println("Hình chữ nhật đang được vẽ với công cụ đặc biệt");
-       }
+      // Ghi đè phương thức default
+      @Override
+      public void displayInfo() {
+          System.out.println("Hình chữ nhật đang được vẽ với công cụ đặc biệt");
+      }
    }
 
    public class InterfaceDemo {
-       public static void main(String[] args) {
-           // Sử dụng static method của interface
-           Drawable.description();
+      public static void main(String[] args) {
+          // Sử dụng static method của interface
+          Drawable.description();
 
-           // Tạo đối tượng
-           Drawable circle = new Circle(5.0);
-           Drawable rectangle = new Rectangle(4.0, 6.0);
+          // Tạo đối tượng
+          Drawable circle = new Circle(5.0);
+          Drawable rectangle = new Rectangle(4.0, 6.0);
 
-           // Gọi phương thức draw
-           circle.draw();
-           circle.displayInfo(); // Sử dụng default method
+          // Gọi phương thức draw
+          circle.draw();
+          circle.displayInfo(); // Sử dụng default method
 
-           rectangle.draw();
-           rectangle.displayInfo(); // Sử dụng phương thức đã ghi đè
+          rectangle.draw();
+          rectangle.displayInfo(); // Sử dụng phương thức đã ghi đè
 
-           // Sử dụng interface để tạo mảng đa hình
-           Drawable[] shapes = {circle, rectangle};
+          // Sử dụng interface để tạo mảng đa hình
+          Drawable[] shapes = {circle, rectangle};
 
-           System.out.println("\n--- Sử dụng mảng interface ---");
-           for (Drawable shape : shapes) {
-               shape.draw();
-           }
-       }
+          System.out.println("\n--- Sử dụng mảng interface ---");
+          for (Drawable shape : shapes) {
+              shape.draw();
+          }
+      }
    }
    ```
 
@@ -1202,6 +1200,10 @@
    ```
 
 3. **Abstract Class vs Interface:**
+
+   - Có thể có cả phương thức trừu tượng và phương thức không trừu tượng.
+   - Có thể có thuộc tính (fields).
+   - Chỉ có thể kế thừa một lớp trừu tượng (single inheritance).
 
    ```java
    // Abstract Class
@@ -1460,7 +1462,7 @@
 
 ## 🧪 BÀI TẬP LỚN CUỐI PHẦN
 
-### **Đề bài: Quản lý sinh viên, giảng viên và khóa học**
+### Đề bài: Quản lý sinh viên, giảng viên và khóa học
 
 Viết chương trình:
 

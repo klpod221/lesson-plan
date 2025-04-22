@@ -11,8 +11,8 @@
   - [🧑‍🏫 Bài 4: Cách sử dụng mảng và chuỗi kết hợp](#-bài-4-cách-sử-dụng-mảng-và-chuỗi-kết-hợp)
   - [🧑‍🏫 Bài 5: Hàm và mảng](#-bài-5-hàm-và-mảng)
   - [🧪 BÀI TẬP LỚN CUỐI PHẦN](#-bài-tập-lớn-cuối-phần)
-    - [**Đề bài: Quản lý điểm sinh viên với mảng**](#đề-bài-quản-lý-điểm-sinh-viên-với-mảng)
-    - [**Kết quả chạy chương trình (Ví dụ):**](#kết-quả-chạy-chương-trình-ví-dụ)
+    - [Đề bài: Quản lý điểm sinh viên với mảng](#đề-bài-quản-lý-điểm-sinh-viên-với-mảng)
+    - [Kết quả chạy chương trình (Ví dụ)](#kết-quả-chạy-chương-trình-ví-dụ)
 
 ## 🎯 Mục tiêu tổng quát
 
@@ -24,10 +24,10 @@
 
 ## 🧑‍🏫 Bài 1: Mảng trong Java
 
-- Khái niệm mảng và cách khai báo mảng một chiều, hai chiều.
-- Cách truy cập và sửa đổi phần tử mảng.
-- Mảng trong Java là đối tượng, có thuộc tính `length`.
-- Mảng trong Java có thể chứa các kiểu dữ liệu bất kỳ, kể cả đối tượng.
+- Mảng Java là đối tượng lưu trữ trên heap
+- Biến mảng chứa tham chiếu đến đối tượng mảng
+- Các phần tử được lưu trữ liên tiếp trong bộ nhớ
+- Mỗi phần tử có thể truy cập qua chỉ số (index)
 
 1. **Khai báo và khởi tạo mảng:**
 
@@ -90,13 +90,6 @@
                                    [ Địa chỉ hàng 2 ] → [ 7 | 8 | 9 ]
    ```
 
-   Đặc điểm quan trọng:
-
-   - Mảng Java là đối tượng lưu trữ trên heap
-   - Biến mảng chứa tham chiếu đến đối tượng mảng
-   - Các phần tử được lưu trữ liên tiếp trong bộ nhớ
-   - Mỗi phần tử có thể truy cập qua chỉ số (index)
-
 4. **Truy cập và sửa đổi phần tử:**
 
    ```java
@@ -141,10 +134,9 @@
 
 ## 🧑‍🏫 Bài 2: Chuỗi trong Java
 
-- Khái niệm chuỗi (String) và cách sử dụng.
-- Các phương thức phổ biến của lớp `String`: `length()`, `substring()`, `equals()`, `indexOf()`, `toUpperCase()`, `toLowerCase()`, v.v.
-- So sánh chuỗi với toán tử `==` và phương thức `equals()` của `String`.
-- Các cách tạo chuỗi: thông qua constructor, hoặc trực tiếp sử dụng ký tự nháy kép (`" "`).
+- Chuỗi là một đối tượng trong Java, không phải kiểu dữ liệu nguyên thủy.
+- Chuỗi là một mảng các ký tự (char).
+- Các chuỗi trong Java là bất biến (immutable), nghĩa là không thể thay đổi nội dung của chuỗi sau khi đã tạo.
 
 1. **Khai báo và khởi tạo chuỗi:**
 
@@ -235,10 +227,7 @@
 
 ## 🧑‍🏫 Bài 3: Hàm trong Java
 
-- Khái niệm hàm (method) và cú pháp khai báo.
-- Các kiểu giá trị trả về của hàm: `void`, kiểu dữ liệu cơ bản (int, double, boolean,...), đối tượng.
-- Cách truyền tham số vào hàm.
-- Phạm vi của biến (local variable, parameter, global variable).
+- Hàm (hay phương thức) là một khối mã lệnh có thể được gọi và thực thi nhiều lần trong chương trình. Giúp tổ chức mã lệnh, tái sử dụng và làm cho chương trình dễ đọc hơn.
 
 1. **Cú pháp khai báo hàm:**
 
@@ -353,10 +342,6 @@
 ---
 
 ## 🧑‍🏫 Bài 4: Cách sử dụng mảng và chuỗi kết hợp
-
-- Làm việc với mảng chuỗi (array of strings).
-- Xử lý chuỗi trong mảng: tìm kiếm, sắp xếp, thay thế.
-- Thực hành với các thao tác trên mảng và chuỗi trong các tình huống thực tế.
 
 1. **Khai báo và khởi tạo mảng chuỗi:**
 
@@ -512,10 +497,6 @@
 ---
 
 ## 🧑‍🏫 Bài 5: Hàm và mảng
-
-- Tạo các hàm thao tác với mảng: tính tổng mảng, tìm giá trị lớn nhất, nhỏ nhất, sắp xếp mảng.
-- Cách sử dụng mảng trong các hàm và truyền mảng vào như tham số.
-- Lợi ích của việc chia chương trình thành các hàm trong lập trình.
 
 1. **Truyền mảng vào hàm:**
 
@@ -713,7 +694,7 @@
 
 ## 🧪 BÀI TẬP LỚN CUỐI PHẦN
 
-### **Đề bài: Quản lý điểm sinh viên với mảng**
+### Đề bài: Quản lý điểm sinh viên với mảng
 
 Viết chương trình:
 
@@ -728,7 +709,7 @@ Các chức năng cần có:
 - Hàm xếp loại học lực dựa trên điểm trung bình.
 - Hàm hiển thị kết quả cho tất cả sinh viên.
 
-### **Kết quả chạy chương trình (Ví dụ):**
+### Kết quả chạy chương trình (Ví dụ)
 
 ```text
 Nhập số lượng sinh viên: 3
