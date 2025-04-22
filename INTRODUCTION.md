@@ -539,9 +539,9 @@ Mạng máy tính
 
 ---
 
-Như vậy, bạn đã có cái nhìn tổng quan về lập trình, ngôn ngữ lập trình, máy tính, hệ điều hành, mạng máy tính, công cụ lập trình và quản lý dự án lập trình. Những kiến thức này sẽ là nền tảng vững chắc cho bạn trong quá trình học tập và phát triển kỹ năng lập trình của mình.
+Như vậy, bạn đã được trang bị cái nhìn tổng quan về thế giới lập trình: từ các ngôn ngữ và khái niệm cơ bản, kiến trúc máy tính và hệ điều hành, đến mạng máy tính, công cụ phát triển, và phương pháp quản lý dự án. Đây chính là nền móng vững chắc để bạn tiếp tục hành trình học tập và phát triển kỹ năng lập trình của mình.
 
-Tôi biết, khi bạn bắt tay vào việc tự học theo lộ trình này, bạn sẽ gặp rất nhiều khó khăn. Nhưng đừng lo lắng, ở phần tiếp theo tôi sẽ hướng dẫn bạn cách tự học, cách tìm kiếm tài liệu, cách học hiệu quả và cách giải quyết các vấn đề mà bạn gặp phải trong quá trình học tập. Hãy kiên nhẫn và cố gắng, bạn sẽ thành công!
+Tôi hiểu rằng khi bắt đầu tự học theo lộ trình này, bạn có thể sẽ đối mặt với nhiều thử thách. Đừng lo lắng! Ở phần tiếp theo, chúng ta sẽ cùng khám phá những phương pháp tự học hiệu quả, cách tìm kiếm và đánh giá tài liệu, và các chiến lược giải quyết vấn đề bạn có thể gặp phải trong hành trình học tập. Hãy kiên nhẫn, kiên trì, và tin rằng mỗi bước tiến nhỏ đều đang đưa bạn gần hơn đến thành công!
 
 ---
 

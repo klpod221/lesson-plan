@@ -35,8 +35,8 @@ Lưu ý: **Lộ trình này không phải một quy tắc mà là một hướng
     - [7. MẢNG, CHUỖI VÀ HÀM (1 tuần) /JAVA/Part2.md](#7-mảng-chuỗi-và-hàm-1-tuần-javapart2md)
     - [8. LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG (OOP) (1.5 tuần) /JAVA/Part3.md](#8-lập-trình-hướng-đối-tượng-oop-15-tuần-javapart3md)
     - [9. XỬ LÝ NGOẠI LỆ, FILE I/O VÀ COLLECTIONS (1.5 tuần) /JAVA/Part4.md](#9-xử-lý-ngoại-lệ-file-io-và-collections-15-tuần-javapart4md)
-    - [10. LUỒNG, ĐA LUỒNG VÀ JDBC (1 tuần) /JAVA/Part5.md](#10-luồng-đa-luồng-và-jdbc-1-tuần-javapart5md)
-    - [11. NHẬP MÔN SQL (1 tuần) /SQL/Part1.md](#11-nhập-môn-sql-1-tuần-sqlpart1md)
+    - [10. NHẬP MÔN SQL (1 tuần) /SQL/Part1.md](#10-nhập-môn-sql-1-tuần-sqlpart1md)
+    - [11. LUỒNG, ĐA LUỒNG VÀ JDBC (1 tuần) /JAVA/Part5.md](#11-luồng-đa-luồng-và-jdbc-1-tuần-javapart5md)
     - [12. SQL NÂNG CAO (1 tuần) /SQL/Part2.md](#12-sql-nâng-cao-1-tuần-sqlpart2md)
     - [13. SQL NÂNG CAO VÀ ỨNG DỤNG (1 tuần) /SQL/Part3.md](#13-sql-nâng-cao-và-ứng-dụng-1-tuần-sqlpart3md)
     - [14. SQL CHUYÊN SÂU VÀ HIỆU SUẤT (1 tuần) /SQL/Part4.md](#14-sql-chuyên-sâu-và-hiệu-suất-1-tuần-sqlpart4md)
@@ -221,17 +221,17 @@ Thời gian ước tính cho mỗi phần là tương đối và có thể thay 
 - Đọc ghi dữ liệu vào file văn bản.
 - Làm việc với các cấu trúc dữ liệu động trong Java: List, Set, Map.
 
-### 10. LUỒNG, ĐA LUỒNG VÀ JDBC (1 tuần) [/JAVA/Part5.md](./JAVA/Part5.md)
-
-- Hiểu cách xử lý nhập/xuất dữ liệu bằng luồng (Streams).
-- Làm quen với lập trình đa luồng (Multithreading).
-- Kết nối và thao tác dữ liệu với cơ sở dữ liệu sử dụng JDBC.
-
-### 11. NHẬP MÔN SQL (1 tuần) [/SQL/Part1.md](./SQL/Part1.md)
+### 10. NHẬP MÔN SQL (1 tuần) [/SQL/Part1.md](./SQL/Part1.md)
 
 - Làm quen với cú pháp và cách sử dụng ngôn ngữ truy vấn SQL
 - Biết cách tạo cơ sở dữ liệu, bảng và thao tác dữ liệu
 - Hiểu được các câu lệnh truy vấn và kết hợp dữ liệu
+
+### 11. LUỒNG, ĐA LUỒNG VÀ JDBC (1 tuần) [/JAVA/Part5.md](./JAVA/Part5.md)
+
+- Hiểu cách xử lý nhập/xuất dữ liệu bằng luồng (Streams).
+- Làm quen với lập trình đa luồng (Multithreading).
+- Kết nối và thao tác dữ liệu với cơ sở dữ liệu sử dụng JDBC.
 
 ### 12. SQL NÂNG CAO (1 tuần) [/SQL/Part2.md](./SQL/Part2.md)
 

@@ -1169,6 +1169,6 @@ Yêu cầu:
 
 ---
 
-[⬅️ Trở lại: JAVA/Part4.md](../JAVA/Part4.md) |
+[⬅️ Trở lại: SQL/Part1.md](../SQL/Part1.md) |
 [🏠 Home](../README.md) |
-[➡️ Tiếp theo: SQL/Part1.md](../SQL/Part1.md)
+[➡️ Tiếp theo: SQL/Part2.md](../SQL/Part2.md)

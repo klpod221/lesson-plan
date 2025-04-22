@@ -1146,6 +1146,12 @@ Yêu cầu:
 
 ---
 
+Sau khi hoàn thành phần này, bạn đã nắm vững các khái niệm nền tảng của Java - từ cú pháp, cấu trúc điều khiển, lập trình hướng đối tượng đến Collections Framework. Các ví dụ thực tế trong bài học đã giúp bạn có cơ hội áp dụng lý thuyết vào những tình huống cụ thể.Sau khi hoàn thành phần này, bạn đã nắm vững các khái niệm cơ bản về Java, từ cú pháp, cấu trúc điều khiển, OOP đến Collections Framework. Bạn cũng đã có những ví dụ thực tế để áp dụng kiến thức vào thực tiễn.
+
+Đến đây, chúng ta sẽ tạm gác lại hành trình với Java để bước vào thế giới của SQL - ngôn ngữ truy vấn cơ sở dữ liệu được sử dụng rộng rãi nhất hiện nay. Việc này không chỉ mở rộng kiến thức cho bạn mà còn giúp bạn hiểu sâu hơn về cách thức ứng dụng Java tương tác với cơ sở dữ liệu - một kỹ năng thiết yếu trong hầu hết các dự án phát triển phần mềm thực tế.
+
+---
+
 [⬅️ Trở lại: JAVA/Part3.md](../JAVA/Part3.md) |
 [🏠 Home](../README.md) |
-[➡️ Tiếp theo: JAVA/Part5.md](../JAVA/Part5.md)
+[➡️ Tiếp theo: SQL/Part1.md](../SQL/Part1.md)
