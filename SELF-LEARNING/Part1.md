@@ -278,4 +278,4 @@
 ---
 
 [🏠 Home](../README.md) |
-[➡️ Tiếp theo: /SELF-LEARNING/Part2.md](./Part2.md)
+[➡️ Tiếp theo: /SELF-LEARNING/Part2.md](../SELF-LEARNING/Part2.md)
