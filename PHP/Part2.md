@@ -1,8 +1,6 @@
 # 📘 PHẦN 2: LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG VỚI PHP
 
-
 - [📘 PHẦN 2: LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG VỚI PHP](#-phần-2-lập-trình-hướng-đối-tượng-với-php)
-  - [Nội dung](#nội-dung)
   - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
   - [🧑‍🏫 Bài 6: Lập trình hướng đối tượng trong PHP](#-bài-6-lập-trình-hướng-đối-tượng-trong-php)
   - [🧑‍🏫 Bài 7: Kế thừa và đa hình](#-bài-7-kế-thừa-và-đa-hình)
