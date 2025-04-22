@@ -325,3 +325,9 @@ Trang Hồ sơ cá nhân hoàn chỉnh với các phần:
 - Form liên hệ
 - Footer với thông tin liên lạc
 ```
+
+---
+
+[⬅️ Trở lại: DSA/Part5.md](../DSA/Part5.md) |
+[🏠 Home](../README.md) |
+[➡️ Tiếp theo: WEB/Part2.md](../WEB/Part2.md)

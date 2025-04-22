@@ -2249,3 +2249,9 @@ e-commerce-microservices/
 - **Frontend:** SPA sử dụng React/Vue/Angular
 - **API Gateway:** Nginx hoặc Kong
 - **Database:** MySQL cho mỗi service
+
+---
+
+[⬅️ Trở lại: PHP/Part4.md](../PHP/Part4.md) |
+[🏠 Home](../README.md) |
+[➡️ Tiếp theo: PHP/Part6.md](../PHP/Part6.md)

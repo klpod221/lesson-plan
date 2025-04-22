@@ -2957,6 +2957,6 @@ Xây dựng một hệ thống tìm kiếm văn bản đơn giản có thể:
 
 ---
 
-[⬅️ Trở lại: DSA/Part3.md](DSA/Part3.md) |
+[⬅️ Trở lại: DSA/Part3.md](../DSA/Part3.md) |
 [🏠 Home](../README.md) |
-[➡️ Tiếp theo: DSA/Part5.md](DSA/Part5.md)
+[➡️ Tiếp theo: DSA/Part5.md](../DSA/Part5.md)

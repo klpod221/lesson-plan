@@ -701,6 +701,6 @@ Yêu cầu:
 
 ---
 
-[⬅️ Trở lại: SQL/Part2.md](JQL/Part2.md) |
+[⬅️ Trở lại: SQL/Part2.md](../SQL/Part2.md) |
 [🏠 Home](../README.md) |
-[➡️ Tiếp theo: SQL/Part4.md](SQL/Part4.md)
+[➡️ Tiếp theo: SQL/Part4.md](../SQL/Part4.md)

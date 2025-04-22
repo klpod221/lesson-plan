@@ -732,3 +732,9 @@ TRANG QUẢN LÝ SẢN PHẨM
 - Form thêm sản phẩm mới
 - Thông báo kết quả sau khi thực hiện các thao tác
 ```
+
+---
+
+[⬅️ Trở lại: WEB/Part4.md](../WEB/Part4.md) |
+[🏠 Home](../README.md) |
+[➡️ Tiếp theo: PHP/Part1.md](../PHP/Part1.md)

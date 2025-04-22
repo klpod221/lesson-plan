@@ -717,6 +717,6 @@ Lê Văn C - Điểm trung bình: 6.00 - Xếp loại: Trung bình
 
 ---
 
-[⬅️ Trở lại: JAVA/Part1.md](JAVA/Part1.md) |
+[⬅️ Trở lại: JAVA/Part1.md](../JAVA/Part1.md) |
 [🏠 Home](../README.md) |
-[➡️ Tiếp theo: JAVA/Part3.md](JAVA/Part3.md)
+[➡️ Tiếp theo: JAVA/Part3.md](../JAVA/Part3.md)

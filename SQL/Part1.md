@@ -613,6 +613,6 @@ Yêu cầu:
 
 ---
 
-[⬅️ Trở lại: JAVA/Part5.md](JAVA/Part5.md) |
+[⬅️ Trở lại: JAVA/Part5.md](../JAVA/Part5.md) |
 [🏠 Home](../README.md) |
-[➡️ Tiếp theo: SQL/Part2.md](SQL/Part2.md)
+[➡️ Tiếp theo: SQL/Part2.md](../SQL/Part2.md)

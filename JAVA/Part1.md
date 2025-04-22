@@ -448,6 +448,6 @@ Xếp loại: Giỏi
 
 ---
 
-[⬅️ Trở lại: SELF-LEARNING/Part4.md](SELF-LEARNING/Part4.md) |
+[⬅️ Trở lại: SELF-LEARNING/Part4.md](../SELF-LEARNING/Part4.md) |
 [🏠 Home](../README.md) |
-[➡️ Tiếp theo: JAVA/Part2.md](JAVA/Part2.md)
+[➡️ Tiếp theo: JAVA/Part2.md](../JAVA/Part2.md)

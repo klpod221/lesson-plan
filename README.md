@@ -54,7 +54,7 @@ Tôi đã cố gắng tạo ra một lộ trình học tập rõ ràng và dễ 
     - [26. PHP NÂNG CAO VÀ KẾT NỐI DATABASE (1 tuần) /PHP/Part3.md](#26-php-nâng-cao-và-kết-nối-database-1-tuần-phppart3md)
     - [27. FRAMEWORK VÀ PHÁT TRIỂN ỨNG DỤNG WEB HIỆN ĐẠI (1 tuần) /PHP/Part4.md](#27-framework-và-phát-triển-ứng-dụng-web-hiện-đại-1-tuần-phppart4md)
     - [28. XU HƯỚNG HIỆN ĐẠI VÀ CÔNG NGHỆ MỚI TRONG PHP (1 tuần) /PHP/Part5.md](#28-xu-hướng-hiện-đại-và-công-nghệ-mới-trong-php-1-tuần-phppart5md)
-    - [29. PHÁT TRIỂN VÀ TRIỂN KHAI CHUYÊN NGHIỆP (1 tuần) /PHP/FINAL.md](#29-phát-triển-và-triển-khai-chuyên-nghiệp-1-tuần-phpfinalmd)
+    - [29. PHÁT TRIỂN VÀ TRIỂN KHAI CHUYÊN NGHIỆP (1 tuần) /PHP/Part6.md](#29-phát-triển-và-triển-khai-chuyên-nghiệp-1-tuần-phppart6md)
     - [30. DOCKER: NỀN TẢNG CONTAINER HÓA (1 tuần) /DOCKER/Docker.md](#30-docker-nền-tảng-container-hóa-1-tuần-dockerdockermd)
     - [31. KUBERNETES: HỆ THỐNG ĐIỀU PHỐI CONTAINER /DOCKER/Kubernetes.md](#31-kubernetes-hệ-thống-điều-phối-container-dockerkubernetesmd)
   - [🔄 Cập Nhật và Đóng Góp](#-cập-nhật-và-đóng-góp)
@@ -169,7 +169,7 @@ lesson-plan/
 │   ├── Part3.md   # PHP NÂNG CAO VÀ KẾT NỐI DATABASE
 │   ├── Part4.md   # FRAMEWORK VÀ PHÁT TRIỂN ỨNG DỤNG WEB HIỆN ĐẠI
 │   ├── Part5.md   # XU HƯỚNG HIỆN ĐẠI VÀ CÔNG NGHỆ MỚI TRONG PHP
-│   └── FINAL.md   # PHÁT TRIỂN VÀ TRIỂN KHAI CHUYÊN NGHIỆP
+│   └── Part6.md   # PHÁT TRIỂN VÀ TRIỂN KHAI CHUYÊN NGHIỆP
 ├── SELF-LEARNING/
 │   ├── Part1.md   # TÌM KIẾM THÔNG TIN HIỆU QUẢ
 │   ├── Part2.md   # XỬ LÝ TÀI LIỆU CHUYÊN NGÀNH
@@ -372,7 +372,7 @@ lesson-plan/
 - REST API và tích hợp với các frontend framework
 - Hiệu suất và bảo mật nâng cao
 
-### 29. PHÁT TRIỂN VÀ TRIỂN KHAI CHUYÊN NGHIỆP (1 tuần) [/PHP/FINAL.md](./PHP/FINAL.md)
+### 29. PHÁT TRIỂN VÀ TRIỂN KHAI CHUYÊN NGHIỆP (1 tuần) [/PHP/Part6.md](./PHP/Part6.md)
 
 - Xây dựng một ứng dụng web hoàn chỉnh với PHP
 - Triển khai và quản lý ứng dụng trên môi trường sản xuất

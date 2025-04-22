@@ -1030,6 +1030,6 @@ Yêu cầu:
 
 ---
 
-[⬅️ Trở lại: SQL/Part3.md](JQL/Part3.md) |
+[⬅️ Trở lại: SQL/Part3.md](../SQL/Part3.md) |
 [🏠 Home](../README.md) |
-[➡️ Tiếp theo: SQL/FINAL.md](SQL/FINAL.md)
+[➡️ Tiếp theo: SQL/FINAL.md](../SQL/FINAL.md)

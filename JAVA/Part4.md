@@ -1153,6 +1153,6 @@ Yêu cầu:
 
 ---
 
-[⬅️ Trở lại: JAVA/Part3.md](JAVA/Part3.md) |
+[⬅️ Trở lại: JAVA/Part3.md](../JAVA/Part3.md) |
 [🏠 Home](../README.md) |
-[➡️ Tiếp theo: JAVA/Part5.md](JAVA/Part5.md)
+[➡️ Tiếp theo: JAVA/Part5.md](../JAVA/Part5.md)

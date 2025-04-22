@@ -74,6 +74,6 @@ Xây dựng một ứng dụng Java quản lý thư viện mini có giao diện 
 
 ---
 
-[⬅️ Trở lại: SQL/FINAL.md](SQL/FINAL.md) |
+[⬅️ Trở lại: SQL/FINAL.md](../SQL/FINAL.md) |
 [🏠 Home](../README.md) |
-[➡️ Tiếp theo: DSA/Part1.md](DSA/Part1.md)
+[➡️ Tiếp theo: DSA/Part1.md](../DSA/Part1.md)

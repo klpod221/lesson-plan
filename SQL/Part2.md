@@ -233,6 +233,6 @@ Yêu cầu:
 
 ---
 
-[⬅️ Trở lại: SQL/Part1.md](JQL/Part1.md) |
+[⬅️ Trở lại: SQL/Part1.md](../SQL/Part1.md) |
 [🏠 Home](../README.md) |
-[➡️ Tiếp theo: SQL/Part3.md](SQL/Part3.md)
+[➡️ Tiếp theo: SQL/Part3.md](../SQL/Part3.md)

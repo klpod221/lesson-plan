@@ -336,6 +336,6 @@
 
 ---
 
-[⬅️ Trở lại: SELF-LEARNING/Part2.md](SELF-LEARNING/Part2.md) |
+[⬅️ Trở lại: SELF-LEARNING/Part2.md](../SELF-LEARNING/Part2.md) |
 [🏠 Home](../README.md) |
-[➡️ Tiếp theo: SELF-LEARNING/Part4.md](SELF-LEARNING/Part4.md)
+[➡️ Tiếp theo: SELF-LEARNING/Part4.md](../SELF-LEARNING/Part4.md)

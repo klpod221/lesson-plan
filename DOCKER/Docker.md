@@ -673,3 +673,9 @@ Xây dựng và triển khai một ứng dụng web đa tầng sử dụng Docke
 - Source code cùng với Dockerfile và docker-compose.yml
 - Các volumes được cấu hình đúng để dữ liệu tồn tại giữa các lần khởi động
 - Tài liệu hướng dẫn triển khai và sử dụng
+
+---
+
+[⬅️ Trở lại: DOCKER/Docker.md](../DOCKER/Docker.md.md) |
+[🏠 Home](../README.md) |
+[➡️ Tiếp theo: DOCKER/Kubernetes.md](../DOCKER/Kubernetes.md)

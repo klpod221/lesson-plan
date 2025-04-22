@@ -1816,3 +1816,9 @@ blog-app/
 - UI/UX thân thiện người dùng
 - Responsive trên nhiều thiết bị
 - Deployment thành công
+
+---
+
+[⬅️ Trở lại: WEB/Part3.md](../WEB/Part3.md) |
+[🏠 Home](../README.md) |
+[➡️ Tiếp theo: PHP/Part1.md](../PHP/Part1.md)

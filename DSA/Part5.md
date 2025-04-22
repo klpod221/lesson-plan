@@ -2807,6 +2807,6 @@ public class GPSApplication {
 
 ---
 
-[⬅️ Trở lại: DSA/Part4.md](DSA/Part4.md) |
+[⬅️ Trở lại: DSA/Part4.md](../DSA/Part4.md) |
 [🏠 Home](../README.md) |
-[➡️ Tiếp theo: WEB/Part1.md](WEB/Part1.md)
+[➡️ Tiếp theo: WEB/Part1.md](../WEB/Part1.md)

@@ -334,6 +334,6 @@
 
 ---
 
-[⬅️ Trở lại: SELF-LEARNING/Part3.md](SELF-LEARNING/Part3.md) |
+[⬅️ Trở lại: SELF-LEARNING/Part3.md](../SELF-LEARNING/Part3.md) |
 [🏠 Home](../README.md) |
-[➡️ Tiếp theo: JAVA/Part1.md](JAVA/Part1.md)
+[➡️ Tiếp theo: JAVA/Part1.md](../JAVA/Part1.md)

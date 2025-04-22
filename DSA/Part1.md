@@ -517,6 +517,6 @@ Cảm ơn bạn đã sử dụng chương trình!
 
 ---
 
-[⬅️ Trở lại: JAVA/FINAL.md](JAVA/FINAL.md) |
+[⬅️ Trở lại: JAVA/FINAL.md](../JAVA/FINAL.md) |
 [🏠 Home](../README.md) |
-[➡️ Tiếp theo: DSA/Part1.md](DSA/Part1.md)
+[➡️ Tiếp theo: DSA/Part1.md](../DSA/Part1.md)

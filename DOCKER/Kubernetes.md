@@ -1327,3 +1327,9 @@ Xây dựng hệ thống microservices hoàn chỉnh và triển khai trên Kube
 - Khả năng mở rộng tự động theo tải
 - Monitoring và alerting đầy đủ
 - CI/CD pipeline cho việc cập nhật ứng dụng
+
+---
+
+[⬅️ Trở lại: DOCKER/Kubernetes.md](../DOCKER/Kubernetes.md) |
+[🏠 Home](../README.md) |
+[➡️ Tiếp theo: FINAL.md](../FINAL.md)

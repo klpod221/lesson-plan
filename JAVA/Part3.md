@@ -1479,6 +1479,6 @@ Các chức năng cần có:
 
 ---
 
-[⬅️ Trở lại: JAVA/Part2.md](JAVA/Part2.md) |
+[⬅️ Trở lại: JAVA/Part2.md](../JAVA/Part2.md) |
 [🏠 Home](../README.md) |
-[➡️ Tiếp theo: JAVA/Part4.md](JAVA/Part4.md)
+[➡️ Tiếp theo: JAVA/Part4.md](../JAVA/Part4.md)
