@@ -1,6 +1,6 @@
 # 📘 PHẦN 2: LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG VỚI PHP
 
-## Table of Contents
+## Nội dung
 
 - [📘 PHẦN 2: LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG VỚI PHP](#-phần-2-lập-trình-hướng-đối-tượng-với-php)
   - [Table of Contents](#table-of-contents)

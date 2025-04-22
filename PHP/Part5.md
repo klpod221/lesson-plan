@@ -1,6 +1,6 @@
 # 📘 PHẦN 5: XU HƯỚNG HIỆN ĐẠI VÀ CÔNG NGHỆ MỚI TRONG PHP
 
-## Table of Contents
+## Nội dung
 
 - [📘 PHẦN 5: XU HƯỚNG HIỆN ĐẠI VÀ CÔNG NGHỆ MỚI TRONG PHP](#-phần-5-xu-hướng-hiện-đại-và-công-nghệ-mới-trong-php)
   - [Table of Contents](#table-of-contents)
@@ -1916,7 +1916,7 @@ function mandelbrot($w, $h, $max_iteration) {
             $c_im = (($y *<!-- filepath: /home/klpod221/Develop/lesson-plan/PHP/Part5.md -->
 # 📘 PHẦN 5: XU HƯỚNG HIỆN ĐẠI VÀ CÔNG NGHỆ MỚI TRONG PHP
 
-## Table of Contents
+## Nội dung
 
 - [📘 PHẦN 5: XU HƯỚNG HIỆN ĐẠI VÀ CÔNG NGHỆ MỚI TRONG PHP](#-phần-5-xu-hướng-hiện-đại-và-công-nghệ-mới-trong-php)
   - [Table of Contents](#table-of-contents)

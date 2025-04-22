@@ -1,6 +1,6 @@
 # 📘 PHẦN 3: KỸ THUẬT TỰ HỌC
 
-## Table of Contents
+## Nội dung
 
 - [📘 PHẦN 3: KỸ THUẬT TỰ HỌC](#-phần-3-kỹ-thuật-tự-học)
   - [Table of Contents](#table-of-contents)

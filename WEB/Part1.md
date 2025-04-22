@@ -1,6 +1,6 @@
 # 📘 PHẦN 1: NHẬP MÔN HTML
 
-## Table of Contents
+## Nội dung
 
 - [📘 PHẦN 1: NHẬP MÔN HTML](#-phần-1-nhập-môn-html)
   - [Table of Contents](#table-of-contents)

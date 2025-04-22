@@ -1,6 +1,6 @@
 # 📘 PHẦN 2: CẤU TRÚC DỮ LIỆU NÂNG CAO
 
-## Table of Contents
+## Nội dung
 
 - [📘 PHẦN 2: CẤU TRÚC DỮ LIỆU NÂNG CAO](#-phần-2-cấu-trúc-dữ-liệu-nâng-cao)
   - [Table of Contents](#table-of-contents)

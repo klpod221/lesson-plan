@@ -1,6 +1,6 @@
 # 📘 PHẦN 3: PHP NÂNG CAO VÀ KẾT NỐI DATABASE
 
-## Table of Contents
+## Nội dung
 
 - [📘 PHẦN 3: PHP NÂNG CAO VÀ KẾT NỐI DATABASE](#-phần-3-php-nâng-cao-và-kết-nối-database)
   - [Table of Contents](#table-of-contents)

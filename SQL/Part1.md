@@ -1,6 +1,6 @@
 # 📘 PHẦN 1: NHẬP MÔN SQL
 
-## Table of Contents
+## Nội dung
 
 - [📘 PHẦN 1: NHẬP MÔN SQL](#-phần-1-nhập-môn-sql)
   - [Table of Contents](#table-of-contents)

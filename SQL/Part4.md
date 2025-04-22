@@ -1,6 +1,6 @@
 # 📘 PHẦN 4: SQL CHUYÊN SÂU VÀ HIỆU SUẤT
 
-## Table of Contents
+## Nội dung
 
 - [📘 PHẦN 4: SQL CHUYÊN SÂU VÀ HIỆU SUẤT](#-phần-4-sql-chuyên-sâu-và-hiệu-suất)
   - [Table of Contents](#table-of-contents)

@@ -1,6 +1,6 @@
 # 📘 PHẦN 2: SQL NÂNG CAO
 
-## Table of Contents
+## Nội dung
 
 - [📘 PHẦN 2: SQL NÂNG CAO](#-phần-2-sql-nâng-cao)
   - [Table of Contents](#table-of-contents)

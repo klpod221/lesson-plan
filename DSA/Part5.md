@@ -1,6 +1,6 @@
 # 📘 PHẦN 5: THUẬT TOÁN ỨNG DỤNG VÀ TỐI ƯU HÓA
 
-## Table of Contents
+## Nội dung
 
 - [📘 PHẦN 5: THUẬT TOÁN ỨNG DỤNG VÀ TỐI ƯU HÓA](#-phần-5-thuật-toán-ứng-dụng-và-tối-ưu-hóa)
   - [Table of Contents](#table-of-contents)
@@ -1496,7 +1496,7 @@ private static int[][] addMatrices(int[][] A, int[][] B) {
 private static int[][] subtractMatrices(int[][]<!-- filepath: /home/klpod221/Develop/lesson-plan/DSA/Part5.md -->
 # 📘 PHẦN 5: THUẬT TOÁN ỨNG DỤNG VÀ TỐI ƯU HÓA
 
-## Table of Contents
+## Nội dung
 
 - [📘 PHẦN 5: THUẬT TOÁN ỨNG DỤNG VÀ TỐI ƯU HÓA](#-phần-5-thuật-toán-ứng-dụng-và-tối-ưu-hóa)
   - [Table of Contents](#table-of-contents)

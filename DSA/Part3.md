@@ -1,6 +1,6 @@
 # 📘 PHẦN 3: THUẬT TOÁN NÂNG CAO
 
-## Table of Contents
+## Nội dung
 
 - [📘 PHẦN 3: THUẬT TOÁN NÂNG CAO](#-phần-3-thuật-toán-nâng-cao)
   - [Table of Contents](#table-of-contents)

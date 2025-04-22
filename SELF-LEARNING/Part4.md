@@ -1,6 +1,6 @@
 # 📘 PHẦN 4: PHÁT TRIỂN BẢN THÂN LIÊN TỤC
 
-## Table of Contents
+## Nội dung
 
 - [📘 PHẦN 4: PHÁT TRIỂN BẢN THÂN LIÊN TỤC](#-phần-4-phát-triển-bản-thân-liên-tục)
   - [Table of Contents](#table-of-contents)

@@ -1,6 +1,6 @@
 # 📘 PHẦN 1: NHẬP MÔN JAVA
 
-## Table of Contents
+## Nội dung
 
 - [📘 PHẦN 1: NHẬP MÔN JAVA](#-phần-1-nhập-môn-java)
   - [Table of Contents](#table-of-contents)

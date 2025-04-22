@@ -1,6 +1,6 @@
 # 📘 PHẦN 3: LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG (OOP)
 
-## Table of Contents
+## Nội dung
 
 - [📘 PHẦN 3: LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG (OOP)](#-phần-3-lập-trình-hướng-đối-tượng-oop)
   - [Table of Contents](#table-of-contents)

@@ -1,6 +1,6 @@
 # 📘 PHẦN 3: SQL NÂNG CAO VÀ ỨNG DỤNG
 
-## Table of Contents
+## Nội dung
 
 - [📘 PHẦN 3: SQL NÂNG CAO VÀ ỨNG DỤNG](#-phần-3-sql-nâng-cao-và-ứng-dụng)
   - [Table of Contents](#table-of-contents)

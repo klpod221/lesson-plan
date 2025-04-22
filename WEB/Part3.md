@@ -1,6 +1,6 @@
 # 📘 PHẦN 3: JAVASCRIPT - LẬP TRÌNH CHO WEB
 
-## Table of Contents
+## Nội dung
 
 - [📘 PHẦN 3: JAVASCRIPT - LẬP TRÌNH CHO WEB](#-phần-3-javascript---lập-trình-cho-web)
   - [Table of Contents](#table-of-contents)

@@ -1,6 +1,6 @@
 # 📘 PHẦN 1: NHẬP MÔN CẤU TRÚC DỮ LIỆU VÀ THUẬT TOÁN
 
-## Table of Contents
+## Nội dung
 
 - [📘 PHẦN 1: NHẬP MÔN CẤU TRÚC DỮ LIỆU VÀ THUẬT TOÁN](#-phần-1-nhập-môn-cấu-trúc-dữ-liệu-và-thuật-toán)
   - [Table of Contents](#table-of-contents)

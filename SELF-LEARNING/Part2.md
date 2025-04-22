@@ -1,6 +1,6 @@
 # 📘 PHẦN 2: XỬ LÝ TÀI LIỆU CHUYÊN NGÀNH
 
-## Table of Contents
+## Nội dung
 
 - [📘 PHẦN 2: XỬ LÝ TÀI LIỆU CHUYÊN NGÀNH](#-phần-2-xử-lý-tài-liệu-chuyên-ngành)
   - [Table of Contents](#table-of-contents)

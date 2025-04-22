@@ -1,6 +1,6 @@
 # 📘 PHẦN 1: TÌM KIẾM THÔNG TIN HIỆU QUẢ
 
-## Table of Contents
+## Nội dung
 
 - [📘 PHẦN 1: TÌM KIẾM THÔNG TIN HIỆU QUẢ](#-phần-1-tìm-kiếm-thông-tin-hiệu-quả)
   - [Table of Contents](#table-of-contents)

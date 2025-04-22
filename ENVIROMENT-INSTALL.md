@@ -9,7 +9,7 @@
 - Tôi đang sủ dụng một distro Linux có tên là [Arch Linux](https://archlinux.org/), với các hệ điều hành khác như Windows, macOS hoặc các distro Linux khác, tôi không thể đảm bảo rằng hướng dẫn này sẽ hoạt động. Tuy nhiên, bạn có thể tham khảo để tìm hiểu cách cài đặt môi trường học tập cho riêng mình.
 - Nếu bạn không có máy tính cá nhân, hãy tìm kiếm một máy tính khác để cài đặt môi trường học tập. Bạn có thể sử dụng máy tính của bạn bè, gia đình hoặc thậm chí là máy tính công cộng tại thư viện hoặc quán cà phê.
 
-## Table of Contents
+## Nội dung
 
 - [Cài đặt môi trường học tập JAVA, MySQL, WEB](#cài-đặt-môi-trường-học-tập-java-mysql-web)
   - [**Lưu ý:** Hãy đọc kỹ phần này trước khi bắt đầu cài đặt môi trường học tập](#lưu-ý-hãy-đọc-kỹ-phần-này-trước-khi-bắt-đầu-cài-đặt-môi-trường-học-tập)

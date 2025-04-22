@@ -1,6 +1,6 @@
 # 📘 KUBERNETES: HỆ THỐNG ĐIỀU PHỐI CONTAINER
 
-## Table of Contents
+## Nội dung
 
 - [📘 KUBERNETES: HỆ THỐNG ĐIỀU PHỐI CONTAINER](#-kubernetes-hệ-thống-điều-phối-container)
   - [Table of Contents](#table-of-contents)

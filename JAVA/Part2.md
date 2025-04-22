@@ -1,6 +1,6 @@
 # 📘 PHẦN 2: MẢNG, CHUỖI VÀ HÀM
 
-## Table of Contents
+## Nội dung
 
 - [📘 PHẦN 2: MẢNG, CHUỖI VÀ HÀM](#-phần-2-mảng-chuỗi-và-hàm)
   - [Table of Contents](#table-of-contents)

@@ -1,6 +1,6 @@
 # 📘 PHẦN 1: NHẬP MÔN PHP
 
-## Table of Contents
+## Nội dung
 
 - [📘 PHẦN 1: NHẬP MÔN PHP](#-phần-1-nhập-môn-php)
   - [Table of Contents](#table-of-contents)

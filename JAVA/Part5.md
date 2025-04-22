@@ -1,6 +1,6 @@
 # 📘 PHẦN 5: LUỒNG, ĐA LUỒNG VÀ JDBC
 
-## Table of Contents
+## Nội dung
 
 - [📘 PHẦN 5: LUỒNG, ĐA LUỒNG VÀ JDBC](#-phần-5-luồng-đa-luồng-và-jdbc)
   - [Table of Contents](#table-of-contents)

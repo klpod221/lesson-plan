@@ -1,6 +1,6 @@
 # 📘 PHẦN 4: CÁC CẤU TRÚC DỮ LIỆU CHUYÊN BIỆT
 
-## Table of Contents
+## Nội dung
 
 - [📘 PHẦN 4: CÁC CẤU TRÚC DỮ LIỆU CHUYÊN BIỆT](#-phần-4-các-cấu-trúc-dữ-liệu-chuyên-biệt)
   - [Table of Contents](#table-of-contents)
@@ -783,7 +783,7 @@ public class BPlusTree {
             node = node<!-- filepath: /home/klpod221/Develop/lesson-plan/DSA/Part4.md -->
 # 📘 PHẦN 4: CÁC CẤU TRÚC DỮ LIỆU CHUYÊN BIỆT
 
-## Table of Contents
+## Nội dung
 - [📘 PHẦN 4: CÁC CẤU TRÚC DỮ LIỆU CHUYÊN BIỆT](#-phần-4-các-cấu-trúc-dữ-liệu-chuyên-biệt)
   - [Table of Contents](#table-of-contents)
   - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)

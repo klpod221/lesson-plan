@@ -1,6 +1,6 @@
 # 📘 PHẦN 2: CSS - ĐỊNH DẠNG TRANG WEB
 
-## Table of Contents
+## Nội dung
 
 - [📘 PHẦN 2: CSS - ĐỊNH DẠNG TRANG WEB](#-phần-2-css---định-dạng-trang-web)
   - [Table of Contents](#table-of-contents)
