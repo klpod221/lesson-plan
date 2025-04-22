@@ -465,16 +465,16 @@ Mạng máy tính
 
 1. **Tổ chức thư mục**: (ví dụ, có thể khác tùy theo ngôn ngữ và framework)
 
-```plaintext
-├── src/        # Code chính
-├── build/      # Tập tin biên dịch (nếu có)
-├── tests/      # Tập tin kiểm thử
-├── docs/       # Tài liệu
-├── .gitignore  # Tập tin để loại trừ các file không cần thiết khỏi git (sẽ được giải thích ở phần sau)
-├── README.md   # Tài liệu giới thiệu dự án
-├── LICENSE     # Giấy phép sử dụng
-└── .env        # Tập tin cấu hình môi trường (nếu có)
-````
+   ```plaintext
+   ├── src/        # Code chính
+   ├── build/      # Tập tin biên dịch (nếu có)
+   ├── tests/      # Tập tin kiểm thử
+   ├── docs/       # Tài liệu
+   ├── .gitignore  # Tập tin để loại trừ các file không cần thiết khỏi git (sẽ được giải thích ở phần sau)
+   ├── README.md   # Tài liệu giới thiệu dự án
+   ├── LICENSE     # Giấy phép sử dụng
+   └── .env        # Tập tin cấu hình môi trường (nếu có)
+   ```
 
 2. **Tách biệt mối quan tâm (Separation of Concerns)**:
 
@@ -536,6 +536,12 @@ Mạng máy tính
    - Không lưu thông tin nhạy cảm trong mã nguồn
    - Sử dụng environment variables cho thông tin cấu hình
    - Tránh các lỗi bảo mật phổ biến (SQL Injection, XSS)
+
+---
+
+Như vậy, bạn đã có cái nhìn tổng quan về lập trình, ngôn ngữ lập trình, máy tính, hệ điều hành, mạng máy tính, công cụ lập trình và quản lý dự án lập trình. Những kiến thức này sẽ là nền tảng vững chắc cho bạn trong quá trình học tập và phát triển kỹ năng lập trình của mình.
+
+Tôi biết, khi bạn bắt tay vào việc tự học theo lộ trình này, bạn sẽ gặp rất nhiều khó khăn. Nhưng đừng lo lắng, ở phần tiếp theo tôi sẽ hướng dẫn bạn cách tự học, cách tìm kiếm tài liệu, cách học hiệu quả và cách giải quyết các vấn đề mà bạn gặp phải trong quá trình học tập. Hãy kiên nhẫn và cố gắng, bạn sẽ thành công!
 
 ---
 

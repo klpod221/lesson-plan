@@ -23,12 +23,14 @@
 
 ## 🧑‍🏫 Bài 1: Xử lý ngoại lệ (Exception Handling)
 
-- Khái niệm ngoại lệ và sự khác biệt giữa lỗi (error) và ngoại lệ (exception).
-- Cơ chế xử lý: `try - catch - finally`.
-- Từ khóa `throw` và `throws`.
-- Tạo và ném ngoại lệ tùy chỉnh (custom exception).
-
 1. **Khái niệm ngoại lệ (Exception) và cơ chế xử lý:**
+
+   - Ngoại lệ là một sự kiện không mong muốn xảy ra trong quá trình thực thi chương trình, làm gián đoạn luồng thực thi bình thường.
+   - Cơ chế xử lý ngoại lệ giúp chương trình không bị dừng lại mà có thể xử lý lỗi một cách linh hoạt.
+   - Các loại ngoại lệ trong Java:
+     - Checked Exception: Ngoại lệ đã được kiểm tra tại thời điểm biên dịch (ví dụ: IOException).
+     - Unchecked Exception: Ngoại lệ không được kiểm tra tại thời điểm biên dịch (ví dụ: NullPointerException, ArithmeticException).
+     - Error: Lỗi nghiêm trọng không thể xử lý (ví dụ: OutOfMemoryError).
 
    ```java
    // Cấu trúc try-catch cơ bản
@@ -126,11 +128,6 @@
 ---
 
 ## 🧑‍🏫 Bài 2: Đọc ghi file văn bản
-
-- Làm việc với các lớp `File`, `FileReader`, `BufferedReader`, `FileWriter`, `BufferedWriter`.
-- Đọc dữ liệu từ file dòng theo dòng.
-- Ghi dữ liệu vào file, ghi đè và ghi nối tiếp.
-- Xử lý các lỗi thường gặp khi thao tác file.
 
 1. **Đọc file với FileReader và BufferedReader:**
 
@@ -330,10 +327,6 @@
 
 ## 🧑‍🏫 Bài 3: Giới thiệu Collections Framework
 
-- Tổng quan về Collections Framework trong Java.
-- Sự khác biệt giữa Collection và Map.
-- Tầm quan trọng của collections trong xử lý dữ liệu lớn và linh hoạt.
-
 1. **Tổng quan về Collections Framework:**
 
    ```java
@@ -493,12 +486,10 @@
 
 ## 🧑‍🏫 Bài 4: List, Set và Map
 
-- `ArrayList`, `LinkedList`: cách sử dụng và khi nào dùng.
-- `HashSet`, `TreeSet`: tập hợp không trùng lặp, sắp xếp.
-- `HashMap`, `TreeMap`: lưu trữ dữ liệu dưới dạng key-value.
-- Các thao tác cơ bản: thêm, xóa, duyệt, tìm kiếm, cập nhật.
-
 1. **ArrayList và LinkedList:**
+
+   - `ArrayList`: danh sách động, truy cập nhanh theo chỉ số.
+   - `LinkedList`: danh sách liên kết, thêm/xóa nhanh ở đầu/cuối.
 
    ```java
    import java.util.ArrayList;
@@ -547,6 +538,9 @@
 
 2. **HashSet và TreeSet:**
 
+   - `HashSet`: không có thứ tự, không cho phép phần tử trùng lặp.
+   - `TreeSet`: tự động sắp xếp theo thứ tự tự nhiên hoặc theo Comparator.
+
    ```java
    import java.util.HashSet;
    import java.util.Set;
@@ -592,6 +586,9 @@
    ```
 
 3. **HashMap và TreeMap:**
+
+   - `HashMap`: không có thứ tự, cho phép key null, nhanh nhất.
+   - `TreeMap`: tự động sắp xếp theo key, không cho phép key null.
 
    ```java
    import java.util.HashMap;
@@ -726,10 +723,6 @@
 ---
 
 ## 🧑‍🏫 Bài 5: Kết hợp File và Collections
-
-- Đọc dữ liệu từ file vào các collection.
-- Lưu dữ liệu từ collection ra file.
-- Ứng dụng xử lý dữ liệu lớn, tự động hóa lưu trữ và truy xuất dữ liệu.
 
 1. **Đọc file và lưu vào List:**
 
