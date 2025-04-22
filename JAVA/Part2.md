@@ -58,7 +58,46 @@
    };
    ```
 
-3. **Truy cập và sửa đổi phần tử:**
+3. **Cách lưu mảng trong bộ nhớ:**
+
+   ```text
+   // Minh họa cách mảng một chiều được lưu trong bộ nhớ
+   int[] numbers = {10, 20, 30, 40, 50};
+   ```
+
+   Mô hình bộ nhớ:
+
+   ```text
+   Biến numbers  →  [ Địa chỉ ] → [ 10 | 20 | 30 | 40 | 50 ]
+   (Tham chiếu)      (Heap)       [0]  [1]  [2]  [3]  [4]  (Chỉ số)
+   ```
+
+   Mảng hai chiều:
+
+   ```text
+   int[][] matrix = {
+        {1, 2, 3},
+        {4, 5, 6},
+        {7, 8, 9}
+   };
+   ```
+
+   Mô hình bộ nhớ:
+
+   ```text
+   Biến matrix    →  [ Địa chỉ ] → [ Địa chỉ hàng 0 ] → [ 1 | 2 | 3 ]
+   (Tham chiếu)      (Heap)       [ Địa chỉ hàng 1 ] → [ 4 | 5 | 6 ]
+                                            [ Địa chỉ hàng 2 ] → [ 7 | 8 | 9 ]
+   ```
+
+   Đặc điểm quan trọng:
+
+   - Mảng Java là đối tượng lưu trữ trên heap
+   - Biến mảng chứa tham chiếu đến đối tượng mảng
+   - Các phần tử được lưu trữ liên tiếp trong bộ nhớ
+   - Mỗi phần tử có thể truy cập qua chỉ số (index)
+
+4. **Truy cập và sửa đổi phần tử:**
 
    ```java
    int[] numbers = {10, 20, 30, 40, 50};
@@ -80,7 +119,7 @@
    }
    ```
 
-4. **Ví dụ thực tế - Tính điểm trung bình:**
+5. **Ví dụ thực tế - Tính điểm trung bình:**
 
    ```java
    public class AverageCalculator {
