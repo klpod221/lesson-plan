@@ -514,3 +514,9 @@ Mã số: SV001 | Tên: Nguyễn Văn A | Tuổi: 20 | Điểm TB: 8.5
 Chọn chức năng: 0
 Cảm ơn bạn đã sử dụng chương trình!
 ```
+
+---
+
+[⬅️ Trở lại: JAVA/FINAL.md](JAVA/FINAL.md) |
+[🏠 Home](../README.md) |
+[➡️ Tiếp theo: DSA/Part1.md](DSA/Part1.md)

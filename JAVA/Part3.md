@@ -1476,3 +1476,9 @@ Các chức năng cần có:
 - Lớp `Student` và `Teacher` kế thừa từ `Person`, với phương thức đặc thù.
 - Lớp `Course` quản lý các thông tin khóa học và người tham gia.
 - Phương thức đăng ký và hủy khóa học trong lớp `Student`.
+
+---
+
+[⬅️ Trở lại: JAVA/Part2.md](JAVA/Part2.md) |
+[🏠 Home](../README.md) |
+[➡️ Tiếp theo: JAVA/Part4.md](JAVA/Part4.md)

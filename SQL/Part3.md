@@ -698,3 +698,9 @@ Yêu cầu:
 - Tạo các triggers để:
   - Tự động cập nhật số lượng sách khi có giao dịch mượn/trả
   - Kiểm tra điều kiện trước khi cho mượn sách
+
+---
+
+[⬅️ Trở lại: SQL/Part2.md](JQL/Part2.md) |
+[🏠 Home](../README.md) |
+[➡️ Tiếp theo: SQL/Part4.md](SQL/Part4.md)

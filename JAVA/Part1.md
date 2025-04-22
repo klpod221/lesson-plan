@@ -445,3 +445,9 @@ Sinh viên: Nguyễn Văn A
 Điểm trung bình: 8.33
 Xếp loại: Giỏi
 ```
+
+---
+
+[⬅️ Trở lại: SELF-LEARNING/Part4.md](SELF-LEARNING/Part4.md) |
+[🏠 Home](../README.md) |
+[➡️ Tiếp theo: JAVA/Part2.md](JAVA/Part2.md)

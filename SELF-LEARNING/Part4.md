@@ -331,3 +331,9 @@
    - Tối ưu hóa LinkedIn và GitHub profile
    - Tham gia ít nhất 2 cộng đồng online liên quan đến công nghệ
    - Kết nối với 5 chuyên gia trong lĩnh vực bạn quan tâm
+
+---
+
+[⬅️ Trở lại: SELF-LEARNING/Part3.md](SELF-LEARNING/Part3.md) |
+[🏠 Home](../README.md) |
+[➡️ Tiếp theo: JAVA/Part1.md](JAVA/Part1.md)

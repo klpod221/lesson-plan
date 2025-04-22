@@ -71,3 +71,9 @@ Xây dựng một ứng dụng Java quản lý thư viện mini có giao diện 
 
 - Thêm chức năng tìm kiếm nâng cao (ví dụ: theo khoảng ngày mượn).
 - Cho phép xuất dữ liệu thống kê ra file CSV.
+
+---
+
+[⬅️ Trở lại: SQL/FINAL.md](SQL/FINAL.md) |
+[🏠 Home](../README.md) |
+[➡️ Tiếp theo: DSA/Part1.md](DSA/Part1.md)

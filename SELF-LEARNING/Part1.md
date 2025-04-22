@@ -274,3 +274,8 @@
    - Chọn một chủ đề công nghệ
    - Tìm 5 nguồn thông tin khác nhau về chủ đề đó
    - Đánh giá độ tin cậy của từng nguồn theo tiêu chí đã học
+
+---
+
+[🏠 Home](../README.md) |
+[➡️ Tiếp theo: /SELF-LEARNING/Part2.md](./Part2.md)

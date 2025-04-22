@@ -47,3 +47,9 @@ Thiết kế và triển khai cơ sở dữ liệu hoàn chỉnh cho ứng dụn
    - Cung cấp stored procedures cho tất cả chức năng cần thiết
 
 Bài tập này sẽ kết hợp với bài tập Java để tạo thành một ứng dụng hoàn chỉnh, trong đó phần Java sẽ sử dụng cơ sở dữ liệu được thiết kế trong phần SQL.
+
+---
+
+[⬅️ Trở lại: SQL/Part4.md](JQL/Part4.md) |
+[🏠 Home](../README.md) |
+[➡️ Tiếp theo: JAVA/FINAL.md](JAVA/FINAL.md)

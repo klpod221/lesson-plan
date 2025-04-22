@@ -30,16 +30,16 @@ Tôi đã cố gắng tạo ra một lộ trình học tập rõ ràng và dễ 
     - [2. XỬ LÝ TÀI LIỆU CHUYÊN NGÀNH (0.5 tuần) /SELF-LEARNING/Part2.md](#2-xử-lý-tài-liệu-chuyên-ngành-05-tuần-self-learningpart2md)
     - [3. KỸ THUẬT TỰ HỌC (0.5 tuần) /SELF-LEARNING/Part3.md](#3-kỹ-thuật-tự-học-05-tuần-self-learningpart3md)
     - [4. PHÁT TRIỂN BẢN THÂN LIÊN TỤC (0.5 tuần) /SELF-LEARNING/Part4.md](#4-phát-triển-bản-thân-liên-tục-05-tuần-self-learningpart4md)
-    - [5. NHẬP MÔN Java (1 tuần) /JAVA/Part1.md](#5-nhập-môn-java-1-tuần-javapart1md)
-    - [6. Mảng, Chuỗi và Hàm (1 tuần) /JAVA/Part2.md](#6-mảng-chuỗi-và-hàm-1-tuần-javapart2md)
-    - [7. Lập trình hướng đối tượng (OOP) (1.5 tuần) /JAVA/Part3.md](#7-lập-trình-hướng-đối-tượng-oop-15-tuần-javapart3md)
-    - [8. Xử lý ngoại lệ, File I/O và Collections (1.5 tuần) /JAVA/Part4.md](#8-xử-lý-ngoại-lệ-file-io-và-collections-15-tuần-javapart4md)
+    - [5. NHẬP MÔN JAVA (1 tuần) /JAVA/Part1.md](#5-nhập-môn-java-1-tuần-javapart1md)
+    - [6. MẢNG, CHUỖI VÀ HÀM (1 tuần) /JAVA/Part2.md](#6-mảng-chuỗi-và-hàm-1-tuần-javapart2md)
+    - [7. LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG (OOP) (1.5 tuần) /JAVA/Part3.md](#7-lập-trình-hướng-đối-tượng-oop-15-tuần-javapart3md)
+    - [8. XỬ LÝ NGOẠI LỆ, FILE I/O VÀ COLLECTIONS (1.5 tuần) /JAVA/Part4.md](#8-xử-lý-ngoại-lệ-file-io-và-collections-15-tuần-javapart4md)
     - [9. LUỒNG, ĐA LUỒNG VÀ JDBC (1 tuần) /JAVA/Part5.md](#9-luồng-đa-luồng-và-jdbc-1-tuần-javapart5md)
     - [10. NHẬP MÔN SQL (1 tuần) /SQL/Part1.md](#10-nhập-môn-sql-1-tuần-sqlpart1md)
     - [11. SQL NÂNG CAO (1 tuần) /SQL/Part2.md](#11-sql-nâng-cao-1-tuần-sqlpart2md)
     - [12. SQL NÂNG CAO VÀ ỨNG DỤNG (1 tuần) /SQL/Part3.md](#12-sql-nâng-cao-và-ứng-dụng-1-tuần-sqlpart3md)
     - [13. SQL CHUYÊN SÂU VÀ HIỆU SUẤT (1 tuần) /SQL/Part4.md](#13-sql-chuyên-sâu-và-hiệu-suất-1-tuần-sqlpart4md)
-    - [14. DỰ ÁN TỔNG HỢP CUỐI KHÓA (2 tuần) /JAVA/FINAL.md và /SQL/FINAL.md](#14-dự-án-tổng-hợp-cuối-khóa-2-tuần-javafinalmd-và-sqlfinalmd)
+    - [14. DỰ ÁN TỔNG HỢP CUỐI KHÓA (2 tuần) /SQL/FINAL.md và /JAVA/FINAL.md](#14-dự-án-tổng-hợp-cuối-khóa-2-tuần-sqlfinalmd-và-javafinalmd)
     - [15. NHẬP MÔN CẤU TRÚC DỮ LIỆU VÀ THUẬT TOÁN (1.5 tuần) /DSA/Part1.md](#15-nhập-môn-cấu-trúc-dữ-liệu-và-thuật-toán-15-tuần-dsapart1md)
     - [16. CẤU TRÚC DỮ LIỆU NÂNG CAO (1.5 tuần) /DSA/Part2.md](#16-cấu-trúc-dữ-liệu-nâng-cao-15-tuần-dsapart2md)
     - [17. THUẬT TOÁN NÂNG CAO (1.5 tuần) /DSA/Part3.md](#17-thuật-toán-nâng-cao-15-tuần-dsapart3md)
@@ -222,23 +222,23 @@ lesson-plan/
 - Phát triển kỹ năng đóng góp cho cộng đồng và chia sẻ kiến thức
 - Quản lý sự nghiệp và thích ứng với môi trường công nghệ thay đổi nhanh chóng
 
-### 5. NHẬP MÔN Java (1 tuần) [/JAVA/Part1.md](./JAVA/Part1.md)
+### 5. NHẬP MÔN JAVA (1 tuần) [/JAVA/Part1.md](./JAVA/Part1.md)
 
 - Làm quen với cú pháp và cách tổ chức chương trình Java.
 - Biết cách khai báo biến, sử dụng kiểu dữ liệu, câu lệnh điều kiện và vòng lặp.
 
-### 6. Mảng, Chuỗi và Hàm (1 tuần) [/JAVA/Part2.md](./JAVA/Part2.md)
+### 6. MẢNG, CHUỖI VÀ HÀM (1 tuần) [/JAVA/Part2.md](./JAVA/Part2.md)
 
 - Làm quen với việc sử dụng mảng để lưu trữ và xử lý tập hợp dữ liệu.
 - Hiểu và làm việc với chuỗi trong Java.
 - Tạo và sử dụng hàm để tách chương trình thành các khối logic độc lập.
 
-### 7. Lập trình hướng đối tượng (OOP) (1.5 tuần) [/JAVA/Part3.md](./JAVA/Part3.md)
+### 7. LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG (OOP) (1.5 tuần) [/JAVA/Part3.md](./JAVA/Part3.md)
 
 - Hiểu và áp dụng các nguyên lý của lập trình hướng đối tượng trong Java.
 - Làm việc với các lớp, đối tượng, kế thừa, đóng gói, và đa hình.
 
-### 8. Xử lý ngoại lệ, File I/O và Collections (1.5 tuần) [/JAVA/Part4.md](./JAVA/Part4.md)
+### 8. XỬ LÝ NGOẠI LỆ, FILE I/O VÀ COLLECTIONS (1.5 tuần) [/JAVA/Part4.md](./JAVA/Part4.md)
 
 - Hiểu và xử lý lỗi bằng cách sử dụng cơ chế ngoại lệ trong Java.
 - Đọc ghi dữ liệu vào file văn bản.
@@ -274,7 +274,7 @@ lesson-plan/
 - Xử lý dữ liệu lớn một cách hiệu quả
 - Triển khai giải pháp dữ liệu phức tạp
 
-### 14. DỰ ÁN TỔNG HỢP CUỐI KHÓA (2 tuần) [/JAVA/FINAL.md](./JAVA/FINAL.md) và [/SQL/FINAL.md](./SQL/FINAL.md)
+### 14. DỰ ÁN TỔNG HỢP CUỐI KHÓA (2 tuần) [/SQL/FINAL.md](./SQL/FINAL.md) và [/JAVA/FINAL.md](./JAVA/FINAL.md)
 
 - Tích hợp kiến thức Java và SQL để xây dựng hệ thống quản lý thư viện hoàn chỉnh
 - Áp dụng các nguyên tắc thiết kế và kiến trúc phần mềm

@@ -1027,3 +1027,9 @@ Yêu cầu:
 - Tạo view và function để:
   - Hiển thị thời khóa biểu cho sinh viên
   - Kiểm tra xung đột lịch học khi đăng ký
+
+---
+
+[⬅️ Trở lại: SQL/Part3.md](JQL/Part3.md) |
+[🏠 Home](../README.md) |
+[➡️ Tiếp theo: SQL/FINAL.md](SQL/FINAL.md)

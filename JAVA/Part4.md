@@ -1150,3 +1150,9 @@ Yêu cầu:
 - Sử dụng `ArrayList` hoặc `HashMap` để lưu danh sách khóa học.
 - Lưu trữ dữ liệu vào file và nạp lại khi khởi động chương trình.
 - Xử lý các trường hợp lỗi như trùng mã khóa học, file không tồn tại,...
+
+---
+
+[⬅️ Trở lại: JAVA/Part3.md](JAVA/Part3.md) |
+[🏠 Home](../README.md) |
+[➡️ Tiếp theo: JAVA/Part5.md](JAVA/Part5.md)

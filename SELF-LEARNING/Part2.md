@@ -368,3 +368,9 @@
    - Đăng bài trên platform như Dev.to, Medium, hoặc blog cá nhân
    - Chia sẻ bài viết với cộng đồng và thu thập phản hồi
    - Cải thiện bài viết dựa trên các góp ý
+
+---
+
+[⬅️ Trở lại: SELF-LEARNING/Part1.md](SELF-LEARNING/Part1.md) |
+[🏠 Home](../README.md) |
+[➡️ Tiếp theo: SELF-LEARNING/Part3.md](SELF-LEARNING/Part3.md)

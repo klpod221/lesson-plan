@@ -610,3 +610,9 @@ Yêu cầu:
 ```
 
 ### **Nâng cao: tạo stored procedure để tự động cập nhật điểm trung bình và xếp loại**
+
+---
+
+[⬅️ Trở lại: JAVA/Part5.md](JAVA/Part5.md) |
+[🏠 Home](../README.md) |
+[➡️ Tiếp theo: SQL/Part2.md](SQL/Part2.md)
