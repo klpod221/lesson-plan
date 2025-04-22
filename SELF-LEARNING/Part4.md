@@ -53,10 +53,10 @@
 
 2. **Phân tích SWOT cho công nghệ mới**
 
-   - Strengths: Điểm mạnh về kỹ thuật, hiệu suất, UX
-   - Weaknesses: Hạn chế, vấn đề chưa được giải quyết
-   - Opportunities: Cơ hội ứng dụng, hệ sinh thái tiềm năng
-   - Threats: Rủi ro về kỹ thuật, rủi ro kinh doanh
+   - **S**trengths: Điểm mạnh về kỹ thuật, hiệu suất, UX
+   - **W**eaknesses: Hạn chế, vấn đề chưa được giải quyết
+   - **O**pportunities: Cơ hội ứng dụng, hệ sinh thái tiềm năng
+   - **T**hreats: Rủi ro về kỹ thuật, rủi ro kinh doanh
 
 3. **Thử nghiệm và đánh giá thực tế**
    - Xây dựng proof-of-concept (PoC) cho công nghệ mới

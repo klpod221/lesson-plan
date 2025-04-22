@@ -82,9 +82,9 @@ GitHub là dịch vụ lưu trữ Git trên cloud, cung cấp giao diện web đ
 
 **Sơ đồ hoạt động của Git:**
 
-```
+```text
 +------------+    git add     +-------------+    git commit    +----------------+
-| Working    | ------------->  | Staging     | --------------->  | Local          |
+| Working    | -------------> | Staging     | ---------------> | Local          |
 | Directory  |                | Area        |                  | Repository     |
 +------------+                +-------------+                  +----------------+
        ^                                                              |
@@ -92,10 +92,10 @@ GitHub là dịch vụ lưu trữ Git trên cloud, cung cấp giao diện web đ
        | git checkout                                         git push|
        |                                                              |
        |                                                              V
-       |                  git pull            +----------------+
-       +-------------------------------------------| Remote         |
-                                                   | Repository     |
-                                                   +----------------+
+       |                  git pull                     +----------------+
+       +-----------------------------------------------| Remote         |
+                                                       | Repository     |
+                                                       +----------------+
 ```
 
 **Cài đặt Git:**
@@ -103,7 +103,7 @@ GitHub là dịch vụ lưu trữ Git trên cloud, cung cấp giao diện web đ
 - **Windows**: Tải và cài đặt từ [git-scm.com](https://git-scm.com/)
 - **macOS**:
 
-  ```
+  ```bash
   brew install git
   ```
 
@@ -111,20 +111,20 @@ GitHub là dịch vụ lưu trữ Git trên cloud, cung cấp giao diện web đ
 
 - **Linux (Ubuntu/Debian)**:
 
-  ```
+  ```bash
   sudo apt-get update
   sudo apt-get install git
   ```
 
 **Kiểm tra cài đặt:**
 
-```
+```bash
 git --version
 ```
 
 **Cấu hình ban đầu:**
 
-```
+```bash
 git config --global user.name "Tên của bạn"
 git config --global user.email "email@example.com"
 ```
@@ -513,25 +513,25 @@ Git Flow là một mô hình phân nhánh giúp quản lý dự án phần mềm
           +-----------+    |      |    +-----------+
           |           |    |      |    |           |
           | hotfix    +----v------+----+ release   |
-          | branches  |                 | branches |
-          |           |                 |           |
-          +-----------+                 +-----------+
-                                ^
-                                |
-                        +-------+--------+
-                        |                |
-                        |  Development   |
-                        |  (develop)     |
-                        |                |
-                        +-------+--------+
-                                ^
-                                |
-                      +-----------------+
-                      |                 |
-                      |  Feature        |
-                      |  branches       |
-                      |                 |
-                      +-----------------+
+          | branches  |        ^       | branches  |
+          |           |        |       |           |
+          +-----------+        |       +-----------+
+                               |
+                               |
+                       +-------+--------+
+                       |                |
+                       |  Development   |
+                       |  (develop)     |
+                       |                |
+                       +-------+--------+
+                               ^
+                               |
+                       +-------+--------+
+                       |                |
+                       |  Feature       |
+                       |  branches      |
+                       |                |
+                       +----------------+
 ```
 
 1. **master/main**: Branch chính, chứa code sản phẩm
