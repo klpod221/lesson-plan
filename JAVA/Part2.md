@@ -1,9 +1,6 @@
 # 📘 PHẦN 2: MẢNG, CHUỖI VÀ HÀM
 
-## Nội dung
-
 - [📘 PHẦN 2: MẢNG, CHUỖI VÀ HÀM](#-phần-2-mảng-chuỗi-và-hàm)
-  - [Nội dung](#nội-dung)
   - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
   - [🧑‍🏫 Bài 1: Mảng trong JAVA](#-bài-1-mảng-trong-java)
   - [🧑‍🏫 Bài 2: Chuỗi trong JAVA](#-bài-2-chuỗi-trong-java)

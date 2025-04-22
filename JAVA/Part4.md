@@ -1,6 +1,5 @@
 # 📘 PHẦN 4: XỬ LÝ NGOẠI LỆ, FILE I/O VÀ COLLECTIONS
 
-## Nội dung
 
 - [📘 PHẦN 4: XỬ LÝ NGOẠI LỆ, FILE I/O VÀ COLLECTIONS](#-phần-4-xử-lý-ngoại-lệ-file-io-và-collections)
   - [Nội dung](#nội-dung)

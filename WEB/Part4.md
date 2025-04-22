@@ -1,9 +1,6 @@
 # 📘 PHẦN 4: FRAMEWORK & CÔNG CỤ PHÁT TRIỂN WEB HIỆN ĐẠI
 
-## Nội dung
-
 - [📘 PHẦN 4: FRAMEWORK \& CÔNG CỤ PHÁT TRIỂN WEB HIỆN ĐẠI](#-phần-4-framework--công-cụ-phát-triển-web-hiện-đại)
-  - [Nội dung](#nội-dung)
   - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
   - [🧑‍🏫 Bài 1: Giới thiệu về Frontend Framework](#-bài-1-giới-thiệu-về-frontend-framework)
   - [🧑‍🏫 Bài 2: Giới thiệu về React.js](#-bài-2-giới-thiệu-về-reactjs)

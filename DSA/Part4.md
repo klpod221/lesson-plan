@@ -1,9 +1,6 @@
 # 📘 PHẦN 4: CÁC CẤU TRÚC DỮ LIỆU CHUYÊN BIỆT
 
-## Nội dung
-
 - [📘 PHẦN 4: CÁC CẤU TRÚC DỮ LIỆU CHUYÊN BIỆT](#-phần-4-các-cấu-trúc-dữ-liệu-chuyên-biệt)
-  - [Nội dung](#nội-dung)
   - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
   - [🧑‍🏫 Bài 1: Cây cân bằng (AVL, Red-Black Trees)](#-bài-1-cây-cân-bằng-avl-red-black-trees)
   - [🧑‍🏫 Bài 2: Cây B và B+](#-bài-2-cây-b-và-b)
@@ -783,7 +780,6 @@ public class BPlusTree {
             node = node<!-- filepath: /home/klpod221/Develop/lesson-plan/DSA/Part4.md -->
 # 📘 PHẦN 4: CÁC CẤU TRÚC DỮ LIỆU CHUYÊN BIỆT
 
-## Nội dung
 - [📘 PHẦN 4: CÁC CẤU TRÚC DỮ LIỆU CHUYÊN BIỆT](#-phần-4-các-cấu-trúc-dữ-liệu-chuyên-biệt)
   - [Nội dung](#nội-dung)
   - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)

@@ -1,9 +1,6 @@
 # 📘 PHẦN 5: THUẬT TOÁN ỨNG DỤNG VÀ TỐI ƯU HÓA
 
-## Nội dung
-
 - [📘 PHẦN 5: THUẬT TOÁN ỨNG DỤNG VÀ TỐI ƯU HÓA](#-phần-5-thuật-toán-ứng-dụng-và-tối-ưu-hóa)
-  - [Nội dung](#nội-dung)
   - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
   - [🧑‍🏫 Bài 1: Thuật toán xử lý chuỗi](#-bài-1-thuật-toán-xử-lý-chuỗi)
     - [1. Tìm kiếm chuỗi con (String Matching)](#1-tìm-kiếm-chuỗi-con-string-matching)
@@ -1496,7 +1493,6 @@ private static int[][] addMatrices(int[][] A, int[][] B) {
 private static int[][] subtractMatrices(int[][]<!-- filepath: /home/klpod221/Develop/lesson-plan/DSA/Part5.md -->
 # 📘 PHẦN 5: THUẬT TOÁN ỨNG DỤNG VÀ TỐI ƯU HÓA
 
-## Nội dung
 
 - [📘 PHẦN 5: THUẬT TOÁN ỨNG DỤNG VÀ TỐI ƯU HÓA](#-phần-5-thuật-toán-ứng-dụng-và-tối-ưu-hóa)
   - [Nội dung](#nội-dung)

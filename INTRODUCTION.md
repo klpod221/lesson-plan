@@ -1,9 +1,6 @@
 # 📘 TỔNG QUAN VỀ LẬP TRÌNH
 
-## Nội dung
-
 - [📘 TỔNG QUAN VỀ LẬP TRÌNH](#-tổng-quan-về-lập-trình)
-  - [Nội dung](#nội-dung)
   - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
   - [🧑‍🏫 Bài 1: Giới thiệu về lập trình và ngôn ngữ lập trình](#-bài-1-giới-thiệu-về-lập-trình-và-ngôn-ngữ-lập-trình)
   - [🧑‍🏫 Bài 2: Cơ bản về máy tính, hệ điều hành và mạng máy tính](#-bài-2-cơ-bản-về-máy-tính-hệ-điều-hành-và-mạng-máy-tính)

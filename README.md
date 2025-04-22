@@ -10,11 +10,8 @@ Tôi đã cố gắng tạo ra một lộ trình học tập rõ ràng và dễ 
 
 Lưu ý: **Lộ trình này không phải một quy tắc mà là một hướng dẫn**
 
-## 📖 Nội Dung
-
 - [Lộ Trình Học Lập Trình Từ Cơ Bản Đến Nâng Cao](#lộ-trình-học-lập-trình-từ-cơ-bản-đến-nâng-cao)
   - [🎯 Giới Thiệu](#-giới-thiệu)
-  - [📖 Nội Dung](#-nội-dung)
   - [❓ Câu hỏi thường gặp](#-câu-hỏi-thường-gặp)
     - [Tại sao lại là JAVA, SQL, DSA và WEB?](#tại-sao-lại-là-java-sql-dsa-và-web)
     - [Đã có rất nhiều AI có thể giúp bạn học lập trình, tại sao bạn vẫn cần lộ trình này?](#đã-có-rất-nhiều-ai-có-thể-giúp-bạn-học-lập-trình-tại-sao-bạn-vẫn-cần-lộ-trình-này)

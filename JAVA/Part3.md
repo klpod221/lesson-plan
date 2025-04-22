@@ -1,9 +1,6 @@
 # 📘 PHẦN 3: LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG (OOP)
 
-## Nội dung
-
 - [📘 PHẦN 3: LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG (OOP)](#-phần-3-lập-trình-hướng-đối-tượng-oop)
-  - [Nội dung](#nội-dung)
   - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
   - [🧑‍🏫 Bài 1: Giới thiệu về OOP](#-bài-1-giới-thiệu-về-oop)
   - [🧑‍🏫 Bài 2: Lớp và Đối tượng](#-bài-2-lớp-và-đối-tượng)

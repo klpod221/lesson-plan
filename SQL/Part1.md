@@ -1,9 +1,6 @@
 # 📘 PHẦN 1: NHẬP MÔN SQL
 
-## Nội dung
-
 - [📘 PHẦN 1: NHẬP MÔN SQL](#-phần-1-nhập-môn-sql)
-  - [Nội dung](#nội-dung)
   - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
   - [🧑‍🏫 Bài 1: Giới thiệu về SQL và CSDL](#-bài-1-giới-thiệu-về-sql-và-csdl)
   - [🧑‍🏫 Bài 2: Tạo và quản lý cơ sở dữ liệu](#-bài-2-tạo-và-quản-lý-cơ-sở-dữ-liệu)
@@ -14,7 +11,6 @@
     - [Đề bài](#đề-bài)
     - [Yêu cầu](#yêu-cầu)
     - [Kết quả chạy chương trình (Ví dụ)](#kết-quả-chạy-chương-trình-ví-dụ)
-    - [Nâng cao](#nâng-cao)
 
 ## 🎯 Mục tiêu tổng quát
 
@@ -620,10 +616,6 @@ Xây dựng cơ sở dữ liệu để lưu trữ và quản lý điểm sinh vi
 |          5 | Hoàng Văn E   |        4.0 |           5.0 |             4.5 |          4.50 | Yếu         |
 +------------+---------------+------------+---------------+-----------------+---------------+-------------+
 ```
-
-### Nâng cao
-
-- Tạo stored procedure để tự động cập nhật điểm trung bình và xếp loại
 
 ---
 

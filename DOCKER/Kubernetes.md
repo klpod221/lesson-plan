@@ -1,9 +1,6 @@
 # 📘 KUBERNETES: HỆ THỐNG ĐIỀU PHỐI CONTAINER
 
-## Nội dung
-
 - [📘 KUBERNETES: HỆ THỐNG ĐIỀU PHỐI CONTAINER](#-kubernetes-hệ-thống-điều-phối-container)
-  - [Nội dung](#nội-dung)
   - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
   - [🧑‍🏫 Bài 1: Giới thiệu về Kubernetes](#-bài-1-giới-thiệu-về-kubernetes)
   - [🧑‍🏫 Bài 2: Kiến trúc Kubernetes](#-bài-2-kiến-trúc-kubernetes)

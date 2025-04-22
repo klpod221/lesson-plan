@@ -1,6 +1,5 @@
 # 📘 PHẦN 6: PHÁT TRIỂN VÀ TRIỂN KHAI CHUYÊN NGHIỆP
 
-## Nội dung
 
 - [📘 PHẦN 6: PHÁT TRIỂN VÀ TRIỂN KHAI CHUYÊN NGHIỆP](#-phần-6-phát-triển-và-triển-khai-chuyên-nghiệp)
   - [Nội dung](#nội-dung)

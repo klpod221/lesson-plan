@@ -1,6 +1,5 @@
 # 📘 PHẦN 1: NHẬP MÔN PHP
 
-## Nội dung
 
 - [📘 PHẦN 1: NHẬP MÔN PHP](#-phần-1-nhập-môn-php)
   - [Nội dung](#nội-dung)

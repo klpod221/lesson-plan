@@ -1,9 +1,6 @@
 # 📘 PHẦN 3: KỸ THUẬT TỰ HỌC
 
-## Nội dung
-
 - [📘 PHẦN 3: KỸ THUẬT TỰ HỌC](#-phần-3-kỹ-thuật-tự-học)
-  - [Nội dung](#nội-dung)
   - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
   - [🧑‍🏫 Bài 1: Tư duy và tâm lý của người tự học](#-bài-1-tư-duy-và-tâm-lý-của-người-tự-học)
   - [🧑‍🏫 Bài 2: Phương pháp học hiệu quả](#-bài-2-phương-pháp-học-hiệu-quả)

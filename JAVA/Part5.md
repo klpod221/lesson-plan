@@ -1,9 +1,6 @@
 # 📘 PHẦN 5: LUỒNG, ĐA LUỒNG VÀ JDBC
 
-## Nội dung
-
 - [📘 PHẦN 5: LUỒNG, ĐA LUỒNG VÀ JDBC](#-phần-5-luồng-đa-luồng-và-jdbc)
-  - [Nội dung](#nội-dung)
   - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
   - [🧑‍🏫 Bài 1: JAVA I/O Streams](#-bài-1-java-io-streams)
   - [🧑‍🏫 Bài 2: Đa luồng trong JAVA](#-bài-2-đa-luồng-trong-java)

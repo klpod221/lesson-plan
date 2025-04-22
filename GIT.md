@@ -1,9 +1,6 @@
 # 📘 GIT VÀ GITHUB CƠ BẢN
 
-## Nội dung
-
 - [📘 GIT VÀ GITHUB CƠ BẢN](#-git-và-github-cơ-bản)
-  - [Nội dung](#nội-dung)
   - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
   - [🧑‍🏫 Bài 1: Giới thiệu về Git và GitHub](#-bài-1-giới-thiệu-về-git-và-github)
   - [🧑‍🏫 Bài 2: Các lệnh Git cơ bản](#-bài-2-các-lệnh-git-cơ-bản)

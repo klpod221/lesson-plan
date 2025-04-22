@@ -1,9 +1,6 @@
 # 📘 PHẦN 2: CẤU TRÚC DỮ LIỆU NÂNG CAO
 
-## Nội dung
-
 - [📘 PHẦN 2: CẤU TRÚC DỮ LIỆU NÂNG CAO](#-phần-2-cấu-trúc-dữ-liệu-nâng-cao)
-  - [Nội dung](#nội-dung)
   - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
   - [🧑‍🏫 Bài 1: Ngăn xếp (Stack)](#-bài-1-ngăn-xếp-stack)
   - [🧑‍🏫 Bài 2: Hàng đợi (Queue)](#-bài-2-hàng-đợi-queue)

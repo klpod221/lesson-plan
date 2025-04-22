@@ -1,9 +1,6 @@
 # 📘 DOCKER: NỀN TẢNG CONTAINER HÓA
 
-## Nội dung
-
 - [📘 DOCKER: NỀN TẢNG CONTAINER HÓA](#-docker-nền-tảng-container-hóa)
-  - [Nội dung](#nội-dung)
   - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
   - [🧑‍🏫 Bài 1: Giới thiệu về Container và Docker](#-bài-1-giới-thiệu-về-container-và-docker)
   - [🧑‍🏫 Bài 2: Cài đặt và cấu hình Docker](#-bài-2-cài-đặt-và-cấu-hình-docker)

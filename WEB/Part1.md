@@ -1,9 +1,6 @@
 # 📘 PHẦN 1: NHẬP MÔN HTML
 
-## Nội dung
-
 - [📘 PHẦN 1: NHẬP MÔN HTML](#-phần-1-nhập-môn-html)
-  - [Nội dung](#nội-dung)
   - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
   - [🧑‍🏫 Bài 1: Giới thiệu HTML](#-bài-1-giới-thiệu-html)
   - [🧑‍🏫 Bài 2: Các thẻ HTML cơ bản](#-bài-2-các-thẻ-html-cơ-bản)

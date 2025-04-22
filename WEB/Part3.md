@@ -1,9 +1,6 @@
 # 📘 PHẦN 3: JAVASCRIPT - LẬP TRÌNH CHO WEB
 
-## Nội dung
-
 - [📘 PHẦN 3: JAVASCRIPT - LẬP TRÌNH CHO WEB](#-phần-3-javascript---lập-trình-cho-web)
-  - [Nội dung](#nội-dung)
   - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
   - [🧑‍🏫 Bài 1: Giới thiệu JavaScript](#-bài-1-giới-thiệu-javascript)
   - [🧑‍🏫 Bài 2: Cú pháp và biến trong JavaScript](#-bài-2-cú-pháp-và-biến-trong-javascript)

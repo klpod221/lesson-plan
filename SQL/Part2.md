@@ -1,9 +1,6 @@
 # 📘 PHẦN 2: SQL NÂNG CAO
 
-## Nội dung
-
 - [📘 PHẦN 2: SQL NÂNG CAO](#-phần-2-sql-nâng-cao)
-  - [Nội dung](#nội-dung)
   - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
   - [🧑‍🏫 Bài 1: Truy vấn nâng cao](#-bài-1-truy-vấn-nâng-cao)
     - [Truy vấn con (Subquery)](#truy-vấn-con-subquery)

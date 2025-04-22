@@ -1,9 +1,6 @@
 # 📘 PHẦN 2: XỬ LÝ TÀI LIỆU CHUYÊN NGÀNH
 
-## Nội dung
-
 - [📘 PHẦN 2: XỬ LÝ TÀI LIỆU CHUYÊN NGÀNH](#-phần-2-xử-lý-tài-liệu-chuyên-ngành)
-  - [Nội dung](#nội-dung)
   - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
   - [🧑‍🏫 Bài 1: Đọc và hiểu tài liệu kỹ thuật](#-bài-1-đọc-và-hiểu-tài-liệu-kỹ-thuật)
   - [🧑‍🏫 Bài 2: Xử lý paper nghiên cứu và bài báo học thuật](#-bài-2-xử-lý-paper-nghiên-cứu-và-bài-báo-học-thuật)

@@ -1,9 +1,6 @@
 # 📘 PHẦN 3: THUẬT TOÁN NÂNG CAO
 
-## Nội dung
-
 - [📘 PHẦN 3: THUẬT TOÁN NÂNG CAO](#-phần-3-thuật-toán-nâng-cao)
-  - [Nội dung](#nội-dung)
   - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
   - [🧑‍🏫 Bài 1: Thuật toán đệ quy](#-bài-1-thuật-toán-đệ-quy)
     - [**Ví dụ 1: Tính giai thừa**](#ví-dụ-1-tính-giai-thừa)
