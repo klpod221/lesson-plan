@@ -17,7 +17,7 @@
 
 ## 🎯 Mục tiêu tổng quát
 
-- Hiểu và áp dụng các nguyên lý của lập trình hướng đối tượng trong Java.
+- Hiểu và áp dụng các nguyên lý của lập trình hướng đối tượng trong JAVA.
 - Làm việc với các lớp, đối tượng, kế thừa, đóng gói, và đa hình.
 
 ---
@@ -476,7 +476,7 @@
    }
    ```
 
-3. **Các mức độ truy cập trong Java:**
+3. **Các mức độ truy cập trong JAVA:**
 
    | Mức độ truy cập | Truy cập trong cùng lớp | Truy cập trong cùng package | Truy cập từ lớp con (khác package) | Truy cập từ bất kỳ đâu |
    | --------------- | ----------------------- | --------------------------- | ---------------------------------- | ---------------------- |
@@ -1026,9 +1026,9 @@
 
 ## 🧑‍🏫 Bài 6: Interface và Abstract Class
 
-1. **Interface trong Java:**
+1. **Interface trong JAVA:**
 
-   - Interface là một kiểu dữ liệu đặc biệt trong Java, cho phép định nghĩa các phương thức mà không có thân hàm. Các lớp khác có thể triển khai interface này và cung cấp thân hàm cho các phương thức đã định nghĩa.
+   - Interface là một kiểu dữ liệu đặc biệt trong JAVA, cho phép định nghĩa các phương thức mà không có thân hàm. Các lớp khác có thể triển khai interface này và cung cấp thân hàm cho các phương thức đã định nghĩa.
 
    ```java
    // Khai báo interface
@@ -1039,12 +1039,12 @@
       // Các phương thức trừu tượng (mặc định là public abstract)
       void draw();
 
-      // Java 8 trở lên: default method
+      // JAVA 8 trở lên: default method
       default void displayInfo() {
           System.out.println("Đang vẽ bằng " + TOOL);
       }
 
-      // Java 8 trở lên: static method
+      // JAVA 8 trở lên: static method
       static void description() {
           System.out.println("Interface cho các đối tượng có thể vẽ được");
       }

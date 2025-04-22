@@ -528,7 +528,7 @@ CALL sp_AuthenticateUser('user1', 'password123');
 ### Kết nối cơ sở dữ liệu từ ứng dụng
 
 ```java
-// Kết nối từ Java với JDBC
+// Kết nối từ JAVA với JDBC
 import java.sql.*;
 
 public class DatabaseConnection {

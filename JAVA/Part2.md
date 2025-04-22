@@ -5,9 +5,9 @@
 - [📘 PHẦN 2: MẢNG, CHUỖI VÀ HÀM](#-phần-2-mảng-chuỗi-và-hàm)
   - [Nội dung](#nội-dung)
   - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
-  - [🧑‍🏫 Bài 1: Mảng trong Java](#-bài-1-mảng-trong-java)
-  - [🧑‍🏫 Bài 2: Chuỗi trong Java](#-bài-2-chuỗi-trong-java)
-  - [🧑‍🏫 Bài 3: Hàm trong Java](#-bài-3-hàm-trong-java)
+  - [🧑‍🏫 Bài 1: Mảng trong JAVA](#-bài-1-mảng-trong-java)
+  - [🧑‍🏫 Bài 2: Chuỗi trong JAVA](#-bài-2-chuỗi-trong-java)
+  - [🧑‍🏫 Bài 3: Hàm trong JAVA](#-bài-3-hàm-trong-java)
   - [🧑‍🏫 Bài 4: Cách sử dụng mảng và chuỗi kết hợp](#-bài-4-cách-sử-dụng-mảng-và-chuỗi-kết-hợp)
   - [🧑‍🏫 Bài 5: Hàm và mảng](#-bài-5-hàm-và-mảng)
   - [🧪 BÀI TẬP LỚN CUỐI PHẦN: Quản lý điểm sinh viên với mảng](#-bài-tập-lớn-cuối-phần-quản-lý-điểm-sinh-viên-với-mảng)
@@ -17,14 +17,14 @@
 ## 🎯 Mục tiêu tổng quát
 
 - Làm quen với việc sử dụng mảng để lưu trữ và xử lý tập hợp dữ liệu.
-- Hiểu và làm việc với chuỗi trong Java.
+- Hiểu và làm việc với chuỗi trong JAVA.
 - Tạo và sử dụng hàm để tách chương trình thành các khối logic độc lập.
 
 ---
 
-## 🧑‍🏫 Bài 1: Mảng trong Java
+## 🧑‍🏫 Bài 1: Mảng trong JAVA
 
-- Mảng Java là đối tượng lưu trữ trên heap
+- Mảng JAVA là đối tượng lưu trữ trên heap
 - Biến mảng chứa tham chiếu đến đối tượng mảng
 - Các phần tử được lưu trữ liên tiếp trong bộ nhớ
 - Mỗi phần tử có thể truy cập qua chỉ số (index)
@@ -132,26 +132,26 @@
 
 ---
 
-## 🧑‍🏫 Bài 2: Chuỗi trong Java
+## 🧑‍🏫 Bài 2: Chuỗi trong JAVA
 
-- Chuỗi là một đối tượng trong Java, không phải kiểu dữ liệu nguyên thủy.
+- Chuỗi là một đối tượng trong JAVA, không phải kiểu dữ liệu nguyên thủy.
 - Chuỗi là một mảng các ký tự (char).
-- Các chuỗi trong Java là bất biến (immutable), nghĩa là không thể thay đổi nội dung của chuỗi sau khi đã tạo.
+- Các chuỗi trong JAVA là bất biến (immutable), nghĩa là không thể thay đổi nội dung của chuỗi sau khi đã tạo.
 
 1. **Khai báo và khởi tạo chuỗi:**
 
    ```java
    // Khai báo chuỗi sử dụng literal
-   String greeting = "Xin chào Java";
+   String greeting = "Xin chào JAVA";
 
    // Khai báo chuỗi sử dụng constructor
-   String message = new String("Học Java thật vui");
+   String message = new String("Học JAVA thật vui");
    ```
 
 2. **Các phương thức phổ biến của String:**
 
    ```java
-   String text = "Học lập trình Java";
+   String text = "Học lập trình JAVA";
 
    // Độ dài chuỗi
    int length = text.length();  // length = 19
@@ -163,21 +163,21 @@
    String subText = text.substring(4, 14);  // "lập trình"
 
    // Tìm vị trí xuất hiện
-   int position = text.indexOf("Java");  // 15
+   int position = text.indexOf("JAVA");  // 15
 
    // Chuyển đổi chữ hoa/thường
    String upperCase = text.toUpperCase();  // "HỌC LẬP TRÌNH JAVA"
    String lowerCase = text.toLowerCase();  // "học lập trình java"
 
    // Nối chuỗi
-   String newText = text.concat(" cơ bản");  // "Học lập trình Java cơ bản"
+   String newText = text.concat(" cơ bản");  // "Học lập trình JAVA cơ bản"
 
    // Thay thế chuỗi
-   String replaced = text.replace("Java", "Python");  // "Học lập trình Python"
+   String replaced = text.replace("JAVA", "Python");  // "Học lập trình Python"
 
    // Kiểm tra bắt đầu/kết thúc
    boolean startsWith = text.startsWith("Học");  // true
-   boolean endsWith = text.endsWith("Java");    // true
+   boolean endsWith = text.endsWith("JAVA");    // true
 
    // Loại bỏ khoảng trắng đầu/cuối
    String trimmed = "  Hello  ".trim();  // "Hello"
@@ -210,7 +210,7 @@
    ```java
    public class WordCounter {
        public static void main(String[] args) {
-           String sentence = "Java là ngôn ngữ lập trình hướng đối tượng phổ biến";
+           String sentence = "JAVA là ngôn ngữ lập trình hướng đối tượng phổ biến";
            String[] words = sentence.split(" ");
 
            System.out.println("Số từ trong câu: " + words.length);
@@ -225,7 +225,7 @@
 
 ---
 
-## 🧑‍🏫 Bài 3: Hàm trong Java
+## 🧑‍🏫 Bài 3: Hàm trong JAVA
 
 - Hàm (hay phương thức) là một khối mã lệnh có thể được gọi và thực thi nhiều lần trong chương trình. Giúp tổ chức mã lệnh, tái sử dụng và làm cho chương trình dễ đọc hơn.
 
@@ -419,20 +419,20 @@
    public class StringArrayProcessing {
        public static void main(String[] args) {
            String[] sentences = {
-               "Java là ngôn ngữ lập trình",
+               "JAVA là ngôn ngữ lập trình",
                "Python rất phổ biến hiện nay",
                "JavaScript dùng cho web",
-               "Java có thể làm nhiều ứng dụng"
+               "JAVA có thể làm nhiều ứng dụng"
            };
 
-           // Đếm số câu chứa từ "Java"
+           // Đếm số câu chứa từ "JAVA"
            int javaCount = 0;
            for (String sentence : sentences) {
-               if (sentence.contains("Java")) {
+               if (sentence.contains("JAVA")) {
                    javaCount++;
                }
            }
-           System.out.println("Số câu chứa từ 'Java': " + javaCount);
+           System.out.println("Số câu chứa từ 'JAVA': " + javaCount);
 
            // Chuyển tất cả câu sang chữ hoa
            System.out.println("\nCâu chuyển sang chữ hoa:");

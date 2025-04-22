@@ -220,8 +220,8 @@
 
 1. **Công cụ tạo tài liệu phổ biến**
 
-   - Javadoc (Java)
-   - Doxygen (C/C++, Java, Python)
+   - Javadoc (JAVA)
+   - Doxygen (C/C++, JAVA, Python)
    - JSDoc (JavaScript)
    - Swagger/OpenAPI (RESTful APIs)
    - Sphinx (Python)

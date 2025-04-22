@@ -653,7 +653,7 @@ services:
 Xây dựng và triển khai một ứng dụng web đa tầng sử dụng Docker và Docker Compose, bao gồm:
 
 - Frontend (React/Vue/Angular)
-- Backend API (Node.js/Python/Java)
+- Backend API (Node.js/Python/JAVA)
 - Database (MySQL/MongoDB/PostgreSQL)
 - Web server/reverse proxy (Nginx)
 

@@ -149,7 +149,7 @@
      $stmt = $pdo->prepare("SELECT * FROM Users WHERE username = ?");
      $stmt->execute([$username]);
 
-     // Java với JDBC
+     // JAVA với JDBC
      PreparedStatement stmt = conn.prepareStatement("SELECT * FROM Users WHERE username = ?");
      stmt->setString(1, username);
      ```
@@ -163,7 +163,7 @@
   3. **Sử dụng ORM (Object-Relational Mapping)**:
 
      ```java
-     // Sử dụng Hibernate trong Java
+     // Sử dụng Hibernate trong JAVA
      User user = session.createQuery("from User where username = :username")
          .setParameter("username", username)
          .uniqueResult();

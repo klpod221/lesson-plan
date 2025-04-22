@@ -19,12 +19,12 @@
     - [Cài đặt WSL (Windows Subsystem for Linux): Official Documentation](#cài-đặt-wsl-windows-subsystem-for-linux-official-documentation)
   - [Dành cho Ubuntu](#dành-cho-ubuntu)
     - [Cập nhật hệ thống và cài đặt các công cụ phát triển](#cập-nhật-hệ-thống-và-cài-đặt-các-công-cụ-phát-triển)
-    - [Cài đặt Java cho Ubuntu](#cài-đặt-java-cho-ubuntu)
+    - [Cài đặt JAVA cho Ubuntu](#cài-đặt-java-cho-ubuntu)
     - [Cài đặt MySQL cho Ubuntu](#cài-đặt-mysql-cho-ubuntu)
     - [Cài đặt PHP và Composer cho Ubuntu](#cài-đặt-php-và-composer-cho-ubuntu)
   - [Dành cho MacOS](#dành-cho-macos)
     - [Cài đặt Homebrew](#cài-đặt-homebrew)
-    - [Cài đặt Java cho MacOS](#cài-đặt-java-cho-macos)
+    - [Cài đặt JAVA cho MacOS](#cài-đặt-java-cho-macos)
     - [Cài đặt MySQL cho MacOS](#cài-đặt-mysql-cho-macos)
     - [Cài đặt PHP và Composer cho MacOS](#cài-đặt-php-và-composer-cho-macos)
   - [Cài đặt Node.js với nvm (Áp dụng cho WSL và tất cả các hệ điều hành khác)](#cài-đặt-nodejs-với-nvm-áp-dụng-cho-wsl-và-tất-cả-các-hệ-điều-hành-khác)
@@ -63,7 +63,7 @@
 
 - Sau khi cài đặt xong, mở Visual Studio Code và cài đặt các extension cần thiết:
 
-  - [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack): Gói mở rộng Java bao gồm các công cụ cần thiết để phát triển ứng dụng Java.
+  - [JAVA Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack): Gói mở rộng JAVA bao gồm các công cụ cần thiết để phát triển ứng dụng JAVA.
   - [SQLTools](https://marketplace.visualstudio.com/items?itemName=mtxr.sqltools): Công cụ SQL giúp bạn kết nối và quản lý cơ sở dữ liệu MySQL.
   - [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer): Mở một máy chủ tạm thời để xem trước các trang web HTML/CSS/JavaScript của bạn trong trình duyệt.
   - [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode): Công cụ định dạng mã nguồn giúp bạn giữ mã nguồn sạch sẽ và dễ đọc.
@@ -97,7 +97,7 @@ wsl --version
 - Sau khi cài đặt xong, mở Ubuntu từ menu Start hoặc tìm kiếm "Ubuntu" trong Windows Search.
 - Bạn sẽ được yêu cầu tạo một tài khoản người dùng và mật khẩu cho distro Linux của bạn. Hãy nhớ ghi lại thông tin này vì bạn sẽ cần nó để đăng nhập vào distro Linux của bạn.
 - Sau khi hoàn tất, bạn sẽ có một terminal Linux hoạt động trên Windows của bạn.
-- Bạn có thể sử dụng terminal này để cài đặt các công cụ phát triển như Java, MySQL, Node.js, v.v. theo [hướng dẫn bên dưới](#dành-cho-ubuntu).
+- Bạn có thể sử dụng terminal này để cài đặt các công cụ phát triển như JAVA, MySQL, Node.js, v.v. theo [hướng dẫn bên dưới](#dành-cho-ubuntu).
 - Sau khi cài đặt xong, bạn có thể bắt đầu với lộ trình học tập của mình bằng cách tạo một thư mục dự án và mở nó trong Visual Studio Code. Bạn có thể sử dụng lệnh sau để mở thư mục trong VSCode từ terminal:
 
 ```bash
@@ -114,15 +114,15 @@ code .
 sudo apt update && sudo apt upgrade -y && sudo apt install build-essential git curl wget -y
 ```
 
-### Cài đặt Java cho Ubuntu
+### Cài đặt JAVA cho Ubuntu
 
-- Sau khi mở terminal, bạn có thể cài đặt Java bằng cách chạy lệnh sau (bạn có thể thay đổi phiên bản Java nếu cần):
+- Sau khi mở terminal, bạn có thể cài đặt JAVA bằng cách chạy lệnh sau (bạn có thể thay đổi phiên bản JAVA nếu cần):
 
 ```bash
 sudo apt install openjdk-17-jdk -y
 ```
 
-- Kiểm tra phiên bản Java đã cài đặt:
+- Kiểm tra phiên bản JAVA đã cài đặt:
 
 ```bash
 java -version
@@ -197,15 +197,15 @@ composer -V
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
-### Cài đặt Java cho MacOS
+### Cài đặt JAVA cho MacOS
 
-- Sau khi cài đặt Homebrew, bạn có thể cài đặt Java bằng cách chạy lệnh sau (bạn có thể thay đổi phiên bản Java nếu cần):
+- Sau khi cài đặt Homebrew, bạn có thể cài đặt JAVA bằng cách chạy lệnh sau (bạn có thể thay đổi phiên bản JAVA nếu cần):
 
 ```bash
 brew install openjdk@17
 ```
 
-- Kiểm tra phiên bản Java đã cài đặt:
+- Kiểm tra phiên bản JAVA đã cài đặt:
 
 ```bash
 java -version

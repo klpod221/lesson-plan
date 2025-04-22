@@ -98,7 +98,7 @@ Lập trình là quá trình viết, kiểm thử, sửa lỗi và bảo trì m�
 5. **Hàm (Function)**: Khối mã thực hiện một nhiệm vụ cụ thể và có thể tái sử dụng.
 
    ```java
-   // Java
+   // JAVA
    public int sum(int a, int b) {
        return a + b;  // Hàm cộng hai số
    }
@@ -127,7 +127,7 @@ Lập trình là quá trình viết, kiểm thử, sửa lỗi và bảo trì m�
      int sum = 5 + 3;
      ```
 
-   - **Ngôn ngữ bậc cao**: Python, Java, JavaScript - gần với ngôn ngữ tự nhiên
+   - **Ngôn ngữ bậc cao**: Python, JAVA, JavaScript - gần với ngôn ngữ tự nhiên
 
      ```python
      # Python - Cộng hai số
@@ -146,10 +146,10 @@ Lập trình là quá trình viết, kiểm thử, sửa lỗi và bảo trì m�
      }
      ```
 
-   - **Hướng đối tượng (Object-Oriented)**: Java, C++, C#, Python
+   - **Hướng đối tượng (Object-Oriented)**: JAVA, C++, C#, Python
 
      ```java
-     // Java - OOP
+     // JAVA - OOP
      class Person {
          private String name;
          private int age;
@@ -183,7 +183,7 @@ Lập trình là quá trình viết, kiểm thử, sửa lỗi và bảo trì m�
 3. **Phân loại theo cách thực thi:**
    - **Biên dịch (Compiled)**: C, C++, Rust - chuyển đổi toàn bộ mã nguồn thành mã máy trước khi chạy
    - **Thông dịch (Interpreted)**: Python, JavaScript - dịch và thực thi từng dòng lệnh
-   - **Kết hợp (Hybrid)**: Java, C# - biên dịch thành bytecode, sau đó thông dịch bởi máy ảo
+   - **Kết hợp (Hybrid)**: JAVA, C# - biên dịch thành bytecode, sau đó thông dịch bởi máy ảo
 
 **Quy trình phát triển phần mềm cơ bản:**
 
@@ -393,8 +393,8 @@ Mạng máy tính
 1. **Các IDE phổ biến**:
 
    - **Visual Studio Code**: Thực tế đây là một Code Editor nhẹ nhưng rất mạnh mẽ, đa nền tảng, hỗ trợ nhiều ngôn ngữ, và có thể mở rộng bằng các tiện ích mở rộng (extensions)
-   - **IntelliJ IDEA**: Mạnh mẽ cho Java, Kotlin, và các ngôn ngữ JVM khác
-   - **Eclipse**: Phổ biến cho Java, có nhiều plug-in
+   - **IntelliJ IDEA**: Mạnh mẽ cho JAVA, Kotlin, và các ngôn ngữ JVM khác
+   - **Eclipse**: Phổ biến cho JAVA, có nhiều plug-in
    - **Visual Studio**: Mạnh mẽ cho C#, .NET và phát triển Windows
    - **PyCharm**: Chuyên biệt cho Python
 
@@ -410,7 +410,7 @@ Mạng máy tính
 1. **Trình biên dịch (Compiler)**:
 
    - Chuyển đổi toàn bộ mã nguồn thành mã máy trước khi thực thi
-   - Ví dụ: GCC cho C/C++, javac cho Java
+   - Ví dụ: GCC cho C/C++, javac cho JAVA
 
 2. **Trình thông dịch (Interpreter)**:
    - Đọc và thực thi mã nguồn trực tiếp, từng dòng một
@@ -441,7 +441,7 @@ Mạng máy tính
 
    - **npm** cho JavaScript
    - **pip** cho Python
-   - **Maven/Gradle** cho Java
+   - **Maven/Gradle** cho JAVA
    - **Composer** cho PHP
    - **NuGet** cho .NET
 
@@ -485,8 +485,8 @@ Mạng máy tính
 
 1. **Các quy ước đặt tên**:
 
-   - **camelCase**: Thường dùng cho biến và hàm (JavaScript, Java)
-   - **PascalCase**: Thường dùng cho class (Java, C#)
+   - **camelCase**: Thường dùng cho biến và hàm (JavaScript, JAVA)
+   - **PascalCase**: Thường dùng cho class (JAVA, C#)
    - **snake_case**: Thường dùng cho biến (Python)
    - **kebab-case**: Thường dùng cho folder và URL
 

@@ -2,7 +2,7 @@
 
 ## 🎯 Giới Thiệu
 
-Đây là kho lưu trữ tài liệu học tập với lộ trình lập trình từ cơ bản đến nâng cao, bao gồm Java, SQL, Cấu trúc dữ liệu & Thuật toán (DSA) và Phát triển Web. Mỗi phần được thiết kế có tính tiến triển rõ ràng, giúp bạn từng bước làm chủ các kỹ năng cần thiết và hiểu cách các lĩnh vực này liên kết với nhau.
+Đây là kho lưu trữ tài liệu học tập với lộ trình lập trình từ cơ bản đến nâng cao, bao gồm JAVA, SQL, Cấu trúc dữ liệu & Thuật toán (DSA) và Phát triển Web. Mỗi phần được thiết kế có tính tiến triển rõ ràng, giúp bạn từng bước làm chủ các kỹ năng cần thiết và hiểu cách các lĩnh vực này liên kết với nhau.
 
 Với người mới bắt đầu, việc có lộ trình học tập có cấu trúc sẽ giúp tiết kiệm thời gian tìm kiếm tài liệu và định hướng học tập. Khi đã nắm vững nền tảng, bạn có thể điều chỉnh theo nhu cầu và sở thích riêng, khám phá thêm các công nghệ và ngôn ngữ lập trình khác thông qua tài liệu trực tuyến hoặc tham gia cộng đồng lập trình.
 
@@ -70,10 +70,10 @@ Lưu ý: **Lộ trình này không phải một quy tắc mà là một hướng
 
 - Tư duy lập trình và khả năng giải quyết vấn đề là cốt lõi của lập trình. Các ngôn ngữ lập trình khác nhau có thể có cú pháp và cách tiếp cận khác nhau, nhưng tư duy lập trình vẫn là yếu tố quan trọng nhất. Các bạn có thể coi ngôn ngữ lập trình chỉ là công cụ để thực hiện tư duy lập trình của mình.
   
-- Về lý do chọn Java:
-  - Java là một ngôn ngữ lập trình phổ biến và mạnh mẽ, được sử dụng rộng rãi trong nhiều lĩnh vực như phát triển ứng dụng doanh nghiệp, ứng dụng di động (Android), và phát triển web.
-  - Java có cú pháp rõ ràng và dễ hiểu mặc dù có thể hơi phức tạp hơn một số ngôn ngữ khác như Python. Điều này giúp người học dễ dàng nắm bắt các khái niệm lập trình cơ bản.
-  - OOP (Programming Object Oriented - Lập trình hướng đối tượng) là một trong những khái niệm quan trọng trong lập trình hiện đại. Java hỗ trợ OOP rất tốt, giúp người học hiểu rõ hơn về cách tổ chức mã nguồn và phát triển ứng dụng.
+- Về lý do chọn JAVA:
+  - JAVA là một ngôn ngữ lập trình phổ biến và mạnh mẽ, được sử dụng rộng rãi trong nhiều lĩnh vực như phát triển ứng dụng doanh nghiệp, ứng dụng di động (Android), và phát triển web.
+  - JAVA có cú pháp rõ ràng và dễ hiểu mặc dù có thể hơi phức tạp hơn một số ngôn ngữ khác như Python. Điều này giúp người học dễ dàng nắm bắt các khái niệm lập trình cơ bản.
+  - OOP (Programming Object Oriented - Lập trình hướng đối tượng) là một trong những khái niệm quan trọng trong lập trình hiện đại. JAVA hỗ trợ OOP rất tốt, giúp người học hiểu rõ hơn về cách tổ chức mã nguồn và phát triển ứng dụng.
   
 - Về lý do chọn SQL:
   - SQL là ngôn ngữ truy vấn cơ sở dữ liệu phổ biến nhất, được sử dụng để quản lý và truy xuất dữ liệu từ các hệ quản trị cơ sở dữ liệu như MySQL, PostgreSQL, Oracle, v.v.
@@ -118,7 +118,7 @@ Lưu ý: **Lộ trình này không phải một quy tắc mà là một hướng
 ## 🚀 Mục Tiêu
 
 - Cung cấp kiến thức toàn diện về lập trình từ cơ bản đến nâng cao
-- Xây dựng nền tảng vững chắc về ngôn ngữ lập trình Java
+- Xây dựng nền tảng vững chắc về ngôn ngữ lập trình JAVA
 - Phát triển kỹ năng thiết kế và quản lý cơ sở dữ liệu với SQL
 - Nắm vững các cấu trúc dữ liệu và thuật toán quan trọng
 - Làm chủ các công nghệ phát triển web hiện đại
@@ -142,9 +142,9 @@ Lưu ý: **Lộ trình này không phải một quy tắc mà là một hướng
 
 Bạn có thể tự cài đặt môi trường học tập trên máy tính cá nhân của mình sao cho phù hợp hoặc có thể cài đặt theo hướng dẫn của tôi ở [đây](./ENVIROMENT-INSTALL.md). Dù bạn chọn cách nào, hãy đảm bảo rằng bạn đã cài đặt đầy đủ các phần mềm và công cụ cần thiết để bắt đầu học như dưới đây:
 
-- **Môi trường phát triển tích hợp (IDE) hoặc Code Editor**: Sử dụng IDE như IntelliJ IDEA, Eclipse hoặc NetBeans để viết mã Java. Bạn cũng có thể sử dụng Code Editor như Visual Studio Code hoặc Sublime Text.
-- **Java Development Kit (JDK)**: Cài đặt JDK để biên dịch và chạy chương trình Java.
-- **Công cụ quản lý gói**: Sử dụng Maven hoặc Gradle để quản lý các thư viện và phụ thuộc trong dự án Java.
+- **Môi trường phát triển tích hợp (IDE) hoặc Code Editor**: Sử dụng IDE như IntelliJ IDEA, Eclipse hoặc NetBeans để viết mã JAVA. Bạn cũng có thể sử dụng Code Editor như Visual Studio Code hoặc Sublime Text.
+- **JAVA Development Kit (JDK)**: Cài đặt JDK để biên dịch và chạy chương trình JAVA.
+- **Công cụ quản lý gói**: Sử dụng Maven hoặc Gradle để quản lý các thư viện và phụ thuộc trong dự án JAVA.
 - **Môi trường phát triển cơ sở dữ liệu**: MySQL, PostgreSQL hoặc SQLite để làm việc với SQL. Bạn có thể sử dụng các công cụ như MySQL Workbench hoặc pgAdmin để quản lý cơ sở dữ liệu.
 - **Môi trường phát triển PHP**: XAMPP hoặc WAMP hoặc chỉ cài đặt PHP và Apache trên máy tính của bạn.
 - **Trình duyệt web**: Để kiểm tra và phát triển ứng dụng web, bạn cần một trình duyệt như Google Chrome hoặc Firefox.
@@ -202,25 +202,25 @@ Thời gian ước tính cho mỗi phần là tương đối và có thể thay 
 
 ### 6. NHẬP MÔN JAVA (1 tuần) [/JAVA/Part1.md](./JAVA/Part1.md)
 
-- Làm quen với cú pháp và cách tổ chức chương trình Java.
+- Làm quen với cú pháp và cách tổ chức chương trình JAVA.
 - Biết cách khai báo biến, sử dụng kiểu dữ liệu, câu lệnh điều kiện và vòng lặp.
 
 ### 7. MẢNG, CHUỖI VÀ HÀM (1 tuần) [/JAVA/Part2.md](./JAVA/Part2.md)
 
 - Làm quen với việc sử dụng mảng để lưu trữ và xử lý tập hợp dữ liệu.
-- Hiểu và làm việc với chuỗi trong Java.
+- Hiểu và làm việc với chuỗi trong JAVA.
 - Tạo và sử dụng hàm để tách chương trình thành các khối logic độc lập.
 
 ### 8. LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG (OOP) (1.5 tuần) [/JAVA/Part3.md](./JAVA/Part3.md)
 
-- Hiểu và áp dụng các nguyên lý của lập trình hướng đối tượng trong Java.
+- Hiểu và áp dụng các nguyên lý của lập trình hướng đối tượng trong JAVA.
 - Làm việc với các lớp, đối tượng, kế thừa, đóng gói, và đa hình.
 
 ### 9. XỬ LÝ NGOẠI LỆ, FILE I/O VÀ COLLECTIONS (1.5 tuần) [/JAVA/Part4.md](./JAVA/Part4.md)
 
-- Hiểu và xử lý lỗi bằng cách sử dụng cơ chế ngoại lệ trong Java.
+- Hiểu và xử lý lỗi bằng cách sử dụng cơ chế ngoại lệ trong JAVA.
 - Đọc ghi dữ liệu vào file văn bản.
-- Làm việc với các cấu trúc dữ liệu động trong Java: List, Set, Map.
+- Làm việc với các cấu trúc dữ liệu động trong JAVA: List, Set, Map.
 
 ### 10. NHẬP MÔN SQL (1 tuần) [/SQL/Part1.md](./SQL/Part1.md)
 

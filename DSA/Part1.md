@@ -279,7 +279,7 @@ list.printList(); // 10 -> 20 -> 30 -> null
 | Chèn/Xóa cuối | O(1) với mảng động  | O(n) với danh sách đơn, O(1) với danh sách đôi |
 | Chèn/Xóa giữa | O(n)                | O(n)                                           |
 | Bộ nhớ        | Liên tục            | Phân tán                                       |
-| Kích thước    | Cố định (Java)      | Động                                           |
+| Kích thước    | Cố định (JAVA)      | Động                                           |
 | Ứng dụng      | Truy cập ngẫu nhiên | Chèn/xóa thường xuyên                          |
 
 ---

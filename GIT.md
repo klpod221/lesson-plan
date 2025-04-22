@@ -781,7 +781,7 @@ git config --global alias.visual '!gitk'
 
 ---
 
-Ở phần tiếp theo, chúng ta sẽ chính thức bắt đầu với ngôn ngữ lập trình Java. Rất có thể bạn sẽ gặp một số khái niệm mới và thú vị nhưng cũng không kém phần "ngộp". Hãy yên tâm, mọi thứ sẽ trở nên dễ dàng hơn khi bạn đã quen với chúng. Chúng ta sẽ cùng nhau khám phá và thực hành từng bước một.
+Ở phần tiếp theo, chúng ta sẽ chính thức bắt đầu với ngôn ngữ lập trình JAVA. Rất có thể bạn sẽ gặp một số khái niệm mới và thú vị nhưng cũng không kém phần "ngộp". Hãy yên tâm, mọi thứ sẽ trở nên dễ dàng hơn khi bạn đã quen với chúng. Chúng ta sẽ cùng nhau khám phá và thực hành từng bước một.
 
 Hãy nhớ rằng, việc học lập trình không chỉ là việc hiểu lý thuyết mà còn là thực hành và áp dụng những gì đã học vào thực tế. Đừng ngần ngại thử nghiệm và tìm hiểu thêm về các công cụ và kỹ thuật mới.
 

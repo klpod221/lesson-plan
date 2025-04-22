@@ -5,8 +5,8 @@
 - [📘 PHẦN 5: LUỒNG, ĐA LUỒNG VÀ JDBC](#-phần-5-luồng-đa-luồng-và-jdbc)
   - [Nội dung](#nội-dung)
   - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
-  - [🧑‍🏫 Bài 1: Java I/O Streams](#-bài-1-java-io-streams)
-  - [🧑‍🏫 Bài 2: Đa luồng trong Java](#-bài-2-đa-luồng-trong-java)
+  - [🧑‍🏫 Bài 1: JAVA I/O Streams](#-bài-1-java-io-streams)
+  - [🧑‍🏫 Bài 2: Đa luồng trong JAVA](#-bài-2-đa-luồng-trong-java)
   - [🧑‍🏫 Bài 3: Lập trình đồng thời (Concurrency)](#-bài-3-lập-trình-đồng-thời-concurrency)
   - [🧑‍🏫 Bài 4: Kết nối cơ sở dữ liệu với JDBC](#-bài-4-kết-nối-cơ-sở-dữ-liệu-với-jdbc)
   - [🧑‍🏫 Bài 5: Thao tác CRUD với JDBC](#-bài-5-thao-tác-crud-với-jdbc)
@@ -22,16 +22,16 @@
 
 ---
 
-## 🧑‍🏫 Bài 1: Java I/O Streams
+## 🧑‍🏫 Bài 1: JAVA I/O Streams
 
-- Khái niệm luồng trong Java: `InputStream`, `OutputStream`, `Reader`, `Writer`.
+- Khái niệm luồng trong JAVA: `InputStream`, `OutputStream`, `Reader`, `Writer`.
 - Phân biệt luồng nhị phân và luồng ký tự.
 - Các lớp thường dùng: `FileInputStream`, `FileOutputStream`, `BufferedReader`, `BufferedWriter`.
 - Đọc và ghi file bằng stream với xử lý ngoại lệ.
 
 ---
 
-## 🧑‍🏫 Bài 2: Đa luồng trong Java
+## 🧑‍🏫 Bài 2: Đa luồng trong JAVA
 
 - Khái niệm Thread và lợi ích của đa luồng.
 - Tạo thread bằng kế thừa `Thread` hoặc triển khai `Runnable`.
@@ -234,7 +234,7 @@
 
 ## 🧑‍🏫 Bài 5: Thao tác CRUD với JDBC
 
-- Tạo bảng và thêm dữ liệu từ Java.
+- Tạo bảng và thêm dữ liệu từ JAVA.
 - Truy vấn dữ liệu và hiển thị kết quả.
 - Cập nhật và xóa dữ liệu với `PreparedStatement`.
 - Xử lý lỗi và đóng kết nối đúng cách.
@@ -1151,7 +1151,7 @@
 
 ### **Đề bài: Hệ thống quản lý sinh viên với cơ sở dữ liệu**
 
-Xây dựng ứng dụng Java với các chức năng:
+Xây dựng ứng dụng JAVA với các chức năng:
 
 - Kết nối đến cơ sở dữ liệu (MySQL hoặc SQLite).
 - Cho phép:
@@ -1171,4 +1171,4 @@ Yêu cầu:
 
 [⬅️ Trở lại: SQL/FINAL.md](../SQL/FINAL.md) |
 [🏠 Home](../README.md) |
-[➡️ Tiếp theo: JAVA/FINAL.md](../SQL/FINAL.md)
+[➡️ Tiếp theo: JAVA/FINAL.md](../JAVA/FINAL.md)

@@ -16,9 +16,9 @@
 
 ## 🎯 Mục tiêu tổng quát
 
-- Hiểu và xử lý lỗi bằng cách sử dụng cơ chế ngoại lệ trong Java.
+- Hiểu và xử lý lỗi bằng cách sử dụng cơ chế ngoại lệ trong JAVA.
 - Đọc ghi dữ liệu vào file văn bản.
-- Làm việc với các cấu trúc dữ liệu động trong Java: List, Set, Map.
+- Làm việc với các cấu trúc dữ liệu động trong JAVA: List, Set, Map.
 
 ---
 
@@ -28,7 +28,7 @@
 
    - Ngoại lệ là một sự kiện không mong muốn xảy ra trong quá trình thực thi chương trình, làm gián đoạn luồng thực thi bình thường.
    - Cơ chế xử lý ngoại lệ giúp chương trình không bị dừng lại mà có thể xử lý lỗi một cách linh hoạt.
-   - Các loại ngoại lệ trong Java:
+   - Các loại ngoại lệ trong JAVA:
      - Checked Exception: Ngoại lệ đã được kiểm tra tại thời điểm biên dịch (ví dụ: IOException).
      - Unchecked Exception: Ngoại lệ không được kiểm tra tại thời điểm biên dịch (ví dụ: NullPointerException, ArithmeticException).
      - Error: Lỗi nghiêm trọng không thể xử lý (ví dụ: OutOfMemoryError).
@@ -175,9 +175,9 @@
            try (FileWriter fw = new FileWriter(filePath, append);
                 BufferedWriter bw = new BufferedWriter(fw)) {
 
-               bw.write("Dòng 1: Học Java cơ bản");
+               bw.write("Dòng 1: Học JAVA cơ bản");
                bw.newLine(); // Xuống dòng
-               bw.write("Dòng 2: Học đọc ghi file trong Java");
+               bw.write("Dòng 2: Học đọc ghi file trong JAVA");
                bw.newLine();
                bw.write("Dòng 3: Kết thúc bài học");
 
@@ -343,23 +343,23 @@
 
            // ArrayList - triển khai của List interface
            ArrayList<String> arrayList = new ArrayList<>();
-           arrayList.add("Java");
+           arrayList.add("JAVA");
            arrayList.add("Python");
            arrayList.add("JavaScript");
-           arrayList.add("Java"); // Cho phép phần tử trùng lặp
+           arrayList.add("JAVA"); // Cho phép phần tử trùng lặp
 
            System.out.println("ArrayList (cho phép trùng lặp):");
-           System.out.println(arrayList); // [Java, Python, JavaScript, Java]
+           System.out.println(arrayList); // [JAVA, Python, JavaScript, JAVA]
 
            // HashSet - triển khai của Set interface
            HashSet<String> hashSet = new HashSet<>();
-           hashSet.add("Java");
+           hashSet.add("JAVA");
            hashSet.add("Python");
            hashSet.add("JavaScript");
-           hashSet.add("Java"); // Không thêm vào (Set không cho phép trùng lặp)
+           hashSet.add("JAVA"); // Không thêm vào (Set không cho phép trùng lặp)
 
            System.out.println("\nHashSet (không cho phép trùng lặp):");
-           System.out.println(hashSet); // [Java, Python, JavaScript]
+           System.out.println(hashSet); // [JAVA, Python, JavaScript]
 
            // HashMap - triển khai của Map interface
            HashMap<Integer, String> hashMap = new HashMap<>();
@@ -433,7 +433,7 @@
            List<String> languages = new ArrayList<>();
 
            // Thêm phần tử
-           languages.add("Java");
+           languages.add("JAVA");
            languages.add("Python");
            languages.add("C#");
            languages.add("JavaScript");
@@ -444,7 +444,7 @@
            System.out.println("Số phần tử: " + languages.size());
 
            // Kiểm tra tồn tại
-           System.out.println("Có chứa 'Java'? " + languages.contains("Java"));
+           System.out.println("Có chứa 'JAVA'? " + languages.contains("JAVA"));
            System.out.println("Có chứa 'Ruby'? " + languages.contains("Ruby"));
 
            // Lấy phần tử theo index
@@ -1147,9 +1147,9 @@ Viết chương trình quản lý danh sách khóa học:
 
 ---
 
-Sau khi hoàn thành phần này, bạn đã nắm vững các khái niệm nền tảng của Java - từ cú pháp, cấu trúc điều khiển, lập trình hướng đối tượng đến Collections Framework. Các ví dụ thực tế trong bài học đã giúp bạn có cơ hội áp dụng lý thuyết vào những tình huống cụ thể.Sau khi hoàn thành phần này, bạn đã nắm vững các khái niệm cơ bản về Java, từ cú pháp, cấu trúc điều khiển, OOP đến Collections Framework. Bạn cũng đã có những ví dụ thực tế để áp dụng kiến thức vào thực tiễn.
+Sau khi hoàn thành phần này, bạn đã nắm vững các khái niệm nền tảng của JAVA - từ cú pháp, cấu trúc điều khiển, lập trình hướng đối tượng đến Collections Framework. Các ví dụ thực tế trong bài học đã giúp bạn có cơ hội áp dụng lý thuyết vào những tình huống cụ thể.Sau khi hoàn thành phần này, bạn đã nắm vững các khái niệm cơ bản về JAVA, từ cú pháp, cấu trúc điều khiển, OOP đến Collections Framework. Bạn cũng đã có những ví dụ thực tế để áp dụng kiến thức vào thực tiễn.
 
-Đến đây, chúng ta sẽ tạm gác lại hành trình với Java để bước vào thế giới của SQL - ngôn ngữ truy vấn cơ sở dữ liệu được sử dụng rộng rãi nhất hiện nay. Việc này không chỉ mở rộng kiến thức cho bạn mà còn giúp bạn hiểu sâu hơn về cách thức ứng dụng Java tương tác với cơ sở dữ liệu - một kỹ năng thiết yếu trong hầu hết các dự án phát triển phần mềm thực tế.
+Đến đây, chúng ta sẽ tạm gác lại hành trình với JAVA để bước vào thế giới của SQL - ngôn ngữ truy vấn cơ sở dữ liệu được sử dụng rộng rãi nhất hiện nay. Việc này không chỉ mở rộng kiến thức cho bạn mà còn giúp bạn hiểu sâu hơn về cách thức ứng dụng JAVA tương tác với cơ sở dữ liệu - một kỹ năng thiết yếu trong hầu hết các dự án phát triển phần mềm thực tế.
 
 ---
 

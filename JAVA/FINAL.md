@@ -6,7 +6,7 @@
 
 ## 📌 Mô tả
 
-Xây dựng một ứng dụng Java quản lý thư viện mini có giao diện dòng lệnh, cho phép quản lý sách, người dùng (độc giả & nhân viên), và các giao dịch mượn/trả sách. Ứng dụng lưu trữ dữ liệu vào cơ sở dữ liệu và hỗ trợ thao tác đồng thời, đọc/ghi file, xử lý ngoại lệ.
+Xây dựng một ứng dụng JAVA quản lý thư viện mini có giao diện dòng lệnh, cho phép quản lý sách, người dùng (độc giả & nhân viên), và các giao dịch mượn/trả sách. Ứng dụng lưu trữ dữ liệu vào cơ sở dữ liệu và hỗ trợ thao tác đồng thời, đọc/ghi file, xử lý ngoại lệ.
 
 ---
 

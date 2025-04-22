@@ -53,7 +53,7 @@
 **Kỹ thuật tìm kiếm nâng cao với Google:**
 
 - **Tìm kiếm cụm từ chính xác**: `"cách sử dụng hashmap java"`
-- **Loại trừ từ khóa**: `java collections -python` (tìm về collections trong Java, loại trừ Python)
+- **Loại trừ từ khóa**: `java collections -python` (tìm về collections trong JAVA, loại trừ Python)
 - **Tìm kiếm trong trang cụ thể**: `site:stackoverflow.com hashmap java performance`
 - **Tìm theo loại file**: `filetype:pdf "java programming guide"`
 - **Tìm kiếm trong tiêu đề**: `intitle:"java design patterns"`

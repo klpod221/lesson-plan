@@ -5,7 +5,7 @@
 - [📘 PHẦN 1: NHẬP MÔN JAVA](#-phần-1-nhập-môn-java)
   - [Nội dung](#nội-dung)
   - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
-  - [🧑‍🏫 Bài 1: Cấu trúc chương trình Java](#-bài-1-cấu-trúc-chương-trình-java)
+  - [🧑‍🏫 Bài 1: Cấu trúc chương trình JAVA](#-bài-1-cấu-trúc-chương-trình-java)
   - [🧑‍🏫 Bài 2: Biến và kiểu dữ liệu](#-bài-2-biến-và-kiểu-dữ-liệu)
   - [🧑‍🏫 Bài 3: Toán tử và biểu thức](#-bài-3-toán-tử-và-biểu-thức)
   - [🧑‍🏫 Bài 4: Câu lệnh điều kiện](#-bài-4-câu-lệnh-điều-kiện)
@@ -16,16 +16,16 @@
 
 ## 🎯 Mục tiêu tổng quát
 
-- Làm quen với cú pháp và cách tổ chức chương trình Java.
+- Làm quen với cú pháp và cách tổ chức chương trình JAVA.
 - Biết cách khai báo biến, sử dụng kiểu dữ liệu, câu lệnh điều kiện và vòng lặp.
 
 ---
 
-## 🧑‍🏫 Bài 1: Cấu trúc chương trình Java
+## 🧑‍🏫 Bài 1: Cấu trúc chương trình JAVA
 
-**Tổ chức project Java cơ bản:**
+**Tổ chức project JAVA cơ bản:**
 
-- File có đuôi `.java` chứa mã nguồn Java
+- File có đuôi `.java` chứa mã nguồn JAVA
 - Mỗi file `.java` chứa ít nhất một class
 - Tên file phải trùng với tên class chứa phương thức `main`
 
@@ -70,15 +70,15 @@ Hello, World!
 
 **Biên dịch và chạy chương trình từ VS Code:**
 
-- Nếu bạn đã cài đặt [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack), bạn có thể mở file `.java` và nhấn `Ctrl + F5` để biên dịch và chạy chương trình.
+- Nếu bạn đã cài đặt [JAVA Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack), bạn có thể mở file `.java` và nhấn `Ctrl + F5` để biên dịch và chạy chương trình.
 - Kết quả sẽ hiển thị trong terminal tích hợp của VS Code.
-- Bạn có thể tham khảo thêm về [debugging Java trong VS Code](https://code.visualstudio.com/docs/java/java-debugging) để biết cách debug chương trình Java.
+- Bạn có thể tham khảo thêm về [debugging JAVA trong VS Code](https://code.visualstudio.com/docs/java/java-debugging) để biết cách debug chương trình JAVA.
 
 ---
 
 ## 🧑‍🏫 Bài 2: Biến và kiểu dữ liệu
 
-**Khái niệm biến trong Java:**
+**Khái niệm biến trong JAVA:**
 
 - Biến là vùng nhớ để lưu trữ dữ liệu
 - Mỗi biến có tên, kiểu dữ liệu và giá trị
@@ -303,7 +303,7 @@ switch (day) {
 System.out.println("Hôm nay là " + dayName);  // Hôm nay là Thứ ba
 ```
 
-**Switch với Java 12+ (cú pháp mới):**
+**Switch với JAVA 12+ (cú pháp mới):**
 
 ```java
 int day = 3;
