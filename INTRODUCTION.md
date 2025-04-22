@@ -1,0 +1,579 @@
+# 📘 TỔNG QUAN VỀ LẬP TRÌNH
+
+## Nội dung
+
+- [📘 TỔNG QUAN VỀ LẬP TRÌNH](#-tổng-quan-về-lập-trình)
+  - [Nội dung](#nội-dung)
+  - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
+  - [🧑‍🏫 Bài 1: Giới thiệu về lập trình và ngôn ngữ lập trình](#-bài-1-giới-thiệu-về-lập-trình-và-ngôn-ngữ-lập-trình)
+  - [🧑‍🏫 Bài 2: Cơ bản về máy tính, hệ điều hành và mạng máy tính](#-bài-2-cơ-bản-về-máy-tính-hệ-điều-hành-và-mạng-máy-tính)
+  - [🧑‍🏫 Bài 3: Công cụ lập trình và môi trường phát triển](#-bài-3-công-cụ-lập-trình-và-môi-trường-phát-triển)
+  - [🧑‍🏫 Bài 4: Tổ chức mã nguồn và quản lý dự án lập trình](#-bài-4-tổ-chức-mã-nguồn-và-quản-lý-dự-án-lập-trình)
+
+---
+
+## 🎯 Mục tiêu tổng quát
+
+- Hiểu rõ về lập trình, ngôn ngữ lập trình và các khái niệm cơ bản trong lập trình.
+- Nắm vững các khái niệm cơ bản về máy tính, hệ điều hành và mạng máy tính.
+- Làm quen với các công cụ lập trình và môi trường phát triển.
+- Biết cách tổ chức mã nguồn và quản lý dự án lập trình.
+
+---
+
+## 🧑‍🏫 Bài 1: Giới thiệu về lập trình và ngôn ngữ lập trình
+
+**Lập trình là gì?**
+
+Lập trình là quá trình viết, kiểm thử, sửa lỗi và bảo trì mã nguồn của các chương trình máy tính. Đây là một quy trình sáng tạo giúp máy tính thực hiện các tác vụ cụ thể bằng cách sử dụng các ngôn ngữ lập trình.
+
+> 💡 **Minh họa:** Lập trình giống như việc viết công thức nấu ăn chi tiết cho máy tính. Máy tính sẽ tuân theo chính xác từng bước trong công thức mà không có khả năng tự suy luận hay đưa ra quyết định sáng tạo.
+
+**Các khái niệm cơ bản trong lập trình:**
+
+1. **Thuật toán (Algorithm)**: Là tập hợp các bước logic, có thứ tự để giải quyết một vấn đề cụ thể.
+
+   - Ví dụ: Thuật toán sắp xếp, tìm kiếm, xử lý dữ liệu
+
+   ```text
+   Thuật toán sắp xếp nổi bọt (Bubble Sort):
+   1. Duyệt qua mảng từ đầu đến cuối
+   2. So sánh các phần tử liền kề
+   3. Hoán đổi vị trí nếu phần tử trước lớn hơn phần tử sau
+   4. Lặp lại quá trình cho đến khi không còn hoán đổi nào nữa
+   ```
+
+2. **Biến (Variable)**: Là nơi lưu trữ dữ liệu trong chương trình.
+
+   - Ví dụ:
+
+     ```javascript
+     // JavaScript
+     let age = 25; // Biến age lưu giá trị số nguyên 25
+     const name = "Alice"; // Biến name lưu chuỗi "Alice"
+     var isStudent = true; // Biến isStudent lưu giá trị boolean true
+     ```
+
+3. **Kiểu dữ liệu (Data Type)**: Xác định loại dữ liệu được lưu trữ trong biến.
+
+   - Cơ bản:
+
+     - integer (số nguyên): `42`, `-7`, `0`
+     - float (số thực): `3.14`, `-0.001`, `2.0`
+     - string (chuỗi): `"Hello"`, `'World'`, `"123"`
+     - boolean (true/false): `true`, `false`
+
+   - Phức tạp:
+     - array (mảng): `[1, 2, 3]`, `["apple", "orange", "banana"]`
+     - object (đối tượng): `{name: "John", age: 30}`
+     - class (lớp): Mẫu để tạo ra đối tượng
+
+4. **Cấu trúc điều khiển (Control Structure)**:
+
+   - Rẽ nhánh:
+
+     ```python
+     # Python
+     if age >= 18:
+         print("Bạn đã đủ tuổi bầu cử")
+     else:
+         print("Bạn chưa đủ tuổi bầu cử")
+     ```
+
+   - Vòng lặp:
+
+     ```cpp
+     // C++
+     for(int i = 0; i < 5; i++) {
+         cout << i << " ";  // Kết quả: 0 1 2 3 4
+     }
+
+     int j = 0;
+     while(j < 5) {
+         cout << j << " ";  // Kết quả: 0 1 2 3 4
+         j++;
+     }
+     ```
+
+5. **Hàm (Function)**: Khối mã thực hiện một nhiệm vụ cụ thể và có thể tái sử dụng.
+
+   ```java
+   // Java
+   public int sum(int a, int b) {
+       return a + b;  // Hàm cộng hai số
+   }
+
+   // Gọi hàm
+   int result = sum(5, 3);  // result = 8
+   ```
+
+**Ngôn ngữ lập trình:**
+
+1. **Phân loại theo cấp độ:**
+
+   - **Ngôn ngữ bậc thấp**: Assembly, Machine Language - gần với ngôn ngữ máy tính
+
+     ```assembly
+     ; Assembly - Cộng hai số
+     MOV AL, 5    ; Gán giá trị 5 cho thanh ghi AL
+     MOV BL, 3    ; Gán giá trị 3 cho thanh ghi BL
+     ADD AL, BL   ; Cộng BL vào AL (AL = AL + BL)
+     ```
+
+   - **Ngôn ngữ bậc trung**: C, C++ - kết hợp giữa bậc cao và bậc thấp
+
+     ```c
+     // C - Cộng hai số
+     int sum = 5 + 3;
+     ```
+
+   - **Ngôn ngữ bậc cao**: Python, Java, JavaScript - gần với ngôn ngữ tự nhiên
+
+     ```python
+     # Python - Cộng hai số
+     sum = 5 + 3
+     ```
+
+2. **Phân loại theo mẫu hình lập trình:**
+
+   - **Hướng thủ tục (Procedural)**: C, Pascal
+
+     ```c
+     // C - Procedural
+     void printDetails(struct Person p) {
+         printf("Name: %s\n", p.name);
+         printf("Age: %d\n", p.age);
+     }
+     ```
+
+   - **Hướng đối tượng (Object-Oriented)**: Java, C++, C#, Python
+
+     ```java
+     // Java - OOP
+     class Person {
+         private String name;
+         private int age;
+
+         public void printDetails() {
+             System.out.println("Name: " + name);
+             System.out.println("Age: " + age);
+         }
+     }
+     ```
+
+   - **Hướng hàm (Functional)**: Haskell, Scala, JavaScript (một phần)
+
+     ```javascript
+     // JavaScript - Functional
+     const numbers = [1, 2, 3, 4, 5];
+     const doubled = numbers.map((n) => n * 2); // [2, 4, 6, 8, 10]
+     ```
+
+   - **Logic (Logic)**: Prolog
+
+     ```prolog
+     /* Prolog - Logic */
+     parent(john, mary).
+     parent(john, tom).
+     parent(jane, mary).
+
+     sibling(X, Y) :- parent(Z, X), parent(Z, Y), X \= Y.
+     ```
+
+3. **Phân loại theo cách thực thi:**
+   - **Biên dịch (Compiled)**: C, C++, Rust - chuyển đổi toàn bộ mã nguồn thành mã máy trước khi chạy
+   - **Thông dịch (Interpreted)**: Python, JavaScript - dịch và thực thi từng dòng lệnh
+   - **Kết hợp (Hybrid)**: Java, C# - biên dịch thành bytecode, sau đó thông dịch bởi máy ảo
+
+**Quy trình phát triển phần mềm cơ bản:**
+
+1. **Phân tích yêu cầu**: Hiểu rõ vấn đề cần giải quyết
+
+   - Ví dụ: Xác định rằng hệ thống cần có chức năng đăng nhập, quản lý người dùng, và báo cáo.
+
+2. **Thiết kế**: Xây dựng cấu trúc chương trình và thuật toán
+
+   - Ví dụ: Thiết kế cơ sở dữ liệu, giao diện người dùng, và các module chức năng.
+
+3. **Lập trình**: Viết mã nguồn
+
+   - Ví dụ: Lập trình các chức năng theo thiết kế đã xác định.
+
+4. **Kiểm thử**: Tìm và sửa lỗi
+
+   - Ví dụ: Kiểm tra xem chức năng đăng nhập có hoạt động chính xác không.
+
+5. **Triển khai**: Đưa phần mềm vào sử dụng
+
+   - Ví dụ: Cài đặt phần mềm lên máy chủ sản xuất.
+
+6. **Bảo trì**: Cập nhật, sửa lỗi và nâng cấp chương trình
+   - Ví dụ: Thêm tính năng mới hoặc sửa lỗi sau khi phát hiện.
+
+---
+
+## 🧑‍🏫 Bài 2: Cơ bản về máy tính, hệ điều hành và mạng máy tính
+
+**Liên kết giữa máy tính, hệ điều hành và mạng máy tính:**
+
+```mermaid
+graph LR
+    Computer[Máy tính] --> OS[Hệ điều hành]
+    OS --> Network[Kết nối mạng]
+    
+    %% Chi tiết mối quan hệ
+    OS --> NetworkServices[Dịch vụ mạng]
+    OS --> NetworkDrivers[Driver thiết bị mạng]
+    NetworkDrivers --> NIC[Card mạng]
+    NIC --> NetworkProtocols[Giao thức mạng]
+    NetworkProtocols --> NetworkInfrastructure[Cơ sở hạ tầng mạng]
+    NetworkInfrastructure --> Internet[Internet]
+    
+    %% Liên kết giữa các máy tính
+    Computer -.-> Internet
+    Computer2[Máy tính khác] -.-> Internet
+    Server[Máy chủ] -.-> Internet
+    MobileDevice[Thiết bị di động] -.-> Internet
+```
+
+**Kiến trúc máy tính cơ bản:**
+
+```mermaid
+graph TD
+    Computer[Máy tính] --> Hardware[Phần cứng]
+    Computer --> Software[Phần mềm]
+
+    %% Phần cứng
+    Hardware --> CPU[CPU - Đơn vị xử lý trung tâm]
+    Hardware --> Memory[Bộ nhớ]
+    Hardware --> IO[Thiết bị vào/ra]
+    Hardware --> Storage[Thiết bị lưu trữ]
+
+    %% Chi tiết phần cứng
+    CPU --> ALU[ALU - Đơn vị tính toán số học]
+    CPU --> CU[CU - Đơn vị điều khiển]
+    CPU --> Registers[Thanh ghi]
+    CPU --> Cache[Bộ nhớ đệm]
+
+    Memory --> RAM[RAM - Bộ nhớ truy cập ngẫu nhiên]
+    Memory --> ROM[ROM - Bộ nhớ chỉ đọc]
+
+    Storage --> HDD[Ổ cứng HDD]
+    Storage --> SSD[Ổ cứng SSD]
+    Storage --> USB[USB/Thiết bị lưu trữ di động]
+
+    IO --> Input[Thiết bị nhập]
+    IO --> Output[Thiết bị xuất]
+
+    Input --> Keyboard[Bàn phím]
+    Input --> Mouse[Chuột]
+    Input --> Scanner[Máy quét]
+    Input --> Microphone[Microphone]
+
+    Output --> Monitor[Màn hình]
+    Output --> Printer[Máy in]
+    Output --> Speaker[Loa]
+
+    %% Phần mềm
+    Software --> OS[Hệ điều hành]
+    Software --> Application[Phần mềm ứng dụng]
+```
+
+1. **Phần cứng (Hardware)**:
+
+   - **CPU (Central Processing Unit)**: Đơn vị xử lý trung tâm - "bộ não" của máy tính
+   - **RAM (Random Access Memory)**: Bộ nhớ truy cập ngẫu nhiên - lưu trữ tạm thời
+   - **ROM (Read-Only Memory)**: Bộ nhớ chỉ đọc - lưu trữ firmware
+   - **Thiết bị lưu trữ**: HDD, SSD - lưu trữ dài hạn
+   - **Thiết bị vào/ra**: Bàn phím, chuột, màn hình, loa
+
+2. **Đơn vị đo thông tin**:
+   - Bit: Đơn vị nhỏ nhất (0 hoặc 1)
+   - Byte: 8 bits
+   - KB (Kilobyte): 1,024 bytes
+   - MB (Megabyte): 1,024 KB
+   - GB (Gigabyte): 1,024 MB
+   - TB (Terabyte): 1,024 GB
+
+**Hệ điều hành (Operating System):**
+
+Hệ điều hành là phần mềm quản lý phần cứng và phần mềm của máy tính, cung cấp giao diện cho người dùng và các ứng dụng.
+
+```mermaid
+graph TD
+    OS[Hệ điều hành] --> Kernel[Kernel - Nhân]
+    OS --> Shell[Shell - Vỏ]
+    OS --> FileSystem[Hệ thống tập tin]
+    OS --> GUI[Giao diện đồ họa]
+    
+    %% Chi tiết Kernel
+    Kernel --> ProcessMgmt[Quản lý quy trình]
+    Kernel --> MemoryMgmt[Quản lý bộ nhớ]
+    Kernel --> DeviceDrivers[Driver thiết bị]
+    Kernel --> Security[Bảo mật]
+    Kernel --> NetworkStack[Stack mạng]
+    
+    %% Chi tiết Shell
+    Shell --> CommandLine[Giao diện dòng lệnh]
+    Shell --> ScriptInterpreter[Trình thông dịch script]
+    
+    %% Chi tiết hệ thống tập tin
+    FileSystem --> FSStructure[Cấu trúc thư mục/file]
+    FileSystem --> Permissions[Quyền truy cập]
+    FileSystem --> StorageMgmt[Quản lý không gian lưu trữ]
+    
+    %% Phân loại hệ điều hành
+    OS -.-> Windows[Windows]
+    OS -.-> Linux[Linux]
+    OS -.-> macOS[macOS]
+    OS -.-> Android[Android]
+    OS -.-> iOS[iOS]
+```
+
+1. **Chức năng của hệ điều hành**:
+
+   - Quản lý phần cứng và phần mềm
+   - Quản lý quy trình và tài nguyên
+   - Cung cấp giao diện người dùng
+   - Quản lý file và bảo mật
+
+2. **Các hệ điều hành phổ biến**:
+
+   - **Windows**: Phổ biến trong môi trường người dùng cá nhân và doanh nghiệp
+   - **macOS**: Hệ điều hành của Apple dành cho máy tính Mac
+   - **Linux**: Hệ điều hành mã nguồn mở, phổ biến trong máy chủ và phát triển
+   - **Android**: Cho thiết bị di động, dựa trên Linux kernel
+   - **iOS**: Hệ điều hành di động của Apple
+
+3. **Giao diện dòng lệnh (Command Line Interface)**:
+   - **Windows**: Command Prompt, PowerShell
+   - **macOS/Linux**: Terminal, Bash, Zsh
+
+**Mạng máy tính:**
+
+Mạng máy tính là tập hợp các thiết bị kết nối với nhau để chia sẻ tài nguyên và thông tin.
+
+```mermaid
+graph TD
+    Network[Mạng máy tính] --> Models[Mô hình mạng]
+    Network --> Components[Thành phần mạng]
+    Network --> Types[Loại mạng]
+    Network --> Protocols[Giao thức]
+    
+    %% Mô hình mạng
+    Models --> OSI[Mô hình OSI - 7 tầng]
+    Models --> TCPIP[Mô hình TCP/IP - 4 tầng]
+    
+    %% Thành phần mạng
+    Components --> Router[Router]
+    Components --> Switch[Switch]
+    Components --> Hub[Hub]
+    Components --> Modem[Modem]
+    Components --> NIC[Card mạng]
+    Components --> Cable[Cáp mạng]
+    
+    %% Loại mạng
+    Types --> LAN[LAN - Mạng cục bộ]
+    Types --> WAN[WAN - Mạng diện rộng]
+    Types --> MAN[MAN - Mạng đô thị]
+    Types --> PAN[PAN - Mạng cá nhân]
+    Types --> Internet[Internet - Mạng toàn cầu]
+    
+    %% Giao thức
+    Protocols --> IP[IP - Internet Protocol]
+    Protocols --> TCP[TCP - Transmission Control Protocol]
+    Protocols --> UDP[UDP - User Datagram Protocol]
+    Protocols --> HTTP[HTTP/HTTPS]
+    Protocols --> DNS[DNS - Domain Name System]
+    Protocols --> DHCP[DHCP - Dynamic Host Configuration Protocol]
+    
+    %% Chi tiết mô hình OSI
+    OSI --> Physical[1. Physical - Vật lý]
+    OSI --> DataLink[2. Data Link - Liên kết dữ liệu]
+    OSI --> Network[3. Network - Mạng]
+    OSI --> Transport[4. Transport - Giao vận]
+    OSI --> Session[5. Session - Phiên]
+    OSI --> Presentation[6. Presentation - Trình diễn]
+    OSI --> Application[7. Application - Ứng dụng]
+    
+    %% Chi tiết mô hình TCP/IP
+    TCPIP --> LinkLayer[1. Link Layer - Tầng liên kết]
+    TCPIP --> InternetLayer[2. Internet Layer - Tầng Internet]
+    TCPIP --> TransportLayer[3. Transport Layer - Tầng giao vận]
+    TCPIP --> ApplicationLayer[4. Application Layer - Tầng ứng dụng]
+```
+
+1. **Mô hình OSI và TCP/IP**:
+
+   - **Mô hình OSI**: 7 tầng (Physical, Data Link, Network, Transport, Session, Presentation, Application)
+   - **Mô hình TCP/IP**: 4 tầng (Link, Internet, Transport, Application)
+
+2. **Các khái niệm cơ bản**:
+
+   - **IP (Internet Protocol)**: Định danh cho thiết bị trong mạng
+   - **DNS (Domain Name System)**: Chuyển đổi tên miền thành địa chỉ IP
+   - **HTTP/HTTPS**: Giao thức truyền tải siêu văn bản
+   - **Client-Server**: Mô hình kết nối phổ biến trong mạng
+
+3. **Loại mạng**:
+   - **LAN (Local Area Network)**: Mạng cục bộ trong phạm vi nhỏ
+   - **WAN (Wide Area Network)**: Mạng diện rộng kết nối nhiều LAN
+   - **Internet**: Mạng toàn cầu kết nối hàng tỷ thiết bị
+
+---
+
+## 🧑‍🏫 Bài 3: Công cụ lập trình và môi trường phát triển
+
+**Môi trường phát triển tích hợp (IDE - Integrated Development Environment):**
+
+1. **Các IDE phổ biến**:
+
+   - **Visual Studio Code**: Thực tế đây là một Code Editor nhẹ nhưng rất mạnh mẽ, đa nền tảng, hỗ trợ nhiều ngôn ngữ, và có thể mở rộng bằng các tiện ích mở rộng (extensions)
+   - **IntelliJ IDEA**: Mạnh mẽ cho Java, Kotlin, và các ngôn ngữ JVM khác
+   - **Eclipse**: Phổ biến cho Java, có nhiều plug-in
+   - **Visual Studio**: Mạnh mẽ cho C#, .NET và phát triển Windows
+   - **PyCharm**: Chuyên biệt cho Python
+
+2. **Tính năng chính của IDE**:
+   - Soạn thảo mã (Code Editor) với tô màu cú pháp
+   - Trình gỡ lỗi (Debugger)
+   - Hoàn thành mã (Code Completion)
+   - Tích hợp với hệ thống quản lý phiên bản
+   - Công cụ build và run
+
+**Trình biên dịch và thông dịch (Compilers & Interpreters):**
+
+1. **Trình biên dịch (Compiler)**:
+
+   - Chuyển đổi toàn bộ mã nguồn thành mã máy trước khi thực thi
+   - Ví dụ: GCC cho C/C++, javac cho Java
+
+2. **Trình thông dịch (Interpreter)**:
+   - Đọc và thực thi mã nguồn trực tiếp, từng dòng một
+   - Ví dụ: Python interpreter, Node.js cho JavaScript
+
+**Hệ thống quản lý phiên bản (Version Control System):**
+
+1. **Chức năng**:
+
+   - Theo dõi thay đổi trong mã nguồn
+   - Phối hợp làm việc nhóm
+   - Quay lại phiên bản trước khi cần
+
+2. **Các hệ thống phổ biến**:
+
+   - **Git**: Phân tán, phổ biến nhất hiện nay
+   - **SVN (Subversion)**: Tập trung, cũ hơn
+   - **Mercurial**: Phân tán, tương tự Git
+
+3. **Nền tảng lưu trữ mã nguồn**:
+   - **GitHub**: Phổ biến nhất, hỗ trợ nhiều tính năng cộng tác
+   - **GitLab**: Có phiên bản tự host
+   - **Bitbucket**: Tích hợp tốt với sản phẩm Atlassian khác
+
+**Công cụ hỗ trợ phát triển khác:**
+
+1. **Package Manager**:
+
+   - **npm** cho JavaScript
+   - **pip** cho Python
+   - **Maven/Gradle** cho Java
+   - **Composer** cho PHP
+   - **NuGet** cho .NET
+
+2. **Công cụ kiểm thử**:
+
+   - Unit testing frameworks
+   - Integration testing tools
+   - Performance testing tools
+
+3. **CI/CD (Continuous Integration/Continuous Deployment)**:
+   - **Jenkins**
+   - **GitHub Actions**
+   - **GitLab CI/CD**
+   - **Travis CI**
+
+---
+
+## 🧑‍🏫 Bài 4: Tổ chức mã nguồn và quản lý dự án lập trình
+
+**Cấu trúc dự án:**
+
+1. **Tổ chức thư mục**: (ví dụ, có thể khác tùy theo ngôn ngữ và framework)
+
+```plaintext
+├── src/        # Code chính
+├── build/      # Tập tin biên dịch (nếu có)
+├── tests/      # Tập tin kiểm thử
+├── docs/       # Tài liệu
+├── .gitignore  # Tập tin để loại trừ các file không cần thiết khỏi git (sẽ được giải thích ở phần sau)
+├── README.md   # Tài liệu giới thiệu dự án
+├── LICENSE     # Giấy phép sử dụng
+└── .env        # Tập tin cấu hình môi trường (nếu có)
+````
+
+2. **Tách biệt mối quan tâm (Separation of Concerns)**:
+
+   - Mỗi file/module chỉ giải quyết một vấn đề
+   - Chia dự án thành các lớp logic (UI, business logic, data access)
+
+**Quy ước đặt tên và coding style:**
+
+1. **Các quy ước đặt tên**:
+
+   - **camelCase**: Thường dùng cho biến và hàm (JavaScript, Java)
+   - **PascalCase**: Thường dùng cho class (Java, C#)
+   - **snake_case**: Thường dùng cho biến (Python)
+   - **kebab-case**: Thường dùng cho folder và URL
+
+2. **Coding Style Guides**:
+   - Google Style Guides
+   - PEP 8 cho Python
+   - Airbnb JavaScript Style Guide
+   - PSR cho PHP
+
+**Quản lý dự án lập trình:**
+
+1. **Phương pháp phát triển phần mềm**:
+
+   - **Agile**: Linh hoạt, thích ứng với thay đổi
+   - **Scrum**: Sprint ngắn (2-4 tuần), daily meetings
+   - **Kanban**: Quản lý luồng công việc liên tục
+   - **Waterfall**: Tuần tự, ít thay đổi khi đã xác định yêu cầu
+
+2. **Công cụ quản lý dự án**:
+
+   - **Jira**: Quản lý task, bug, và sprint
+   - **Trello**: Bảng Kanban đơn giản
+   - **Asana**: Quản lý task và timeline
+   - **GitHub Projects/Issues**: Tích hợp với mã nguồn
+
+3. **Tài liệu hóa (Documentation)**:
+   - **README**: Giới thiệu dự án, hướng dẫn cài đặt và sử dụng
+   - **API Documentation**: Swagger, OpenAPI
+   - **Code Comments**: Giải thích các phần phức tạp
+   - **Wiki**: Tài liệu chi tiết và hướng dẫn sử dụng
+
+**Bảo mật và chất lượng mã nguồn:**
+
+1. **Kiểm thử**:
+
+   - **Unit Testing**: Kiểm tra từng đơn vị nhỏ của mã
+   - **Integration Testing**: Kiểm tra sự tương tác giữa các thành phần
+   - **E2E Testing**: Kiểm tra toàn bộ quy trình
+
+2. **Code Review**:
+
+   - Quy trình đánh giá mã nguồn trước khi merge
+   - Phát hiện lỗi, cải thiện chất lượng mã
+   - Chia sẻ kiến thức trong team
+
+3. **Bảo mật cơ bản**:
+   - Không lưu thông tin nhạy cảm trong mã nguồn
+   - Sử dụng environment variables cho thông tin cấu hình
+   - Tránh các lỗi bảo mật phổ biến (SQL Injection, XSS)
+
+---
+
+[🏠 Home](./README.md) |
+[➡️ Tiếp theo: SELF-LEARNING/Part1.md](./SELF-LEARNING/Part1.md)

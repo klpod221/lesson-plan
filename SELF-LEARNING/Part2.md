@@ -7,7 +7,7 @@
   - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
   - [🧑‍🏫 Bài 1: Đọc và hiểu tài liệu kỹ thuật](#-bài-1-đọc-và-hiểu-tài-liệu-kỹ-thuật)
   - [🧑‍🏫 Bài 2: Xử lý paper nghiên cứu và bài báo học thuật](#-bài-2-xử-lý-paper-nghiên-cứu-và-bài-báo-học-thuật)
-  - [🧑‍🏫 Bài 3: Tài liệu mã nguồn mở và hướng dẫn API](#-bài-3-tài-liệu-mã-nguồn-mở-và-hướng-dẫn-api)
+  - [🧑‍🏫 Bài 3: Tài liệu mã nguồn mở và API Documentation](#-bài-3-tài-liệu-mã-nguồn-mở-và-api-documentation)
   - [🧑‍🏫 Bài 4: Tạo tài liệu và chia sẻ kiến thức](#-bài-4-tạo-tài-liệu-và-chia-sẻ-kiến-thức)
   - [🧪 BÀI TẬP THỰC HÀNH](#-bài-tập-thực-hành)
 
@@ -48,11 +48,11 @@
 
 2. **Đọc SQ3R cho tài liệu kỹ thuật**
 
-   - Survey (Khảo sát): Xem qua headings, diagrams
-   - Question (Đặt câu hỏi): Chuyển headings thành câu hỏi
-   - Read (Đọc): Đọc tìm câu trả lời
-   - Recite (Nhắc lại): Tóm tắt nội dung bằng lời riêng
-   - Review (Xem lại): Tổng kết và kết nối các phần
+   - **S**urvey (Khảo sát): Xem qua headings, diagrams
+   - **Q**uestion (Đặt câu hỏi): Chuyển headings thành câu hỏi
+   - **R**ead (Đọc): Đọc tìm câu trả lời
+   - **R**ecite (Nhắc lại): Tóm tắt nội dung bằng lời riêng
+   - **R**eview (Xem lại): Tổng kết và kết nối các phần
 
 3. **Đọc với mục đích rõ ràng**
    - Đọc để tìm giải pháp cho vấn đề cụ thể
@@ -162,11 +162,11 @@
 
 ---
 
-## 🧑‍🏫 Bài 3: Tài liệu mã nguồn mở và hướng dẫn API
+## 🧑‍🏫 Bài 3: Tài liệu mã nguồn mở và API Documentation
 
 **Làm việc với API Documentation:**
 
-1. **Cấu trúc của tài liệu API**
+1. **Cấu trúc của API Documentation**
 
    - Getting Started guide
    - API Reference (chi tiết về endpoint/function)
@@ -233,7 +233,7 @@
    - Xem ví dụ sử dụng trong unit tests
    - Kiểm tra exception handling để hiểu edge cases
 
-3. **Làm việc với thiếu tài liệu**
+3. **Làm việc khi thiếu tài liệu**
    - Đọc unit tests như một dạng tài liệu
    - Sử dụng công cụ phân tích tĩnh code
    - Dùng IDE để khám phá code structure

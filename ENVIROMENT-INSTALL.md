@@ -69,6 +69,8 @@
   - [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode): Công cụ định dạng mã nguồn giúp bạn giữ mã nguồn sạch sẽ và dễ đọc.
   - [HTML CSS Support](https://marketplace.visualstudio.com/items?itemName=ecmel.vscode-html-css): Hỗ trợ HTML và CSS trong Visual Studio Code.
   - [JavaScript (ES6) code snippets](https://marketplace.visualstudio.com/items?itemName=xabikos.JavaScriptSnippets): Cung cấp các đoạn mã mẫu cho JavaScript ES6.
+  - [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens): Công cụ giúp bạn quản lý Git trong Visual Studio Code.
+  - [Error Lens](https://marketplace.visualstudio.com/items?itemName=eamodio.errorlens): Công cụ giúp bạn phát hiện lỗi trong mã nguồn nhanh chóng.
   - Ngoài ra bạn có thể cài đặt các extension khác tùy theo nhu cầu của bạn như các theme, icon, font chữ, v.v.
 
 ## Dành cho Windows (Windows 10/11)
