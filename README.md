@@ -362,6 +362,9 @@ Thời gian ước tính cho mỗi phần là tương đối và có thể thay 
 
 ```text
 lesson-plan/
+├── DOCKER/
+│   ├── Docker.md     # NỀN TẢNG CONTAINER HÓA
+│   └── Kubernetes.md # HỆ THỐNG ĐIỀU PHỐI CONTAINER
 ├── DSA/
 │   ├── Part1.md      # NHẬP MÔN CẤU TRÚC DỮ LIỆU VÀ THUẬT TOÁN
 │   ├── Part2.md      # CẤU TRÚC DỮ LIỆU NÂNG CAO
