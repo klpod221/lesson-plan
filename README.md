@@ -19,7 +19,7 @@ Lưu ý: **Lộ trình này không phải một quy tắc mà là một hướng
   - [🛠️ Phương Pháp Học Tập](#️-phương-pháp-học-tập)
   - [🚀 Mục Tiêu](#-mục-tiêu)
   - [📋 Đối Tượng](#-đối-tượng)
-  - [� Lộ Trình Học](#-lộ-trình-học)
+  - [📚 Lộ Trình Học](#-lộ-trình-học)
     - [1. TÌM KIẾM THÔNG TIN HIỆU QUẢ (0.5 tuần) /SELF-LEARNING/Part1.md](#1-tìm-kiếm-thông-tin-hiệu-quả-05-tuần-self-learningpart1md)
     - [2. XỬ LÝ TÀI LIỆU CHUYÊN NGÀNH (0.5 tuần) /SELF-LEARNING/Part2.md](#2-xử-lý-tài-liệu-chuyên-ngành-05-tuần-self-learningpart2md)
     - [3. KỸ THUẬT TỰ HỌC (0.5 tuần) /SELF-LEARNING/Part3.md](#3-kỹ-thuật-tự-học-05-tuần-self-learningpart3md)
@@ -34,28 +34,28 @@ Lưu ý: **Lộ trình này không phải một quy tắc mà là một hướng
     - [12. NHẬP MÔN SQL (1 tuần) /SQL/Part1.md](#12-nhập-môn-sql-1-tuần-sqlpart1md)
     - [13. SQL NÂNG CAO (1 tuần) /SQL/Part2.md](#13-sql-nâng-cao-1-tuần-sqlpart2md)
     - [14. SQL NÂNG CAO VÀ ỨNG DỤNG (1 tuần) /SQL/Part3.md](#14-sql-nâng-cao-và-ứng-dụng-1-tuần-sqlpart3md)
-    - [16. SQL CHUYÊN SÂU VÀ HIỆU SUẤT (1 tuần) /SQL/Part4.md](#16-sql-chuyên-sâu-và-hiệu-suất-1-tuần-sqlpart4md)
-    - [14. BÀI TẬP LỚN SQL (1 tuần) /SQL/FINAL.md](#14-bài-tập-lớn-sql-1-tuần-sqlfinalmd)
-    - [15. LUỒNG, ĐA LUỒNG VÀ JDBC (1 tuần) /JAVA/Part5.md](#15-luồng-đa-luồng-và-jdbc-1-tuần-javapart5md)
-    - [16. BÀI TẬP LỚN JAVA (1 tuần) /JAVA/FINAL.md](#16-bài-tập-lớn-java-1-tuần-javafinalmd)
-    - [17. NHẬP MÔN CẤU TRÚC DỮ LIỆU VÀ THUẬT TOÁN (1.5 tuần) /DSA/Part1.md](#17-nhập-môn-cấu-trúc-dữ-liệu-và-thuật-toán-15-tuần-dsapart1md)
-    - [18. CẤU TRÚC DỮ LIỆU NÂNG CAO (1.5 tuần) /DSA/Part2.md](#18-cấu-trúc-dữ-liệu-nâng-cao-15-tuần-dsapart2md)
-    - [19. THUẬT TOÁN NÂNG CAO (1.5 tuần) /DSA/Part3.md](#19-thuật-toán-nâng-cao-15-tuần-dsapart3md)
-    - [20. CÁC CẤU TRÚC DỮ LIỆU CHUYÊN BIỆT (1 tuần) /DSA/Part4.md](#20-các-cấu-trúc-dữ-liệu-chuyên-biệt-1-tuần-dsapart4md)
-    - [21. THUẬT TOÁN ỨNG DỤNG VÀ TỐI ƯU HÓA (1 tuần) /DSA/Part5.md](#21-thuật-toán-ứng-dụng-và-tối-ưu-hóa-1-tuần-dsapart5md)
-    - [22. NHẬP MÔN HTML (0.5 tuần) /WEB/Part1.md](#22-nhập-môn-html-05-tuần-webpart1md)
-    - [23. CSS - ĐỊNH DẠNG TRANG WEB (1 tuần) /WEB/Part2.md](#23-css---định-dạng-trang-web-1-tuần-webpart2md)
-    - [24. JAVASCRIPT - LẬP TRÌNH CHO WEB (1.5 tuần) /WEB/Part3.md](#24-javascript---lập-trình-cho-web-15-tuần-webpart3md)
-    - [25. FRAMEWORK \& CÔNG CỤ PHÁT TRIỂN WEB HIỆN ĐẠI (1.5 tuần) /WEB/Part4.md](#25-framework--công-cụ-phát-triển-web-hiện-đại-15-tuần-webpart4md)
-    - [26. NHẬP MÔN PHP (1 tuần) /PHP/Part1.md](#26-nhập-môn-php-1-tuần-phppart1md)
-    - [27. LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG VỚI PHP (1 tuần) /PHP/Part2.md](#27-lập-trình-hướng-đối-tượng-với-php-1-tuần-phppart2md)
-    - [28. PHP NÂNG CAO VÀ KẾT NỐI DATABASE (1 tuần) /PHP/Part3.md](#28-php-nâng-cao-và-kết-nối-database-1-tuần-phppart3md)
-    - [29. FRAMEWORK VÀ PHÁT TRIỂN ỨNG DỤNG WEB HIỆN ĐẠI (1 tuần) /PHP/Part4.md](#29-framework-và-phát-triển-ứng-dụng-web-hiện-đại-1-tuần-phppart4md)
-    - [30. XU HƯỚNG HIỆN ĐẠI VÀ CÔNG NGHỆ MỚI TRONG PHP (1 tuần) /PHP/Part5.md](#30-xu-hướng-hiện-đại-và-công-nghệ-mới-trong-php-1-tuần-phppart5md)
-    - [31. PHÁT TRIỂN VÀ TRIỂN KHAI CHUYÊN NGHIỆP (1 tuần) /PHP/Part6.md](#31-phát-triển-và-triển-khai-chuyên-nghiệp-1-tuần-phppart6md)
-    - [32. DOCKER: NỀN TẢNG CONTAINER HÓA (1 tuần) /DOCKER/Docker.md](#32-docker-nền-tảng-container-hóa-1-tuần-dockerdockermd)
-    - [33. KUBERNETES: HỆ THỐNG ĐIỀU PHỐI CONTAINER /DOCKER/Kubernetes.md](#33-kubernetes-hệ-thống-điều-phối-container-dockerkubernetesmd)
-    - [34. TỔNG KẾT LỘ TRÌNH HỌC /CONCLUSION.md](#34-tổng-kết-lộ-trình-học-conclusionmd)
+    - [15. SQL CHUYÊN SÂU VÀ HIỆU SUẤT (1 tuần) /SQL/Part4.md](#15-sql-chuyên-sâu-và-hiệu-suất-1-tuần-sqlpart4md)
+    - [16. BÀI TẬP LỚN SQL (1 tuần) /SQL/FINAL.md](#16-bài-tập-lớn-sql-1-tuần-sqlfinalmd)
+    - [17. LUỒNG, ĐA LUỒNG VÀ JDBC (1 tuần) /JAVA/Part5.md](#17-luồng-đa-luồng-và-jdbc-1-tuần-javapart5md)
+    - [18. BÀI TẬP LỚN JAVA (1 tuần) /JAVA/FINAL.md](#18-bài-tập-lớn-java-1-tuần-javafinalmd)
+    - [19. NHẬP MÔN CẤU TRÚC DỮ LIỆU VÀ THUẬT TOÁN (1.5 tuần) /DSA/Part1.md](#19-nhập-môn-cấu-trúc-dữ-liệu-và-thuật-toán-15-tuần-dsapart1md)
+    - [20. CẤU TRÚC DỮ LIỆU NÂNG CAO (1.5 tuần) /DSA/Part2.md](#20-cấu-trúc-dữ-liệu-nâng-cao-15-tuần-dsapart2md)
+    - [21. THUẬT TOÁN NÂNG CAO (1.5 tuần) /DSA/Part3.md](#21-thuật-toán-nâng-cao-15-tuần-dsapart3md)
+    - [22. CÁC CẤU TRÚC DỮ LIỆU CHUYÊN BIỆT (1 tuần) /DSA/Part4.md](#22-các-cấu-trúc-dữ-liệu-chuyên-biệt-1-tuần-dsapart4md)
+    - [23. THUẬT TOÁN ỨNG DỤNG VÀ TỐI ƯU HÓA (1 tuần) /DSA/Part5.md](#23-thuật-toán-ứng-dụng-và-tối-ưu-hóa-1-tuần-dsapart5md)
+    - [24. NHẬP MÔN HTML (0.5 tuần) /WEB/Part1.md](#24-nhập-môn-html-05-tuần-webpart1md)
+    - [25. CSS - ĐỊNH DẠNG TRANG WEB (1 tuần) /WEB/Part2.md](#25-css---định-dạng-trang-web-1-tuần-webpart2md)
+    - [26. JAVASCRIPT - LẬP TRÌNH CHO WEB (1.5 tuần) /WEB/Part3.md](#26-javascript---lập-trình-cho-web-15-tuần-webpart3md)
+    - [27. FRAMEWORK \& CÔNG CỤ PHÁT TRIỂN WEB HIỆN ĐẠI (1.5 tuần) /WEB/Part4.md](#27-framework--công-cụ-phát-triển-web-hiện-đại-15-tuần-webpart4md)
+    - [28. NHẬP MÔN PHP (1 tuần) /PHP/Part1.md](#28-nhập-môn-php-1-tuần-phppart1md)
+    - [29. LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG VỚI PHP (1 tuần) /PHP/Part2.md](#29-lập-trình-hướng-đối-tượng-với-php-1-tuần-phppart2md)
+    - [30. PHP NÂNG CAO VÀ KẾT NỐI DATABASE (1 tuần) /PHP/Part3.md](#30-php-nâng-cao-và-kết-nối-database-1-tuần-phppart3md)
+    - [31. FRAMEWORK VÀ PHÁT TRIỂN ỨNG DỤNG WEB HIỆN ĐẠI (1 tuần) /PHP/Part4.md](#31-framework-và-phát-triển-ứng-dụng-web-hiện-đại-1-tuần-phppart4md)
+    - [32. XU HƯỚNG HIỆN ĐẠI VÀ CÔNG NGHỆ MỚI TRONG PHP (1 tuần) /PHP/Part5.md](#32-xu-hướng-hiện-đại-và-công-nghệ-mới-trong-php-1-tuần-phppart5md)
+    - [33. PHÁT TRIỂN VÀ TRIỂN KHAI CHUYÊN NGHIỆP (1 tuần) /PHP/Part6.md](#33-phát-triển-và-triển-khai-chuyên-nghiệp-1-tuần-phppart6md)
+    - [34. DOCKER: NỀN TẢNG CONTAINER HÓA (1 tuần) /DOCKER/Docker.md](#34-docker-nền-tảng-container-hóa-1-tuần-dockerdockermd)
+    - [35. KUBERNETES: HỆ THỐNG ĐIỀU PHỐI CONTAINER /DOCKER/Kubernetes.md](#35-kubernetes-hệ-thống-điều-phối-container-dockerkubernetesmd)
+    - [36. TỔNG KẾT LỘ TRÌNH HỌC /CONCLUSION.md](#36-tổng-kết-lộ-trình-học-conclusionmd)
   - [📋 Cấu Trúc Kho Lưu Trữ](#-cấu-trúc-kho-lưu-trữ)
   - [🔄 Cập Nhật và Đóng Góp](#-cập-nhật-và-đóng-góp)
   - [📞 Liên Hệ Hỗ Trợ](#-liên-hệ-hỗ-trợ)
@@ -218,55 +218,55 @@ Thời gian ước tính cho mỗi phần là tương đối và có thể thay 
 - Hiểu và triển khai được các quy tắc ràng buộc dữ liệu
 - Bảo đảm tính toàn vẹn dữ liệu trong môi trường đa người dùng
 
-### 16. SQL CHUYÊN SÂU VÀ HIỆU SUẤT (1 tuần) [/SQL/Part4.md](./SQL/Part4.md)
+### 15. SQL CHUYÊN SÂU VÀ HIỆU SUẤT (1 tuần) [/SQL/Part4.md](./SQL/Part4.md)
 
 - Tối ưu hóa hiệu suất truy vấn và cấu trúc dữ liệu
 - Xử lý dữ liệu lớn một cách hiệu quả
 - Triển khai giải pháp dữ liệu phức tạp
 
-### 14. BÀI TẬP LỚN SQL (1 tuần) [/SQL/FINAL.md](./SQL/FINAL.md)
+### 16. BÀI TẬP LỚN SQL (1 tuần) [/SQL/FINAL.md](./SQL/FINAL.md)
 
 - Thiết kế và triển khai cơ sở dữ liệu hoàn chỉnh cho ứng dụng quản lý thư viện.
 - Tối ưu hóa hiệu suất truy vấn và đảm bảo tính toàn vẹn dữ liệu.
 
-### 15. LUỒNG, ĐA LUỒNG VÀ JDBC (1 tuần) [/JAVA/Part5.md](./JAVA/Part5.md)
+### 17. LUỒNG, ĐA LUỒNG VÀ JDBC (1 tuần) [/JAVA/Part5.md](./JAVA/Part5.md)
 
 - Hiểu cách xử lý nhập/xuất dữ liệu bằng luồng (Streams).
 - Làm quen với lập trình đa luồng (Multithreading).
 - Kết nối và thao tác dữ liệu với cơ sở dữ liệu sử dụng JDBC.
 
-### 16. BÀI TẬP LỚN JAVA (1 tuần) [/JAVA/FINAL.md](./JAVA/FINAL.md)
+### 18. BÀI TẬP LỚN JAVA (1 tuần) [/JAVA/FINAL.md](./JAVA/FINAL.md)
 
 - Xây dựng các chức năng CRUD (Create, Read, Update, Delete) cho ứng dụng với SQL.
 - Tối ưu hóa hiệu suất và đảm bảo tính toàn vẹn dữ liệu.
 
-### 17. NHẬP MÔN CẤU TRÚC DỮ LIỆU VÀ THUẬT TOÁN (1.5 tuần) [/DSA/Part1.md](./DSA/Part1.md)
+### 19. NHẬP MÔN CẤU TRÚC DỮ LIỆU VÀ THUẬT TOÁN (1.5 tuần) [/DSA/Part1.md](./DSA/Part1.md)
 
 - Làm quen với khái niệm cấu trúc dữ liệu và thuật toán.
 - Hiểu cách phân tích độ phức tạp thuật toán.
 - Nắm vững các cấu trúc dữ liệu cơ bản và thuật toán sắp xếp, tìm kiếm.
 
-### 18. CẤU TRÚC DỮ LIỆU NÂNG CAO (1.5 tuần) [/DSA/Part2.md](./DSA/Part2.md)
+### 20. CẤU TRÚC DỮ LIỆU NÂNG CAO (1.5 tuần) [/DSA/Part2.md](./DSA/Part2.md)
 
 - Nắm vững các cấu trúc dữ liệu nâng cao như Stack, Queue, cây nhị phân, bảng băm.
 - Hiểu cách cài đặt và ứng dụng của từng cấu trúc dữ liệu.
 - Biết cách lựa chọn cấu trúc dữ liệu phù hợp cho từng bài toán.
 
-### 19. THUẬT TOÁN NÂNG CAO (1.5 tuần) [/DSA/Part3.md](./DSA/Part3.md)
+### 21. THUẬT TOÁN NÂNG CAO (1.5 tuần) [/DSA/Part3.md](./DSA/Part3.md)
 
 - Hiểu sâu và cài đặt được các thuật toán nâng cao.
 - Biết cách áp dụng các kỹ thuật thiết kế thuật toán vào bài toán thực tế.
 - Phân tích được ưu nhược điểm của mỗi thuật toán và lựa chọn thuật toán phù hợp.
 - Nắm vững cách tiếp cận và giải quyết các bài toán phức tạp.
 
-### 20. CÁC CẤU TRÚC DỮ LIỆU CHUYÊN BIỆT (1 tuần) [/DSA/Part4.md](./DSA/Part4.md)
+### 22. CÁC CẤU TRÚC DỮ LIỆU CHUYÊN BIỆT (1 tuần) [/DSA/Part4.md](./DSA/Part4.md)
 
 - Hiểu và cài đặt được các cấu trúc dữ liệu nâng cao như cây cân bằng, cây B/B+, Heap, Trie, Segment Tree.
 - Phân tích được ưu nhược điểm của từng cấu trúc và biết lựa chọn cấu trúc phù hợp với bài toán.
 - Áp dụng các cấu trúc dữ liệu chuyên biệt vào các bài toán thực tế.
 - Tối ưu hóa giải pháp sử dụng các cấu trúc dữ liệu đặc thù.
 
-### 21. THUẬT TOÁN ỨNG DỤNG VÀ TỐI ƯU HÓA (1 tuần) [/DSA/Part5.md](./DSA/Part5.md)
+### 23. THUẬT TOÁN ỨNG DỤNG VÀ TỐI ƯU HÓA (1 tuần) [/DSA/Part5.md](./DSA/Part5.md)
 
 - Nắm vững các thuật toán xử lý chuỗi và ứng dụng trong các bài toán thực tế
 - Hiểu và áp dụng thành thạo kỹ thuật hai con trỏ và cửa sổ trượt
@@ -275,69 +275,69 @@ Thời gian ước tính cho mỗi phần là tương đối và có thể thay 
 - Biết cách phân tích và tối ưu hóa thuật toán hiệu quả
 - Xây dựng được ứng dụng thực tế sử dụng các thuật toán đồ thị
 
-### 22. NHẬP MÔN HTML (0.5 tuần) [/WEB/Part1.md](./WEB/Part1.md)
+### 24. NHẬP MÔN HTML (0.5 tuần) [/WEB/Part1.md](./WEB/Part1.md)
 
 - Hiểu về cấu trúc của một trang web HTML
 - Biết cách sử dụng các thẻ HTML cơ bản
 - Tạo được trang web tĩnh đầu tiên
 
-### 23. CSS - ĐỊNH DẠNG TRANG WEB (1 tuần) [/WEB/Part2.md](./WEB/Part2.md)
+### 25. CSS - ĐỊNH DẠNG TRANG WEB (1 tuần) [/WEB/Part2.md](./WEB/Part2.md)
 
 - Hiểu về CSS và vai trò của nó trong phát triển web
 - Thành thạo các cách áp dụng CSS vào HTML
 - Nắm vững các thuộc tính CSS cơ bản và cách sử dụng
 
-### 24. JAVASCRIPT - LẬP TRÌNH CHO WEB (1.5 tuần) [/WEB/Part3.md](./WEB/Part3.md)
+### 26. JAVASCRIPT - LẬP TRÌNH CHO WEB (1.5 tuần) [/WEB/Part3.md](./WEB/Part3.md)
 
 - Hiểu về JavaScript và vai trò của nó trong phát triển web
 - Thành thạo cú pháp và các cấu trúc cơ bản của JavaScript
 - Biết cách thao tác với DOM để tạo trang web động
 - Xử lý sự kiện, gọi API và xử lý dữ liệu
 
-### 25. FRAMEWORK & CÔNG CỤ PHÁT TRIỂN WEB HIỆN ĐẠI (1.5 tuần) [/WEB/Part4.md](./WEB/Part4.md)
+### 27. FRAMEWORK & CÔNG CỤ PHÁT TRIỂN WEB HIỆN ĐẠI (1.5 tuần) [/WEB/Part4.md](./WEB/Part4.md)
 
 - Hiểu được vai trò và lợi ích của các framework trong phát triển web
 - Làm quen với các công cụ phát triển web hiện đại
 - Biết cách tổ chức và triển khai dự án web chuyên nghiệp
 - Nắm vững các khái niệm về REST API và cách xây dựng
 
-### 26. NHẬP MÔN PHP (1 tuần) [/PHP/Part1.md](./PHP/Part1.md)
+### 28. NHẬP MÔN PHP (1 tuần) [/PHP/Part1.md](./PHP/Part1.md)
 
 - Làm quen với cú pháp và cách tổ chức chương trình PHP
 - Hiểu cách PHP hoạt động trong môi trường web
 - Xử lý form và làm việc với dữ liệu người dùng
 
-### 27. LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG VỚI PHP (1 tuần) [/PHP/Part2.md](./PHP/Part2.md)
+### 29. LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG VỚI PHP (1 tuần) [/PHP/Part2.md](./PHP/Part2.md)
 
 - Hiểu và áp dụng các nguyên lý OOP trong PHP
 - Xây dựng các lớp và đối tượng trong PHP
 - Sử dụng namespace và autoloading
 
-### 28. PHP NÂNG CAO VÀ KẾT NỐI DATABASE (1 tuần) [/PHP/Part3.md](./PHP/Part3.md)
+### 30. PHP NÂNG CAO VÀ KẾT NỐI DATABASE (1 tuần) [/PHP/Part3.md](./PHP/Part3.md)
 
 - Kết nối và tương tác với cơ sở dữ liệu từ PHP
 - Xây dựng ứng dụng web động với PHP và MySQL
 - Xử lý session, cookie và bảo mật cơ bản
 
-### 29. FRAMEWORK VÀ PHÁT TRIỂN ỨNG DỤNG WEB HIỆN ĐẠI (1 tuần) [/PHP/Part4.md](./PHP/Part4.md)
+### 31. FRAMEWORK VÀ PHÁT TRIỂN ỨNG DỤNG WEB HIỆN ĐẠI (1 tuần) [/PHP/Part4.md](./PHP/Part4.md)
 
 - Làm quen với các framework PHP phổ biến (Laravel, Symfony)
 - Hiểu mô hình MVC và cách triển khai
 - Xây dựng ứng dụng web với framework
 
-### 30. XU HƯỚNG HIỆN ĐẠI VÀ CÔNG NGHỆ MỚI TRONG PHP (1 tuần) [/PHP/Part5.md](./PHP/Part5.md)
+### 32. XU HƯỚNG HIỆN ĐẠI VÀ CÔNG NGHỆ MỚI TRONG PHP (1 tuần) [/PHP/Part5.md](./PHP/Part5.md)
 
 - Tìm hiểu các công nghệ và xu hướng mới trong hệ sinh thái PHP
 - REST API và tích hợp với các frontend framework
 - Hiệu suất và bảo mật nâng cao
 
-### 31. PHÁT TRIỂN VÀ TRIỂN KHAI CHUYÊN NGHIỆP (1 tuần) [/PHP/Part6.md](./PHP/Part6.md)
+### 33. PHÁT TRIỂN VÀ TRIỂN KHAI CHUYÊN NGHIỆP (1 tuần) [/PHP/Part6.md](./PHP/Part6.md)
 
 - Xây dựng một ứng dụng web hoàn chỉnh với PHP
 - Triển khai và quản lý ứng dụng trên môi trường sản xuất
 - Kết hợp các kỹ thuật Frontend và Backend
 
-### 32. DOCKER: NỀN TẢNG CONTAINER HÓA (1 tuần) [/DOCKER/Docker.md](./DOCKER/Docker.md)
+### 34. DOCKER: NỀN TẢNG CONTAINER HÓA (1 tuần) [/DOCKER/Docker.md](./DOCKER/Docker.md)
 
 - Hiểu được khái niệm về công nghệ container và lợi ích của nó
 - Thành thạo cài đặt, cấu hình và sử dụng Docker
@@ -345,7 +345,7 @@ Thời gian ước tính cho mỗi phần là tương đối và có thể thay 
 - Hiểu được kiến trúc mạng và lưu trữ dữ liệu trong Docker
 - Phát triển và triển khai ứng dụng đa container với Docker Compose
 
-### 33. KUBERNETES: HỆ THỐNG ĐIỀU PHỐI CONTAINER [/DOCKER/Kubernetes.md](./DOCKER/Kubernetes.md)
+### 35. KUBERNETES: HỆ THỐNG ĐIỀU PHỐI CONTAINER [/DOCKER/Kubernetes.md](./DOCKER/Kubernetes.md)
 
 - Hiểu được nguyên lý hoạt động và kiến trúc của Kubernetes
 - Thành thạo việc cài đặt và cấu hình Kubernetes
@@ -353,7 +353,7 @@ Thời gian ước tính cho mỗi phần là tương đối và có thể thay 
 - Hiểu được các thành phần cơ bản của Kubernetes
 - Triển khai ứng dụng có tính sẵn sàng cao và khả năng mở rộng
 
-### 34. TỔNG KẾT LỘ TRÌNH HỌC [/CONCLUSION.md](./CONCLUSION.md)
+### 36. TỔNG KẾT LỘ TRÌNH HỌC [/CONCLUSION.md](./CONCLUSION.md)
 
 - Tổng kết lại các kiến thức đã học
 - Hướng phát triển trong tương lai và lời khuyên cho người học
@@ -399,8 +399,8 @@ lesson-plan/
 │   ├── Part3.md      # JAVASCRIPT - LẬP TRÌNH CHO WEB
 │   └── Part4.md      # FRAMEWORK & CÔNG CỤ PHÁT TRIỂN WEB HIỆN ĐẠI
 ├── CONCLUSION.md     # TỔNG KẾT LỘ TRÌNH HỌC
-├── ENVIROMENT-INSTALL.md # HƯỚNG DẪN CÀI ĐẶT MÔI TRƯỜNG HỌC TẬP
 ├── GIT.md            # HƯỚNG DẪN SỬ DỤNG GIT
+├── INSTALL.md        # HƯỚNG DẪN CÀI ĐẶT MÔI TRƯỜNG HỌC TẬP
 ├── INTRODUCTION.md   # TỔNG QUAN VỀ LẬP TRÌNH
 └── README.md
 ```
