@@ -18,11 +18,11 @@
   - Công nghệ thay đổi rất nhanh, vì vậy hãy kiểm tra tài liệu chính thức của từng công cụ để biết thông tin mới nhất.
   - Tài liệu này chỉ mang tính chất tham khảo và có thể không đầy đủ cho tất cả các trường hợp. Bạn nên tìm hiểu thêm về từng công cụ và cách sử dụng chúng.
 
-## Mục lục
+## 📋 Mục lục
 
 - [Cài đặt môi trường học tập](#cài-đặt-môi-trường-học-tập)
-  - [Mục lục](#mục-lục)
-  - [Windows (sử dụng WSL)](#windows-sử-dụng-wsl)
+  - [📋 Mục lục](#-mục-lục)
+  - [🪟 Windows (sử dụng WSL)](#-windows-sử-dụng-wsl)
     - [1. Cài đặt WSL (Windows Subsystem for Linux)](#1-cài-đặt-wsl-windows-subsystem-for-linux)
     - [2. Cài đặt công cụ phát triển trong WSL](#2-cài-đặt-công-cụ-phát-triển-trong-wsl)
       - [Cập nhật hệ thống](#cập-nhật-hệ-thống)
@@ -34,7 +34,7 @@
       - [Cài đặt Docker](#cài-đặt-docker)
     - [3. Cài đặt VSCode trên Windows](#3-cài-đặt-vscode-trên-windows)
       - [Cài đặt VSCode](#cài-đặt-vscode)
-  - [Linux](#linux)
+  - [🐧 Linux](#-linux)
     - [Ubuntu/Debian](#ubuntudebian)
       - [Cập nhật hệ thống](#cập-nhật-hệ-thống-1)
       - [Cài đặt Java](#cài-đặt-java-1)
@@ -51,7 +51,7 @@
       - [Cài đặt Node.js và npm](#cài-đặt-nodejs-và-npm-2)
       - [Cài đặt Git](#cài-đặt-git-2)
       - [Cài đặt Docker](#cài-đặt-docker-2)
-  - [MacOS](#macos)
+  - [🍎 MacOS](#-macos)
     - [1. Cài đặt Homebrew](#1-cài-đặt-homebrew)
     - [2. Cài đặt các công cụ phát triển](#2-cài-đặt-các-công-cụ-phát-triển)
       - [Cài đặt Java](#cài-đặt-java-3)
@@ -60,12 +60,12 @@
       - [Cài đặt Node.js và npm](#cài-đặt-nodejs-và-npm-3)
       - [Cài đặt Git](#cài-đặt-git-3)
       - [Cài đặt Docker](#cài-đặt-docker-3)
-  - [Cài đặt và cấu hình VSCode](#cài-đặt-và-cấu-hình-vscode)
+  - [💻 Cài đặt và cấu hình VSCode](#-cài-đặt-và-cấu-hình-vscode)
     - [Cài đặt VSCode](#cài-đặt-vscode-1)
     - [Cài đặt các extension cần thiết](#cài-đặt-các-extension-cần-thiết)
     - [Cấu hình cơ bản VSCode](#cấu-hình-cơ-bản-vscode)
 
-## Windows (sử dụng WSL)
+## 🪟 Windows (sử dụng WSL)
 
 ### 1. Cài đặt WSL (Windows Subsystem for Linux)
 
@@ -181,7 +181,7 @@ docker --version
 3. Cài đặt extension [Remote - WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl) để sử dụng VSCode với WSL
 4. Mở VSCode và nhấn `Ctrl + Shift + P`, sau đó gõ `Remote-WSL: New Window`để mở một cửa sổ mới trong WSL
 
-## Linux
+## 🐧 Linux
 
 ### Ubuntu/Debian
 
@@ -358,7 +358,7 @@ docker-compose --version
 newgrp docker
 ```
 
-## MacOS
+## 🍎 MacOS
 
 ### 1. Cài đặt Homebrew
 
@@ -441,7 +441,7 @@ docker --version
 docker-compose --version
 ```
 
-## Cài đặt và cấu hình VSCode
+## 💻 Cài đặt và cấu hình VSCode
 
 ### Cài đặt VSCode
 
