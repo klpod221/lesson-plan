@@ -3,9 +3,24 @@
 - [📘 TỔNG QUAN VỀ LẬP TRÌNH](#-tổng-quan-về-lập-trình)
   - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
   - [🧑‍🏫 Bài 1: Giới thiệu về lập trình và ngôn ngữ lập trình](#-bài-1-giới-thiệu-về-lập-trình-và-ngôn-ngữ-lập-trình)
+    - [Lập trình là gì?](#lập-trình-là-gì)
+    - [Các khái niệm cơ bản trong lập trình](#các-khái-niệm-cơ-bản-trong-lập-trình)
+    - [Ngôn ngữ lập trình](#ngôn-ngữ-lập-trình)
+    - [Quy trình phát triển phần mềm cơ bản](#quy-trình-phát-triển-phần-mềm-cơ-bản)
   - [🧑‍🏫 Bài 2: Cơ bản về máy tính, hệ điều hành và mạng máy tính](#-bài-2-cơ-bản-về-máy-tính-hệ-điều-hành-và-mạng-máy-tính)
+    - [Kiến trúc máy tính cơ bản](#kiến-trúc-máy-tính-cơ-bản)
+    - [Hệ điều hành (Operating System)](#hệ-điều-hành-operating-system)
+    - [Mạng máy tính](#mạng-máy-tính)
   - [🧑‍🏫 Bài 3: Công cụ lập trình và môi trường phát triển](#-bài-3-công-cụ-lập-trình-và-môi-trường-phát-triển)
+    - [Môi trường phát triển tích hợp (IDE - Integrated Development Environment)](#môi-trường-phát-triển-tích-hợp-ide---integrated-development-environment)
+    - [Trình biên dịch và thông dịch (Compilers \& Interpreters)](#trình-biên-dịch-và-thông-dịch-compilers--interpreters)
+    - [Hệ thống quản lý phiên bản (Version Control System)](#hệ-thống-quản-lý-phiên-bản-version-control-system)
+    - [Công cụ hỗ trợ phát triển khác](#công-cụ-hỗ-trợ-phát-triển-khác)
   - [🧑‍🏫 Bài 4: Tổ chức mã nguồn và quản lý dự án lập trình](#-bài-4-tổ-chức-mã-nguồn-và-quản-lý-dự-án-lập-trình)
+    - [Cấu trúc dự án](#cấu-trúc-dự-án)
+    - [Quy ước đặt tên và coding style](#quy-ước-đặt-tên-và-coding-style)
+    - [Quản lý dự án lập trình](#quản-lý-dự-án-lập-trình)
+    - [Bảo mật và chất lượng mã nguồn](#bảo-mật-và-chất-lượng-mã-nguồn)
 
 ---
 
@@ -20,13 +35,13 @@
 
 ## 🧑‍🏫 Bài 1: Giới thiệu về lập trình và ngôn ngữ lập trình
 
-**Lập trình là gì?**
+### Lập trình là gì?
 
 Lập trình là quá trình viết, kiểm thử, sửa lỗi và bảo trì mã nguồn của các chương trình máy tính. Đây là một quy trình sáng tạo giúp máy tính thực hiện các tác vụ cụ thể bằng cách sử dụng các ngôn ngữ lập trình.
 
 > 💡 **Minh họa:** Lập trình giống như việc viết công thức nấu ăn chi tiết cho máy tính. Máy tính sẽ tuân theo chính xác từng bước trong công thức mà không có khả năng tự suy luận hay đưa ra quyết định sáng tạo.
 
-**Các khái niệm cơ bản trong lập trình:**
+### Các khái niệm cơ bản trong lập trình
 
 1. **Thuật toán (Algorithm)**: Là tập hợp các bước logic, có thứ tự để giải quyết một vấn đề cụ thể.
 
@@ -104,7 +119,7 @@ Lập trình là quá trình viết, kiểm thử, sửa lỗi và bảo trì m�
    int result = sum(5, 3);  // result = 8
    ```
 
-**Ngôn ngữ lập trình:**
+### Ngôn ngữ lập trình
 
 1. **Phân loại theo cấp độ:**
 
@@ -182,7 +197,7 @@ Lập trình là quá trình viết, kiểm thử, sửa lỗi và bảo trì m�
    - **Thông dịch (Interpreted)**: Python, JavaScript - dịch và thực thi từng dòng lệnh
    - **Kết hợp (Hybrid)**: JAVA, C# - biên dịch thành bytecode, sau đó thông dịch bởi máy ảo
 
-**Quy trình phát triển phần mềm cơ bản:**
+### Quy trình phát triển phần mềm cơ bản
 
 1. **Phân tích yêu cầu**: Hiểu rõ vấn đề cần giải quyết
 
@@ -211,7 +226,7 @@ Lập trình là quá trình viết, kiểm thử, sửa lỗi và bảo trì m�
 
 ## 🧑‍🏫 Bài 2: Cơ bản về máy tính, hệ điều hành và mạng máy tính
 
-**Kiến trúc máy tính cơ bản:**
+### Kiến trúc máy tính cơ bản
 
 ```text
 Máy tính
@@ -265,7 +280,7 @@ Máy tính
    - GB (Gigabyte): 1,024 MB
    - TB (Terabyte): 1,024 GB
 
-**Hệ điều hành (Operating System):**
+### Hệ điều hành (Operating System)
 
 Hệ điều hành là phần mềm quản lý phần cứng và phần mềm của máy tính, cung cấp giao diện cho người dùng và các ứng dụng.
 
@@ -317,7 +332,7 @@ Hệ điều hành
    - **Windows**: Command Prompt, PowerShell
    - **macOS/Linux**: Terminal, Bash, Zsh
 
-**Mạng máy tính:**
+### Mạng máy tính
 
 Mạng máy tính là tập hợp các thiết bị kết nối với nhau để chia sẻ tài nguyên và thông tin.
 
@@ -385,7 +400,7 @@ Mạng máy tính
 
 ## 🧑‍🏫 Bài 3: Công cụ lập trình và môi trường phát triển
 
-**Môi trường phát triển tích hợp (IDE - Integrated Development Environment):**
+### Môi trường phát triển tích hợp (IDE - Integrated Development Environment)
 
 1. **Các IDE phổ biến**:
 
@@ -402,7 +417,7 @@ Mạng máy tính
    - Tích hợp với hệ thống quản lý phiên bản
    - Công cụ build và run
 
-**Trình biên dịch và thông dịch (Compilers & Interpreters):**
+### Trình biên dịch và thông dịch (Compilers & Interpreters)
 
 1. **Trình biên dịch (Compiler)**:
 
@@ -413,7 +428,7 @@ Mạng máy tính
    - Đọc và thực thi mã nguồn trực tiếp, từng dòng một
    - Ví dụ: Python interpreter, Node.js cho JavaScript
 
-**Hệ thống quản lý phiên bản (Version Control System):**
+### Hệ thống quản lý phiên bản (Version Control System)
 
 1. **Chức năng**:
 
@@ -432,7 +447,7 @@ Mạng máy tính
    - **GitLab**: Có phiên bản tự host
    - **Bitbucket**: Tích hợp tốt với sản phẩm Atlassian khác
 
-**Công cụ hỗ trợ phát triển khác:**
+### Công cụ hỗ trợ phát triển khác
 
 1. **Package Manager**:
 
@@ -458,7 +473,7 @@ Mạng máy tính
 
 ## 🧑‍🏫 Bài 4: Tổ chức mã nguồn và quản lý dự án lập trình
 
-**Cấu trúc dự án:**
+### Cấu trúc dự án
 
 1. **Tổ chức thư mục**: (ví dụ, có thể khác tùy theo ngôn ngữ và framework)
 
@@ -478,7 +493,7 @@ Mạng máy tính
    - Mỗi file/module chỉ giải quyết một vấn đề
    - Chia dự án thành các lớp logic (UI, business logic, data access)
 
-**Quy ước đặt tên và coding style:**
+### Quy ước đặt tên và coding style
 
 1. **Các quy ước đặt tên**:
 
@@ -493,7 +508,7 @@ Mạng máy tính
    - Airbnb JavaScript Style Guide
    - PSR cho PHP
 
-**Quản lý dự án lập trình:**
+### Quản lý dự án lập trình
 
 1. **Phương pháp phát triển phần mềm**:
 
@@ -515,7 +530,7 @@ Mạng máy tính
    - **Code Comments**: Giải thích các phần phức tạp
    - **Wiki**: Tài liệu chi tiết và hướng dẫn sử dụng
 
-**Bảo mật và chất lượng mã nguồn:**
+### Bảo mật và chất lượng mã nguồn
 
 1. **Kiểm thử**:
 

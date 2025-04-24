@@ -3,60 +3,99 @@
 - [📘 PHẦN 3: JAVASCRIPT - LẬP TRÌNH CHO WEB](#-phần-3-javascript---lập-trình-cho-web)
   - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
   - [🧑‍🏫 Bài 1: Giới thiệu JavaScript](#-bài-1-giới-thiệu-javascript)
+    - [JavaScript là gì?](#javascript-là-gì)
+    - [Cách thêm JavaScript vào HTML](#cách-thêm-javascript-vào-html)
+    - [Vị trí đặt JavaScript](#vị-trí-đặt-javascript)
+    - [Output trong JavaScript](#output-trong-javascript)
+    - [Chạy code JavaScript mà không cần trình duyệt (thông qua Node.js)](#chạy-code-javascript-mà-không-cần-trình-duyệt-thông-qua-nodejs)
   - [🧑‍🏫 Bài 2: Cú pháp và biến trong JavaScript](#-bài-2-cú-pháp-và-biến-trong-javascript)
+    - [Khai báo biến](#khai-báo-biến)
+    - [Kiểu dữ liệu](#kiểu-dữ-liệu)
+    - [Dấu phẩy động (floating point)](#dấu-phẩy-động-floating-point)
+    - [Phép toán và biểu thức](#phép-toán-và-biểu-thức)
+    - [Scope (phạm vi) biến](#scope-phạm-vi-biến)
   - [🧑‍🏫 Bài 3: Cấu trúc điều khiển](#-bài-3-cấu-trúc-điều-khiển)
+    - [Câu lệnh điều kiện](#câu-lệnh-điều-kiện)
+    - [Vòng lặp](#vòng-lặp)
   - [🧑‍🏫 Bài 4: Hàm trong JavaScript](#-bài-4-hàm-trong-javascript)
+    - [Định nghĩa hàm](#định-nghĩa-hàm)
+    - [Tham số hàm](#tham-số-hàm)
+    - [Phạm vi và closure](#phạm-vi-và-closure)
+    - [Higher-order functions](#higher-order-functions)
   - [🧑‍🏫 Bài 5: Object và Array](#-bài-5-object-và-array)
+    - [Object](#object)
+    - [Array](#array)
   - [🧑‍🏫 Bài 6: DOM - Document Object Model](#-bài-6-dom---document-object-model)
-  - [🧑‍🏫 Bài 7: Sự kiện và xử lý sự kiện](#-bài-7-sự-kiện-và-xử-lý-sự-kiện)
+    - [DOM là gì?](#dom-là-gì)
+    - [Truy cập phần tử DOM](#truy-cập-phần-tử-dom)
+    - [Thay đổi nội dung DOM](#thay-đổi-nội-dung-dom)
+    - [Tạo và thêm/xóa phần tử](#tạo-và-thêmxóa-phần-tử)
+  - [🧑‍🏫 Bài 7: Event và xử lý event](#-bài-7-event-và-xử-lý-event)
+    - [Event là gì?](#event-là-gì)
+    - [Đăng ký event](#đăng-ký-event)
+    - [Các loại event phổ biến](#các-loại-event-phổ-biến)
+    - [Event object](#event-object)
+    - [Event propagation](#event-propagation)
+    - [Event delegation](#event-delegation)
   - [🧑‍🏫 Bài 8: Asynchronous JavaScript](#-bài-8-asynchronous-javascript)
+    - [Giới thiệu về Asynchronous JavaScript](#giới-thiệu-về-asynchronous-javascript)
+    - [Callback](#callback)
+    - [Promises](#promises)
+    - [Async/Await (ES8)](#asyncawait-es8)
+    - [Fetch API](#fetch-api)
   - [🧑‍🏫 Bài 9: Local Storage và Session Storage](#-bài-9-local-storage-và-session-storage)
-  - [🧪 BÀI TẬP LỚN CUỐI PHẦN](#-bài-tập-lớn-cuối-phần)
-    - [**Đề bài: Xây dựng ứng dụng Quản lý nhiệm vụ (Todo List)**](#đề-bài-xây-dựng-ứng-dụng-quản-lý-nhiệm-vụ-todo-list)
+    - [Web Storage API](#web-storage-api)
+    - [Trường hợp sử dụng](#trường-hợp-sử-dụng)
+  - [🧪 BÀI TẬP LỚN CUỐI PHẦN: Xây dựng ứng dụng Quản lý nhiệm vụ (Todo List)](#-bài-tập-lớn-cuối-phần-xây-dựng-ứng-dụng-quản-lý-nhiệm-vụ-todo-list)
+    - [Mô tả bài toán](#mô-tả-bài-toán)
+    - [Yêu cầu](#yêu-cầu)
+    - [Tính năng nâng cao (không bắt buộc)](#tính-năng-nâng-cao-không-bắt-buộc)
+    - [Mockup ứng dụng tham khảo](#mockup-ứng-dụng-tham-khảo)
 
 ## 🎯 Mục tiêu tổng quát
 
 - Hiểu về JavaScript và vai trò của nó trong phát triển web
 - Thành thạo cú pháp và các cấu trúc cơ bản của JavaScript
 - Biết cách thao tác với DOM để tạo trang web động
-- Xử lý sự kiện, gọi API và xử lý dữ liệu
+- Xử lý event, gọi API và xử lý dữ liệu
 
 ---
 
 ## 🧑‍🏫 Bài 1: Giới thiệu JavaScript
 
-**JavaScript là gì?**
+### JavaScript là gì?
 
 - Là ngôn ngữ lập trình kịch bản phía client-side
 - Được nhúng vào trang HTML để tạo tính tương tác cho trang web
-- Có thể thay đổi nội dung HTML, thuộc tính, CSS, phản ứng với sự kiện
+- Có thể thay đổi nội dung HTML, thuộc tính, CSS, phản ứng với event
 - Hiện nay cũng được sử dụng ở server-side (Node.js) và mobile app (React Native)
 
-**Cách thêm JavaScript vào HTML:**
+### Cách thêm JavaScript vào HTML
 
-1. **Inline JavaScript**: Sử dụng thuộc tính `onclick`, `onload`, ...
+1. **Inline JavaScript**: Sử dụng thuộc tính `onclick`, `onload`, ... (không khuyến nghị)
 
-```html
-<button onclick="alert('Hello!')">Nhấn vào đây</button>
-```
+   ```html
+   <button onclick="alert('Hello!')">Nhấn vào đây</button>
+   ```
 
 2. **Internal JavaScript**: Sử dụng thẻ `<script>` trong trang HTML
 
-```html
-<script>
-  function sayHello() {
-    alert("Hello World!");
-  }
-</script>
-```
+   ```html
+   <button onclick="sayHello()">Nhấn vào đây</button>
+   <script>
+     function sayHello() {
+       alert("Hello World!");
+     }
+   </script>
+   ```
 
 3. **External JavaScript**: Tạo file JS riêng và liên kết vào HTML
 
-```html
-<script src="script.js"></script>
-```
+   ```html
+   <script src="script.js"></script>
+   ```
 
-**Vị trí đặt JavaScript:**
+### Vị trí đặt JavaScript
 
 ```html
 <!DOCTYPE html>
@@ -74,7 +113,28 @@
 </html>
 ```
 
-**Output trong JavaScript:**
+| Vị trí đặt             | Ưu điểm                                                                 | Nhược điểm                                      |
+| ---------------------- | ----------------------------------------------------------------------- | ----------------------------------------------- |
+| JavaScript trong head  | Tải trước khi hiển thị nội dung, có thể sử dụng ngay lập tức            | Có thể làm chậm tải trang, không tương tác ngay |
+| JavaScript ở cuối body | Tải sau khi hiển thị nội dung, không làm chậm tải trang, tương tác ngay | Không thể sử dụng trước khi DOM sẵn sàng        |
+
+- **Khuyến nghị**: Đặt JavaScript ở cuối body để không làm chậm tải trang và đảm bảo DOM đã sẵn sàng trước khi thực thi mã.
+- **Lưu ý**:
+
+  - Nếu cần sử dụng JavaScript trong head, có thể sử dụng event `DOMContentLoaded` để đảm bảo DOM đã sẵn sàng.
+  - Nếu sử dụng `async` hoặc `defer` trong thẻ `<script>`, mã JavaScript sẽ được tải không đồng bộ và không làm chậm tải trang.
+
+    ```html
+    <!-- Tải không đồng bộ, thực thi ngay khi tải xong -->
+    <script src="script.js" async></script>
+    ```
+
+    ```html
+    <!-- Tải đồng bộ, thực thi sau khi DOM đã sẵn sàng -->
+    <script src="script.js" defer></script>
+    ```
+
+### Output trong JavaScript
 
 ```javascript
 // Hiển thị thông báo popup
@@ -90,11 +150,32 @@ document.write("<p>Hello World!</p>");
 document.getElementById("demo").innerHTML = "Hello World!";
 ```
 
+### Chạy code JavaScript mà không cần trình duyệt (thông qua Node.js)
+
+- **Node.js** là một môi trường chạy JavaScript bên ngoài trình duyệt, cho phép chạy mã JavaScript trên server hoặc máy tính cá nhân (bạn sẽ học Node.js chi tiết hơn trong phần sau).
+- Cài đặt Node.js từ trang chính thức: [nodejs.org](https://nodejs.org/)
+- Sau khi cài đặt, có thể chạy mã JavaScript từ dòng lệnh bằng cách sử dụng lệnh `node`:
+
+```bash
+node script.js
+```
+
+- Bạn có thể sử dụng VSCode để debug mã JavaScript theo cách sau [tham khảo](https://code.visualstudio.com/docs/nodejs/working-with-javascript):
+
+  - Mở file JavaScript trong VSCode.
+  - Nhấn `F5` hoặc vào menu `Run > Start Debugging`.
+  - Chọn môi trường `Node.js`.
+  - Đặt breakpoint và theo dõi biến trong quá trình thực thi.
+
+- **Lưu ý**:
+  - Node.js không hỗ trợ DOM, vì vậy không thể sử dụng các phương thức như `document.getElementById()` hay `alert()`.
+  - Có thể sử dụng các module như `fs` để thao tác với file hệ thống, hoặc `http` để tạo server HTTP.
+
 ---
 
 ## 🧑‍🏫 Bài 2: Cú pháp và biến trong JavaScript
 
-**Khai báo biến:**
+### Khai báo biến
 
 ```javascript
 // Khai báo biến với var (phạm vi function-scoped)
@@ -112,7 +193,20 @@ let firstName = "John",
   fullName = firstName + " " + lastName;
 ```
 
-**Kiểu dữ liệu:**
+- Nên sử dụng `let` và `const` thay vì `var` để tránh các vấn đề về phạm vi biến.
+- `const` được sử dụng cho các biến không thay đổi giá trị, nhưng nếu là object hoặc array, có thể thay đổi nội dung bên trong.
+
+```javascript
+const person = {
+  name: "John",
+  age: 30,
+};
+
+person.age = 31; // Được phép
+person = {}; // Lỗi: Assignment to constant variable
+```
+
+### Kiểu dữ liệu
 
 ```javascript
 // Number
@@ -149,7 +243,32 @@ console.log(typeof person); // "object"
 console.log(typeof colors); // "object" (array là một loại object)
 ```
 
-**Phép toán và biểu thức:**
+### Dấu phẩy động (floating point)
+
+- JavaScript sử dụng dấu phẩy động để biểu diễn số thực, tương đương với chuẩn IEEE 754. Điều này có thể dẫn đến một số vấn đề về độ chính xác khi thực hiện các phép toán với số thực. Hãy cùng xem ví dụ sau:
+
+```javascript
+// Số thực
+let a = 0.1;
+let b = 0.2;
+let sum = a + b; // 0.30000000000000004
+console.log(sum); // 0.30000000000000004
+
+// So sánh số thực
+console.log(sum === 0.3); // false
+```
+
+- Điều này cũng xảy ra với các ngôn ngữ lập trình khác sử dụng dấu phẩy động như Python, Java, C++, ... Vậy tại sao lại như vậy?
+  - JavaScript lưu trữ số thực dưới dạng nhị phân, và một số số thực không thể được biểu diễn chính xác trong hệ nhị phân.
+  - Để tránh vấn đề này, có thể sử dụng phương pháp làm tròn hoặc thư viện bên ngoài như `decimal.js` để xử lý các phép toán với số thực.
+
+```javascript
+// Làm tròn số
+let roundedSum = Math.round((a + b) * 100) / 100; // 0.3
+console.log(roundedSum); // 0.3
+```
+
+### Phép toán và biểu thức
 
 ```javascript
 // Phép toán số học
@@ -189,7 +308,7 @@ Line 2
 Line 3`;
 ```
 
-**Scope (phạm vi) biến:**
+### Scope (phạm vi) biến
 
 ```javascript
 // Global scope
@@ -226,7 +345,7 @@ console.log(globalVar); // Truy cập được
 
 ## 🧑‍🏫 Bài 3: Cấu trúc điều khiển
 
-**Câu lệnh điều kiện:**
+### Câu lệnh điều kiện
 
 ```javascript
 // if
@@ -291,7 +410,7 @@ switch (day) {
 console.log(dayName); // "Thứ ba"
 ```
 
-**Vòng lặp:**
+### Vòng lặp
 
 ```javascript
 // for
@@ -345,7 +464,7 @@ for (let i = 0; i < 10; i++) {
 
 ## 🧑‍🏫 Bài 4: Hàm trong JavaScript
 
-**Định nghĩa hàm:**
+### Định nghĩa hàm
 
 ```javascript
 // Khai báo hàm
@@ -373,7 +492,41 @@ console.log(welcome("Bob")); // "Welcome, Bob!"
 console.log(shortWelcome("Alice")); // "Welcome, Alice!"
 ```
 
-**Tham số hàm:**
+- Điểm khác biệt giữa function declaration, function expression và arrow function:
+  - **Function declaration**: Có thể gọi trước khi khai báo (hoisting).
+  - **Function expression**: Không thể gọi trước khi khai báo.
+  - **Arrow function**: Không có `this`, không có `arguments`, không thể sử dụng làm constructor.
+
+```javascript
+// Hoisting
+console.log(hoistedFunction()); // "Hoisted!"
+function hoistedFunction() {
+  return "Hoisted!";
+}
+// console.log(notHoistedFunction()); // Lỗi: notHoistedFunction is not a function
+const notHoistedFunction = function () {
+  return "Not hoisted!";
+};
+// Arrow function không có this
+const arrowFunction = () => {
+  console.log(this); // undefined trong strict mode, window trong non-strict mode
+};
+const obj = {
+  name: "John",
+  greet: function () {
+    console.log(this.name); // "John"
+  },
+  arrowGreet: () => {
+    console.log(this.name); // undefined
+  },
+};
+};
+obj.greet(); // "John"
+
+obj.arrowGreet(); // undefined
+```
+
+### Tham số hàm
 
 ```javascript
 // Tham số mặc định (ES6)
@@ -400,7 +553,7 @@ function oldSum() {
 }
 ```
 
-**Phạm vi và closure:**
+### Phạm vi và closure
 
 ```javascript
 // Lexical scope
@@ -435,7 +588,7 @@ console.log(counter()); // 2
 console.log(counter()); // 3
 ```
 
-**Higher-order functions:**
+### Higher-order functions
 
 ```javascript
 // Hàm nhận hàm khác làm tham số
@@ -472,7 +625,7 @@ console.log(triple(5)); // 15
 
 ## 🧑‍🏫 Bài 5: Object và Array
 
-**Object:**
+### Object
 
 ```javascript
 // Tạo object với object literal
@@ -523,7 +676,7 @@ console.log(firstName); // "John"
 console.log(city); // "New York"
 ```
 
-**Array:**
+### Array
 
 ```javascript
 // Tạo array
@@ -594,13 +747,31 @@ console.log(rest); // [3, 4, 5]
 
 ## 🧑‍🏫 Bài 6: DOM - Document Object Model
 
-**DOM là gì?**
+### DOM là gì?
 
 - DOM (Document Object Model) là một API cho HTML và XML
 - Biểu diễn trang web dưới dạng cấu trúc cây các node
 - Cho phép JavaScript truy cập và thay đổi nội dung, cấu trúc và style của trang web
 
-**Truy cập phần tử DOM:**
+### Truy cập phần tử DOM
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Document Object Model</title>
+  </head>
+  <body>
+    <header id="header">
+      <h1>DOM Example</h1>
+    </header>
+    <div class="container">
+      <p class="text">Hello World!</p>
+      <button class="primary">Click me</button>
+    </div>
+  </body>
+</html>
+```
 
 ```javascript
 // Truy cập theo ID
@@ -635,7 +806,7 @@ const prevSibling = header.previousSibling;
 const prevElement = header.previousElementSibling;
 ```
 
-**Thay đổi nội dung DOM:**
+### Thay đổi nội dung DOM
 
 ```javascript
 // Thay đổi nội dung
@@ -660,7 +831,7 @@ element.classList.toggle("selected"); // Thêm nếu chưa có, xóa nếu đã 
 element.classList.contains("active"); // Kiểm tra class tồn tại
 ```
 
-**Tạo và thêm/xóa phần tử:**
+### Tạo và thêm/xóa phần tử
 
 ```javascript
 // Tạo phần tử mới
@@ -692,9 +863,15 @@ const clone = element.cloneNode(true); // true: clone toàn bộ subtree, false:
 
 ---
 
-## 🧑‍🏫 Bài 7: Sự kiện và xử lý sự kiện
+## 🧑‍🏫 Bài 7: Event và xử lý event
 
-**Đăng ký sự kiện:**
+### Event là gì?
+
+- Event (sự kiện) là một hành động hoặc sự kiện xảy ra trong trình duyệt, như click chuột, nhấn phím, tải trang, ...
+- JavaScript cho phép chúng ta xử lý các event này để tạo ra tính tương tác cho trang web.
+- Các event có thể được kích hoạt bởi người dùng (như click, nhập liệu) hoặc bởi trình duyệt (như tải trang, thay đổi kích thước cửa sổ).
+
+### Đăng ký event
 
 ```javascript
 // Phương thức 1: Thuộc tính HTML (không khuyến khích)
@@ -723,7 +900,7 @@ button.addEventListener("click", handleClick);
 button.removeEventListener("click", handleClick);
 ```
 
-**Các loại sự kiện phổ biến:**
+### Các loại event phổ biến
 
 ```javascript
 // Mouse events
@@ -754,15 +931,15 @@ window.addEventListener("resize", handler); // Kích thước cửa sổ thay đ
 window.addEventListener("scroll", handler); // Cuộn trang
 ```
 
-**Event object:**
+### Event object
 
 ```javascript
 element.addEventListener("click", function (event) {
   // Thông tin chung
   console.log(event.type); // Loại event (e.g., "click")
-  console.log(event.target); // Phần tử gốc kích hoạt sự kiện
-  console.log(event.currentTarget); // Phần tử đang xử lý sự kiện
-  console.log(event.timeStamp); // Thời gian xảy ra sự kiện
+  console.log(event.target); // Phần tử gốc kích hoạt event
+  console.log(event.currentTarget); // Phần tử đang xử lý event
+  console.log(event.timeStamp); // Thời gian xảy ra event
 
   // Mouse event
   console.log(event.clientX, event.clientY); // Vị trí chuột (viewport)
@@ -780,16 +957,16 @@ element.addEventListener("click", function (event) {
   // Dừng hành vi mặc định
   event.preventDefault();
 
-  // Ngăn sự kiện lan truyền (bubbling)
+  // Ngăn event lan truyền (bubbling)
   event.stopPropagation();
 });
 ```
 
-**Event propagation:**
+### Event propagation
 
 ```javascript
-// Bubbling (mặc định): sự kiện lan từ target lên ancestor
-// Capturing: sự kiện lan từ ancestor xuống target
+// Bubbling (mặc định): event lan từ target lên ancestor
+// Capturing: event lan từ ancestor xuống target
 
 // useCapture parameter (boolean thứ 3)
 parent.addEventListener("click", parentHandler, true); // Capturing phase
@@ -802,10 +979,10 @@ function handleEvent(event) {
 }
 ```
 
-**Event delegation:**
+### Event delegation
 
 ```javascript
-// Sử dụng sự kiện lan truyền để xử lý nhiều phần tử con với một handler
+// Sử dụng event lan truyền để xử lý nhiều phần tử con với một handler
 document
   .getElementById("parent-list")
   .addEventListener("click", function (event) {
@@ -819,7 +996,21 @@ document
 
 ## 🧑‍🏫 Bài 8: Asynchronous JavaScript
 
-**Callback:**
+### Giới thiệu về Asynchronous JavaScript
+
+- Asynchronous JavaScript là một phần quan trọng trong lập trình JavaScript, cho phép thực hiện các tác vụ không đồng bộ mà không làm chậm lại luồng chính của ứng dụng. Điều này rất hữu ích khi làm việc với API, tải dữ liệu từ server hoặc thực hiện các tác vụ tốn thời gian.
+- Có nhiều cách để xử lý bất đồng bộ trong JavaScript, bao gồm:
+  - Callbacks
+  - Promises
+  - Async/Await
+- Các phương thức này giúp quản lý các tác vụ bất đồng bộ một cách dễ dàng hơn và tránh tình trạng "callback hell".
+- Khi làm việc với bất đồng bộ, bạn cần chú ý đến các vấn đề như:
+  - Xử lý lỗi (error handling)
+  - Thứ tự thực thi (execution order)
+  - Quản lý trạng thái (state management)
+  - Tối ưu hóa hiệu suất (performance optimization)
+
+### Callback
 
 ```javascript
 // Callback function
@@ -860,7 +1051,7 @@ fetchUserData((error, user) => {
 });
 ```
 
-**Promises:**
+### Promises
 
 ```javascript
 // Tạo Promise
@@ -923,7 +1114,7 @@ Promise.allSettled([fetchData1(), fetchData2()]).then((results) => {
 });
 ```
 
-**Async/Await (ES8):**
+### Async/Await (ES8)
 
 ```javascript
 // Async function luôn trả về promise
@@ -965,7 +1156,7 @@ async function fetchAllData() {
 }
 ```
 
-**Fetch API:**
+### Fetch API
 
 ```javascript
 // Fetch API - giao diện hiện đại để gọi API
@@ -1018,7 +1209,7 @@ async function fetchUsers() {
 
 ## 🧑‍🏫 Bài 9: Local Storage và Session Storage
 
-**Web Storage API:**
+### Web Storage API
 
 ```javascript
 // LocalStorage - dữ liệu được lưu trữ không giới hạn thời gian
@@ -1045,13 +1236,13 @@ const tempData = sessionStorage.getItem("temp_data");
 sessionStorage.removeItem("temp_data");
 sessionStorage.clear();
 
-// Lắng nghe sự kiện thay đổi storage (trên các tab/window khác)
+// Lắng nghe event thay đổi storage (trên các tab/window khác)
 window.addEventListener("storage", (event) => {
   console.log("Storage changed:", event.key, event.newValue, event.oldValue);
 });
 ```
 
-**Trường hợp sử dụng:**
+### Trường hợp sử dụng
 
 ```javascript
 // Lưu trạng thái ứng dụng
@@ -1094,20 +1285,21 @@ function logout() {
 
 ---
 
-## 🧪 BÀI TẬP LỚN CUỐI PHẦN
+## 🧪 BÀI TẬP LỚN CUỐI PHẦN: Xây dựng ứng dụng Quản lý nhiệm vụ (Todo List)
 
-### **Đề bài: Xây dựng ứng dụng Quản lý nhiệm vụ (Todo List)**
+### Mô tả bài toán
 
 Xây dựng một ứng dụng Todo List hoàn chỉnh với các chức năng:
 
 1. Thêm nhiệm vụ mới
-2. Đánh dấu nhiệm vụ đã hoàn thành
-3. Xóa nhiệm vụ
-4. Lọc nhiệm vụ (tất cả, đã hoàn thành, chưa hoàn thành)
-5. Lưu trữ dữ liệu sử dụng Local Storage
-6. Giao diện người dùng thân thiện (sử dụng HTML/CSS đã học)
+2. Chỉnh sửa nhiệm vụ
+3. Đánh dấu nhiệm vụ đã hoàn thành
+4. Xóa nhiệm vụ
+5. Lọc nhiệm vụ (tất cả, đã hoàn thành, chưa hoàn thành)
+6. Lưu trữ dữ liệu sử dụng Local Storage
+7. Giao diện người dùng thân thiện (sử dụng HTML/CSS đã học)
 
-**Yêu cầu:**
+### Yêu cầu
 
 - Sử dụng JavaScript thuần, không dùng thư viện
 - Áp dụng kiến thức DOM, Events, Local Storage
@@ -1115,15 +1307,14 @@ Xây dựng một ứng dụng Todo List hoàn chỉnh với các chức năng:
 - Sử dụng ES6+ features (arrow functions, destructuring, etc.)
 - Triển khai theo mô hình MVC hoặc module pattern
 
-**Tính năng nâng cao (không bắt buộc):**
+### Tính năng nâng cao (không bắt buộc)
 
-- Thêm chức năng sửa nhiệm vụ
 - Thêm chức năng phân loại nhiệm vụ theo danh mục
 - Thêm chức năng drag-and-drop để sắp xếp
 - Hiển thị thống kê (số lượng đã hoàn thành/chưa hoàn thành)
 - Thêm deadline và thông báo
 
-**Mockup ứng dụng:**
+### Mockup ứng dụng tham khảo
 
 ```text
 +-----------------------------------------------+

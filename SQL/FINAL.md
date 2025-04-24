@@ -2,7 +2,20 @@
 
 ## **Đề bài: Xây dựng CSDL cho ứng dụng Quản lý Thư viện**
 
-Thiết kế và triển khai cơ sở dữ liệu hoàn chỉnh cho ứng dụng quản lý thư viện, tích hợp với ứng dụng JAVA:
+Thiết kế và triển khai cơ sở dữ liệu hoàn chỉnh cho ứng dụng quản lý thư viện, bao gồm các chức năng như đăng ký người dùng, mượn sách, trả sách, tìm kiếm sách, thống kê mượn sách, và quản lý thông tin sách.
+
+### Mô tả hệ thống
+
+- **Người dùng**: Độc giả và nhân viên thư viện
+- **Chức năng chính**:
+  - Đăng ký người dùng
+  - Đăng nhập
+  - Tìm kiếm sách theo nhiều tiêu chí (tên, tác giả, thể loại)
+  - Mượn sách
+  - Trả sách
+  - Thống kê mượn sách theo thời gian
+  - Quản lý thông tin sách (thêm, sửa, xóa)
+  - Quản lý thông tin người dùng (độc giả và nhân viên)
 
 ### Yêu cầu cơ sở dữ liệu
 
@@ -41,12 +54,9 @@ Thiết kế và triển khai cơ sở dữ liệu hoàn chỉnh cho ứng dụn
    - Thiết kế cấu trúc bảng hiệu quả
    - Tối ưu các câu truy vấn phức tạp
 
-5. **Tích hợp với JAVA**:
-   - Viết các câu SQL chuẩn để tích hợp với ứng dụng JAVA qua JDBC
-   - Đảm bảo xử lý transaction an toàn
-   - Cung cấp stored procedures cho tất cả chức năng cần thiết
-
-Bài tập này sẽ kết hợp với bài tập JAVA để tạo thành một ứng dụng hoàn chỉnh, trong đó phần JAVA sẽ sử dụng cơ sở dữ liệu được thiết kế trong phần SQL.
+5. **Bảo mật**:
+   - Phân quyền người dùng (độc giả, nhân viên)
+   - Mã hóa thông tin nhạy cảm (như mật khẩu)
 
 ---
 

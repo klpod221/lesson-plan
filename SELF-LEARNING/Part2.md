@@ -3,9 +3,23 @@
 - [📘 PHẦN 2: XỬ LÝ TÀI LIỆU CHUYÊN NGÀNH](#-phần-2-xử-lý-tài-liệu-chuyên-ngành)
   - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
   - [🧑‍🏫 Bài 1: Đọc và hiểu tài liệu kỹ thuật](#-bài-1-đọc-và-hiểu-tài-liệu-kỹ-thuật)
+    - [Cấu trúc của tài liệu kỹ thuật](#cấu-trúc-của-tài-liệu-kỹ-thuật)
+    - [Chiến lược đọc hiệu quả](#chiến-lược-đọc-hiệu-quả)
+    - [Hiểu thuật ngữ chuyên ngành](#hiểu-thuật-ngữ-chuyên-ngành)
+    - [Giải mã hình ảnh kỹ thuật và biểu đồ](#giải-mã-hình-ảnh-kỹ-thuật-và-biểu-đồ)
   - [🧑‍🏫 Bài 2: Xử lý paper nghiên cứu và bài báo học thuật](#-bài-2-xử-lý-paper-nghiên-cứu-và-bài-báo-học-thuật)
+    - [Cấu trúc của một paper nghiên cứu](#cấu-trúc-của-một-paper-nghiên-cứu)
+    - [Kỹ thuật xử lý paper khó](#kỹ-thuật-xử-lý-paper-khó)
+    - [Theo dõi nghiên cứu trong lĩnh vực](#theo-dõi-nghiên-cứu-trong-lĩnh-vực)
   - [🧑‍🏫 Bài 3: Tài liệu mã nguồn mở và API Documentation](#-bài-3-tài-liệu-mã-nguồn-mở-và-api-documentation)
+    - [Làm việc với API Documentation](#làm-việc-với-api-documentation)
+    - [Nghiên cứu mã nguồn mở](#nghiên-cứu-mã-nguồn-mở)
+    - [Đọc hiểu và sử dụng documentation tools](#đọc-hiểu-và-sử-dụng-documentation-tools)
   - [🧑‍🏫 Bài 4: Tạo tài liệu và chia sẻ kiến thức](#-bài-4-tạo-tài-liệu-và-chia-sẻ-kiến-thức)
+    - [Nguyên tắc viết tài liệu kỹ thuật hiệu quả](#nguyên-tắc-viết-tài-liệu-kỹ-thuật-hiệu-quả)
+    - [Tạo tài liệu mã nguồn](#tạo-tài-liệu-mã-nguồn)
+    - [Chia sẻ kiến thức với cộng đồng](#chia-sẻ-kiến-thức-với-cộng-đồng)
+    - [Công cụ hỗ trợ tạo tài liệu](#công-cụ-hỗ-trợ-tạo-tài-liệu)
   - [🧪 BÀI TẬP THỰC HÀNH](#-bài-tập-thực-hành)
 
 ## 🎯 Mục tiêu tổng quát
@@ -19,7 +33,7 @@
 
 ## 🧑‍🏫 Bài 1: Đọc và hiểu tài liệu kỹ thuật
 
-**Cấu trúc của tài liệu kỹ thuật:**
+### Cấu trúc của tài liệu kỹ thuật
 
 - **Sách kỹ thuật và sách giáo khoa**
 
@@ -35,7 +49,7 @@
   - Inline comments, docstrings, README files, wikis
   - Code examples, unit tests như một dạng tài liệu
 
-**Chiến lược đọc hiệu quả:**
+### Chiến lược đọc hiệu quả
 
 1. **Đọc theo nhiều lớp (Layered Reading)**
 
@@ -56,7 +70,7 @@
    - Đọc để học kiến thức mới
    - Đọc để tổng hợp thông tin từ nhiều nguồn
 
-**Hiểu thuật ngữ chuyên ngành:**
+### Hiểu thuật ngữ chuyên ngành
 
 1. **Xây dựng từ điển thuật ngữ cá nhân**
 
@@ -75,7 +89,7 @@
    - Phân loại thuật ngữ theo lĩnh vực, công nghệ
    - Thiết lập quan hệ "cha-con" giữa các khái niệm
 
-**Giải mã hình ảnh kỹ thuật và biểu đồ:**
+### Giải mã hình ảnh kỹ thuật và biểu đồ
 
 1. **Các loại biểu đồ phổ biến trong IT**
 
@@ -94,7 +108,7 @@
 
 ## 🧑‍🏫 Bài 2: Xử lý paper nghiên cứu và bài báo học thuật
 
-**Cấu trúc của một paper nghiên cứu:**
+### Cấu trúc của một paper nghiên cứu
 
 1. **Các thành phần chính**
 
@@ -114,7 +128,7 @@
    - Đọc Discussion và Results để nắm kết quả chi tiết
    - Xem Methodology nếu quan tâm đến cách triển khai
 
-**Kỹ thuật xử lý paper khó:**
+### Kỹ thuật xử lý paper khó
 
 1. **Chiến lược 3-pass**
 
@@ -135,7 +149,7 @@
    - Liệt kê các đóng góp và hạn chế của nghiên cứu
    - Xác định hướng phát triển tiềm năng
 
-**Theo dõi nghiên cứu trong lĩnh vực:**
+### Theo dõi nghiên cứu trong lĩnh vực
 
 1. **Nguồn paper và bài báo**
 
@@ -161,7 +175,7 @@
 
 ## 🧑‍🏫 Bài 3: Tài liệu mã nguồn mở và API Documentation
 
-**Làm việc với API Documentation:**
+### Làm việc với API Documentation
 
 1. **Cấu trúc của API Documentation**
 
@@ -186,7 +200,7 @@
    - Kiểm tra error codes và cách xử lý
    - Theo dõi versioning và deprecated features
 
-**Nghiên cứu mã nguồn mở:**
+### Nghiên cứu mã nguồn mở
 
 1. **Cấu trúc của dự án mã nguồn mở**
 
@@ -213,7 +227,7 @@
    - Thử sửa lỗi nhỏ hoặc triển khai tính năng đơn giản
    - Đặt câu hỏi trong kênh chat của dự án (Discord, Slack, IRC)
 
-**Đọc hiểu và sử dụng documentation tools:**
+### Đọc hiểu và sử dụng documentation tools
 
 1. **Công cụ tạo tài liệu phổ biến**
 
@@ -240,7 +254,7 @@
 
 ## 🧑‍🏫 Bài 4: Tạo tài liệu và chia sẻ kiến thức
 
-**Nguyên tắc viết tài liệu kỹ thuật hiệu quả:**
+### Nguyên tắc viết tài liệu kỹ thuật hiệu quả
 
 1. **Cấu trúc tài liệu**
 
@@ -263,7 +277,7 @@
    - Tránh jargon không cần thiết
    - Sử dụng bullet points và numbered lists
 
-**Tạo tài liệu mã nguồn:**
+### Tạo tài liệu mã nguồn
 
 1. **Documentation trong code**
 
@@ -287,7 +301,7 @@
    - Bao gồm FAQ cho câu hỏi thường gặp
    - Cập nhật tài liệu khi code thay đổi
 
-**Chia sẻ kiến thức với cộng đồng:**
+### Chia sẻ kiến thức với cộng đồng
 
 1. **Viết bài blog kỹ thuật**
 
@@ -312,7 +326,7 @@
    - Tổ chức workshop hoặc meetup
    - Chia sẻ kinh nghiệm với đồng nghiệp
 
-**Công cụ hỗ trợ tạo tài liệu:**
+### Công cụ hỗ trợ tạo tài liệu
 
 1. **Công cụ viết tài liệu**
 

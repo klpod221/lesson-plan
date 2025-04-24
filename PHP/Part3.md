@@ -2,15 +2,36 @@
 
 - [📘 PHẦN 3: PHP NÂNG CAO VÀ KẾT NỐI DATABASE](#-phần-3-php-nâng-cao-và-kết-nối-database)
   - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
-  - [🧑‍🏫 Bài 11: Kết nối và thao tác với Database](#-bài-11-kết-nối-và-thao-tác-với-database)
-  - [🧑‍🏫 Bài 12: PHP Data Objects (PDO)](#-bài-12-php-data-objects-pdo)
-  - [🧑‍🏫 Bài 13: RESTful API với PHP](#-bài-13-restful-api-với-php)
-  - [🧑‍🏫 Bài 14: Bảo mật trong PHP](#-bài-14-bảo-mật-trong-php)
-  - [🧑‍🏫 Bài 15: Caching và Optimization](#-bài-15-caching-và-optimization)
-  - [🧪 BÀI TẬP LỚN CUỐI PHẦN](#-bài-tập-lớn-cuối-phần)
-    - [**Đề bài: Xây dựng hệ thống API cho ứng dụng blog**](#đề-bài-xây-dựng-hệ-thống-api-cho-ứng-dụng-blog)
-    - [**Yêu cầu:**](#yêu-cầu)
-    - [**Cấu trúc dự án:**](#cấu-trúc-dự-án)
+  - [🧑‍🏫 Bài 12: Kết nối và thao tác với Database](#-bài-12-kết-nối-và-thao-tác-với-database)
+    - [Kết nối với MySQL](#kết-nối-với-mysql)
+    - [Thực hiện truy vấn cơ bản](#thực-hiện-truy-vấn-cơ-bản)
+    - [Xử lý kết quả truy vấn](#xử-lý-kết-quả-truy-vấn)
+    - [Transactions](#transactions)
+  - [🧑‍🏫 Bài 13: PHP Data Objects (PDO)](#-bài-13-php-data-objects-pdo)
+    - [Giới thiệu về PDO](#giới-thiệu-về-pdo)
+    - [Cấu hình PDO và xử lý lỗi](#cấu-hình-pdo-và-xử-lý-lỗi)
+    - [Prepared Statements](#prepared-statements)
+    - [Truy vấn nâng cao với PDO](#truy-vấn-nâng-cao-với-pdo)
+  - [🧑‍🏫 Bài 14: RESTful API với PHP](#-bài-14-restful-api-với-php)
+    - [Giới thiệu về REST API](#giới-thiệu-về-rest-api)
+    - [Xây dựng REST API cơ bản](#xây-dựng-rest-api-cơ-bản)
+    - [Xác thực API với JWT](#xác-thực-api-với-jwt)
+    - [Middleware bảo vệ API](#middleware-bảo-vệ-api)
+  - [🧑‍🏫 Bài 15: Bảo mật trong PHP](#-bài-15-bảo-mật-trong-php)
+    - [Ngăn chặn SQL Injection](#ngăn-chặn-sql-injection)
+    - [Ngăn chặn XSS (Cross-Site Scripting)](#ngăn-chặn-xss-cross-site-scripting)
+    - [Ngăn chặn CSRF (Cross-Site Request Forgery)](#ngăn-chặn-csrf-cross-site-request-forgery)
+    - [Bảo vệ mật khẩu](#bảo-vệ-mật-khẩu)
+    - [Bảo mật file upload](#bảo-mật-file-upload)
+  - [🧑‍🏫 Bài 16: Caching và Optimization](#-bài-16-caching-và-optimization)
+    - [Output Buffering và Page Caching](#output-buffering-và-page-caching)
+    - [Memcached](#memcached)
+    - [Redis](#redis)
+    - [Tối ưu hóa code PHP](#tối-ưu-hóa-code-php)
+  - [🧪 BÀI TẬP LỚN CUỐI PHẦN: Xây dựng hệ thống API cho ứng dụng blog](#-bài-tập-lớn-cuối-phần-xây-dựng-hệ-thống-api-cho-ứng-dụng-blog)
+    - [Mô tả bài toán](#mô-tả-bài-toán)
+    - [Yêu cầu](#yêu-cầu)
+    - [Cấu trúc dự án đề xuất](#cấu-trúc-dự-án-đề-xuất)
 
 ## 🎯 Mục tiêu tổng quát
 
@@ -22,9 +43,9 @@
 
 ---
 
-## 🧑‍🏫 Bài 11: Kết nối và thao tác với Database
+## 🧑‍🏫 Bài 12: Kết nối và thao tác với Database
 
-**Kết nối với MySQL:**
+### Kết nối với MySQL
 
 ```php
 <?php
@@ -63,7 +84,7 @@ try {
 ?>
 ```
 
-**Thực hiện truy vấn cơ bản:**
+### Thực hiện truy vấn cơ bản
 
 ```php
 <?php
@@ -130,12 +151,12 @@ if ($mysqli->query($sql) === TRUE) {
     echo "Error deleting record: " . $mysqli->error . "<br>";
 }
 
-// Đóng kết nối
+// Đóng kết nối để giải phóng tài nguyên
 $mysqli->close();
 ?>
 ```
 
-**Xử lý kết quả truy vấn:**
+### Xử lý kết quả truy vấn
 
 ```php
 <?php
@@ -143,40 +164,40 @@ $mysqli->close();
 try {
     $pdo = new PDO("mysql:host=localhost;dbname=mydb", "root", "password");
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    
+
     // Thêm nhiều bản ghi
-    $pdo->exec("INSERT INTO users (firstname, lastname, email) VALUES 
+    $pdo->exec("INSERT INTO users (firstname, lastname, email) VALUES
                 ('Jane', 'Doe', 'jane@example.com'),
                 ('Mike', 'Johnson', 'mike@example.com'),
                 ('Sarah', 'Williams', 'sarah@example.com')");
-    
+
     echo "Multiple records inserted<br>";
-    
+
     // Truy vấn có tham số
     $stmt = $pdo->prepare("SELECT * FROM users WHERE lastname = ?");
     $stmt->execute(['Doe']);
     echo "<h4>Users with lastname 'Doe':</h4>";
-    
+
     // Cách 1: Fetch từng dòng
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
         echo "Name: {$row['firstname']} {$row['lastname']}, Email: {$row['email']}<br>";
     }
-    
+
     // Cách 2: Fetch tất cả dòng một lúc
     $stmt = $pdo->prepare("SELECT * FROM users WHERE lastname LIKE ?");
     $stmt->execute(['%i%']); // Lastname chứa chữ 'i'
-    
+
     echo "<h4>Users with 'i' in lastname:</h4>";
     $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    
+
     foreach ($users as $user) {
         echo "Name: {$user['firstname']} {$user['lastname']}, Email: {$user['email']}<br>";
     }
-    
+
     // Cách 3: Fetch vào object
     $stmt = $pdo->query("SELECT * FROM users LIMIT 2");
     $stmt->setFetchMode(PDO::FETCH_OBJ);
-    
+
     echo "<h4>First two users (as objects):</h4>";
     while ($user = $stmt->fetch()) {
         echo "Name: {$user->firstname} {$user->lastname}, Email: {$user->email}<br>";
@@ -187,25 +208,25 @@ try {
 ?>
 ```
 
-**Transactions:**
+### Transactions
 
 ```php
 <?php
 try {
     $pdo = new PDO("mysql:host=localhost;dbname=mydb", "root", "password");
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    
+
     // Bắt đầu transaction
     $pdo->beginTransaction();
-    
+
     // Thực hiện các câu lệnh SQL
-    $pdo->exec("INSERT INTO users (firstname, lastname, email) 
+    $pdo->exec("INSERT INTO users (firstname, lastname, email)
                 VALUES ('Transaction', 'Test', 'transaction@example.com')");
     $pdo->exec("UPDATE users SET email='updated@example.com' WHERE lastname='Johnson'");
-    
+
     // Commit transaction
     $pdo->commit();
-    
+
     echo "Transaction completed successfully<br>";
 } catch(PDOException $e) {
     // Rollback transaction nếu có lỗi
@@ -217,21 +238,19 @@ try {
 
 ---
 
-## 🧑‍🏫 Bài 12: PHP Data Objects (PDO)
+## 🧑‍🏫 Bài 13: PHP Data Objects (PDO)
 
-**Giới thiệu về PDO:**
+### Giới thiệu về PDO
+
+- PDO (PHP Data Objects) là một extension cung cấp interface nhất quán để truy cập database trong PHP.
+- Ưu điểm của PDO:
+  - Hỗ trợ nhiều loại database (MySQL, PostgreSQL, SQLite, Oracle, SQL Server, ...)
+  - Sử dụng prepared statements để chống SQL Injection
+  - Xử lý lỗi tốt hơn với exceptions
+  - Interface nhất quán, không phụ thuộc vào database cụ thể
 
 ```php
 <?php
-/*
-PDO (PHP Data Objects) là một extension cung cấp interface nhất quán để truy cập database trong PHP.
-Ưu điểm của PDO:
-- Hỗ trợ nhiều loại database (MySQL, PostgreSQL, SQLite, Oracle, SQL Server, ...)
-- Sử dụng prepared statements để chống SQL Injection
-- Xử lý lỗi tốt hơn với exceptions
-- Interface nhất quán, không phụ thuộc vào database cụ thể
-*/
-
 // Các driver được hỗ trợ
 $drivers = PDO::getAvailableDrivers();
 echo "Available PDO drivers: " . implode(', ', $drivers) . "<br>";
@@ -240,13 +259,13 @@ echo "Available PDO drivers: " . implode(', ', $drivers) . "<br>";
 try {
     // MySQL
     $mysqlPdo = new PDO('mysql:host=localhost;dbname=mydb;charset=utf8mb4', 'username', 'password');
-    
+
     // SQLite
     $sqlitePdo = new PDO('sqlite:/path/to/database.sqlite');
-    
+
     // PostgreSQL
     $pgPdo = new PDO('pgsql:host=localhost;port=5432;dbname=mydb;', 'username', 'password');
-    
+
     // SQL Server
     $mssqlPdo = new PDO('sqlsrv:Server=localhost;Database=mydb', 'username', 'password');
 } catch (PDOException $e) {
@@ -255,7 +274,7 @@ try {
 ?>
 ```
 
-**Cấu hình PDO và xử lý lỗi:**
+### Cấu hình PDO và xử lý lỗi
 
 ```php
 <?php
@@ -267,85 +286,85 @@ try {
         PDO::ATTR_EMULATE_PREPARES => false,              // Tắt prepared statements emulation
         PDO::MYSQL_ATTR_FOUND_ROWS => true                // Trả về số dòng đã tìm thấy thay vì số dòng được thay đổi
     ]);
-    
+
     // Cách thiết lập các thuộc tính sau khi kết nối
     $pdo->setAttribute(PDO::ATTR_CASE, PDO::CASE_LOWER); // Chuyển tên cột thành chữ thường
 } catch (PDOException $e) {
     // Xử lý lỗi
     echo "Connection failed: " . $e->getMessage() . "<br>";
     echo "Error code: " . $e->getCode() . "<br>";
-    
+
     // Thêm thông tin lỗi chi tiết
     if ($e->errorInfo) {
         echo "SQLSTATE error code: " . $e->errorInfo[0] . "<br>";
         echo "Driver-specific error code: " . $e->errorInfo[1] . "<br>";
         echo "Driver-specific error message: " . $e->errorInfo[2] . "<br>";
     }
-    
+
     // Ghi lỗi vào file log thay vì hiển thị
     error_log("Database error: " . $e->getMessage(), 3, "errors.log");
-    
+
     // Hiển thị thông báo thân thiện với người dùng
     die("Sorry, a database error occurred. Our team has been notified.");
 }
 ?>
 ```
 
-**Prepared Statements:**
+### Prepared Statements
 
 ```php
 <?php
 try {
     $pdo = new PDO('mysql:host=localhost;dbname=mydb', 'username', 'password');
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    
+
     // Ví dụ 1: Prepared Statement với named parameters
     $stmt = $pdo->prepare("SELECT * FROM users WHERE firstname = :fname AND lastname = :lname");
-    
+
     // Bind parameters
     $stmt->bindParam(':fname', $firstname, PDO::PARAM_STR);
     $stmt->bindParam(':lname', $lastname, PDO::PARAM_STR);
-    
+
     // Set values
     $firstname = "John";
     $lastname = "Doe";
-    
+
     // Execute
     $stmt->execute();
     $users = $stmt->fetchAll();
-    
+
     // Hiển thị kết quả
     echo "<h4>Users found (Example 1):</h4>";
     foreach ($users as $user) {
         echo "{$user['firstname']} {$user['lastname']} - {$user['email']}<br>";
     }
-    
+
     // Ví dụ 2: Bind values trực tiếp trong execute
     $stmt = $pdo->prepare("SELECT * FROM users WHERE email LIKE :email");
     $stmt->execute([':email' => '%example.com%']);
-    
+
     $users = $stmt->fetchAll();
     echo "<h4>Users with example.com email (Example 2):</h4>";
     foreach ($users as $user) {
         echo "{$user['firstname']} {$user['lastname']} - {$user['email']}<br>";
     }
-    
+
     // Ví dụ 3: Sử dụng positional parameters
     $stmt = $pdo->prepare("INSERT INTO users (firstname, lastname, email) VALUES (?, ?, ?)");
     $stmt->execute(["Alice", "Smith", "alice@example.com"]);
-    
+
     echo "New user added (Example 3). ID: " . $pdo->lastInsertId() . "<br>";
-    
+
     // Ví dụ 4: Prepared statement có thể tái sử dụng nhiều lần
     $stmt = $pdo->prepare("INSERT INTO users (firstname, lastname, email) VALUES (:fname, :lname, :email)");
-    
+
     // Thực thi nhiều lần với dữ liệu khác nhau
     $users = [
         ['fname' => 'Robert', 'lname' => 'Johnson', 'email' => 'robert@example.com'],
         ['fname' => 'Lisa', 'lname' => 'Brown', 'email' => 'lisa@example.com'],
         ['fname' => 'Michael', 'lname' => 'Davis', 'email' => 'michael@example.com']
     ];
-    
+
     foreach ($users as $user) {
         $stmt->execute($user);
         echo "Added user: {$user['fname']} {$user['lname']}<br>";
@@ -356,14 +375,14 @@ try {
 ?>
 ```
 
-**Truy vấn nâng cao với PDO:**
+### Truy vấn nâng cao với PDO
 
 ```php
 <?php
 try {
     $pdo = new PDO('mysql:host=localhost;dbname=mydb', 'username', 'password');
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    
+
     // Ví dụ 1: JOIN query
     $stmt = $pdo->prepare("
         SELECT o.id as order_id, o.order_date, u.firstname, u.lastname, u.email
@@ -372,14 +391,14 @@ try {
         WHERE o.order_date > :date
         ORDER BY o.order_date DESC
     ");
-    
+
     $date = '2023-01-01';
     $stmt->execute([':date' => $date]);
-    
+
     echo "<h4>Recent Orders:</h4>";
     echo "<table border='1'>
         <tr><th>Order ID</th><th>Date</th><th>Customer</th><th>Email</th></tr>";
-    
+
     while ($row = $stmt->fetch()) {
         echo "<tr>
             <td>{$row['order_id']}</td>
@@ -388,25 +407,25 @@ try {
             <td>{$row['email']}</td>
         </tr>";
     }
-    
+
     echo "</table>";
-    
+
     // Ví dụ 2: GROUP BY và aggregate functions
     $stmt = $pdo->query("
-        SELECT 
-            YEAR(order_date) as year, 
-            MONTH(order_date) as month, 
-            COUNT(*) as order_count, 
+        SELECT
+            YEAR(order_date) as year,
+            MONTH(order_date) as month,
+            COUNT(*) as order_count,
             SUM(total_amount) as total_sales
         FROM orders
         GROUP BY YEAR(order_date), MONTH(order_date)
         ORDER BY year DESC, month DESC
     ");
-    
+
     echo "<h4>Monthly Sales Summary:</h4>";
     echo "<table border='1'>
         <tr><th>Year</th><th>Month</th><th>Orders</th><th>Total Sales</th></tr>";
-    
+
     while ($row = $stmt->fetch()) {
         $monthName = date('F', mktime(0, 0, 0, $row['month'], 1));
         echo "<tr>
@@ -416,9 +435,9 @@ try {
             <td>\${$row['total_sales']}</td>
         </tr>";
     }
-    
+
     echo "</table>";
-    
+
     // Ví dụ 3: Subqueries và IN operator
     $stmt = $pdo->prepare("
         SELECT * FROM users
@@ -428,14 +447,14 @@ try {
         )
         ORDER BY lastname, firstname
     ");
-    
+
     $stmt->execute([':min_amount' => 1000]);
-    
+
     echo "<h4>Premium Customers (Orders > $1000):</h4>";
     while ($row = $stmt->fetch()) {
         echo "{$row['firstname']} {$row['lastname']} - {$row['email']}<br>";
     }
-    
+
 } catch(PDOException $e) {
     die("Error: " . $e->getMessage());
 }
@@ -444,21 +463,20 @@ try {
 
 ---
 
-## 🧑‍🏫 Bài 13: RESTful API với PHP
+## 🧑‍🏫 Bài 14: RESTful API với PHP
 
-**Giới thiệu về REST API:**
+### Giới thiệu về REST API
 
-```php
-<?php
-/*
 RESTful API là một kiến trúc phần mềm dùng để thiết kế các web service:
+
 - REST = Representational State Transfer
 - Sử dụng các HTTP methods (GET, POST, PUT, DELETE) để thao tác với tài nguyên
 - Tài nguyên được xác định bằng URIs (Uniform Resource Identifiers)
 - Thường trả về dữ liệu dạng JSON hoặc XML
 - Stateless: mỗi request chứa đủ thông tin để xử lý
-*/
 
+```php
+<?php
 // Thiết lập các header cơ bản cho REST API
 header("Content-Type: application/json; charset=UTF-8");
 
@@ -480,7 +498,7 @@ sendResponse($data);
 ?>
 ```
 
-**Xây dựng REST API cơ bản:**
+### Xây dựng REST API cơ bản
 
 ```php
 <?php
@@ -517,11 +535,11 @@ switch ($resource) {
     case 'products':
         handleProducts($method, $id, $pdo);
         break;
-        
+
     case 'users':
         handleUsers($method, $id, $pdo);
         break;
-        
+
     default:
         sendResponse(["error" => "Invalid resource"], 404);
 }
@@ -535,7 +553,7 @@ function handleProducts($method, $id, $pdo) {
                 $stmt = $pdo->prepare("SELECT * FROM products WHERE id = ?");
                 $stmt->execute([$id]);
                 $product = $stmt->fetch(PDO::FETCH_ASSOC);
-                
+
                 if ($product) {
                     sendResponse($product);
                 } else {
@@ -548,84 +566,84 @@ function handleProducts($method, $id, $pdo) {
                 sendResponse($products);
             }
             break;
-            
+
         case 'POST':
             // POST /api/products - Thêm sản phẩm mới
             $data = json_decode(file_get_contents("php://input"), true);
-            
+
             // Validate data
             if (!isset($data['name']) || !isset($data['price'])) {
                 sendResponse(["error" => "Missing required fields"], 400);
             }
-            
+
             $stmt = $pdo->prepare("INSERT INTO products (name, price, description) VALUES (?, ?, ?)");
             $stmt->execute([
                 $data['name'],
                 $data['price'],
                 isset($data['description']) ? $data['description'] : null
             ]);
-            
+
             sendResponse([
                 "message" => "Product created",
                 "id" => $pdo->lastInsertId()
             ], 201);
             break;
-            
+
         case 'PUT':
             // PUT /api/products/{id} - Cập nhật sản phẩm
             if (!$id) {
                 sendResponse(["error" => "ID is required"], 400);
             }
-            
+
             $data = json_decode(file_get_contents("php://input"), true);
-            
+
             // Check if product exists
             $check = $pdo->prepare("SELECT id FROM products WHERE id = ?");
             $check->execute([$id]);
             if (!$check->fetch()) {
                 sendResponse(["error" => "Product not found"], 404);
             }
-            
+
             // Build update query based on provided fields
             $fields = [];
             $values = [];
-            
+
             foreach (['name', 'price', 'description'] as $field) {
                 if (isset($data[$field])) {
                     $fields[] = "$field = ?";
                     $values[] = $data[$field];
                 }
             }
-            
+
             if (empty($fields)) {
                 sendResponse(["error" => "No fields to update"], 400);
             }
-            
+
             $values[] = $id; // Add ID for WHERE clause
             $sql = "UPDATE products SET " . implode(", ", $fields) . " WHERE id = ?";
-            
+
             $stmt = $pdo->prepare($sql);
             $stmt->execute($values);
-            
+
             sendResponse(["message" => "Product updated", "id" => $id]);
             break;
-            
+
         case 'DELETE':
             // DELETE /api/products/{id} - Xóa sản phẩm
             if (!$id) {
                 sendResponse(["error" => "ID is required"], 400);
             }
-            
+
             $stmt = $pdo->prepare("DELETE FROM products WHERE id = ?");
             $stmt->execute([$id]);
-            
+
             if ($stmt->rowCount() > 0) {
                 sendResponse(["message" => "Product deleted", "id" => $id]);
             } else {
                 sendResponse(["error" => "Product not found"], 404);
             }
             break;
-            
+
         default:
             sendResponse(["error" => "Method not allowed"], 405);
     }
@@ -639,7 +657,9 @@ function handleUsers($method, $id, $pdo) {
 ?>
 ```
 
-**Xác thực API với JWT:**
+### Xác thực API với JWT
+
+- JWT (JSON Web Token) là một tiêu chuẩn mở (RFC 7519) cho phép truyền tải thông tin giữa các bên dưới dạng JSON.
 
 ```php
 <?php
@@ -654,13 +674,13 @@ class JWTHandler {
     private $secretKey;
     private $issuedAt;
     private $expire;
-    
+
     public function __construct($secretKey = 'your-secret-key') {
         $this->secretKey = $secretKey;
         $this->issuedAt = time();
         $this->expire = $this->issuedAt + 3600; // 1 giờ
     }
-    
+
     public function generateToken($userData) {
         $payload = [
             'iat' => $this->issuedAt,    // Issued at time
@@ -668,59 +688,59 @@ class JWTHandler {
             'exp' => $this->expire,      // Expire time
             'user' => $userData          // User data
         ];
-        
+
         return $this->encodeToken($payload);
     }
-    
+
     private function encodeToken($payload) {
         $header = [
             'typ' => 'JWT',
             'alg' => 'HS256'
         ];
-        
+
         // Encode Header
         $base64UrlHeader = str_replace(['+', '/', '='], ['-', '_', ''], base64_encode(json_encode($header)));
-        
+
         // Encode Payload
         $base64UrlPayload = str_replace(['+', '/', '='], ['-', '_', ''], base64_encode(json_encode($payload)));
-        
+
         // Create Signature
         $signature = hash_hmac('sha256', $base64UrlHeader . "." . $base64UrlPayload, $this->secretKey, true);
         $base64UrlSignature = str_replace(['+', '/', '='], ['-', '_', ''], base64_encode($signature));
-        
+
         // Create JWT
         $jwt = $base64UrlHeader . "." . $base64UrlPayload . "." . $base64UrlSignature;
-        
+
         return $jwt;
     }
-    
+
     public function validateToken($jwt) {
         try {
             $tokenParts = explode('.', $jwt);
             if (count($tokenParts) != 3) {
                 return false;
             }
-            
+
             $header = base64_decode(str_replace(['-', '_'], ['+', '/'], $tokenParts[0]));
             $payload = base64_decode(str_replace(['-', '_'], ['+', '/'], $tokenParts[1]));
             $signatureProvided = $tokenParts[2];
-            
+
             // Check the expiration time
             $payloadObj = json_decode($payload);
             if (isset($payloadObj->exp) && $payloadObj->exp < time()) {
                 return false;
             }
-            
+
             // Verify signature
             $base64UrlHeader = $tokenParts[0];
             $base64UrlPayload = $tokenParts[1];
             $signature = hash_hmac('sha256', $base64UrlHeader . "." . $base64UrlPayload, $this->secretKey, true);
             $base64UrlSignature = str_replace(['+', '/', '='], ['-', '_', ''], base64_encode($signature));
-            
+
             if ($base64UrlSignature !== $signatureProvided) {
                 return false;
             }
-            
+
             return json_decode($payload, true);
         } catch (Exception $e) {
             return false;
@@ -734,7 +754,7 @@ header("Content-Type: application/json; charset=UTF-8");
 // Handle login request
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $data = json_decode(file_get_contents("php://input"), true);
-    
+
     // Validate credentials (replace with database check)
     if (isset($data['username']) && isset($data['password'])) {
         // In a real application, verify against database
@@ -745,7 +765,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 'username' => $data['username'],
                 'role' => 'admin'
             ]);
-            
+
             echo json_encode([
                 'status' => 'success',
                 'message' => 'Login successful',
@@ -775,7 +795,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ?>
 ```
 
-**Middleware bảo vệ API:**
+### Middleware bảo vệ API
 
 ```php
 <?php
@@ -785,16 +805,16 @@ require_once 'api/auth.php';
 
 class AuthMiddleware {
     private $jwt;
-    
+
     public function __construct() {
         $this->jwt = new JWTHandler();
     }
-    
+
     public function authenticate() {
         // Get authorization header
         $headers = getallheaders();
         $authHeader = isset($headers['Authorization']) ? $headers['Authorization'] : '';
-        
+
         // Check for Bearer token
         if (!$authHeader || !preg_match('/Bearer\s(\S+)/', $authHeader, $matches)) {
             http_response_code(401);
@@ -804,10 +824,10 @@ class AuthMiddleware {
             ]);
             exit;
         }
-        
+
         $token = $matches[1];
         $payload = $this->jwt->validateToken($token);
-        
+
         if (!$payload) {
             http_response_code(401);
             echo json_encode([
@@ -816,17 +836,17 @@ class AuthMiddleware {
             ]);
             exit;
         }
-        
+
         // Add user data to request for further use
         $_REQUEST['user'] = $payload['user'];
         return true;
     }
-    
+
     public function hasRole($requiredRole) {
         if (!isset($_REQUEST['user']) || !isset($_REQUEST['user']['role'])) {
             return false;
         }
-        
+
         return $_REQUEST['user']['role'] === $requiredRole;
     }
 }
@@ -834,7 +854,7 @@ class AuthMiddleware {
 // Usage in API endpoints
 // $auth = new AuthMiddleware();
 // $auth->authenticate();
-// 
+//
 // if ($auth->hasRole('admin')) {
 //     // Proceed with admin actions
 // } else {
@@ -847,9 +867,9 @@ class AuthMiddleware {
 
 ---
 
-## 🧑‍🏫 Bài 14: Bảo mật trong PHP
+## 🧑‍🏫 Bài 15: Bảo mật trong PHP
 
-**Ngăn chặn SQL Injection:**
+### Ngăn chặn SQL Injection
 
 ```php
 <?php
@@ -883,7 +903,7 @@ $user = $result->fetch_assoc();
 ?>
 ```
 
-**Ngăn chặn XSS (Cross-Site Scripting):**
+### Ngăn chặn XSS (Cross-Site Scripting)
 
 ```php
 <?php
@@ -912,7 +932,7 @@ header("Content-Security-Policy: default-src 'self'; script-src 'self' https://t
 ?>
 ```
 
-**Ngăn chặn CSRF (Cross-Site Request Forgery):**
+### Ngăn chặn CSRF (Cross-Site Request Forgery)
 
 ```php
 <?php
@@ -923,7 +943,7 @@ function generateCSRFToken() {
     if (!isset($_SESSION['csrf_token'])) {
         $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
     }
-    
+
     return $_SESSION['csrf_token'];
 }
 
@@ -931,7 +951,7 @@ function validateCSRFToken($token) {
     if (!isset($_SESSION['csrf_token']) || $token !== $_SESSION['csrf_token']) {
         return false;
     }
-    
+
     return true;
 }
 
@@ -948,14 +968,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!isset($_POST['csrf_token']) || !validateCSRFToken($_POST['csrf_token'])) {
         die('CSRF token validation failed');
     }
-    
+
     // Process form normally
     echo "Form processed successfully";
 }
 ?>
 ```
 
-**Bảo vệ mật khẩu:**
+### Bảo vệ mật khẩu
 
 ```php
 <?php
@@ -980,11 +1000,11 @@ function verifyUserPassword($username, $password) {
     $stmt = $pdo->prepare("SELECT password_hash FROM users WHERE username = ?");
     $stmt->execute([$username]);
     $user = $stmt->fetch();
-    
+
     if ($user && password_verify($password, $user['password_hash'])) {
         return true; // Password matches
     }
-    
+
     return false; // Either user not found or password doesn't match
 }
 
@@ -1002,27 +1022,27 @@ function isValidPassword($password) {
     if (strlen($password) < 8) {
         return false;
     }
-    
+
     // At least one uppercase letter
     if (!preg_match('/[A-Z]/', $password)) {
         return false;
     }
-    
+
     // At least one lowercase letter
     if (!preg_match('/[a-z]/', $password)) {
         return false;
     }
-    
+
     // At least one number
     if (!preg_match('/[0-9]/', $password)) {
         return false;
     }
-    
+
     // At least one special character
     if (!preg_match('/[^A-Za-z0-9]/', $password)) {
         return false;
     }
-    
+
     return true;
 }
 
@@ -1035,7 +1055,7 @@ if (isValidPassword($_POST['password'])) {
 ?>
 ```
 
-**Bảo mật file upload:**
+### Bảo mật file upload
 
 ```php
 <?php
@@ -1043,40 +1063,40 @@ if (isValidPassword($_POST['password'])) {
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['file'])) {
     $file = $_FILES['file'];
-    
+
     // 1. Verify file size
     $maxFileSize = 2 * 1024 * 1024; // 2MB
     if ($file['size'] > $maxFileSize) {
         die('File too large (max 2MB)');
     }
-    
+
     // 2. Verify file type/extension
     $allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];
     $fileInfo = finfo_open(FILEINFO_MIME_TYPE);
     $uploadedFileType = finfo_file($fileInfo, $file['tmp_name']);
     finfo_close($fileInfo);
-    
+
     if (!in_array($uploadedFileType, $allowedTypes)) {
         die('Invalid file type. Only JPEG, PNG and GIF allowed');
     }
-    
+
     // 3. Verify file extension
     $fileExtension = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
     $allowedExtensions = ['jpg', 'jpeg', 'png', 'gif'];
-    
+
     if (!in_array($fileExtension, $allowedExtensions)) {
         die('Invalid file extension. Only JPG, JPEG, PNG and GIF allowed');
     }
-    
+
     // 4. Create safe filename
     $newFilename = md5(time() . rand(1000, 9999)) . '.' . $fileExtension;
-    
+
     // 5. Use a separate directory for uploads
     $uploadDir = 'uploads/';
     if (!file_exists($uploadDir)) {
         mkdir($uploadDir, 0755, true);
     }
-    
+
     // 6. Move file to final location
     $destination = $uploadDir . $newFilename;
     if (move_uploaded_file($file['tmp_name'], $destination)) {
@@ -1084,7 +1104,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['file'])) {
     } else {
         echo "Error uploading file";
     }
-    
+
     // 7. For extra security, you might want to check contents (for images)
     // Check if file is really an image
     if (!getimagesize($destination)) {
@@ -1103,9 +1123,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['file'])) {
 
 ---
 
-## 🧑‍🏫 Bài 15: Caching và Optimization
+## 🧑‍🏫 Bài 16: Caching và Optimization
 
-**Output Buffering và Page Caching:**
+### Output Buffering và Page Caching
 
 ```php
 <?php
@@ -1114,29 +1134,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['file'])) {
 // Tạo hàm cache trang
 function cachePage($cacheDuration = 3600) {
     $cacheFile = 'cache/' . md5($_SERVER['REQUEST_URI']) . '.html';
-    
+
     // Kiểm tra nếu cache tồn tại và còn hạn
     if (file_exists($cacheFile) && time() - filemtime($cacheFile) < $cacheDuration) {
         readfile($cacheFile);
         exit;
     }
-    
+
     // Bắt đầu output buffering nếu cache không tồn tại hoặc hết hạn
     ob_start();
 }
 
 function endCache() {
     $cacheFile = 'cache/' . md5($_SERVER['REQUEST_URI']) . '.html';
-    
+
     // Tạo thư mục cache nếu chưa tồn tại
     if (!is_dir('cache')) {
         mkdir('cache', 0755, true);
     }
-    
+
     // Lưu output vào file cache
     $cachedContent = ob_get_contents();
     file_put_contents($cacheFile, $cachedContent);
-    
+
     // Gửi nội dung đến browser
     ob_end_flush();
 }
@@ -1158,7 +1178,20 @@ endCache();
 ?>
 ```
 
-**Memcached:**
+### Memcached
+
+- Memcached là một hệ thống cache phân tán, giúp tăng tốc độ truy cập dữ liệu bằng cách lưu trữ dữ liệu trong bộ nhớ RAM.
+
+```bash
+# Cài đặt Memcached trên Ubuntu
+sudo apt-get update
+sudo apt-get install memcached libmemcached-tools
+```
+
+```bash
+# Khởi động Memcached
+memcached -m 64 -u nobody -p 11211 -vv
+```
 
 ```php
 <?php
@@ -1171,21 +1204,21 @@ $memcached->addServer('localhost', 11211);
 // Hàm lấy dữ liệu với cache
 function getCachedData($key, $ttl = 600, $dataCallback) {
     global $memcached;
-    
+
     // Thử lấy từ cache
     $cachedData = $memcached->get($key);
-    
+
     if ($memcached->getResultCode() === Memcached::RES_SUCCESS) {
         // Dữ liệu tìm thấy trong cache
         return $cachedData;
     }
-    
+
     // Dữ liệu không có trong cache, gọi callback để sinh dữ liệu
     $data = $dataCallback();
-    
+
     // Lưu vào cache
     $memcached->set($key, $data, $ttl);
-    
+
     return $data;
 }
 
@@ -1195,7 +1228,7 @@ function getCachedData($key, $ttl = 600, $dataCallback) {
 function getProductsFromDatabase() {
     // Mô phỏng truy vấn database tốn thời gian
     sleep(2);
-    
+
     return [
         ['id' => 1, 'name' => 'Product 1', 'price' => 99.99],
         ['id' => 2, 'name' => 'Product 2', 'price' => 149.99],
@@ -1212,7 +1245,7 @@ echo "</pre>";
 function getWeatherData() {
     // Mô phỏng gọi API bên ngoài
     sleep(1);
-    
+
     return [
         'city' => 'New York',
         'temperature' => 22,
@@ -1229,12 +1262,12 @@ echo "</pre>";
 // 3. Xóa cache khi dữ liệu thay đổi
 function updateProduct($productId, $data) {
     // Update database
-    
+
     // Xóa cache liên quan
     global $memcached;
     $memcached->delete('products_list');
     $memcached->delete('product_' . $productId);
-    
+
     return true;
 }
 
@@ -1245,7 +1278,20 @@ echo "Page views: $views<br>";
 ?>
 ```
 
-**Redis:**
+### Redis
+
+- Redis là một hệ thống lưu trữ dữ liệu dạng key-value, hỗ trợ nhiều kiểu dữ liệu như string, hash, list, set, sorted set.
+
+```bash
+# Cài đặt Redis trên Ubuntu
+sudo apt-get update
+sudo apt-get install redis-server
+```
+
+```bash
+# Khởi động Redis
+redis-server
+```
 
 ```php
 <?php
@@ -1334,7 +1380,7 @@ if (false) { // Disable for this example
         'user_id' => 1001,
         'message' => 'Hello Redis!'
     ]));
-    
+
     // Subscriber:
     $redis->subscribe(['notifications'], function ($redis, $channel, $message) {
         echo "Received $message on channel $channel";
@@ -1353,7 +1399,7 @@ print_r($responses);
 ?>
 ```
 
-**Tối ưu hóa code PHP:**
+### Tối ưu hóa code PHP
 
 ```php
 <?php
@@ -1475,33 +1521,28 @@ $filtered = array_filter($numbers, function($number) {
 $filtered = array_filter($numbers, function($number) {
     return $number > 2 && is_int($number);
 }); // Returns only [3 => 4]
-
-// 10. Optimize database queries
-// - Use indexes
-// - Retrieve only needed columns
-// - Use JOIN instead of separate queries
-// - Limit result sets
-// - Use prepared statements
 ?>
 ```
 
 ---
 
-## 🧪 BÀI TẬP LỚN CUỐI PHẦN
+## 🧪 BÀI TẬP LỚN CUỐI PHẦN: Xây dựng hệ thống API cho ứng dụng blog
 
-### **Đề bài: Xây dựng hệ thống API cho ứng dụng blog**
+### Mô tả bài toán
 
 Xây dựng một RESTful API hoàn chỉnh cho ứng dụng blog, sử dụng các kỹ thuật bảo mật và tối ưu hiệu suất.
 
-### **Yêu cầu:**
+### Yêu cầu
 
-1. Thiết kế RESTful API cho các tài nguyên sau:
+1. **Thiết kế RESTful API cho các tài nguyên sau**:
+
    - Bài viết (posts)
    - Bình luận (comments)
    - Người dùng (users)
    - Danh mục (categories)
 
-2. Triển khai các tính năng:
+2. **Triển khai các tính năng**:
+
    - Xác thực người dùng sử dụng JWT
    - Phân quyền: Admin, Author, Reader
    - CRUD operations cho mỗi tài nguyên
@@ -1509,20 +1550,21 @@ Xây dựng một RESTful API hoàn chỉnh cho ứng dụng blog, sử dụng c
    - Pagination và sorting
    - File upload (cho ảnh bài viết)
 
-3. Bảo mật API:
+3. **Bảo mật API**:
+
    - Sử dụng HTTPS
    - Rate limiting
    - Validate input
    - Phòng chống SQL Injection, XSS
    - Bảo vệ các route yêu cầu quyền admin
 
-4. Tối ưu hiệu suất:
+4. **Tối ưu hiệu suất**:
    - Caching (Redis hoặc Memcached)
    - Index database hợp lý
    - Lazy loading cho các quan hệ
    - Compression của response data
 
-### **Cấu trúc dự án:**
+### Cấu trúc dự án đề xuất
 
 ```text
 blog-api/

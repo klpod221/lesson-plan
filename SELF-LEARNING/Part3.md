@@ -3,9 +3,22 @@
 - [📘 PHẦN 3: KỸ THUẬT TỰ HỌC](#-phần-3-kỹ-thuật-tự-học)
   - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
   - [🧑‍🏫 Bài 1: Tư duy và tâm lý của người tự học](#-bài-1-tư-duy-và-tâm-lý-của-người-tự-học)
+    - [Tư duy phát triển (Growth Mindset)](#tư-duy-phát-triển-growth-mindset)
+    - [Vượt qua rào cản học tập](#vượt-qua-rào-cản-học-tập)
+    - [Xây dựng thói quen học liên tục](#xây-dựng-thói-quen-học-liên-tục)
   - [🧑‍🏫 Bài 2: Phương pháp học hiệu quả](#-bài-2-phương-pháp-học-hiệu-quả)
+    - [Hiểu về quá trình học tập](#hiểu-về-quá-trình-học-tập)
+    - [Kỹ thuật học tập hiệu quả](#kỹ-thuật-học-tập-hiệu-quả)
+    - [Quản lý tài nguyên học tập](#quản-lý-tài-nguyên-học-tập)
   - [🧑‍🏫 Bài 3: Xây dựng và thực hiện lộ trình học tập](#-bài-3-xây-dựng-và-thực-hiện-lộ-trình-học-tập)
+    - [Phân tích nhu cầu và mục tiêu học tập](#phân-tích-nhu-cầu-và-mục-tiêu-học-tập)
+    - [Thiết kế lộ trình học tập](#thiết-kế-lộ-trình-học-tập)
+    - [Thực hiện và theo dõi tiến độ](#thực-hiện-và-theo-dõi-tiến-độ)
   - [🧑‍🏫 Bài 4: Phương pháp học thực hành và làm dự án](#-bài-4-phương-pháp-học-thực-hành-và-làm-dự-án)
+    - [Học qua thực hành](#học-qua-thực-hành)
+    - [Dự án cá nhân như công cụ học tập](#dự-án-cá-nhân-như-công-cụ-học-tập)
+    - [Học từ lỗi và debug](#học-từ-lỗi-và-debug)
+    - [Học qua community và pair programming](#học-qua-community-và-pair-programming)
   - [🧪 BÀI TẬP THỰC HÀNH](#-bài-tập-thực-hành)
 
 ## 🎯 Mục tiêu tổng quát
@@ -19,7 +32,7 @@
 
 ## 🧑‍🏫 Bài 1: Tư duy và tâm lý của người tự học
 
-**Tư duy phát triển (Growth Mindset):**
+### Tư duy phát triển (Growth Mindset)
 
 - **Hiểu về các loại tư duy**
 
@@ -38,7 +51,7 @@
   - Tự thưởng cho nỗ lực, không chỉ cho kết quả
   - Viết nhật ký học tập và phản ánh quá trình phát triển
 
-**Vượt qua rào cản học tập:**
+### Vượt qua rào cản học tập
 
 1. **Nhận diện và vượt qua Imposter Syndrome**
 
@@ -62,7 +75,7 @@
    - Tìm người học cùng hoặc tham gia cộng đồng
    - Tạo môi trường học tập không gián đoạn
 
-**Xây dựng thói quen học liên tục:**
+### Xây dựng thói quen học liên tục
 
 1. **Nguyên tắc học tập liên tục (Lifelong Learning)**
 
@@ -87,7 +100,7 @@
 
 ## 🧑‍🏫 Bài 2: Phương pháp học hiệu quả
 
-**Hiểu về quá trình học tập:**
+### Hiểu về quá trình học tập
 
 1. **Khoa học về cách học của não bộ**
 
@@ -110,7 +123,7 @@
    - Kinesthetic (học qua thực hành)
    - Kết hợp nhiều phong cách để tối ưu hóa
 
-**Kỹ thuật học tập hiệu quả:**
+### Kỹ thuật học tập hiệu quả
 
 1. **Spaced Repetition (Lặp lại theo khoảng thời gian)**
 
@@ -137,7 +150,7 @@
    - Bước 3: Xác định lỗ hổng và quay lại học
    - Bước 4: Đơn giản hóa và sử dụng ví dụ
 
-**Quản lý tài nguyên học tập:**
+### Quản lý tài nguyên học tập
 
 1. **Lựa chọn tài nguyên học tập**
 
@@ -160,7 +173,7 @@
 
 ## 🧑‍🏫 Bài 3: Xây dựng và thực hiện lộ trình học tập
 
-**Phân tích nhu cầu và mục tiêu học tập:**
+### Phân tích nhu cầu và mục tiêu học tập
 
 1. **Xác định mục tiêu học tập rõ ràng**
 
@@ -179,7 +192,7 @@
    - Ưu tiên các kỹ năng cốt lõi và cần thiết
    - Xác định kiến thức tiên quyết cần học trước
 
-**Thiết kế lộ trình học tập:**
+### Thiết kế lộ trình học tập
 
 1. **Cấu trúc lộ trình hiệu quả**
 
@@ -199,7 +212,7 @@
    - Dự trù thời gian cho ôn tập và thực hành
    - Lên lịch học tập phù hợp với lịch trình cá nhân
 
-**Thực hiện và theo dõi tiến độ:**
+### Thực hiện và theo dõi tiến độ
 
 1. **Công cụ quản lý lộ trình học tập**
 
@@ -222,7 +235,7 @@
 
 ## 🧑‍🏫 Bài 4: Phương pháp học thực hành và làm dự án
 
-**Học qua thực hành:**
+### Học qua thực hành
 
 1. **Nguyên tắc "Learning by Doing"**
 
@@ -243,7 +256,7 @@
    - Đẩy bản thân ra khỏi vùng an toàn
    - Lặp đi lặp lại các kỹ thuật cơ bản đến khi thành thạo
 
-**Dự án cá nhân như công cụ học tập:**
+### Dự án cá nhân như công cụ học tập
 
 1. **Lựa chọn dự án phù hợp để học**
 
@@ -265,7 +278,7 @@
    - Ghi lại quá trình học và quyết định kỹ thuật
    - Tạo blog post hoặc video giới thiệu dự án
 
-**Học từ lỗi và debug:**
+### Học từ lỗi và debug
 
 1. **Tư duy debug hiệu quả**
 
@@ -285,7 +298,7 @@
    - Phân tích lỗi của người khác trên Stack Overflow
    - Tham gia code reviews để học cách tránh lỗi
 
-**Học qua community và pair programming:**
+### Học qua community và pair programming
 
 1. **Tận dụng sức mạnh của cộng đồng**
 

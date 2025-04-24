@@ -3,16 +3,71 @@
 - [📘 PHẦN 4: FRAMEWORK \& CÔNG CỤ PHÁT TRIỂN WEB HIỆN ĐẠI](#-phần-4-framework--công-cụ-phát-triển-web-hiện-đại)
   - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
   - [🧑‍🏫 Bài 1: Giới thiệu về Frontend Framework](#-bài-1-giới-thiệu-về-frontend-framework)
+    - [Framework là gì và tại sao cần framework?](#framework-là-gì-và-tại-sao-cần-framework)
+    - [Các frontend framework phổ biến](#các-frontend-framework-phổ-biến)
   - [🧑‍🏫 Bài 2: Giới thiệu về React.js](#-bài-2-giới-thiệu-về-reactjs)
+    - [React là gì?](#react-là-gì)
+    - [Cài đặt và khởi tạo dự án React](#cài-đặt-và-khởi-tạo-dự-án-react)
+    - [JSX - JavaScript XML](#jsx---javascript-xml)
+    - [Components](#components)
+    - [Props và State](#props-và-state)
+    - [Vòng đời component với useEffect](#vòng-đời-component-với-useeffect)
+    - [Xử lý sự kiện](#xử-lý-sự-kiện)
+    - [Danh sách và key](#danh-sách-và-key)
+    - [Conditional Rendering](#conditional-rendering)
+    - [Form và input](#form-và-input)
   - [🧑‍🏫 Bài 3: State Management trong React](#-bài-3-state-management-trong-react)
+    - [State Management là gì?](#state-management-là-gì)
+    - [Context API](#context-api)
+    - [Redux - State Management Library](#redux---state-management-library)
+    - [Redux Toolkit - Cách tiếp cận hiện đại](#redux-toolkit---cách-tiếp-cận-hiện-đại)
   - [🧑‍🏫 Bài 4: Routing trong React](#-bài-4-routing-trong-react)
+    - [React Router](#react-router)
+    - [Nested Routes](#nested-routes)
+    - [Protected Routes](#protected-routes)
   - [🧑‍🏫 Bài 5: Giới thiệu về Node.js và NPM](#-bài-5-giới-thiệu-về-nodejs-và-npm)
+    - [Node.js là gì?](#nodejs-là-gì)
+    - [NPM (Node Package Manager)](#npm-node-package-manager)
+    - [Cài đặt Node.js và NPM](#cài-đặt-nodejs-và-npm)
+    - [Sử dụng NPM cơ bản](#sử-dụng-npm-cơ-bản)
+    - [package.json file](#packagejson-file)
+    - [Chạy scripts](#chạy-scripts)
   - [🧑‍🏫 Bài 6: Công cụ build và bundler](#-bài-6-công-cụ-build-và-bundler)
+    - [Bundlers là gì?](#bundlers-là-gì)
+    - [Webpack](#webpack)
+    - [Vite](#vite)
+    - [Babel](#babel)
+    - [ESLint và Prettier](#eslint-và-prettier)
   - [🧑‍🏫 Bài 7: Backend APIs với Express.js](#-bài-7-backend-apis-với-expressjs)
+    - [Express.js là gì?](#expressjs-là-gì)
+    - [Cài đặt và thiết lập Express](#cài-đặt-và-thiết-lập-express)
+    - [Routing](#routing)
+    - [Middleware](#middleware)
+    - [Kết nối với Database (MongoDB)](#kết-nối-với-database-mongodb)
   - [🧑‍🏫 Bài 8: REST API và RESTful Services](#-bài-8-rest-api-và-restful-services)
+    - [REST (Representational State Transfer) là gì?](#rest-representational-state-transfer-là-gì)
+    - [Các nguyên tắc của REST](#các-nguyên-tắc-của-rest)
+    - [HTTP Methods trong REST](#http-methods-trong-rest)
+    - [RESTful API Conventions](#restful-api-conventions)
+    - [Status Codes trong REST API](#status-codes-trong-rest-api)
+    - [API Documentation với Swagger/OpenAPI](#api-documentation-với-swaggeropenapi)
+    - [API Versioning](#api-versioning)
+    - [API Authentication](#api-authentication)
+    - [CORS (Cross-Origin Resource Sharing)](#cors-cross-origin-resource-sharing)
+    - [Rate Limiting](#rate-limiting)
   - [🧑‍🏫 Bài 9: Deployment và CI/CD cơ bản](#-bài-9-deployment-và-cicd-cơ-bản)
-  - [🧪 BÀI TẬP LỚN CUỐI PHẦN](#-bài-tập-lớn-cuối-phần)
-    - [**Đề bài: Xây dựng Ứng dụng Full-Stack với React và Express**](#đề-bài-xây-dựng-ứng-dụng-full-stack-với-react-và-express)
+    - [Các nền tảng hosting phổ biến](#các-nền-tảng-hosting-phổ-biến)
+    - [Triển khai lên Vercel](#triển-khai-lên-vercel)
+    - [Triển khai lên Netlify](#triển-khai-lên-netlify)
+    - [Cấu hình Continuous Integration/Continuous Deployment (CI/CD)](#cấu-hình-continuous-integrationcontinuous-deployment-cicd)
+      - [GitHub Actions](#github-actions)
+    - [Netlify CI/CD](#netlify-cicd)
+    - [Docker cơ bản cho deployment](#docker-cơ-bản-cho-deployment)
+  - [🧪 BÀI TẬP LỚN CUỐI PHẦN: Xây dựng Ứng dụng Full-Stack với React và Express](#-bài-tập-lớn-cuối-phần-xây-dựng-ứng-dụng-full-stack-với-react-và-express)
+    - [Đề bài](#đề-bài)
+    - [Yêu cầu](#yêu-cầu)
+    - [Gợi ý cấu trúc dự án](#gợi-ý-cấu-trúc-dự-án)
+    - [Đánh giá](#đánh-giá)
 
 ## 🎯 Mục tiêu tổng quát
 
@@ -24,14 +79,14 @@
 
 ## 🧑‍🏫 Bài 1: Giới thiệu về Frontend Framework
 
-**Framework là gì và tại sao cần framework?**
+### Framework là gì và tại sao cần framework?
 
 - Framework là một bộ khung làm việc cung cấp cấu trúc và công cụ để xây dựng ứng dụng
 - Giúp tăng tốc độ phát triển, đảm bảo code có cấu trúc tốt
 - Cung cấp giải pháp cho các vấn đề phổ biến trong lập trình web
 - Hỗ trợ quản lý các ứng dụng phức tạp và lớn
 
-**Các frontend framework phổ biến:**
+### Các frontend framework phổ biến
 
 1. **React** - Thư viện JavaScript để xây dựng giao diện người dùng
 
@@ -40,27 +95,34 @@
    - Dựa trên component-based architecture
    - Hệ sinh thái phong phú với nhiều thư viện hỗ trợ
 
-2. **Vue.js** - Framework JavaScript tiến bộ
+2. **Next.js** - Framework cho React
+
+   - Hỗ trợ server-side rendering (SSR) và static site generation (SSG)
+   - Tích hợp dễ dàng với API routes
+   - Tối ưu hóa SEO và hiệu suất tải trang
+   - Hỗ trợ routing và code splitting tự động
+
+3. **Vue.js** - Framework JavaScript tiến bộ
 
    - Dễ học và tích hợp
    - Hỗ trợ tốt cả ứng dụng một trang (SPA) và tích hợp từng phần
    - Có template system dễ hiểu
    - Performance tốt và kích thước nhỏ
 
-3. **Angular** - Platform và framework toàn diện
+4. **Angular** - Platform và framework toàn diện
 
    - Phát triển bởi Google
    - TypeScript-based, cung cấp type checking
    - Full-featured framework với routing, form handling, HTTP client,...
    - Hai-way data binding
 
-4. **Svelte** - Framework hiện đại
+5. **Svelte** - Framework hiện đại
 
    - Thay vì Virtual DOM, biên dịch code thành JavaScript tối ưu
    - Ít boilerplate code, dễ đọc
    - Performance cao và bundle size nhỏ
 
-5. **Bootstrap & Tailwind CSS** - CSS frameworks
+6. **Bootstrap & Tailwind CSS** - CSS frameworks
    - Bootstrap: Cung cấp nhiều component UI đã được thiết kế sẵn
    - Tailwind CSS: Utility-first CSS framework, linh hoạt cao
 
@@ -69,6 +131,7 @@
 | Framework | Học        | Hiệu suất | Cộng đồng  | Tài liệu | Trọng lượng |
 | --------- | ---------- | --------- | ---------- | -------- | ----------- |
 | React     | Trung bình | Cao       | Rất lớn    | Tốt      | Nhẹ         |
+| Next.js   | Dễ         | Rất cao   | Lớn        | Tốt      | Nhẹ         |
 | Vue.js    | Dễ         | Cao       | Lớn        | Rất tốt  | Rất nhẹ     |
 | Angular   | Khó        | Tốt       | Lớn        | Tốt      | Nặng        |
 | Svelte    | Dễ         | Rất cao   | Trung bình | Tốt      | Rất nhẹ     |
@@ -77,13 +140,14 @@
 
 ## 🧑‍🏫 Bài 2: Giới thiệu về React.js
 
-**React là gì?**
+### React là gì?
 
 - Thư viện JavaScript để xây dựng giao diện người dùng
 - Tập trung vào việc xây dựng UI dựa trên component
 - Sử dụng Virtual DOM để tối ưu hiệu suất render
+- Bạn nên tham khảo tài liệu chính thức tại [reactjs.org](https://reactjs.org/) để được cập nhật thông tin mới nhất và hướng dẫn chi tiết hơn
 
-**Cài đặt và khởi tạo dự án React:**
+### Cài đặt và khởi tạo dự án React
 
 ```bash
 # Sử dụng Create React App
@@ -98,7 +162,7 @@ npm install
 npm run dev
 ```
 
-**JSX - JavaScript XML:**
+### JSX - JavaScript XML
 
 ```jsx
 // JSX là cú pháp mở rộng của JavaScript để mô tả UI
@@ -128,7 +192,7 @@ const element = (
 );
 ```
 
-**Components:**
+### Components
 
 ```jsx
 // Function component (khuyến nghị)
@@ -150,7 +214,7 @@ class Welcome extends React.Component {
 const element = <Welcome name="Sara" />;
 ```
 
-**Props và State:**
+### Props và State
 
 ```jsx
 // Props - dữ liệu truyền từ component cha xuống con
@@ -190,7 +254,7 @@ function Counter() {
 }
 ```
 
-**Vòng đời component với useEffect:**
+### Vòng đời component với useEffect
 
 ```jsx
 import { useState, useEffect } from "react";
@@ -231,7 +295,7 @@ function Example() {
 }
 ```
 
-**Xử lý sự kiện:**
+### Xử lý sự kiện
 
 ```jsx
 function Button() {
@@ -259,7 +323,7 @@ function Products() {
 }
 ```
 
-**Danh sách và key:**
+### Danh sách và key
 
 ```jsx
 function NumberList({ numbers }) {
@@ -282,7 +346,7 @@ function UserList({ users }) {
 }
 ```
 
-**Conditional Rendering:**
+### Conditional Rendering
 
 ```jsx
 function Greeting({ isLoggedIn }) {
@@ -311,7 +375,7 @@ function Mailbox({ unreadMessages }) {
 }
 ```
 
-**Form và input:**
+### Form và input
 
 ```jsx
 import { useState } from "react";
@@ -357,7 +421,13 @@ function SimpleForm() {
 
 ## 🧑‍🏫 Bài 3: State Management trong React
 
-**Context API:**
+### State Management là gì?
+
+- Quản lý trạng thái của ứng dụng, đặc biệt là khi ứng dụng lớn và phức tạp
+- Giúp chia sẻ dữ liệu giữa các component mà không cần truyền props qua nhiều cấp
+- Cung cấp cách tiếp cận có tổ chức để quản lý trạng thái toàn cục
+
+### Context API
 
 ```jsx
 // 1. Tạo context
@@ -418,7 +488,19 @@ function App() {
 }
 ```
 
-**Redux - State Management Library:**
+### Redux - State Management Library
+
+- Redux là một thư viện quản lý trạng thái phổ biến cho JavaScript
+- Cung cấp một store toàn cục để lưu trữ trạng thái của ứng dụng
+- Dựa trên ba nguyên tắc chính:
+  1. Tất cả trạng thái ứng dụng được lưu trữ trong một store duy nhất
+  2. Trạng thái chỉ có thể thay đổi thông qua actions
+  3. Các state changes được thực hiện bằng cách sử dụng pure functions gọi là reducers
+- Redux rất mạnh mẽ nhưng có thể phức tạp cho các ứng dụng nhỏ
+
+```bash
+npm install redux react-redux
+```
 
 ```jsx
 // 1. Actions
@@ -497,7 +579,16 @@ function TodoApp() {
 }
 ```
 
-**Redux Toolkit - Cách tiếp cận hiện đại:**
+### Redux Toolkit - Cách tiếp cận hiện đại
+
+- Redux Toolkit là bộ công cụ chính thức để phát triển ứng dụng Redux
+- Cung cấp các API đơn giản hơn để tạo store, reducer và actions
+- Tích hợp sẵn các middleware như Redux Thunk cho xử lý bất đồng bộ
+- Giúp giảm boilerplate code và dễ dàng hơn trong việc thiết lập Redux
+
+```bash
+npm install @reduxjs/toolkit react-redux
+```
 
 ```jsx
 import { createSlice, configureStore } from "@reduxjs/toolkit";
@@ -548,7 +639,7 @@ function TodoApp() {
 
 ## 🧑‍🏫 Bài 4: Routing trong React
 
-**React Router:**
+### React Router
 
 ```jsx
 import {
@@ -615,7 +706,7 @@ function Profile() {
 }
 ```
 
-**Nested Routes:**
+### Nested Routes
 
 ```jsx
 function App() {
@@ -657,7 +748,7 @@ function Layout() {
 }
 ```
 
-**Protected Routes:**
+### Protected Routes
 
 ```jsx
 import { Navigate } from "react-router-dom";
@@ -707,7 +798,7 @@ function App() {
 
 ## 🧑‍🏫 Bài 5: Giới thiệu về Node.js và NPM
 
-**Node.js là gì?**
+### Node.js là gì?
 
 - Môi trường runtime JavaScript ở phía máy chủ
 - Xây dựng trên V8 JavaScript engine của Google Chrome
@@ -715,13 +806,13 @@ function App() {
 - Thiết kế hướng sự kiện, không đồng bộ (asynchronous)
 - Phù hợp cho ứng dụng thời gian thực và API
 
-**NPM (Node Package Manager):**
+### NPM (Node Package Manager)
 
 - Hệ thống quản lý package lớn nhất thế giới cho JavaScript
 - Công cụ để cài đặt và quản lý thư viện từ bên thứ ba
 - Quản lý dependencies của dự án
 
-**Cài đặt Node.js và NPM:**
+### Cài đặt Node.js và NPM
 
 - Tải từ [nodejs.org](https://nodejs.org/)
 - Kiểm tra cài đặt:
@@ -731,7 +822,7 @@ node -v
 npm -v
 ```
 
-**Sử dụng NPM cơ bản:**
+### Sử dụng NPM cơ bản
 
 ```bash
 # Khởi tạo dự án mới (tạo package.json)
@@ -762,7 +853,7 @@ npm uninstall package-name
 npm update
 ```
 
-**package.json:**
+### package.json file
 
 ```json
 {
@@ -791,7 +882,7 @@ npm update
 }
 ```
 
-**Chạy scripts:**
+### Chạy scripts
 
 ```bash
 # Chạy script được định nghĩa trong package.json
@@ -808,13 +899,13 @@ npm test
 
 ## 🧑‍🏫 Bài 6: Công cụ build và bundler
 
-**Bundlers là gì?**
+### Bundlers là gì?
 
 - Công cụ đóng gói tất cả code JavaScript, CSS và assets thành các bundle
 - Cho phép chia code thành các module nhỏ, dễ quản lý
 - Tối ưu hóa kích thước bundle và hiệu suất tải trang
 
-**Webpack:**
+### Webpack
 
 - Bundler phổ biến nhất cho JavaScript
 - Tính năng:
@@ -868,7 +959,7 @@ module.exports = {
 };
 ```
 
-**Vite:**
+### Vite
 
 - Build tool hiện đại, nhanh cho modern web
 - Sử dụng ES modules để dev server khởi động nhanh
@@ -885,7 +976,7 @@ npm run dev
 npm run build
 ```
 
-**Babel:**
+### Babel
 
 - JavaScript compiler
 - Biến đổi code JavaScript hiện đại thành phiên bản tương thích với các trình duyệt cũ
@@ -899,7 +990,7 @@ module.exports = {
 };
 ```
 
-**ESLint và Prettier:**
+### ESLint và Prettier
 
 - ESLint: Công cụ để tìm và sửa lỗi trong JavaScript
 - Prettier: Code formatter, đảm bảo code style nhất quán
@@ -945,16 +1036,40 @@ module.exports = {
 
 ## 🧑‍🏫 Bài 7: Backend APIs với Express.js
 
-**Express.js là gì?**
+### Express.js là gì?
 
 - Framework web nhẹ, linh hoạt cho Node.js
 - Cung cấp các tính năng mạnh mẽ để xây dựng web và API
 - Middleware system để xử lý requests và responses
 
-**Cài đặt và thiết lập Express:**
+### Cài đặt và thiết lập Express
 
 ```bash
-npm install express
+npm install express nodemon
+```
+
+> nodemon là công cụ giúp tự động khởi động lại server khi có thay đổi trong code
+
+```json
+// package.json
+{
+  "name": "my-express-app",
+  "version": "1.0.0",
+  "description": "My Express app",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  },
+  "author": "",
+  "license": "ISC"
+}
 ```
 
 ```js
@@ -978,7 +1093,12 @@ app.listen(PORT, () => {
 });
 ```
 
-**Routing:**
+```bash
+# Chạy ứng dụng trong chế độ phát triển
+npm run dev
+```
+
+### Routing
 
 ```js
 // Basic routes
@@ -1028,7 +1148,7 @@ userRoutes.get("/:id", (req, res) => {
 app.use("/api/users", userRoutes);
 ```
 
-**Middleware:**
+### Middleware
 
 ```js
 // Custom middleware
@@ -1075,7 +1195,9 @@ app.use((err, req, res, next) => {
 });
 ```
 
-**Kết nối với Database (MongoDB):**
+### Kết nối với Database (MongoDB)
+
+- Bạn có thể truy cập [MongoDB](https://www.mongodb.com/) để tạo tài khoản và tạo database trên cloud hoặc cài đặt MongoDB trên máy tính của bạn.
 
 ```bash
 npm install mongoose
@@ -1151,14 +1273,14 @@ app.get("/api/users/:id", async (req, res) => {
 
 ## 🧑‍🏫 Bài 8: REST API và RESTful Services
 
-**REST (Representational State Transfer) là gì?**
+### REST (Representational State Transfer) là gì?
 
 - Kiến trúc phần mềm cho web services
 - Sử dụng HTTP methods để thao tác với resources
 - Stateless: server không lưu trạng thái của client
 - Uniform interface: giao diện nhất quán giữa các components
 
-**Các nguyên tắc của REST:**
+### Các nguyên tắc của REST
 
 1. **Client-Server**: Tách biệt client và server
 2. **Stateless**: Mỗi request phải chứa đủ thông tin, server không lưu session
@@ -1167,7 +1289,7 @@ app.get("/api/users/:id", async (req, res) => {
 5. **Layered System**: Kiến trúc phân lớp, client không biết server kết nối trực tiếp hay qua trung gian
 6. **Code on Demand**: Server có thể mở rộng chức năng của client bằng cách gửi code (tùy chọn)
 
-**HTTP Methods trong REST:**
+### HTTP Methods trong REST
 
 | Method | CRUD           | Mô tả                             |
 | ------ | -------------- | --------------------------------- |
@@ -1177,7 +1299,7 @@ app.get("/api/users/:id", async (req, res) => {
 | PATCH  | Update/Modify  | Cập nhật một phần resource        |
 | DELETE | Delete         | Xóa resource                      |
 
-**RESTful API Conventions:**
+### RESTful API Conventions
 
 ```text
 # Lấy danh sách users
@@ -1205,7 +1327,11 @@ GET /api/users/:id/posts
 GET /api/posts/:id/comments
 ```
 
-**Status Codes trong REST API:**
+### Status Codes trong REST API
+
+- Bạn có thể tham khảo toàn bộ HTTP status codes tại [đây](https://devtools.klpod221.com/web/http-status)
+
+```text
 
 - **2xx Success**
 
@@ -1230,146 +1356,9 @@ GET /api/posts/:id/comments
   - 500 Internal Server Error: Lỗi trong quá trình xử lý request
   - 502 Bad Gateway: Server nhận response không hợp lệ từ upstream server
   - 503 Service Unavailable: Server tạm thời không khả dụng
-
-**Xây dựng REST API với Express:**
-
-```javascript
-// Cấu trúc project REST API
-/*
-api/
-├── controllers/
-│   ├── userController.js
-│   └── postController.js
-├── models/
-│   ├── userModel.js
-│   └── postModel.js
-├── routes/
-│   ├── userRoutes.js
-│   └── postRoutes.js
-├── middleware/
-│   ├── authMiddleware.js
-│   └── errorMiddleware.js
-├── config/
-│   └── dbConfig.js
-└── server.js
-*/
-
-// userRoutes.js
-const express = require("express");
-const router = express.Router();
-const userController = require("../controllers/userController");
-const authMiddleware = require("../middleware/authMiddleware");
-
-router.get("/", userController.getAllUsers);
-router.get("/:id", userController.getUserById);
-router.post("/", userController.createUser);
-router.put("/:id", authMiddleware.protect, userController.updateUser);
-router.delete("/:id", authMiddleware.protect, userController.deleteUser);
-
-module.exports = router;
-
-// userController.js
-const User = require("../models/userModel");
-
-exports.getAllUsers = async (req, res) => {
-  try {
-    // Filtering
-    const queryObj = { ...req.query };
-    const excludedFields = ["page", "sort", "limit", "fields"];
-    excludedFields.forEach((field) => delete queryObj[field]);
-
-    // Advanced filtering
-    let queryStr = JSON.stringify(queryObj);
-    queryStr = queryStr.replace(/\b(gte|gt|lte|lt)\b/g, (match) => `$${match}`);
-
-    let query = User.find(JSON.parse(queryStr));
-
-    // Sorting
-    if (req.query.sort) {
-      const sortBy = req.query.sort.split(",").join(" ");
-      query = query.sort(sortBy);
-    } else {
-      query = query.sort("-createdAt");
-    }
-
-    // Field limiting
-    if (req.query.fields) {
-      const fields = req.query.fields.split(",").join(" ");
-      query = query.select(fields);
-    } else {
-      query = query.select("-__v");
-    }
-
-    // Pagination
-    const page = parseInt(req.query.page, 10) || 1;
-    const limit = parseInt(req.query.limit, 10) || 100;
-    const skip = (page - 1) * limit;
-    query = query.skip(skip).limit(limit);
-
-    // Execute query
-    const users = await query;
-
-    // Send response
-    res.status(200).json({
-      status: "success",
-      results: users.length,
-      data: {
-        users,
-      },
-    });
-  } catch (err) {
-    res.status(500).json({
-      status: "error",
-      message: err.message,
-    });
-  }
-};
-
-exports.getUserById = async (req, res) => {
-  try {
-    const user = await User.findById(req.params.id);
-
-    if (!user) {
-      return res.status(404).json({
-        status: "fail",
-        message: "User not found",
-      });
-    }
-
-    res.status(200).json({
-      status: "success",
-      data: {
-        user,
-      },
-    });
-  } catch (err) {
-    res.status(500).json({
-      status: "error",
-      message: err.message,
-    });
-  }
-};
-
-exports.createUser = async (req, res) => {
-  try {
-    const newUser = await User.create(req.body);
-
-    res.status(201).json({
-      status: "success",
-      data: {
-        user: newUser,
-      },
-    });
-  } catch (err) {
-    res.status(400).json({
-      status: "fail",
-      message: err.message,
-    });
-  }
-};
 ```
 
-**API Documentation với Swagger/OpenAPI:**
+### API Documentation với Swagger/OpenAPI
 
 ```javascript
 // Sử dụng swagger-jsdoc và swagger-ui-express để tạo docs
@@ -1431,7 +1420,7 @@ app.get("/users", (req, res) => {
 });
 ```
 
-**API Versioning:**
+### API Versioning
 
 ```javascript
 // URL-based versioning
@@ -1450,7 +1439,7 @@ app.use(
 );
 ```
 
-**API Authentication:**
+### API Authentication
 
 ```javascript
 // JWT Authentication
@@ -1532,7 +1521,10 @@ app.get("/api/profile", protect, (req, res) => {
 });
 ```
 
-**CORS (Cross-Origin Resource Sharing):**
+### CORS (Cross-Origin Resource Sharing)
+
+- CORS là một cơ chế bảo mật cho phép hoặc từ chối các yêu cầu từ các nguồn khác nhau
+- Giúp bảo vệ ứng dụng web khỏi các cuộc tấn công Cross-Site Request Forgery (CSRF)
 
 ```javascript
 const cors = require("cors");
@@ -1559,7 +1551,10 @@ app.use(
 );
 ```
 
-**Rate Limiting:**
+### Rate Limiting
+
+- Giới hạn số lượng yêu cầu từ một địa chỉ IP trong một khoảng thời gian nhất định
+- Giúp bảo vệ ứng dụng khỏi các cuộc tấn công DDoS và brute-force
 
 ```javascript
 const rateLimit = require("express-rate-limit");
@@ -1594,7 +1589,7 @@ app.use("/api/login", loginLimiter);
 
 ## 🧑‍🏫 Bài 9: Deployment và CI/CD cơ bản
 
-**Các nền tảng hosting phổ biến:**
+### Các nền tảng hosting phổ biến
 
 1. **Vercel** - Tốt nhất cho Next.js và các SPA
 
@@ -1612,7 +1607,7 @@ app.use("/api/login", loginLimiter);
 
    - Dễ sử dụng
    - Add-ons cho databases và services
-   - Free tier cho thử nghiệm
+   - Free tier cho thử nghiệm (đã ngừng)
 
 4. **AWS (Amazon Web Services)** - Đầy đủ tính năng, phức tạp hơn
 
@@ -1626,7 +1621,9 @@ app.use("/api/login", loginLimiter);
    - Hosting
    - Functions (serverless)
 
-**Triển khai lên Vercel:**
+### Triển khai lên Vercel
+
+- Tham khảo tài liệu [Vercel](https://vercel.com/docs)
 
 ```bash
 # Cài đặt Vercel CLI
@@ -1642,7 +1639,9 @@ vercel
 vercel --prod
 ```
 
-**Triển khai lên Netlify:**
+### Triển khai lên Netlify
+
+- Tham khảo tài liệu [Netlify](https://docs.netlify.com/)
 
 ```bash
 # Cài đặt Netlify CLI
@@ -1658,9 +1657,9 @@ netlify init
 netlify deploy --prod
 ```
 
-**Cấu hình Continuous Integration/Continuous Deployment (CI/CD):**
+### Cấu hình Continuous Integration/Continuous Deployment (CI/CD)
 
-**GitHub Actions:**
+#### GitHub Actions
 
 ```yaml
 # .github/workflows/node.js.yml
@@ -1706,14 +1705,14 @@ jobs:
           vercel-args: "--prod"
 ```
 
-**Netlify CI/CD:**
+### Netlify CI/CD
 
 1. Liên kết repository GitHub/GitLab/Bitbucket với Netlify
 2. Cấu hình build command (vd: `npm run build`)
 3. Cấu hình publish directory (vd: `build` hoặc `dist`)
 4. Tự động deploy khi push lên branch main
 
-**Docker cơ bản cho deployment:**
+### Docker cơ bản cho deployment
 
 ```dockerfile
 # Dockerfile
@@ -1742,13 +1741,13 @@ docker run -p 3000:3000 my-app
 
 ---
 
-## 🧪 BÀI TẬP LỚN CUỐI PHẦN
+## 🧪 BÀI TẬP LỚN CUỐI PHẦN: Xây dựng Ứng dụng Full-Stack với React và Express
 
-### **Đề bài: Xây dựng Ứng dụng Full-Stack với React và Express**
+### Đề bài
 
 Xây dựng một ứng dụng Blog đơn giản với React ở frontend và Express ở backend.
 
-**Yêu cầu:**
+### Yêu cầu
 
 1. **Backend (Express.js):**
 
@@ -1773,11 +1772,11 @@ Xây dựng một ứng dụng Blog đơn giản với React ở frontend và Ex
    - Tìm kiếm và lọc bài viết
 
 4. **Deployment:**
-   - Backend: Heroku hoặc Render
+   - Backend: Vercel, Heroku hoặc Render
    - Frontend: Vercel hoặc Netlify
    - Cấu hình API calls giữa frontend và backend
 
-**Gợi ý cấu trúc dự án:**
+### Gợi ý cấu trúc dự án
 
 ```text
 blog-app/
@@ -1805,7 +1804,7 @@ blog-app/
 └── README.md
 ```
 
-**Đánh giá:**
+### Đánh giá
 
 - Tính năng đầy đủ và hoạt động chính xác
 - Code cấu trúc, sạch, có comments

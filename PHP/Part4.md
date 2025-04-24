@@ -2,15 +2,40 @@
 
 - [📘 PHẦN 4: FRAMEWORK VÀ PHÁT TRIỂN ỨNG DỤNG WEB HIỆN ĐẠI](#-phần-4-framework-và-phát-triển-ứng-dụng-web-hiện-đại)
   - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
-  - [🧑‍🏫 Bài 16: Giới thiệu về MVC và Framework](#-bài-16-giới-thiệu-về-mvc-và-framework)
-  - [🧑‍🏫 Bài 17: Laravel Framework](#-bài-17-laravel-framework)
-  - [🧑‍🏫 Bài 18: Composer và Package Management](#-bài-18-composer-và-package-management)
+  - [🧑‍🏫 Bài 17: Giới thiệu về MVC và Framework](#-bài-17-giới-thiệu-về-mvc-và-framework)
+    - [Mô hình MVC (Model-View-Controller)](#mô-hình-mvc-model-view-controller)
+    - [Cấu trúc mô hình MVC](#cấu-trúc-mô-hình-mvc)
+      - [Luồng xử lý trong MVC](#luồng-xử-lý-trong-mvc)
+      - [Vai trò của các thành phần](#vai-trò-của-các-thành-phần)
+    - [Ví dụ MVC đơn giản](#ví-dụ-mvc-đơn-giản)
+      - [Cấu trúc thư mục](#cấu-trúc-thư-mục)
+      - [Nội dung các file](#nội-dung-các-file)
+    - [Giới thiệu về Framework PHP phổ biến](#giới-thiệu-về-framework-php-phổ-biến)
+  - [🧑‍🏫 Bài 18: Laravel Framework](#-bài-18-laravel-framework)
+    - [Cài đặt và Cấu hình Laravel](#cài-đặt-và-cấu-hình-laravel)
+    - [Cấu trúc thư mục Laravel](#cấu-trúc-thư-mục-laravel)
+    - [Routing và Controller trong Laravel](#routing-và-controller-trong-laravel)
+    - [Controller trong Laravel](#controller-trong-laravel)
+    - [Model và Eloquent ORM](#model-và-eloquent-orm)
+    - [Blade Templating System](#blade-templating-system)
+    - [Migrations và Database](#migrations-và-database)
   - [🧑‍🏫 Bài 19: Testing trong PHP](#-bài-19-testing-trong-php)
-  - [🧑‍🏫 Bài 20: DevOps và Deployment](#-bài-20-devops-và-deployment)
-  - [🧪 BÀI TẬP LỚN CUỐI PHẦN](#-bài-tập-lớn-cuối-phần)
-    - [**Đề bài: Xây dựng ứng dụng web bằng Laravel**](#đề-bài-xây-dựng-ứng-dụng-web-bằng-laravel)
-    - [**Yêu cầu:**](#yêu-cầu)
-    - [**Cấu trúc dự án:**](#cấu-trúc-dự-án)
+    - [Unit Testing với PHPUnit](#unit-testing-với-phpunit)
+    - [Feature Testing trong Laravel](#feature-testing-trong-laravel)
+    - [Mock Objects và Testing với Dependencies](#mock-objects-và-testing-với-dependencies)
+    - [Code Coverage và Best Practices](#code-coverage-và-best-practices)
+      - [Code Coverage](#code-coverage)
+      - [Best Practices cho Testing](#best-practices-cho-testing)
+  - [🧑‍🏫 Bài 20: Tối ưu Laravel cho Product](#-bài-20-tối-ưu-laravel-cho-product)
+    - [Laravel cache và tối ưu hóa autoloader](#laravel-cache-và-tối-ưu-hóa-autoloader)
+    - [Tối ưu hóa cấu hình PHP](#tối-ưu-hóa-cấu-hình-php)
+    - [Laravel Performance Tips](#laravel-performance-tips)
+    - [Monitoring và Logging](#monitoring-và-logging)
+    - [Security trong Production](#security-trong-production)
+  - [🧪 BÀI TẬP LỚN CUỐI PHẦN: Xây dựng ứng dụng web bằng Laravel](#-bài-tập-lớn-cuối-phần-xây-dựng-ứng-dụng-web-bằng-laravel)
+    - [Mô tả bài toán](#mô-tả-bài-toán)
+    - [Yêu cầu](#yêu-cầu)
+    - [Cấu trúc dự án đề xuất](#cấu-trúc-dự-án-đề-xuất)
 
 ## 🎯 Mục tiêu tổng quát
 
@@ -22,470 +47,577 @@
 
 ---
 
-## 🧑‍🏫 Bài 16: Giới thiệu về MVC và Framework
+## 🧑‍🏫 Bài 17: Giới thiệu về MVC và Framework
 
-**Mô hình MVC (Model-View-Controller):**
+### Mô hình MVC (Model-View-Controller)
 
-```php
-<?php
-/*
-MVC là mô hình kiến trúc phần mềm chia ứng dụng thành 3 thành phần chính:
-- Model: Xử lý dữ liệu và logic nghiệp vụ
-- View: Hiển thị dữ liệu và giao diện người dùng
-- Controller: Điều khiển luồng xử lý, kết nối Model và View
-*/
+- MVC là mô hình kiến trúc phần mềm chia ứng dụng thành 3 thành phần chính:
+  - Model: Xử lý dữ liệu và logic nghiệp vụ
+  - View: Hiển thị dữ liệu và giao diện người dùng
+  - Controller: Điều khiển luồng xử lý, kết nối Model và View
 
-// Ví dụ MVC đơn giản
+### Cấu trúc mô hình MVC
 
-// Model
-class UserModel {
-    private $db;
-
-    public function __construct($db) {
-        $this->db = $db;
-    }
-
-    public function getAll() {
-        // Truy vấn database để lấy tất cả người dùng
-        $stmt = $this->db->query("SELECT id, name, email FROM users");
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    }
-
-    public function getById($id) {
-        $stmt = $this->db->prepare("SELECT id, name, email FROM users WHERE id = ?");
-        $stmt->execute([$id]);
-        return $stmt->fetch(PDO::FETCH_ASSOC);
-    }
-
-    public function create($data) {
-        $stmt = $this->db->prepare("INSERT INTO users (name, email, password) VALUES (?, ?, ?)");
-        $stmt->execute([
-            $data['name'],
-            $data['email'],
-            password_hash($data['password'], PASSWORD_DEFAULT)
-        ]);
-        return $this->db->lastInsertId();
-    }
-}
-
-// Controller
-class UserController {
-    private $model;
-
-    public function __construct($model) {
-        $this->model = $model;
-    }
-
-    public function index() {
-        // Xử lý yêu cầu hiển thị danh sách users
-        $users = $this->model->getAll();
-
-        // Truyền dữ liệu cho view
-        include 'views/users/index.php';
-    }
-
-    public function show($id) {
-        // Xử lý yêu cầu hiển thị chi tiết một user
-        $user = $this->model->getById($id);
-
-        if (!$user) {
-            header('HTTP/1.0 404 Not Found');
-            include 'views/errors/404.php';
-            return;
-        }
-
-        include 'views/users/show.php';
-    }
-
-    public function create() {
-        // Hiển thị form tạo mới
-        include 'views/users/create.php';
-    }
-
-    public function store() {
-        // Xử lý dữ liệu từ form và tạo user mới
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            // Validate input
-            $errors = [];
-
-            if (empty($_POST['name'])) {
-                $errors[] = 'Name is required';
-            }
-
-            if (empty($_POST['email'])) {
-                $errors[] = 'Email is required';
-            } elseif (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
-                $errors[] = 'Email is not valid';
-            }
-
-            if (empty($_POST['password'])) {
-                $errors[] = 'Password is required';
-            }
-
-            if (!empty($errors)) {
-                // Hiển thị lỗi và form
-                include 'views/users/create.php';
-                return;
-            }
-
-            // Tạo user mới
-            $userId = $this->model->create($_POST);
-
-            // Redirect to user detail page
-            header("Location: /users/{$userId}");
-        }
-    }
-}
-
-// View (users/index.php)
-/*
-<!DOCTYPE html>
-<html>
-<head>
-    <title>User List</title>
-</head>
-<body>
-    <h1>User List</h1>
-    <a href="/users/create">Add New User</a>
-
-    <table border="1">
-        <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Actions</th>
-        </tr>
-        <?php foreach ($users as $user): ?>
-        <tr>
-            <td><?php echo $user['id']; ?></td>
-            <td><?php echo htmlspecialchars($user['name']); ?></td>
-            <td><?php echo htmlspecialchars($user['email']); ?></td>
-            <td>
-                <a href="/users/<?php echo $user['id']; ?>">View</a>
-                <a href="/users/<?php echo $user['id']; ?>/edit">Edit</a>
-                <a href="/users/<?php echo $user['id']; ?>/delete"
-                   onclick="return confirm('Are you sure?')">Delete</a>
-            </td>
-        </tr>
-        <?php endforeach; ?>
-    </table>
-</body>
-</html>
-*/
-
-// Routing đơn giản
-$db = new PDO('mysql:host=localhost;dbname=myapp', 'username', 'password');
-$userModel = new UserModel($db);
-$userController = new UserController($userModel);
-
-$uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-
-if ($uri === '/users' || $uri === '/users/') {
-    $userController->index();
-} elseif ($uri === '/users/create') {
-    $userController->create();
-} elseif ($uri === '/users/store' && $_SERVER['REQUEST_METHOD'] === 'POST') {
-    $userController->store();
-} elseif (preg_match('/^\/users\/(\d+)$/', $uri, $matches)) {
-    $userController->show($matches[1]);
-}
-?>
+```text
+┌─────────────────────────────────────┐
+│             CLIENT                  │
+│  (Browser/Mobile App/API Consumer)  │
+└───────────────────┬─────────────────┘
+                    │
+                    ▼
+┌─────────────────────────────────────┐
+│         HTTP REQUEST                │
+└───────────────────┬─────────────────┘
+                    │
+                    ▼
+┌─────────────────────────────────────┐
+│             ROUTER                  │
+│      Phân tích URL và chuyển        │
+│        request đến Controller       │
+└───────────────────┬─────────────────┘
+                    │
+                    ▼
+┌─────────────────────────────────────┐
+│          CONTROLLER                 │
+│                                     │
+│  ┌─────────────────────────────┐    │
+│  │  Điều phối luồng xử lý      │    │
+│  │  Nhận input từ Request      │    │
+│  │  Tương tác với Model        │    │
+│  │  Trả về View                │    │
+│  └─────────────────────────────┘    │
+└───────┬─────────────────────┬───────┘
+        │                     │
+        ▼                     ▼
+┌───────────────┐     ┌───────────────┐
+│    MODEL      │     │    VIEW       │
+│               │     │               │
+│  ┌─────────┐  │     │  ┌─────────┐  │
+│  │ Quản lý │  │     │  │ Hiển thị│  │
+│  │ dữ liệu │  │     │  │ dữ liệu │  │
+│  │ và logic│◄─┼─────┼─►│ cho user│  │
+│  │ nghiệp  │  │     │  │         │  │
+│  │ vụ      │  │     │  │         │  │
+│  └─────────┘  │     │  └─────────┘  │
+│               │     │               │
+└───────┬───────┘     └───────┬───────┘
+        │                     │
+        ▼                     │
+┌───────────────┐             │
+│  DATABASE     │             │
+│               │             │
+└───────────────┘             │
+        │                     │
+        └─────────┬───────────┘
+                  │
+                  ▼
+┌─────────────────────────────────────┐
+│         HTTP RESPONSE               │
+└─────────────────────────────────────┘
+                  │
+                  ▼
+┌─────────────────────────────────────┐
+│             CLIENT                  │
+└─────────────────────────────────────┘
 ```
 
-**Giới thiệu về Framework PHP phổ biến:**
+#### Luồng xử lý trong MVC
 
-```php
-<?php
-/*
-Framework cung cấp cấu trúc và các công cụ để xây dựng ứng dụng web nhanh chóng và an toàn.
-Các framework PHP phổ biến:
+1. **Client gửi request**: Người dùng tương tác với giao diện (click button, submit form...)
+2. **Router phân tích URL**: Xác định controller và action cần xử lý
+3. **Controller nhận request**:
+   - Xử lý dữ liệu đầu vào
+   - Gọi đến Model để thực hiện logic nghiệp vụ
+4. **Model xử lý dữ liệu**:
+   - Tương tác với Database
+   - Thực hiện các quy tắc nghiệp vụ
+   - Trả kết quả cho Controller
+5. **Controller chọn View**:
+   - Truyền dữ liệu từ Model vào View
+6. **View render giao diện**:
+   - Hiển thị dữ liệu
+   - Tạo HTML/JSON response
+7. **Response trả về Client**:
+   - Người dùng nhận được kết quả
 
-1. Laravel - https://laravel.com/
+#### Vai trò của các thành phần
+
+- **Model**: Đại diện cho dữ liệu và logic nghiệp vụ
+
+  - Truy vấn database
+  - Xử lý, tính toán dữ liệu
+  - Áp dụng quy tắc nghiệp vụ
+  - Độc lập với giao diện người dùng
+
+- **View**: Hiển thị dữ liệu và giao diện người dùng
+
+  - Template HTML/XML/JSON
+  - Hiển thị dữ liệu từ Model
+  - Không chứa logic nghiệp vụ
+  - Có thể chứa logic hiển thị
+
+- **Controller**: Điều phối luồng xử lý
+  - Nhận và xử lý request
+  - Tương tác với Model để lấy/xử lý dữ liệu
+  - Chọn View thích hợp
+  - Truyền dữ liệu từ Model vào View
+
+### Ví dụ MVC đơn giản
+
+#### Cấu trúc thư mục
+
+```text
+my-mvc-app/
+├── config/
+│   └── database.php         # Cấu hình kết nối database
+├── controllers/
+│   └── UserController.php   # Controller xử lý các action liên quan đến user
+├── models/
+│   └── User.php             # Model tương tác với bảng users
+├── views/
+│   └── users/
+│       ├── index.php        # Hiển thị danh sách người dùng
+│       ├── show.php         # Hiển thị chi tiết một người dùng
+│       ├── create.php       # Form tạo người dùng mới
+│       └── edit.php         # Form chỉnh sửa người dùng
+├── public/
+│   ├── index.php            # Entry point của ứng dụng
+│   ├── css/
+│   │   └── style.css
+│   └── js/
+│       └── app.js
+└── core/
+    ├── Router.php          # Xử lý route
+    ├── Database.php        # Kết nối database
+    └── App.php             # Khởi tạo ứng dụng
+```
+
+#### Nội dung các file
+
+1. **public/index.php** - Entry point:
+
+   ```php
+   <?php
+   // Bootloader
+   require_once '../core/App.php';
+   require_once '../core/Router.php';
+   require_once '../core/Database.php';
+
+   // Autoload classes
+   spl_autoload_register(function($className) {
+       // Convert namespace to file path
+       if (file_exists('../controllers/' . $className . '.php')) {
+           require_once '../controllers/' . $className . '.php';
+       } else if (file_exists('../models/' . $className . '.php')) {
+           require_once '../models/' . $className . '.php';
+       } else if (file_exists('../core/' . $className . '.php')) {
+           require_once '../core/' . $className . '.php';
+       }
+   });
+
+   // Khởi tạo ứng dụng
+   $app = new App();
+   $app->run();
+   ```
+
+2. **core/App.php** - Khởi tạo ứng dụng:
+
+   ```php
+   <?php
+   class App {
+       protected $controller = 'UserController';
+       protected $action = 'index';
+       protected $params = [];
+
+       public function __construct() {
+           $url = $this->parseUrl();
+
+           // Xác định controller
+           if (isset($url[0]) && file_exists('../controllers/' . $url[0] . 'Controller.php')) {
+               $this->controller = $url[0] . 'Controller';
+               unset($url[0]);
+           }
+
+           require_once '../controllers/' . $this->controller . '.php';
+           $this->controller = new $this->controller;
+
+           // Xác định action
+           if (isset($url[1])) {
+               if (method_exists($this->controller, $url[1])) {
+                   $this->action = $url[1];
+                   unset($url[1]);
+               }
+           }
+
+           // Lấy params
+           $this->params = $url ? array_values($url) : [];
+       }
+
+       public function run() {
+           call_user_func_array([$this->controller, $this->action], $this->params);
+       }
+
+       protected function parseUrl() {
+           if (isset($_GET['url'])) {
+               return explode('/', filter_var(rtrim($_GET['url'], '/'), FILTER_SANITIZE_URL));
+           }
+       }
+   }
+   ```
+
+3. **core/Database.php** - Kết nối database:
+
+   ```php
+   <?php
+   class Database {
+       private $host = 'localhost';
+       private $user = 'root';
+       private $pass = '';
+       private $dbname = 'mvc_example';
+
+       private $conn;
+       private $statement;
+
+       public function __construct() {
+           // Tạo kết nối PDO
+           try {
+               $this->conn = new PDO('mysql:host=' . $this->host . ';dbname=' . $this->dbname,
+                                   $this->user, $this->pass);
+               $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+           } catch(PDOException $e) {
+               die('Database connection failed: ' . $e->getMessage());
+           }
+       }
+
+       public function query($sql) {
+           $this->statement = $this->conn->prepare($sql);
+           return $this;
+       }
+
+       public function bind($param, $value, $type = null) {
+           if (is_null($type)) {
+               switch(true) {
+                   case is_int($value):
+                       $type = PDO::PARAM_INT;
+                       break;
+                   case is_bool($value):
+                       $type = PDO::PARAM_BOOL;
+                       break;
+                   case is_null($value):
+                       $type = PDO::PARAM_NULL;
+                       break;
+                   default:
+                       $type = PDO::PARAM_STR;
+               }
+           }
+
+           $this->statement->bindValue($param, $value, $type);
+           return $this;
+       }
+
+       public function execute() {
+           return $this->statement->execute();
+       }
+
+       public function fetchAll() {
+           $this->execute();
+           return $this->statement->fetchAll(PDO::FETCH_OBJ);
+       }
+
+       public function fetch() {
+           $this->execute();
+           return $this->statement->fetch(PDO::FETCH_OBJ);
+       }
+
+       public function rowCount() {
+           return $this->statement->rowCount();
+       }
+   }
+   ```
+
+4. **models/User.php** - Model:
+
+   ```php
+   <?php
+   class User {
+       private $db;
+
+       public function __construct() {
+           $this->db = new Database();
+       }
+
+       public function getAllUsers() {
+           $this->db->query('SELECT * FROM users ORDER BY created_at DESC');
+           return $this->db->fetchAll();
+       }
+
+       public function getUserById($id) {
+           $this->db->query('SELECT * FROM users WHERE id = :id');
+           $this->db->bind(':id', $id);
+           return $this->db->fetch();
+       }
+
+       public function createUser($data) {
+           $this->db->query('INSERT INTO users (name, email, password) VALUES(:name, :email, :password)');
+           $this->db->bind(':name', $data['name']);
+           $this->db->bind(':email', $data['email']);
+           $this->db->bind(':password', password_hash($data['password'], PASSWORD_DEFAULT));
+
+           return $this->db->execute();
+       }
+
+       public function updateUser($data) {
+           $this->db->query('UPDATE users SET name = :name, email = :email WHERE id = :id');
+           $this->db->bind(':id', $data['id']);
+           $this->db->bind(':name', $data['name']);
+           $this->db->bind(':email', $data['email']);
+
+           return $this->db->execute();
+       }
+
+       public function deleteUser($id) {
+           $this->db->query('DELETE FROM users WHERE id = :id');
+           $this->db->bind(':id', $id);
+
+           return $this->db->execute();
+       }
+   }
+   ```
+
+5. **controllers/UserController.php** - Controller:
+
+   ```php
+   <?php
+   class UserController {
+       private $userModel;
+
+       public function __construct() {
+           $this->userModel = new User();
+       }
+
+       // Hiển thị tất cả người dùng
+       public function index() {
+           $users = $this->userModel->getAllUsers();
+           require_once '../views/users/index.php';
+       }
+
+       // Hiển thị chi tiết người dùng
+       public function show($id) {
+           $user = $this->userModel->getUserById($id);
+           require_once '../views/users/show.php';
+       }
+
+       // Hiển thị form tạo người dùng
+       public function create() {
+           require_once '../views/users/create.php';
+       }
+
+       // Xử lý lưu người dùng mới
+       public function store() {
+           if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+               $data = [
+                   'name' => trim($_POST['name']),
+                   'email' => trim($_POST['email']),
+                   'password' => trim($_POST['password'])
+               ];
+
+               if ($this->userModel->createUser($data)) {
+                   header('Location: /users');
+               } else {
+                   die('Something went wrong');
+               }
+           }
+       }
+
+       // Hiển thị form chỉnh sửa
+       public function edit($id) {
+           $user = $this->userModel->getUserById($id);
+           require_once '../views/users/edit.php';
+       }
+
+       // Xử lý cập nhật
+       public function update() {
+           if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+               $data = [
+                   'id' => $_POST['id'],
+                   'name' => trim($_POST['name']),
+                   'email' => trim($_POST['email']),
+               ];
+
+               if ($this->userModel->updateUser($data)) {
+                   header('Location: /users');
+               } else {
+                   die('Something went wrong');
+               }
+           }
+       }
+
+       // Xử lý xóa
+       public function delete($id) {
+           if ($this->userModel->deleteUser($id)) {
+               header('Location: /users');
+           } else {
+               die('Something went wrong');
+           }
+       }
+   }
+   ```
+
+6. **views/users/index.php** - View hiển thị danh sách:
+
+   ```php
+   <!DOCTYPE html>
+   <html lang="en">
+   <head>
+       <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <title>User List</title>
+       <link rel="stylesheet" href="/css/style.css">
+   </head>
+   <body>
+       <div class="container">
+           <h1>User List</h1>
+           <a href="/users/create" class="btn">Add New User</a>
+
+           <table>
+               <thead>
+                   <tr>
+                       <th>ID</th>
+                       <th>Name</th>
+                       <th>Email</th>
+                       <th>Actions</th>
+                   </tr>
+               </thead>
+               <tbody>
+                   <?php foreach($users as $user) : ?>
+                   <tr>
+                       <td><?php echo $user->id; ?></td>
+                       <td><?php echo $user->name; ?></td>
+                       <td><?php echo $user->email; ?></td>
+                       <td>
+                           <a href="/users/show/<?php echo $user->id; ?>" class="btn-view">View</a>
+                           <a href="/users/edit/<?php echo $user->id; ?>" class="btn-edit">Edit</a>
+                           <a href="/users/delete/<?php echo $user->id; ?>" class="btn-delete"
+                           onclick="return confirm('Are you sure?')">Delete</a>
+                       </td>
+                   </tr>
+                   <?php endforeach; ?>
+               </tbody>
+           </table>
+       </div>
+   </body>
+   </html>
+   ```
+
+7. **views/users/create.php** - View tạo người dùng:
+
+   ```php
+   <!DOCTYPE html>
+   <html lang="en">
+   <head>
+       <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <title>Create User</title>
+       <link rel="stylesheet" href="/css/style.css">
+   </head>
+   <body>
+       <div class="container">
+           <h1>Create New User</h1>
+           <a href="/users" class="btn">Back to Users</a>
+
+           <form action="/users/store" method="post">
+               <div class="form-group">
+                   <label for="name">Name:</label>
+                   <input type="text" name="name" id="name" required>
+               </div>
+               <div class="form-group">
+                   <label for="email">Email:</label>
+                   <input type="email" name="email" id="email" required>
+               </div>
+               <div class="form-group">
+                   <label for="password">Password:</label>
+                   <input type="password" name="password" id="password" required>
+               </div>
+               <button type="submit" class="btn">Create User</button>
+           </form>
+       </div>
+   </body>
+   </html>
+   ```
+
+8. **.htaccess** trong thư mục public - Rewrite URLs:
+
+   ```apache
+   <IfModule mod_rewrite.c>
+       Options -Multiviews
+       RewriteEngine On
+       RewriteBase /public
+       RewriteCond %{REQUEST_FILENAME} !-d
+       RewriteCond %{REQUEST_FILENAME} !-f
+       RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]
+   </IfModule>
+   ```
+
+Trên đây là một ví dụ đơn giản về cấu trúc MVC với các thành phần chính:
+
+- **Model**: Quản lý dữ liệu và logic nghiệp vụ (User.php)
+- **View**: Hiển thị giao diện người dùng (các file trong thư mục views/)
+- **Controller**: Điều phối luồng xử lý (UserController.php)
+- **Router/App**: Phân tích URL và chuyển về controller phù hợp
+
+Ứng dụng này cho phép thực hiện đầy đủ các thao tác CRUD (Create, Read, Update, Delete) với entity User theo mô hình MVC.
+
+### Giới thiệu về Framework PHP phổ biến
+
+1. Laravel - <https://laravel.com/>
+
    - Full-stack framework phổ biến nhất hiện nay
    - Cú pháp rõ ràng, dễ đọc
    - Hệ sinh thái phong phú
 
-2. Symfony - https://symfony.com/
+2. Symfony - <https://symfony.com/>
+
    - Framework mạnh mẽ với nhiều component có thể tái sử dụng
    - Được sử dụng bởi nhiều framework và CMS khác
 
-3. CodeIgniter - https://codeigniter.com/
+3. CodeIgniter - <https://codeigniter.com/>
+
    - Nhẹ, nhanh, footprint nhỏ
    - Dễ học cho người mới bắt đầu
 
-4. Slim - https://www.slimframework.com/
+4. Slim - <https://www.slimframework.com/>
+
    - Micro-framework tập trung vào routing và middleware
    - Lý tưởng cho API nhỏ và ứng dụng đơn giản
 
-5. Yii - https://www.yiiframework.com/
+5. Yii - <https://www.yiiframework.com/>
+
    - Framework hiệu suất cao
    - Tích hợp AJAX và jQuery
 
-6. CakePHP - https://cakephp.org/
+6. CakePHP - <https://cakephp.org/>
+
    - Convention over Configuration
    - Scaffolding và code generation
 
-7. Zend/Laminas - https://getlaminas.org/
+7. Zend/Laminas - <https://getlaminas.org/>
+
    - Enterprise-ready
    - Modular architecture
 
-8. Phalcon - https://phalcon.io/
+8. Phalcon - <https://phalcon.io/>
    - Framework hiệu suất cao được viết bằng C
    - Được cài đặt như một extension PHP
-*/
 
-// So sánh cấu trúc cơ bản của một số framework
+## 🧑‍🏫 Bài 18: Laravel Framework
 
-// Laravel (routes/web.php)
-/*
-Route::get('/users', 'UserController@index');
-Route::get('/users/create', 'UserController@create');
-Route::post('/users', 'UserController@store');
-Route::get('/users/{id}', 'UserController@show');
-*/
+- Ở giáo trình này, chúng ta sẽ tìm hiểu về Laravel - một trong những framework PHP phổ biến nhất hiện nay. Và bởi vì Laravel rất lớn và phong phú, nên chúng ta sẽ chỉ tập trung vào các khái niệm cơ bản và những gì cần thiết để bắt đầu phát triển ứng dụng với Laravel.
 
-// Symfony (config/routes.yaml)
-/*
-users_index:
-    path: /users
-    controller: App\Controller\UserController::index
+- Đây cũng là một framework có phần documentation mà bản thân tôi đánh giá là tốt nhất trong tất cả những framework mà tôi đã từng sử dụng. Vì vậy, tôi khuyên các bạn nên nghiên cứu tài liệu chính thức của Laravel tại <https://laravel.com/docs> và sử dụng phần lộ trình này của tôi như một tài liệu tham khảo.
 
-users_create:
-    path: /users/create
-    controller: App\Controller\UserController::create
-
-users_store:
-    path: /users
-    controller: App\Controller\UserController::store
-    methods: [POST]
-
-users_show:
-    path: /users/{id}
-    controller: App\Controller\UserController::show
-*/
-
-// CodeIgniter (app/Config/Routes.php)
-/*
-$routes->get('users', 'UserController::index');
-$routes->get('users/create', 'UserController::create');
-$routes->post('users', 'UserController::store');
-$routes->get('users/(:num)', 'UserController::show/$1');
-*/
-
-// Slim
-/*
-$app->get('/users', 'UserController:index');
-$app->get('/users/create', 'UserController:create');
-$app->post('/users', 'UserController:store');
-$app->get('/users/{id}', 'UserController:show');
-*/
-
-?>
-```
-
-**Xây dựng MVC Framework đơn giản:**
-
-```php
-<?php
-// Một Mini MVC Framework đơn giản
-
-// index.php (Front Controller)
-require_once 'config.php';
-require_once 'core/Router.php';
-require_once 'core/Controller.php';
-require_once 'core/Model.php';
-require_once 'core/View.php';
-require_once 'core/Database.php';
-
-// Autoload classes
-function autoload($class) {
-    // Tự động load class từ các thư mục controllers, models, etc.
-    $paths = [
-        'app/controllers/',
-        'app/models/',
-        'app/core/'
-    ];
-
-    foreach ($paths as $path) {
-        $file = $path . $class . '.php';
-        if (file_exists($file)) {
-            require_once $file;
-            return;
-        }
-    }
-}
-
-spl_autoload_register('autoload');
-
-// Khởi tạo router và xử lý request
-$router = new Router();
-$router->dispatch();
-
-// core/Router.php
-class Router {
-    private $routes = [];
-
-    public function __construct() {
-        // Load routes from routes.php
-        require 'app/routes.php';
-    }
-
-    public function add($method, $url, $controller, $action) {
-        $this->routes[] = [
-            'method' => $method,
-            'url' => $url,
-            'controller' => $controller,
-            'action' => $action
-        ];
-    }
-
-    public function dispatch() {
-        $method = $_SERVER['REQUEST_METHOD'];
-        $url = $_SERVER['REQUEST_URI'];
-        $url = parse_url($url, PHP_URL_PATH);
-
-        // Xử lý route
-        foreach ($this->routes as $route) {
-            // Convert route URL to regex pattern
-            $pattern = $this->convertRouteToRegex($route['url']);
-
-            if ($route['method'] === $method && preg_match($pattern, $url, $matches)) {
-                array_shift($matches); // Remove the full match
-
-                // Create controller instance
-                $controllerName = $route['controller'] . 'Controller';
-                $controller = new $controllerName();
-
-                // Call the action with parameters
-                call_user_func_array([$controller, $route['action']], $matches);
-                return;
-            }
-        }
-
-        // No route found
-        header('HTTP/1.0 404 Not Found');
-        echo '404 Page Not Found';
-    }
-
-    private function convertRouteToRegex($route) {
-        // Convert parameters like {id} to regex capture groups
-        $pattern = preg_replace('/\{([a-zA-Z0-9_]+)\}/', '([^/]+)', $route);
-        return '/^' . str_replace('/', '\/', $pattern) . '$/';
-    }
-}
-
-// core/Controller.php
-class Controller {
-    protected function view($view, $data = []) {
-        // Extract data to make variables available in view
-        extract($data);
-
-        // Load view file
-        require_once 'app/views/' . $view . '.php';
-    }
-
-    protected function redirect($url) {
-        header('Location: ' . $url);
-        exit;
-    }
-}
-
-// core/Model.php
-class Model {
-    protected $db;
-    protected $table;
-
-    public function __construct() {
-        $this->db = Database::getInstance();
-    }
-
-    public function all() {
-        $query = "SELECT * FROM {$this->table}";
-        return $this->db->query($query)->fetchAll(PDO::FETCH_ASSOC);
-    }
-
-    public function find($id) {
-        $query = "SELECT * FROM {$this->table} WHERE id = ?";
-        return $this->db->prepare($query)->execute([$id])->fetch(PDO::FETCH_ASSOC);
-    }
-
-    // Thêm các methods khác: create, update, delete...
-}
-
-// core/Database.php
-class Database {
-    private static $instance = null;
-    private $pdo;
-
-    private function __construct() {
-        try {
-            $this->pdo = new PDO(
-                'mysql:host=' . DB_HOST . ';dbname=' . DB_NAME,
-                DB_USER,
-                DB_PASS,
-                [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
-            );
-        } catch (PDOException $e) {
-            die('Database connection failed: ' . $e->getMessage());
-        }
-    }
-
-    public static function getInstance() {
-        if (self::$instance === null) {
-            self::$instance = new self();
-        }
-        return self::$instance->pdo;
-    }
-
-    // Prevent cloning
-    private function __clone() {}
-}
-
-// Example routes.php
-/*
-$router->add('GET', '/', 'Home', 'index');
-$router->add('GET', '/users', 'User', 'index');
-$router->add('GET', '/users/{id}', 'User', 'show');
-$router->add('GET', '/users/create', 'User', 'create');
-$router->add('POST', '/users', 'User', 'store');
-*/
-
-// Example UserController.php
-/*
-class UserController extends Controller {
-    private $userModel;
-
-    public function __construct() {
-        $this->userModel = new UserModel();
-    }
-
-    public function index() {
-        $users = $this->userModel->all();
-        $this->view('users/index', ['users' => $users]);
-    }
-
-    public function show($id) {
-        $user = $this->userModel->find($id);
-        $this->view('users/show', ['user' => $user]);
-    }
-
-    // Other methods...
-}
-*/
-?>
-```
-
----
-
-## 🧑‍🏫 Bài 17: Laravel Framework
-
-**Cài đặt và Cấu hình Laravel:**
+### Cài đặt và Cấu hình Laravel
 
 ```bash
-# Cài đặt Composer (nếu chưa có)
-curl -sS https://getcomposer.org/installer | php
-sudo mv composer.phar /usr/local/bin/composer
-
 # Tạo project Laravel mới
 composer create-project laravel/laravel my-laravel-app
 
@@ -498,7 +630,7 @@ cd my-laravel-app
 php artisan serve
 ```
 
-**Cấu trúc thư mục Laravel:**
+### Cấu trúc thư mục Laravel
 
 ```text
 my-laravel-app/
@@ -530,7 +662,7 @@ my-laravel-app/
 └── composer.json           # Composer dependencies
 ```
 
-**Routing và Controller trong Laravel:**
+### Routing và Controller trong Laravel
 
 ```php
 <?php
@@ -573,7 +705,7 @@ Route::post('/users', [UserApiController::class, 'store']);
 ?>
 ```
 
-**Controller trong Laravel:**
+### Controller trong Laravel
 
 ```php
 <?php
@@ -672,7 +804,7 @@ class UserController extends Controller
 ?>
 ```
 
-**Model và Eloquent ORM:**
+### Model và Eloquent ORM
 
 ```php
 <?php
@@ -737,7 +869,7 @@ class User extends Model
 ?>
 ```
 
-**Blade Templating System:**
+### Blade Templating System
 
 ```php
 // resources/views/layouts/app.blade.php
@@ -823,7 +955,9 @@ class User extends Model
 @endpush
 ```
 
-**Migrations và Database:**
+### Migrations và Database
+
+- Thay vì tạo bảng bằng SQL, Laravel sử dụng migrations để quản lý schema của database.
 
 ```php
 <?php
@@ -879,234 +1013,9 @@ class CreateUsersTable extends Migration
 
 ---
 
-## 🧑‍🏫 Bài 18: Composer và Package Management
-
-**Giới thiệu về Composer:**
-
-```bash
-# Cài đặt Composer (Linux/macOS)
-curl -sS https://getcomposer.org/installer | php
-sudo mv composer.phar /usr/local/bin/composer
-
-# Kiểm tra cài đặt
-composer --version
-
-# Khởi tạo dự án mới
-composer init
-
-# Cài đặt package
-composer require monolog/monolog
-
-# Cài đặt package cho môi trường development
-composer require --dev phpunit/phpunit
-
-# Cập nhật tất cả packages
-composer update
-
-# Cài đặt packages từ composer.json
-composer install
-```
-
-**Tạo và sử dụng package:**
-
-```php
-<?php
-// composer.json
-{
-    "name": "myvendor/mypackage",
-    "description": "My first package",
-    "type": "library",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Your Name",
-            "email": "your.email@example.com"
-        }
-    ],
-    "minimum-stability": "dev",
-    "require": {
-        "php": "^7.4|^8.0"
-    },
-    "require-dev": {
-        "phpunit/phpunit": "^9.0"
-    },
-    "autoload": {
-        "psr-4": {
-            "MyVendor\\MyPackage\\": "src/"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "MyVendor\\MyPackage\\Tests\\": "tests/"
-        }
-    }
-}
-
-// src/Calculator.php
-namespace MyVendor\MyPackage;
-
-class Calculator
-{
-    public function add($a, $b)
-    {
-        return $a + $b;
-    }
-
-    public function subtract($a, $b)
-    {
-        return $a - $b;
-    }
-}
-
-// tests/CalculatorTest.php
-namespace MyVendor\MyPackage\Tests;
-
-use PHPUnit\Framework\TestCase;
-use MyVendor\MyPackage\Calculator;
-
-class CalculatorTest extends TestCase
-{
-    public function testAdd()
-    {
-        $calc = new Calculator();
-        $this->assertEquals(4, $calc->add(2, 2));
-    }
-
-    public function testSubtract()
-    {
-        $calc = new Calculator();
-        $this->assertEquals(3, $calc->subtract(5, 2));
-    }
-}
-
-// Câu lệnh test
-// vendor/bin/phpunit tests/
-?>
-```
-
-**Autoloading trong PHP:**
-
-```php
-<?php
-// composer.json
-{
-    "autoload": {
-        "psr-4": {
-            "App\\": "app/"
-        },
-        "files": [
-            "app/helpers.php"
-        ],
-        "classmap": [
-            "database/seeds",
-            "database/factories"
-        ]
-    }
-}
-
-// Sau khi chỉnh sửa autoload, cập nhật lại autoloader
-// composer dump-autoload
-
-// Sử dụng autoload
-// app/Models/User.php
-namespace App\Models;
-
-class User
-{
-    // Class implementation
-}
-
-// index.php
-require_once 'vendor/autoload.php';
-
-use App\Models\User;
-
-$user = new User();
-?>
-```
-
-**Sử dụng packages phổ biến:**
-
-```php
-<?php
-// 1. Carbon - DateTime manipulation
-// composer require nesbot/carbon
-
-use Carbon\Carbon;
-
-$now = Carbon::now();
-echo $now->format('Y-m-d H:i:s');
-echo $now->addDays(5)->format('Y-m-d');
-echo Carbon::createFromFormat('Y-m-d', '2021-01-01')->diffForHumans();
-
-// 2. Guzzle - HTTP client
-// composer require guzzlehttp/guzzle
-
-use GuzzleHttp\Client;
-
-$client = new Client();
-$response = $client->request('GET', 'https://api.github.com/repos/guzzle/guzzle');
-$data = json_decode($response->getBody(), true);
-echo "Guzzle GitHub Stars: " . $data['stargazers_count'];
-
-// 3. Faker - Generate fake data
-// composer require fakerphp/faker
-
-$faker = \Faker\Factory::create();
-echo $faker->name();
-echo $faker->email();
-echo $faker->address();
-echo $faker->text();
-
-// 4. Monolog - Logging
-// composer require monolog/monolog
-
-use Monolog\Logger;
-use Monolog\Handler\StreamHandler;
-
-$log = new Logger('app');
-$log->pushHandler(new StreamHandler('logs/app.log', Logger::WARNING));
-$log->warning('This is a warning');
-$log->error('This is an error');
-
-// 5. PHPMailer - Sending emails
-// composer require phpmailer/phpmailer
-
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
-
-$mail = new PHPMailer(true);
-try {
-    $mail->isSMTP();
-    $mail->Host       = 'smtp.example.com';
-    $mail->SMTPAuth   = true;
-    $mail->Username   = 'user@example.com';
-    $mail->Password   = 'secret';
-    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-    $mail->Port       = 587;
-
-    $mail->setFrom('from@example.com', 'Sender Name');
-    $mail->addAddress('recipient@example.com', 'Recipient Name');
-    $mail->addReplyTo('reply@example.com', 'Reply Name');
-
-    $mail->isHTML(true);
-    $mail->Subject = 'Here is the subject';
-    $mail->Body    = 'This is the HTML message body <b>in bold!</b>';
-    $mail->AltBody = 'This is the plain text body for non-HTML mail clients';
-
-    $mail->send();
-    echo 'Message has been sent';
-} catch (Exception $e) {
-    echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
-}
-?>
-```
-
----
-
 ## 🧑‍🏫 Bài 19: Testing trong PHP
 
-**Unit Testing với PHPUnit:**
+### Unit Testing với PHPUnit
 
 ```php
 <?php
@@ -1231,7 +1140,7 @@ class CalculatorTest extends TestCase
 ?>
 ```
 
-**Feature Testing trong Laravel:**
+### Feature Testing trong Laravel
 
 ```php
 <?php
@@ -1315,7 +1224,7 @@ class UserTest extends TestCase
 ?>
 ```
 
-**Mock Objects và Testing với Dependencies:**
+### Mock Objects và Testing với Dependencies
 
 ```php
 <?php
@@ -1441,7 +1350,11 @@ class UserServiceTest extends TestCase
 ?>
 ```
 
-**Code Coverage và Best Practices:**
+### Code Coverage và Best Practices
+
+#### Code Coverage
+
+- Code coverage là một chỉ số cho biết phần trăm mã nguồn đã được kiểm tra bởi các bài test. PHPUnit hỗ trợ tính năng này.
 
 ```bash
 # Chạy PHPUnit với code coverage report (HTML)
@@ -1454,243 +1367,69 @@ vendor/bin/phpunit tests/UserServiceTest.php
 vendor/bin/phpunit --filter testRegisterWithValidData tests/UserServiceTest.php
 ```
 
-```php
-<?php
-// Best Practices cho Testing
+#### Best Practices cho Testing
 
-/*
-1. Follow AAA pattern
-   - Arrange: Set up the test environment
-   - Act: Execute the code being tested
-   - Assert: Verify the output is as expected
+1. Tuân theo mô hình AAA
 
-2. Test only one thing per test method
+   - **Arrange**: Thiết lập môi trường kiểm thử
+   - **Act**: Thực thi đoạn mã cần kiểm thử
+   - **Assert**: Kiểm tra kết quả có đúng như mong đợi
 
-3. Use clear naming conventions
-   - testShouldDoSomethingWhenSomething
-   - testMethodNameWhenStateUnderTest
+2. Mỗi phương thức kiểm thử chỉ nên kiểm tra một chức năng duy nhất
 
-4. Use Data Providers for testing same logic with different inputs
+3. Sử dụng quy tắc đặt tên rõ ràng
 
-5. Keep tests independent - don't make tests depend on each other
+   - `testShouldDoSomethingWhenSomething`
+   - `testMethodNameWhenStateUnderTest`
 
-6. Avoid mocking too much - if you're mocking everything, you're testing nothing
+4. Sử dụng Data Provider để kiểm thử cùng logic với nhiều input khác nhau
 
-7. Test edge cases and failure scenarios, not just the happy path
+5. Giữ cho các test độc lập – không để các test phụ thuộc vào nhau
 
-8. Write both Unit Tests and Integration Tests
+6. Tránh sử dụng mock quá mức – nếu bạn mock mọi thứ thì bạn không đang kiểm thử gì cả
 
-9. Use setUp() and tearDown() for common test initialization and cleanup
+7. Kiểm thử các trường hợp biên và tình huống lỗi, không chỉ kiểm thử đường đi lý tưởng (happy path)
 
-10. Use assertion methods appropriately
-    - assertEquals
-    - assertSame (=== comparison)
-    - assertTrue/assertFalse
-    - assertNull
-    - assertArrayHasKey
-    - assertCount
-    - assertInstanceOf
-    - etc.
+8. Viết cả Unit Test và Integration Test
 
-11. For Laravel, use factories to generate test data
+9. Sử dụng `setUp()` và `tearDown()` để khởi tạo và dọn dẹp dữ liệu dùng chung cho các test
 
-12. Use test doubles appropriately
-    - Mocks: For verifying method calls
-    - Stubs: For providing canned answers
-    - Spies: For recording method calls
-    - Dummies: For filling parameter lists
-    - Fakes: For replacing real implementations
-*/
-?>
-```
+10. Sử dụng phương thức assert phù hợp
+
+    - `assertEquals`: kiểm tra bằng giá trị
+    - `assertSame`: kiểm tra bằng giá trị và kiểu (`===`)
+    - `assertTrue` / `assertFalse`
+    - `assertNull`
+    - `assertArrayHasKey`
+    - `assertCount`
+    - `assertInstanceOf`
+    - v.v.
+
+11. Đối với Laravel, sử dụng factory để tạo dữ liệu kiểm thử
+
+12. Sử dụng test double một cách hợp lý
+
+    - **Mocks**: Kiểm tra phương thức có được gọi đúng không
+    - **Stubs**: Cung cấp giá trị trả về định sẵn
+    - **Spies**: Ghi nhận phương thức đã được gọi
+    - **Dummies**: Tham số bắt buộc nhưng không sử dụng
+    - **Fakes**: Thay thế implementation thật bằng bản đơn giản hơn
 
 ---
 
-## 🧑‍🏫 Bài 20: DevOps và Deployment
+## 🧑‍🏫 Bài 20: Tối ưu Laravel cho Product
 
-**Chuẩn bị môi trường Production:**
+### Laravel cache và tối ưu hóa autoloader
 
 ```bash
-# Một số điểm cần chú ý khi deploy PHP
-
-# 1. Production environment settings
-# .env.production
-APP_ENV=production
-APP_DEBUG=false
-APP_URL=https://your-production-domain.com
-
-# In Laravel, optimize for production
 composer install --optimize-autoloader --no-dev
-php artisan config:cache
-php artisan route:cache
-php artisan view:cache
-
-# 2. Web server configuration (Apache)
-# .htaccess (Laravel)
-<IfModule mod_rewrite.c>
-    <IfModule mod_negotiation.c>
-        Options -MultiViews -Indexes
-    </IfModule>
-
-    RewriteEngine On
-
-    # Handle Authorization Header
-    RewriteCond %{HTTP:Authorization} .
-    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
-
-    # Redirect Trailing Slashes If Not A Folder
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteCond %{REQUEST_URI} (.+)/$
-    RewriteRule ^ %1 [L,R=301]
-
-    # Send Requests To Front Controller
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteRule ^ index.php [L]
-</IfModule>
-
-# 3. Nginx configuration
-# /etc/nginx/sites-available/your-app
-server {
-    listen 80;
-    server_name your-domain.com;
-    root /var/www/your-app/public;
-
-    add_header X-Frame-Options "SAMEORIGIN";
-    add_header X-XSS-Protection "1; mode=block";
-    add_header X-Content-Type-Options "nosniff";
-
-    index index.php;
-
-    charset utf-8;
-
-    location / {
-        try_files $uri $uri/ /index.php?$query_string;
-    }
-
-    location = /favicon.ico { access_log off; log_not_found off; }
-    location = /robots.txt  { access_log off; log_not_found off; }
-
-    error_page 404 /index.php;
-
-    location ~ \.php$ {
-        fastcgi_pass unix:/var/run/php/php8.0-fpm.sock;
-        fastcgi_param SCRIPT_FILENAME $realpath_root$fastcgi_script_name;
-        include fastcgi_params;
-    }
-
-    location ~ /\.(?!well-known).* {
-        deny all;
-    }
-}
-
-# 4. SSL Configuration with Let's Encrypt
-sudo add-apt-repository ppa:certbot/certbot
-sudo apt install python-certbot-nginx
-sudo certbot --nginx -d your-domain.com
+php artisan config:cache # Cache config files
+php artisan route:cache # Cache routes
+php artisan view:cache # Cache views
+php artisan optimize # Optimize the framework để tăng tốc độ
 ```
 
-**Continuous Integration và Continuous Deployment:**
-
-```yaml
-# GitHub Actions workflow (.github/workflows/ci.yml)
-name: PHP CI
-
-on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
-
-jobs:
-  test:
-    runs-on: ubuntu-latest
-
-    services:
-      mysql:
-        image: mysql:5.7
-        env:
-          MYSQL_ROOT_PASSWORD: root
-          MYSQL_DATABASE: test_db
-        ports:
-          - 3306:3306
-        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
-
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: Setup PHP
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: "8.0"
-          extensions: mbstring, intl, pdo_mysql, zip
-          coverage: xdebug
-
-      - name: Validate composer.json and composer.lock
-        run: composer validate
-
-      - name: Cache Composer packages
-        id: composer-cache
-        uses: actions/cache@v2
-        with:
-          path: vendor
-          key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-php-
-
-      - name: Install dependencies
-        run: composer install --prefer-dist --no-progress
-
-      - name: Copy environment file
-        run: cp .env.example .env
-
-      - name: Generate app key
-        run: php artisan key:generate
-
-      - name: Run database migrations
-        run: php artisan migrate
-        env:
-          DB_CONNECTION: mysql
-          DB_HOST: 127.0.0.1
-          DB_PORT: 3306
-          DB_DATABASE: test_db
-          DB_USERNAME: root
-          DB_PASSWORD: root
-
-      - name: Run tests
-        run: vendor/bin/phpunit
-
-      - name: Upload coverage report
-        uses: codecov/codecov-action@v1
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
-          file: ./coverage.xml
-
-  deploy:
-    needs: test
-    if: github.ref == 'refs/heads/main'
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: Deploy to production
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          script: |
-            cd /var/www/your-app
-            git pull
-            composer install --no-dev --optimize-autoloader
-            php artisan migrate --force
-            php artisan config:cache
-            php artisan route:cache
-            php artisan view:cache
-```
-
-**Performance Tuning:**
+### Tối ưu hóa cấu hình PHP
 
 ```php
 <?php
@@ -1710,68 +1449,114 @@ ini_set('opcache.fast_shutdown', 1);
 ini_set('opcache.enable_cli', 1);
 ini_set('opcache.jit', 1255);
 ini_set('opcache.jit_buffer_size', '64M');
-
-// Laravel Performance Tips
-
-// 1. Use eager loading to avoid N+1 problem
-$posts = App\Models\Post::with('author', 'comments')->get();
-
-// Instead of:
-$posts = App\Models\Post::all();
-foreach ($posts as $post) {
-    // This causes N+1 queries
-    echo $post->author->name;
-}
-
-// 2. Index your database columns
-// In migration:
-$table->index('user_id');
-$table->index(['status', 'created_at']);
-
-// 3. Cache expensive operations
-$value = Cache::remember('users', $seconds, function () {
-    return DB::table('users')->get();
-});
-
-// 4. Use pagination instead of fetching all records
-$users = App\Models\User::paginate(15);
-
-// 5. Use queues for time-consuming tasks
-// app/Jobs/ProcessPodcast.php
-class ProcessPodcast implements ShouldQueue
-{
-    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
-
-    protected $podcast;
-
-    public function __construct(Podcast $podcast)
-    {
-        $this->podcast = $podcast;
-    }
-
-    public function handle()
-    {
-        // Process uploaded podcast...
-    }
-}
-
-// Dispatch the job
-ProcessPodcast::dispatch($podcast);
-
-// 6. Use database chunking for large datasets
-User::chunk(200, function ($users) {
-    foreach ($users as $user) {
-        // Process user
-    }
-});
-
-// 7. Choose appropriate cache driver
-// config/cache.php
-'default' => env('CACHE_DRIVER', 'redis'),
-?>
 ```
 
-**Monitoring và Logging:**
+### Laravel Performance Tips
+
+1. Sử dụng eager loading để tránh N+1 problem
+
+   ```php
+   <?php
+   // Good
+   $posts = App\Models\Post::with('author', 'comments')->get();
+
+   // Bad
+   $posts = App\Models\Post::all();
+   foreach ($posts as $post) {
+       // This causes N+1 queries
+       echo $post->author->name;
+   }
+   ```
+
+2. Index database columns
+
+   ```php
+   // In migration:
+   $table->index('user_id');
+   $table->index(['status', 'created_at']);
+   ```
+
+3. Cache những query nặng
+
+   ```php
+   <?php
+   // Cache the result of a query for 60 seconds
+   $seconds = 60;
+   $value = Cache::remember('users', $seconds, function () {
+       return DB::table('users')->get();
+   });
+
+   // Cache with tags
+   Cache::tags(['user', 'posts'])->put('user_posts', $posts, $seconds);
+
+   // Cache with a unique key
+   $key = 'user_' . auth()->id();
+   Cache::remember($key, $seconds, function () {
+       return DB::table('users')->where('id', auth()->id())->first();
+   });
+   ```
+
+4. Sử dụng Memcache hoặc Redis cho cache
+
+   ```php
+   <?php
+   // config/cache.php
+   'default' => env('CACHE_DRIVER', 'redis'),
+
+   // .env
+   CACHE_DRIVER=redis
+
+   // Redis configuration
+   'redis' => [
+       'client' => 'predis',
+       'default' => [
+           'host' => env('REDIS_HOST', 'localhost'),
+           'password' => env('REDIS_PASSWORD', null),
+           'port' => env('REDIS_PORT', 6379),
+           'database' => env('REDIS_DB', 0),
+       ],
+   ],
+   // Using Redis cache
+   Cache::put('key', 'value', 60);
+   $value = Cache::get('key');
+   ```
+
+5. Sử dụng phân trang (pagination) thay vì lấy tất cả dữ liệu
+
+   ```php
+   <?php
+   // Pagination with Eloquent
+   $users = App\Models\User::paginate(15);
+
+   // Pagination with query builder
+   $users = DB::table('users')->paginate(15);
+
+   // Custom pagination view
+   $users = App\Models\User::paginate(15, ['*'], 'page', 2);
+   ```
+
+6. Sử dụng queue cho các tác vụ nặng (như gửi email, xử lý ảnh) (xem thêm ở documentation của Laravel)
+
+   ```php
+   <?php
+   // Queue a job
+   use App\Jobs\SendEmailJob;
+   SendEmailJob::dispatch($user);
+   ```
+
+7. Sử dụng database chunking để xử lý dữ liệu lớn
+
+   ```php
+   <?php
+   // Process large dataset in chunks
+   DB::table('users')->chunk(100, function ($users) {
+       foreach ($users as $user) {
+           // Process each user
+       }
+   });
+   ```
+
+### Monitoring và Logging
 
 ```php
 <?php
@@ -1853,86 +1638,133 @@ try {
 ?>
 ```
 
-**Security trong Production:**
+### Security trong Production
 
-```php
-<?php
-// Security best practices for PHP applications
+1. Escape dữ liệu đầu ra để phòng chống XSS
 
-// 1. Escape output to prevent XSS
-$name = htmlspecialchars($user->name, ENT_QUOTES, 'UTF-8');
-echo "Welcome, " . $name;
+   ```php
+   <?php
+   // Escape output to prevent XSS
+   $name = htmlspecialchars($user->name, ENT_QUOTES, 'UTF-8');
+   echo "Welcome, " . $name;
+   ?>
+   ```
 
-// 2. Use prepared statements/parameterized queries for database
-$stmt = $pdo->prepare("SELECT * FROM users WHERE username = ?");
-$stmt->execute([$username]);
-$user = $stmt->fetch();
+2. Sử dụng Prepared Statements / Truy vấn tham số hóa để làm việc với database
 
-// 3. Set proper HTTP headers
-header('X-Content-Type-Options: nosniff');
-header('X-XSS-Protection: 1; mode=block');
-header('X-Frame-Options: DENY');
-header('Content-Security-Policy: default-src \'self\'');
+   ```php
+   <?php
+   // Prepared statements to prevent SQL injection
+   $stmt = $pdo->prepare("SELECT * FROM users WHERE username = ?");
+   $stmt->execute([$username]);
+   $user = $stmt->fetch();
+   ?>
+   ```
 
-// 4. Session security
-// php.ini
-// session.cookie_httponly = 1
-// session.cookie_secure = 1
-// session.use_only_cookies = 1
-// session.cookie_samesite = "Lax"
+3. Thiết lập các HTTP header bảo mật
 
-// In code
-ini_set('session.cookie_httponly', 1);
-session_start();
+   ```php
+   <?php
+   // Set proper HTTP headers
+   header('X-Content-Type-Options: nosniff');
+   header('X-XSS-Protection: 1; mode=block');
+   header('X-Frame-Options: DENY');
+   header('Content-Security-Policy: default-src \'self\'');
+   ?>
+   ```
 
-// 5. Use CSRF protection
-// Laravel already includes CSRF protection
-// In your forms:
-@csrf
+4. Bảo mật session
 
-// In your controller:
-protected $middleware = ['csrf'];
+   ```php
+   <?php
+   // Session security settings in php.ini
+   session.cookie_httponly = 1
+   session.cookie_secure = 1
+   session.use_only_cookies = 1
+   session.cookie_samesite = "Lax"
 
-// 6. Validate all input data
-$validatedData = $request->validate([
-    'email' => 'required|email',
-    'name' => 'required|string|max:255',
-    'age' => 'required|integer|min:18|max:120',
-]);
+   // In code
+   ini_set('session.cookie_httponly', 1);
+   session_start();
+   ?>
+   ```
 
-// 7. Keep dependencies updated
-// composer update
+5. Sử dụng CSRF protection
 
-// 8. Store sensitive data securely
-// .env file (outside web root)
-DB_PASSWORD=secret
-MAIL_PASSWORD=another_secret
-API_KEY=some_api_key
+   ```php
+   <?php
+   // Laravel already includes CSRF protection
+   // In your forms:
+   @csrf
 
-// 9. Rate limiting
-// Laravel example:
-Route::middleware(['throttle:60,1'])->group(function () {
-    Route::get('/api/data', 'ApiController@getData');
-});
+   // In your controller:
+   protected $middleware = ['csrf'];
+   ?>
+   ```
 
-// 10. Configure error display in production
-// php.ini or runtime
-ini_set('display_errors', 0);
-ini_set('display_startup_errors', 0);
-ini_set('log_errors', 1);
-error_reporting(E_ALL);
-?>
-```
+6. Validate tất cả dữ liệu đầu vào
+
+   ```php
+   <?php
+   // Validate input data
+   $validatedData = $request->validate([
+        'email' => 'required|email',
+        'name' => 'required|string|max:255',
+        'age' => 'required|integer|min:18|max:120',
+   ]);
+   ?>
+   ```
+
+7. Cập nhật các dependencies thường xuyên
+
+   ```bash
+   # Update dependencies
+   composer update
+   ```
+
+8. Lưu trữ dữ liệu nhạy cảm một cách an toàn
+
+   ```text
+    // Store sensitive data securely
+    // .env file (outside web root)
+    DB_PASSWORD=secret
+    MAIL_PASSWORD=another_secret
+    API_KEY=some_api_key
+    ?>
+   ```
+
+9. Rate limiting cho các API
+
+   ```php
+   <?php
+   // Laravel example:
+   Route::middleware(['throttle:60,1'])->group(function () {
+        Route::get('/api/data', 'ApiController@getData');
+   });
+   ?>
+   ```
+
+10. Cấu hình hiển thị lỗi trong môi trường production
+
+    ```php
+    <?php
+    // php.ini or runtime
+    ini_set('display_errors', 0);
+    ini_set('display_startup_errors', 0);
+    ini_set('log_errors', 1);
+    error_reporting(E_ALL);
+    ?>
+    ```
 
 ---
 
-## 🧪 BÀI TẬP LỚN CUỐI PHẦN
+## 🧪 BÀI TẬP LỚN CUỐI PHẦN: Xây dựng ứng dụng web bằng Laravel
 
-### **Đề bài: Xây dựng ứng dụng web bằng Laravel**
+### Mô tả bài toán
 
 Xây dựng một ứng dụng quản lý dự án (Project Management) với Laravel, áp dụng các kiến thức đã học về framework, kiến trúc MVC, testing và best practices.
 
-### **Yêu cầu:**
+### Yêu cầu
 
 1. Chức năng người dùng:
 
@@ -1972,7 +1804,7 @@ Xây dựng một ứng dụng quản lý dự án (Project Management) với La
    - Sử dụng Laravel Queue cho tác vụ gửi email
    - Triển khai trên máy chủ web thực
 
-### **Cấu trúc dự án:**
+### Cấu trúc dự án đề xuất
 
 ```text
 project-management/

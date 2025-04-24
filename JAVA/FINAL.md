@@ -1,79 +1,93 @@
-# 🎓 BÀI TẬP LỚN (JAVA)
+# 🧪 BÀI TẬP LỚN (JAVA)
 
-## **Tên bài: Ứng dụng Quản lý Thư viện**
+## **Đề bài: Xây dựng ứng dụng Quản lý Thư viện**
+
+Thiết kế và triển khai ứng dụng Java console hoàn chỉnh cho hệ thống quản lý thư viện, tích hợp với cơ sở dữ liệu SQL đã thiết kế trong phần SQL:
+
+### Yêu cầu ứng dụng
+
+- Ứng dụng dòng lệnh (console-based application)
+- Kết nối cơ sở dữ liệu thông qua JDBC
+- Áp dụng các nguyên lý OOP đã học trong Part 3
+- Sử dụng Collections Framework để quản lý dữ liệu
+- Xử lý ngoại lệ để đảm bảo tính ổn định của chương trình
+
+### Chức năng cần triển khai
+
+1. **Quản lý sách**:
+   - Thêm, sửa, xóa thông tin sách
+   - Tìm kiếm sách theo nhiều tiêu chí (tên, tác giả, thể loại)
+   - Hiển thị thông tin chi tiết sách
+   - Hiển thị danh sách sách
+
+2. **Quản lý độc giả**:
+   - Đăng ký độc giả mới
+   - Cập nhật thông tin độc giả
+   - Tìm kiếm độc giả theo mã hoặc tên
+   - Hiển thị lịch sử mượn sách của độc giả
+
+3. **Quản lý mượn trả**:
+   - Xử lý mượn sách
+   - Xử lý trả sách
+   - Tính tiền phạt nếu trả muộn
+   - Hiển thị danh sách sách đang được mượn
+
+4. **Báo cáo và thống kê**:
+   - Thống kê sách mượn nhiều nhất
+   - Thống kê độc giả mượn sách thường xuyên
+   - Thống kê sách quá hạn chưa trả
+   - Xuất báo cáo dưới dạng file văn bản
+
+### Yêu cầu kỹ thuật
+
+1. **Kiến trúc phần mềm**:
+   - Áp dụng mô hình phân tầng (3-tier architecture)
+   - Sử dụng các nguyên tắc SOLID
+   - Thiết kế các lớp đối tượng tuân theo nguyên tắc OOP
+
+2. **Tương tác CSDL**:
+   - Sử dụng JDBC để kết nối với cơ sở dữ liệu SQL đã thiết kế
+   - Xử lý transaction khi thực hiện các thao tác quan trọng
+   - Sử dụng PreparedStatement để ngăn SQL Injection
+
+3. **Xử lý dữ liệu**:
+   - Sử dụng Collections Framework (List, Set, Map) để quản lý dữ liệu trong bộ nhớ
+   - Xử lý luồng với I/O Streams để đọc/ghi file khi cần
+   - Sử dụng đa luồng để xử lý các tác vụ độc lập như sao lưu dữ liệu
+
+4. **Giao diện console**:
+   - Thiết kế menu điều hướng rõ ràng, dễ sử dụng
+   - Hiển thị thông tin được định dạng đẹp mắt
+   - Xử lý nhập liệu từ người dùng với kiểm tra hợp lệ
+
+5. **Xử lý ngoại lệ**:
+   - Xử lý tất cả các ngoại lệ có thể xảy ra
+   - Hiển thị thông báo lỗi thân thiện với người dùng
+   - Đảm bảo tính ổn định của ứng dụng khi có lỗi xảy ra
+
+### Hướng dẫn triển khai
+
+1. **Thiết kế cơ sở dữ liệu**:
+   - Sử dụng cơ sở dữ liệu đã thiết kế trong phần SQL/FINAL.md
+   - Tạo kết nối JDBC đến cơ sở dữ liệu
+
+2. **Thiết kế các lớp đối tượng**:
+   - Xây dựng các lớp Entity: Book, User, Transaction
+   - Xây dựng các lớp DAO (Data Access Object) để thao tác với CSDL
+   - Xây dựng các lớp Service xử lý logic nghiệp vụ
+
+3. **Xây dựng giao diện console**:
+   - Thiết kế menu chính và các menu con
+   - Xử lý nhập liệu và hiển thị kết quả
+
+4. **Kiểm thử**:
+   - Kiểm thử các chức năng chính
+   - Xử lý các trường hợp ngoại lệ
+
+Bài tập này sẽ kết hợp với bài tập SQL để tạo thành một ứng dụng hoàn chỉnh, trong đó phần JAVA sẽ tạo logic nghiệp vụ và giao diện dòng lệnh, còn phần SQL sẽ đảm nhiệm việc lưu trữ và xử lý dữ liệu.
 
 ---
 
-## 📌 Mô tả
-
-Xây dựng một ứng dụng JAVA quản lý thư viện mini có giao diện dòng lệnh, cho phép quản lý sách, người dùng (độc giả & nhân viên), và các giao dịch mượn/trả sách. Ứng dụng lưu trữ dữ liệu vào cơ sở dữ liệu và hỗ trợ thao tác đồng thời, đọc/ghi file, xử lý ngoại lệ.
-
----
-
-## 🎯 Yêu cầu chức năng
-
-### 1. **Quản lý người dùng**
-
-- Phân loại 2 loại người dùng: `Reader`, `Staff` kế thừa từ lớp `User`.
-- Tạo, sửa, xóa, tìm kiếm người dùng theo mã hoặc tên.
-- Mỗi người dùng có thông tin: mã, tên, ngày sinh, email, loại người dùng.
-
-### 2. **Quản lý sách**
-
-- Quản lý danh sách sách bao gồm: mã sách, tiêu đề, tác giả, năm xuất bản, số lượng tồn.
-- Thêm, sửa, xóa, tìm kiếm sách.
-- Lưu trữ sách trong `ArrayList`, hỗ trợ thao tác đồng thời.
-
-### 3. **Quản lý giao dịch mượn/trả sách**
-
-- Khi `Reader` mượn sách: kiểm tra tồn kho, ghi nhận giao dịch.
-- Khi trả sách: cập nhật lại số lượng tồn.
-- Lưu lịch sử giao dịch trong database: mã giao dịch, người mượn, sách, ngày mượn, ngày trả, trạng thái.
-
-### 4. **Lưu trữ dữ liệu**
-
-- Dữ liệu người dùng, sách và giao dịch được lưu vào cơ sở dữ liệu (MySQL/SQLite) sử dụng JDBC.
-- Đồng thời lưu backup vào file văn bản `.txt` định kỳ (sử dụng `ExecutorService` để ghi song song).
-
-### 5. **Xử lý ngoại lệ**
-
-- Kiểm tra lỗi nhập dữ liệu từ người dùng (ví dụ: mã trùng, không tìm thấy đối tượng...).
-- Bắt và xử lý các lỗi kết nối, I/O, và truy vấn SQL.
-
----
-
-## 🧠 Kiến thức sử dụng
-
-| Chủ đề                        | Ứng dụng trong bài                                      |
-| ----------------------------- | ------------------------------------------------------- |
-| Biến, kiểu dữ liệu, toán tử   | Xử lý thông tin người dùng và sách                      |
-| Câu lệnh điều kiện & vòng lặp | Duyệt danh sách, menu tùy chọn                          |
-| Hàm và lớp                    | Tổ chức chương trình thành các class rõ ràng            |
-| OOP                           | `User`, `Reader`, `Staff`, `Book`, `Transaction`        |
-| Xử lý ngoại lệ                | Bắt lỗi nhập dữ liệu, lỗi khi thao tác với DB và file   |
-| Collections                   | Quản lý danh sách sách, người dùng, giao dịch bằng List |
-| File I/O                      | Lưu backup dữ liệu ra file văn bản                      |
-| Multithreading                | Ghi file song song trong quá trình sử dụng ứng dụng     |
-| JDBC                          | CRUD dữ liệu từ cơ sở dữ liệu thực                      |
-
----
-
-## 🛠 Gợi ý chia module
-
-- `models/`: chứa các class `User`, `Reader`, `Staff`, `Book`, `Transaction`
-- `services/`: chứa `BookService`, `UserService`, `TransactionService`, xử lý nghiệp vụ
-- `database/`: chứa class `DBConnection`, `BookRepository`, `UserRepository`,...
-- `utils/`: chứa `FileManager`, `InputValidator`, `ThreadPoolManager`
-
----
-
-## 📦 Yêu cầu nâng cao (tuỳ chọn)
-
-- Thêm chức năng tìm kiếm nâng cao (ví dụ: theo khoảng ngày mượn).
-- Cho phép xuất dữ liệu thống kê ra file CSV.
-
----
-
-[⬅️ Trở lại: SQL/FINAL.md](../SQL/FINAL.md) |
+[⬅️ Trở lại: JAVA/Part4.md](../JAVA/Part4.md) |
 [🏠 Home](../README.md) |
-[➡️ Tiếp theo: DSA/Part1.md](../DSA/Part1.md)
+[➡️ Tiếp theo: SQL/FINAL.md](../SQL/FINAL.md)

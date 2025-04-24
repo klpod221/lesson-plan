@@ -3,13 +3,43 @@
 - [📘 PHẦN 2: CẤU TRÚC DỮ LIỆU NÂNG CAO](#-phần-2-cấu-trúc-dữ-liệu-nâng-cao)
   - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
   - [🧑‍🏫 Bài 1: Ngăn xếp (Stack)](#-bài-1-ngăn-xếp-stack)
+    - [Khái niệm về Stack](#khái-niệm-về-stack)
+    - [Cài đặt Stack sử dụng mảng](#cài-đặt-stack-sử-dụng-mảng)
+    - [Cài đặt Stack sử dụng danh sách liên kết](#cài-đặt-stack-sử-dụng-danh-sách-liên-kết)
+    - [Ứng dụng của Stack](#ứng-dụng-của-stack)
+      - [Kiểm tra chuỗi dấu ngoặc](#kiểm-tra-chuỗi-dấu-ngoặc)
+      - [Đảo ngược chuỗi](#đảo-ngược-chuỗi)
+      - [Chuyển đổi biểu thức trung tố sang hậu tố](#chuyển-đổi-biểu-thức-trung-tố-sang-hậu-tố)
   - [🧑‍🏫 Bài 2: Hàng đợi (Queue)](#-bài-2-hàng-đợi-queue)
+    - [Khái niệm về Queue](#khái-niệm-về-queue)
+    - [Cài đặt Queue sử dụng mảng (Queue vòng)](#cài-đặt-queue-sử-dụng-mảng-queue-vòng)
+    - [Cài đặt Queue sử dụng danh sách liên kết](#cài-đặt-queue-sử-dụng-danh-sách-liên-kết)
+    - [Ứng dụng của Queue](#ứng-dụng-của-queue)
+      - [Thuật toán BFS (Breadth-First Search)](#thuật-toán-bfs-breadth-first-search)
+      - [Mô phỏng hàng đợi dịch vụ](#mô-phỏng-hàng-đợi-dịch-vụ)
+      - [Level-order traversal trong cây nhị phân](#level-order-traversal-trong-cây-nhị-phân)
   - [🧑‍🏫 Bài 3: Danh sách liên kết đôi và vòng](#-bài-3-danh-sách-liên-kết-đôi-và-vòng)
+    - [Danh sách liên kết đôi (Doubly Linked List)](#danh-sách-liên-kết-đôi-doubly-linked-list)
+    - [Danh sách liên kết vòng (Circular Linked List)](#danh-sách-liên-kết-vòng-circular-linked-list)
+    - [Ứng dụng của danh sách liên kết đôi và vòng](#ứng-dụng-của-danh-sách-liên-kết-đôi-và-vòng)
+      - [Browser History (Danh sách liên kết đôi)](#browser-history-danh-sách-liên-kết-đôi)
+      - [Round Robin Scheduling (Danh sách liên kết vòng)](#round-robin-scheduling-danh-sách-liên-kết-vòng)
   - [🧑‍🏫 Bài 4: Cây nhị phân](#-bài-4-cây-nhị-phân)
+    - [Khái niệm về cây](#khái-niệm-về-cây)
+    - [Cây nhị phân tìm kiếm (Binary Search Tree - BST)](#cây-nhị-phân-tìm-kiếm-binary-search-tree---bst)
+    - [Cân bằng cây nhị phân (chúng ta sẽ học về các loại cây cân bằng trong phần sau)](#cân-bằng-cây-nhị-phân-chúng-ta-sẽ-học-về-các-loại-cây-cân-bằng-trong-phần-sau)
+  - [Ứng dụng của cây nhị phân](#ứng-dụng-của-cây-nhị-phân)
   - [🧑‍🏫 Bài 5: Bảng băm (Hash Table)](#-bài-5-bảng-băm-hash-table)
-  - [🧪 BÀI TẬP LỚN CUỐI PHẦN](#-bài-tập-lớn-cuối-phần)
-    - [**Đề bài: Bộ đánh giá biểu thức số học**](#đề-bài-bộ-đánh-giá-biểu-thức-số-học)
-    - [**Kết quả chạy chương trình (Ví dụ):**](#kết-quả-chạy-chương-trình-ví-dụ)
+    - [Khái niệm về bảng băm](#khái-niệm-về-bảng-băm)
+    - [Hàm băm (Hash Function)](#hàm-băm-hash-function)
+    - [Xử lý va chạm (Collision Resolution)](#xử-lý-va-chạm-collision-resolution)
+      - [Chuỗi liên kết (Chaining)](#chuỗi-liên-kết-chaining)
+      - [Địa chỉ mở (Open Addressing)](#địa-chỉ-mở-open-addressing)
+    - [Cài đặt bảng băm sử dụng chuỗi liên kết](#cài-đặt-bảng-băm-sử-dụng-chuỗi-liên-kết)
+    - [Ứng dụng của bảng băm](#ứng-dụng-của-bảng-băm)
+  - [🧪 BÀI TẬP LỚN CUỐI PHẦN: Bộ đánh giá biểu thức số học](#-bài-tập-lớn-cuối-phần-bộ-đánh-giá-biểu-thức-số-học)
+    - [Mô tả bài toán](#mô-tả-bài-toán)
+    - [Kết quả chạy chương trình (Ví dụ)](#kết-quả-chạy-chương-trình-ví-dụ)
 
 ## 🎯 Mục tiêu tổng quát
 
@@ -21,12 +51,12 @@
 
 ## 🧑‍🏫 Bài 1: Ngăn xếp (Stack)
 
-**Khái niệm về Stack:**
+### Khái niệm về Stack
 
 - Stack là cấu trúc dữ liệu dạng LIFO (Last In First Out) - Vào sau, ra trước
 - Các thao tác cơ bản: push (thêm vào đỉnh), pop (lấy từ đỉnh), peek (xem đỉnh)
 
-**Cài đặt Stack sử dụng mảng:**
+### Cài đặt Stack sử dụng mảng
 
 ```java
 public class ArrayStack {
@@ -80,7 +110,7 @@ public class ArrayStack {
 }
 ```
 
-**Cài đặt Stack sử dụng danh sách liên kết:**
+### Cài đặt Stack sử dụng danh sách liên kết
 
 ```java
 public class LinkedStack {
@@ -135,9 +165,9 @@ public class LinkedStack {
 }
 ```
 
-**Ứng dụng của Stack:**
+### Ứng dụng của Stack
 
-1. **Kiểm tra chuỗi dấu ngoặc**:
+#### Kiểm tra chuỗi dấu ngoặc
 
 ```java
 public boolean isBalanced(String expression) {
@@ -165,7 +195,7 @@ public boolean isBalanced(String expression) {
 }
 ```
 
-2. **Đảo ngược chuỗi**:
+#### Đảo ngược chuỗi
 
 ```java
 public String reverse(String str) {
@@ -186,7 +216,7 @@ public String reverse(String str) {
 }
 ```
 
-3. **Chuyển đổi biểu thức trung tố sang hậu tố**:
+#### Chuyển đổi biểu thức trung tố sang hậu tố
 
 ```java
 public String infixToPostfix(String infix) {
@@ -246,12 +276,12 @@ private int precedence(char ch) {
 
 ## 🧑‍🏫 Bài 2: Hàng đợi (Queue)
 
-**Khái niệm về Queue:**
+### Khái niệm về Queue
 
 - Queue là cấu trúc dữ liệu dạng FIFO (First In First Out) - Vào trước, ra trước
 - Các thao tác cơ bản: enqueue (thêm vào cuối), dequeue (lấy từ đầu), peek (xem đầu)
 
-**Cài đặt Queue sử dụng mảng (Queue vòng):**
+### Cài đặt Queue sử dụng mảng (Queue vòng)
 
 ```java
 public class CircularQueue {
@@ -319,7 +349,7 @@ public class CircularQueue {
 }
 ```
 
-**Cài đặt Queue sử dụng danh sách liên kết:**
+### Cài đặt Queue sử dụng danh sách liên kết
 
 ```java
 public class LinkedQueue {
@@ -394,9 +424,9 @@ public class LinkedQueue {
 }
 ```
 
-**Ứng dụng của Queue:**
+### Ứng dụng của Queue
 
-1. **Thuật toán BFS (Breadth-First Search)**:
+#### Thuật toán BFS (Breadth-First Search)
 
 ```java
 public void BFS(Graph graph, int startVertex) {
@@ -427,7 +457,7 @@ public void BFS(Graph graph, int startVertex) {
 }
 ```
 
-2. **Mô phỏng hàng đợi dịch vụ**:
+#### Mô phỏng hàng đợi dịch vụ
 
 ```java
 public class CustomerService {
@@ -466,7 +496,7 @@ public class CustomerService {
 }
 ```
 
-3. **Level-order traversal trong cây nhị phân**:
+#### Level-order traversal trong cây nhị phân
 
 ```java
 public void levelOrderTraversal(Node root) {
@@ -496,7 +526,7 @@ public void levelOrderTraversal(Node root) {
 
 ## 🧑‍🏫 Bài 3: Danh sách liên kết đôi và vòng
 
-**Danh sách liên kết đôi (Doubly Linked List):**
+### Danh sách liên kết đôi (Doubly Linked List)
 
 - Mỗi nút chứa dữ liệu và hai con trỏ: một trỏ đến nút trước, một trỏ đến nút sau
 - Cho phép duyệt theo hai hướng
@@ -619,7 +649,7 @@ public class DoublyLinkedList {
 }
 ```
 
-**Danh sách liên kết vòng (Circular Linked List):**
+### Danh sách liên kết vòng (Circular Linked List)
 
 - Nút cuối trỏ về nút đầu, tạo thành vòng
 - Hữu ích cho các ứng dụng cần duyệt liên tục
@@ -713,9 +743,9 @@ public class CircularLinkedList {
 }
 ```
 
-**Ứng dụng của danh sách liên kết đôi và vòng:**
+### Ứng dụng của danh sách liên kết đôi và vòng
 
-1. **Browser History (Danh sách liên kết đôi)**:
+#### Browser History (Danh sách liên kết đôi)
 
 ```java
 public class BrowserHistory {
@@ -770,7 +800,7 @@ public class BrowserHistory {
 }
 ```
 
-2. **Round Robin Scheduling (Danh sách liên kết vòng)**:
+#### Round Robin Scheduling (Danh sách liên kết vòng)
 
 ```java
 public class RoundRobinScheduler {
@@ -813,12 +843,12 @@ public class RoundRobinScheduler {
 
 ## 🧑‍🏫 Bài 4: Cây nhị phân
 
-**Khái niệm về cây:**
+### Khái niệm về cây
 
 - Cây là cấu trúc dữ liệu phân cấp, gồm các nút (node) và cạnh (edge)
 - Cây nhị phân: mỗi nút có tối đa 2 nút con (trái và phải)
 
-**Cây nhị phân tìm kiếm (Binary Search Tree - BST):**
+### Cây nhị phân tìm kiếm (Binary Search Tree - BST)
 
 - Với mọi nút: tất cả các giá trị trong cây con trái < giá trị nút, tất cả các giá trị trong cây con phải > giá trị nút
 - Cho phép tìm kiếm nhanh: O(log n) nếu cân bằng, O(n) trong trường hợp xấu nhất
@@ -975,166 +1005,30 @@ public class BinarySearchTree {
 }
 ```
 
-**Cân bằng cây nhị phân:**
+### Cân bằng cây nhị phân (chúng ta sẽ học về các loại cây cân bằng trong phần sau)
 
 - Cây nhị phân cân bằng có chiều cao ~log(n)
 - Các loại cây cân bằng: AVL, Red-Black Tree, B-Tree
 
-**Cây AVL (cây cân bằng):**
+## Ứng dụng của cây nhị phân
 
-```java
-public class AVLTree {
-    private class Node {
-        int data;
-        Node left;
-        Node right;
-        int height;
-
-        public Node(int data) {
-            this.data = data;
-            this.left = null;
-            this.right = null;
-            this.height = 1;
-        }
-    }
-
-    private Node root;
-
-    // Lấy chiều cao của nút
-    private int height(Node N) {
-        if (N == null) {
-            return 0;
-        }
-        return N.height;
-    }
-
-    // Lấy hệ số cân bằng của nút
-    private int getBalance(Node N) {
-        if (N == null) {
-            return 0;
-        }
-        return height(N.left) - height(N.right);
-    }
-
-    // Xoay phải
-    private Node rightRotate(Node y) {
-        Node x = y.left;
-        Node T2 = x.right;
-
-        // Xoay
-        x.right = y;
-        y.left = T2;
-
-        // Cập nhật chiều cao
-        y.height = Math.max(height(y.left), height(y.right)) + 1;
-        x.height = Math.max(height(x.left), height(x.right)) + 1;
-
-        return x;
-    }
-
-    // Xoay trái
-    private Node leftRotate(Node x) {
-        Node y = x.right;
-        Node T2 = y.left;
-
-        // Xoay
-        y.left = x;
-        x.right = T2;
-
-        // Cập nhật chiều cao
-        x.height = Math.max(height(x.left), height(x.right)) + 1;
-        y.height = Math.max(height(y.left), height(y.right)) + 1;
-
-        return y;
-    }
-
-    // Thêm một nút vào cây
-    public void insert(int data) {
-        root = insert(root, data);
-    }
-
-    private Node insert(Node node, int data) {
-        // 1. Thực hiện chèn BST bình thường
-        if (node == null) {
-            return new Node(data);
-        }
-
-        if (data < node.data) {
-            node.left = insert(node.left, data);
-        } else if (data > node.data) {
-            node.right = insert(node.right, data);
-        } else {
-            return node; // Không cho phép trùng lặp giá trị
-        }
-
-        // 2. Cập nhật chiều cao của nút hiện tại
-        node.height = 1 + Math.max(height(node.left), height(node.right));
-
-        // 3. Lấy hệ số cân bằng
-        int balance = getBalance(node);
-
-        // 4. Nếu nút mất cân bằng, có 4 trường hợp
-
-        // Trường hợp Left Left
-        if (balance > 1 && data < node.left.data) {
-            return rightRotate(node);
-        }
-
-        // Trường hợp Right Right
-        if (balance < -1 && data > node.right.data) {
-            return leftRotate(node);
-        }
-
-        // Trường hợp Left Right
-        if (balance > 1 && data > node.left.data) {
-            node.left = leftRotate(node.left);
-            return rightRotate(node);
-        }
-
-        // Trường hợp Right Left
-        if (balance < -1 && data < node.right.data) {
-            node.right = rightRotate(node.right);
-            return leftRotate(node);
-        }
-
-        return node;
-    }
-
-    // In cây theo thứ tự inorder
-    public void inorder() {
-        inorderRec(root);
-        System.out.println();
-    }
-
-    private void inorderRec(Node root) {
-        if (root != null) {
-            inorderRec(root.left);
-            System.out.print(root.data + " ");
-            inorderRec(root.right);
-        }
-    }
-}
-```
-
-**Ứng dụng của cây nhị phân:**
-
-1. **Từ điển và bảng ký hiệu**
-2. **Hệ thống tập tin**
-3. **Đánh giá biểu thức**
-4. **Mã hóa Huffman**
-5. **Thuật toán tìm kiếm và sắp xếp**
+1. Từ điển và bảng ký hiệu
+2. Hệ thống tập tin
+3. Đánh giá biểu thức
+4. Mã hóa Huffman
+5. Thuật toán tìm kiếm và sắp xếp
 
 ---
 
 ## 🧑‍🏫 Bài 5: Bảng băm (Hash Table)
 
-**Khái niệm về bảng băm:**
+### Khái niệm về bảng băm
 
 - Bảng băm là cấu trúc dữ liệu lưu trữ theo cặp khóa-giá trị (key-value)
 - Sử dụng hàm băm (hash function) để chuyển đổi khóa thành chỉ số trong mảng
 - Cho phép thêm, xóa, tìm kiếm với độ phức tạp O(1) trong trường hợp trung bình
 
-**Hàm băm (Hash Function):**
+### Hàm băm (Hash Function)
 
 - Chuyển đổi khóa thành chỉ số trong mảng
 - Tính chất của hàm băm tốt:
@@ -1142,18 +1036,19 @@ public class AVLTree {
   - Phân phối đều các khóa trên phạm vi của bảng
   - Tối thiểu hóa va chạm (collision)
 
-**Xử lý va chạm (Collision Resolution):**
+### Xử lý va chạm (Collision Resolution)
 
-1. **Chuỗi liên kết (Chaining):**
+#### Chuỗi liên kết (Chaining)
 
-   - Mỗi vị trí trong bảng chứa danh sách liên kết các phần tử có cùng mã băm
+- Mỗi vị trí trong bảng chứa danh sách liên kết các phần tử có cùng mã băm
 
-2. **Địa chỉ mở (Open Addressing):**
-   - Linear Probing: Tìm vị trí tiếp theo trong bảng
-   - Quadratic Probing: Tìm vị trí theo bình phương khoảng cách
-   - Double Hashing: Sử dụng hàm băm thứ hai để tính khoảng cách
+#### Địa chỉ mở (Open Addressing)
 
-**Cài đặt bảng băm sử dụng chuỗi liên kết:**
+- Linear Probing: Tìm vị trí tiếp theo trong bảng
+- Quadratic Probing: Tìm vị trí theo bình phương khoảng cách
+- Double Hashing: Sử dụng hàm băm thứ hai để tính khoảng cách
+
+### Cài đặt bảng băm sử dụng chuỗi liên kết
 
 ```java
 public class HashTable {
@@ -1289,13 +1184,13 @@ public class HashTable {
 }
 ```
 
-**Ứng dụng của bảng băm:**
+### Ứng dụng của bảng băm
 
-1. **Từ điển và bộ nhớ cache**
-2. **Bảng ký hiệu trong trình biên dịch**
-3. **Bảng tìm kiếm trong cơ sở dữ liệu**
-4. **Cài đặt các tập hợp (Set) và bảng ánh xạ (Map)**
-5. **Lưu trữ và tìm kiếm các tệp**
+1. Từ điển và bộ nhớ cache
+2. Bảng ký hiệu trong trình biên dịch
+3. Bảng tìm kiếm trong cơ sở dữ liệu
+4. Cài đặt các tập hợp (Set) và bảng ánh xạ (Map)
+5. Lưu trữ và tìm kiếm các tệp
 
 ```java
 // Ví dụ sử dụng bảng băm làm từ điển
@@ -1342,9 +1237,9 @@ public class Dictionary {
 
 ---
 
-## 🧪 BÀI TẬP LỚN CUỐI PHẦN
+## 🧪 BÀI TẬP LỚN CUỐI PHẦN: Bộ đánh giá biểu thức số học
 
-### **Đề bài: Bộ đánh giá biểu thức số học**
+### Mô tả bài toán
 
 Viết chương trình cho phép người dùng:
 
@@ -1354,7 +1249,7 @@ Viết chương trình cho phép người dùng:
 - Xử lý ngoại lệ như lỗi cú pháp, chia cho 0, v.v.
 - Cho phép sử dụng các toán tử +, -, \*, /, ^, (), với các số nguyên
 
-### **Kết quả chạy chương trình (Ví dụ):**
+### Kết quả chạy chương trình (Ví dụ)
 
 ```text
 BỘ ĐÁNH GIÁ BIỂU THỨC SỐ HỌC

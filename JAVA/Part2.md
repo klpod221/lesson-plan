@@ -3,12 +3,35 @@
 - [📘 PHẦN 2: MẢNG, CHUỖI VÀ HÀM](#-phần-2-mảng-chuỗi-và-hàm)
   - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
   - [🧑‍🏫 Bài 1: Mảng trong JAVA](#-bài-1-mảng-trong-java)
+    - [Khái niệm về mảng](#khái-niệm-về-mảng)
+    - [Khai báo và khởi tạo mảng](#khai-báo-và-khởi-tạo-mảng)
+    - [Mảng đa chiều](#mảng-đa-chiều)
+    - [Cách lưu mảng trong bộ nhớ](#cách-lưu-mảng-trong-bộ-nhớ)
+    - [Truy cập và sửa đổi phần tử](#truy-cập-và-sửa-đổi-phần-tử)
+    - [Ví dụ thực tế - Tính điểm trung bình](#ví-dụ-thực-tế---tính-điểm-trung-bình)
   - [🧑‍🏫 Bài 2: Chuỗi trong JAVA](#-bài-2-chuỗi-trong-java)
+    - [Khai báo và khởi tạo chuỗi](#khai-báo-và-khởi-tạo-chuỗi)
+    - [Các phương thức phổ biến của String](#các-phương-thức-phổ-biến-của-string)
+    - [So sánh chuỗi](#so-sánh-chuỗi)
+    - [Ví dụ thực tế - Đếm từ trong chuỗi](#ví-dụ-thực-tế---đếm-từ-trong-chuỗi)
   - [🧑‍🏫 Bài 3: Hàm trong JAVA](#-bài-3-hàm-trong-java)
+    - [Cú pháp khai báo hàm](#cú-pháp-khai-báo-hàm)
+    - [Các loại hàm](#các-loại-hàm)
+    - [Tham số và đối số](#tham-số-và-đối-số)
+    - [Phạm vi biến](#phạm-vi-biến)
+    - [Ví dụ thực tế - Tính tiền lãi ngân hàng](#ví-dụ-thực-tế---tính-tiền-lãi-ngân-hàng)
   - [🧑‍🏫 Bài 4: Cách sử dụng mảng và chuỗi kết hợp](#-bài-4-cách-sử-dụng-mảng-và-chuỗi-kết-hợp)
+    - [Khai báo và khởi tạo mảng chuỗi](#khai-báo-và-khởi-tạo-mảng-chuỗi)
+    - [Tìm kiếm trong mảng chuỗi](#tìm-kiếm-trong-mảng-chuỗi)
+    - [Sắp xếp mảng chuỗi](#sắp-xếp-mảng-chuỗi)
+    - [Xử lý chuỗi trong mảng](#xử-lý-chuỗi-trong-mảng)
+    - [Ví dụ thực tế - Phân tích danh sách học sinh](#ví-dụ-thực-tế---phân-tích-danh-sách-học-sinh)
   - [🧑‍🏫 Bài 5: Hàm và mảng](#-bài-5-hàm-và-mảng)
+    - [Truyền mảng vào hàm](#truyền-mảng-vào-hàm)
+    - [Các hàm xử lý mảng phổ biến](#các-hàm-xử-lý-mảng-phổ-biến)
+    - [Ví dụ thực tế - Phân tích dữ liệu bán hàng](#ví-dụ-thực-tế---phân-tích-dữ-liệu-bán-hàng)
   - [🧪 BÀI TẬP LỚN CUỐI PHẦN: Quản lý điểm sinh viên với mảng](#-bài-tập-lớn-cuối-phần-quản-lý-điểm-sinh-viên-với-mảng)
-    - [Đề bài](#đề-bài)
+    - [Mô tả bài toán](#mô-tả-bài-toán)
     - [Kết quả chạy chương trình (Ví dụ)](#kết-quả-chạy-chương-trình-ví-dụ)
 
 ## 🎯 Mục tiêu tổng quát
@@ -21,65 +44,66 @@
 
 ## 🧑‍🏫 Bài 1: Mảng trong JAVA
 
-- Mảng JAVA là đối tượng lưu trữ trên heap
-- Biến mảng chứa tham chiếu đến đối tượng mảng
-- Các phần tử được lưu trữ liên tiếp trong bộ nhớ
-- Mỗi phần tử có thể truy cập qua chỉ số (index)
+### Khái niệm về mảng
 
-1. **Khai báo và khởi tạo mảng:**
+- **Mảng (Array)** là một cấu trúc dữ liệu dùng để lưu trữ nhiều giá trị cùng kiểu dữ liệu trong một biến duy nhất.
+- Đặc điểm của mảng:
+  - Kích thước cố định sau khi khởi tạo
+  - Các phần tử được lưu trữ liên tiếp trong bộ nhớ
+  - Có thể truy cập phần tử thông qua chỉ số (index), bắt đầu từ 0
+  - Có thể là mảng một chiều hoặc đa chiều
+
+### Khai báo và khởi tạo mảng
+
+```java
+// Khai báo mảng
+int[] numbers;              // Cách 1: kiểu_dữ_liệu[] tên_mảng;
+int scores[];               // Cách 2: kiểu_dữ_liệu tên_mảng[];
+
+// Khởi tạo mảng
+numbers = new int[5];       // Khởi tạo mảng với 5 phần tử, mặc định là 0
+scores = new int[]{90, 85, 75, 80, 95}; // Khởi tạo và gán giá trị
+
+// Khai báo và khởi tạo cùng lúc
+int[] grades = {92, 88, 78, 85, 90};  // Cách viết tắt
+```
+
+### Mảng đa chiều
+
+```java
+// Mảng 2 chiều
+int[][] matrix = new int[3][4]; // Mảng 3 hàng, 4 cột
+
+// Khởi tạo với giá trị
+int[][] grid = {
+    {1, 2, 3},
+    {4, 5, 6},
+    {7, 8, 9}
+};
+```
+
+### Cách lưu mảng trong bộ nhớ
+
+1. **Mảng 1 chiều**:
 
    ```java
-   // Khai báo mảng
-   int[] numbers;              // Cách 1: kiểu_dữ_liệu[] tên_mảng;
-   int scores[];               // Cách 2: kiểu_dữ_liệu tên_mảng[];
-
-   // Khởi tạo mảng
-   numbers = new int[5];       // Khởi tạo mảng với 5 phần tử, mặc định là 0
-   scores = new int[]{90, 85, 75, 80, 95}; // Khởi tạo và gán giá trị
-
-   // Khai báo và khởi tạo cùng lúc
-   int[] grades = {92, 88, 78, 85, 90};  // Cách viết tắt
-   ```
-
-2. **Mảng đa chiều:**
-
-   ```java
-   // Mảng 2 chiều
-   int[][] matrix = new int[3][4]; // Mảng 3 hàng, 4 cột
-
-   // Khởi tạo với giá trị
-   int[][] grid = {
-       {1, 2, 3},
-       {4, 5, 6},
-       {7, 8, 9}
-   };
-   ```
-
-3. **Cách lưu mảng trong bộ nhớ:**
-
-   ```text
-   // Minh họa cách mảng một chiều được lưu trong bộ nhớ
    int[] numbers = {10, 20, 30, 40, 50};
    ```
-
-   Mô hình bộ nhớ:
 
    ```text
    Biến numbers  →  [ Địa chỉ ] → [ 10 | 20 | 30 | 40 | 50 ]
    (Tham chiếu)      (Heap)        [0]  [1]  [2]  [3]  [4]  (index)
    ```
 
-   Mảng hai chiều:
+2. **Mảng hai chiều**:
 
-   ```text
+   ```java
    int[][] matrix = {
-        {1, 2, 3},
-        {4, 5, 6},
-        {7, 8, 9}
+       {1, 2, 3},
+       {4, 5, 6},
+       {7, 8, 9}
    };
    ```
-
-   Mô hình bộ nhớ:
 
    ```text
    Biến matrix    →  [ Địa chỉ ] → [ Địa chỉ hàng 0 ] → [ 1 | 2 | 3 ]
@@ -87,45 +111,45 @@
                                    [ Địa chỉ hàng 2 ] → [ 7 | 8 | 9 ]
    ```
 
-4. **Truy cập và sửa đổi phần tử:**
+### Truy cập và sửa đổi phần tử
 
-   ```java
-   int[] numbers = {10, 20, 30, 40, 50};
+```java
+int[] numbers = {10, 20, 30, 40, 50};
 
-   // Truy cập phần tử
-   System.out.println("Phần tử thứ 3: " + numbers[2]); // Kết quả: 30
+// Truy cập phần tử
+System.out.println("Phần tử thứ 3: " + numbers[2]); // Kết quả: 30
 
-   // Sửa đổi phần tử
-   numbers[1] = 25; // Thay đổi giá trị phần tử thứ 2 thành 25
+// Sửa đổi phần tử
+numbers[1] = 25; // Thay đổi giá trị phần tử thứ 2 thành 25
 
-   // Duyệt mảng
-   for (int i = 0; i < numbers.length; i++) {
-       System.out.println("Phần tử " + i + ": " + numbers[i]);
-   }
+// Duyệt mảng
+for (int i = 0; i < numbers.length; i++) {
+    System.out.println("Phần tử " + i + ": " + numbers[i]);
+}
 
-   // Duyệt mảng bằng for-each
-   for (int num : numbers) {
-       System.out.println(num);
-   }
-   ```
+// Duyệt mảng bằng for-each
+for (int num : numbers) {
+    System.out.println(num);
+}
+```
 
-5. **Ví dụ thực tế - Tính điểm trung bình:**
+### Ví dụ thực tế - Tính điểm trung bình
 
-   ```java
-   public class AverageCalculator {
-       public static void main(String[] args) {
-           double[] grades = {85.5, 90.0, 78.5, 92.5, 88.0};
-           double sum = 0;
+```java
+public class AverageCalculator {
+    public static void main(String[] args) {
+        double[] grades = {85.5, 90.0, 78.5, 92.5, 88.0};
+        double sum = 0;
 
-           for (double grade : grades) {
-               sum += grade;
-           }
+        for (double grade : grades) {
+            sum += grade;
+        }
 
-           double average = sum / grades.length;
-           System.out.println("Điểm trung bình: " + average);
-       }
-   }
-   ```
+        double average = sum / grades.length;
+        System.out.println("Điểm trung bình: " + average);
+    }
+}
+```
 
 ---
 
@@ -135,7 +159,7 @@
 - Chuỗi là một mảng các ký tự (char).
 - Các chuỗi trong JAVA là bất biến (immutable), nghĩa là không thể thay đổi nội dung của chuỗi sau khi đã tạo.
 
-1. **Khai báo và khởi tạo chuỗi:**
+### Khai báo và khởi tạo chuỗi
 
    ```java
    // Khai báo chuỗi sử dụng literal
@@ -145,7 +169,7 @@
    String message = new String("Học JAVA thật vui");
    ```
 
-2. **Các phương thức phổ biến của String:**
+### Các phương thức phổ biến của String
 
    ```java
    String text = "Học lập trình JAVA";
@@ -183,7 +207,7 @@
    boolean empty = "".isEmpty();  // true
    ```
 
-3. **So sánh chuỗi:**
+### So sánh chuỗi
 
    ```java
    String str1 = "Hello";
@@ -202,7 +226,7 @@
    System.out.println("hello".equalsIgnoreCase("HELLO"));  // true
    ```
 
-4. **Ví dụ thực tế - Đếm từ trong chuỗi:**
+### Ví dụ thực tế - Đếm từ trong chuỗi
 
    ```java
    public class WordCounter {
@@ -226,7 +250,7 @@
 
 - Hàm (hay phương thức) là một khối mã lệnh có thể được gọi và thực thi nhiều lần trong chương trình. Giúp tổ chức mã lệnh, tái sử dụng và làm cho chương trình dễ đọc hơn.
 
-1. **Cú pháp khai báo hàm:**
+### Cú pháp khai báo hàm
 
    ```java
    [modifier] [return_type] [method_name]([parameter_list]) {
@@ -243,7 +267,7 @@
    }
    ```
 
-2. **Các loại hàm:**
+### Các loại hàm
 
    ```java
    // Hàm không có giá trị trả về (void)
@@ -267,7 +291,7 @@
    }
    ```
 
-3. **Tham số và đối số:**
+### Tham số và đối số
 
    ```java
    public class ParameterExample {
@@ -284,7 +308,7 @@
    }
    ```
 
-4. **Phạm vi biến:**
+### Phạm vi biến
 
    ```java
    public class ScopeExample {
@@ -315,7 +339,7 @@
    }
    ```
 
-5. **Ví dụ thực tế - Tính tiền lãi ngân hàng:**
+### Ví dụ thực tế - Tính tiền lãi ngân hàng
 
    ```java
    public class BankInterestCalculator {
@@ -340,7 +364,7 @@
 
 ## 🧑‍🏫 Bài 4: Cách sử dụng mảng và chuỗi kết hợp
 
-1. **Khai báo và khởi tạo mảng chuỗi:**
+### Khai báo và khởi tạo mảng chuỗi
 
    ```java
    // Khai báo mảng chuỗi
@@ -360,7 +384,7 @@
    String[] fruits = {"Táo", "Chuối", "Cam", "Xoài", "Dưa hấu"};
    ```
 
-2. **Tìm kiếm trong mảng chuỗi:**
+### Tìm kiếm trong mảng chuỗi
 
    ```java
    public class StringArraySearch {
@@ -385,7 +409,7 @@
    }
    ```
 
-3. **Sắp xếp mảng chuỗi:**
+### Sắp xếp mảng chuỗi
 
    ```java
    import java.util.Arrays;
@@ -410,7 +434,7 @@
    }
    ```
 
-4. **Xử lý chuỗi trong mảng:**
+### Xử lý chuỗi trong mảng
 
    ```java
    public class StringArrayProcessing {
@@ -441,7 +465,7 @@
    }
    ```
 
-5. **Ví dụ thực tế - Phân tích danh sách học sinh:**
+### Ví dụ thực tế - Phân tích danh sách học sinh
 
    ```java
    public class StudentAnalysis {
@@ -495,7 +519,7 @@
 
 ## 🧑‍🏫 Bài 5: Hàm và mảng
 
-1. **Truyền mảng vào hàm:**
+### Truyền mảng vào hàm
 
    ```java
    public class ArrayAsParameter {
@@ -529,7 +553,7 @@
    }
    ```
 
-2. **Các hàm xử lý mảng phổ biến:**
+### Các hàm xử lý mảng phổ biến
 
    ```java
    public class ArrayHelperFunctions {
@@ -608,7 +632,7 @@
    }
    ```
 
-3. **Ví dụ thực tế - Phân tích dữ liệu bán hàng:**
+### Ví dụ thực tế - Phân tích dữ liệu bán hàng
 
    ```java
    public class SalesAnalysis {
@@ -691,7 +715,7 @@
 
 ## 🧪 BÀI TẬP LỚN CUỐI PHẦN: Quản lý điểm sinh viên với mảng
 
-### Đề bài
+### Mô tả bài toán
 
 Viết chương trình:
 

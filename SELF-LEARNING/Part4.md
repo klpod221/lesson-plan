@@ -3,9 +3,22 @@
 - [📘 PHẦN 4: PHÁT TRIỂN BẢN THÂN LIÊN TỤC](#-phần-4-phát-triển-bản-thân-liên-tục)
   - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
   - [🧑‍🏫 Bài 1: Theo dõi xu hướng công nghệ](#-bài-1-theo-dõi-xu-hướng-công-nghệ)
+    - [Xác định và theo dõi xu hướng](#xác-định-và-theo-dõi-xu-hướng)
+    - [Đánh giá công nghệ mới](#đánh-giá-công-nghệ-mới)
+    - [Cân bằng giữa công nghệ mới và đã được chứng minh](#cân-bằng-giữa-công-nghệ-mới-và-đã-được-chứng-minh)
   - [🧑‍🏫 Bài 2: Mạng lưới chuyên nghiệp và cộng đồng](#-bài-2-mạng-lưới-chuyên-nghiệp-và-cộng-đồng)
+    - [Tham gia cộng đồng IT](#tham-gia-cộng-đồng-it)
+    - [Xây dựng mạng lưới chuyên nghiệp](#xây-dựng-mạng-lưới-chuyên-nghiệp)
+    - [Học từ cộng đồng](#học-từ-cộng-đồng)
   - [🧑‍🏫 Bài 3: Đóng góp mã nguồn mở và chia sẻ kiến thức](#-bài-3-đóng-góp-mã-nguồn-mở-và-chia-sẻ-kiến-thức)
+    - [Đóng góp cho mã nguồn mở (Open Source)](#đóng-góp-cho-mã-nguồn-mở-open-source)
+    - [Chia sẻ kiến thức](#chia-sẻ-kiến-thức)
+    - [Xây dựng thương hiệu cá nhân trong IT](#xây-dựng-thương-hiệu-cá-nhân-trong-it)
   - [🧑‍🏫 Bài 4: Quản lý sự nghiệp và thích ứng với thay đổi](#-bài-4-quản-lý-sự-nghiệp-và-thích-ứng-với-thay-đổi)
+    - [Quản lý con đường sự nghiệp IT](#quản-lý-con-đường-sự-nghiệp-it)
+    - [Thích ứng với sự thay đổi trong ngành](#thích-ứng-với-sự-thay-đổi-trong-ngành)
+    - [Cân bằng chuyên môn sâu và rộng](#cân-bằng-chuyên-môn-sâu-và-rộng)
+    - [Xây dựng kỹ năng không lỗi thời](#xây-dựng-kỹ-năng-không-lỗi-thời)
   - [🧪 BÀI TẬP THỰC HÀNH](#-bài-tập-thực-hành)
 
 ## 🎯 Mục tiêu tổng quát
@@ -19,7 +32,7 @@
 
 ## 🧑‍🏫 Bài 1: Theo dõi xu hướng công nghệ
 
-**Xác định và theo dõi xu hướng:**
+### Xác định và theo dõi xu hướng
 
 1. **Phương pháp theo dõi xu hướng hiệu quả**
 
@@ -39,7 +52,7 @@
    - Mở rộng kiến thức ở những lĩnh vực liên quan
    - Tìm hiểu sơ lược về các xu hướng ngoài ngành có thể tác động
 
-**Đánh giá công nghệ mới:**
+### Đánh giá công nghệ mới
 
 1. **Tiêu chí đánh giá công nghệ**
 
@@ -60,7 +73,7 @@
    - So sánh trực tiếp hiệu suất và trải nghiệm phát triển
    - Đọc case study từ các công ty/dự án thực tế đã triển khai
 
-**Cân bằng giữa công nghệ mới và đã được chứng minh:**
+### Cân bằng giữa công nghệ mới và đã được chứng minh
 
 1. **Nguyên tắc cân bằng trong học tập**
 
@@ -82,7 +95,7 @@
 
 ## 🧑‍🏫 Bài 2: Mạng lưới chuyên nghiệp và cộng đồng
 
-**Tham gia cộng đồng IT:**
+### Tham gia cộng đồng IT
 
 1. **Cộng đồng trực tuyến**
 
@@ -105,7 +118,7 @@
    - Đóng góp giá trị trước khi yêu cầu hỗ trợ
    - Xây dựng danh tiếng với thời gian
 
-**Xây dựng mạng lưới chuyên nghiệp:**
+### Xây dựng mạng lưới chuyên nghiệp
 
 1. **Thiết lập sự hiện diện online**
 
@@ -127,7 +140,7 @@
    - Xây dựng mối quan hệ bền vững thay vì giao dịch ngắn hạn
    - Platforms: MentorCruise, Coding Coach, ADPList
 
-**Học từ cộng đồng:**
+### Học từ cộng đồng
 
 1. **Khai thác kiến thức tập thể**
 
@@ -153,7 +166,7 @@
 
 ## 🧑‍🏫 Bài 3: Đóng góp mã nguồn mở và chia sẻ kiến thức
 
-**Đóng góp cho mã nguồn mở (Open Source):**
+### Đóng góp cho mã nguồn mở (Open Source)
 
 1. **Tầm quan trọng của đóng góp mã nguồn mở**
 
@@ -175,7 +188,7 @@
    - Trở thành maintainer và quản lý dự án
    - Bắt đầu dự án mã nguồn mở của riêng bạn
 
-**Chia sẻ kiến thức:**
+### Chia sẻ kiến thức
 
 1. **Viết blog và tài liệu kỹ thuật**
 
@@ -197,7 +210,7 @@
    - Bắt đầu với lightning talks (5-10 phút)
    - Đăng ký nói chuyện tại meetups và hội nghị
 
-**Xây dựng thương hiệu cá nhân trong IT:**
+### Xây dựng thương hiệu cá nhân trong IT
 
 1. **Đa dạng hóa sự hiện diện online**
 
@@ -220,7 +233,7 @@
 
 ## 🧑‍🏫 Bài 4: Quản lý sự nghiệp và thích ứng với thay đổi
 
-**Quản lý con đường sự nghiệp IT:**
+### Quản lý con đường sự nghiệp IT
 
 1. **Lập bản đồ sự nghiệp**
 
@@ -242,7 +255,7 @@
    - Phát triển expertise trong lĩnh vực cụ thể
    - Dẫn dắt sáng kiến và cải tiến
 
-**Thích ứng với sự thay đổi trong ngành:**
+### Thích ứng với sự thay đổi trong ngành
 
 1. **Nhận diện và đánh giá xu hướng mới**
 
@@ -261,7 +274,7 @@
    - Quản lý stress trong thời kỳ chuyển đổi
    - Tạo mạng lưới hỗ trợ chuyên môn
 
-**Cân bằng chuyên môn sâu và rộng:**
+### Cân bằng chuyên môn sâu và rộng
 
 1. **T-shaped developer**
 
@@ -280,7 +293,7 @@
    - Học có chiến lược: chọn kỹ năng bổ sung cho expertise hiện tại
    - Tìm common patterns giữa các công nghệ để học nhanh hơn
 
-**Xây dựng kỹ năng không lỗi thời:**
+### Xây dựng kỹ năng không lỗi thời
 
 1. **Kỹ năng bền vững trong IT**
 

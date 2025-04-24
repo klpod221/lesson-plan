@@ -3,15 +3,56 @@
 - [📘 DOCKER: NỀN TẢNG CONTAINER HÓA](#-docker-nền-tảng-container-hóa)
   - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
   - [🧑‍🏫 Bài 1: Giới thiệu về Container và Docker](#-bài-1-giới-thiệu-về-container-và-docker)
+    - [Khái niệm container](#khái-niệm-container)
+    - [Container vs Virtual Machine](#container-vs-virtual-machine)
+    - [So với máy ảo](#so-với-máy-ảo)
+    - [Lợi ích của container](#lợi-ích-của-container)
+    - [Docker là gì?](#docker-là-gì)
+    - [Các thành phần chính của Docker](#các-thành-phần-chính-của-docker)
   - [🧑‍🏫 Bài 2: Cài đặt và cấu hình Docker](#-bài-2-cài-đặt-và-cấu-hình-docker)
+    - [Cài đặt Docker trên Ubuntu](#cài-đặt-docker-trên-ubuntu)
+    - [Cài đặt Docker trên Windows](#cài-đặt-docker-trên-windows)
+    - [Cài đặt Docker trên macOS](#cài-đặt-docker-trên-macos)
+    - [Kiểm tra cài đặt](#kiểm-tra-cài-đặt)
+    - [Quản lý Docker Service](#quản-lý-docker-service)
+    - [Cấu hình sau cài đặt](#cấu-hình-sau-cài-đặt)
+    - [Vị trí các file cấu hình](#vị-trí-các-file-cấu-hình)
   - [🧑‍🏫 Bài 3: Làm việc với Docker Images và Containers](#-bài-3-làm-việc-với-docker-images-và-containers)
+    - [Docker Images](#docker-images)
+    - [Quản lý Docker Images](#quản-lý-docker-images)
+    - [Vòng đời của Container](#vòng-đời-của-container)
+    - [Quản lý Docker Containers](#quản-lý-docker-containers)
+    - [Các cờ quan trọng của lệnh `docker run`](#các-cờ-quan-trọng-của-lệnh-docker-run)
   - [🧑‍🏫 Bài 4: Xây dựng Docker Images với Dockerfile](#-bài-4-xây-dựng-docker-images-với-dockerfile)
+    - [Dockerfile là gì?](#dockerfile-là-gì)
+    - [Cấu trúc Dockerfile cơ bản](#cấu-trúc-dockerfile-cơ-bản)
+    - [Các lệnh phổ biến trong Dockerfile](#các-lệnh-phổ-biến-trong-dockerfile)
+    - [Build Docker Image](#build-docker-image)
+    - [Multi-stage builds](#multi-stage-builds)
+    - [Các nguyên tắc tốt khi viết Dockerfile](#các-nguyên-tắc-tốt-khi-viết-dockerfile)
+    - [Ví dụ về file .dockerignore](#ví-dụ-về-file-dockerignore)
   - [🧑‍🏫 Bài 5: Docker Networking và Volumes](#-bài-5-docker-networking-và-volumes)
+    - [Docker Networking Models](#docker-networking-models)
+    - [Quản lý Docker Networks](#quản-lý-docker-networks)
+    - [Truyền thông giữa các container](#truyền-thông-giữa-các-container)
+    - [Docker Volumes](#docker-volumes)
+    - [Quản lý Docker Volumes](#quản-lý-docker-volumes)
+    - [Các cách gắn kết dữ liệu](#các-cách-gắn-kết-dữ-liệu)
+    - [Các use cases cho volumes](#các-use-cases-cho-volumes)
   - [🧑‍🏫 Bài 6: Docker Compose](#-bài-6-docker-compose)
-  - [🧪 BÀI TẬP LỚN CUỐI PHẦN](#-bài-tập-lớn-cuối-phần)
-    - [**Đề bài: Triển khai ứng dụng web đa tầng**](#đề-bài-triển-khai-ứng-dụng-web-đa-tầng)
-    - [**Yêu cầu:**](#yêu-cầu)
-    - [**Kết quả đạt được:**](#kết-quả-đạt-được)
+    - [Docker Compose là gì?](#docker-compose-là-gì)
+    - [Cài đặt Docker Compose](#cài-đặt-docker-compose)
+    - [Cấu trúc file docker-compose.yml](#cấu-trúc-file-docker-composeyml)
+    - [Các lệnh Docker Compose cơ bản](#các-lệnh-docker-compose-cơ-bản)
+    - [Các thành phần chính trong docker-compose.yml](#các-thành-phần-chính-trong-docker-composeyml)
+    - [Ví dụ nâng cao - Ứng dụng MERN stack](#ví-dụ-nâng-cao---ứng-dụng-mern-stack)
+    - [Biến môi trường và Compose](#biến-môi-trường-và-compose)
+    - [Ví dụ file .env](#ví-dụ-file-env)
+    - [Tham chiếu trong docker-compose.yml](#tham-chiếu-trong-docker-composeyml)
+  - [🧪 BÀI TẬP LỚN CUỐI PHẦN: Triển khai ứng dụng web đa tầng](#-bài-tập-lớn-cuối-phần-triển-khai-ứng-dụng-web-đa-tầng)
+    - [Mô tả bài toán](#mô-tả-bài-toán)
+    - [Yêu cầu](#yêu-cầu)
+    - [Kết quả đạt được](#kết-quả-đạt-được)
 
 ## 🎯 Mục tiêu tổng quát
 
@@ -25,35 +66,35 @@
 
 ## 🧑‍🏫 Bài 1: Giới thiệu về Container và Docker
 
-**Khái niệm container:**
+### Khái niệm container
 
 - Container là đơn vị phần mềm tiêu chuẩn đóng gói mã nguồn và các phụ thuộc của ứng dụng
 - Container đảm bảo ứng dụng chạy nhanh, đáng tin cậy và nhất quán trên mọi môi trường
 - Container cô lập tài nguyên và tăng hiệu quả sử dụng hệ thống
 
-**Container vs Virtual Machine:**
+### Container vs Virtual Machine
 
 ```text
-+---------------------------+      +---------------------------+
-|       Container 1         |      |       Container 2         |
-| +---------------------+   |      | +---------------------+   |
-| |      Ứng dụng A     |   |      | |      Ứng dụng B     |   |
-| +---------------------+   |      | +---------------------+   |
-| |  Thư viện & Phụ thuộc|  |      | |  Thư viện & Phụ thuộc|  |
-| +---------------------+   |      | +---------------------+   |
-+-----------+-----------------+    +-----------+-----------------+
-            |                                  |
-            v                                  v
-+--------------------------------------------------+
-|                  Docker Engine                    |
-+--------------------------------------------------+
-|                   Hệ điều hành                    |
-+--------------------------------------------------+
-|                      Phần cứng                    |
-+--------------------------------------------------+
++--------------------------+      +--------------------------+
+|       Container 1        |      |       Container 2        |
+| +----------------------+ |      | +----------------------+ |
+| |      Ứng dụng A      | |      | |      Ứng dụng B      | |
+| +----------------------+ |      | +----------------------+ |
+| | Thư viện & Phụ thuộc | |      | | Thư viện & Phụ thuộc | |
+| +----------------------+ |      | +----------------------+ |
++-----------+--------------+      +-----------+--------------+
+            |                                 |
+            v                                 v
+    +--------------------------------------------------+
+    |                  Docker Engine                   |
+    +--------------------------------------------------+
+    |                  Hệ điều hành                    |
+    +--------------------------------------------------+
+    |                    Phần cứng                     |
+    +--------------------------------------------------+
 ```
 
-**So với máy ảo:**
+### So với máy ảo
 
 ```text
 +----------------+ +----------------+
@@ -61,28 +102,28 @@
 +----------------+ +----------------+
 |  Guest OS (VM1)| |  Guest OS (VM2)|
 +----------------+ +----------------+
-|    Hypervisor     |
-+---------------------+
-|    Hệ điều hành    |
-+---------------------+
-|      Phần cứng      |
-+---------------------+
+|            Hypervisor             |
++-----------------------------------+
+|           Hệ điều hành            |
++-----------------------------------+
+|            Phần cứng              |
++-----------------------------------+
 ```
 
-**Lợi ích của container:**
+### Lợi ích của container
 
 - Nhẹ hơn VM (không cần OS đầy đủ)
 - Khởi động nhanh (giây thay vì phút)
 - Tài nguyên sử dụng hiệu quả hơn
 - Dễ dàng mở rộng và di chuyển
 
-**Docker là gì?**
+### Docker là gì?
 
 - Nền tảng mã nguồn mở để xây dựng, chuyển giao và chạy ứng dụng trong container
 - Được phát hành năm 2013, đã trở thành tiêu chuẩn công nghiệp de facto
 - Cung cấp công cụ và API để quản lý vòng đời của container
 
-**Các thành phần chính của Docker:**
+### Các thành phần chính của Docker
 
 - Docker Engine: Runtime và công cụ đóng gói
 - Docker Hub: Kho lưu trữ images trực tuyến
@@ -93,7 +134,7 @@
 
 ## 🧑‍🏫 Bài 2: Cài đặt và cấu hình Docker
 
-**Cài đặt Docker trên Ubuntu:**
+### Cài đặt Docker trên Ubuntu
 
 ```bash
 # Cập nhật package index
@@ -120,18 +161,18 @@ sudo apt-get update
 sudo apt-get install -y docker-ce docker-ce-cli containerd.io
 ```
 
-**Cài đặt Docker trên Windows:**
+### Cài đặt Docker trên Windows
 
 - Tải Docker Desktop từ [docker.com](https://www.docker.com/products/docker-desktop)
 - Cài đặt và đảm bảo Hyper-V hoặc WSL2 được bật
 - Khởi động Docker Desktop
 
-**Cài đặt Docker trên macOS:**
+### Cài đặt Docker trên macOS
 
 - Tải Docker Desktop cho Mac từ [docker.com](https://www.docker.com/products/docker-desktop)
 - Kéo vào thư mục Applications để cài đặt
 
-**Kiểm tra cài đặt:**
+### Kiểm tra cài đặt
 
 ```bash
 # Kiểm tra phiên bản Docker
@@ -144,7 +185,7 @@ docker info
 docker run hello-world
 ```
 
-**Quản lý Docker Service:**
+### Quản lý Docker Service
 
 ```bash
 # Kiểm tra trạng thái service
@@ -157,7 +198,7 @@ sudo systemctl start docker
 sudo systemctl enable docker
 ```
 
-**Cấu hình sau cài đặt:**
+### Cấu hình sau cài đặt
 
 ```bash
 # Thêm người dùng hiện tại vào nhóm docker
@@ -170,7 +211,7 @@ newgrp docker
 docker run hello-world
 ```
 
-**Vị trí các file cấu hình:**
+### Vị trí các file cấu hình
 
 - `/etc/docker/daemon.json` - File cấu hình Docker daemon
 - `~/.docker/` - Cấu hình client Docker
@@ -179,13 +220,13 @@ docker run hello-world
 
 ## 🧑‍🏫 Bài 3: Làm việc với Docker Images và Containers
 
-**Docker Images:**
+### Docker Images
 
 - Image là template chỉ đọc chứa hướng dẫn để tạo container
 - Bao gồm hệ điều hành, ứng dụng, phụ thuộc và cấu hình
 - Được tạo thành từ nhiều layer, mỗi layer tương ứng với một instruction trong Dockerfile
 
-**Quản lý Docker Images:**
+### Quản lý Docker Images
 
 ```bash
 # Tìm kiếm images từ Docker Hub
@@ -207,21 +248,21 @@ docker rmi nginx:latest
 docker image prune
 ```
 
-**Vòng đời của Container:**
+### Vòng đời của Container
 
 ```text
 +------------+        +----------+        +----------+
 |   Created  | -----> |  Running | -----> |  Stopped |
 +------------+        +----------+        +----------+
-       |                                      |
-       |                                      |
-       v                                      v
-+------------+                          +----------+
-|  Deleted   | <----------------------- |  Deleted |
-+------------+                          +----------+
+       |                                        |
+       |                                        |
+       v                                        v
++------------+                            +----------+
+|  Deleted   | <------------------------- |  Deleted |
++------------+                            +----------+
 ```
 
-**Quản lý Docker Containers:**
+### Quản lý Docker Containers
 
 ```bash
 # Tạo và chạy container
@@ -252,7 +293,7 @@ docker rm webserver
 docker container prune
 ```
 
-**Các cờ quan trọng của lệnh `docker run`:**
+### Các cờ quan trọng của lệnh `docker run`
 
 ```bash
 # -d: Chạy ở chế độ detached (nền)
@@ -281,13 +322,13 @@ docker run --restart always nginx
 
 ## 🧑‍🏫 Bài 4: Xây dựng Docker Images với Dockerfile
 
-**Dockerfile là gì?**
+### Dockerfile là gì?
 
 - File văn bản chứa các lệnh để xây dựng Docker image
 - Mỗi lệnh tạo một layer trong image
 - Sử dụng cú pháp đơn giản, dễ đọc
 
-**Cấu trúc Dockerfile cơ bản:**
+### Cấu trúc Dockerfile cơ bản
 
 ```dockerfile
 # Chọn image cơ sở
@@ -319,7 +360,7 @@ EXPOSE 5000
 CMD ["python3", "app.py"]
 ```
 
-**Các lệnh phổ biến trong Dockerfile:**
+### Các lệnh phổ biến trong Dockerfile
 
 - `FROM`: Chọn image cơ sở
 - `RUN`: Thực thi lệnh và tạo layer mới
@@ -331,7 +372,7 @@ CMD ["python3", "app.py"]
 - `CMD`: Định nghĩa lệnh mặc định khi chạy container
 - `ENTRYPOINT`: Cấu hình container chạy như một executable
 
-**Build Docker Image:**
+### Build Docker Image
 
 ```bash
 # Cú pháp cơ bản
@@ -344,7 +385,7 @@ docker build -f Dockerfile.dev -t my-app:dev .
 docker build --build-arg VERSION=1.0 -t my-app:1.0 .
 ```
 
-**Multi-stage builds:**
+### Multi-stage builds
 
 ```dockerfile
 # Stage 1: Build
@@ -362,7 +403,7 @@ EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
 ```
 
-**Các nguyên tắc tốt khi viết Dockerfile:**
+### Các nguyên tắc tốt khi viết Dockerfile
 
 1. Sử dụng image cơ sở phù hợp và nhỏ gọn
 2. Kết hợp các RUN commands để giảm số lượng layers
@@ -372,7 +413,7 @@ CMD ["nginx", "-g", "daemon off;"]
 6. Sử dụng multi-stage builds cho ứng dụng production
 7. Thiết lập user non-root
 
-**Ví dụ về file .dockerignore:**
+### Ví dụ về file .dockerignore
 
 ```text
 node_modules
@@ -387,7 +428,7 @@ README.md
 
 ## 🧑‍🏫 Bài 5: Docker Networking và Volumes
 
-**Docker Networking Models:**
+### Docker Networking Models
 
 - **Bridge**: Mạng mặc định cho container (driver: bridge)
 - **Host**: Container sử dụng mạng của host (driver: host)
@@ -395,7 +436,7 @@ README.md
 - **Overlay**: Mạng phân tán nhiều Docker daemons (driver: overlay)
 - **Macvlan**: Gán địa chỉ MAC cho container (driver: macvlan)
 
-**Quản lý Docker Networks:**
+### Quản lý Docker Networks
 
 ```bash
 # Liệt kê networks
@@ -417,7 +458,7 @@ docker network disconnect my-network container-name
 docker network rm my-network
 ```
 
-**Truyền thông giữa các container:**
+### Truyền thông giữa các container
 
 ```bash
 # Tạo network
@@ -433,7 +474,7 @@ docker run -d --name wordpress --network app-network -p 8080:80 \
     wordpress
 ```
 
-**Docker Volumes:**
+### Docker Volumes
 
 - Cơ chế quản lý dữ liệu bền vững cho container
 - Dữ liệu tồn tại độc lập với vòng đời của container
@@ -442,7 +483,7 @@ docker run -d --name wordpress --network app-network -p 8080:80 \
   - **Bind mounts**: Mount trực tiếp thư mục host
   - **tmpfs mounts**: Lưu trữ tạm thời trong memory
 
-**Quản lý Docker Volumes:**
+### Quản lý Docker Volumes
 
 ```bash
 # Tạo volume
@@ -464,7 +505,7 @@ docker volume rm my-data
 docker volume prune
 ```
 
-**Các cách gắn kết dữ liệu:**
+### Các cách gắn kết dữ liệu
 
 ```bash
 # Sử dụng volumes (quản lý bởi Docker)
@@ -480,7 +521,7 @@ docker run -v my-data:/app/data:ro nginx
 docker run --tmpfs /app/temp nginx
 ```
 
-**Các use cases cho volumes:**
+### Các use cases cho volumes
 
 1. **Database storage**: Lưu trữ dữ liệu database
 2. **Configuration**: Chia sẻ cấu hình giữa container và host
@@ -491,13 +532,13 @@ docker run --tmpfs /app/temp nginx
 
 ## 🧑‍🏫 Bài 6: Docker Compose
 
-**Docker Compose là gì?**
+### Docker Compose là gì?
 
 - Công cụ định nghĩa và chạy ứng dụng Docker đa container
 - Sử dụng file YAML để cấu hình các service
 - Quản lý vòng đời hoàn chỉnh của ứng dụng
 
-**Cài đặt Docker Compose:**
+### Cài đặt Docker Compose
 
 ```bash
 # Linux
@@ -508,7 +549,7 @@ sudo chmod +x /usr/local/bin/docker-compose
 docker-compose --version
 ```
 
-**Cấu trúc file docker-compose.yml:**
+### Cấu trúc file docker-compose.yml
 
 ```yaml
 version: '3'
@@ -535,7 +576,7 @@ volumes:
   db_data:
 ```
 
-**Các lệnh Docker Compose cơ bản:**
+### Các lệnh Docker Compose cơ bản
 
 ```bash
 # Khởi chạy các services
@@ -563,7 +604,7 @@ docker-compose down -v
 docker-compose up -d --scale webapp=3
 ```
 
-**Các thành phần chính trong docker-compose.yml:**
+### Các thành phần chính trong docker-compose.yml
 
 1. **version**: Phiên bản Compose file format
 2. **services**: Định nghĩa các services (containers)
@@ -572,7 +613,7 @@ docker-compose up -d --scale webapp=3
 5. **configs**: Định nghĩa configuration (từ v3.3)
 6. **secrets**: Định nghĩa secrets (từ v3.1)
 
-**Ví dụ nâng cao - Ứng dụng MERN stack:**
+### Ví dụ nâng cao - Ứng dụng MERN stack
 
 ```yaml
 version: '3'
@@ -611,13 +652,13 @@ volumes:
   mongo_data:
 ```
 
-**Biến môi trường và Compose:**
+### Biến môi trường và Compose
 
 - Sử dụng file `.env` cho các biến môi trường
 - Tham chiếu với cú pháp `${VARIABLE_NAME}`
 - Ghi đè với `-e` flag hoặc `environment` section
 
-**Ví dụ file .env:**
+### Ví dụ file .env
 
 ```conf
 MYSQL_ROOT_PASSWORD=secret_password
@@ -625,7 +666,7 @@ MYSQL_DATABASE=production_db
 EXTERNAL_PORT=8080
 ```
 
-**Tham chiếu trong docker-compose.yml:**
+### Tham chiếu trong docker-compose.yml
 
 ```yaml
 services:
@@ -643,9 +684,9 @@ services:
 
 ---
 
-## 🧪 BÀI TẬP LỚN CUỐI PHẦN
+## 🧪 BÀI TẬP LỚN CUỐI PHẦN: Triển khai ứng dụng web đa tầng
 
-### **Đề bài: Triển khai ứng dụng web đa tầng**
+### Mô tả bài toán
 
 Xây dựng và triển khai một ứng dụng web đa tầng sử dụng Docker và Docker Compose, bao gồm:
 
@@ -654,7 +695,7 @@ Xây dựng và triển khai một ứng dụng web đa tầng sử dụng Docke
 - Database (MySQL/MongoDB/PostgreSQL)
 - Web server/reverse proxy (Nginx)
 
-### **Yêu cầu:**
+### Yêu cầu
 
 1. Tạo Dockerfile cho mỗi thành phần
 2. Cấu hình Docker Compose để kết nối các services
@@ -664,7 +705,7 @@ Xây dựng và triển khai một ứng dụng web đa tầng sử dụng Docke
 6. Triển khai hot-reload cho môi trường phát triển
 7. Viết tài liệu hướng dẫn sử dụng
 
-### **Kết quả đạt được:**
+### Kết quả đạt được
 
 - Ứng dụng chạy trên Docker với đầy đủ các thành phần
 - Source code cùng với Dockerfile và docker-compose.yml
@@ -673,6 +714,6 @@ Xây dựng và triển khai một ứng dụng web đa tầng sử dụng Docke
 
 ---
 
-[⬅️ Trở lại: DOCKER/Docker.md](../DOCKER/Docker.md.md) |
+[⬅️ Trở lại: PHP/Part6.md](../PHP/Part6.md) |
 [🏠 Home](../README.md) |
 [➡️ Tiếp theo: DOCKER/Kubernetes.md](../DOCKER/Kubernetes.md)

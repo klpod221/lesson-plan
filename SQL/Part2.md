@@ -82,11 +82,12 @@
       - [Ví dụ 3: Đánh chỉ mục hiệu quả](#ví-dụ-3-đánh-chỉ-mục-hiệu-quả)
       - [Ví dụ 4: Sử dụng các bảng tổng hợp (Materialized Views)](#ví-dụ-4-sử-dụng-các-bảng-tổng-hợp-materialized-views)
       - [Ví dụ 5: Thiết kế schema hợp lý](#ví-dụ-5-thiết-kế-schema-hợp-lý)
-    - [Bài tập thực hành](#bài-tập-thực-hành-1)
+    - [Bài tập thực hành: Thiết kế cơ sở dữ liệu](#bài-tập-thực-hành-thiết-kế-cơ-sở-dữ-liệu)
   - [🧑‍🏫 Bài 5: Bảo mật và quản trị](#-bài-5-bảo-mật-và-quản-trị)
     - [Giám sát và điều chỉnh hệ thống](#giám-sát-và-điều-chỉnh-hệ-thống)
-  - [🧪 BÀI TẬP LỚN CUỐI PHẦN](#-bài-tập-lớn-cuối-phần)
-    - [**Đề bài: Quản lý sinh viên và lớp học**](#đề-bài-quản-lý-sinh-viên-và-lớp-học)
+  - [🧪 BÀI TẬP LỚN CUỐI PHẦN: Quản lý sinh viên và lớp học](#-bài-tập-lớn-cuối-phần-quản-lý-sinh-viên-và-lớp-học)
+    - [Mô tả bài toán](#mô-tả-bài-toán)
+    - [Yêu cầu](#yêu-cầu)
 
 ## 🎯 Mục tiêu tổng quát
 
@@ -170,9 +171,9 @@ WITH RECURSIVE employee_hierarchy AS (
     SELECT id, fullname, manager_id, 1 AS level
     FROM employees
     WHERE manager_id IS NULL
-    
+
     UNION ALL
-    
+
     -- Trường hợp đệ quy: tìm nhân viên cấp dưới
     SELECT e.id, e.fullname, e.manager_id, eh.level + 1
     FROM employees e
@@ -249,7 +250,7 @@ Window functions thực hiện tính toán trên một tập hợp các hàng li
 
 ```sql
 -- Đánh số thứ tự cho học sinh theo điểm số từ cao đến thấp
-SELECT 
+SELECT
     student_id,
     fullname,
     score,
@@ -261,7 +262,7 @@ FROM students;
 
 ```sql
 -- Đánh số thứ tự học sinh theo điểm số trong từng lớp riêng biệt
-SELECT 
+SELECT
     student_id,
     fullname,
     class_id,
@@ -274,7 +275,7 @@ FROM students;
 
 ```sql
 -- Tính điểm trung bình của lớp và chênh lệch của mỗi học sinh so với trung bình lớp
-SELECT 
+SELECT
     student_id,
     fullname,
     class_id,
@@ -288,7 +289,7 @@ FROM students;
 
 ```sql
 -- Chia học sinh thành 4 nhóm (tứ phân vị) theo điểm số
-SELECT 
+SELECT
     student_id,
     fullname,
     score,
@@ -315,21 +316,21 @@ Hàm người dùng (User-Defined Functions) là các đoạn code SQL được 
 
 ```sql
 DELIMITER //
-CREATE FUNCTION calculate_age(birthdate DATE) 
+CREATE FUNCTION calculate_age(birthdate DATE)
 RETURNS INT DETERMINISTIC
 BEGIN
     DECLARE age INT;
-    SET age = YEAR(CURRENT_DATE()) - YEAR(birthdate) - 
+    SET age = YEAR(CURRENT_DATE()) - YEAR(birthdate) -
               (DATE_FORMAT(CURRENT_DATE(), '%m%d') < DATE_FORMAT(birthdate, '%m%d'));
     RETURN age;
 END //
 DELIMITER ;
 
 -- Sử dụng hàm
-SELECT 
-    student_id, 
-    fullname, 
-    date_of_birth, 
+SELECT
+    student_id,
+    fullname,
+    date_of_birth,
     calculate_age(date_of_birth) AS age
 FROM students;
 ```
@@ -342,11 +343,11 @@ CREATE FUNCTION calculate_gpa(student_id INT)
 RETURNS DECIMAL(4,2) READS SQL DATA
 BEGIN
     DECLARE avg_score DECIMAL(4,2);
-    
+
     SELECT AVG(score) INTO avg_score
     FROM student_scores
     WHERE student_id = student_id;
-    
+
     RETURN IFNULL(avg_score, 0);
 END //
 DELIMITER ;
@@ -367,7 +368,7 @@ CREATE FUNCTION get_grade_ranking(score DECIMAL(4,2))
 RETURNS VARCHAR(20) DETERMINISTIC
 BEGIN
     DECLARE ranking VARCHAR(20);
-    
+
     IF score >= 9.0 THEN
         SET ranking = 'Xuất sắc';
     ELSEIF score >= 8.0 THEN
@@ -379,7 +380,7 @@ BEGIN
     ELSE
         SET ranking = 'Yếu';
     END IF;
-    
+
     RETURN ranking;
 END //
 DELIMITER ;
@@ -427,7 +428,7 @@ BEGIN
     SELECT COUNT(*) INTO total_students
     FROM students
     WHERE class_id = class_id;
-    
+
     -- Tính điểm trung bình
     SELECT AVG(score) INTO avg_score
     FROM students
@@ -453,24 +454,24 @@ CREATE PROCEDURE update_student_score(
 BEGIN
     DECLARE current_score DECIMAL(4,2);
     DECLARE score_exists INT;
-    
+
     -- Kiểm tra xem điểm đã tồn tại chưa
     SELECT COUNT(*), IFNULL(score, 0)
     INTO score_exists, current_score
     FROM student_scores
     WHERE student_id = student_id AND subject_id = subject_id;
-    
+
     -- Cập nhật hoặc thêm mới điểm
     IF score_exists > 0 THEN
         UPDATE student_scores
         SET score = new_score
         WHERE student_id = student_id AND subject_id = subject_id;
-        
+
         SET result = CONCAT('Cập nhật điểm từ ', current_score, ' thành ', new_score);
     ELSE
         INSERT INTO student_scores (student_id, subject_id, score)
         VALUES (student_id, subject_id, new_score);
-        
+
         SET result = CONCAT('Thêm mới điểm: ', new_score);
     END IF;
 END //
@@ -549,7 +550,7 @@ STARTS CURRENT_TIMESTAMP
 DO
 BEGIN
     INSERT INTO class_statistics (class_id, total_students, avg_score)
-    SELECT 
+    SELECT
         class_id,
         COUNT(*) as total_students,
         AVG(score) as avg_score
@@ -605,7 +606,7 @@ BEGIN
     -- Khai báo biến
     DECLARE source_score DECIMAL(4,2);
     DECLARE exit_handler BOOLEAN DEFAULT FALSE;
-    
+
     -- Khai báo handler cho lỗi
     DECLARE CONTINUE HANDLER FOR SQLEXCEPTION
     BEGIN
@@ -613,15 +614,15 @@ BEGIN
         SET message = 'Lỗi SQL xảy ra trong quá trình chuyển điểm';
         ROLLBACK;
     END;
-    
+
     -- Bắt đầu giao dịch
     START TRANSACTION;
-    
+
     -- Lấy điểm hiện tại của sinh viên nguồn
     SELECT score INTO source_score
     FROM student_scores
     WHERE student_id = source_student_id AND subject_id = subject_id;
-    
+
     -- Kiểm tra xem có đủ điểm để chuyển không
     IF source_score IS NULL OR source_score < points THEN
         SET message = 'Không đủ điểm để chuyển';
@@ -631,7 +632,7 @@ BEGIN
         UPDATE student_scores
         SET score = score - points
         WHERE student_id = source_student_id AND subject_id = subject_id;
-        
+
         -- Thêm điểm cho sinh viên đích
         IF EXISTS (SELECT 1 FROM student_scores WHERE student_id = target_student_id AND subject_id = subject_id) THEN
             UPDATE student_scores
@@ -641,7 +642,7 @@ BEGIN
             INSERT INTO student_scores (student_id, subject_id, score)
             VALUES (target_student_id, subject_id, points);
         END IF;
-        
+
         -- Nếu không có lỗi, hoàn tất giao dịch
         IF exit_handler = FALSE THEN
             COMMIT;
@@ -671,17 +672,17 @@ BEGIN
         SIGNAL SQLSTATE '45000'
             SET MESSAGE_TEXT = 'Email đã tồn tại trong hệ thống';
     END IF;
-    
+
     -- Kiểm tra lớp học có tồn tại không
     IF NOT EXISTS (SELECT 1 FROM classes WHERE class_id = p_class_id) THEN
         SIGNAL SQLSTATE '45000'
             SET MESSAGE_TEXT = 'Lớp học không tồn tại';
     END IF;
-    
+
     -- Nếu dữ liệu hợp lệ, thêm sinh viên mới
     INSERT INTO students (fullname, email, class_id)
     VALUES (p_fullname, p_email, p_class_id);
-    
+
     SELECT LAST_INSERT_ID() AS new_student_id;
 END //
 DELIMITER ;
@@ -744,7 +745,7 @@ DROP INDEX idx_student_fullname ON students;
 CREATE FULLTEXT INDEX idx_course_description ON courses(description);
 
 -- Tìm kiếm văn bản sử dụng fulltext index
-SELECT * FROM courses 
+SELECT * FROM courses
 WHERE MATCH(description) AGAINST('lập trình' IN NATURAL LANGUAGE MODE);
 ```
 
@@ -761,7 +762,7 @@ EXPLAIN SELECT * FROM students WHERE score > 8.5;
 
 Kết quả:
 
-```
+```text
 +----+-------------+----------+------+---------------+------+---------+------+------+-------------+
 | id | select_type | table    | type | possible_keys | key  | key_len | ref  | rows | Extra       |
 +----+-------------+----------+------+---------------+------+---------+------+------+-------------+
@@ -787,7 +788,7 @@ EXPLAIN SELECT * FROM students WHERE score > 8.5;
 
 Kết quả:
 
-```
+```text
 +----+-------------+----------+-------+---------------+----------+---------+------+------+-----------------------+
 | id | select_type | table    | type  | possible_keys | key      | key_len | ref  | rows | Extra                 |
 +----+-------------+----------+-------+---------------+----------+---------+------+------+-----------------------+
@@ -822,8 +823,8 @@ ORDER BY s.fullname;
 SELECT * FROM students JOIN classes ON students.class_id = classes.class_id;
 
 -- Tốt hơn: Chỉ lấy những cột cần thiết
-SELECT students.student_id, students.fullname, classes.class_name 
-FROM students 
+SELECT students.student_id, students.fullname, classes.class_name
+FROM students
 JOIN classes ON students.class_id = classes.class_id;
 ```
 
@@ -834,7 +835,7 @@ JOIN classes ON students.class_id = classes.class_id;
 SELECT * FROM students WHERE YEAR(date_of_birth) = 2000;
 
 -- Tốt hơn: Điều kiện cho phép sử dụng chỉ mục
-SELECT * FROM students 
+SELECT * FROM students
 WHERE date_of_birth >= '2000-01-01' AND date_of_birth <= '2000-12-31';
 ```
 
@@ -862,7 +863,7 @@ SELECT * FROM students ORDER BY score DESC LIMIT 10;
 
 ```sql
 -- KHÔNG tốt khi có nhiều kết quả: Sử dụng IN với subquery
-SELECT * FROM classes 
+SELECT * FROM classes
 WHERE class_id IN (SELECT class_id FROM students WHERE score > 9);
 
 -- Tốt hơn: Sử dụng EXISTS
@@ -909,7 +910,7 @@ ANALYZE TABLE students, classes, student_scores;
 
 ```sql
 -- Sử dụng EXPLAIN FORMAT=JSON để có thêm chi tiết về kế hoạch thực thi
-EXPLAIN FORMAT=JSON 
+EXPLAIN FORMAT=JSON
 SELECT s.student_id, s.fullname, AVG(ss.score) as avg_score
 FROM students s
 JOIN student_scores ss ON s.student_id = ss.student_id
@@ -944,7 +945,7 @@ Chuẩn hóa là quá trình cấu trúc cơ sở dữ liệu để giảm thi�
 Bảng `student_courses` ban đầu:
 
 | student_id | student_name | course_id | course_name | teacher_name | score |
-|------------|--------------|-----------|-------------|--------------|-------|
+| ---------- | ------------ | --------- | ----------- | ------------ | ----- |
 | 101        | Nguyễn Văn A | C001      | SQL Cơ bản  | Trần Văn X   | 8.5   |
 | 102        | Lê Thị B     | C001      | SQL Cơ bản  | Trần Văn X   | 9.0   |
 | 101        | Nguyễn Văn A | C002      | HTML/CSS    | Phạm Thị Y   | 7.5   |
@@ -1066,12 +1067,12 @@ BEGIN
         SELECT COUNT(*) FROM students s WHERE s.class_id = c.id
     )
     WHERE c.id = class_id;
-    
+
     -- Cập nhật điểm trung bình
     UPDATE classes c
     SET avg_score = (
-        SELECT AVG(score) 
-        FROM students s 
+        SELECT AVG(score)
+        FROM students s
         WHERE s.class_id = c.id
     )
     WHERE c.id = class_id;
@@ -1334,10 +1335,10 @@ CREATE PROCEDURE refresh_class_statistics()
 BEGIN
     -- Xóa dữ liệu cũ
     TRUNCATE TABLE class_statistics;
-    
+
     -- Chèn dữ liệu mới
     INSERT INTO class_statistics (class_id, total_students, avg_score, highest_score, lowest_score)
-    SELECT 
+    SELECT
         class_id,
         COUNT(*) AS total_students,
         AVG(score) AS avg_score,
@@ -1345,7 +1346,7 @@ BEGIN
         MIN(score) AS lowest_score
     FROM students
     GROUP BY class_id;
-    
+
     -- Cập nhật thời gian
     UPDATE class_statistics SET last_updated = CURRENT_TIMESTAMP;
 END //
@@ -1396,7 +1397,7 @@ GRANT SELECT, INSERT, UPDATE ON school_management.staff TO 'admin_user'@'localho
 GRANT SELECT ON school_management_academic.students TO 'teacher_user'@'localhost';
 ```
 
-### Bài tập thực hành
+### Bài tập thực hành: Thiết kế cơ sở dữ liệu
 
 1. Cho dữ liệu bán hàng chưa được chuẩn hóa, hãy phân tích và thiết kế lại theo các dạng chuẩn 1NF, 2NF và 3NF
 2. Thiết kế mô hình ER cho hệ thống quản lý thư viện, bao gồm sách, độc giả, mượn trả sách
@@ -1442,76 +1443,76 @@ GRANT SELECT ON school_management_academic.students TO 'teacher_user'@'localhost
 
 2. Backup và phục hồi dữ liệu
 
-- **Backup cơ sở dữ liệu**:
+   - **Backup cơ sở dữ liệu**:
 
-  ```bash
-  # Sử dụng mysqldump để tạo backup
-  mysqldump -u root -p school_management > school_backup.sql
+   ```bash
+   # Sử dụng mysqldump để tạo backup
+   mysqldump -u root -p school_management > school_backup.sql
 
-  # Backup chỉ cấu trúc bảng (không có dữ liệu)
-  mysqldump -u root -p --no-data school_management > schema_backup.sql
+   # Backup chỉ cấu trúc bảng (không có dữ liệu)
+   mysqldump -u root -p --no-data school_management > schema_backup.sql
 
-  # Backup chỉ một số bảng cụ thể
-  mysqldump -u root -p school_management students courses > tables_backup.sql
-  ```
+   # Backup chỉ một số bảng cụ thể
+   mysqldump -u root -p school_management students courses > tables_backup.sql
+   ```
 
-- **Phục hồi dữ liệu**:
+   - **Phục hồi dữ liệu**:
 
-  ```bash
-  # Phục hồi từ file backup
-  mysql -u root -p school_management < school_backup.sql
+   ```bash
+   # Phục hồi từ file backup
+   mysql -u root -p school_management < school_backup.sql
 
-  # Thực hiện từ trong MySQL client
-  SOURCE /path/to/school_backup.sql;
-  ```
+   # Thực hiện từ trong MySQL client
+   SOURCE /path/to/school_backup.sql;
+   ```
 
-- **Lập lịch backup tự động** (Linux crontab):
+   - **Lập lịch backup tự động** (Linux crontab):
 
-  ```bash
-  # Backup hàng ngày lúc 01:00 sáng
-  0 1 * * * mysqldump -u root -p'password' school_management > /backup/school_$(date +\%Y\%m\%d).sql
-  ```
+   ```bash
+   # Backup hàng ngày lúc 01:00 sáng
+   0 1 * * * mysqldump -u root -p'password' school_management > /backup/school_$(date +\%Y\%m\%d).sql
+   ```
 
 3. Bảo mật và phòng chống SQL Injection
 
-- **Vấn đề SQL Injection**:
+   - **Vấn đề SQL Injection**:
 
-  ```sql
-  -- Ví dụ nguy hiểm (KHÔNG NÊN LÀM):
-  $username = $_POST['username'];
-  $query = "SELECT * FROM users WHERE username = '$username'";
-  // Nếu người dùng nhập: admin' --
-  // Câu truy vấn trở thành: SELECT * FROM users WHERE username = 'admin' --'
-  ```
+   ```sql
+   -- Ví dụ nguy hiểm (KHÔNG NÊN LÀM):
+   $username = $_POST['username'];
+   $query = "SELECT * FROM users WHERE username = '$username'";
+   // Nếu người dùng nhập: admin' --
+   // Câu truy vấn trở thành: SELECT * FROM users WHERE username = 'admin' --'
+   ```
 
-- **Cách phòng tránh SQL Injection**:
+   - **Cách phòng tránh SQL Injection**:
 
-  1. **Sử dụng Prepared Statements**:
+   1. **Sử dụng Prepared Statements**:
 
-     ```php
-     // PHP với PDO
-     $stmt = $pdo->prepare("SELECT * FROM users WHERE username = ?");
-     $stmt->execute([$username]);
+      ```php
+      // PHP với PDO
+      $stmt = $pdo->prepare("SELECT * FROM users WHERE username = ?");
+      $stmt->execute([$username]);
 
-     // JAVA với JDBC
-     PreparedStatement stmt = conn.prepareStatement("SELECT * FROM users WHERE username = ?");
-     stmt->setString(1, username);
-     ```
+      // JAVA với JDBC
+      PreparedStatement stmt = conn.prepareStatement("SELECT * FROM users WHERE username = ?");
+      stmt->setString(1, username);
+      ```
 
-  2. **Kiểm tra và làm sạch dữ liệu đầu vào**:
+   2. **Kiểm tra và làm sạch dữ liệu đầu vào**:
 
-     ```php
-     $username = mysqli_real_escape_string($conn, $_POST['username']);
-     ```
+      ```php
+      $username = mysqli_real_escape_string($conn, $_POST['username']);
+      ```
 
-  3. **Sử dụng ORM (Object-Relational Mapping)**:
+   3. **Sử dụng ORM (Object-Relational Mapping)**:
 
-     ```java
-     // Sử dụng Hibernate trong JAVA
-     User user = session.createQuery("from User where username = :username")
-         .setParameter("username", username)
-         .uniqueResult();
-     ```
+      ```java
+      // Sử dụng Hibernate trong JAVA
+      User user = session.createQuery("from User where username = :username")
+          .setParameter("username", username)
+          .uniqueResult();
+      ```
 
 ### Giám sát và điều chỉnh hệ thống
 
@@ -1554,9 +1555,9 @@ GRANT SELECT ON school_management_academic.students TO 'teacher_user'@'localhost
 
 ---
 
-## 🧪 BÀI TẬP LỚN CUỐI PHẦN
+## 🧪 BÀI TẬP LỚN CUỐI PHẦN: Quản lý sinh viên và lớp học
 
-### **Đề bài: Quản lý sinh viên và lớp học**
+### Mô tả bài toán
 
 Mở rộng cơ sở dữ liệu quản lý sinh viên:
 
@@ -1564,7 +1565,7 @@ Mở rộng cơ sở dữ liệu quản lý sinh viên:
 - Tạo mối quan hệ một-nhiều giữa `classes` và `students`
 - Thêm bảng `subjects` để lưu thông tin môn học
 
-Yêu cầu:
+### Yêu cầu
 
 - Thiết kế các bảng với khóa chính và khóa ngoại phù hợp
 - Viết các truy vấn để:

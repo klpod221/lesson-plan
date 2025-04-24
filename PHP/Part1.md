@@ -3,14 +3,26 @@
 - [📘 PHẦN 1: NHẬP MÔN PHP](#-phần-1-nhập-môn-php)
   - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
   - [🧑‍🏫 Bài 1: Giới thiệu PHP](#-bài-1-giới-thiệu-php)
+    - [PHP là gì?](#php-là-gì)
+    - [File PHP đầu tiên](#file-php-đầu-tiên)
+    - [Cú pháp PHP cơ bản](#cú-pháp-php-cơ-bản)
   - [🧑‍🏫 Bài 2: Biến và kiểu dữ liệu trong PHP](#-bài-2-biến-và-kiểu-dữ-liệu-trong-php)
+    - [Biến trong PHP](#biến-trong-php)
+    - [Kiểu dữ liệu cơ bản](#kiểu-dữ-liệu-cơ-bản)
+    - [Hằng số](#hằng-số)
   - [🧑‍🏫 Bài 3: Toán tử và cấu trúc điều khiển](#-bài-3-toán-tử-và-cấu-trúc-điều-khiển)
+    - [Các toán tử trong PHP](#các-toán-tử-trong-php)
+    - [Cấu trúc điều kiện](#cấu-trúc-điều-kiện)
+    - [Vòng lặp](#vòng-lặp)
   - [🧑‍🏫 Bài 4: Hàm và Array trong PHP](#-bài-4-hàm-và-array-trong-php)
+    - [Hàm trong PHP](#hàm-trong-php)
+    - [Array trong PHP](#array-trong-php)
   - [🧑‍🏫 Bài 5: PHP và HTML](#-bài-5-php-và-html)
-  - [🧪 BÀI TẬP LỚN CUỐI PHẦN](#-bài-tập-lớn-cuối-phần)
-    - [**Đề bài: Tạo trang quản lý sản phẩm đơn giản**](#đề-bài-tạo-trang-quản-lý-sản-phẩm-đơn-giản)
-    - [**Yêu cầu:**](#yêu-cầu)
-    - [**Kết quả chạy chương trình (Ví dụ):**](#kết-quả-chạy-chương-trình-ví-dụ)
+    - [Kết hợp PHP với HTML](#kết-hợp-php-với-html)
+    - [Xử lý form với PHP](#xử-lý-form-với-php)
+  - [🧪 BÀI TẬP LỚN CUỐI PHẦN: Tạo trang quản lý sản phẩm đơn giản](#-bài-tập-lớn-cuối-phần-tạo-trang-quản-lý-sản-phẩm-đơn-giản)
+    - [Mô tả bài toán](#mô-tả-bài-toán)
+    - [Yêu cầu](#yêu-cầu)
 
 ## 🎯 Mục tiêu tổng quát
 
@@ -23,14 +35,14 @@
 
 ## 🧑‍🏫 Bài 1: Giới thiệu PHP
 
-**PHP là gì?**
+### PHP là gì?
 
 - PHP (PHP: Hypertext Preprocessor) là ngôn ngữ lập trình kịch bản phía server
 - Được thiết kế dành riêng cho phát triển web
 - Mã PHP được thực thi trên server và kết quả được trả về client dưới dạng HTML
 - Có thể nhúng PHP vào trong HTML
 
-**File PHP đầu tiên:**
+### File PHP đầu tiên
 
 ```php
 <!DOCTYPE html>
@@ -64,7 +76,7 @@ php -S localhost:8000
 
 Truy cập vào `http://localhost:8000` để xem kết quả.
 
-**Cú pháp PHP cơ bản:**
+### Cú pháp PHP cơ bản
 
 - PHP bắt đầu với `<?php` và kết thúc với `?>`
 - Mỗi câu lệnh kết thúc bằng dấu chấm phẩy (;)
@@ -75,7 +87,7 @@ Truy cập vào `http://localhost:8000` để xem kết quả.
 
 ## 🧑‍🏫 Bài 2: Biến và kiểu dữ liệu trong PHP
 
-**Biến trong PHP:**
+### Biến trong PHP
 
 - Biến bắt đầu với ký tự `$`
 - Tên biến phải bắt đầu bằng một chữ cái hoặc dấu gạch dưới
@@ -96,7 +108,7 @@ Truy cập vào `http://localhost:8000` để xem kết quả.
 ?>
 ```
 
-**Kiểu dữ liệu cơ bản:**
+### Kiểu dữ liệu cơ bản
 
 ```php
 <?php
@@ -129,7 +141,7 @@ Truy cập vào `http://localhost:8000` để xem kết quả.
 ?>
 ```
 
-**Hằng số:**
+### Hằng số
 
 ```php
 <?php
@@ -154,7 +166,7 @@ Truy cập vào `http://localhost:8000` để xem kết quả.
 
 ## 🧑‍🏫 Bài 3: Toán tử và cấu trúc điều khiển
 
-**Các toán tử trong PHP:**
+### Các toán tử trong PHP
 
 ```php
 <?php
@@ -193,7 +205,7 @@ Truy cập vào `http://localhost:8000` để xem kết quả.
 ?>
 ```
 
-**Cấu trúc điều kiện:**
+### Cấu trúc điều kiện
 
 ```php
 <?php
@@ -247,7 +259,7 @@ Truy cập vào `http://localhost:8000` để xem kết quả.
 ?>
 ```
 
-**Vòng lặp:**
+### Vòng lặp
 
 ```php
 <?php
@@ -299,7 +311,7 @@ Truy cập vào `http://localhost:8000` để xem kết quả.
 
 ## 🧑‍🏫 Bài 4: Hàm và Array trong PHP
 
-**Hàm trong PHP:**
+### Hàm trong PHP
 
 ```php
 <?php
@@ -344,7 +356,7 @@ Truy cập vào `http://localhost:8000` để xem kết quả.
 ?>
 ```
 
-**Array trong PHP:**
+### Array trong PHP
 
 ```php
 <?php
@@ -459,7 +471,7 @@ Truy cập vào `http://localhost:8000` để xem kết quả.
 
 ## 🧑‍🏫 Bài 5: PHP và HTML
 
-**Kết hợp PHP với HTML:**
+### Kết hợp PHP với HTML
 
 ```php
 <!DOCTYPE html>
@@ -586,7 +598,7 @@ Truy cập vào `http://localhost:8000` để xem kết quả.
 </html>
 ```
 
-**Xử lý form với PHP:**
+### Xử lý form với PHP
 
 ```php
 <!DOCTYPE html>
@@ -700,9 +712,9 @@ Truy cập vào `http://localhost:8000` để xem kết quả.
 
 ---
 
-## 🧪 BÀI TẬP LỚN CUỐI PHẦN
+## 🧪 BÀI TẬP LỚN CUỐI PHẦN: Tạo trang quản lý sản phẩm đơn giản
 
-### **Đề bài: Tạo trang quản lý sản phẩm đơn giản**
+### Mô tả bài toán
 
 Xây dựng trang web đơn giản cho phép:
 
@@ -711,24 +723,13 @@ Xây dựng trang web đơn giản cho phép:
 - Tìm kiếm sản phẩm theo tên
 - Lọc sản phẩm theo giá
 
-### **Yêu cầu:**
+### Yêu cầu
 
 - Tạo cấu trúc dữ liệu lưu trữ sản phẩm (mảng PHP)
 - Thiết kế giao diện hiển thị danh sách sản phẩm (bảng)
 - Tạo form thêm sản phẩm mới với các trường: tên, mô tả, giá, số lượng
 - Xây dựng chức năng tìm kiếm và lọc sản phẩm
 - Tổ chức code theo cấu trúc rõ ràng, dễ bảo trì
-
-### **Kết quả chạy chương trình (Ví dụ):**
-
-```text
-TRANG QUẢN LÝ SẢN PHẨM
-
-- Form tìm kiếm/lọc với các tùy chọn
-- Bảng hiển thị danh sách sản phẩm với thông tin chi tiết
-- Form thêm sản phẩm mới
-- Thông báo kết quả sau khi thực hiện các thao tác
-```
 
 ---
 

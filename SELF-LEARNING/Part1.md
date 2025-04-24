@@ -3,9 +3,22 @@
 - [📘 PHẦN 1: TÌM KIẾM THÔNG TIN HIỆU QUẢ](#-phần-1-tìm-kiếm-thông-tin-hiệu-quả)
   - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
   - [🧑‍🏫 Bài 1: Cơ sở và chiến lược tìm kiếm thông tin](#-bài-1-cơ-sở-và-chiến-lược-tìm-kiếm-thông-tin)
+    - [Tầm quan trọng của kỹ năng tìm kiếm thông tin](#tầm-quan-trọng-của-kỹ-năng-tìm-kiếm-thông-tin)
+    - [Nguyên tắc tìm kiếm hiệu quả](#nguyên-tắc-tìm-kiếm-hiệu-quả)
+    - [Kỹ thuật tìm kiếm nâng cao với Google](#kỹ-thuật-tìm-kiếm-nâng-cao-với-google)
+    - [Kỹ thuật phân tích lỗi để tìm kiếm giải pháp](#kỹ-thuật-phân-tích-lỗi-để-tìm-kiếm-giải-pháp)
   - [🧑‍🏫 Bài 2: Công cụ tìm kiếm chuyên dụng cho lập trình](#-bài-2-công-cụ-tìm-kiếm-chuyên-dụng-cho-lập-trình)
+    - [Các nền tảng hỏi đáp và chia sẻ kiến thức](#các-nền-tảng-hỏi-đáp-và-chia-sẻ-kiến-thức)
+    - [Tài liệu API và thư viện](#tài-liệu-api-và-thư-viện)
+    - [Cộng đồng và diễn đàn chuyên ngành](#cộng-đồng-và-diễn-đàn-chuyên-ngành)
   - [🧑‍🏫 Bài 3: Đánh giá độ tin cậy của thông tin](#-bài-3-đánh-giá-độ-tin-cậy-của-thông-tin)
+    - [Tiêu chí đánh giá nguồn thông tin](#tiêu-chí-đánh-giá-nguồn-thông-tin)
+    - [Phân biệt ý kiến cá nhân và thực tế khách quan](#phân-biệt-ý-kiến-cá-nhân-và-thực-tế-khách-quan)
+    - [Nhận biết thông tin lỗi thời hoặc sai lệch](#nhận-biết-thông-tin-lỗi-thời-hoặc-sai-lệch)
   - [🧑‍🏫 Bài 4: Tổ chức và quản lý thông tin](#-bài-4-tổ-chức-và-quản-lý-thông-tin)
+    - [Công cụ lưu trữ và tổ chức thông tin](#công-cụ-lưu-trữ-và-tổ-chức-thông-tin)
+    - [Phương pháp tổ chức thông tin](#phương-pháp-tổ-chức-thông-tin)
+    - [Chiến lược học tập và ứng dụng thông tin](#chiến-lược-học-tập-và-ứng-dụng-thông-tin)
   - [🧪 BÀI TẬP THỰC HÀNH](#-bài-tập-thực-hành)
 
 ## 🎯 Mục tiêu tổng quát
@@ -19,14 +32,14 @@
 
 ## 🧑‍🏫 Bài 1: Cơ sở và chiến lược tìm kiếm thông tin
 
-**Tầm quan trọng của kỹ năng tìm kiếm thông tin:**
+### Tầm quan trọng của kỹ năng tìm kiếm thông tin
 
 - Công nghệ thay đổi nhanh chóng, không thể nắm vững mọi kiến thức
 - Khả năng tìm kiếm thông tin hiệu quả quan trọng hơn việc ghi nhớ tất cả
 - Giúp giải quyết vấn đề nhanh và hiệu quả
 - Cơ sở để học hỏi công nghệ mới liên tục
 
-**Nguyên tắc tìm kiếm hiệu quả:**
+### Nguyên tắc tìm kiếm hiệu quả
 
 1. **Xác định rõ vấn đề cần tìm**
 
@@ -47,7 +60,7 @@
    - Thử các cách diễn đạt khác nhau nếu không tìm thấy kết quả
    - Kết hợp nhiều nguồn thông tin khác nhau
 
-**Kỹ thuật tìm kiếm nâng cao với Google:**
+### Kỹ thuật tìm kiếm nâng cao với Google
 
 - **Tìm kiếm cụm từ chính xác**: `"cách sử dụng hashmap java"`
 - **Loại trừ từ khóa**: `java collections -python` (tìm về collections trong JAVA, loại trừ Python)
@@ -58,7 +71,7 @@
 - **Sử dụng toán tử OR**: `java (hashmap OR hashtable) performance`
 - **Giới hạn thời gian**: Tìm kiếm tài liệu được cập nhật trong năm gần đây
 
-**Kỹ thuật phân tích lỗi để tìm kiếm giải pháp:**
+### Kỹ thuật phân tích lỗi để tìm kiếm giải pháp
 
 - Sao chép chính xác thông báo lỗi vào công cụ tìm kiếm
 - Loại bỏ thông tin cụ thể chỉ liên quan đến mã của bạn (đường dẫn file, tên biến đặc thù)
@@ -69,7 +82,7 @@
 
 ## 🧑‍🏫 Bài 2: Công cụ tìm kiếm chuyên dụng cho lập trình
 
-**Các nền tảng hỏi đáp và chia sẻ kiến thức:**
+### Các nền tảng hỏi đáp và chia sẻ kiến thức
 
 1. **Stack Overflow**
 
@@ -90,7 +103,7 @@
    - Theo dõi các tác giả và ấn phẩm chuyên về công nghệ bạn quan tâm
    - Sử dụng các bộ lọc theo chủ đề, ngôn ngữ lập trình
 
-**Tài liệu API và thư viện:**
+### Tài liệu API và thư viện
 
 1. **Cách đọc và tìm kiếm trong tài liệu API**
 
@@ -109,7 +122,7 @@
    - Dash (macOS) hoặc Zeal (Windows/Linux) - truy cập tài liệu ngoại tuyến
    - Công cụ tra cứu API tích hợp trong IDE
 
-**Cộng đồng và diễn đàn chuyên ngành:**
+### Cộng đồng và diễn đàn chuyên ngành
 
 1. **Reddit** (/r/programming, /r/java, /r/learnprogramming,...)
 
@@ -130,7 +143,7 @@
 
 ## 🧑‍🏫 Bài 3: Đánh giá độ tin cậy của thông tin
 
-**Tiêu chí đánh giá nguồn thông tin:**
+### Tiêu chí đánh giá nguồn thông tin
 
 1. **Tính thời sự**
 
@@ -157,7 +170,7 @@
    - Chú ý đến điểm đồng thuận và khác biệt
    - Ưu tiên thông tin được nhiều nguồn đáng tin cậy xác nhận
 
-**Phân biệt ý kiến cá nhân và thực tế khách quan:**
+### Phân biệt ý kiến cá nhân và thực tế khách quan
 
 1. **Nhận diện ý kiến cá nhân**
 
@@ -170,7 +183,7 @@
    - Thừa nhận các giới hạn hoặc điều kiện áp dụng
    - Trình bày nhiều góc nhìn khác nhau
 
-**Nhận biết thông tin lỗi thời hoặc sai lệch:**
+### Nhận biết thông tin lỗi thời hoặc sai lệch
 
 1. **Dấu hiệu của thông tin lỗi thời**
 
@@ -188,7 +201,7 @@
 
 ## 🧑‍🏫 Bài 4: Tổ chức và quản lý thông tin
 
-**Công cụ lưu trữ và tổ chức thông tin:**
+### Công cụ lưu trữ và tổ chức thông tin
 
 1. **Sử dụng Bookmark và thẻ**
 
@@ -207,7 +220,7 @@
    - Snippets feature trong các IDE
    - Boostnote - Ghi chú dành cho lập trình viên
 
-**Phương pháp tổ chức thông tin:**
+### Phương pháp tổ chức thông tin
 
 1. **Phương pháp PARA**
 
@@ -227,7 +240,7 @@
    - Xây dựng mối quan hệ giữa các khái niệm, công nghệ
    - Cập nhật thường xuyên khi học thêm kiến thức mới
 
-**Chiến lược học tập và ứng dụng thông tin:**
+### Chiến lược học tập và ứng dụng thông tin
 
 1. **Phương pháp Feynman**
 

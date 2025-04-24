@@ -3,15 +3,41 @@
 - [📘 PHẦN 6: PHÁT TRIỂN VÀ TRIỂN KHAI CHUYÊN NGHIỆP](#-phần-6-phát-triển-và-triển-khai-chuyên-nghiệp)
   - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
   - [🧑‍🏫 Bài 26: Quy trình phát triển phần mềm chuyên nghiệp](#-bài-26-quy-trình-phát-triển-phần-mềm-chuyên-nghiệp)
+    - [Git Flow và Quản lý phiên bản](#git-flow-và-quản-lý-phiên-bản)
+    - [Code Reviews và Pull Requests](#code-reviews-và-pull-requests)
+    - [Áp dụng TDD (Test-Driven Development)](#áp-dụng-tdd-test-driven-development)
+    - [Áp dụng DDD (Domain-Driven Design)](#áp-dụng-ddd-domain-driven-design)
+    - [Quy trình làm việc với Jira/Trello](#quy-trình-làm-việc-với-jiratrello)
   - [🧑‍🏫 Bài 27: CI/CD cho ứng dụng PHP](#-bài-27-cicd-cho-ứng-dụng-php)
+    - [Giới thiệu CI/CD](#giới-thiệu-cicd)
+    - [Thiết lập PHPUnit trong dự án](#thiết-lập-phpunit-trong-dự-án)
+    - [Code Quality Tools](#code-quality-tools)
+    - [PHP Static Analysis Tool (PHPStan)](#php-static-analysis-tool-phpstan)
+    - [Triển khai tự động với Laravel Forge/Envoyer](#triển-khai-tự-động-với-laravel-forgeenvoyer)
+    - [Zero-Downtime Deployment](#zero-downtime-deployment)
   - [🧑‍🏫 Bài 28: Giám sát và logging ứng dụng PHP](#-bài-28-giám-sát-và-logging-ứng-dụng-php)
+    - [Monolog trong PHP](#monolog-trong-php)
+    - [Giám sát với ELK Stack (Elasticsearch, Logstash, Kibana)](#giám-sát-với-elk-stack-elasticsearch-logstash-kibana)
+    - [Cấu hình Logstash](#cấu-hình-logstash)
+    - [Monitoring với Prometheus và Grafana](#monitoring-với-prometheus-và-grafana)
+    - [Prometheus Metrics Endpoint](#prometheus-metrics-endpoint)
+    - [Xử lý Exception và Error Tracking](#xử-lý-exception-và-error-tracking)
   - [🧑‍🏫 Bài 29: Performance tuning và profiling](#-bài-29-performance-tuning-và-profiling)
+    - [Công cụ Profiling cho PHP](#công-cụ-profiling-cho-php)
+    - [Blackfire.io Integration](#blackfireio-integration)
+    - [Database Query Optimization](#database-query-optimization)
+    - [Caching Strategies](#caching-strategies)
+    - [Load Testing với k6](#load-testing-với-k6)
+    - [Best Practices cho Performance](#best-practices-cho-performance)
   - [🧑‍🏫 Bài 30: Chuẩn bị cho phỏng vấn PHP và phát triển sự nghiệp](#-bài-30-chuẩn-bị-cho-phỏng-vấn-php-và-phát-triển-sự-nghiệp)
-  - [🧪 DỰ ÁN TỔNG HỢP CUỐI KHÓA](#-dự-án-tổng-hợp-cuối-khóa)
-    - [**Đề bài: Xây dựng hệ thống E-Learning hoàn chỉnh**](#đề-bài-xây-dựng-hệ-thống-e-learning-hoàn-chỉnh)
-    - [**Yêu cầu:**](#yêu-cầu)
-    - [**Cấu trúc dự án:**](#cấu-trúc-dự-án)
-    - [**Tiêu chí đánh giá:**](#tiêu-chí-đánh-giá)
+    - [Câu hỏi phỏng vấn PHP thường gặp](#câu-hỏi-phỏng-vấn-php-thường-gặp)
+    - [Porfolio và Open Source](#porfolio-và-open-source)
+    - [Career Path trong PHP](#career-path-trong-php)
+    - [Technical Interview Preparation](#technical-interview-preparation)
+  - [🧪 DỰ ÁN TỔNG HỢP CUỐI KHÓA: Xây dựng hệ thống E-Learning hoàn chỉnh](#-dự-án-tổng-hợp-cuối-khóa-xây-dựng-hệ-thống-e-learning-hoàn-chỉnh)
+    - [Yêu cầu](#yêu-cầu)
+    - [Cấu trúc dự án](#cấu-trúc-dự-án)
+    - [Tiêu chí đánh giá](#tiêu-chí-đánh-giá)
 
 ## 🎯 Mục tiêu tổng quát
 
@@ -25,7 +51,7 @@
 
 ## 🧑‍🏫 Bài 26: Quy trình phát triển phần mềm chuyên nghiệp
 
-**Git Flow và Quản lý phiên bản:**
+### Git Flow và Quản lý phiên bản
 
 ```bash
 # Cài đặt Git Flow
@@ -50,7 +76,7 @@ git flow hotfix start critical-bug
 git flow hotfix finish critical-bug
 ```
 
-**Code Reviews và Pull Requests:**
+### Code Reviews và Pull Requests
 
 ```php
 <?php
@@ -89,7 +115,7 @@ class DataRepository {
 ?>
 ```
 
-**Áp dụng TDD (Test-Driven Development):**
+### Áp dụng TDD (Test-Driven Development)
 
 ```php
 <?php
@@ -152,7 +178,7 @@ class UserServiceTest extends TestCase
 ?>
 ```
 
-**Áp dụng DDD (Domain-Driven Design):**
+### Áp dụng DDD (Domain-Driven Design)
 
 ```php
 <?php
@@ -237,43 +263,43 @@ class MySqlUserRepository implements UserRepository {
 ?>
 ```
 
-**Quản lý dự án với Jira/Trello:**
+### Quy trình làm việc với Jira/Trello
 
-```php
-<?php
-/*
-Quy trình làm việc với Jira/Trello:
+1. **Backlog**:
 
-1. Backlog:
    - Tạo User Stories/Tasks
    - Ước tính Story Points/Effort
 
-2. Sprint Planning:
+2. **Sprint Planning**:
+
    - Chọn User Stories cho sprint
    - Phân chia tasks
 
-3. Daily Standup:
+3. **Daily Standup**:
+
    - Đã làm gì hôm qua?
    - Sẽ làm gì hôm nay?
    - Có blockers nào không?
 
-4. Sprint Review:
+4. **Sprint Review**:
+
    - Demo các tính năng đã hoàn thành
    - Lấy feedback
 
-5. Sprint Retrospective:
+5. **Sprint Retrospective**:
+
    - Điều gì đã làm tốt?
    - Điều gì cần cải thiện?
    - Các hành động cho sprint tiếp theo
-*/
-?>
-```
 
 ---
 
 ## 🧑‍🏫 Bài 27: CI/CD cho ứng dụng PHP
 
-**Giới thiệu CI/CD:**
+### Giới thiệu CI/CD
+
+- **Continuous Integration (CI)**: Tự động hóa việc kiểm tra mã nguồn khi có thay đổi. Mỗi lần commit sẽ trigger build và test.
+- **Continuous Deployment (CD)**: Tự động hóa việc triển khai ứng dụng lên môi trường production sau khi CI hoàn tất.
 
 ```yaml
 # .github/workflows/php-ci.yml
@@ -327,7 +353,7 @@ jobs:
           file: ./coverage.xml
 ```
 
-**Thiết lập PHPUnit trong dự án:**
+### Thiết lập PHPUnit trong dự án
 
 ```php
 <?php
@@ -371,7 +397,7 @@ jobs:
 </phpunit>
 ```
 
-**Code Quality Tools:**
+### Code Quality Tools
 
 ```php
 <?php
@@ -405,7 +431,7 @@ jobs:
 </ruleset>
 ```
 
-**PHP Static Analysis Tool (PHPStan):**
+### PHP Static Analysis Tool (PHPStan)
 
 ```php
 <?php
@@ -425,21 +451,23 @@ parameters:
   checkGenericClassInNonGenericObjectType: false
 ```
 
-**Triển khai tự động với Laravel Forge/Envoyer:**
+### Triển khai tự động với Laravel Forge/Envoyer
+
+Quy trình triển khai của Laravel Forge
+
+1. Connect to repository (GitHub/GitLab/Bitbucket)
+2. Khi có commit mới vào branch cần deploy (main/master)
+   - Pull changes from repository
+   - Run composer install --no-dev
+   - Run npm ci && npm run build (nếu có frontend)
+   - Run migrations: php artisan migrate --force
+   - Reload PHP-FPM
+   - Clear cache: php artisan cache:clear
+   - Restart queues: php artisan queue:restart
+
+Hoặc cấu hình deploy script tùy chỉnh
 
 ```bash
-# Quy trình triển khai của Laravel Forge
-# 1. Connect to repository (GitHub/GitLab/Bitbucket)
-# 2. Khi có commit mới vào branch cần deploy (main/master)
-# - Pull changes from repository
-# - Run composer install --no-dev
-# - Run npm ci && npm run build (nếu có frontend)
-# - Run migrations: php artisan migrate --force
-# - Reload PHP-FPM
-# - Clear cache: php artisan cache:clear
-# - Restart queues: php artisan queue:restart
-
-# Hoặc cấu hình deploy script tùy chỉnh
 composer install --no-dev
 php artisan migrate --force
 php artisan optimize
@@ -448,52 +476,54 @@ php artisan route:cache
 php artisan view:cache
 ```
 
-**Zero-Downtime Deployment:**
+### Zero-Downtime Deployment
 
-```php
-<?php
-/*
 Quy trình Zero-Downtime Deployment:
 
-1. Chuẩn bị:
+1. **Chuẩn bị**:
+
    - Tạo thư mục release mới
    - Sao chép code mới vào release directory
 
-2. Cài đặt dependencies:
+2. **Cài đặt dependencies**:
+
    - composer install --no-dev
 
-3. Cấu hình:
+3. **Cấu hình**:
+
    - Sao chép/symlink các file cấu hình và .env
 
-4. Tối ưu:
+4. **Tối ưu**:
+
    - php artisan optimize
    - php artisan config:cache
    - php artisan route:cache
    - php artisan view:cache
 
-5. Migrations:
+5. **Migrations**:
+
    - php artisan migrate --force
-   (Đảm bảo migrations không gây downtime)
+     (Đảm bảo migrations không gây downtime)
 
-6. Cập nhật symlink:
+6. **Cập nhật symlink**:
+
    - Point symlink "current" vào release mới
-   (Đây là "atomic switch" - gần như ngay lập tức và không downtime)
+     (Đây là "atomic switch" - gần như ngay lập tức và không downtime)
 
-7. Restart các services:
+7. **Restart các services**:
+
    - php-fpm reload
    - php artisan queue:restart
 
-8. Dọn dẹp:
+8. **Dọn dẹp**:
+
    - Giữ X releases gần nhất, xóa các release cũ
-*/
-?>
-```
 
 ---
 
 ## 🧑‍🏫 Bài 28: Giám sát và logging ứng dụng PHP
 
-**Monolog trong PHP:**
+### Monolog trong PHP
 
 ```php
 <?php
@@ -538,7 +568,7 @@ $logger->error('Payment failed', [
 ?>
 ```
 
-**Giám sát với ELK Stack (Elasticsearch, Logstash, Kibana):**
+### Giám sát với ELK Stack (Elasticsearch, Logstash, Kibana)
 
 ```yml
 # docker-compose.yml cho ELK stack
@@ -577,7 +607,7 @@ volumes:
   elasticsearch-data:
 ```
 
-**Cấu hình Logstash:**
+### Cấu hình Logstash
 
 ```conf
 # logstash-config/logstash.conf
@@ -612,7 +642,7 @@ output {
 }
 ```
 
-**Monitoring với Prometheus và Grafana:**
+### Monitoring với Prometheus và Grafana
 
 ```php
 <?php
@@ -650,7 +680,7 @@ $gauge->set(DB::getConnectionCount());
 ?>
 ```
 
-**Prometheus Metrics Endpoint:**
+### Prometheus Metrics Endpoint
 
 ```php
 <?php
@@ -669,7 +699,7 @@ echo $renderer->render($registry->getMetricFamilySamples());
 ?>
 ```
 
-**Xử lý Exception và Error Tracking:**
+### Xử lý Exception và Error Tracking
 
 ```php
 <?php
@@ -741,7 +771,7 @@ try {
 
 ## 🧑‍🏫 Bài 29: Performance tuning và profiling
 
-**Công cụ Profiling cho PHP:**
+### Công cụ Profiling cho PHP
 
 ```php
 <?php
@@ -772,31 +802,33 @@ file_put_contents(
 ?>
 ```
 
-**Blackfire.io Integration:**
+### Blackfire.io Integration
 
-```php
-<?php
-// Tích hợp Blackfire.io
+Tích hợp Blackfire.io
 
-// 1. Cài đặt Blackfire Agent và PHP Probe
-// https://blackfire.io/docs/up-and-running/installation
+1. Cài đặt Blackfire Agent và PHP Probe theo [hướng dẫn](https://blackfire.io/docs/integrations/php)
 
-// 2. Sử dụng Blackfire SDK để profile code cụ thể
-// composer require blackfire/php-sdk
+2. Sử dụng Blackfire SDK để profile code cụ thể
 
-\BlackfireProbe::getMainInstance()->enable();
+   ```bash
+   composer require blackfire/php-sdk
+   ```
 
-// Code cần profile
-$result = complexCalculation();
+   ```php
+   <?php
+   \BlackfireProbe::getMainInstance()->enable();
 
-\BlackfireProbe::getMainInstance()->disable();
+   // Code cần profile
+   $result = complexCalculation();
 
-// 3. Web UI cho tương tác với dashboard
-// Sử dụng Chrome extension để trigger profile
-?>
-```
+   \BlackfireProbe::getMainInstance()->disable();
 
-**Database Query Optimization:**
+   // 3. Web UI cho tương tác với dashboard
+   // Sử dụng Chrome extension để trigger profile
+   ?>
+   ```
+
+### Database Query Optimization
 
 ```php
 <?php
@@ -847,7 +879,7 @@ $stmt = $pdo->query(
 ?>
 ```
 
-**Caching Strategies:**
+### Caching Strategies
 
 ```php
 <?php
@@ -929,7 +961,7 @@ function updateProduct($productId, $data) {
 ?>
 ```
 
-**Load Testing với k6:**
+### Load Testing với k6
 
 ```js
 // load-test.js - k6 script
@@ -972,104 +1004,112 @@ export default function () {
 }
 ```
 
-**Best Practices cho Performance:**
+### Best Practices cho Performance
 
-```php
-<?php
-// 1. Opcache configuration
-/*
-[opcache]
-opcache.enable=1
-opcache.memory_consumption=128
-opcache.interned_strings_buffer=8
-opcache.max_accelerated_files=10000
-opcache.validate_timestamps=0 # trong production
-opcache.save_comments=1
-opcache.fast_shutdown=1
-opcache.enable_file_override=1
-opcache.jit=1255
-opcache.jit_buffer_size=100M
-*/
+1. Sử dụng Opcode Cache (OPcache)
 
-// 2. Avoid eager loading of unnecessary code
-// Sử dụng composer autoloader optimization
-// composer dump-autoload --optimize
+   - Tăng tốc độ thực thi mã PHP bằng cách lưu trữ bytecode đã biên dịch.
+   - Cấu hình OPcache trong php.ini
 
-// 3. Sử dụng connection pooling cho database
-// Using PgBouncer hoặc ProxySQL
+   ```ini
+   [opcache]
+   opcache.enable=1
+   opcache.memory_consumption=128
+   opcache.interned_strings_buffer=8
+   opcache.max_accelerated_files=10000
+   opcache.validate_timestamps=0 # trong production
+   opcache.save_comments=1
+   opcache.fast_shutdown=1
+   opcache.enable_file_override=1
+   opcache.jit=1255
+   opcache.jit_buffer_size=100M
+   ```
 
-// 4. Tối ưu file size
-// Minify & Combine CSS/JS cho frontend
-// Enable HTTP/2
-// Enable Gzip compression
+2. Tránh eager loading của các đoạn mã không cần thiết
 
-// 5. CDN cho static assets
+   - Sử dụng composer autoloader optimization
 
-// 6. Sử dụng queues cho heavy processing
-// Ví dụ: email, file processing, report generation
-use PhpAmqpLib\Connection\AMQPStreamConnection;
-use PhpAmqpLib\Message\AMQPMessage;
+   ```bash
+   composer dump-autoload --optimize
+   ```
 
-// Publish job to queue
-function queueEmailJob($emailData) {
-    $connection = new AMQPStreamConnection('localhost', 5672, 'guest', 'guest');
-    $channel = $connection->channel();
+3. Sử dụng connection pooling cho database
 
-    $channel->queue_declare('email_queue', false, true, false, false);
+   - Sử dụng PgBouncer hoặc ProxySQL để giảm overhead khi tạo kết nối mới.
+   - Cấu hình PgBouncer
 
-    $msg = new AMQPMessage(
-        json_encode($emailData),
-        ['delivery_mode' => AMQPMessage::DELIVERY_MODE_PERSISTENT]
-    );
+   ```ini
+   [databases]
+   mydb = host=localhost dbname=mydb user=myuser password=mypassword
+   ```
 
-    $channel->basic_publish($msg, '', 'email_queue');
+4. Tối ưu file size
+   - Minify & Combine CSS/JS cho frontend.
+   - Enable HTTP/2 để giảm latency.
+   - Enable Gzip compression để giảm kích thước response.
+5. Sử dụng CDN cho static assets
+6. Sử dụng queues cho heavy processing
 
-    $channel->close();
-    $connection->close();
-}
+   - Ví dụ: email, file processing, report generation.
+   - Sử dụng RabbitMQ hoặc Redis để xử lý queue.
 
-// Worker để xử lý queue
-function startEmailWorker() {
-    $connection = new AMQPStreamConnection('localhost', 5672, 'guest', 'guest');
-    $channel = $connection->channel();
+   ```php
+   // Publish job to queue
+   function queueEmailJob($emailData) {
+       $connection = new AMQPStreamConnection('localhost', 5672, 'guest', 'guest');
+       $channel = $connection->channel();
 
-    $channel->queue_declare('email_queue', false, true, false, false);
+       $channel->queue_declare('email_queue', false, true, false, false);
 
-    $callback = function($msg) {
-        $emailData = json_decode($msg->body, true);
+       $msg = new AMQPMessage(
+           json_encode($emailData),
+           ['delivery_mode' => AMQPMessage::DELIVERY_MODE_PERSISTENT]
+       );
 
-        try {
-            // Process email
-            sendEmail($emailData);
-            $msg->delivery_info['channel']->basic_ack($msg->delivery_info['delivery_tag']);
-        } catch (Exception $e) {
-            // Log error và reject message
-            $msg->delivery_info['channel']->basic_reject($msg->delivery_info['delivery_tag'], false);
-        }
-    };
+       $channel->basic_publish($msg, '', 'email_queue');
 
-    $channel->basic_qos(null, 1, null);
-    $channel->basic_consume('email_queue', '', false, false, false, false, $callback);
+       $channel->close();
+       $connection->close();
+   }
 
-    while(count($channel->callbacks)) {
-        $channel->wait();
-    }
-}
-?>
-```
+   // Worker để xử lý queue
+   function startEmailWorker() {
+       $connection = new AMQPStreamConnection('localhost', 5672, 'guest', 'guest');
+       $channel = $connection->channel();
+
+       $channel->queue_declare('email_queue', false, true, false, false);
+
+       $callback = function($msg) {
+           $emailData = json_decode($msg->body, true);
+
+           try {
+               // Process email
+               sendEmail($emailData);
+               $msg->delivery_info['channel']->basic_ack($msg->delivery_info['delivery_tag']);
+           } catch (Exception $e) {
+               // Log error và reject message
+               $msg->delivery_info['channel']->basic_reject($msg->delivery_info['delivery_tag'], false);
+           }
+       };
+
+       $channel->basic_qos(null, 1, null);
+       $channel->basic_consume('email_queue', '', false, false, false, false, $callback);
+
+       while(count($channel->callbacks)) {
+           $channel->wait();
+       }
+   }
+   ?>
+   ```
 
 ---
 
 ## 🧑‍🏫 Bài 30: Chuẩn bị cho phỏng vấn PHP và phát triển sự nghiệp
 
-**Câu hỏi phỏng vấn PHP thường gặp:**
-
-```php
-<?php
-/*
-Câu hỏi phỏng vấn PHP:
+### Câu hỏi phỏng vấn PHP thường gặp
 
 1. PHP Cơ bản:
+
    - Sự khác biệt giữa "==" và "==="?
    - Các kiểu dữ liệu trong PHP?
    - Magic methods trong PHP?
@@ -1077,6 +1117,7 @@ Câu hỏi phỏng vấn PHP:
    - Scope trong PHP (global/local)?
 
 2. OOP trong PHP:
+
    - Tính đóng gói, kế thừa, đa hình là gì?
    - Interface vs Abstract class?
    - Type hinting trong PHP?
@@ -1084,6 +1125,7 @@ Câu hỏi phỏng vấn PHP:
    - Namespaces và mục đích sử dụng?
 
 3. Design Patterns:
+
    - Singleton pattern là gì và khi nào sử dụng?
    - MVC pattern và vai trò của mỗi thành phần?
    - Factory pattern và khi nào nên áp dụng?
@@ -1091,6 +1133,7 @@ Câu hỏi phỏng vấn PHP:
    - Dependency Injection và lợi ích?
 
 4. Database và SQL:
+
    - Prepared statements là gì và tại sao nên dùng?
    - MySQL vs PostgreSQL - khi nào nên dùng?
    - Indexing trong database?
@@ -1098,6 +1141,7 @@ Câu hỏi phỏng vấn PHP:
    - Transactions là gì và khi nào cần dùng?
 
 5. Security:
+
    - Cross-site scripting (XSS) và cách phòng chống?
    - SQL Injection và cách ngăn chặn?
    - CSRF là gì và làm thế nào để bảo vệ?
@@ -1105,6 +1149,7 @@ Câu hỏi phỏng vấn PHP:
    - Session security best practices?
 
 6. Modern PHP:
+
    - Composer là gì và làm thế nào để quản lý dependencies?
    - PSR standards là gì?
    - PHP 8 features mới?
@@ -1112,29 +1157,26 @@ Câu hỏi phỏng vấn PHP:
    - Docker và containerization trong PHP?
 
 7. Testing:
+
    - Unit testing vs Integration testing?
    - PHPUnit là gì và cách sử dụng?
    - Mocking trong testing?
    - TDD là gì và tại sao nên áp dụng?
 
 8. Performance:
+
    - Cách tối ưu hiệu năng PHP?
    - Caching strategies trong PHP?
    - Opcache là gì và cách cấu hình?
    - JIT trong PHP 8?
    - Khi nào cần sử dụng queues?
-*/
-?>
-```
 
-**Porfolio và Open Source:**
+### Porfolio và Open Source
 
-```php
-<?php
-/*
 Xây dựng Portfolio Developer PHP:
 
 1. Các dự án nên có trong portfolio:
+
    - CRUD application sử dụng MVC framework
    - RESTful API hoặc GraphQL API
    - Ứng dụng với authentication/authorization
@@ -1142,6 +1184,7 @@ Xây dựng Portfolio Developer PHP:
    - Tích hợp third-party APIs
 
 2. Đóng góp open source:
+
    - Tìm các repositories PHP phù hợp trên GitHub
    - Bắt đầu với "good first issues"
    - Đóng góp documentation
@@ -1149,28 +1192,23 @@ Xây dựng Portfolio Developer PHP:
    - Tạo các packages PHP nhỏ
 
 3. Blog kỹ thuật:
+
    - Viết về các khái niệm PHP bạn vừa học
    - Chia sẻ case studies từ các dự án
    - Tutorials về các công nghệ PHP mới
    - Phân tích performance và security issues
-*/
-?>
-```
 
-**Career Path trong PHP:**
-
-```php
-<?php
-/*
-Lộ trình phát triển sự nghiệp PHP:
+### Career Path trong PHP
 
 1. Junior PHP Developer (0-2 năm):
+
    - Nắm vững PHP cơ bản và OOP
    - Làm quen với ít nhất một framework (Laravel/Symfony)
    - Hiểu database và SQL cơ bản
    - Kiến thức cơ bản về HTML, CSS, JavaScript
 
 2. Mid-level PHP Developer (2-5 năm):
+
    - Hiểu sâu về framework
    - Design patterns và architectural patterns
    - Unit testing và CI/CD
@@ -1180,6 +1218,7 @@ Lộ trình phát triển sự nghiệp PHP:
    - Git workflow chuyên nghiệp
 
 3. Senior PHP Developer (5+ năm):
+
    - System design và architecture
    - Microservices và distributed systems
    - Infrastructure và DevOps
@@ -1189,6 +1228,7 @@ Lộ trình phát triển sự nghiệp PHP:
    - Cross-functional collaboration
 
 4. Tech Lead / Architect:
+
    - Định hướng kiến trúc hệ thống
    - Lựa chọn công nghệ và technical roadmap
    - Quản lý technical debt
@@ -1197,21 +1237,14 @@ Lộ trình phát triển sự nghiệp PHP:
    - Giao tiếp với stakeholders
 
 5. Specialized paths:
+
    - DevOps Engineer
    - Security Specialist
    - Performance Engineer
    - API Architect
    - Open Source Contributor
-*/
-?>
-```
 
-**Technical Interview Preparation:**
-
-```php
-<?php
-/*
-Chuẩn bị cho technical interview:
+### Technical Interview Preparation
 
 1. Coding challenges:
    - Thực hành trên LeetCode/HackerRank
@@ -1233,8 +1266,9 @@ Chuẩn bị cho technical interview:
    - Engineering culture và processes
    - Career growth và mentorship
    - Work-life balance
-*/
 
+```php
+<?php
 // Ví dụ: Bài tập Coding Challenge thường gặp
 function isPalindrome(string $str): bool {
     $str = preg_replace('/[^a-z0-9]/i', '', strtolower($str));
@@ -1302,19 +1336,17 @@ Theo dõi và cập nhật kiến thức PHP:
 
 ---
 
-## 🧪 DỰ ÁN TỔNG HỢP CUỐI KHÓA
+## 🧪 DỰ ÁN TỔNG HỢP CUỐI KHÓA: Xây dựng hệ thống E-Learning hoàn chỉnh
 
-### **Đề bài: Xây dựng hệ thống E-Learning hoàn chỉnh**
+### Yêu cầu
 
-### **Yêu cầu:**
-
-1. **Kiến trúc hệ thống:**
+1. Kiến trúc hệ thống:
 
    - Áp dụng kiến trúc microservices
    - Sử dụng Docker để containerize các services
    - Triển khai CI/CD pipeline
 
-2. **Core Modules:**
+2. Core Modules:
 
    - Authentication Service (đăng ký, đăng nhập, quản lý người dùng)
    - Course Service (tạo khóa học, quản lý nội dung)
@@ -1323,7 +1355,7 @@ Theo dõi và cập nhật kiến thức PHP:
    - Analytics Service (thống kê, báo cáo)
    - Payment Service (thanh toán khóa học)
 
-3. **Yêu cầu kỹ thuật:**
+3. Yêu cầu kỹ thuật:
 
    - Backend API: PHP 8.1+, Laravel/Symfony
    - Database: MySQL/PostgreSQL
@@ -1336,7 +1368,7 @@ Theo dõi và cập nhật kiến thức PHP:
    - Monitoring: Prometheus/Grafana
    - Testing: PHPUnit, Jest
 
-4. **Tính năng:**
+4. Tính năng:
 
    - Đăng ký/đăng nhập (email, social)
    - Bảng điều khiển người dùng/giảng viên
@@ -1348,7 +1380,8 @@ Theo dõi và cập nhật kiến thức PHP:
    - Tích hợp notifications (email, push)
    - Admin panel quản lý toàn hệ thống
 
-5. **Advanced Features:**
+5. Advanced Features:
+
    - Real-time chat với giảng viên
    - Video conferencing cho live classes
    - Recommendation system cho khóa học
@@ -1357,7 +1390,7 @@ Theo dõi và cập nhật kiến thức PHP:
    - Multilingual support
    - Content caching và CDN integration
 
-### **Cấu trúc dự án:**
+### Cấu trúc dự án
 
 ```text
 e-learning-platform/
@@ -1408,49 +1441,50 @@ e-learning-platform/
     └── kibana/
 ```
 
-### **Tiêu chí đánh giá:**
+### Tiêu chí đánh giá
 
-1. **Code Quality:**
+1. Code Quality:
 
    - Clean code và best practices
    - Proper documentation
    - Design patterns sử dụng phù hợp
    - Code consistency và style standards (PSR)
 
-2. **Architecture:**
+2. Architecture:
 
    - Microservices communication
    - System resilience
    - Scaling capabilities
    - Service boundaries
 
-3. **Testing:**
+3. Testing:
 
    - Unit tests (minimum 70% coverage)
    - Integration tests
    - E2E tests cho critical flows
 
-4. **Performance:**
+4. Performance:
 
    - Optimization techniques
    - Caching strategy
    - Response time (<300ms cho APIs)
 
-5. **Security:**
+5. Security:
 
    - Authentication/Authorization
    - Data protection
    - Input validation
    - CSRF/XSS prevention
 
-6. **CI/CD:**
+6. CI/CD:
 
    - Automated testing
    - Deployment pipeline
    - Environment configurations
    - Monitoring integration
 
-7. **Documentation:**
+7. Documentation:
+
    - API documentation
    - System architecture diagrams
    - Setup and deployment instructions
@@ -1460,4 +1494,4 @@ e-learning-platform/
 
 [⬅️ Trở lại: PHP/Part5.md](../PHP/Part5.md) |
 [🏠 Home](../README.md) |
-[➡️ Tiếp theo: DOCKER/Docker.md](../DOCKER/Docker.md.md)
+[➡️ Tiếp theo: DOCKER/Docker.md](../DOCKER/Docker.md)

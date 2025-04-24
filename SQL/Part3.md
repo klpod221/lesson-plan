@@ -24,8 +24,9 @@
     - [Kết nối cơ sở dữ liệu từ ứng dụng](#kết-nối-cơ-sở-dữ-liệu-từ-ứng-dụng)
     - [Tối ưu truy vấn cho ứng dụng web](#tối-ưu-truy-vấn-cho-ứng-dụng-web)
     - [Xử lý vấn đề N+1 và hiệu suất](#xử-lý-vấn-đề-n1-và-hiệu-suất)
-  - [🧪 BÀI TẬP LỚN CUỐI PHẦN](#-bài-tập-lớn-cuối-phần)
-    - [**Đề bài: Quản lý giao dịch mượn sách thư viện**](#đề-bài-quản-lý-giao-dịch-mượn-sách-thư-viện)
+  - [🧪 BÀI TẬP LỚN CUỐI PHẦN: Quản lý giao dịch mượn sách thư viện](#-bài-tập-lớn-cuối-phần-quản-lý-giao-dịch-mượn-sách-thư-viện)
+    - [Mô tả bài toán](#mô-tả-bài-toán)
+    - [Yêu cầu](#yêu-cầu)
 
 ## 🎯 Mục tiêu tổng quát
 
@@ -674,9 +675,9 @@ GROUP BY s.student_id, s.first_name, s.last_name;
 
 ---
 
-## 🧪 BÀI TẬP LỚN CUỐI PHẦN
+## 🧪 BÀI TẬP LỚN CUỐI PHẦN: Quản lý giao dịch mượn sách thư viện
 
-### **Đề bài: Quản lý giao dịch mượn sách thư viện**
+### Mô tả bài toán
 
 Xây dựng cơ sở dữ liệu quản lý thư viện với các bảng:
 
@@ -684,7 +685,7 @@ Xây dựng cơ sở dữ liệu quản lý thư viện với các bảng:
 - `Users`: thông tin người dùng
 - `Borrowings`: giao dịch mượn sách
 
-Yêu cầu:
+### Yêu cầu
 
 - Thiết kế cấu trúc dữ liệu đầy đủ với các ràng buộc
 - Tạo các stored procedure để:

@@ -21,22 +21,11 @@
   - [🧑‍🏫 Bài 2: Kỹ thuật hai con trỏ và cửa sổ trượt](#-bài-2-kỹ-thuật-hai-con-trỏ-và-cửa-sổ-trượt)
     - [1. Kỹ thuật hai con trỏ (Two Pointers)](#1-kỹ-thuật-hai-con-trỏ-two-pointers)
       - [a. Hai con trỏ cùng hướng (Same Direction)](#a-hai-con-trỏ-cùng-hướng-same-direction)
-        - [**Ví dụ 1: Xóa các phần tử trùng lặp trong mảng đã sắp xếp**](#ví-dụ-1-xóa-các-phần-tử-trùng-lặp-trong-mảng-đã-sắp-xếp)
-        - [**Ví dụ 2: Tìm phần tử không bằng 0 trong mảng**](#ví-dụ-2-tìm-phần-tử-không-bằng-0-trong-mảng)
       - [b. Hai con trỏ ngược hướng (Opposite Direction)](#b-hai-con-trỏ-ngược-hướng-opposite-direction)
-        - [**Ví dụ 1: Đảo ngược mảng**](#ví-dụ-1-đảo-ngược-mảng)
-        - [**Ví dụ 2: Tìm cặp số có tổng bằng một giá trị cho trước (trong mảng đã sắp xếp)**](#ví-dụ-2-tìm-cặp-số-có-tổng-bằng-một-giá-trị-cho-trước-trong-mảng-đã-sắp-xếp)
-        - [**Ví dụ 3: Kiểm tra chuỗi palindrome**](#ví-dụ-3-kiểm-tra-chuỗi-palindrome)
       - [c. Hai con trỏ trên hai mảng](#c-hai-con-trỏ-trên-hai-mảng)
-        - [**Ví dụ: Hợp nhất hai mảng đã sắp xếp**](#ví-dụ-hợp-nhất-hai-mảng-đã-sắp-xếp)
     - [2. Kỹ thuật cửa sổ trượt (Sliding Window)](#2-kỹ-thuật-cửa-sổ-trượt-sliding-window)
       - [a. Cửa sổ cố định (Fixed Size Window)](#a-cửa-sổ-cố-định-fixed-size-window)
-        - [**Ví dụ 1: Tìm tổng lớn nhất của cửa sổ kích thước k**](#ví-dụ-1-tìm-tổng-lớn-nhất-của-cửa-sổ-kích-thước-k)
-        - [**Ví dụ 2: Tìm giá trị trung bình của tất cả các cửa sổ kích thước k**](#ví-dụ-2-tìm-giá-trị-trung-bình-của-tất-cả-các-cửa-sổ-kích-thước-k)
       - [b. Cửa sổ thay đổi kích thước (Variable Size Window)](#b-cửa-sổ-thay-đổi-kích-thước-variable-size-window)
-        - [**Ví dụ 1: Tìm dãy con ngắn nhất có tổng \>= S**](#ví-dụ-1-tìm-dãy-con-ngắn-nhất-có-tổng--s)
-        - [**Ví dụ 2: Chuỗi con dài nhất không có ký tự lặp lại**](#ví-dụ-2-chuỗi-con-dài-nhất-không-có-ký-tự-lặp-lại)
-        - [**Ví dụ 3: Chuỗi con dài nhất với không quá k ký tự khác nhau**](#ví-dụ-3-chuỗi-con-dài-nhất-với-không-quá-k-ký-tự-khác-nhau)
     - [3. Ứng dụng và bài toán thực tế](#3-ứng-dụng-và-bài-toán-thực-tế)
       - [a. Tìm tập con có tổng bằng một giá trị cho trước](#a-tìm-tập-con-có-tổng-bằng-một-giá-trị-cho-trước)
       - [b. Tìm ba số có tổng bằng 0](#b-tìm-ba-số-có-tổng-bằng-0)
@@ -89,7 +78,7 @@
       - [b. Cân nhắc giữa khả năng đọc và hiệu suất](#b-cân-nhắc-giữa-khả-năng-đọc-và-hiệu-suất)
       - [c. Tránh tối ưu hóa quá sớm](#c-tránh-tối-ưu-hóa-quá-sớm)
       - [d. Tối ưu theo trường hợp sử dụng thực tế](#d-tối-ưu-theo-trường-hợp-sử-dụng-thực-tế)
-  - [**🧑‍💻 Bài tập lớn: Xây dựng ứng dụng GPS đơn giản dựa trên thuật toán đồ thị**](#-bài-tập-lớn-xây-dựng-ứng-dụng-gps-đơn-giản-dựa-trên-thuật-toán-đồ-thị)
+  - [🧑‍💻 Bài tập lớn: Xây dựng ứng dụng GPS đơn giản dựa trên thuật toán đồ thị](#-bài-tập-lớn-xây-dựng-ứng-dụng-gps-đơn-giản-dựa-trên-thuật-toán-đồ-thị)
     - [1. Mô tả dự án](#1-mô-tả-dự-án)
     - [2. Các thành phần chính](#2-các-thành-phần-chính)
       - [a. Mô hình hóa bản đồ thành đồ thị](#a-mô-hình-hóa-bản-đồ-thành-đồ-thị)
@@ -618,7 +607,7 @@ Kỹ thuật hai con trỏ là phương pháp sử dụng hai con trỏ (hoặc 
 
 Hai con trỏ cùng di chuyển theo một hướng, nhưng với tốc độ khác nhau.
 
-##### **Ví dụ 1: Xóa các phần tử trùng lặp trong mảng đã sắp xếp**
+Ví dụ 1: Xóa các phần tử trùng lặp trong mảng đã sắp xếp
 
 ```java
 public static int removeDuplicates(int[] nums) {
@@ -640,7 +629,7 @@ public static int removeDuplicates(int[] nums) {
 - **Độ phức tạp thời gian**: O(n)
 - **Độ phức tạp không gian**: O(1)
 
-##### **Ví dụ 2: Tìm phần tử không bằng 0 trong mảng**
+Ví dụ 2: Tìm phần tử không bằng 0 trong mảng
 
 ```java
 public static void moveZeroes(int[] nums) {
@@ -667,7 +656,7 @@ public static void moveZeroes(int[] nums) {
 
 Một con trỏ bắt đầu từ đầu mảng, con trỏ kia bắt đầu từ cuối mảng.
 
-##### **Ví dụ 1: Đảo ngược mảng**
+Ví dụ 1: Đảo ngược mảng
 
 ```java
 public static void reverseArray(int[] nums) {
@@ -690,7 +679,7 @@ public static void reverseArray(int[] nums) {
 - **Độ phức tạp thời gian**: O(n)
 - **Độ phức tạp không gian**: O(1)
 
-##### **Ví dụ 2: Tìm cặp số có tổng bằng một giá trị cho trước (trong mảng đã sắp xếp)**
+Ví dụ 2: Tìm cặp số có tổng bằng một giá trị cho trước (trong mảng đã sắp xếp)
 
 ```java
 public static boolean hasPairWithSum(int[] nums, int target) {
@@ -716,7 +705,7 @@ public static boolean hasPairWithSum(int[] nums, int target) {
 - **Độ phức tạp thời gian**: O(n)
 - **Độ phức tạp không gian**: O(1)
 
-##### **Ví dụ 3: Kiểm tra chuỗi palindrome**
+Ví dụ 3: Kiểm tra chuỗi palindrome
 
 ```java
 public static boolean isPalindrome(String s) {
@@ -745,7 +734,7 @@ public static boolean isPalindrome(String s) {
 
 Mỗi con trỏ duyệt một mảng khác nhau.
 
-##### **Ví dụ: Hợp nhất hai mảng đã sắp xếp**
+Ví dụ: Hợp nhất hai mảng đã sắp xếp
 
 ```java
 public static int[] mergeSortedArrays(int[] nums1, int[] nums2) {
@@ -787,7 +776,7 @@ Kỹ thuật cửa sổ trượt là phương pháp duy trì một "cửa sổ" 
 
 Kích thước cửa sổ không thay đổi trong quá trình duyệt.
 
-##### **Ví dụ 1: Tìm tổng lớn nhất của cửa sổ kích thước k**
+Ví dụ 1: Tìm tổng lớn nhất của cửa sổ kích thước k
 
 ```java
 public static int maxSumSubarrayOfSizeK(int[] arr, int k) {
@@ -816,7 +805,7 @@ public static int maxSumSubarrayOfSizeK(int[] arr, int k) {
 - **Độ phức tạp thời gian**: O(n)
 - **Độ phức tạp không gian**: O(1)
 
-##### **Ví dụ 2: Tìm giá trị trung bình của tất cả các cửa sổ kích thước k**
+Ví dụ 2: Tìm giá trị trung bình của tất cả các cửa sổ kích thước k
 
 ```java
 public static double[] findAverages(int[] arr, int k) {
@@ -847,7 +836,7 @@ public static double[] findAverages(int[] arr, int k) {
 
 Kích thước cửa sổ thay đổi động theo điều kiện nào đó.
 
-##### **Ví dụ 1: Tìm dãy con ngắn nhất có tổng >= S**
+Ví dụ 1: Tìm dãy con ngắn nhất có tổng >= S
 
 ```java
 public static int smallestSubarrayWithSum(int[] arr, int targetSum) {
@@ -873,7 +862,7 @@ public static int smallestSubarrayWithSum(int[] arr, int targetSum) {
 - **Độ phức tạp thời gian**: O(n)
 - **Độ phức tạp không gian**: O(1)
 
-##### **Ví dụ 2: Chuỗi con dài nhất không có ký tự lặp lại**
+Ví dụ 2: Chuỗi con dài nhất không có ký tự lặp lại
 
 ```java
 public static int lengthOfLongestSubstring(String s) {
@@ -906,7 +895,7 @@ public static int lengthOfLongestSubstring(String s) {
 - **Độ phức tạp thời gian**: O(n)
 - **Độ phức tạp không gian**: O(1) nếu giả sử bảng mã ASCII cố định
 
-##### **Ví dụ 3: Chuỗi con dài nhất với không quá k ký tự khác nhau**
+Ví dụ 3: Chuỗi con dài nhất với không quá k ký tự khác nhau
 
 ```java
 public static int lengthOfLongestSubstringKDistinct(String s, int k) {
@@ -1400,7 +1389,7 @@ private static double bruteForceClosest(Point[] points, int start, int end) {
 
 Cải tiến nhân ma trận từ O(n³) xuống O(n^log₂7) ≈ O(n^2.81) bằng cách giảm số phép nhân cần thực hiện.
 
-````java
+```java
 public static int[][] strassenMatrixMultiply(int[][] A, int[][] B) {
     int n = A.length;
     int[][] result = new int[n][n];
@@ -1490,60 +1479,21 @@ private static int[][] addMatrices(int[][] A, int[][] B) {
 }
 
 // Phương thức hỗ trợ để trừ hai ma trận
-private static int[][] subtractMatrices(int[][]<!-- filepath: /home/klpod221/Develop/lesson-plan/DSA/Part5.md -->
-# 📘 PHẦN 5: THUẬT TOÁN ỨNG DỤNG VÀ TỐI ƯU HÓA
+private static int[][] subtractMatrices(int[][] A, int[][] B) {
+    int n = A.length;
+    int[][] result = new int[n][n];
 
-
-- [📘 PHẦN 5: THUẬT TOÁN ỨNG DỤNG VÀ TỐI ƯU HÓA](#-phần-5-thuật-toán-ứng-dụng-và-tối-ưu-hóa)
-  - [Nội dung](#nội-dung)
-  - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
-  - [🧑‍🏫 Bài 1: Thuật toán xử lý chuỗi](#-bài-1-thuật-toán-xử-lý-chuỗi)
-  - [🧑‍🏫 Bài 2: Kỹ thuật hai con trỏ và cửa sổ trượt](#-bài-2-kỹ-thuật-hai-con-trỏ-và-cửa-sổ-trượt)
-  - [🧑‍🏫 Bài 3: Thuật toán chia để trị](#-bài-3-thuật-toán-chia-để-trị)
-  - [🧑‍🏫 Bài 4: Tìm kiếm theo không gian trạng thái](#-bài-4-tìm-kiếm-theo-không-gian-trạng-thái)
-  - [🧑‍🏫 Bài 5: Phân tích và tối ưu hóa thuật toán](#-bài-5-phân-tích-và-tối-ưu-hóa-thuật-toán)
-  - [🧑‍💻 Bài tập lớn: Xây dựng ứng dụng GPS đơn giản dựa trên thuật toán đồ thị](#-bài-tập-lớn-xây-dựng-ứng-dụng-gps-đơn-giản-dựa-trên-thuật-toán-đồ-thị)
-
-## 🎯 Mục tiêu tổng quát
-
-- Nắm vững các thuật toán xử lý chuỗi và ứng dụng trong các bài toán thực tế
-- Hiểu và áp dụng thành thạo kỹ thuật hai con trỏ và cửa sổ trượt
-- Làm chủ phương pháp chia để trị và áp dụng giải quyết các bài toán phức tạp
-- Nắm vững các kỹ thuật tìm kiếm trong không gian trạng thái
-- Biết cách phân tích và tối ưu hóa thuật toán hiệu quả
-- Xây dựng được ứng dụng thực tế sử dụng các thuật toán đồ thị
-
----
-
-## 🧑‍🏫 Bài 1: Thuật toán xử lý chuỗi
-
-### 1. Tìm kiếm chuỗi con (String Matching)
-
-#### a. Thuật toán Brute Force
-
-Phương pháp đơn giản nhất để tìm kiếm một chuỗi con trong chuỗi chính.
-
-```java
-public static int bruteForceSearch(String text, String pattern) {
-    int n = text.length();
-    int m = pattern.length();
-
-    for (int i = 0; i <= n - m; i++) {
-        int j;
-        for (j = 0; j < m; j++) {
-            if (text.charAt(i + j) != pattern.charAt(j)) {
-                break;
-            }
-        }
-        if (j == m) {
-            return i; // Tìm thấy pattern tại vị trí i
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            result[i][j] = A[i][j] - B[i][j];
         }
     }
-    return -1; // Không tìm thấy
-}
-````
 
-- **Độ phức tạp**: O(n\*m) trong đó n là độ dài của chuỗi chính, m là độ dài của chuỗi mẫu
+    return result;
+}
+
+
+```
 
 ## 🧑‍🏫 Bài 4: Tìm kiếm theo không gian trạng thái
 
@@ -1753,7 +1703,6 @@ public static <T> List<T> bestFirstSearch(Graph<T> graph, T start, T goal, Heuri
 interface Heuristic<T> {
 double estimate(T current, T goal);
 }
-
 ```
 
 - **Độ phức tạp thời gian**: O(b^m), với b là số nhánh trung bình và m là độ sâu tối đa
@@ -2494,7 +2443,7 @@ Map<Character, Integer> charCount = new HashMap<>();
 
 Xây dựng một ứng dụng tìm đường đi ngắn nhất giữa các địa điểm trên bản đồ, sử dụng thuật toán Dijkstra hoặc A\* để xác định lộ trình tối ưu.
 
-## **🧑‍💻 Bài tập lớn: Xây dựng ứng dụng GPS đơn giản dựa trên thuật toán đồ thị**
+## 🧑‍💻 Bài tập lớn: Xây dựng ứng dụng GPS đơn giản dựa trên thuật toán đồ thị
 
 ### 1. Mô tả dự án
 

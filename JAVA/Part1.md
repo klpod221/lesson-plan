@@ -3,12 +3,39 @@
 - [📘 PHẦN 1: NHẬP MÔN JAVA](#-phần-1-nhập-môn-java)
   - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
   - [🧑‍🏫 Bài 1: Cấu trúc chương trình JAVA](#-bài-1-cấu-trúc-chương-trình-java)
+    - [Tổ chức project JAVA cơ bản](#tổ-chức-project-java-cơ-bản)
+    - [Phương thức main](#phương-thức-main)
+    - [Giải thích](#giải-thích)
+    - [Quy ước đặt tên](#quy-ước-đặt-tên)
+    - [Chạy chương trình](#chạy-chương-trình)
+    - [Biên dịch và chạy chương trình từ VS Code](#biên-dịch-và-chạy-chương-trình-từ-vs-code)
   - [🧑‍🏫 Bài 2: Biến và kiểu dữ liệu](#-bài-2-biến-và-kiểu-dữ-liệu)
+    - [Khái niệm biến trong JAVA](#khái-niệm-biến-trong-java)
+    - [Kiểu dữ liệu nguyên thủy](#kiểu-dữ-liệu-nguyên-thủy)
+    - [Kiểu dữ liệu tham chiếu](#kiểu-dữ-liệu-tham-chiếu)
+    - [Cách lưu trữ dữ liệu trong bộ nhớ](#cách-lưu-trữ-dữ-liệu-trong-bộ-nhớ)
+    - [Khai báo và khởi tạo biến](#khai-báo-và-khởi-tạo-biến)
+    - [Ép kiểu](#ép-kiểu)
   - [🧑‍🏫 Bài 3: Toán tử và biểu thức](#-bài-3-toán-tử-và-biểu-thức)
+    - [Toán tử số học](#toán-tử-số-học)
+    - [Toán tử gán](#toán-tử-gán)
+    - [Toán tử so sánh](#toán-tử-so-sánh)
+    - [Toán tử logic](#toán-tử-logic)
+    - [Thứ tự ưu tiên toán tử](#thứ-tự-ưu-tiên-toán-tử)
+    - [Ví dụ thứ tự ưu tiên](#ví-dụ-thứ-tự-ưu-tiên)
   - [🧑‍🏫 Bài 4: Câu lệnh điều kiện](#-bài-4-câu-lệnh-điều-kiện)
+    - [Câu lệnh if](#câu-lệnh-if)
+    - [Câu lệnh switch-case](#câu-lệnh-switch-case)
+    - [Switch với JAVA 12+ (cú pháp mới)](#switch-với-java-12-cú-pháp-mới)
+    - [Biểu thức điều kiện phức hợp](#biểu-thức-điều-kiện-phức-hợp)
+    - [Toán tử ba ngôi](#toán-tử-ba-ngôi)
   - [🧑‍🏫 Bài 5: Câu lệnh lặp](#-bài-5-câu-lệnh-lặp)
+    - [Vòng lặp for](#vòng-lặp-for)
+    - [Vòng lặp while](#vòng-lặp-while)
+    - [Vòng lặp do-while](#vòng-lặp-do-while)
+    - [Từ khóa break và continue](#từ-khóa-break-và-continue)
   - [🧪 Bài tập lớn cuối phần: Quản lý điểm sinh viên](#-bài-tập-lớn-cuối-phần-quản-lý-điểm-sinh-viên)
-    - [Đề bài](#đề-bài)
+    - [Mô tả bài toán](#mô-tả-bài-toán)
     - [Kết quả chạy chương trình (Ví dụ)](#kết-quả-chạy-chương-trình-ví-dụ)
 
 ## 🎯 Mục tiêu tổng quát
@@ -20,13 +47,13 @@
 
 ## 🧑‍🏫 Bài 1: Cấu trúc chương trình JAVA
 
-**Tổ chức project JAVA cơ bản:**
+### Tổ chức project JAVA cơ bản
 
 - File có đuôi `.java` chứa mã nguồn JAVA
 - Mỗi file `.java` chứa ít nhất một class
 - Tên file phải trùng với tên class chứa phương thức `main`
 
-**Phương thức main:**
+### Phương thức main
 
 ```java
 // file HelloWorld.java
@@ -37,19 +64,19 @@ public class HelloWorld {
 }
 ```
 
-**Giải thích:**
+### Giải thích
 
 - `public class HelloWorld`: Định nghĩa một class có tên HelloWorld
 - `public static void main(String[] args)`: Phương thức main - điểm bắt đầu của chương trình
 - `System.out.println()`: Lệnh in ra màn hình
 
-**Quy ước đặt tên:**
+### Quy ước đặt tên
 
 - Class: Viết hoa chữ cái đầu mỗi từ (PascalCase) - `HelloWorld`, `StudentManager`
 - Biến và phương thức: Chữ cái đầu viết thường, từ tiếp theo viết hoa (camelCase) - `studentName`, `calculateTotal`
 - Hằng số: Viết hoa tất cả, các từ cách nhau bởi dấu gạch dưới - `MAX_SIZE`, `PI_VALUE`
 
-**Chạy chương trình:**
+### Chạy chương trình
 
 - Sử dụng lệnh `javac` để biên dịch mã nguồn thành bytecode
 - Sử dụng lệnh `java` để chạy chương trình
@@ -65,7 +92,7 @@ java HelloWorld        # Chạy chương trình
 Hello, World!
 ```
 
-**Biên dịch và chạy chương trình từ VS Code:**
+### Biên dịch và chạy chương trình từ VS Code
 
 - Nếu bạn đã cài đặt [JAVA Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack), bạn có thể mở file `.java` và nhấn `Ctrl + F5` để biên dịch và chạy chương trình.
 - Kết quả sẽ hiển thị trong terminal tích hợp của VS Code.
@@ -75,12 +102,12 @@ Hello, World!
 
 ## 🧑‍🏫 Bài 2: Biến và kiểu dữ liệu
 
-**Khái niệm biến trong JAVA:**
+### Khái niệm biến trong JAVA
 
 - Biến là vùng nhớ để lưu trữ dữ liệu
 - Mỗi biến có tên, kiểu dữ liệu và giá trị
 
-**Kiểu dữ liệu nguyên thủy:**
+### Kiểu dữ liệu nguyên thủy
 
 ```java
 int age = 25;                // Số nguyên
@@ -89,14 +116,14 @@ char grade = 'A';            // Ký tự
 boolean isActive = true;     // Giá trị logic
 ```
 
-**Kiểu dữ liệu tham chiếu:**
+### Kiểu dữ liệu tham chiếu
 
 ```java
 String name = "Nguyen Van A";  // Chuỗi ký tự
 int[] numbers = {1, 2, 3, 4};  // Mảng số nguyên
 ```
 
-**Cách lưu trữ dữ liệu trong bộ nhớ:**
+### Cách lưu trữ dữ liệu trong bộ nhớ
 
 Đối với kiểu nguyên thủy, giá trị được lưu trực tiếp trong biến.
 Đối với kiểu tham chiếu, biến lưu địa chỉ trỏ đến dữ liệu thực.
@@ -126,7 +153,7 @@ int[] numbers = {1, 2, 3, 4};  // Mảng số nguyên
 └───────────────────────┘
 ```
 
-**Khai báo và khởi tạo biến:**
+### Khai báo và khởi tạo biến
 
 ```java
 // Khai báo và khởi tạo sau
@@ -140,7 +167,7 @@ double price = 19.99;
 int x = 1, y = 2, z = 3;
 ```
 
-**Ép kiểu:**
+### Ép kiểu
 
 ```java
 // Ép kiểu ngầm định (mở rộng) - không mất dữ liệu
@@ -160,7 +187,7 @@ int wholePi = (int) pi;  // 3
 - Toán tử so sánh: `==`, `!=`, `>`, `<`, `>=`, `<=`
 - Toán tử logic: `&&`, `||`, `!`
 
-**Toán tử số học:**
+### Toán tử số học
 
 ```java
 int a = 10, b = 3;
@@ -178,7 +205,7 @@ i--;                   // i = 6 (giảm sau)
 --i;                   // i = 5 (giảm trước)
 ```
 
-**Toán tử gán:**
+### Toán tử gán
 
 ```java
 int x = 10;
@@ -189,7 +216,7 @@ x /= 4;  // x = x / 4 = 6
 x %= 4;  // x = x % 4 = 2
 ```
 
-**Toán tử so sánh:**
+### Toán tử so sánh
 
 ```java
 int p = 10, q = 20;
@@ -201,7 +228,7 @@ boolean isGreaterOrEqual = (p >= q); // false
 boolean isLessOrEqual = (p <= q);    // true
 ```
 
-**Toán tử logic:**
+### Toán tử logic
 
 ```java
 boolean condition1 = true;
@@ -212,7 +239,7 @@ boolean orResult = condition1 || condition2;   // true
 boolean notResult = !condition1;               // false
 ```
 
-**Thứ tự ưu tiên toán tử:**
+### Thứ tự ưu tiên toán tử
 
 1. Toán tử tăng giảm (`++`, `--`), phủ định (`!`)
 2. Toán tử nhân, chia, lấy dư (`*`, `/`, `%`)
@@ -223,7 +250,7 @@ boolean notResult = !condition1;               // false
 7. Toán tử logic OR (`||`)
 8. Toán tử gán (`=`, `+=`, `-=`, `*=`, `/=`, `%=`)
 
-**Ví dụ thứ tự ưu tiên:**
+### Ví dụ thứ tự ưu tiên
 
 ```java
 int result = 5 + 3 * 2;  // 5 + 6 = 11 (nhân trước, cộng sau)
@@ -234,7 +261,7 @@ int result2 = (5 + 3) * 2;  // 8 * 2 = 16 (dấu ngoặc ưu tiên cao nhất)
 
 ## 🧑‍🏫 Bài 4: Câu lệnh điều kiện
 
-**Câu lệnh if:**
+### Câu lệnh if
 
 ```java
 int age = 18;
@@ -266,7 +293,7 @@ if (score >= 90) {
 }
 ```
 
-**Câu lệnh switch-case:**
+### Câu lệnh switch-case
 
 ```java
 int day = 3;
@@ -300,7 +327,7 @@ switch (day) {
 System.out.println("Hôm nay là " + dayName);  // Hôm nay là Thứ ba
 ```
 
-**Switch với JAVA 12+ (cú pháp mới):**
+### Switch với JAVA 12+ (cú pháp mới)
 
 ```java
 int day = 3;
@@ -311,7 +338,7 @@ String dayType = switch (day) {
 };
 ```
 
-**Biểu thức điều kiện phức hợp:**
+### Biểu thức điều kiện phức hợp
 
 ```java
 int age = 25;
@@ -334,7 +361,7 @@ if ((age >= 18 && hasID) || (isResident && age >= 65)) {
 }
 ```
 
-**Toán tử ba ngôi:**
+### Toán tử ba ngôi
 
 ```java
 int age = 20;
@@ -346,7 +373,7 @@ System.out.println(status);  // Đã trưởng thành
 
 ## 🧑‍🏫 Bài 5: Câu lệnh lặp
 
-**Vòng lặp for:**
+### Vòng lặp for
 
 ```java
 // In các số từ 1 đến 5
@@ -368,7 +395,7 @@ for (int num : numbers) {
 }
 ```
 
-**Vòng lặp while:**
+### Vòng lặp while
 
 ```java
 // In các số từ 1 đến 5
@@ -389,7 +416,7 @@ while (num <= 100) {
 }
 ```
 
-**Vòng lặp do-while:**
+### Vòng lặp do-while
 
 ```java
 // In các số từ 1 đến 5
@@ -429,7 +456,7 @@ do {
 } while (choice != 0);
 ```
 
-**Từ khóa break và continue:**
+### Từ khóa break và continue
 
 ```java
 // Sử dụng break để thoát khỏi vòng lặp
@@ -463,7 +490,7 @@ outerLoop: for (int i = 1; i <= 3; i++) {
 
 ## 🧪 Bài tập lớn cuối phần: Quản lý điểm sinh viên
 
-### Đề bài
+### Mô tả bài toán
 
 Viết chương trình cho phép người dùng:
 

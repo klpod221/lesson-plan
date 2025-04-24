@@ -3,13 +3,37 @@
 - [📘 PHẦN 1: NHẬP MÔN HTML](#-phần-1-nhập-môn-html)
   - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
   - [🧑‍🏫 Bài 1: Giới thiệu HTML](#-bài-1-giới-thiệu-html)
+    - [HTML là gì?](#html-là-gì)
+    - [Cấu trúc cơ bản của trang HTML](#cấu-trúc-cơ-bản-của-trang-html)
+    - [Giải thích](#giải-thích)
   - [🧑‍🏫 Bài 2: Các thẻ HTML cơ bản](#-bài-2-các-thẻ-html-cơ-bản)
+    - [Thẻ tiêu đề](#thẻ-tiêu-đề)
+    - [Thẻ định dạng văn bản](#thẻ-định-dạng-văn-bản)
+    - [Thẻ list (danh sách)](#thẻ-list-danh-sách)
+    - [Thẻ liên kết và hình ảnh](#thẻ-liên-kết-và-hình-ảnh)
   - [🧑‍🏫 Bài 3: Bảng và Form trong HTML](#-bài-3-bảng-và-form-trong-html)
+    - [Bảng (Tables)](#bảng-tables)
+    - [Form (Biểu mẫu)](#form-biểu-mẫu)
   - [🧑‍🏫 Bài 4: Các thẻ HTML5 ngữ nghĩa (Semantic Elements)](#-bài-4-các-thẻ-html5-ngữ-nghĩa-semantic-elements)
-  - [🧪 BÀI TẬP LỚN CUỐI PHẦN](#-bài-tập-lớn-cuối-phần)
-    - [**Đề bài: Xây dựng trang Hồ sơ cá nhân**](#đề-bài-xây-dựng-trang-hồ-sơ-cá-nhân)
-    - [**Yêu cầu:**](#yêu-cầu)
-    - [**Kết quả tham khảo:**](#kết-quả-tham-khảo)
+    - [Định nghĩa](#định-nghĩa)
+    - [Các thẻ ngữ nghĩa trong HTML5](#các-thẻ-ngữ-nghĩa-trong-html5)
+  - [🧑‍🏫 Bài 5: Sử dụng Developer Tools trên trình duyệt](#-bài-5-sử-dụng-developer-tools-trên-trình-duyệt)
+    - [Giới thiệu về Developer Tools](#giới-thiệu-về-developer-tools)
+    - [Cách mở Developer Tools](#cách-mở-developer-tools)
+    - [Các thành phần chính của Developer Tools](#các-thành-phần-chính-của-developer-tools)
+    - [Kiểm tra và chỉnh sửa HTML](#kiểm-tra-và-chỉnh-sửa-html)
+    - [Lợi ích của Developer Tools](#lợi-ích-của-developer-tools)
+  - [🧑‍🏫 Bài 6: Emmet - Công cụ hỗ trợ viết HTML nhanh](#-bài-6-emmet---công-cụ-hỗ-trợ-viết-html-nhanh)
+    - [Giới thiệu về Emmet](#giới-thiệu-về-emmet)
+    - [Cú pháp cơ bản của Emmet](#cú-pháp-cơ-bản-của-emmet)
+    - [Ví dụ sử dụng Emmet](#ví-dụ-sử-dụng-emmet)
+    - [Emmet cho form](#emmet-cho-form)
+    - [Lợi ích của Emmet](#lợi-ích-của-emmet)
+    - [Các trình soạn thảo hỗ trợ Emmet](#các-trình-soạn-thảo-hỗ-trợ-emmet)
+  - [🧪 BÀI TẬP LỚN CUỐI PHẦN: Xây dựng trang Portfolio (Hồ sơ cá nhân)](#-bài-tập-lớn-cuối-phần-xây-dựng-trang-portfolio-hồ-sơ-cá-nhân)
+    - [Mô tả bài toán](#mô-tả-bài-toán)
+    - [Yêu cầu](#yêu-cầu)
+    - [Mockup trang web tham khảo](#mockup-trang-web-tham-khảo)
 
 ## 🎯 Mục tiêu tổng quát
 
@@ -21,14 +45,14 @@
 
 ## 🧑‍🏫 Bài 1: Giới thiệu HTML
 
-**HTML là gì?**
+### HTML là gì?
 
 - HTML là viết tắt của HyperText Markup Language
 - Là ngôn ngữ đánh dấu tiêu chuẩn để tạo các trang web
 - HTML mô tả cấu trúc của một trang web bằng các thẻ (tags)
 - Các trình duyệt không hiển thị các thẻ HTML nhưng sử dụng chúng để render nội dung trang web
 
-**Cấu trúc cơ bản của trang HTML:**
+### Cấu trúc cơ bản của trang HTML
 
 ```html
 <!DOCTYPE html>
@@ -43,7 +67,9 @@
 </html>
 ```
 
-**Giải thích:**
+Hãy thử tạo một file `index.html` với nội dung trên và mở nó trong trình duyệt hoặc sử dụng extension [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) trong Visual Studio Code để xem kết quả.
+
+### Giải thích
 
 - `<!DOCTYPE html>`: Khai báo loại tài liệu HTML5
 - `<html>`: Thẻ gốc của một trang HTML
@@ -57,7 +83,7 @@
 
 ## 🧑‍🏫 Bài 2: Các thẻ HTML cơ bản
 
-**Thẻ tiêu đề:**
+### Thẻ tiêu đề
 
 ```html
 <h1>Tiêu đề cấp 1</h1>
@@ -68,7 +94,7 @@
 <h6>Tiêu đề cấp 6</h6>
 ```
 
-**Thẻ định dạng văn bản:**
+### Thẻ định dạng văn bản
 
 ```html
 <p>Đây là một đoạn văn bản.</p>
@@ -84,7 +110,7 @@
 <sup>Văn bản chỉ số trên</sup>
 ```
 
-**Thẻ list (danh sách):**
+### Thẻ list (danh sách)
 
 ```html
 <!-- Danh sách có thứ tự -->
@@ -110,7 +136,7 @@
 </dl>
 ```
 
-**Thẻ liên kết và hình ảnh:**
+### Thẻ liên kết và hình ảnh
 
 ```html
 <!-- Liên kết -->
@@ -126,7 +152,7 @@
 
 ## 🧑‍🏫 Bài 3: Bảng và Form trong HTML
 
-**Bảng (Tables):**
+### Bảng (Tables)
 
 ```html
 <table border="1">
@@ -152,7 +178,7 @@
 </table>
 ```
 
-**Form (Biểu mẫu):**
+### Form (Biểu mẫu)
 
 ```html
 <form action="/submit-form" method="post">
@@ -212,6 +238,8 @@
 ---
 
 ## 🧑‍🏫 Bài 4: Các thẻ HTML5 ngữ nghĩa (Semantic Elements)
+
+### Định nghĩa
 
 HTML5 giới thiệu các thẻ ngữ nghĩa giúp tổ chức và mô tả rõ ràng hơn cấu trúc trang web:
 
@@ -277,7 +305,7 @@ HTML5 giới thiệu các thẻ ngữ nghĩa giúp tổ chức và mô tả rõ 
 </html>
 ```
 
-**Các thẻ ngữ nghĩa trong HTML5:**
+### Các thẻ ngữ nghĩa trong HTML5
 
 - `<header>`: Định nghĩa phần đầu của trang web hoặc một section
 - `<nav>`: Định nghĩa khu vực chứa các liên kết điều hướng
@@ -292,9 +320,131 @@ HTML5 giới thiệu các thẻ ngữ nghĩa giúp tổ chức và mô tả rõ 
 
 ---
 
-## 🧪 BÀI TẬP LỚN CUỐI PHẦN
+## 🧑‍🏫 Bài 5: Sử dụng Developer Tools trên trình duyệt
 
-### **Đề bài: Xây dựng trang Hồ sơ cá nhân**
+### Giới thiệu về Developer Tools
+
+Developer Tools (DevTools) là một bộ công cụ tích hợp trong các trình duyệt web hiện đại như Chrome, Firefox, Edge, Safari, giúp lập trình viên kiểm tra, gỡ lỗi và tối ưu hóa mã nguồn của trang web.
+
+### Cách mở Developer Tools
+
+- Trên Chrome: Nhấn `F12` hoặc `Ctrl + Shift + I` (Windows/Linux) hoặc `Cmd + Option + I` (Mac)
+- Trên Firefox: Nhấn `F12` hoặc `Ctrl + Shift + I` (Windows/Linux) hoặc `Cmd + Option + I` (Mac)
+- Trên Edge: Nhấn `F12` hoặc `Ctrl + Shift + I` (Windows/Linux) hoặc `Cmd + Option + I` (Mac)
+- Trên Safari: Nhấn `Cmd + Option + I` (Mac)
+
+### Các thành phần chính của Developer Tools
+
+- **Elements**: Kiểm tra và chỉnh sửa HTML và CSS của trang web
+- **Console**: Hiển thị các thông báo, lỗi và cho phép thực thi mã JavaScript
+- **Network**: Kiểm tra các yêu cầu mạng và hiệu suất tải trang
+- **Sources**: Xem và gỡ lỗi mã nguồn JavaScript
+- **Performance**: Phân tích hiệu suất và tối ưu hóa trang web
+- **Memory**: Kiểm tra và quản lý bộ nhớ
+- **Application**: Quản lý dữ liệu ứng dụng như cookies, local storage, session storage
+- **Security**: Kiểm tra các vấn đề bảo mật của trang web
+
+### Kiểm tra và chỉnh sửa HTML
+
+- Sử dụng tab **Elements** để xem cấu trúc HTML của trang web
+- Nhấp chuột phải vào một phần tử và chọn "Edit as HTML" để chỉnh sửa trực tiếp
+- Thay đổi sẽ được áp dụng ngay lập tức trên trang web
+
+### Lợi ích của Developer Tools
+
+- Giúp kiểm tra và gỡ lỗi mã nguồn nhanh chóng
+- Tối ưu hóa hiệu suất trang web
+- Kiểm tra và chỉnh sửa HTML, CSS, JavaScript trực tiếp
+- Phân tích và quản lý các yêu cầu mạng
+- Kiểm tra các vấn đề bảo mật
+
+---
+
+## 🧑‍🏫 Bài 6: Emmet - Công cụ hỗ trợ viết HTML nhanh
+
+### Giới thiệu về Emmet
+
+Emmet là một plugin giúp lập trình viên viết code HTML và CSS nhanh hơn bằng cách sử dụng các cú pháp rút gọn, tương tự như CSS selector (bạn sẽ học trong phần CSS). Emmet giúp bạn tiết kiệm thời gian và công sức khi viết mã.
+
+Bạn có thể đến trang chủ của Emmet để xem ví dụ bằng hình ảnh: [Emmet](https://emmet.io/).
+
+### Cú pháp cơ bản của Emmet
+
+```text
+element
+element>child
+element+sibling
+element*n
+element.classname
+element#id
+element[attribute=value]
+element{text content}
+```
+
+### Ví dụ sử dụng Emmet
+
+| Cú pháp Emmet    | Kết quả HTML                                                                     |
+| ---------------- | -------------------------------------------------------------------------------- |
+| `div`            | `<div></div>`                                                                    |
+| `div>ul>li`      | `<div><ul><li></li></ul></div>`                                                  |
+| `div+p+bq`       | `<div></div><p></p><blockquote></blockquote>`                                    |
+| `ul>li*5`        | `<ul><li></li><li></li><li></li><li></li><li></li></ul>`                         |
+| `div.container`  | `<div class="container"></div>`                                                  |
+| `div#header`     | `<div id="header"></div>`                                                        |
+| `a[href=#]`      | `<a href="#"></a>`                                                               |
+| `p{Hello World}` | `<p>Hello World</p>`                                                             |
+| `ul>li.item$*3`  | `<ul><li class="item1"></li><li class="item2"></li><li class="item3"></li></ul>` |
+
+### Emmet cho form
+
+```text
+form:get
+input:text
+input:email
+input:password
+input:submit
+```
+
+Kết quả:
+
+```html
+<!-- form:get -->
+<form action="" method="get"></form>
+
+<!-- input:text -->
+<input type="text" name="" id="" />
+
+<!-- input:email -->
+<input type="email" name="" id="" />
+
+<!-- input:password -->
+<input type="password" name="" id="" />
+
+<!-- input:submit -->
+<input type="submit" value="" />
+```
+
+### Lợi ích của Emmet
+
+- Tiết kiệm thời gian khi viết HTML và CSS
+- Giảm số lượng phím bấm cần thiết
+- Giảm lỗi cú pháp
+- Được tích hợp sẵn trong nhiều IDE và text editor phổ biến như VS Code, Sublime Text, Atom, WebStorm...
+
+### Các trình soạn thảo hỗ trợ Emmet
+
+- Visual Studio Code
+- Sublime Text
+- Atom
+- WebStorm
+- Notepad++
+- và nhiều IDE khác...
+
+---
+
+## 🧪 BÀI TẬP LỚN CUỐI PHẦN: Xây dựng trang Portfolio (Hồ sơ cá nhân)
+
+### Mô tả bài toán
 
 Tạo một trang web giới thiệu bản thân với đầy đủ các phần sau:
 
@@ -305,22 +455,78 @@ Tạo một trang web giới thiệu bản thân với đầy đủ các phần 
 - Phần liên hệ: Form để người khác có thể gửi tin nhắn
 - Footer: Thông tin bản quyền, liên kết mạng xã hội
 
-### **Yêu cầu:**
+### Yêu cầu
 
 - Sử dụng HTML5 semantic elements
 - Tạo bảng hiển thị thông tin học vấn
 - Tạo form liên hệ với các trường cần thiết
 - Thêm hình ảnh và liên kết
 
-### **Kết quả tham khảo:**
+### Mockup trang web tham khảo
 
 ```text
-Trang Hồ sơ cá nhân hoàn chỉnh với các phần:
-- Header có ảnh đại diện và tên cá nhân
-- Thông tin cá nhân và học vấn
-- Danh sách kỹ năng và dự án
-- Form liên hệ
-- Footer với thông tin liên lạc
++---------------------------------------------------------+
+|                      MY PORTFOLIO                       |
++---------------------------------------------------------+
+| [Profile Photo]    John Doe                             |
+|                    Web Developer                        |
++---------------------------------------------------------+
+|                   ABOUT ME                              |
++---------------------------------------------------------+
+| Hello! I'm John, a passionate web developer with        |
+| 1 years of experience creating modern web applications. |
+|                                                         |
+| [Education]                                             |
+| +---------------------------------------------------+   |
+| | Degree               | Institution      | Year    |   |
+| |----------------------|-----------------|----------|   |
+| | B.S. Computer Science| ABC University  | 2018     |   |
+| | Web Dev Certification| XYZ Institute   | 2019     |   |
+| +---------------------------------------------------+   |
++---------------------------------------------------------+
+|                   SKILLS                                |
++---------------------------------------------------------+
+| Java        [███████████████████████░░] 95%             |
+| SQL         [██████████████████████░░░] 90%             |
+| HTML        [███████████████████░░░░░░] 85%             |
+| CSS         [█████████████████░░░░░░░░] 75%             |
+| JavaScript  [███████████████░░░░░░░░░░] 70%             |
++---------------------------------------------------------+
+|                   PROJECTS                              |
++---------------------------------------------------------+
+| +------------------------+  +------------------------+  |
+| | [Project 1 Screenshot] |  | [Project 2 Screenshot] |  |
+| | E-Commerce Website     |  | Task Manager App       |  |
+| | HTML, CSS, JavaScript  |  | React, Node.js         |  |
+| | [View Project] [Code]  |  | [View Project] [Code]  |  |
+| +------------------------+  +------------------------+  |
+|                                                         |
+| +------------------------+  +------------------------+  |
+| | [Project 3 Screenshot] |  | [Project 4 Screenshot] |  |
+| | Portfolio Website      |  | Weather App            |  |
+| | React, CSS             |  | JavaScript, API        |  |
+| | [View Project] [Code]  |  | [View Project] [Code]  |  |
+| +------------------------+  +------------------------+  |
++---------------------------------------------------------+
+|                   CONTACT ME                            |
++---------------------------------------------------------+
+| +--------------------------------------------------+    |
+| | Name:    [________________________]              |    |
+| | Email:   [________________________]              |    |
+| | Subject: [________________________]              |    |
+| | Message:                                         |    |
+| | [                                            ]   |    |
+| | [                                            ]   |    |
+| |                                                  |    |
+| |                             [Submit Message]     |    |
+| +--------------------------------------------------+    |
++---------------------------------------------------------+
+|                   FOOTER                                |
++---------------------------------------------------------+
+| © 2025 John Doe - All Rights Reserved                   |
+|                                                         |
+| [GitHub] [LinkedIn] [Twitter] [Instagram]               |
++---------------------------------------------------------+
 ```
 
 ---

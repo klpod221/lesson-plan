@@ -27,8 +27,9 @@
     - [Xử lý sự cố hiệu suất](#xử-lý-sự-cố-hiệu-suất)
     - [Tự động hóa quản trị cơ sở dữ liệu](#tự-động-hóa-quản-trị-cơ-sở-dữ-liệu)
     - [Chiến lược mở rộng và nâng cấp](#chiến-lược-mở-rộng-và-nâng-cấp)
-  - [🧪 BÀI TẬP LỚN CUỐI PHẦN](#-bài-tập-lớn-cuối-phần)
-    - [**Đề bài: Hệ thống quản lý đăng ký môn học**](#đề-bài-hệ-thống-quản-lý-đăng-ký-môn-học)
+  - [🧪 BÀI TẬP LỚN CUỐI PHẦN: Hệ thống quản lý đăng ký môn học](#-bài-tập-lớn-cuối-phần-hệ-thống-quản-lý-đăng-ký-môn-học)
+    - [Đề bài](#đề-bài)
+    - [Yêu cầu](#yêu-cầu)
 
 ## 🎯 Mục tiêu tổng quát
 
@@ -433,76 +434,76 @@ CREATE TABLE Order_Service.OrderItems (
 
 1. **Dữ liệu giao dịch**: MySQL/PostgreSQL
 
-```sql
--- Lưu trữ dữ liệu giao dịch tài chính trong PostgreSQL
-CREATE TABLE transactions (
-    transaction_id UUID PRIMARY KEY,
-    user_id UUID NOT NULL,
-    amount DECIMAL(15,2) NOT NULL,
-    transaction_type VARCHAR(50) NOT NULL,
-    status VARCHAR(30) NOT NULL,
-    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
-);
-```
+   ```sql
+   -- Lưu trữ dữ liệu giao dịch tài chính trong PostgreSQL
+   CREATE TABLE transactions (
+       transaction_id UUID PRIMARY KEY,
+       user_id UUID NOT NULL,
+       amount DECIMAL(15,2) NOT NULL,
+       transaction_type VARCHAR(50) NOT NULL,
+       status VARCHAR(30) NOT NULL,
+       created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+   );
+   ```
 
 2. **Dữ liệu thời gian thực** (nhật ký/log): Cassandra (CQL)
 
-```sql
--- Cassandra CQL
-CREATE TABLE activity_logs (
-    user_id UUID,
-    timestamp TIMESTAMP,
-    activity_type TEXT,
-    ip_address TEXT,
-    device_info TEXT,
-    PRIMARY KEY (user_id, timestamp)
-) WITH CLUSTERING ORDER BY (timestamp DESC);
-```
+   ```sql
+   -- Cassandra CQL
+   CREATE TABLE activity_logs (
+       user_id UUID,
+       timestamp TIMESTAMP,
+       activity_type TEXT,
+       ip_address TEXT,
+       device_info TEXT,
+       PRIMARY KEY (user_id, timestamp)
+   ) WITH CLUSTERING ORDER BY (timestamp DESC);
+   ```
 
 3. **Dữ liệu văn bản, tìm kiếm**: Elasticsearch
 
-```json
-// Elasticsearch mapping
-{
-  "mappings": {
-    "properties": {
-      "product_name": { "type": "text" },
-      "description": { "type": "text" },
-      "category": { "type": "keyword" },
-      "price": { "type": "float" },
-      "available": { "type": "boolean" },
-      "created_at": { "type": "date" }
-    }
-  }
-}
-```
+   ```json
+   // Elasticsearch mapping
+   {
+     "mappings": {
+       "properties": {
+         "product_name": { "type": "text" },
+         "description": { "type": "text" },
+         "category": { "type": "keyword" },
+         "price": { "type": "float" },
+         "available": { "type": "boolean" },
+         "created_at": { "type": "date" }
+       }
+     }
+   }
+   ```
 
 4. **Dữ liệu cache**: Redis
 
-```bash
-# Ví dụ lệnh Redis
-SET session:1234 "{user_id: 5678, permissions: ['read', 'write']}" EX 3600
-GET session:1234
-```
+   ```bash
+   # Ví dụ lệnh Redis
+   SET session:1234 "{user_id: 5678, permissions: ['read', 'write']}" EX 3600
+   GET session:1234
+   ```
 
 5. **Dữ liệu biến đổi/document**: MongoDB
 
-```javascript
-// MongoDB schema
-db.createCollection("products", {
-  validator: {
-    $jsonSchema: {
-      bsonType: "object",
-      required: ["name", "price", "attributes"],
-      properties: {
-        name: { bsonType: "string" },
-        price: { bsonType: "decimal" },
-        attributes: { bsonType: "object" },
-      },
-    },
-  },
-});
-```
+   ```javascript
+   // MongoDB schema
+   db.createCollection("products", {
+     validator: {
+       $jsonSchema: {
+         bsonType: "object",
+         required: ["name", "price", "attributes"],
+         properties: {
+           name: { bsonType: "string" },
+           price: { bsonType: "decimal" },
+           attributes: { bsonType: "object" },
+         },
+       },
+     },
+   });
+   ```
 
 ### Cơ sở dữ liệu NoSQL và SQL
 
@@ -1002,9 +1003,9 @@ CREATE TABLE product_details (
 
 ---
 
-## 🧪 BÀI TẬP LỚN CUỐI PHẦN
+## 🧪 BÀI TẬP LỚN CUỐI PHẦN: Hệ thống quản lý đăng ký môn học
 
-### **Đề bài: Hệ thống quản lý đăng ký môn học**
+### Đề bài
 
 Xây dựng cơ sở dữ liệu quản lý đăng ký môn học:
 
@@ -1013,7 +1014,7 @@ Xây dựng cơ sở dữ liệu quản lý đăng ký môn học:
 - `Enrollments`: đăng ký khóa học
 - `CourseSchedules`: lịch học
 
-Yêu cầu:
+### Yêu cầu
 
 - Thiết kế cơ sở dữ liệu đầy đủ với các ràng buộc
 - Tạo các stored procedure để:

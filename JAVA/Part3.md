@@ -3,13 +3,39 @@
 - [📘 PHẦN 3: LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG (OOP)](#-phần-3-lập-trình-hướng-đối-tượng-oop)
   - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
   - [🧑‍🏫 Bài 1: Giới thiệu về OOP](#-bài-1-giới-thiệu-về-oop)
+    - [Các khái niệm cơ bản trong OOP](#các-khái-niệm-cơ-bản-trong-oop)
+      - [Lớp (Class)](#lớp-class)
+      - [Đối tượng (Object)](#đối-tượng-object)
+      - [Bốn trụ cột của OOP (Các bạn sẽ được tìm hiểu chi tiết qua các ví dụ trong phần bên dưới)](#bốn-trụ-cột-của-oop-các-bạn-sẽ-được-tìm-hiểu-chi-tiết-qua-các-ví-dụ-trong-phần-bên-dưới)
+    - [Tại sao OOP quan trọng?](#tại-sao-oop-quan-trọng)
+    - [So sánh OOP với lập trình thủ tục](#so-sánh-oop-với-lập-trình-thủ-tục)
+    - [Ví dụ thực tế](#ví-dụ-thực-tế)
   - [🧑‍🏫 Bài 2: Lớp và Đối tượng](#-bài-2-lớp-và-đối-tượng)
+    - [Khai báo lớp và tạo đối tượng](#khai-báo-lớp-và-tạo-đối-tượng)
+    - [Tạo và sử dụng đối tượng](#tạo-và-sử-dụng-đối-tượng)
+    - [Ví dụ thực tế - Lớp quản lý sản phẩm](#ví-dụ-thực-tế---lớp-quản-lý-sản-phẩm)
   - [🧑‍🏫 Bài 3: Kế thừa](#-bài-3-kế-thừa)
+    - [Cơ bản về kế thừa](#cơ-bản-về-kế-thừa)
+    - [Sử dụng kế thừa](#sử-dụng-kế-thừa)
+    - [Từ khóa super trong kế thừa](#từ-khóa-super-trong-kế-thừa)
+    - [Ví dụ thực tế - Hệ thống quản lý nhân viên](#ví-dụ-thực-tế---hệ-thống-quản-lý-nhân-viên)
   - [🧑‍🏫 Bài 4: Đóng gói (Encapsulation)](#-bài-4-đóng-gói-encapsulation)
+    - [Đóng gói dữ liệu](#đóng-gói-dữ-liệu)
+    - [Sử dụng lớp đã đóng gói](#sử-dụng-lớp-đã-đóng-gói)
+    - [Các mức độ truy cập trong JAVA](#các-mức-độ-truy-cập-trong-java)
+    - [Ví dụ thực tế - Lớp Student với đóng gói](#ví-dụ-thực-tế---lớp-student-với-đóng-gói)
   - [🧑‍🏫 Bài 5: Đa hình (Polymorphism)](#-bài-5-đa-hình-polymorphism)
+    - [Đa hình với nạp chồng phương thức (Method Overloading)](#đa-hình-với-nạp-chồng-phương-thức-method-overloading)
+    - [Đa hình với ghi đè phương thức (Method Overriding)](#đa-hình-với-ghi-đè-phương-thức-method-overriding)
+    - [Đa hình với lớp trừu tượng (Abstract Class)](#đa-hình-với-lớp-trừu-tượng-abstract-class)
+    - [Ví dụ thực tế - Hệ thống thanh toán](#ví-dụ-thực-tế---hệ-thống-thanh-toán)
   - [🧑‍🏫 Bài 6: Interface và Abstract Class](#-bài-6-interface-và-abstract-class)
+    - [Interface trong JAVA](#interface-trong-java)
+    - [Multiple Interface](#multiple-interface)
+    - [Abstract Class vs Interface](#abstract-class-vs-interface)
+    - [Ví dụ thực tế - Hệ thống thông báo](#ví-dụ-thực-tế---hệ-thống-thông-báo)
   - [🧪 BÀI TẬP LỚN CUỐI PHẦN: Quản lý sinh viên, giảng viên và khóa học](#-bài-tập-lớn-cuối-phần-quản-lý-sinh-viên-giảng-viên-và-khóa-học)
-    - [Đề bài](#đề-bài)
+    - [Mô tả bài toán](#mô-tả-bài-toán)
     - [Các chức năng cần có](#các-chức-năng-cần-có)
 
 ## 🎯 Mục tiêu tổng quát
@@ -21,22 +47,236 @@
 
 ## 🧑‍🏫 Bài 1: Giới thiệu về OOP
 
-- Lập trình hướng đối tượng (OOP - Object-Oriented Programming) là một phương pháp lập trình dựa trên các đối tượng.
-- Các khái niệm cơ bản trong OOP:
-  - **Lớp (Class)**: Là một bản thiết kế cho các đối tượng, định nghĩa các thuộc tính và phương thức.
-  - **Đối tượng (Object)**: Là một thể hiện cụ thể của lớp, có trạng thái và hành vi riêng.
-  - **4 tính chất cơ bản của OOP**:
-    - **Đóng gói (Encapsulation)**: Giúp bảo vệ dữ liệu bên trong lớp bằng cách sử dụng các mức độ truy cập (private, protected, public).
-    - **Kế thừa (Inheritance)**: Cho phép một lớp kế thừa thuộc tính và phương thức từ một lớp khác.
-    - **Đa hình (Polymorphism)**: Cho phép các đối tượng khác nhau có thể được xử lý như cùng một loại đối tượng.
-    - **Trừu tượng (Abstraction)**: Làm nổi bật các thuộc tính và hành vi quan trọng của đối tượng, ẩn đi các chi tiết không cần thiết.
-- **Tại sao OOP quan trọng?**
-  - Giúp tổ chức mã nguồn tốt hơn, dễ bảo trì và mở rộng, tăng khả năng tái sử dụng mã.
-  - Hỗ trợ mô hình hóa các vấn đề phức tạp trong thế giới thực bằng cách sử dụng các đối tượng.
+Lập trình hướng đối tượng (Object-Oriented Programming - OOP) là một mô hình lập trình phổ biến dựa trên khái niệm "đối tượng", giúp tổ chức mã nguồn một cách hiệu quả và trực quan. Mô hình này không chỉ thể hiện ở trong Java mà còn có mặt trong nhiều ngôn ngữ lập trình khác như C++, Python, C#, Ruby, v.v. Vì vậy, việc nắm vững OOP là rất quan trọng cho bất kỳ lập trình viên nào.
+
+### Các khái niệm cơ bản trong OOP
+
+#### Lớp (Class)
+
+- Là bản thiết kế hoặc khuôn mẫu cho các đối tượng
+- Định nghĩa các thuộc tính (dữ liệu) và phương thức (hành vi)
+- Ví dụ: Lớp `Car` có thuộc tính như `color`, `brand`, `model` và phương thức như `start()`, `stop()`, `accelerate()`
+
+```java
+public class Car {
+    // Thuộc tính
+    private String color;
+    private String brand;
+    private String model;
+
+    // Phương thức
+    public void start() {
+        System.out.println("Xe đang khởi động");
+    }
+
+    public void stop() {
+        System.out.println("Xe đã dừng");
+    }
+}
+```
+
+#### Đối tượng (Object)
+
+- Là thể hiện cụ thể của một lớp
+- Mỗi đối tượng có trạng thái (giá trị thuộc tính) và hành vi (phương thức) riêng
+- Ví dụ: `myCar` là một đối tượng của lớp `Car`
+
+```java
+Car myCar = new Car();  // Tạo đối tượng từ lớp Car
+myCar.start();          // Gọi phương thức của đối tượng
+```
+
+#### Bốn trụ cột của OOP (Các bạn sẽ được tìm hiểu chi tiết qua các ví dụ trong phần bên dưới)
+
+- **Đóng gói (Encapsulation):**
+  - Đóng gói dữ liệu và phương thức xử lý dữ liệu vào một đơn vị
+  - Sử dụng các mức độ truy cập để kiểm soát việc truy cập dữ liệu
+  - Bảo vệ dữ liệu bằng cách sử dụng getter và setter
+
+    ```java
+    public class BankAccount {
+            private double balance;  // Thuộc tính private - bảo vệ dữ liệu
+
+            public double getBalance() {
+                return balance;     // Getter - cho phép đọc dữ liệu
+            }
+
+            public void deposit(double amount) {
+                if (amount > 0) {   // Kiểm soát dữ liệu đầu vào
+                    balance += amount;
+                }
+            }
+    }
+    ```
+
+- **Kế thừa (Inheritance):**
+  - Cho phép tạo lớp mới kế thừa thuộc tính và phương thức từ lớp đã có
+  - Tái sử dụng mã và tạo mối quan hệ phân cấp giữa các lớp
+  - Sử dụng từ khóa `extends` trong Java
+
+    ```java
+    public class ElectricCar extends Car {
+            private int batteryCapacity;
+
+            public void charge() {
+                System.out.println("Đang sạc pin...");
+            }
+
+            @Override
+            public void start() {
+                System.out.println("Xe điện khởi động không một tiếng động");
+            }
+    }
+    ```
+
+- **Đa hình (Polymorphism):**
+  - Cho phép đối tượng có nhiều "hình thái" khác nhau
+  - Có thể xử lý đối tượng của lớp con như đối tượng của lớp cha
+  - Bao gồm đa hình thời gian biên dịch (nạp chồng phương thức) và đa hình thời gian chạy (ghi đè phương thức)
+
+    ```java
+    // Đa hình thời gian chạy (Runtime polymorphism)
+    Car vehicle = new ElectricCar();  // Biến cha tham chiếu đến đối tượng con
+
+    vehicle.start();  // Gọi phương thức đã ghi đè của ElectricCar
+
+    // Đa hình thời gian biên dịch (Compile-time polymorphism)
+    public class Calculator {
+            public int add(int a, int b) { return a + b; }
+            public double add(double a, double b) { return a + b; }  // Nạp chồng phương thức
+    }
+    ```
+
+- **Trừu tượng (Abstraction):**
+  - Tập trung vào các đặc điểm quan trọng, ẩn đi chi tiết phức tạp
+  - Sử dụng lớp trừu tượng (abstract class) và giao diện (interface)
+  - Giúp giảm độ phức tạp và tăng khả năng tái sử dụng
+
+    ```java
+    abstract class Vehicle {
+            abstract void start();  // Phương thức trừu tượng, không có thân hàm
+
+            public void stop() {    // Phương thức cụ thể
+                System.out.println("Phương tiện đã dừng");
+            }
+    }
+
+    interface Drivable {
+            void drive();           // Tất cả phương thức trong interface đều là trừu tượng
+    }
+    ```
+
+### Tại sao OOP quan trọng?
+
+1. **Mô hình hóa thế giới thực**:
+
+   - OOP cho phép biểu diễn các thực thể trong thế giới thực một cách trực quan
+   - Các khái niệm như lớp và đối tượng dễ dàng ánh xạ với các thực thể thực tế
+
+2. **Tổ chức mã nguồn hiệu quả**:
+
+   - Mã nguồn được tổ chức thành các đơn vị nhỏ, dễ quản lý
+   - Giúp phân chia công việc cho nhóm phát triển dễ dàng hơn
+
+3. **Tái sử dụng mã**:
+
+   - Thông qua kế thừa và đóng gói, mã có thể được tái sử dụng
+   - Giảm thiểu lặp lại mã, tiết kiệm thời gian và công sức
+
+4. **Dễ bảo trì và mở rộng**:
+
+   - Dễ dàng cập nhật hoặc mở rộng các lớp mà không ảnh hưởng đến phần còn lại
+   - Thay đổi được cách triển khai nội bộ mà không ảnh hưởng đến giao diện người dùng
+
+5. **Bảo mật và ổn định**:
+   - Đóng gói giúp bảo vệ dữ liệu và đảm bảo tính toàn vẹn
+   - Giảm thiểu ảnh hưởng của lỗi và tăng tính ổn định của ứng dụng
+
+### So sánh OOP với lập trình thủ tục
+
+| Tiêu chí        | Lập trình hướng đối tượng              | Lập trình thủ tục                           |
+| --------------- | -------------------------------------- | ------------------------------------------- |
+| Tổ chức         | Dựa trên các đối tượng                 | Dựa trên các hàm và quy trình               |
+| Tính mô-đun     | Cao                                    | Thấp                                        |
+| Tái sử dụng mã  | Dễ dàng thông qua kế thừa              | Khó khăn, thường phải sao chép mã           |
+| Bảo mật dữ liệu | Cao nhờ đóng gói                       | Thấp, dữ liệu thường được truy cập toàn cục |
+| Phức tạp        | Ban đầu cao hơn, thiết kế phức tạp hơn | Đơn giản hơn cho ứng dụng nhỏ               |
+| Mở rộng         | Dễ dàng mở rộng                        | Khó mở rộng khi ứng dụng lớn                |
+
+### Ví dụ thực tế
+
+Xét hệ thống quản lý thư viện:
+
+```java
+// Lớp cơ sở
+class LibraryItem {
+     private String title;
+     private String itemId;
+     private boolean checkedOut;
+
+     public LibraryItem(String title, String itemId) {
+          this.title = title;
+          this.itemId = itemId;
+          this.checkedOut = false;
+     }
+
+     public void checkOut() {
+          if (!checkedOut) {
+                checkedOut = true;
+                System.out.println(title + " đã được mượn.");
+          } else {
+                System.out.println(title + " đã được mượn trước đó.");
+          }
+     }
+
+     public void returnItem() {
+          if (checkedOut) {
+                checkedOut = false;
+                System.out.println(title + " đã được trả lại.");
+          } else {
+                System.out.println(title + " chưa được mượn.");
+          }
+     }
+}
+
+// Lớp con
+class Book extends LibraryItem {
+     private String author;
+     private int pages;
+
+     public Book(String title, String itemId, String author, int pages) {
+          super(title, itemId);
+          this.author = author;
+          this.pages = pages;
+     }
+
+     public void displayInfo() {
+          System.out.println("Sách: " + super.getTitle() + ", Tác giả: " + author);
+     }
+}
+
+// Một lớp con khác
+class DVD extends LibraryItem {
+     private int duration;
+     private String director;
+
+     public DVD(String title, String itemId, String director, int duration) {
+          super(title, itemId);
+          this.director = director;
+          this.duration = duration;
+     }
+
+     public void displayInfo() {
+          System.out.println("DVD: " + super.getTitle() + ", Đạo diễn: " + director);
+     }
+}
+```
+
+Đây là một ví dụ đơn giản về cách OOP giúp mô hình hóa một hệ thống quản lý thư viện với các lớp, thuộc tính và mối quan hệ kế thừa.
 
 ## 🧑‍🏫 Bài 2: Lớp và Đối tượng
 
-1. **Khai báo lớp và tạo đối tượng:**
+### Khai báo lớp và tạo đối tượng
 
    ```java
    // Khai báo lớp Person
@@ -69,7 +309,7 @@
    }
    ```
 
-2. **Tạo và sử dụng đối tượng:**
+### Tạo và sử dụng đối tượng
 
    ```java
    public class PersonDemo {
@@ -95,7 +335,7 @@
    }
    ```
 
-3. **Ví dụ thực tế - Lớp quản lý sản phẩm:**
+### Ví dụ thực tế - Lớp quản lý sản phẩm
 
    ```java
    public class Product {
@@ -170,7 +410,7 @@
 
 ## 🧑‍🏫 Bài 3: Kế thừa
 
-1. **Cơ bản về kế thừa:**
+### Cơ bản về kế thừa
 
    ```java
    // Lớp cha (parent class)
@@ -218,7 +458,7 @@
    }
    ```
 
-2. **Sử dụng kế thừa:**
+### Sử dụng kế thừa
 
    ```java
    public class InheritanceDemo {
@@ -241,7 +481,7 @@
    }
    ```
 
-3. **Từ khóa super trong kế thừa:**
+### Từ khóa super trong kế thừa
 
    ```java
    public class Cat extends Animal {
@@ -270,7 +510,7 @@
    }
    ```
 
-4. **Ví dụ thực tế - Hệ thống quản lý nhân viên:**
+### Ví dụ thực tế - Hệ thống quản lý nhân viên
 
    ```java
    // Lớp Employee (lớp cha)
@@ -371,7 +611,7 @@
 
 ## 🧑‍🏫 Bài 4: Đóng gói (Encapsulation)
 
-1. **Đóng gói dữ liệu:**
+### Đóng gói dữ liệu
 
    ```java
    public class BankAccount {
@@ -441,7 +681,7 @@
    }
    ```
 
-2. **Sử dụng lớp đã đóng gói:**
+### Sử dụng lớp đã đóng gói
 
    ```java
    public class BankDemo {
@@ -473,7 +713,7 @@
    }
    ```
 
-3. **Các mức độ truy cập trong JAVA:**
+### Các mức độ truy cập trong JAVA
 
    | Mức độ truy cập | Truy cập trong cùng lớp | Truy cập trong cùng package | Truy cập từ lớp con (khác package) | Truy cập từ bất kỳ đâu |
    | --------------- | ----------------------- | --------------------------- | ---------------------------------- | ---------------------- |
@@ -523,7 +763,7 @@
    }
    ```
 
-4. **Ví dụ thực tế - Lớp Student với đóng gói:**
+### Ví dụ thực tế - Lớp Student với đóng gói
 
    ```java
    public class Student {
@@ -657,7 +897,7 @@
 
 ## 🧑‍🏫 Bài 5: Đa hình (Polymorphism)
 
-1. **Đa hình với nạp chồng phương thức (Method Overloading):**
+### Đa hình với nạp chồng phương thức (Method Overloading)
 
    ```java
    public class Calculator {
@@ -691,7 +931,7 @@
    }
    ```
 
-2. **Đa hình với ghi đè phương thức (Method Overriding):**
+### Đa hình với ghi đè phương thức (Method Overriding)
 
    ```java
    // Lớp cha
@@ -785,7 +1025,7 @@
    }
    ```
 
-3. **Đa hình với lớp trừu tượng (Abstract Class):**
+### Đa hình với lớp trừu tượng (Abstract Class)
 
    ```java
    // Lớp trừu tượng
@@ -867,7 +1107,7 @@
    }
    ```
 
-4. **Ví dụ thực tế - Hệ thống thanh toán:**
+### Ví dụ thực tế - Hệ thống thanh toán
 
    ```java
    // Lớp trừu tượng cho phương thức thanh toán
@@ -1023,9 +1263,9 @@
 
 ## 🧑‍🏫 Bài 6: Interface và Abstract Class
 
-1. **Interface trong JAVA:**
+### Interface trong JAVA
 
-   - Interface là một kiểu dữ liệu đặc biệt trong JAVA, cho phép định nghĩa các phương thức mà không có thân hàm. Các lớp khác có thể triển khai interface này và cung cấp thân hàm cho các phương thức đã định nghĩa.
+- Interface là một kiểu dữ liệu đặc biệt trong JAVA, cho phép định nghĩa các phương thức mà không có thân hàm. Các lớp khác có thể triển khai interface này và cung cấp thân hàm cho các phương thức đã định nghĩa.
 
    ```java
    // Khai báo interface
@@ -1109,7 +1349,7 @@
    }
    ```
 
-2. **Multiple Interface:**
+### Multiple Interface
 
    ```java
    interface Flyable {
@@ -1197,11 +1437,11 @@
    }
    ```
 
-3. **Abstract Class vs Interface:**
+### Abstract Class vs Interface
 
-   - Có thể có cả phương thức trừu tượng và phương thức không trừu tượng.
-   - Có thể có thuộc tính (fields).
-   - Chỉ có thể kế thừa một lớp trừu tượng (single inheritance).
+- Có thể có cả phương thức trừu tượng và phương thức không trừu tượng.
+- Có thể có thuộc tính (fields).
+- Chỉ có thể kế thừa một lớp trừu tượng (single inheritance).
 
    ```java
    // Abstract Class
@@ -1277,7 +1517,7 @@
    }
    ```
 
-4. **Ví dụ thực tế - Hệ thống thông báo:**
+### Ví dụ thực tế - Hệ thống thông báo
 
    ```java
    // Interface cho các dịch vụ thông báo
@@ -1460,7 +1700,7 @@
 
 ## 🧪 BÀI TẬP LỚN CUỐI PHẦN: Quản lý sinh viên, giảng viên và khóa học
 
-### Đề bài
+### Mô tả bài toán
 
 Viết chương trình:
 

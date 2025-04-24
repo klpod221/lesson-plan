@@ -3,12 +3,52 @@
 - [📘 GIT VÀ GITHUB CƠ BẢN](#-git-và-github-cơ-bản)
   - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
   - [🧑‍🏫 Bài 1: Giới thiệu về Git và GitHub](#-bài-1-giới-thiệu-về-git-và-github)
+    - [Git là gì?](#git-là-gì)
+    - [Lợi ích của Git](#lợi-ích-của-git)
+    - [GitHub là gì?](#github-là-gì)
+    - [Các khái niệm cơ bản trong Git](#các-khái-niệm-cơ-bản-trong-git)
+    - [Sơ đồ hoạt động của Git](#sơ-đồ-hoạt-động-của-git)
+    - [Cài đặt Git](#cài-đặt-git)
+    - [Kiểm tra cài đặt](#kiểm-tra-cài-đặt)
+    - [Cấu hình ban đầu](#cấu-hình-ban-đầu)
   - [🧑‍🏫 Bài 2: Các lệnh Git cơ bản](#-bài-2-các-lệnh-git-cơ-bản)
+    - [Khởi tạo repository](#khởi-tạo-repository)
+    - [Xem trạng thái và lịch sử](#xem-trạng-thái-và-lịch-sử)
+    - [Quản lý thay đổi](#quản-lý-thay-đổi)
+    - [Hoàn tác thay đổi](#hoàn-tác-thay-đổi)
+    - [Làm việc với remote repository](#làm-việc-với-remote-repository)
+    - [File .gitignore](#file-gitignore)
   - [🧑‍🏫 Bài 3: Làm việc với GitHub](#-bài-3-làm-việc-với-github)
+    - [Tạo tài khoản và repository](#tạo-tài-khoản-và-repository)
+    - [Liên kết repository local với GitHub](#liên-kết-repository-local-với-github)
+    - [Sử dụng SSH với GitHub](#sử-dụng-ssh-với-github)
+    - [GitHub Pages](#github-pages)
+    - [GitHub Actions](#github-actions)
   - [🧑‍🏫 Bài 4: Branching và Merging](#-bài-4-branching-và-merging)
+    - [Quản lý branch](#quản-lý-branch)
+    - [Merge branch](#merge-branch)
+    - [Rebasing](#rebasing)
+    - [Fast-forward vs. No-fast-forward](#fast-forward-vs-no-fast-forward)
+    - [Stashing](#stashing)
   - [🧑‍🏫 Bài 5: Làm việc nhóm và giải quyết xung đột](#-bài-5-làm-việc-nhóm-và-giải-quyết-xung-đột)
+    - [Pull Request (PR)](#pull-request-pr)
+    - [Review code](#review-code)
+    - [Giải quyết xung đột (Conflict)](#giải-quyết-xung-đột-conflict)
+    - [Best practices làm việc nhóm](#best-practices-làm-việc-nhóm)
   - [🧑‍🏫 Bài 6: Git Flow và quy trình phát triển](#-bài-6-git-flow-và-quy-trình-phát-triển)
+    - [Git Flow là gì?](#git-flow-là-gì)
+    - [Các loại branch trong Git Flow](#các-loại-branch-trong-git-flow)
+    - [Quy trình Git Flow](#quy-trình-git-flow)
+    - [Mở rộng và biến thể](#mở-rộng-và-biến-thể)
   - [🧑‍🏫 Bài 7: Kỹ thuật Git nâng cao](#-bài-7-kỹ-thuật-git-nâng-cao)
+    - [Tagging](#tagging)
+    - [Cherry-picking](#cherry-picking)
+    - [Interactive rebase](#interactive-rebase)
+    - [Reflog - khôi phục lịch sử](#reflog---khôi-phục-lịch-sử)
+    - [Git hooks](#git-hooks)
+    - [Submodule và Subtree](#submodule-và-subtree)
+    - [Git bisect](#git-bisect)
+    - [Git aliases](#git-aliases)
   - [🧪 BÀI TẬP LỚN CUỐI PHẦN: tạo và quản lý code mà bạn sẽ thực hiện trong các phần sau của khóa học bằng Git và GitHub](#-bài-tập-lớn-cuối-phần-tạo-và-quản-lý-code-mà-bạn-sẽ-thực-hiện-trong-các-phần-sau-của-khóa-học-bằng-git-và-github)
 
 ---
@@ -26,11 +66,11 @@
 
 ## 🧑‍🏫 Bài 1: Giới thiệu về Git và GitHub
 
-**Git là gì?**
+### Git là gì?
 
 Git là hệ thống quản lý phiên bản phân tán (DVCS - Distributed Version Control System) được phát triển bởi Linus Torvalds vào năm 2005. Git cho phép theo dõi thay đổi của mã nguồn, phối hợp làm việc nhóm, và dễ dàng quay lại phiên bản trước khi cần.
 
-**Lợi ích của Git:**
+### Lợi ích của Git
 
 - **Làm việc offline**: Có thể commit và xem lịch sử ngay cả khi không có kết nối mạng
 - **Phân tán**: Mỗi người có một bản sao đầy đủ của repository
@@ -38,7 +78,7 @@ Git là hệ thống quản lý phiên bản phân tán (DVCS - Distributed Vers
 - **Phân nhánh mạnh mẽ**: Dễ dàng tạo, hợp nhất và quản lý các branch
 - **Bảo đảm tính toàn vẹn**: Sử dụng mã hash để đảm bảo tính toàn vẹn của dữ liệu
 
-**GitHub là gì?**
+### GitHub là gì?
 
 GitHub là dịch vụ lưu trữ Git trên cloud, cung cấp giao diện web để quản lý các Git repository, cùng với nhiều tính năng bổ sung như:
 
@@ -49,7 +89,7 @@ GitHub là dịch vụ lưu trữ Git trên cloud, cung cấp giao diện web đ
 - CI/CD integration
 - Wiki và documentation
 
-**Các khái niệm cơ bản trong Git:**
+### Các khái niệm cơ bản trong Git
 
 1. **Repository (Repo)**: Kho lưu trữ mã nguồn và lịch sử thay đổi
 
@@ -75,7 +115,7 @@ GitHub là dịch vụ lưu trữ Git trên cloud, cung cấp giao diện web đ
 
 9. **Staging Area (Index)**: Khu vực trung gian nơi các thay đổi được chuẩn bị trước khi commit
 
-**Sơ đồ hoạt động của Git:**
+### Sơ đồ hoạt động của Git
 
 ```text
 +------------+    git add     +-------------+    git commit    +----------------+
@@ -93,7 +133,7 @@ GitHub là dịch vụ lưu trữ Git trên cloud, cung cấp giao diện web đ
                                                        +----------------+
 ```
 
-**Cài đặt Git:**
+### Cài đặt Git
 
 - **Windows**: Tải và cài đặt từ [git-scm.com](https://git-scm.com/)
 - **macOS**:
@@ -111,13 +151,13 @@ GitHub là dịch vụ lưu trữ Git trên cloud, cung cấp giao diện web đ
   sudo apt-get install git
   ```
 
-**Kiểm tra cài đặt:**
+### Kiểm tra cài đặt
 
 ```bash
 git --version
 ```
 
-**Cấu hình ban đầu:**
+### Cấu hình ban đầu
 
 ```bash
 git config --global user.name "Tên của bạn"
@@ -128,7 +168,7 @@ git config --global user.email "email@example.com"
 
 ## 🧑‍🏫 Bài 2: Các lệnh Git cơ bản
 
-**Khởi tạo repository:**
+### Khởi tạo repository
 
 ```bash
 # Tạo repository mới
@@ -138,7 +178,7 @@ git init
 git clone https://github.com/username/repository.git
 ```
 
-**Xem trạng thái và lịch sử:**
+### Xem trạng thái và lịch sử
 
 ```bash
 # Xem trạng thái hiện tại
@@ -154,7 +194,7 @@ git log --oneline
 git diff
 ```
 
-**Quản lý thay đổi:**
+### Quản lý thay đổi
 
 ```bash
 # Thêm file vào staging area
@@ -170,7 +210,7 @@ git commit -m "Mô tả về thay đổi"
 git commit -am "Mô tả về thay đổi"
 ```
 
-**Hoàn tác thay đổi:**
+### Hoàn tác thay đổi
 
 ```bash
 # Hủy thay đổi trong working directory (chưa add)
@@ -186,7 +226,7 @@ git reset --soft HEAD~1
 git reset --hard HEAD~1
 ```
 
-**Làm việc với remote repository:**
+### Làm việc với remote repository
 
 ```bash
 # Xem danh sách remote
@@ -205,7 +245,7 @@ git pull origin main
 git push origin main
 ```
 
-**File .gitignore:**
+### File .gitignore
 
 File `.gitignore` liệt kê các file và thư mục mà Git sẽ bỏ qua khi theo dõi thay đổi:
 
@@ -223,7 +263,7 @@ Các mẫu phổ biến cho `.gitignore` theo ngôn ngữ có sẵn tại: [gith
 
 ## 🧑‍🏫 Bài 3: Làm việc với GitHub
 
-**Tạo tài khoản và repository:**
+### Tạo tài khoản và repository
 
 1. Đăng ký tại [github.com](https://github.com)
 2. Tạo repository mới:
@@ -232,7 +272,7 @@ Các mẫu phổ biến cho `.gitignore` theo ngôn ngữ có sẵn tại: [gith
    - Chọn khởi tạo với README nếu cần
    - Click "Create repository"
 
-**Liên kết repository local với GitHub:**
+### Liên kết repository local với GitHub
 
 ```bash
 # Với repository mới tạo trên GitHub
@@ -249,33 +289,33 @@ git remote add origin https://github.com/username/repository.git
 git push -u origin main
 ```
 
-**Sử dụng SSH với GitHub:**
+### Sử dụng SSH với GitHub
 
-1. Tạo SSH key:
+1. **Tạo SSH key**:
 
    ```bash
    ssh-keygen -t ed25519 -C "your_email@example.com"
    ```
 
-2. Thêm SSH key vào SSH agent:
+2. **Thêm SSH key vào SSH agent**:
 
    ```bash
    eval "$(ssh-agent -s)"
    ssh-add ~/.ssh/id_ed25519
    ```
 
-3. Thêm SSH key vào tài khoản GitHub:
+3. **Thêm SSH key vào tài khoản GitHub**:
 
    - Copy key: `cat ~/.ssh/id_ed25519.pub`
    - Thêm vào GitHub: Settings > SSH and GPG keys > New SSH key
 
-4. Kiểm tra kết nối:
+4. **Kiểm tra kết nối**:
 
    ```bash
    ssh -T git@github.com
    ```
 
-**GitHub Pages:**
+### GitHub Pages
 
 GitHub Pages là dịch vụ hosting tĩnh miễn phí của GitHub:
 
@@ -285,7 +325,7 @@ GitHub Pages là dịch vụ hosting tĩnh miễn phí của GitHub:
 4. Push lên GitHub
 5. Truy cập `https://username.github.io`
 
-**GitHub Actions:**
+### GitHub Actions
 
 GitHub Actions là dịch vụ CI/CD tích hợp của GitHub:
 
@@ -318,7 +358,7 @@ GitHub Actions là dịch vụ CI/CD tích hợp của GitHub:
 
 ## 🧑‍🏫 Bài 4: Branching và Merging
 
-**Quản lý branch:**
+### Quản lý branch
 
 ```bash
 # Liệt kê tất cả branch
@@ -340,7 +380,7 @@ git branch -d feature-login
 git push origin --delete feature-login
 ```
 
-**Merge branch:**
+### Merge branch
 
 ```bash
 # Chuyển về branch đích (thường là main)
@@ -353,7 +393,7 @@ git merge feature-login
 git merge --no-ff feature-login
 ```
 
-**Rebasing:**
+### Rebasing
 
 Rebase là cách tái sắp xếp commit để có lịch sử tuyến tính:
 
@@ -368,7 +408,7 @@ git rebase --continue
 git rebase --abort
 ```
 
-**Fast-forward vs. No-fast-forward:**
+### Fast-forward vs. No-fast-forward
 
 ```text
 # Fast-forward merge (mặc định khi có thể)
@@ -390,7 +430,7 @@ A---B---C---F (main)
           D---E (feature)
 ```
 
-**Stashing:**
+### Stashing
 
 Stash lưu tạm các thay đổi chưa commit:
 
@@ -418,7 +458,7 @@ git stash clear
 
 ## 🧑‍🏫 Bài 5: Làm việc nhóm và giải quyết xung đột
 
-**Pull Request (PR):**
+### Pull Request (PR)
 
 Pull Request là cách đề xuất thay đổi trong GitHub:
 
@@ -430,7 +470,7 @@ Pull Request là cách đề xuất thay đổi trong GitHub:
 6. Đợi review và approval
 7. Merge PR
 
-**Review code:**
+### Review code
 
 1. Xem PR trong GitHub
 2. Xem các thay đổi (Files changed)
@@ -438,7 +478,7 @@ Pull Request là cách đề xuất thay đổi trong GitHub:
 4. Approve hoặc Request changes
 5. Submit review
 
-**Giải quyết xung đột (Conflict):**
+### Giải quyết xung đột (Conflict)
 
 Xung đột xảy ra khi cùng thay đổi một phần của file:
 
@@ -451,7 +491,7 @@ Automatic merge failed; fix conflicts and then commit the result.
 
 Các bước giải quyết:
 
-1. Mở file có xung đột, tìm phần được đánh dấu:
+1. **Mở file có xung đột, tìm phần được đánh dấu:**
 
    ```text
    <<<<<<< HEAD
@@ -461,21 +501,21 @@ Các bước giải quyết:
    >>>>>>> feature-branch
    ```
 
-2. Chỉnh sửa để giữ thay đổi mong muốn (xóa các dấu hiệu xung đột)
+2. **Chỉnh sửa để giữ thay đổi mong muốn (xóa các dấu hiệu xung đột)**
 
-3. Đánh dấu đã giải quyết xong:
+3. **Đánh dấu đã giải quyết xong**:
 
    ```bash
    git add file.txt
    ```
 
-4. Hoàn tất merge:
+4. **Hoàn tất merge**:
 
    ```bash
    git commit -m "Resolved merge conflict in file.txt"
    ```
 
-**Best practices làm việc nhóm:**
+### Best practices làm việc nhóm
 
 1. **Pull thường xuyên**: Lấy thay đổi mới nhất trước khi bắt đầu làm việc
 2. **Commit nhỏ và thường xuyên**: Dễ review và debug
@@ -489,11 +529,11 @@ Các bước giải quyết:
 
 ## 🧑‍🏫 Bài 6: Git Flow và quy trình phát triển
 
-**Git Flow là gì?**
+### Git Flow là gì?
 
 Git Flow là một mô hình phân nhánh giúp quản lý dự án phần mềm. Nó định nghĩa các loại branch cụ thể và cách chúng tương tác với nhau.
 
-**Các loại branch trong Git Flow:**
+### Các loại branch trong Git Flow
 
 ```text
                     +----------------------+
@@ -535,7 +575,7 @@ Git Flow là một mô hình phân nhánh giúp quản lý dự án phần mềm
 4. **release/**: Branch chuẩn bị cho phiên bản mới
 5. **hotfix/**: Branch sửa lỗi khẩn cấp trên production
 
-**Quy trình Git Flow:**
+### Quy trình Git Flow
 
 1. **Feature development**:
 
@@ -594,7 +634,7 @@ Git Flow là một mô hình phân nhánh giúp quản lý dự án phần mềm
    git branch -d hotfix/1.0.1
    ```
 
-**Mở rộng và biến thể:**
+### Mở rộng và biến thể
 
 - **GitHub Flow**: Đơn giản hóa với chỉ main và feature branches
 - **GitLab Flow**: Thêm các environment branches (production, staging)
@@ -604,7 +644,7 @@ Git Flow là một mô hình phân nhánh giúp quản lý dự án phần mềm
 
 ## 🧑‍🏫 Bài 7: Kỹ thuật Git nâng cao
 
-**Tagging:**
+### Tagging
 
 Tag đánh dấu các phiên bản quan trọng trong lịch sử:
 
@@ -624,7 +664,7 @@ git push origin --tags
 git checkout v1.0.0
 ```
 
-**Cherry-picking:**
+### Cherry-picking
 
 Cherry-pick áp dụng commit cụ thể vào branch hiện tại:
 
@@ -639,7 +679,7 @@ git cherry-pick abc123def
 git cherry-pick abc123def..ghi456jkl
 ```
 
-**Interactive rebase:**
+### Interactive rebase
 
 Rebase tương tác cho phép điều chỉnh lịch sử commit:
 
@@ -657,7 +697,7 @@ Các lệnh trong rebase tương tác:
 - `fixup`: Gộp commit nhưng bỏ qua message
 - `drop`: Xóa commit
 
-**Reflog - khôi phục lịch sử:**
+### Reflog - khôi phục lịch sử
 
 Reflog lưu mọi thay đổi trên repository local:
 
@@ -669,11 +709,11 @@ git reflog
 git reset --hard HEAD@{2}
 ```
 
-**Git hooks:**
+### Git hooks
 
 Git hooks là script tự động chạy trước/sau các hành động Git:
 
-1. Pre-commit hook: `.git/hooks/pre-commit`
+1. **Pre-commit hook**: `.git/hooks/pre-commit`
 
    ```bash
    #!/bin/sh
@@ -687,7 +727,7 @@ Git hooks là script tự động chạy trước/sau các hành động Git:
    fi
    ```
 
-2. Pre-push hook: `.git/hooks/pre-push`
+2. **Pre-push hook**: `.git/hooks/pre-push`
 
    ```bash
    #!/bin/sh
@@ -701,7 +741,7 @@ Git hooks là script tự động chạy trước/sau các hành động Git:
    fi
    ```
 
-**Submodule và Subtree:**
+### Submodule và Subtree
 
 1. **Submodule**: Nhúng repository khác như một thư mục con:
 
@@ -723,7 +763,7 @@ Git hooks là script tự động chạy trước/sau các hành động Git:
    git subtree pull --prefix=libs/repo https://github.com/user/repo.git main
    ```
 
-**Git bisect:**
+### Git bisect
 
 Git bisect giúp tìm commit gây ra lỗi:
 
@@ -747,7 +787,7 @@ git bisect bad   # Nếu có lỗi
 git bisect reset
 ```
 
-**Git aliases:**
+### Git aliases
 
 Tạo lệnh tắt cho các lệnh Git phức tạp:
 
@@ -788,4 +828,4 @@ Hãy chuẩn bị tinh thần và sẵn sàng cho những thử thách mới!
 
 [⬅️ Trở lại: SELF-LEARNING/Part4.md](./SELF-LEARNING/Part4.md) |
 [🏠 Home](./README.md) |
-[➡️Tiếp theo: JAVA/Part1.md](./JAVA/Part1.md)`
+[➡️Tiếp theo: JAVA/Part1.md](./JAVA/Part1.md)

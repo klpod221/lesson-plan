@@ -3,10 +3,68 @@
 - [📘 PHẦN 4: CÁC CẤU TRÚC DỮ LIỆU CHUYÊN BIỆT](#-phần-4-các-cấu-trúc-dữ-liệu-chuyên-biệt)
   - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
   - [🧑‍🏫 Bài 1: Cây cân bằng (AVL, Red-Black Trees)](#-bài-1-cây-cân-bằng-avl-red-black-trees)
+    - [Cây AVL](#cây-avl)
+      - [Các tính chất của cây AVL](#các-tính-chất-của-cây-avl)
+      - [Các thao tác tái cân bằng](#các-thao-tác-tái-cân-bằng)
+      - [Cài đặt cây AVL đầy đủ](#cài-đặt-cây-avl-đầy-đủ)
+    - [Cây Red-Black](#cây-red-black)
+      - [Tính chất của cây Red-Black](#tính-chất-của-cây-red-black)
+      - [Cài đặt cây Red-Black](#cài-đặt-cây-red-black)
+    - [So sánh cây AVL và cây Red-Black](#so-sánh-cây-avl-và-cây-red-black)
   - [🧑‍🏫 Bài 2: Cây B và B+](#-bài-2-cây-b-và-b)
+    - [Cây B](#cây-b)
+      - [Tính chất của cây B bậc M](#tính-chất-của-cây-b-bậc-m)
+      - [Cấu trúc nút trong cây B](#cấu-trúc-nút-trong-cây-b)
+      - [Cài đặt cây B](#cài-đặt-cây-b)
+    - [Cây B+](#cây-b-1)
+      - [Cấu trúc nút trong cây B+](#cấu-trúc-nút-trong-cây-b-1)
+      - [Cài đặt cây B+ (phiên bản đơn giản)](#cài-đặt-cây-b-phiên-bản-đơn-giản)
   - [🧑‍🏫 Bài 3: Heap và Priority Queue](#-bài-3-heap-và-priority-queue)
+    - [Cấu trúc Heap](#cấu-trúc-heap)
+    - [Cài đặt Heap](#cài-đặt-heap)
+      - [Max Heap](#max-heap)
+      - [Min Heap](#min-heap)
+    - [Priority Queue](#priority-queue)
+      - [Cài đặt Priority Queue sử dụng Heap](#cài-đặt-priority-queue-sử-dụng-heap)
+    - [Heap Sort](#heap-sort)
+    - [5. Ứng dụng của Heap và Priority Queue](#5-ứng-dụng-của-heap-và-priority-queue)
+    - [6. Bài tập](#6-bài-tập)
+      - [Bài tập 1: Cài đặt thuật toán tìm k phần tử lớn nhất trong một mảng sử dụng min-heap](#bài-tập-1-cài-đặt-thuật-toán-tìm-k-phần-tử-lớn-nhất-trong-một-mảng-sử-dụng-min-heap)
+      - [Bài tập 2: Sử dụng priority queue để lập lịch CPU (xử lý các tiến trình theo độ ưu tiên)](#bài-tập-2-sử-dụng-priority-queue-để-lập-lịch-cpu-xử-lý-các-tiến-trình-theo-độ-ưu-tiên)
+    - [7. Phân tích hiệu năng](#7-phân-tích-hiệu-năng)
   - [🧑‍🏫 Bài 4: Trie và ứng dụng](#-bài-4-trie-và-ứng-dụng)
+    - [Cấu trúc dữ liệu Trie](#cấu-trúc-dữ-liệu-trie)
+      - [Đặc điểm của Trie](#đặc-điểm-của-trie)
+      - [Cấu trúc nút của Trie](#cấu-trúc-nút-của-trie)
+    - [Cài đặt cơ bản của Trie](#cài-đặt-cơ-bản-của-trie)
+    - [Ứng dụng của Trie](#ứng-dụng-của-trie)
+      - [Tự động hoàn thành (Autocomplete)](#tự-động-hoàn-thành-autocomplete)
+      - [Kiểm tra tiền tố (Prefix checking)](#kiểm-tra-tiền-tố-prefix-checking)
+      - [Tìm kiếm từ trong ma trận (Word Search)](#tìm-kiếm-từ-trong-ma-trận-word-search)
+      - [Từ điển (Dictionary)](#từ-điển-dictionary)
+    - [Trie với bảng băm (Hash Trie)](#trie-với-bảng-băm-hash-trie)
+    - [Trie nén (Compressed Trie)](#trie-nén-compressed-trie)
+    - [Phân tích hiệu năng của Trie](#phân-tích-hiệu-năng-của-trie)
+    - [So sánh với các cấu trúc dữ liệu khác](#so-sánh-với-các-cấu-trúc-dữ-liệu-khác)
+    - [Bài tập](#bài-tập)
+      - [Bài tập 1: Đếm số từ có tiền tố chung](#bài-tập-1-đếm-số-từ-có-tiền-tố-chung)
+      - [Bài tập 2: Tìm từ dài nhất có tất cả tiền tố trong từ điển](#bài-tập-2-tìm-từ-dài-nhất-có-tất-cả-tiền-tố-trong-từ-điển)
+      - [Bài tập 3: Xây dựng trò chơi tìm từ (Word Boggle)](#bài-tập-3-xây-dựng-trò-chơi-tìm-từ-word-boggle)
   - [🧑‍🏫 Bài 5: Segment Tree và Fenwick Tree](#-bài-5-segment-tree-và-fenwick-tree)
+    - [Segment Tree](#segment-tree)
+      - [Tính chất của Segment Tree](#tính-chất-của-segment-tree)
+      - [Cài đặt Segment Tree](#cài-đặt-segment-tree)
+    - [Lazy Propagation trong Segment Tree](#lazy-propagation-trong-segment-tree)
+    - [Fenwick Tree (Binary Indexed Tree)](#fenwick-tree-binary-indexed-tree)
+      - [Tính chất của Fenwick Tree](#tính-chất-của-fenwick-tree)
+      - [Cài đặt Fenwick Tree](#cài-đặt-fenwick-tree)
+    - [Fenwick Tree 2D](#fenwick-tree-2d)
+    - [So sánh Segment Tree và Fenwick Tree](#so-sánh-segment-tree-và-fenwick-tree)
+    - [Ứng dụng của Segment Tree và Fenwick Tree](#ứng-dụng-của-segment-tree-và-fenwick-tree)
+    - [Bài luyện tập](#bài-luyện-tập)
+      - [Bài tập 1: Truy vấn tổng đoạn và cập nhật phần tử](#bài-tập-1-truy-vấn-tổng-đoạn-và-cập-nhật-phần-tử)
+      - [Bài tập 2: Truy vấn giá trị nhỏ nhất đoạn](#bài-tập-2-truy-vấn-giá-trị-nhỏ-nhất-đoạn)
+      - [Bài tập 3: Đếm số phần tử lớn hơn hoặc bằng k trong đoạn \[l, r\]](#bài-tập-3-đếm-số-phần-tử-lớn-hơn-hoặc-bằng-k-trong-đoạn-l-r)
   - [🧑‍💻 Bài tập lớn: Xây dựng hệ thống tìm kiếm văn bản đơn giản](#-bài-tập-lớn-xây-dựng-hệ-thống-tìm-kiếm-văn-bản-đơn-giản)
     - [Mô tả bài toán](#mô-tả-bài-toán)
     - [Các thành phần cần triển khai](#các-thành-phần-cần-triển-khai)
@@ -23,57 +81,57 @@
 
 ## 🧑‍🏫 Bài 1: Cây cân bằng (AVL, Red-Black Trees)
 
-**1. Cây AVL:**
+### Cây AVL
 
 Cây AVL là cây nhị phân tìm kiếm tự cân bằng, đảm bảo chiều cao của hai cây con lệch nhau không quá 1 đơn vị.
 
-**Các tính chất của cây AVL:**
+#### Các tính chất của cây AVL
 
 - Mỗi nút có hệ số cân bằng (balance factor) = chiều cao cây con trái - chiều cao cây con phải
 - Hệ số cân bằng của mỗi nút phải là -1, 0, hoặc +1
 - Các thao tác tìm kiếm, chèn, xóa đều có độ phức tạp O(log n)
 
-**Các thao tác tái cân bằng:**
+#### Các thao tác tái cân bằng
 
-1. **Xoay phải (Right rotation):**
+1. Xoay phải (Right rotation):
 
-```java
-private Node rightRotate(Node y) {
-    Node x = y.left;
-    Node T2 = x.right;
+   ```java
+   private Node rightRotate(Node y) {
+       Node x = y.left;
+       Node T2 = x.right;
 
-    // Thực hiện xoay
-    x.right = y;
-    y.left = T2;
+       // Thực hiện xoay
+       x.right = y;
+       y.left = T2;
 
-    // Cập nhật chiều cao
-    y.height = Math.max(height(y.left), height(y.right)) + 1;
-    x.height = Math.max(height(x.left), height(x.right)) + 1;
+       // Cập nhật chiều cao
+       y.height = Math.max(height(y.left), height(y.right)) + 1;
+       x.height = Math.max(height(x.left), height(x.right)) + 1;
 
-    return x;
-}
-```
+       return x;
+   }
+   ```
 
 2. **Xoay trái (Left rotation):**
 
-```java
-private Node leftRotate(Node x) {
-    Node y = x.right;
-    Node T2 = y.left;
+   ```java
+   private Node leftRotate(Node x) {
+       Node y = x.right;
+       Node T2 = y.left;
 
-    // Thực hiện xoay
-    y.left = x;
-    x.right = T2;
+       // Thực hiện xoay
+       y.left = x;
+       x.right = T2;
 
-    // Cập nhật chiều cao
-    x.height = Math.max(height(x.left), height(x.right)) + 1;
-    y.height = Math.max(height(y.left), height(y.right)) + 1;
+       // Cập nhật chiều cao
+       x.height = Math.max(height(x.left), height(x.right)) + 1;
+       y.height = Math.max(height(y.left), height(y.right)) + 1;
 
-    return y;
-}
-```
+       return y;
+   }
+   ```
 
-**Cài đặt cây AVL đầy đủ:**
+#### Cài đặt cây AVL đầy đủ
 
 ```java
 public class AVLTree {
@@ -254,11 +312,11 @@ public class AVLTree {
 }
 ```
 
-**2. Cây Red-Black:**
+### Cây Red-Black
 
 Cây Red-Black là một loại cây nhị phân tìm kiếm tự cân bằng với các tính chất đặc biệt để đảm bảo cân bằng.
 
-**Tính chất của cây Red-Black:**
+#### Tính chất của cây Red-Black
 
 1. Mỗi nút có màu đỏ hoặc đen
 2. Nút gốc luôn có màu đen
@@ -266,7 +324,7 @@ Cây Red-Black là một loại cây nhị phân tìm kiếm tự cân bằng v�
 4. Nút đỏ không thể có con đỏ (không có 2 nút đỏ liên tiếp)
 5. Mọi đường đi từ nút bất kỳ đến các nút lá đều có cùng số lượng nút đen
 
-**Cài đặt cây Red-Black:**
+#### Cài đặt cây Red-Black
 
 ```java
 public class RedBlackTree {
@@ -370,7 +428,7 @@ public class RedBlackTree {
 }
 ```
 
-**So sánh cây AVL và cây Red-Black:**
+### So sánh cây AVL và cây Red-Black
 
 | Tiêu chí      | Cây AVL                                | Cây Red-Black         |
 | ------------- | -------------------------------------- | --------------------- |
@@ -386,18 +444,18 @@ public class RedBlackTree {
 
 ## 🧑‍🏫 Bài 2: Cây B và B+
 
-**1. Cây B:**
+### Cây B
 
 Cây B là một cấu trúc cây tự cân bằng, mỗi nút có thể chứa nhiều khóa và có nhiều con. Cây B thường được sử dụng trong các hệ thống tập tin và cơ sở dữ liệu.
 
-**Tính chất của cây B bậc M:**
+#### Tính chất của cây B bậc M
 
 1. Mọi nút trừ nút gốc đều chứa từ ⌈M/2⌉-1 đến M-1 khóa
 2. Nút gốc chứa từ 1 đến M-1 khóa
 3. Nút có k khóa sẽ có k+1 con
 4. Tất cả các nút lá đều nằm ở cùng một mức
 
-**Cấu trúc nút trong cây B:**
+#### Cấu trúc nút trong cây B
 
 ```java
 class BTreeNode {
@@ -417,7 +475,7 @@ class BTreeNode {
 }
 ```
 
-**Cài đặt cây B:**
+#### Cài đặt cây B
 
 ```java
 public class BTree {
@@ -577,7 +635,7 @@ public class BTree {
 }
 ```
 
-**2. Cây B+:**
+### Cây B+
 
 Cây B+ là một biến thể của cây B, nhưng có một số khác biệt quan trọng:
 
@@ -585,7 +643,7 @@ Cây B+ là một biến thể của cây B, nhưng có một số khác biệt 
 2. Các khóa trong nút nội bộ chỉ là bản sao của khóa ở nút lá
 3. Nút lá chứa tất cả các khóa và con trỏ đến dữ liệu thực
 
-**Cấu trúc nút trong cây B+:**
+#### Cấu trúc nút trong cây B+
 
 ```java
 class BPlusTreeNode {
@@ -607,102 +665,97 @@ class BPlusTreeNode {
 }
 ```
 
-**Cài đặt cây B+ (phiên bản đơn giản):**
+#### Cài đặt cây B+ (phiên bản đơn giản)
 
-````java
+```java
 public class BPlusTree {
     private BPlusTreeNode root;
     private int t; // Bậc tối thiểu
+    private static final int DEFAULT_T = 3; // Bậc mặc định
+
+    public BPlusTree() {
+        this(DEFAULT_T);
+    }
 
     public BPlusTree(int t) {
-        this.root = null;
         this.t = t;
+        root = new BPlusTreeNode(t, true);
     }
 
     // Tìm kiếm một khóa trong cây
-    public BPlusTreeNode search(int key) {
-        return root == null ? null : search(root, key);
-    }
+    public boolean search(int key) {
+        if (root == null)
+            return false;
 
-    private BPlusTreeNode search(BPlusTreeNode node, int key) {
-        int i = 0;
-        while (i < node.n && key > node.keys[i])
-            i++;
+        BPlusTreeNode node = findLeafNode(root, key);
 
-        // Nếu là nút lá
-        if (node.isLeaf) {
-            if (i < node.n && key == node.keys[i])
-                return node; // Trả về nút chứa khóa
-            else
-                return null; // Không tìm thấy
+        // Tìm khóa trong nút lá
+        for (int i = 0; i < node.n; i++) {
+            if (node.keys[i] == key)
+                return true;
         }
 
-        // Nếu là nút nội
-        if (i < node.n && key == node.keys[i])
-            i++; // Đi đến con phù hợp
+        return false;
+    }
 
-        return search(node.children[i], key);
+    // Tìm nút lá có thể chứa khóa
+    private BPlusTreeNode findLeafNode(BPlusTreeNode node, int key) {
+        if (node.isLeaf)
+            return node;
+
+        int i = 0;
+        while (i < node.n && key >= node.keys[i])
+            i++;
+
+        return findLeafNode(node.children[i], key);
     }
 
     // Chèn một khóa vào cây
     public void insert(int key) {
-        // Nếu cây rỗng
-        if (root == null) {
-            root = new BPlusTreeNode(t, true);
-            root.keys[0] = key;
-            root.n = 1;
-            return;
-        }
-
-        // Nếu gốc đầy
-        if (root.n == 2*t - 1) {
-            // Tạo nút mới làm gốc
+        // Nếu gốc đầy, cần tách gốc
+        if (root.n == 2 * t - 1) {
             BPlusTreeNode newRoot = new BPlusTreeNode(t, false);
             newRoot.children[0] = root;
 
             // Tách gốc cũ
             splitChild(newRoot, 0);
 
-            // Chèn khóa vào một trong hai nửa
-            int i = 0;
-            if (newRoot.keys[0] < key)
-                i++;
-            insertNonFull(newRoot.children[i], key);
-
-            // Gốc mới
+            // Cập nhật gốc mới
             root = newRoot;
-        } else {
-            insertNonFull(root, key);
         }
+
+        insertNonFull(root, key);
     }
 
-    // Chèn vào nút chưa đầy
+    // Chèn khóa vào nút không đầy
     private void insertNonFull(BPlusTreeNode node, int key) {
         int i = node.n - 1;
 
         // Nếu là nút lá
         if (node.isLeaf) {
-            // Tìm vị trí và dịch các khóa
+            // Tìm vị trí để chèn và dịch các khóa lớn hơn
             while (i >= 0 && key < node.keys[i]) {
-                node.keys[i+1] = node.keys[i];
+                node.keys[i + 1] = node.keys[i];
                 i--;
             }
 
-            // Chèn khóa
-            node.keys[i+1] = key;
+
+            // Chèn khóa mới
+            node.keys[i + 1] = key;
             node.n++;
-        } else { // Nếu là nút nội
-            // Tìm vị trí con phù hợp
+        } else {
+            // Nếu không phải nút lá, tìm nút con để chèn
             while (i >= 0 && key < node.keys[i])
                 i--;
 
             i++;
 
-            // Nếu nút con đầy, tách nó
-            if (node.children[i].n == 2*t - 1) {
+            // Nếu nút con đầy, tách nó trước
+            if (node.children[i].n == 2 * t - 1) {
                 splitChild(node, i);
 
-                // Quyết định con nào nhận khóa mới
+                // Sau khi tách, khóa ở giữa được đẩy lên
+                // Xác định lại nút con cần chèn
                 if (key > node.keys[i])
                     i++;
             }
@@ -711,56 +764,75 @@ public class BPlusTree {
         }
     }
 
-    // Tách nút con
-    private void splitChild(BPlusTreeNode parent, int childIndex) {
-        BPlusTreeNode child = parent.children[childIndex];
+    // Tách nút con thứ i của node
+    private void splitChild(BPlusTreeNode parent, int i) {
+        BPlusTreeNode child = parent.children[i];
         BPlusTreeNode newChild = new BPlusTreeNode(t, child.isLeaf);
 
-        // Sao chép nửa sau của con vào nút mới
-        for (int j = 0; j < t-1; j++)
-            newChild.keys[j] = child.keys[j+t];
+        // Sao chép nửa sau của khóa từ child sang newChild
+        for (int j = 0; j < t - 1; j++)
+            newChild.keys[j] = child.keys[j + t];
 
-        // Sao chép con tương ứng nếu không phải nút lá
+        // Sao chép nửa sau của con từ child sang newChild nếu không phải nút lá
         if (!child.isLeaf) {
             for (int j = 0; j < t; j++)
-                newChild.children[j] = child.children[j+t];
+                newChild.children[j] = child.children[j + t];
         }
 
-        // Đặt số khóa cho cả hai nút
+        // Cập nhật số khóa
         newChild.n = t - 1;
         child.n = t;
 
-        // Nếu là nút lá, tạo liên kết giữa các nút lá
+        // Dịch chuyển con của parent để chèn newChild
+        for (int j = parent.n; j > i; j--)
+            parent.children[j + 1] = parent.children[j];
+
+        parent.children[i + 1] = newChild;
+
+        // Dịch chuyển khóa của parent
+        for (int j = parent.n - 1; j >= i; j--)
+            parent.keys[j + 1] = parent.keys[j];
+
+        // Khóa ở giữa của child được đẩy lên parent
+        parent.keys[i] = child.keys[t - 1];
+
+        parent.n++;
+
+        // Thiết lập liên kết giữa các nút lá
         if (child.isLeaf) {
             newChild.next = child.next;
             child.next = newChild;
+
+            // Trong cây B+, chúng ta giữ lại khóa trong nút lá
+            child.keys[t - 1] = child.keys[t - 1]; // Giữ lại khóa ở nút lá
         }
-
-        // Dịch các con của parent
-        for (int j = parent.n; j > childIndex; j--)
-            parent.children[j+1] = parent.children[j];
-
-        // Liên kết nút con mới với parent
-        parent.children[childIndex+1] = newChild;
-
-        // Dịch các khóa và chèn khóa từ child
-        for (int j = parent.n-1; j >= childIndex; j--)
-            parent.keys[j+1] = parent.keys[j];
-
-        parent.keys[childIndex] = child.keys[t-1]; // Khóa tách
-        parent.n++;
     }
 
-    // Duyệt tất cả các khóa theo thứ tự
+    // Duyệt cây theo thứ tự
     public void traverse() {
         if (root != null) {
-            traverseLeaves();
+            traverseInternal(root);
         }
     }
 
-    // Duyệt các nút lá (chứa tất cả các khóa)
-    private void traverseLeaves() {
-        BPlusTreeNode current = getLeftmostLeaf(root);
+    private void traverseInternal(BPlusTreeNode node) {
+        if (node.isLeaf) {
+            for (int i = 0; i < node.n; i++) {
+                System.out.print(node.keys[i] + " ");
+            }
+        } else {
+            int i;
+            for (i = 0; i < node.n; i++) {
+                traverseInternal(node.children[i]);
+                System.out.print(node.keys[i] + " ");
+            }
+            traverseInternal(node.children[i]);
+        }
+    }
+
+    // Duyệt qua các nút lá (theo thứ tự)
+    public void traverseLeaves() {
+        BPlusTreeNode current = findLeftmostLeaf(root);
 
         while (current != null) {
             for (int i = 0; i < current.n; i++) {
@@ -771,411 +843,61 @@ public class BPlusTree {
         System.out.println();
     }
 
-    // Lấy nút lá trái nhất
-    private BPlusTreeNode getLeftmostLeaf(BPlusTreeNode node) {
+    // Tìm nút lá trái nhất
+    private BPlusTreeNode findLeftmostLeaf(BPlusTreeNode node) {
         if (node == null)
             return null;
 
-        while (!node.isLeaf) {
-            node = node<!-- filepath: /home/klpod221/Develop/lesson-plan/DSA/Part4.md -->
-# 📘 PHẦN 4: CÁC CẤU TRÚC DỮ LIỆU CHUYÊN BIỆT
-
-- [📘 PHẦN 4: CÁC CẤU TRÚC DỮ LIỆU CHUYÊN BIỆT](#-phần-4-các-cấu-trúc-dữ-liệu-chuyên-biệt)
-  - [Nội dung](#nội-dung)
-  - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
-  - [🧑‍🏫 Bài 1: Cây cân bằng (AVL, Red-Black Trees)](#-bài-1-cây-cân-bằng-avl-red-black-trees)
-  - [🧑‍🏫 Bài 2: Cây B và B+](#-bài-2-cây-b-và-b)
-  - [🧑‍🏫 Bài 3: Heap và Priority Queue](#-bài-3-heap-và-priority-queue)
-  - [🧑‍🏫 Bài 4: Trie và ứng dụng](#-bài-4-trie-và-ứng-dụng)
-  - [🧑‍🏫 Bài 5: Segment Tree và Fenwick Tree](#-bài-5-segment-tree-và-fenwick-tree)
-  - [🧑‍💻 Bài tập lớn: Xây dựng hệ thống tìm kiếm văn bản đơn giản](#-bài-tập-lớn-xây-dựng-hệ-thống-tìm-kiếm-văn-bản-đơn-giản)
-
-## 🎯 Mục tiêu tổng quát
-
-- Hiểu và cài đặt được các cấu trúc dữ liệu nâng cao như cây cân bằng, cây B/B+, Heap, Trie, Segment Tree.
-- Phân tích được ưu nhược điểm của từng cấu trúc và biết lựa chọn cấu trúc phù hợp với bài toán.
-- Áp dụng các cấu trúc dữ liệu chuyên biệt vào các bài toán thực tế.
-- Tối ưu hóa giải pháp sử dụng các cấu trúc dữ liệu đặc thù.
-
----
-
-## 🧑‍🏫 Bài 1: Cây cân bằng (AVL, Red-Black Trees)
-
-**1. Cây AVL:**
-
-Cây AVL là cây nhị phân tìm kiếm tự cân bằng, đảm bảo chiều cao của hai cây con lệch nhau không quá 1 đơn vị.
-
-**Các tính chất của cây AVL:**
-
-- Mỗi nút có hệ số cân bằng (balance factor) = chiều cao cây con trái - chiều cao cây con phải
-- Hệ số cân bằng của mỗi nút phải là -1, 0, hoặc +1
-- Các thao tác tìm kiếm, chèn, xóa đều có độ phức tạp O(log n)
-
-**Các thao tác tái cân bằng:**
-
-1. **Xoay phải (Right rotation):**
-
-```java
-private Node rightRotate(Node y) {
-    Node x = y.left;
-    Node T2 = x.right;
-
-    // Thực hiện xoay
-    x.right = y;
-    y.left = T2;
-
-    // Cập nhật chiều cao
-    y.height = Math.max(height(y.left), height(y.right)) + 1;
-    x.height = Math.max(height(x.left), height(x.right)) + 1;
-
-    return x;
-}
-````
-
-2. **Xoay trái (Left rotation):**
-
-```java
-private Node leftRotate(Node x) {
-    Node y = x.right;
-    Node T2 = y.left;
-
-    // Thực hiện xoay
-    y.left = x;
-    x.right = T2;
-
-    // Cập nhật chiều cao
-    x.height = Math.max(height(x.left), height(x.right)) + 1;
-    y.height = Math.max(height(y.left), height(y.right)) + 1;
-
-    return y;
-}
-```
-
-**Cài đặt cây AVL đầy đủ:**
-
-```java
-public class AVLTree {
-    private class Node {
-        int key, height;
-        Node left, right;
-
-        Node(int key) {
-            this.key = key;
-            this.height = 1; // Nút lá mới có chiều cao là 1
-        }
-    }
-
-    private Node root;
-
-    // Lấy chiều cao của nút
-    private int height(Node node) {
-        if (node == null)
-            return 0;
-        return node.height;
-    }
-
-    // Lấy hệ số cân bằng của nút
-    private int getBalance(Node node) {
-        if (node == null)
-            return 0;
-        return height(node.left) - height(node.right);
-    }
-
-    // Chèn một khóa mới vào cây
-    public void insert(int key) {
-        root = insert(root, key);
-    }
-
-    private Node insert(Node node, int key) {
-        // 1. Thực hiện chèn BST thông thường
-        if (node == null)
-            return new Node(key);
-
-        if (key < node.key)
-            node.left = insert(node.left, key);
-        else if (key > node.key)
-            node.right = insert(node.right, key);
-        else // Không cho phép trùng khóa
+        if (node.isLeaf)
             return node;
 
-        // 2. Cập nhật chiều cao của nút hiện tại
-        node.height = 1 + Math.max(height(node.left), height(node.right));
-
-        // 3. Lấy hệ số cân bằng để kiểm tra xem nút này có mất cân bằng không
-        int balance = getBalance(node);
-
-        // 4. Nếu mất cân bằng, có 4 trường hợp
-
-        // Left Left Case
-        if (balance > 1 && key < node.left.key)
-            return rightRotate(node);
-
-        // Right Right Case
-        if (balance < -1 && key > node.right.key)
-            return leftRotate(node);
-
-        // Left Right Case
-        if (balance > 1 && key > node.left.key) {
-            node.left = leftRotate(node.left);
-            return rightRotate(node);
-        }
-
-        // Right Left Case
-        if (balance < -1 && key < node.right.key) {
-            node.right = rightRotate(node.right);
-            return leftRotate(node);
-        }
-
-        return node;
+        return findLeftmostLeaf(node.children[0]);
     }
 
-    // Xóa một khóa khỏi cây
-    public void delete(int key) {
-        root = delete(root, key);
-    }
+    // Tìm khoảng giá trị [start, end]
+    public List<Integer> rangeSearch(int start, int end) {
+        List<Integer> result = new ArrayList<>();
 
-    private Node delete(Node root, int key) {
-        // 1. Thực hiện xóa BST thông thường
         if (root == null)
-            return root;
+            return result;
 
-        if (key < root.key)
-            root.left = delete(root.left, key);
-        else if (key > root.key)
-            root.right = delete(root.right, key);
-        else {
-            // Nút có 0 hoặc 1 con
-            if (root.left == null || root.right == null) {
-                Node temp = (root.left != null) ? root.left : root.right;
+        BPlusTreeNode startLeaf = findLeafNode(root, start);
 
-                // Không có con
-                if (temp == null) {
-                    temp = root;
-                    root = null;
-                }
-                // Một con
-                else {
-                    root = temp;
+        // Duyệt qua các nút lá và thu thập các khóa trong khoảng
+        BPlusTreeNode current = startLeaf;
+        boolean found = false;
+
+        while (current != null) {
+            for (int i = 0; i < current.n; i++) {
+                if (current.keys[i] >= start && current.keys[i] <= end) {
+                    result.add(current.keys[i]);
+                    found = true;
+                } else if (found && current.keys[i] > end) {
+                    // Đã vượt quá khoảng, dừng tìm kiếm
+                    return result;
                 }
             }
-            // Nút có 2 con
-            else {
-                // Tìm nút kế tiếp theo thứ tự (nhỏ nhất trong cây con phải)
-                Node temp = minValueNode(root.right);
-
-                // Sao chép giá trị kế tiếp vào nút hiện tại
-                root.key = temp.key;
-
-                // Xóa nút kế tiếp
-                root.right = delete(root.right, temp.key);
-            }
+            current = current.next;
         }
 
-        // Nếu cây chỉ có một nút thì return
-        if (root == null)
-            return root;
-
-        // 2. Cập nhật chiều cao
-        root.height = 1 + Math.max(height(root.left), height(root.right));
-
-        // 3. Kiểm tra hệ số cân bằng
-        int balance = getBalance(root);
-
-        // 4. Nếu mất cân bằng, tái cân bằng
-
-        // Left Left Case
-        if (balance > 1 && getBalance(root.left) >= 0)
-            return rightRotate(root);
-
-        // Left Right Case
-        if (balance > 1 && getBalance(root.left) < 0) {
-            root.left = leftRotate(root.left);
-            return rightRotate(root);
-        }
-
-        // Right Right Case
-        if (balance < -1 && getBalance(root.right) <= 0)
-            return leftRotate(root);
-
-        // Right Left Case
-        if (balance < -1 && getBalance(root.right) > 0) {
-            root.right = rightRotate(root.right);
-            return leftRotate(root);
-        }
-
-        return root;
-    }
-
-    private Node minValueNode(Node node) {
-        Node current = node;
-
-        // Tìm nút trái nhất (nhỏ nhất)
-        while (current.left != null)
-            current = current.left;
-
-        return current;
-    }
-
-    // Duyệt cây theo thứ tự
-    public void inorder() {
-        inorder(root);
-        System.out.println();
-    }
-
-    private void inorder(Node node) {
-        if (node != null) {
-            inorder(node.left);
-            System.out.print(node.key + " ");
-            inorder(node.right);
-        }
+        return result;
     }
 }
 ```
-
-**2. Cây Red-Black:**
-
-Cây Red-Black là một loại cây nhị phân tìm kiếm tự cân bằng với các tính chất đặc biệt để đảm bảo cân bằng.
-
-**Tính chất của cây Red-Black:**
-
-1. Mỗi nút có màu đỏ hoặc đen
-2. Nút gốc luôn có màu đen
-3. Các nút lá NULL đều có màu đen
-4. Nút đỏ không thể có con đỏ (không có 2 nút đỏ liên tiếp)
-5. Mọi đường đi từ nút bất kỳ đến các nút lá đều có cùng số lượng nút đen
-
-**Cài đặt cây Red-Black:**
-
-```java
-public class RedBlackTree {
-    private static final boolean RED = true;
-    private static final boolean BLACK = false;
-
-    private class Node {
-        int key;
-        Node left, right;
-        boolean color; // true là RED, false là BLACK
-
-        Node(int key) {
-            this.key = key;
-            this.color = RED; // Nút mới luôn là RED
-        }
-    }
-
-    private Node root;
-
-    // Kiểm tra màu của nút
-    private boolean isRed(Node node) {
-        if (node == null)
-            return false; // NULL nodes are BLACK
-        return node.color == RED;
-    }
-
-    // Xoay trái
-    private Node rotateLeft(Node h) {
-        Node x = h.right;
-        h.right = x.left;
-        x.left = h;
-        x.color = h.color;
-        h.color = RED;
-        return x;
-    }
-
-    // Xoay phải
-    private Node rotateRight(Node h) {
-        Node x = h.left;
-        h.left = x.right;
-        x.right = h;
-        x.color = h.color;
-        h.color = RED;
-        return x;
-    }
-
-    // Đảo màu của nút và hai con
-    private void flipColors(Node h) {
-        h.color = !h.color;
-        h.left.color = !h.left.color;
-        h.right.color = !h.right.color;
-    }
-
-    // Chèn một khóa vào cây
-    public void insert(int key) {
-        root = insert(root, key);
-        root.color = BLACK; // Đảm bảo gốc luôn đen
-    }
-
-    private Node insert(Node h, int key) {
-        if (h == null)
-            return new Node(key);
-
-        if (key < h.key)
-            h.left = insert(h.left, key);
-        else if (key > h.key)
-            h.right = insert(h.right, key);
-        else
-            h.key = key; // Cập nhật nếu trùng khóa
-
-        // Cân bằng cây
-
-        // Nếu nút phải đỏ và nút trái đen: xoay trái
-        if (isRed(h.right) && !isRed(h.left))
-            h = rotateLeft(h);
-
-        // Nếu nút trái đỏ và con trái của nó cũng đỏ: xoay phải
-        if (isRed(h.left) && isRed(h.left.left))
-            h = rotateRight(h);
-
-        // Nếu cả nút trái và nút phải đều đỏ: đảo màu
-        if (isRed(h.left) && isRed(h.right))
-            flipColors(h);
-
-        return h;
-    }
-
-    // Duyệt cây theo thứ tự
-    public void inorder() {
-        inorder(root);
-        System.out.println();
-    }
-
-    private void inorder(Node node) {
-        if (node != null) {
-            inorder(node.left);
-            System.out.print(node.key + "(" + (node.color ? "R" : "B") + ") ");
-            inorder(node.right);
-        }
-    }
-}
-```
-
-**So sánh cây AVL và cây Red-Black:**
-
-| Tiêu chí      | Cây AVL                                | Cây Red-Black         |
-| ------------- | -------------------------------------- | --------------------- |
-| Cân bằng      | Nghiêm ngặt (hệ số cân bằng <= 1)      | Ít nghiêm ngặt hơn    |
-| Chiều cao     | ~ 1.44 log(n)                          | ~ 2 log(n)            |
-| Thao tác chèn | Tối đa 2 xoay                          | Tối đa 2 xoay         |
-| Thao tác xóa  | Tối đa log(n) xoay                     | Tối đa 3 xoay         |
-| Bộ nhớ        | 1 bit hệ số cân bằng/chiều cao mỗi nút | 1 bit màu mỗi nút     |
-| Tìm kiếm      | Nhanh hơn do cân bằng tốt              | Chậm hơn một chút     |
-| Ứng dụng      | Tra cứu thường xuyên                   | Chèn/xóa thường xuyên |
-
----
 
 ## 🧑‍🏫 Bài 3: Heap và Priority Queue
 
-**1. Cấu trúc Heap:**
+### Cấu trúc Heap
 
 Heap là một cấu trúc dữ liệu dạng cây thỏa mãn tính chất heap: nút cha luôn lớn hơn hoặc bằng (Max Heap) hoặc nhỏ hơn hoặc bằng (Min Heap) các nút con.
 
-**Tính chất của Heap:**
+- Tính chất của Heap:
+  - Heap là cây nhị phân hoàn chỉnh: tất cả các mức đều được lấp đầy trừ mức cuối cùng, và các nút ở mức cuối cùng luôn được đặt từ trái sang phải.
+  - Các nút cha luôn lớn hơn hoặc bằng các nút con (trong Max-Heap).
+  - Các nút cha luôn nhỏ hơn hoặc bằng các nút con (trong Min-Heap).
+  - Chiều cao của heap với n phần tử luôn là O(log n).
 
-- Heap là cây nhị phân hoàn chỉnh: tất cả các mức đều được lấp đầy trừ mức cuối cùng, và các nút ở mức cuối cùng luôn được đặt từ trái sang phải.
-- Các nút cha luôn lớn hơn hoặc bằng các nút con (trong Max-Heap).
-- Các nút cha luôn nhỏ hơn hoặc bằng các nút con (trong Min-Heap).
-- Chiều cao của heap với n phần tử luôn là O(log n).
-
-**2. Cài đặt Heap:**
+### Cài đặt Heap
 
 Heap thường được cài đặt bằng mảng. Với node ở vị trí `i`:
 
@@ -1183,7 +905,7 @@ Heap thường được cài đặt bằng mảng. Với node ở vị trí `i`:
 - Con phải ở vị trí `2*i + 2`
 - Cha ở vị trí `(i-1)/2`
 
-**a. Max Heap:**
+#### Max Heap
 
 ```java
 public class MaxHeap {
@@ -1297,7 +1019,7 @@ public class MaxHeap {
 }
 ```
 
-**b. Min Heap:**
+#### Min Heap
 
 ```java
 public class MinHeap {
@@ -1411,14 +1133,14 @@ public class MinHeap {
 }
 ```
 
-**3. Priority Queue:**
+### Priority Queue
 
 Priority Queue (Hàng đợi ưu tiên) là một cấu trúc dữ liệu cho phép:
 
 - Chèn phần tử với độ ưu tiên
 - Lấy ra phần tử có độ ưu tiên cao nhất
 
-**Cài đặt Priority Queue sử dụng Heap:**
+#### Cài đặt Priority Queue sử dụng Heap
 
 ```java
 public class PriorityQueue<T extends Comparable<T>> {
@@ -1534,7 +1256,7 @@ public class PriorityQueue<T extends Comparable<T>> {
 }
 ```
 
-**4. Heap Sort:**
+### Heap Sort
 
 Heap Sort là một thuật toán sắp xếp hiệu quả dựa trên cấu trúc heap.
 
@@ -1587,7 +1309,7 @@ public class HeapSort {
 }
 ```
 
-**5. Ứng dụng của Heap và Priority Queue:**
+### 5. Ứng dụng của Heap và Priority Queue
 
 1. **Giải thuật Dijkstra**: Tìm đường đi ngắn nhất trong đồ thị.
 2. **Giải thuật Prim**: Tìm cây khung nhỏ nhất trong đồ thị.
@@ -1596,9 +1318,9 @@ public class HeapSort {
 5. **Heap Sort**: Thuật toán sắp xếp với độ phức tạp O(n log n).
 6. **Tìm k phần tử lớn nhất/nhỏ nhất**: Sử dụng min-heap hoặc max-heap.
 
-**6. Bài tập:**
+### 6. Bài tập
 
-**Bài tập 1**: Cài đặt thuật toán tìm k phần tử lớn nhất trong một mảng sử dụng min-heap.
+#### Bài tập 1: Cài đặt thuật toán tìm k phần tử lớn nhất trong một mảng sử dụng min-heap
 
 ```java
 public static int[] findKLargest(int[] nums, int k) {
@@ -1628,7 +1350,7 @@ public static int[] findKLargest(int[] nums, int k) {
 }
 ```
 
-**Bài tập 2**: Sử dụng priority queue để lập lịch CPU (xử lý các tiến trình theo độ ưu tiên).
+#### Bài tập 2: Sử dụng priority queue để lập lịch CPU (xử lý các tiến trình theo độ ưu tiên)
 
 ```java
 class Process {
@@ -1678,7 +1400,7 @@ public class CPUScheduler {
 }
 ```
 
-**7. Phân tích hiệu năng:**
+### 7. Phân tích hiệu năng
 
 | Thao tác             | Thời gian trung bình | Thời gian xấu nhất |
 | -------------------- | -------------------- | ------------------ |
@@ -1693,19 +1415,18 @@ Heap là cấu trúc dữ liệu tuyệt vời cho các bài toán cần truy xu
 
 ## 🧑‍🏫 Bài 4: Trie và ứng dụng
 
-**1. Cấu trúc dữ liệu Trie:**
-**1. Cấu trúc dữ liệu Trie:**
+### Cấu trúc dữ liệu Trie
 
 Trie (hay cây tiền tố) là một cấu trúc dữ liệu dạng cây được dùng để lưu trữ và tìm kiếm các chuỗi ký tự một cách hiệu quả.
 
-**Đặc điểm của Trie:**
+#### Đặc điểm của Trie
 
 - Mỗi nút trong trie có thể lưu trữ nhiều con trỏ đến các nút con (thường là 26 con trỏ cho các chữ cái tiếng Anh)
 - Đường đi từ gốc đến một nút biểu diễn một tiền tố (prefix)
 - Các nút lá hoặc nút được đánh dấu đặc biệt biểu diễn một từ/chuỗi hoàn chỉnh
 - Tất cả các nút con của một nút đều có tiền tố chung
 
-**Cấu trúc nút của Trie:**
+#### Cấu trúc nút của Trie
 
 ```java
 class TrieNode {
@@ -1721,7 +1442,7 @@ class TrieNode {
 }
 ```
 
-**2. Cài đặt cơ bản của Trie:**
+### Cài đặt cơ bản của Trie
 
 ```java
 public class Trie {
@@ -1827,9 +1548,9 @@ public class Trie {
 }
 ```
 
-**3. Ứng dụng của Trie:**
+### Ứng dụng của Trie
 
-**a. Tự động hoàn thành (Autocomplete):**
+#### Tự động hoàn thành (Autocomplete)
 
 ```java
 // Cài đặt tính năng tự động hoàn thành
@@ -1868,7 +1589,7 @@ private void findAllWords(TrieNode node, String prefix, List<String> result) {
 }
 ```
 
-**b. Kiểm tra tiền tố (Prefix checking):**
+#### Kiểm tra tiền tố (Prefix checking)
 
 ```java
 // Kiểm tra xem một từ có phải là tiền tố của bất kỳ từ nào trong từ điển
@@ -1887,7 +1608,7 @@ public boolean isPrefix(String word) {
 }
 ```
 
-**c. Tìm kiếm từ trong ma trận (Word Search):**
+#### Tìm kiếm từ trong ma trận (Word Search)
 
 ```java
 public boolean exist(char[][] board, String word) {
@@ -1934,7 +1655,7 @@ private boolean search(char[][] board, String word, int i, int j, int index, boo
 }
 ```
 
-**d. Từ điển (Dictionary):**
+#### Từ điển (Dictionary)
 
 ```java
 public class Dictionary {
@@ -1962,7 +1683,7 @@ public class Dictionary {
 }
 ```
 
-**4. Trie với bảng băm (Hash Trie):**
+### Trie với bảng băm (Hash Trie)
 
 ```java
 class HashTrieNode {
@@ -2028,7 +1749,7 @@ public class HashTrie {
 }
 ```
 
-**5. Trie nén (Compressed Trie):**
+### Trie nén (Compressed Trie)
 
 ```java
 class CompressedTrieNode {
@@ -2147,7 +1868,7 @@ public class CompressedTrie {
 }
 ```
 
-**6. Phân tích hiệu năng của Trie:**
+### Phân tích hiệu năng của Trie
 
 | Thao tác           | Thời gian | Không gian |
 | ------------------ | --------- | ---------- |
@@ -2163,7 +1884,7 @@ Trong đó:
 - p là độ dài tiền tố
 - n là số từ trong Trie
 
-**7. So sánh với các cấu trúc dữ liệu khác:**
+### So sánh với các cấu trúc dữ liệu khác
 
 | Cấu trúc dữ liệu   | Ưu điểm                     | Nhược điểm                        |
 | ------------------ | --------------------------- | --------------------------------- |
@@ -2175,9 +1896,9 @@ Trong đó:
 | Binary Search Tree | - Cân bằng tốt về bộ nhớ    | - Tìm kiếm chậm hơn O(log n)      |
 |                    | - Dễ cài đặt                | - Không hiệu quả cho tìm tiền tố  |
 
-**8. Bài tập:**
+### Bài tập
 
-**Bài tập 1: Đếm số từ có tiền tố chung**
+#### Bài tập 1: Đếm số từ có tiền tố chung
 
 ```java
 public int countWordsWithPrefix(String prefix) {
@@ -2211,7 +1932,7 @@ private int countWords(TrieNode node) {
 }
 ```
 
-**Bài tập 2: Tìm từ dài nhất có tất cả tiền tố trong từ điển**
+#### Bài tập 2: Tìm từ dài nhất có tất cả tiền tố trong từ điển
 
 ```java
 public String findLongestWordWithAllPrefixes() {
@@ -2245,7 +1966,7 @@ private boolean allPrefixesExist(String word) {
 }
 ```
 
-**Bài tập 3: Xây dựng trò chơi tìm từ (Word Boggle):**
+#### Bài tập 3: Xây dựng trò chơi tìm từ (Word Boggle)
 
 ```java
 public List<String> findWords(char[][] board, String[] words) {
@@ -2311,17 +2032,17 @@ private void findWordsUtil(char[][] board, int i, int j, TrieNode node,
 
 ## 🧑‍🏫 Bài 5: Segment Tree và Fenwick Tree
 
-**1. Segment Tree:**
+### Segment Tree
 
 Segment Tree (Cây phân đoạn) là một cấu trúc dữ liệu được sử dụng để giải quyết các bài toán truy vấn khoảng và cập nhật các phần tử trong mảng một cách hiệu quả.
 
-**Tính chất của Segment Tree:**
+#### Tính chất của Segment Tree
 
 - Nút gốc đại diện cho toàn bộ mảng
 - Mỗi nút lá đại diện cho một phần tử đơn lẻ
 - Mỗi nút nội bộ có hai nút con, đại diện cho hai nửa đoạn của nút cha
 
-**Cài đặt Segment Tree:**
+#### Cài đặt Segment Tree
 
 ```java
 public class SegmentTree {
@@ -2480,7 +2201,7 @@ public class SegmentTree {
 }
 ```
 
-**2. Lazy Propagation trong Segment Tree:**
+### Lazy Propagation trong Segment Tree
 
 Lazy Propagation là một kỹ thuật tối ưu cho Segment Tree khi có nhiều thao tác cập nhật trên đoạn.
 
@@ -2605,17 +2326,17 @@ public class LazySegmentTree {
 }
 ```
 
-**3. Fenwick Tree (Binary Indexed Tree):**
+### Fenwick Tree (Binary Indexed Tree)
 
 Fenwick Tree hoặc Binary Indexed Tree là một cấu trúc dữ liệu hiệu quả cho các thao tác cập nhật và truy vấn tổng tiền tố.
 
-**Tính chất của Fenwick Tree:**
+#### Tính chất của Fenwick Tree
 
 - Sử dụng bit cuối cùng (LSB - Least Significant Bit) của chỉ số để xác định phạm vi phụ trách của mỗi nút
 - Thao tác cập nhật và truy vấn có độ phức tạp O(log n)
 - Chiếm ít bộ nhớ hơn Segment Tree
 
-**Cài đặt Fenwick Tree:**
+#### Cài đặt Fenwick Tree
 
 ```java
 public class FenwickTree {
@@ -2695,7 +2416,7 @@ public class FenwickTree {
 }
 ```
 
-**4. Fenwick Tree 2D:**
+### Fenwick Tree 2D
 
 Mở rộng Fenwick Tree để hỗ trợ truy vấn và cập nhật trên ma trận 2D:
 
@@ -2742,7 +2463,7 @@ public class FenwickTree2D {
 }
 ```
 
-**5. So sánh Segment Tree và Fenwick Tree:**
+### So sánh Segment Tree và Fenwick Tree
 
 | Tiêu chí             | Segment Tree              | Fenwick Tree          |
 | -------------------- | ------------------------- | --------------------- |
@@ -2754,7 +2475,7 @@ public class FenwickTree2D {
 | Hỗ trợ cập nhật đoạn | Có (với lazy propagation) | Không trực tiếp       |
 | Ứng dụng             | Đa dạng các loại truy vấn | Truy vấn tổng tiền tố |
 
-**6. Ứng dụng của Segment Tree và Fenwick Tree:**
+### Ứng dụng của Segment Tree và Fenwick Tree
 
 1. **Truy vấn tổng đoạn (Range Sum Query)**: Tính tổng của các phần tử trong một đoạn.
 2. **Truy vấn giá trị nhỏ nhất/lớn nhất đoạn (Range Min/Max Query)**.
@@ -2763,9 +2484,9 @@ public class FenwickTree2D {
 5. **Cấu trúc dữ liệu trong cơ sở dữ liệu**: Để tối ưu các truy vấn tổng hợp dữ liệu.
 6. **Các bài toán hình học tính toán**: Như đếm số điểm nằm trong một hình chữ nhật.
 
-**7. Bài tập:**
+### Bài luyện tập
 
-**Bài tập 1: Truy vấn tổng đoạn và cập nhật phần tử**
+#### Bài tập 1: Truy vấn tổng đoạn và cập nhật phần tử
 
 ```java
 public static void main(String[] args) {
@@ -2783,7 +2504,7 @@ public static void main(String[] args) {
 }
 ```
 
-**Bài tập 2: Truy vấn giá trị nhỏ nhất đoạn**
+#### Bài tập 2: Truy vấn giá trị nhỏ nhất đoạn
 
 ```java
 // Segment Tree cho truy vấn nhỏ nhất
@@ -2844,7 +2565,7 @@ MinSegmentTree minTree = new MinSegmentTree(arr);
 System.out.println("Giá trị nhỏ nhất trong đoạn [1, 4]: " + minTree.getMin(1, 4)); // Kết quả: 1
 ```
 
-**Bài tập 3: Đếm số phần tử lớn hơn hoặc bằng k trong đoạn [l, r]**
+#### Bài tập 3: Đếm số phần tử lớn hơn hoặc bằng k trong đoạn [l, r]
 
 ```java
 // Xây dựng Segment Tree đặc biệt

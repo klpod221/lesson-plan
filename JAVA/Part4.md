@@ -1,16 +1,36 @@
 # 📘 PHẦN 4: XỬ LÝ NGOẠI LỆ, FILE I/O VÀ COLLECTIONS
 
-
 - [📘 PHẦN 4: XỬ LÝ NGOẠI LỆ, FILE I/O VÀ COLLECTIONS](#-phần-4-xử-lý-ngoại-lệ-file-io-và-collections)
-  - [Nội dung](#nội-dung)
   - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
   - [🧑‍🏫 Bài 1: Xử lý ngoại lệ (Exception Handling)](#-bài-1-xử-lý-ngoại-lệ-exception-handling)
+    - [Khái niệm ngoại lệ (Exception) và cơ chế xử lý](#khái-niệm-ngoại-lệ-exception-và-cơ-chế-xử-lý)
+    - [Try-catch-finally](#try-catch-finally)
+    - [Đa catch và thứ tự catch](#đa-catch-và-thứ-tự-catch)
+    - [Throw và Throws](#throw-và-throws)
+    - [Tạo Exception tùy chỉnh](#tạo-exception-tùy-chỉnh)
   - [🧑‍🏫 Bài 2: Đọc ghi file văn bản](#-bài-2-đọc-ghi-file-văn-bản)
+    - [Đọc file với FileReader và BufferedReader](#đọc-file-với-filereader-và-bufferedreader)
+    - [Ghi file với FileWriter và BufferedWriter](#ghi-file-với-filewriter-và-bufferedwriter)
+    - [Kiểm tra và thao tác với File](#kiểm-tra-và-thao-tác-với-file)
+    - [Đọc ghi file với try-with-resources](#đọc-ghi-file-với-try-with-resources)
+    - [Ví dụ thực tế - Đọc dữ liệu CSV](#ví-dụ-thực-tế---đọc-dữ-liệu-csv)
   - [🧑‍🏫 Bài 3: Giới thiệu Collections Framework](#-bài-3-giới-thiệu-collections-framework)
+    - [Tổng quan về Collections Framework](#tổng-quan-về-collections-framework)
+    - [Collection vs Map](#collection-vs-map)
+    - [Các thao tác cơ bản với Collections](#các-thao-tác-cơ-bản-với-collections)
   - [🧑‍🏫 Bài 4: List, Set và Map](#-bài-4-list-set-và-map)
+    - [ArrayList và LinkedList](#arraylist-và-linkedlist)
+    - [HashSet và TreeSet](#hashset-và-treeset)
+    - [HashMap và TreeMap](#hashmap-và-treemap)
+    - [Ví dụ thực tế - Quản lý danh bạ](#ví-dụ-thực-tế---quản-lý-danh-bạ)
   - [🧑‍🏫 Bài 5: Kết hợp File và Collections](#-bài-5-kết-hợp-file-và-collections)
+    - [Đọc file và lưu vào List](#đọc-file-và-lưu-vào-list)
+    - [Ghi List ra file](#ghi-list-ra-file)
+    - [Đọc file CSV vào List đối tượng](#đọc-file-csv-vào-list-đối-tượng)
+    - [Ghi Map ra file](#ghi-map-ra-file)
+    - [Ví dụ thực tế - Hệ thống quản lý sách đơn giản](#ví-dụ-thực-tế---hệ-thống-quản-lý-sách-đơn-giản)
   - [🧪 BÀI TẬP LỚN CUỐI PHẦN: Hệ thống quản lý khóa học](#-bài-tập-lớn-cuối-phần-hệ-thống-quản-lý-khóa-học)
-    - [Đề bài](#đề-bài)
+    - [Mô tả bài toán](#mô-tả-bài-toán)
     - [Yêu cầu](#yêu-cầu)
 
 ## 🎯 Mục tiêu tổng quát
@@ -23,14 +43,14 @@
 
 ## 🧑‍🏫 Bài 1: Xử lý ngoại lệ (Exception Handling)
 
-1. **Khái niệm ngoại lệ (Exception) và cơ chế xử lý:**
+### Khái niệm ngoại lệ (Exception) và cơ chế xử lý
 
-   - Ngoại lệ là một sự kiện không mong muốn xảy ra trong quá trình thực thi chương trình, làm gián đoạn luồng thực thi bình thường.
-   - Cơ chế xử lý ngoại lệ giúp chương trình không bị dừng lại mà có thể xử lý lỗi một cách linh hoạt.
-   - Các loại ngoại lệ trong JAVA:
-     - Checked Exception: Ngoại lệ đã được kiểm tra tại thời điểm biên dịch (ví dụ: IOException).
-     - Unchecked Exception: Ngoại lệ không được kiểm tra tại thời điểm biên dịch (ví dụ: NullPointerException, ArithmeticException).
-     - Error: Lỗi nghiêm trọng không thể xử lý (ví dụ: OutOfMemoryError).
+- Ngoại lệ là một sự kiện không mong muốn xảy ra trong quá trình thực thi chương trình, làm gián đoạn luồng thực thi bình thường.
+- Cơ chế xử lý ngoại lệ giúp chương trình không bị dừng lại mà có thể xử lý lỗi một cách linh hoạt.
+- Các loại ngoại lệ trong JAVA:
+  - Checked Exception: Ngoại lệ đã được kiểm tra tại thời điểm biên dịch (ví dụ: IOException).
+  - Unchecked Exception: Ngoại lệ không được kiểm tra tại thời điểm biên dịch (ví dụ: NullPointerException, ArithmeticException).
+  - Error: Lỗi nghiêm trọng không thể xử lý (ví dụ: OutOfMemoryError).
 
    ```java
    // Cấu trúc try-catch cơ bản
@@ -43,7 +63,7 @@
    }
    ```
 
-2. **Try-catch-finally:**
+### Try-catch-finally
 
    ```java
    try {
@@ -59,7 +79,7 @@
    }
    ```
 
-3. **Đa catch và thứ tự catch:**
+### Đa catch và thứ tự catch
 
    ```java
    try {
@@ -74,7 +94,7 @@
    }
    ```
 
-4. **Throw và Throws:**
+### Throw và Throws
 
    ```java
    // Throws - khai báo method có thể ném ra ngoại lệ
@@ -96,7 +116,7 @@
    }
    ```
 
-5. **Tạo Exception tùy chỉnh:**
+### Tạo Exception tùy chỉnh
 
    ```java
    // Định nghĩa exception tùy chỉnh
@@ -129,7 +149,7 @@
 
 ## 🧑‍🏫 Bài 2: Đọc ghi file văn bản
 
-1. **Đọc file với FileReader và BufferedReader:**
+### Đọc file với FileReader và BufferedReader
 
    ```java
    import java.io.BufferedReader;
@@ -157,7 +177,7 @@
    }
    ```
 
-2. **Ghi file với FileWriter và BufferedWriter:**
+### Ghi file với FileWriter và BufferedWriter
 
    ```java
    import java.io.BufferedWriter;
@@ -189,7 +209,7 @@
    }
    ```
 
-3. **Kiểm tra và thao tác với File:**
+### Kiểm tra và thao tác với File
 
    ```java
    import java.io.File;
@@ -231,7 +251,7 @@
    }
    ```
 
-4. **Đọc ghi file với try-with-resources:**
+### Đọc ghi file với try-with-resources
 
    ```java
    import java.io.*;
@@ -261,7 +281,7 @@
    }
    ```
 
-5. **Ví dụ thực tế - Đọc dữ liệu CSV:**
+### Ví dụ thực tế - Đọc dữ liệu CSV
 
    ```java
    import java.io.BufferedReader;
@@ -327,7 +347,7 @@
 
 ## 🧑‍🏫 Bài 3: Giới thiệu Collections Framework
 
-1. **Tổng quan về Collections Framework:**
+### Tổng quan về Collections Framework
 
    ```java
    import java.util.ArrayList;
@@ -372,7 +392,7 @@
    }
    ```
 
-2. **Collection vs Map:**
+### Collection vs Map
 
    ```java
    import java.util.*;
@@ -422,7 +442,7 @@
    }
    ```
 
-3. **Các thao tác cơ bản với Collections:**
+### Các thao tác cơ bản với Collections
 
    ```java
    import java.util.*;
@@ -486,10 +506,10 @@
 
 ## 🧑‍🏫 Bài 4: List, Set và Map
 
-1. **ArrayList và LinkedList:**
+### ArrayList và LinkedList
 
-   - `ArrayList`: danh sách động, truy cập nhanh theo chỉ số.
-   - `LinkedList`: danh sách liên kết, thêm/xóa nhanh ở đầu/cuối.
+- `ArrayList`: danh sách động, truy cập nhanh theo chỉ số.
+- `LinkedList`: danh sách liên kết, thêm/xóa nhanh ở đầu/cuối.
 
    ```java
    import java.util.ArrayList;
@@ -536,10 +556,10 @@
    }
    ```
 
-2. **HashSet và TreeSet:**
+### HashSet và TreeSet
 
-   - `HashSet`: không có thứ tự, không cho phép phần tử trùng lặp.
-   - `TreeSet`: tự động sắp xếp theo thứ tự tự nhiên hoặc theo Comparator.
+- `HashSet`: không có thứ tự, không cho phép phần tử trùng lặp.
+- `TreeSet`: tự động sắp xếp theo thứ tự tự nhiên hoặc theo Comparator.
 
    ```java
    import java.util.HashSet;
@@ -585,10 +605,10 @@
    }
    ```
 
-3. **HashMap và TreeMap:**
+### HashMap và TreeMap
 
-   - `HashMap`: không có thứ tự, cho phép key null, nhanh nhất.
-   - `TreeMap`: tự động sắp xếp theo key, không cho phép key null.
+- `HashMap`: không có thứ tự, cho phép key null, nhanh nhất.
+- `TreeMap`: tự động sắp xếp theo key, không cho phép key null.
 
    ```java
    import java.util.HashMap;
@@ -646,7 +666,7 @@
    }
    ```
 
-4. **Ví dụ thực tế - Quản lý danh bạ:**
+### Ví dụ thực tế - Quản lý danh bạ
 
    ```java
    import java.util.*;
@@ -724,7 +744,7 @@
 
 ## 🧑‍🏫 Bài 5: Kết hợp File và Collections
 
-1. **Đọc file và lưu vào List:**
+### Đọc file và lưu vào List
 
    ```java
    import java.io.BufferedReader;
@@ -757,7 +777,7 @@
    }
    ```
 
-2. **Ghi List ra file:**
+### Ghi List ra file
 
    ```java
    import java.io.BufferedWriter;
@@ -792,7 +812,7 @@
    }
    ```
 
-3. **Đọc file CSV vào List đối tượng:**
+### Đọc file CSV vào List đối tượng
 
    ```java
    import java.io.BufferedReader;
@@ -861,7 +881,7 @@
    }
    ```
 
-4. **Ghi Map ra file:**
+### Ghi Map ra file
 
    ```java
    import java.io.BufferedWriter;
@@ -900,7 +920,7 @@
    }
    ```
 
-5. **Ví dụ thực tế - Hệ thống quản lý sách đơn giản:**
+### Ví dụ thực tế - Hệ thống quản lý sách đơn giản
 
    ```java
    import java.io.*;
@@ -1127,7 +1147,7 @@
 
 ## 🧪 BÀI TẬP LỚN CUỐI PHẦN: Hệ thống quản lý khóa học
 
-### Đề bài
+### Mô tả bài toán
 
 Viết chương trình quản lý danh sách khóa học:
 

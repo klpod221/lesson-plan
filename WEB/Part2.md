@@ -3,18 +3,52 @@
 - [📘 PHẦN 2: CSS - ĐỊNH DẠNG TRANG WEB](#-phần-2-css---định-dạng-trang-web)
   - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
   - [🧑‍🏫 Bài 1: Giới thiệu CSS](#-bài-1-giới-thiệu-css)
+    - [CSS là gì?](#css-là-gì)
+    - [Cách thêm CSS vào HTML](#cách-thêm-css-vào-html)
+    - [Ưu và nhược điểm từng loại](#ưu-và-nhược-điểm-từng-loại)
   - [🧑‍🏫 Bài 2: CSS Selectors (Bộ chọn)](#-bài-2-css-selectors-bộ-chọn)
+    - [Cú pháp CSS](#cú-pháp-css)
+    - [Các loại selector cơ bản](#các-loại-selector-cơ-bản)
+    - [Selector kết hợp](#selector-kết-hợp)
+    - [Độ ưu tiên (Specificity) trong CSS](#độ-ưu-tiên-specificity-trong-css)
   - [🧑‍🏫 Bài 3: CSS Box Model](#-bài-3-css-box-model)
+    - [Box Model](#box-model)
+    - [Chi tiết Box Model](#chi-tiết-box-model)
+    - [Box-sizing](#box-sizing)
+    - [Margin, Padding và Border](#margin-padding-và-border)
   - [🧑‍🏫 Bài 4: Typography và màu sắc](#-bài-4-typography-và-màu-sắc)
+    - [Typography (kiểu chữ)](#typography-kiểu-chữ)
+    - [Sử dụng Google Fonts (hoặc font từ các nguồn online khác)](#sử-dụng-google-fonts-hoặc-font-từ-các-nguồn-online-khác)
+    - [Sử dụng font từ file cục bộ](#sử-dụng-font-từ-file-cục-bộ)
+    - [Màu sắc](#màu-sắc)
   - [🧑‍🏫 Bài 5: Layout và Positioning](#-bài-5-layout-và-positioning)
+    - [Display Property](#display-property)
+    - [Position Property](#position-property)
+    - [Float và Clear](#float-và-clear)
+    - [Z-index - Xếp lớp phần tử](#z-index---xếp-lớp-phần-tử)
   - [🧑‍🏫 Bài 6: Flexbox Layout](#-bài-6-flexbox-layout)
+    - [Flexbox](#flexbox)
+    - [Ví dụ ứng dụng Flexbox](#ví-dụ-ứng-dụng-flexbox)
   - [🧑‍🏫 Bài 7: Grid Layout](#-bài-7-grid-layout)
+    - [Grid Layout](#grid-layout)
+    - [Ví dụ ứng dụng Grid](#ví-dụ-ứng-dụng-grid)
   - [🧑‍🏫 Bài 8: Responsive Web Design](#-bài-8-responsive-web-design)
+    - [Responsive Web Design](#responsive-web-design)
+    - [Media Queries](#media-queries)
+    - [Viewport Meta Tag](#viewport-meta-tag)
+    - [Responsive Units](#responsive-units)
+    - [Mobile-first Approach](#mobile-first-approach)
+    - [Responsive Images](#responsive-images)
   - [🧑‍🏫 Bài 9: CSS Transitions và Animations](#-bài-9-css-transitions-và-animations)
-  - [🧪 BÀI TẬP LỚN CUỐI PHẦN](#-bài-tập-lớn-cuối-phần)
-    - [**Đề bài: Xây dựng giao diện trang web portfolio sử dụng CSS**](#đề-bài-xây-dựng-giao-diện-trang-web-portfolio-sử-dụng-css)
-    - [**Gợi ý thiết kế:**](#gợi-ý-thiết-kế)
-    - [**Kết quả mong đợi:**](#kết-quả-mong-đợi)
+    - [Transitions (Hiệu ứng chuyển đổi)](#transitions-hiệu-ứng-chuyển-đổi)
+    - [Animations (Hoạt hình)](#animations-hoạt-hình)
+    - [Animation Properties](#animation-properties)
+    - [Transform](#transform)
+  - [🧪 BÀI TẬP LỚN CUỐI PHẦN: Xây dựng giao diện trang web Portfolio sử dụng CSS](#-bài-tập-lớn-cuối-phần-xây-dựng-giao-diện-trang-web-portfolio-sử-dụng-css)
+    - [Mô tả bài toán](#mô-tả-bài-toán)
+    - [Yêu cầu](#yêu-cầu)
+    - [Gợi ý thiết kế](#gợi-ý-thiết-kế)
+    - [Kết quả mong đợi](#kết-quả-mong-đợi)
 
 ## 🎯 Mục tiêu tổng quát
 
@@ -26,41 +60,41 @@
 
 ## 🧑‍🏫 Bài 1: Giới thiệu CSS
 
-**CSS là gì?**
+### CSS là gì?
 
 - CSS là viết tắt của Cascading Style Sheets
 - Được sử dụng để định dạng và trình bày nội dung HTML
 - Giúp phân tách nội dung (HTML) và hình thức trình bày (CSS)
 - Cho phép áp dụng nhiều style khác nhau trên cùng một trang web
 
-**Cách thêm CSS vào HTML:**
+### Cách thêm CSS vào HTML
 
-1. **Inline CSS**: Sử dụng thuộc tính `style` trực tiếp trên thẻ HTML
+1. **Inline CSS**: Sử dụng thuộc tính `style` trực tiếp trên thẻ HTML (không được khuyến khích)
 
-```html
-<p style="color: blue; font-size: 16px;">Đây là đoạn văn màu xanh.</p>
-```
+   ```html
+   <p style="color: blue; font-size: 16px;">Đây là đoạn văn màu xanh.</p>
+   ```
 
-2. **Internal CSS**: Sử dụng thẻ `<style>` trong phần `<head>`
+2. **Internal CSS**: Sử dụng thẻ `<style>` trong phần `<head>` (không được khuyến khích cho trang lớn)
 
-```html
-<head>
-  <style>
-    p {
-      color: blue;
-      font-size: 16px;
-    }
-  </style>
-</head>
-```
+   ```html
+   <head>
+     <style>
+       p {
+         color: blue;
+         font-size: 16px;
+       }
+     </style>
+   </head>
+   ```
 
 3. **External CSS**: Tạo file CSS riêng và liên kết vào HTML
 
-```html
-<head>
-  <link rel="stylesheet" href="styles.css" />
-</head>
-```
+   ```html
+   <head>
+     <link rel="stylesheet" href="styles.css" />
+   </head>
+   ```
 
 Nội dung file styles.css:
 
@@ -71,19 +105,19 @@ p {
 }
 ```
 
-**Ưu và nhược điểm từng loại:**
+### Ưu và nhược điểm từng loại
 
-| Loại CSS | Ưu điểm                                         | Nhược điểm                                   |
-| -------- | ----------------------------------------------- | -------------------------------------------- |
-| Inline   | Ưu tiên cao nhất, áp dụng nhanh cho một phần tử | Khó bảo trì, code lặp lại nhiều              |
-| Internal | Áp dụng cho một trang, không cần file riêng     | Phải copy khi dùng cho trang khác            |
-| External | Dễ bảo trì, tái sử dụng trên nhiều trang        | Trang có thể hiển thị trước khi CSS được tải |
+| Loại CSS | Ưu điểm                                             | Nhược điểm                                   |
+| -------- | --------------------------------------------------- | -------------------------------------------- |
+| Inline   | Ưu tiên cao nhất, sẽ ghi đè các thuộc tính css khác | Khó bảo trì, code lặp lại nhiều              |
+| Internal | Áp dụng cho một trang, không cần file riêng         | Phải copy khi dùng cho trang khác            |
+| External | Dễ bảo trì, tái sử dụng trên nhiều trang            | Trang có thể hiển thị trước khi CSS được tải |
 
 ---
 
 ## 🧑‍🏫 Bài 2: CSS Selectors (Bộ chọn)
 
-**Cú pháp CSS:**
+### Cú pháp CSS
 
 ```css
 selector {
@@ -92,7 +126,7 @@ selector {
 }
 ```
 
-**Các loại selector cơ bản:**
+### Các loại selector cơ bản
 
 ```css
 /* Element Selector */
@@ -132,7 +166,7 @@ p::first-letter {
 }
 ```
 
-**Selector kết hợp:**
+### Selector kết hợp
 
 ```css
 /* Descendant Selector (con cháu) */
@@ -163,7 +197,7 @@ h3 {
 }
 ```
 
-**Độ ưu tiên (Specificity) trong CSS:**
+### Độ ưu tiên (Specificity) trong CSS
 
 1. `!important` (cao nhất)
 2. Inline CSS
@@ -197,7 +231,9 @@ p {
 
 ## 🧑‍🏫 Bài 3: CSS Box Model
 
-**Box Model** là mô hình hộp trong CSS mô tả không gian chiếm bởi một phần tử HTML:
+### Box Model
+
+- Đây là mô hình hộp trong CSS mô tả không gian chiếm bởi một phần tử HTML
 
 ```css
 div {
@@ -210,14 +246,14 @@ div {
 }
 ```
 
-**Chi tiết Box Model:**
+### Chi tiết Box Model
 
 - **Content**: Vùng hiển thị nội dung thực tế (`width`, `height`)
 - **Padding**: Khoảng cách giữa nội dung và border (`padding`)
 - **Border**: Viền bao quanh padding và nội dung (`border`)
 - **Margin**: Khoảng cách giữa border và phần tử lân cận (`margin`)
 
-**Box-sizing:**
+### Box-sizing
 
 ```css
 /* Standard box model */
@@ -232,7 +268,7 @@ box-sizing: border-box; /* width/height bao gồm cả padding và border */
 }
 ```
 
-**Margin, Padding và Border:**
+### Margin, Padding và Border
 
 ```css
 /* Cách viết đầy đủ */
@@ -270,7 +306,7 @@ border-left: 2px double orange;
 
 ## 🧑‍🏫 Bài 4: Typography và màu sắc
 
-**Typography (kiểu chữ):**
+### Typography (kiểu chữ)
 
 ```css
 p {
@@ -308,7 +344,7 @@ p {
 }
 ```
 
-**Sử dụng Google Fonts:**
+### Sử dụng Google Fonts (hoặc font từ các nguồn online khác)
 
 ```html
 <head>
@@ -325,7 +361,24 @@ body {
 }
 ```
 
-**Màu sắc:**
+### Sử dụng font từ file cục bộ
+
+```css
+@font-face {
+  font-family: "MyFont";
+  src: url("fonts/MyFont.woff2") format("woff2"), url("fonts/MyFont.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+```
+
+```css
+body {
+  font-family: "MyFont", sans-serif;
+}
+```
+
+### Màu sắc
 
 ```css
 /* Tên màu */
@@ -350,7 +403,7 @@ color: hsla(0, 100%, 50%, 0.5); /* Đỏ với độ trong suốt 50% */
 
 ## 🧑‍🏫 Bài 5: Layout và Positioning
 
-**Display Property:**
+### Display Property
 
 ```css
 /* Các giá trị phổ biến của display */
@@ -362,7 +415,7 @@ display: flex; /* Flexible Box Layout */
 display: grid; /* Grid Layout */
 ```
 
-**Position Property:**
+### Position Property
 
 ```css
 /* Static (mặc định) */
@@ -388,7 +441,7 @@ position: sticky;
 top: 0;
 ```
 
-**Float và Clear:**
+### Float và Clear
 
 ```css
 /* Float */
@@ -402,7 +455,7 @@ clear: right; /* Không cho phần tử nổi bên phải */
 clear: both; /* Không cho phần tử nổi cả hai bên */
 ```
 
-**Z-index - Xếp lớp phần tử:**
+### Z-index - Xếp lớp phần tử
 
 ```css
 /* Phần tử có z-index cao hơn sẽ hiển thị phía trên */
@@ -421,7 +474,9 @@ clear: both; /* Không cho phần tử nổi cả hai bên */
 
 ## 🧑‍🏫 Bài 6: Flexbox Layout
 
-**Flexbox** là một mô hình layout một chiều giúp bố trí các phần tử trong container linh hoạt:
+### Flexbox
+
+- Đây là một mô hình layout một chiều giúp bố trí các phần tử trong container linh hoạt
 
 ```css
 .container {
@@ -467,7 +522,7 @@ clear: both; /* Không cho phần tử nổi cả hai bên */
 }
 ```
 
-**Ví dụ ứng dụng Flexbox:**
+### Ví dụ ứng dụng Flexbox
 
 ```css
 /* Navigation bar */
@@ -510,7 +565,9 @@ clear: both; /* Không cho phần tử nổi cả hai bên */
 
 ## 🧑‍🏫 Bài 7: Grid Layout
 
-**Grid Layout** là một hệ thống layout hai chiều, giúp bố trí phần tử theo cả hàng và cột:
+### Grid Layout
+
+- Đây là một hệ thống layout hai chiều, giúp bố trí phần tử theo cả hàng và cột
 
 ```css
 .container {
@@ -568,7 +625,7 @@ clear: both; /* Không cho phần tử nổi cả hai bên */
 }
 ```
 
-**Ví dụ ứng dụng Grid:**
+### Ví dụ ứng dụng Grid
 
 ```css
 /* Layout trang web */
@@ -612,9 +669,11 @@ clear: both; /* Không cho phần tử nổi cả hai bên */
 
 ## 🧑‍🏫 Bài 8: Responsive Web Design
 
-**Responsive Web Design** giúp trang web hiển thị phù hợp trên nhiều thiết bị khác nhau:
+### Responsive Web Design
 
-**Media Queries:**
+- Giúp trang web hiển thị phù hợp trên nhiều thiết bị với kích thước màn hình khác nhau
+
+### Media Queries
 
 ```css
 /* Breakpoint: thiết bị nhỏ (điện thoại) */
@@ -654,13 +713,13 @@ clear: both; /* Không cho phần tử nổi cả hai bên */
 }
 ```
 
-**Viewport Meta Tag:**
+### Viewport Meta Tag
 
 ```html
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 ```
 
-**Responsive Units:**
+### Responsive Units
 
 ```css
 /* Đơn vị tương đối */
@@ -677,7 +736,9 @@ clear: both; /* Không cho phần tử nổi cả hai bên */
 }
 ```
 
-**Mobile-first Approach:**
+### Mobile-first Approach
+
+- Thiết kế giao diện cho thiết bị di động trước, sau đó mở rộng cho các thiết bị lớn hơn
 
 ```css
 /* Styles mặc định cho thiết bị di động */
@@ -705,7 +766,7 @@ clear: both; /* Không cho phần tử nổi cả hai bên */
 }
 ```
 
-**Responsive Images:**
+### Responsive Images
 
 ```css
 img {
@@ -726,7 +787,7 @@ img {
 
 ## 🧑‍🏫 Bài 9: CSS Transitions và Animations
 
-**Transitions (Hiệu ứng chuyển đổi):**
+### Transitions (Hiệu ứng chuyển đổi)
 
 ```css
 .button {
@@ -749,7 +810,7 @@ img {
 }
 ```
 
-**Animations (Hoạt hình):**
+### Animations (Hoạt hình)
 
 ```css
 /* Định nghĩa animation với @keyframes */
@@ -786,7 +847,7 @@ img {
 }
 ```
 
-**Animation Properties:**
+### Animation Properties
 
 ```css
 .element {
@@ -801,7 +862,7 @@ img {
 }
 ```
 
-**Transform:**
+### Transform
 
 ```css
 .element {
@@ -832,13 +893,13 @@ img {
 
 ---
 
-## 🧪 BÀI TẬP LỚN CUỐI PHẦN
+## 🧪 BÀI TẬP LỚN CUỐI PHẦN: Xây dựng giao diện trang web Portfolio sử dụng CSS
 
-### **Đề bài: Xây dựng giao diện trang web portfolio sử dụng CSS**
+### Mô tả bài toán
 
-Tiếp tục từ bài tập HTML ở phần 1, bạn sẽ thiết kế và định dạng trang Hồ sơ cá nhân với CSS để tạo ra một portfolio chuyên nghiệp.
+Tiếp tục từ bài tập HTML ở phần 1, bạn sẽ thiết kế và định dạng trang Hồ sơ cá nhân với CSS để tạo ra một portfolio chuyên nghiệp. Bạn có thể tham khảo trang [Portfolio](https://klpod221.com) của mình để lấy ý tưởng.
 
-**Yêu cầu:**
+### Yêu cầu
 
 1. Sử dụng external CSS
 2. Tạo layout responsive:
@@ -853,7 +914,7 @@ Tiếp tục từ bài tập HTML ở phần 1, bạn sẽ thiết kế và đ�
    - Form liên hệ: có styling và validation hiển thị
 6. Sử dụng ít nhất 2 animation/transition cho các phần tử
 
-### **Gợi ý thiết kế:**
+### Gợi ý thiết kế
 
 ```css
 /* Reset CSS */
@@ -917,7 +978,7 @@ nav {
 }
 ```
 
-### **Kết quả mong đợi:**
+### Kết quả mong đợi
 
 Một trang portfolio hoàn chỉnh với giao diện hấp dẫn, layout responsive, các hiệu ứng tương tác và hoạt ảnh phù hợp để thu hút người xem.
 

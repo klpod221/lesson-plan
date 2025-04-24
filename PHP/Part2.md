@@ -3,14 +3,39 @@
 - [📘 PHẦN 2: LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG VỚI PHP](#-phần-2-lập-trình-hướng-đối-tượng-với-php)
   - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
   - [🧑‍🏫 Bài 6: Lập trình hướng đối tượng trong PHP](#-bài-6-lập-trình-hướng-đối-tượng-trong-php)
+    - [Tạo Class và Object](#tạo-class-và-object)
+    - [Access Modifiers (Phạm vi truy cập)](#access-modifiers-phạm-vi-truy-cập)
+    - [Thuộc tính và phương thức tĩnh (Static)](#thuộc-tính-và-phương-thức-tĩnh-static)
+    - [Constant trong Class](#constant-trong-class)
   - [🧑‍🏫 Bài 7: Kế thừa và đa hình](#-bài-7-kế-thừa-và-đa-hình)
+    - [Kế thừa (Inheritance)](#kế-thừa-inheritance)
+    - [Đa hình (Polymorphism)](#đa-hình-polymorphism)
+    - [Final Keyword](#final-keyword)
   - [🧑‍🏫 Bài 8: Interface và Abstract Class](#-bài-8-interface-và-abstract-class)
+    - [Abstract Class](#abstract-class)
+    - [Interface](#interface)
+    - [Sự khác biệt giữa Abstract Class và Interface](#sự-khác-biệt-giữa-abstract-class-và-interface)
   - [🧑‍🏫 Bài 9: Magic Methods và Namespace](#-bài-9-magic-methods-và-namespace)
+    - [Magic Methods trong PHP](#magic-methods-trong-php)
+    - [Namespace trong PHP](#namespace-trong-php)
   - [🧑‍🏫 Bài 10: Auto loading và PSR Standards](#-bài-10-auto-loading-và-psr-standards)
-  - [🧪 BÀI TẬP LỚN CUỐI PHẦN](#-bài-tập-lớn-cuối-phần)
-    - [**Đề bài: Xây dựng hệ thống quản lý thư viện**](#đề-bài-xây-dựng-hệ-thống-quản-lý-thư-viện)
-    - [**Yêu cầu:**](#yêu-cầu)
-    - [**Cấu trúc dự án:**](#cấu-trúc-dự-án)
+    - [Autoloading trong PHP](#autoloading-trong-php)
+    - [Sử dụng composer autoloader](#sử-dụng-composer-autoloader)
+    - [PSR Standards (PHP Standards Recommendations)](#psr-standards-php-standards-recommendations)
+      - [PSR-1: Basic Coding Standard](#psr-1-basic-coding-standard)
+    - [PSR-2: Coding Style Guide](#psr-2-coding-style-guide)
+    - [PSR-4: Autoloader](#psr-4-autoloader)
+  - [🧑‍🏫 Bài 11: Composer và Package Management](#-bài-11-composer-và-package-management)
+    - [Giới thiệu về Composer](#giới-thiệu-về-composer)
+    - [Tạo và sử dụng package](#tạo-và-sử-dụng-package)
+    - [Sử dụng autoloading với Composer](#sử-dụng-autoloading-với-composer)
+    - [Sử dụng một vài packages phổ biến](#sử-dụng-một-vài-packages-phổ-biến)
+      - [Cú pháp cài đặt](#cú-pháp-cài-đặt)
+      - [Ví dụ sử dụng một số package phổ biến](#ví-dụ-sử-dụng-một-số-package-phổ-biến)
+  - [🧪 BÀI TẬP LỚN CUỐI PHẦN: Xây dựng hệ thống quản lý thư viện](#-bài-tập-lớn-cuối-phần-xây-dựng-hệ-thống-quản-lý-thư-viện)
+    - [Mô tả bài toán](#mô-tả-bài-toán)
+    - [Yêu cầu](#yêu-cầu)
+    - [Cấu trúc thư mục đề xuất](#cấu-trúc-thư-mục-đề-xuất)
 
 ## 🎯 Mục tiêu tổng quát
 
@@ -24,13 +49,9 @@
 
 ## 🧑‍🏫 Bài 6: Lập trình hướng đối tượng trong PHP
 
-**Giới thiệu lập trình hướng đối tượng trong PHP:**
+- Giống với Java, PHP cũng hỗ trợ lập trình hướng đối tượng (OOP) từ phiên bản 5 trở lên. Điểm khác biệt là PHP không phải là ngôn ngữ hướng đối tượng hoàn toàn, mà nó hỗ trợ OOP như một phần của ngôn ngữ.
 
-- Lập trình hướng đối tượng (OOP) là một phương pháp lập trình dựa trên khái niệm về các "đối tượng"
-- Đối tượng chứa dữ liệu (thuộc tính) và mã (phương thức)
-- PHP hỗ trợ OOP từ phiên bản 5 trở lên
-
-**Tạo Class và Object:**
+### Tạo Class và Object
 
 ```php
 <?php
@@ -73,7 +94,7 @@ echo "Tuổi mới của {$person1->name}: {$person1->age} <br>";
 ?>
 ```
 
-**Access Modifiers (Phạm vi truy cập):**
+### Access Modifiers (Phạm vi truy cập)
 
 ```php
 <?php
@@ -127,7 +148,7 @@ if ($user->verifyPassword("secret123")) {
 ?>
 ```
 
-**Thuộc tính và phương thức tĩnh (Static):**
+### Thuộc tính và phương thức tĩnh (Static)
 
 ```php
 <?php
@@ -161,7 +182,7 @@ echo "Giá trị mới của Pi = " . MathHelper::$pi . "<br>";
 ?>
 ```
 
-**Constant trong Class:**
+### Constant trong Class
 
 ```php
 <?php
@@ -191,7 +212,7 @@ echo "App Info: " . $config->getAppInfo() . "<br>";
 
 ## 🧑‍🏫 Bài 7: Kế thừa và đa hình
 
-**Kế thừa (Inheritance):**
+### Kế thừa (Inheritance)
 
 ```php
 <?php
@@ -279,7 +300,7 @@ echo $cat->climb() . "<br>";
 ?>
 ```
 
-**Đa hình (Polymorphism):**
+### Đa hình (Polymorphism)
 
 ```php
 <?php
@@ -316,7 +337,7 @@ foreach ($animals as $animal) {
 ?>
 ```
 
-**Final Keyword:**
+### Final Keyword
 
 ```php
 <?php
@@ -368,7 +389,7 @@ echo $child->normalMethod() . "<br>";
 
 ## 🧑‍🏫 Bài 8: Interface và Abstract Class
 
-**Abstract Class:**
+### Abstract Class
 
 ```php
 <?php
@@ -447,7 +468,7 @@ echo "Rectangle - Perimeter: " . $rect->getPerimeter() . "<br>";
 ?>
 ```
 
-**Interface:**
+### Interface
 
 ```php
 <?php
@@ -522,7 +543,7 @@ renderObject($triangle);
 ?>
 ```
 
-**Sự khác biệt giữa Abstract Class và Interface:**
+### Sự khác biệt giữa Abstract Class và Interface
 
 ```php
 <?php
@@ -638,7 +659,7 @@ echo $postgres->disconnect() . "<br>";
 
 ## 🧑‍🏫 Bài 9: Magic Methods và Namespace
 
-**Magic Methods trong PHP:**
+### Magic Methods trong PHP
 
 ```php
 <?php
@@ -754,7 +775,7 @@ var_dump($product);
 ?>
 ```
 
-**Namespace trong PHP:**
+### Namespace trong PHP
 
 ```php
 <?php
@@ -845,7 +866,7 @@ $logger2->log("Another message");
 
 ## 🧑‍🏫 Bài 10: Auto loading và PSR Standards
 
-**Autoloading trong PHP:**
+### Autoloading trong PHP
 
 ```php
 <?php
@@ -913,45 +934,31 @@ spl_autoload_register(function($className) {
 
     return false;
 });
-
-// Sử dụng composer autoloader
-// Trong thực tế, đây là cách được dùng phổ biến nhất
-// 1. Tạo file composer.json với nội dung:
-/*
-{
-    "autoload": {
-        "psr-4": {
-            "MyApp\\": "src/"
-        }
-    }
-}
-*/
-// 2. Chạy lệnh: composer dump-autoload
-// 3. Thêm dòng sau vào file PHP:
-// require 'vendor/autoload.php';
-
-// Sau khi cài đặt autoloader, bạn có thể sử dụng các class mà không cần require
-// $user = new MyApp\Models\User();
-// $post = new MyApp\Models\Post();
 ?>
 ```
 
-**PSR Standards (PHP Standards Recommendations):**
+### Sử dụng composer autoloader
+
+- Trong thực tế, đây là cách được dùng phổ biến nhất
+- Composer là một công cụ quản lý thư viện cho PHP, giúp tự động tải các class và thư viện mà bạn sử dụng trong dự án.
+- Tôi đã hướng dẫn các bạn cách cài đặt Composer trong phần [ENVIROMENT-INSTALL](../ENVIROMENT-INSTALL.md) nếu bạn chưa cài đặt. Còn để hiểu về Composer, tôi sẽ hướng dẫn bạn trong phần [dưới](#sử-dụng-autoloading-với-composer)
+
+### PSR Standards (PHP Standards Recommendations)
 
 PSR là các tiêu chuẩn được đề xuất bởi PHP Framework Interoperability Group (PHP-FIG) để thống nhất cách viết code PHP giữa các framework và thư viện.
 
+#### PSR-1: Basic Coding Standard
+
+- Files PHẢI sử dụng thẻ <?php hoặc <?= (không dùng <?)
+- Files PHẢI sử dụng mã UTF-8 without BOM cho code PHP
+- Files NÊN hoặc khai báo symbol (classes, functions, constants, etc.) hoặc side effects (như output, thay đổi .ini, etc.), nhưng KHÔNG NÊN làm cả hai
+- Namespaces và classes PHẢI tuân theo PSR-0 hoặc PSR-4
+- Tên class PHẢI sử dụng PascalCase (TênClass)
+- Class constants PHẢI được khai báo dạng chữ hoa và underscore (ALL_CAPS)
+- Tên method PHẢI sử dụng camelCase (tênMethod)
+
 ```php
 <?php
-// PSR-1: Basic Coding Standard
-
-// 1. Files PHẢI sử dụng thẻ <?php hoặc <?= (không dùng <?)
-// 2. Files PHẢI sử dụng mã UTF-8 without BOM cho code PHP
-// 3. Files NÊN hoặc khai báo symbol (classes, functions, constants, etc.) hoặc side effects (như output, thay đổi .ini, etc.), nhưng KHÔNG NÊN làm cả hai
-// 4. Namespaces và classes PHẢI tuân theo PSR-0 hoặc PSR-4
-// 5. Tên class PHẢI sử dụng PascalCase (TênClass)
-// 6. Class constants PHẢI được khai báo dạng chữ hoa và underscore (ALL_CAPS)
-// 7. Tên method PHẢI sử dụng camelCase (tênMethod)
-
 // Ví dụ về PSR-1:
 namespace Vendor\Package;
 
@@ -965,19 +972,22 @@ class ClassName
         // method code
     }
 }
+```
 
-// PSR-2: Coding Style Guide
-// 1. Code PHẢI tuân theo PSR-1
-// 2. Code PHẢI sử dụng 4 spaces cho việc thụt lề, không phải tabs
-// 3. Line length KHÔNG NÊN vượt quá 80 ký tự, KHÔNG ĐƯỢC vượt quá 120 ký tự
-// 4. PHẢI có 1 dòng trống sau namespace và PHẢI có 1 dòng trống sau khối use
-// 5. Opening braces cho classes PHẢI trên dòng mới, closing braces PHẢI trên dòng mới tiếp theo
-// 6. Opening braces cho methods PHẢI trên dòng mới, closing braces PHẢI trên dòng mới tiếp theo
-// 7. Visibility PHẢI được khai báo trên tất cả properties và methods
-// 8. abstract và final PHẢI được khai báo trước visibility
-// 9. static PHẢI được khai báo sau visibility
-// 10. Control structures keywords PHẢI có 1 space sau chúng, gọi method và function KHÔNG ĐƯỢC có space
+### PSR-2: Coding Style Guide
 
+- Code PHẢI tuân theo PSR-1
+- Code PHẢI sử dụng 4 spaces cho việc thụt lề, không phải tabs
+- Line length KHÔNG NÊN vượt quá 80 ký tự, KHÔNG ĐƯỢC vượt quá 120 ký tự
+- PHẢI có 1 dòng trống sau namespace và PHẢI có 1 dòng trống sau khối use
+- Opening braces cho classes PHẢI trên dòng mới, closing braces PHẢI trên dòng mới tiếp theo
+- Opening braces cho methods PHẢI trên dòng mới, closing braces PHẢI trên dòng mới tiếp theo
+- Visibility PHẢI được khai báo trên tất cả properties và methods
+- abstract và final PHẢI được khai báo trước visibility
+- static PHẢI được khai báo sau visibility
+- Control structures keywords PHẢI có 1 space sau chúng, gọi method và function KHÔNG ĐƯỢC có space
+
+```php
 // Ví dụ về PSR-2:
 namespace Vendor\Package;
 
@@ -1003,78 +1013,256 @@ class Foo extends Bar implements FooInterface
         // method body
     }
 }
+```
 
-// PSR-4: Autoloader
-// 1. Fully qualified class name PHẢI có cấu trúc: <NamespaceName>(<SubNamespaceNames>)*<ClassName>
-// 2. Top-level namespace name là "vendor namespace"
-// 3. Sub-namespace names tương ứng với thư mục trong file system
-// 4. Class name tương ứng với filename.php
-// 5. Autoloader PHẢI có thể load bất kỳ file nào khớp với quy tắc trên
+### PSR-4: Autoloader
 
-// Ví dụ: PSR-4 autoloader
-// Cấu trúc thư mục:
-// vendor/
-//   composer/
-//     autoload.php
-//   acme/
-//     foo/
-//       src/
-//         Foo.php
-//       tests/
-//         FooTest.php
+- Fully qualified class name PHẢI có cấu trúc: `<NamespaceName>(<SubNamespaceNames>)*<ClassName>`
+- Top-level namespace name là `vendor namespace` (namespace có thể là tên của dự án hoặc tên của tổ chức)
+- Sub-namespace names tương ứng với thư mục trong file system
+- Class name tương ứng với `filename.php`
+- Autoloader PHẢI có thể load bất kỳ file nào khớp với quy tắc trên
 
-// composer.json:
-/*
+## 🧑‍🏫 Bài 11: Composer và Package Management
+
+### Giới thiệu về Composer
+
+- Composer là một dependency manager cho PHP, giúp quản lý các thư viện và package mà ứng dụng của bạn cần sử dụng cho phép bạn dễ dàng cài đặt, cập nhật và quản lý các thư viện bên ngoài mà ứng dụng của bạn phụ thuộc vào.
+
+### Tạo và sử dụng package
+
+```php
+<?php
+// composer.json
 {
+    "name": "myvendor/mypackage",
+    "description": "My first package",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Your Name",
+            "email": "your.email@example.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": "^7.4|^8.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.0"
+    },
     "autoload": {
         "psr-4": {
-            "Acme\\Foo\\": "src/",
-            "Acme\\Foo\\Tests\\": "tests/"
+            "MyVendor\\MyPackage\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "MyVendor\\MyPackage\\Tests\\": "tests/"
         }
     }
 }
-*/
 
-// File: src/Foo.php
-namespace Acme\Foo;
+// src/Calculator.php
+namespace MyVendor\MyPackage;
 
-class Foo
+class Calculator
 {
+    public function add($a, $b)
+    {
+        return $a + $b;
+    }
+
+    public function subtract($a, $b)
+    {
+        return $a - $b;
+    }
 }
 
-// File: tests/FooTest.php
-namespace Acme\Foo\Tests;
+// tests/CalculatorTest.php
+namespace MyVendor\MyPackage\Tests;
 
-class FooTest
+use PHPUnit\Framework\TestCase;
+use MyVendor\MyPackage\Calculator;
+
+class CalculatorTest extends TestCase
 {
+    public function testAdd()
+    {
+        $calc = new Calculator();
+        $this->assertEquals(4, $calc->add(2, 2));
+    }
+
+    public function testSubtract()
+    {
+        $calc = new Calculator();
+        $this->assertEquals(3, $calc->subtract(5, 2));
+    }
 }
 
-// Trong code:
-require 'vendor/autoload.php';
+// Câu lệnh test
+// vendor/bin/phpunit tests/
+?>
+```
 
-$foo = new \Acme\Foo\Foo();
-$test = new \Acme\Foo\Tests\FooTest();
+### Sử dụng autoloading với Composer
+
+```php
+<?php
+// composer.json
+{
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        },
+        "files": [
+            "app/helpers.php"
+        ],
+        "classmap": [
+            "database/seeds",
+            "database/factories"
+        ]
+    }
+}
+
+// Sau khi chỉnh sửa autoload, cập nhật lại autoloader
+// composer dump-autoload
+
+// Sử dụng autoload
+// app/Models/User.php
+namespace App\Models;
+
+class User
+{
+    // Class implementation
+}
+
+// index.php
+require_once 'vendor/autoload.php';
+
+use App\Models\User;
+
+$user = new User();
+?>
+```
+
+### Sử dụng một vài packages phổ biến
+
+#### Cú pháp cài đặt
+
+```bash
+composer require <vendor>/<package>
+
+# cài đặt một phiên bản cụ thể
+composer require <vendor>/<package>:<version>
+
+# cài đặt dưới dạng dev dependency
+composer require --dev <vendor>/<package>
+
+```
+
+- Điểm khác biệt giữa `require` và `require --dev` là:
+  - `require`: các package cần thiết cho ứng dụng chạy
+  - `require --dev`: các package chỉ cần thiết cho quá trình phát triển, không cần thiết khi chạy ứng dụng trên môi trường production
+- Ví dụ: PHPUnit là một package dùng để test ứng dụng, chỉ cần thiết trong quá trình phát triển, không cần thiết khi chạy ứng dụng trên môi trường production.
+- Bạn có thể tìm kiếm các package trên [Packagist](https://packagist.org/), đây là kho lưu trữ chính thức của Composer.
+
+#### Ví dụ sử dụng một số package phổ biến
+
+```php
+<?php
+// 1. Carbon - DateTime manipulation
+// composer require nesbot/carbon
+
+use Carbon\Carbon;
+
+$now = Carbon::now();
+echo $now->format('Y-m-d H:i:s');
+echo $now->addDays(5)->format('Y-m-d');
+echo Carbon::createFromFormat('Y-m-d', '2021-01-01')->diffForHumans();
+
+// 2. Guzzle - HTTP client
+// composer require guzzlehttp/guzzle
+
+use GuzzleHttp\Client;
+
+$client = new Client();
+$response = $client->request('GET', 'https://api.github.com/repos/guzzle/guzzle');
+$data = json_decode($response->getBody(), true);
+echo "Guzzle GitHub Stars: " . $data['stargazers_count'];
+
+// 3. Faker - Generate fake data
+// composer require fakerphp/faker
+
+$faker = \Faker\Factory::create();
+echo $faker->name();
+echo $faker->email();
+echo $faker->address();
+echo $faker->text();
+
+// 4. Monolog - Logging
+// composer require monolog/monolog
+
+use Monolog\Logger;
+use Monolog\Handler\StreamHandler;
+
+$log = new Logger('app');
+$log->pushHandler(new StreamHandler('logs/app.log', Logger::WARNING));
+$log->warning('This is a warning');
+$log->error('This is an error');
+
+// 5. PHPMailer - Sending emails
+// composer require phpmailer/phpmailer
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+$mail = new PHPMailer(true);
+try {
+    $mail->isSMTP();
+    $mail->Host       = 'smtp.example.com';
+    $mail->SMTPAuth   = true;
+    $mail->Username   = 'user@example.com';
+    $mail->Password   = 'secret';
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+    $mail->Port       = 587;
+
+    $mail->setFrom('from@example.com', 'Sender Name');
+    $mail->addAddress('recipient@example.com', 'Recipient Name');
+    $mail->addReplyTo('reply@example.com', 'Reply Name');
+
+    $mail->isHTML(true);
+    $mail->Subject = 'Here is the subject';
+    $mail->Body    = 'This is the HTML message body <b>in bold!</b>';
+    $mail->AltBody = 'This is the plain text body for non-HTML mail clients';
+
+    $mail->send();
+    echo 'Message has been sent';
+} catch (Exception $e) {
+    echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+}
 ?>
 ```
 
 ---
 
-## 🧪 BÀI TẬP LỚN CUỐI PHẦN
+## 🧪 BÀI TẬP LỚN CUỐI PHẦN: Xây dựng hệ thống quản lý thư viện
 
-### **Đề bài: Xây dựng hệ thống quản lý thư viện**
+### Mô tả bài toán
 
 Xây dựng một ứng dụng PHP hướng đối tượng để quản lý thư viện, áp dụng các nguyên tắc OOP và các tiêu chuẩn PSR.
 
-### **Yêu cầu:**
+### Yêu cầu
 
-1. Thiết kế các class sau:
+1. **Thiết kế các class sau**:
 
    - `Book`: lưu trữ thông tin sách (id, title, author, isbn, published_year)
    - `Member`: lưu trữ thông tin thành viên (id, name, email, joined_date)
    - `Borrowing`: quản lý việc mượn sách (book_id, member_id, borrow_date, return_date)
    - `Library`: quản lý toàn bộ hệ thống
 
-2. Triển khai các tính năng:
+2. **Triển khai các tính năng**:
 
    - Thêm/sửa/xóa/tìm kiếm sách
    - Thêm/sửa/xóa/tìm kiếm thành viên
@@ -1083,14 +1271,14 @@ Xây dựng một ứng dụng PHP hướng đối tượng để quản lý th�
    - Thống kê danh sách sách đang được mượn
    - Tính toán tiền phạt nếu trả sách trễ
 
-3. Áp dụng những kiến thức đã học:
+3. **Áp dụng những kiến thức đã học**:
    - Tổ chức code theo namespace
    - Sử dụng abstract class và interface
    - Triển khai tính kế thừa và đa hình
    - Sử dụng autoloading
    - Tuân thủ các tiêu chuẩn PSR-1, PSR-2, và PSR-4
 
-### **Cấu trúc dự án:**
+### Cấu trúc thư mục đề xuất
 
 ```text
 library-management/
