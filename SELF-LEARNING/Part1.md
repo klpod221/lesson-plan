@@ -287,6 +287,5 @@
 
 ---
 
-[⬅️ Trở lại: INTRODUCTION.md](../INTRODUCTION.md) |
 [🏠 Home](../README.md) |
 [➡️ Tiếp theo: /SELF-LEARNING/Part2.md](../SELF-LEARNING/Part2.md)

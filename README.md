@@ -20,22 +20,22 @@ Lưu ý: **Lộ trình này không phải một quy tắc mà là một hướng
   - [🚀 Mục Tiêu](#-mục-tiêu)
   - [📋 Đối Tượng](#-đối-tượng)
   - [🔍 Yêu Cầu Tiên Quyết](#-yêu-cầu-tiên-quyết)
-  - [📥 Cài đặt môi trường học tập](#-cài-đặt-môi-trường-học-tập)
   - [📚 Lộ Trình Học](#-lộ-trình-học)
-    - [0. TỔNG QUAN (0.5 tuần) /INTRODUCTION.md](#0-tổng-quan-05-tuần-introductionmd)
     - [1. TÌM KIẾM THÔNG TIN HIỆU QUẢ (0.5 tuần) /SELF-LEARNING/Part1.md](#1-tìm-kiếm-thông-tin-hiệu-quả-05-tuần-self-learningpart1md)
     - [2. XỬ LÝ TÀI LIỆU CHUYÊN NGÀNH (0.5 tuần) /SELF-LEARNING/Part2.md](#2-xử-lý-tài-liệu-chuyên-ngành-05-tuần-self-learningpart2md)
     - [3. KỸ THUẬT TỰ HỌC (0.5 tuần) /SELF-LEARNING/Part3.md](#3-kỹ-thuật-tự-học-05-tuần-self-learningpart3md)
     - [4. PHÁT TRIỂN BẢN THÂN LIÊN TỤC (0.5 tuần) /SELF-LEARNING/Part4.md](#4-phát-triển-bản-thân-liên-tục-05-tuần-self-learningpart4md)
-    - [5. GIT VÀ GITHUB CƠ BẢN (0.5 tuần) /GIT.md](#5-git-và-github-cơ-bản-05-tuần-gitmd)
-    - [6. NHẬP MÔN JAVA (1 tuần) /JAVA/Part1.md](#6-nhập-môn-java-1-tuần-javapart1md)
-    - [7. MẢNG, CHUỖI VÀ HÀM (1 tuần) /JAVA/Part2.md](#7-mảng-chuỗi-và-hàm-1-tuần-javapart2md)
-    - [8. LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG (OOP) (1.5 tuần) /JAVA/Part3.md](#8-lập-trình-hướng-đối-tượng-oop-15-tuần-javapart3md)
-    - [9. XỬ LÝ NGOẠI LỆ, FILE I/O VÀ COLLECTIONS (1.5 tuần) /JAVA/Part4.md](#9-xử-lý-ngoại-lệ-file-io-và-collections-15-tuần-javapart4md)
-    - [10. NHẬP MÔN SQL (1 tuần) /SQL/Part1.md](#10-nhập-môn-sql-1-tuần-sqlpart1md)
-    - [11. SQL NÂNG CAO (1 tuần) /SQL/Part2.md](#11-sql-nâng-cao-1-tuần-sqlpart2md)
-    - [12. SQL NÂNG CAO VÀ ỨNG DỤNG (1 tuần) /SQL/Part3.md](#12-sql-nâng-cao-và-ứng-dụng-1-tuần-sqlpart3md)
-    - [13. SQL CHUYÊN SÂU VÀ HIỆU SUẤT (1 tuần) /SQL/Part4.md](#13-sql-chuyên-sâu-và-hiệu-suất-1-tuần-sqlpart4md)
+    - [5. CÀI ĐẶT MÔI TRƯỜNG HỌC TẬP /INSTALL.md](#5-cài-đặt-môi-trường-học-tập-installmd)
+    - [6. GIT VÀ GITHUB CƠ BẢN (0.5 tuần) /GIT.md](#6-git-và-github-cơ-bản-05-tuần-gitmd)
+    - [7. TỔNG QUAN (0.5 tuần) /INTRODUCTION.md](#7-tổng-quan-05-tuần-introductionmd)
+    - [8. NHẬP MÔN JAVA (1 tuần) /JAVA/Part1.md](#8-nhập-môn-java-1-tuần-javapart1md)
+    - [9. MẢNG, CHUỖI VÀ HÀM (1 tuần) /JAVA/Part2.md](#9-mảng-chuỗi-và-hàm-1-tuần-javapart2md)
+    - [10. LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG (OOP) (1.5 tuần) /JAVA/Part3.md](#10-lập-trình-hướng-đối-tượng-oop-15-tuần-javapart3md)
+    - [11. XỬ LÝ NGOẠI LỆ, FILE I/O VÀ COLLECTIONS (1.5 tuần) /JAVA/Part4.md](#11-xử-lý-ngoại-lệ-file-io-và-collections-15-tuần-javapart4md)
+    - [12. NHẬP MÔN SQL (1 tuần) /SQL/Part1.md](#12-nhập-môn-sql-1-tuần-sqlpart1md)
+    - [13. SQL NÂNG CAO (1 tuần) /SQL/Part2.md](#13-sql-nâng-cao-1-tuần-sqlpart2md)
+    - [14. SQL NÂNG CAO VÀ ỨNG DỤNG (1 tuần) /SQL/Part3.md](#14-sql-nâng-cao-và-ứng-dụng-1-tuần-sqlpart3md)
+    - [16. SQL CHUYÊN SÂU VÀ HIỆU SUẤT (1 tuần) /SQL/Part4.md](#16-sql-chuyên-sâu-và-hiệu-suất-1-tuần-sqlpart4md)
     - [14. BÀI TẬP LỚN SQL (1 tuần) /SQL/FINAL.md](#14-bài-tập-lớn-sql-1-tuần-sqlfinalmd)
     - [15. LUỒNG, ĐA LUỒNG VÀ JDBC (1 tuần) /JAVA/Part5.md](#15-luồng-đa-luồng-và-jdbc-1-tuần-javapart5md)
     - [16. BÀI TẬP LỚN JAVA (1 tuần) /JAVA/FINAL.md](#16-bài-tập-lớn-java-1-tuần-javafinalmd)
@@ -136,30 +136,9 @@ Lưu ý: **Lộ trình này không phải một quy tắc mà là một hướng
 - Máy tính cá nhân với các phần mềm, công cụ lập trình cần thiết
 - Kết nối internet để truy cập tài nguyên bổ sung
 
-## 📥 Cài đặt môi trường học tập
-
-Bạn có thể tự cài đặt môi trường học tập trên máy tính cá nhân của mình sao cho phù hợp hoặc có thể cài đặt theo hướng dẫn của tôi ở [đây](./ENVIROMENT-INSTALL.md). Dù bạn chọn cách nào, hãy đảm bảo rằng bạn đã cài đặt đầy đủ các phần mềm và công cụ cần thiết để bắt đầu học như dưới đây:
-
-- **Môi trường phát triển tích hợp (IDE) hoặc Code Editor**: Sử dụng IDE như IntelliJ IDEA, Eclipse hoặc NetBeans để viết mã JAVA. Bạn cũng có thể sử dụng Code Editor như Visual Studio Code hoặc Sublime Text.
-- **JAVA Development Kit (JDK)**: Cài đặt JDK để biên dịch và chạy chương trình JAVA.
-- **Công cụ quản lý gói**: Sử dụng Maven hoặc Gradle để quản lý các thư viện và phụ thuộc trong dự án JAVA.
-- **Môi trường phát triển cơ sở dữ liệu**: MySQL, PostgreSQL hoặc SQLite để làm việc với SQL. Bạn có thể sử dụng các công cụ như MySQL Workbench hoặc pgAdmin để quản lý cơ sở dữ liệu.
-- **Môi trường phát triển PHP**: XAMPP hoặc WAMP hoặc chỉ cài đặt PHP và Apache trên máy tính của bạn.
-- **Trình duyệt web**: Để kiểm tra và phát triển ứng dụng web, bạn cần một trình duyệt như Google Chrome hoặc Firefox.
-- **Công cụ phát triển web**: Sử dụng các công cụ như Node.js, npm hoặc yarn để quản lý các gói và thư viện JavaScript.
-- **Công cụ quản lý phiên bản**: Sử dụng Git để quản lý mã nguồn và theo dõi thay đổi. Bạn có thể sử dụng GitHub Desktop hoặc dòng lệnh để làm việc với Git.
-- **Công cụ hỗ trợ học tập**: Sử dụng các công cụ như Markdown Editor để viết tài liệu, Notion hoặc Trello để quản lý tiến độ học tập.
-
 ## 📚 Lộ Trình Học
 
 Thời gian ước tính cho mỗi phần là tương đối và có thể thay đổi tùy thuộc vào tốc độ học tập của bạn. Bạn có thể điều chỉnh thời gian học cho phù hợp với lịch trình cá nhân. Dù bạn học nhanh hay chậm, điều quan trọng là bạn cần kiên trì và thực hành thường xuyên.
-
-### 0. TỔNG QUAN (0.5 tuần) [/INTRODUCTION.md](./INTRODUCTION.md)
-
-- Hiểu rõ về lập trình, ngôn ngữ lập trình và các khái niệm cơ bản trong lập trình.
-- Nắm vững các khái niệm cơ bản về máy tính, hệ điều hành và mạng máy tính.
-- Làm quen với các công cụ lập trình và môi trường phát triển.
-- Biết cách tổ chức mã nguồn và quản lý dự án lập trình.
 
 ### 1. TÌM KIẾM THÔNG TIN HIỆU QUẢ (0.5 tuần) [/SELF-LEARNING/Part1.md](./SELF-LEARNING/Part1.md)
 
@@ -189,7 +168,9 @@ Thời gian ước tính cho mỗi phần là tương đối và có thể thay 
 - Phát triển kỹ năng đóng góp cho cộng đồng và chia sẻ kiến thức
 - Quản lý sự nghiệp và thích ứng với môi trường công nghệ thay đổi nhanh chóng
 
-### 5. GIT VÀ GITHUB CƠ BẢN (0.5 tuần) [/GIT.md](./GIT.md)
+### 5. CÀI ĐẶT MÔI TRƯỜNG HỌC TẬP [/INSTALL.md](./INSTALL.md)
+
+### 6. GIT VÀ GITHUB CƠ BẢN (0.5 tuần) [/GIT.md](./GIT.md)
 
 - Làm quen với Git và GitHub, các lệnh cơ bản để quản lý mã nguồn.
 - Biết cách tạo và quản lý repository trên GitHub.
@@ -198,47 +179,54 @@ Thời gian ước tính cho mỗi phần là tương đối và có thể thay 
 - Nắm vững quy trình phát triển phần mềm với Git Flow.
 - Thực hành các kỹ thuật quản lý mã nguồn như tag, rebase và cherry-pick.
 
-### 6. NHẬP MÔN JAVA (1 tuần) [/JAVA/Part1.md](./JAVA/Part1.md)
+### 7. TỔNG QUAN (0.5 tuần) [/INTRODUCTION.md](./INTRODUCTION.md)
+
+- Hiểu rõ về lập trình, ngôn ngữ lập trình và các khái niệm cơ bản trong lập trình.
+- Nắm vững các khái niệm cơ bản về máy tính, hệ điều hành và mạng máy tính.
+- Làm quen với các công cụ lập trình và môi trường phát triển.
+- Biết cách tổ chức mã nguồn và quản lý dự án lập trình.
+
+### 8. NHẬP MÔN JAVA (1 tuần) [/JAVA/Part1.md](./JAVA/Part1.md)
 
 - Làm quen với cú pháp và cách tổ chức chương trình JAVA.
 - Biết cách khai báo biến, sử dụng kiểu dữ liệu, câu lệnh điều kiện và vòng lặp.
 
-### 7. MẢNG, CHUỖI VÀ HÀM (1 tuần) [/JAVA/Part2.md](./JAVA/Part2.md)
+### 9. MẢNG, CHUỖI VÀ HÀM (1 tuần) [/JAVA/Part2.md](./JAVA/Part2.md)
 
 - Làm quen với việc sử dụng mảng để lưu trữ và xử lý tập hợp dữ liệu.
 - Hiểu và làm việc với chuỗi trong JAVA.
 - Tạo và sử dụng hàm để tách chương trình thành các khối logic độc lập.
 
-### 8. LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG (OOP) (1.5 tuần) [/JAVA/Part3.md](./JAVA/Part3.md)
+### 10. LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG (OOP) (1.5 tuần) [/JAVA/Part3.md](./JAVA/Part3.md)
 
 - Hiểu và áp dụng các nguyên lý của lập trình hướng đối tượng trong JAVA.
 - Làm việc với các lớp, đối tượng, kế thừa, đóng gói, và đa hình.
 
-### 9. XỬ LÝ NGOẠI LỆ, FILE I/O VÀ COLLECTIONS (1.5 tuần) [/JAVA/Part4.md](./JAVA/Part4.md)
+### 11. XỬ LÝ NGOẠI LỆ, FILE I/O VÀ COLLECTIONS (1.5 tuần) [/JAVA/Part4.md](./JAVA/Part4.md)
 
 - Hiểu và xử lý lỗi bằng cách sử dụng cơ chế ngoại lệ trong JAVA.
 - Đọc ghi dữ liệu vào file văn bản.
 - Làm việc với các cấu trúc dữ liệu động trong JAVA: List, Set, Map.
 
-### 10. NHẬP MÔN SQL (1 tuần) [/SQL/Part1.md](./SQL/Part1.md)
+### 12. NHẬP MÔN SQL (1 tuần) [/SQL/Part1.md](./SQL/Part1.md)
 
 - Làm quen với cú pháp và cách sử dụng ngôn ngữ truy vấn SQL
 - Biết cách tạo cơ sở dữ liệu, bảng và thao tác dữ liệu
 - Hiểu được các câu lệnh truy vấn và kết hợp dữ liệu
 
-### 11. SQL NÂNG CAO (1 tuần) [/SQL/Part2.md](./SQL/Part2.md)
+### 13. SQL NÂNG CAO (1 tuần) [/SQL/Part2.md](./SQL/Part2.md)
 
 - Hiểu và sử dụng được các kỹ thuật truy vấn phức tạp
 - Tối ưu hiệu suất truy vấn và thiết kế cơ sở dữ liệu
 - Biết cách xử lý dữ liệu lớn và đảm bảo an toàn
 
-### 12. SQL NÂNG CAO VÀ ỨNG DỤNG (1 tuần) [/SQL/Part3.md](./SQL/Part3.md)
+### 14. SQL NÂNG CAO VÀ ỨNG DỤNG (1 tuần) [/SQL/Part3.md](./SQL/Part3.md)
 
 - Xây dựng được các chức năng phức tạp với thủ tục lưu trữ
 - Hiểu và triển khai được các quy tắc ràng buộc dữ liệu
 - Bảo đảm tính toàn vẹn dữ liệu trong môi trường đa người dùng
 
-### 13. SQL CHUYÊN SÂU VÀ HIỆU SUẤT (1 tuần) [/SQL/Part4.md](./SQL/Part4.md)
+### 16. SQL CHUYÊN SÂU VÀ HIỆU SUẤT (1 tuần) [/SQL/Part4.md](./SQL/Part4.md)
 
 - Tối ưu hóa hiệu suất truy vấn và cấu trúc dữ liệu
 - Xử lý dữ liệu lớn một cách hiệu quả
