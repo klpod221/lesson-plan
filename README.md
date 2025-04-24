@@ -19,8 +19,7 @@ Lưu ý: **Lộ trình này không phải một quy tắc mà là một hướng
   - [🛠️ Phương Pháp Học Tập](#️-phương-pháp-học-tập)
   - [🚀 Mục Tiêu](#-mục-tiêu)
   - [📋 Đối Tượng](#-đối-tượng)
-  - [🔍 Yêu Cầu Tiên Quyết](#-yêu-cầu-tiên-quyết)
-  - [📚 Lộ Trình Học](#-lộ-trình-học)
+  - [� Lộ Trình Học](#-lộ-trình-học)
     - [1. TÌM KIẾM THÔNG TIN HIỆU QUẢ (0.5 tuần) /SELF-LEARNING/Part1.md](#1-tìm-kiếm-thông-tin-hiệu-quả-05-tuần-self-learningpart1md)
     - [2. XỬ LÝ TÀI LIỆU CHUYÊN NGÀNH (0.5 tuần) /SELF-LEARNING/Part2.md](#2-xử-lý-tài-liệu-chuyên-ngành-05-tuần-self-learningpart2md)
     - [3. KỸ THUẬT TỰ HỌC (0.5 tuần) /SELF-LEARNING/Part3.md](#3-kỹ-thuật-tự-học-05-tuần-self-learningpart3md)
@@ -128,13 +127,6 @@ Lưu ý: **Lộ trình này không phải một quy tắc mà là một hướng
 - Sinh viên CNTT muốn củng cố kiến thức
 - Lập trình viên muốn mở rộng kỹ năng sang nhiều lĩnh vực
 - Những người tự học muốn có lộ trình rõ ràng
-
-## 🔍 Yêu Cầu Tiên Quyết
-
-- Kiến thức cơ bản về máy tính
-- Tinh thần học hỏi và kiên trì
-- Máy tính cá nhân với các phần mềm, công cụ lập trình cần thiết
-- Kết nối internet để truy cập tài nguyên bổ sung
 
 ## 📚 Lộ Trình Học
 
