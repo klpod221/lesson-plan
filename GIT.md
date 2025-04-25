@@ -8,9 +8,6 @@
     - [GitHub là gì?](#github-là-gì)
     - [Các khái niệm cơ bản trong Git](#các-khái-niệm-cơ-bản-trong-git)
     - [Sơ đồ hoạt động của Git](#sơ-đồ-hoạt-động-của-git)
-    - [Cài đặt Git](#cài-đặt-git)
-    - [Kiểm tra cài đặt](#kiểm-tra-cài-đặt)
-    - [Cấu hình ban đầu](#cấu-hình-ban-đầu)
   - [🧑‍🏫 Bài 2: Các lệnh Git cơ bản](#-bài-2-các-lệnh-git-cơ-bản)
     - [Khởi tạo repository](#khởi-tạo-repository)
     - [Xem trạng thái và lịch sử](#xem-trạng-thái-và-lịch-sử)
@@ -131,37 +128,6 @@ GitHub là dịch vụ lưu trữ Git trên cloud, cung cấp giao diện web đ
        +-----------------------------------------------| Remote         |
                                                        | Repository     |
                                                        +----------------+
-```
-
-### Cài đặt Git
-
-- **Windows**: Tải và cài đặt từ [git-scm.com](https://git-scm.com/)
-- **macOS**:
-
-  ```bash
-  brew install git
-  ```
-
-  Hoặc tải từ [git-scm.com](https://git-scm.com/)
-
-- **Linux (Ubuntu/Debian)**:
-
-  ```bash
-  sudo apt-get update
-  sudo apt-get install git
-  ```
-
-### Kiểm tra cài đặt
-
-```bash
-git --version
-```
-
-### Cấu hình ban đầu
-
-```bash
-git config --global user.name "Tên của bạn"
-git config --global user.email "email@example.com"
 ```
 
 ---
