@@ -9,6 +9,9 @@
     - [Quy ước đặt tên](#quy-ước-đặt-tên)
     - [Chạy chương trình](#chạy-chương-trình)
     - [Biên dịch và chạy chương trình từ VS Code](#biên-dịch-và-chạy-chương-trình-từ-vs-code)
+    - [Nhập liệu từ bàn phím](#nhập-liệu-từ-bàn-phím)
+      - [Các phương thức nhập liệu cơ bản](#các-phương-thức-nhập-liệu-cơ-bản)
+      - [Vấn đề phổ biến và giải pháp](#vấn-đề-phổ-biến-và-giải-pháp)
   - [🧑‍🏫 Bài 2: Biến và kiểu dữ liệu](#-bài-2-biến-và-kiểu-dữ-liệu)
     - [Khái niệm biến trong JAVA](#khái-niệm-biến-trong-java)
     - [Kiểu dữ liệu nguyên thủy](#kiểu-dữ-liệu-nguyên-thủy)
@@ -97,6 +100,109 @@ Hello, World!
 - Nếu bạn đã cài đặt [JAVA Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack), bạn có thể mở file `.java` và nhấn `Ctrl + F5` để biên dịch và chạy chương trình.
 - Kết quả sẽ hiển thị trong terminal tích hợp của VS Code.
 - Bạn có thể tham khảo thêm về [debugging JAVA trong VS Code](https://code.visualstudio.com/docs/java/java-debugging) để biết cách debug chương trình JAVA.
+
+### Nhập liệu từ bàn phím
+
+- Java cung cấp lớp `Scanner` từ package `java.util` để đọc dữ liệu đầu vào:
+
+```java
+import java.util.Scanner;
+
+public class InputExample {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Nhập tên: ");
+        String name = scanner.nextLine();
+
+        System.out.print("Nhập tuổi: ");
+        int age = scanner.nextInt();
+
+        System.out.println("Tên bạn là: " + name);
+        System.out.println("Tuổi bạn là: " + age);
+
+        scanner.close(); // Đóng Scanner để giải phóng tài nguyên
+    }
+}
+```
+
+Kết quả:
+
+```text
+Nhập tên: Nguyen Van A
+Nhập tuổi: 25
+Tên bạn là: Nguyen Van A
+Tuổi bạn là: 25
+```
+
+#### Các phương thức nhập liệu cơ bản
+
+| Phương thức | Kiểu dữ liệu | Mô tả |
+|-------------|--------------|-------|
+| `nextInt()` | `int` | Đọc số nguyên |
+| `nextDouble()` | `double` | Đọc số thực |
+| `nextBoolean()` | `boolean` | Đọc giá trị logic (true/false) |
+| `next()` | `String` | Đọc một từ (đến khoảng trắng) |
+| `nextLine()` | `String` | Đọc một dòng hoàn chỉnh |
+
+#### Vấn đề phổ biến và giải pháp
+
+1. **Vấn đề buffer line feed**:
+
+   Khi sử dụng `nextInt()`, `nextDouble()` hoặc các phương thức tương tự, ký tự xuống dòng (`\n`) vẫn còn trong buffer đầu vào. Nếu sau đó gọi `nextLine()`, nó sẽ đọc ký tự xuống dòng này thay vì đọc đầu vào mới.
+
+   ```java
+   int number = scanner.nextInt();     // Nhập số
+   scanner.nextLine();                 // Đọc ký tự xuống dòng còn lại
+   String text = scanner.nextLine();    // Nhập văn bản mới
+   ```
+
+2. **Đọc nhiều giá trị trên một dòng**:
+
+   ```java
+   // Phương pháp 1: Nhập chuỗi và phân tách
+   String input = scanner.nextLine();          // Ví dụ: "10 20 30"
+   String[] values = input.split(" ");         // Tách chuỗi thành mảng
+   int a = Integer.parseInt(values[0]);        // 10
+   int b = Integer.parseInt(values[1]);        // 20
+   
+   // Phương pháp 2: Sử dụng next() liên tiếp
+   int x = scanner.nextInt();                  // Đọc số đầu tiên
+   int y = scanner.nextInt();                  // Đọc số tiếp theo
+   ```
+
+3. **Xử lý ngoại lệ**:
+
+   Khi người dùng nhập không đúng định dạng, cần xử lý để tránh chương trình bị crash:
+
+   ```java
+   try {
+       int number = scanner.nextInt();
+   } catch (InputMismatchException e) {
+       System.out.println("Vui lòng nhập số nguyên!");
+       scanner.nextLine(); // Xóa đầu vào không hợp lệ
+   }
+   ```
+
+4. **Phương pháp nhập liệu an toàn**:
+
+   ```java
+   Scanner scanner = new Scanner(System.in);
+   int number = 0;
+   boolean validInput = false;
+   
+   while (!validInput) {
+       System.out.print("Nhập số nguyên: ");
+       try {
+           number = Integer.parseInt(scanner.nextLine());
+           validInput = true;
+       } catch (NumberFormatException e) {
+           System.out.println("Lỗi: Vui lòng nhập một số nguyên hợp lệ!");
+       }
+   }
+   ```
+
+**Lưu ý quan trọng**: Luôn đóng Scanner bằng phương thức `close()` khi không còn sử dụng để tránh rò rỉ tài nguyên.
 
 ---
 
@@ -240,6 +346,10 @@ boolean notResult = !condition1;               // false
 ```
 
 ### Thứ tự ưu tiên toán tử
+
+- Giống như toán học, các toán tử có thứ tự ưu tiên khác nhau:
+  - Trong ngoặc trước ngoài ngoặc sau
+  - Nhân chia trước cộng trừ sau
 
 1. Toán tử tăng giảm (`++`, `--`), phủ định (`!`)
 2. Toán tử nhân, chia, lấy dư (`*`, `/`, `%`)
@@ -395,6 +505,22 @@ for (int num : numbers) {
 }
 ```
 
+- Diễn giải từng bước sử dụng vòng lặp for để tính tổng các số từ 1 đến 10:
+- Giá trị ban đầu: sum = 0, i = 1
+- Điều kiện lặp: i <= 10
+  - Lần lặp 1: i = 1, sum = 0 + 1 = 1, i++
+  - Lần lặp 2: i = 2, sum = 1 + 2 = 3, i++
+  - Lần lặp 3: i = 3, sum = 3 + 3 = 6, i++
+  - Lần lặp 4: i = 4, sum = 6 + 4 = 10, i++
+  - Lần lặp 5: i = 5, sum = 10 + 5 = 15, i++
+  - Lần lặp 6: i = 6, sum = 15 + 6 = 21, i++
+  - Lần lặp 7: i = 7, sum = 21 + 7 = 28, i++
+  - Lần lặp 8: i = 8, sum = 28 + 8 = 36, i++
+  - Lần lặp 9: i = 9, sum = 36 + 9 = 45, i++
+  - Lần lặp 10: i = 10, sum = 45 + 10 = 55, i++
+  - Lần lặp 11: i = 11, điều kiện không thỏa mãn, thoát vòng lặp
+- Kết quả cuối cùng: Tổng = 55
+
 ### Vòng lặp while
 
 ```java
@@ -407,6 +533,7 @@ while (i <= 5) {
 
 // Tìm số đầu tiên chia hết cho cả 3 và 5
 int num = 1;
+// Kiểm tra điều kiện trước rồi mới thực hiện
 while (num <= 100) {
     if (num % 3 == 0 && num % 5 == 0) {
         System.out.println("Số đầu tiên chia hết cho cả 3 và 5: " + num);
@@ -428,6 +555,7 @@ do {
 
 // Mô phỏng menu lựa chọn
 int choice;
+// Thực hiện ít nhất một lần rồi mới kiểm tra điều kiện
 do {
     System.out.println("\nMenu:");
     System.out.println("1. Xem danh sách");
