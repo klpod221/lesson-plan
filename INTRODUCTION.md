@@ -61,25 +61,25 @@ Lập trình là quá trình viết, kiểm thử, sửa lỗi và bảo trì m�
       [3, 5, 8, 4, 2] → So sánh 5 và 8 → Không đổi → [3, 5, 8, 4, 2]
       [3, 5, 8, 4, 2] → So sánh 8 và 4 → Hoán đổi → [3, 5, 4, 8, 2]
       [3, 5, 4, 8, 2] → So sánh 8 và 2 → Hoán đổi → [3, 5, 4, 2, 8]
-   
+
    Kết thúc vòng 1: [3, 5, 4, 2, 8] (Phần tử lớn nhất 8 đã ở vị trí cuối cùng)
 
    Vòng lặp ngoài 2:
       [3, 5, 4, 2, 8] → So sánh 3 và 5 → Không đổi → [3, 5, 4, 2, 8]
       [3, 5, 4, 2, 8] → So sánh 5 và 4 → Hoán đổi → [3, 4, 5, 2, 8]
       [3, 4, 5, 2, 8] → So sánh 5 và 2 → Hoán đổi → [3, 4, 2, 5, 8]
-   
+
    Kết thúc vòng 2: [3, 4, 2, 5, 8] (Phần tử lớn thứ 2 là 5 đã ở đúng vị trí)
 
    Vòng lặp ngoài 3:
       [3, 4, 2, 5, 8] → So sánh 3 và 4 → Không đổi → [3, 4, 2, 5, 8]
       [3, 4, 2, 5, 8] → So sánh 4 và 2 → Hoán đổi → [3, 2, 4, 5, 8]
-   
+
    Kết thúc vòng 3: [3, 2, 4, 5, 8] (Phần tử lớn thứ 3 là 4 đã ở đúng vị trí)
 
    Vòng lặp ngoài 4:
       [3, 2, 4, 5, 8] → So sánh 3 và 2 → Hoán đổi → [2, 3, 4, 5, 8]
-   
+
    Kết thúc vòng 4: [2, 3, 4, 5, 8] (Mảng đã được sắp xếp)
    ```
 
@@ -245,7 +245,7 @@ Lập trình là quá trình viết, kiểm thử, sửa lỗi và bảo trì m�
 
 5. **Triển khai**: Đưa phần mềm vào sử dụng
 
-   - Ví dụ: Cài đặt phần mềm lên máy chủ sản xuất.
+   - Ví dụ: Cài đặt phần mềm lên product server và cung cấp cho người dùng.
 
 6. **Bảo trì**: Cập nhật, sửa lỗi và nâng cấp chương trình
    - Ví dụ: Thêm tính năng mới hoặc sửa lỗi sau khi phát hiện.
@@ -352,9 +352,9 @@ Hệ điều hành
 
    - **Windows**: Phổ biến trong môi trường người dùng cá nhân và doanh nghiệp
    - **macOS**: Hệ điều hành của Apple dành cho máy tính Mac
-   - **Linux**: Hệ điều hành mã nguồn mở, phổ biến trong máy chủ và phát triển
+   - **Linux**: Hệ điều hành mã nguồn mở, phổ biến cho máy chủ và developer
    - **Android**: Cho thiết bị di động, dựa trên Linux kernel
-   - **iOS**: Hệ điều hành di động của Apple
+   - **iOS**: Hệ điều hành cho thiết bị di động của Apple
 
 3. **Giao diện dòng lệnh (Command Line Interface)**:
    - **Windows**: Command Prompt, PowerShell
@@ -362,7 +362,7 @@ Hệ điều hành
 
 ### Mạng máy tính
 
-Mạng máy tính là tập hợp các thiết bị kết nối với nhau để chia sẻ tài nguyên và thông tin.
+Mạng máy tính là tập hợp các thiết bị kết nối với nhau để chia sẻ tài nguyên và thông tin. Như vậy, internet thực chất là một mạng máy tính kết nối hàng tỷ thiết bị trên toàn cầu. Hoặc khi bạn kết nối 2 máy tính với nhau để chia sẻ dữ liệu, bạn đã tạo ra một mạng máy tính nhỏ.
 
 ```text
 Mạng máy tính
@@ -439,7 +439,7 @@ Mạng máy tính
    - **PyCharm**: Chuyên biệt cho Python
 
 2. **Tính năng chính của IDE**:
-   - Soạn thảo mã (Code Editor) với tô màu cú pháp
+   - Soạn thảo mã (Code Editor) với tính năng syntax highlighting (tô màu cú pháp)
    - Trình gỡ lỗi (Debugger)
    - Hoàn thành mã (Code Completion)
    - Tích hợp với hệ thống quản lý phiên bản
@@ -510,7 +510,7 @@ Mạng máy tính
    ├── build/      # Tập tin biên dịch (nếu có)
    ├── tests/      # Tập tin kiểm thử
    ├── docs/       # Tài liệu
-   ├── .gitignore  # Tập tin để loại trừ các file không cần thiết khỏi git (sẽ được giải thích ở phần sau)
+   ├── .gitignore  # Tập tin để loại trừ các file không cần thiết khỏi git
    ├── README.md   # Tài liệu giới thiệu dự án
    ├── LICENSE     # Giấy phép sử dụng
    └── .env        # Tập tin cấu hình môi trường (nếu có)
@@ -555,7 +555,7 @@ Mạng máy tính
 3. **Tài liệu hóa (Documentation)**:
    - **README**: Giới thiệu dự án, hướng dẫn cài đặt và sử dụng
    - **API Documentation**: Swagger, OpenAPI
-   - **Code Comments**: Giải thích các phần phức tạp
+   - **Code Comments**: Giải thích các phần phức tạp (nên dùng cách code rõ ràng sao cho tự các dòng code có thể giải thích được chính nó thay vì phải dùng comment)
    - **Wiki**: Tài liệu chi tiết và hướng dẫn sử dụng
 
 ### Bảo mật và chất lượng mã nguồn
