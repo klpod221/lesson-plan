@@ -175,16 +175,17 @@ public class AverageCalculator {
    String text = "Học lập trình JAVA";
 
    // Độ dài chuỗi
-   int length = text.length();  // length = 19
+   int length = text.length();  // length = 18
 
    // Lấy ký tự tại vị trí
    char firstChar = text.charAt(0);  // 'H'
 
    // Cắt chuỗi con
-   String subText = text.substring(4, 14);  // "lập trình"
+   String subText = text.substring(4, 13);  // lấy từ vị trí 4 đến 12 => "lập trình"
+    String subText2 = text.substring(4);     // lấy từ vị trí 4 đến hết => "lập trình JAVA"
 
    // Tìm vị trí xuất hiện
-   int position = text.indexOf("JAVA");  // 15
+   int position = text.indexOf("JAVA");  // 14
 
    // Chuyển đổi chữ hoa/thường
    String upperCase = text.toUpperCase();  // "HỌC LẬP TRÌNH JAVA"

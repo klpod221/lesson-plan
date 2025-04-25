@@ -227,6 +227,7 @@ lesson-plan/
 │   ├── Part2.md      # CSS - ĐỊNH DẠNG TRANG WEB
 │   ├── Part3.md      # JAVASCRIPT - LẬP TRÌNH CHO WEB
 │   └── Part4.md      # FRAMEWORK & CÔNG CỤ PHÁT TRIỂN WEB HIỆN ĐẠI
+├── examples/         # THƯ MỤC CHỨA CÁC BÀI TẬP VÀ DỰ ÁN MẪU
 ├── CONCLUSION.md     # TỔNG KẾT LỘ TRÌNH HỌC
 ├── GIT.md            # HƯỚNG DẪN SỬ DỤNG GIT
 ├── INSTALL.md        # HƯỚNG DẪN CÀI ĐẶT MÔI TRƯỜNG HỌC TẬP

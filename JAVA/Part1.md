@@ -12,6 +12,12 @@
     - [Nhập liệu từ bàn phím](#nhập-liệu-từ-bàn-phím)
       - [Các phương thức nhập liệu cơ bản](#các-phương-thức-nhập-liệu-cơ-bản)
       - [Vấn đề phổ biến và giải pháp](#vấn-đề-phổ-biến-và-giải-pháp)
+    - [Hiển thị dữ liệu ra màn hình](#hiển-thị-dữ-liệu-ra-màn-hình)
+      - [Các phương thức hiển thị cơ bản](#các-phương-thức-hiển-thị-cơ-bản)
+      - [Hiển thị với các kiểu dữ liệu khác nhau](#hiển-thị-với-các-kiểu-dữ-liệu-khác-nhau)
+      - [Các định dạng đặc biệt](#các-định-dạng-đặc-biệt)
+      - [Ví dụ định dạng nâng cao](#ví-dụ-định-dạng-nâng-cao)
+      - [Phương thức Format](#phương-thức-format)
   - [🧑‍🏫 Bài 2: Biến và kiểu dữ liệu](#-bài-2-biến-và-kiểu-dữ-liệu)
     - [Khái niệm biến trong JAVA](#khái-niệm-biến-trong-java)
     - [Kiểu dữ liệu nguyên thủy](#kiểu-dữ-liệu-nguyên-thủy)
@@ -203,6 +209,103 @@ Tuổi bạn là: 25
    ```
 
 **Lưu ý quan trọng**: Luôn đóng Scanner bằng phương thức `close()` khi không còn sử dụng để tránh rò rỉ tài nguyên.
+
+### Hiển thị dữ liệu ra màn hình
+
+Java cung cấp nhiều cách để hiển thị dữ liệu ra màn hình console:
+
+#### Các phương thức hiển thị cơ bản
+
+```java
+// In và xuống dòng
+System.out.println("Hello World");    // In "Hello World" và xuống dòng mới
+
+// In không xuống dòng
+System.out.print("Hello ");           // In "Hello " và không xuống dòng
+System.out.print("World");            // In "World" tiếp tục sau "Hello "
+
+// In theo định dạng (giống printf trong C)
+System.out.printf("Xin chào %s, bạn %d tuổi", "Nam", 25);
+```
+
+#### Hiển thị với các kiểu dữ liệu khác nhau
+
+```java
+int age = 25;
+double height = 1.75;
+String name = "Nguyen Van A";
+
+// Nối chuỗi với dấu +
+System.out.println("Tên: " + name + ", Tuổi: " + age + ", Chiều cao: " + height + "m");
+
+// Sử dụng String.format
+String info = String.format("Tên: %s, Tuổi: %d, Chiều cao: %.2fm", name, age, height);
+System.out.println(info);
+
+// Sử dụng printf
+System.out.printf("Tên: %s, Tuổi: %d, Chiều cao: %.2fm\n", name, age, height);
+```
+
+#### Các định dạng đặc biệt
+
+| Định dạng | Mô tả | Ví dụ |
+|----------|-------|--------|
+| `%d` | Số nguyên | `%d` → `123` |
+| `%f` | Số thực | `%f` → `123.456000` |
+| `%.2f` | Số thực (giới hạn chữ số thập phân) | `%.2f` → `123.46` |
+| `%s` | Chuỗi | `%s` → `Hello` |
+| `%c` | Ký tự | `%c` → `A` |
+| `%b` | Boolean | `%b` → `true` |
+| `%n` | Xuống dòng | `%n` → newline |
+| `%%` | Dấu phần trăm | `%%` → `%` |
+
+#### Ví dụ định dạng nâng cao
+
+```java
+// Định dạng số
+System.out.printf("Số nguyên: %d\n", 1234);             // 1234
+System.out.printf("Số nguyên (căn lề phải 8 ký tự): %8d\n", 1234);  // "    1234"
+System.out.printf("Số nguyên (căn lề trái 8 ký tự): %-8d\n", 1234); // "1234    "
+System.out.printf("Số nguyên (thêm số 0): %08d\n", 1234);  // "00001234"
+
+// Định dạng số thực
+System.out.printf("Số thực: %f\n", 12.34);              // 12.340000
+System.out.printf("Số thực (làm tròn 2 chữ số): %.2f\n", 12.34567); // 12.35
+System.out.printf("Tiền tệ: %,.2f đ\n", 1234567.89);    // 1,234,567.89 đ
+
+// Định dạng chuỗi
+System.out.printf("Chuỗi: %s\n", "Hello");              // Hello
+System.out.printf("Chuỗi (viết hoa): %S\n", "Hello");   // HELLO
+System.out.printf("Chuỗi (căn lề phải 10 ký tự): %10s\n", "Hello"); // "     Hello"
+System.out.printf("Chuỗi (căn lề trái 10 ký tự): %-10s\n", "Hello"); // "Hello     "
+```
+
+#### Phương thức Format
+
+Java cũng cung cấp class `Formatter` để định dạng chuỗi:
+
+```java
+String formatted = String.format("Chào %s, bạn đã đạt %.1f điểm", "Nam", 8.5);
+System.out.println(formatted);  // Chào Nam, bạn đã đạt 8.5 điểm
+
+// Định dạng ngày tháng
+import java.util.Date;
+System.out.printf("Hôm nay là: %tD\n", new Date());  // MM/dd/yy format
+```
+
+**Lưu ý**: Từ Java 15 trở đi, bạn có thể sử dụng text blocks (chuỗi nhiều dòng) với cú pháp `"""..."""`:
+
+```java
+// Từ Java 15+
+String html = """
+              <html>
+                  <body>
+                      <h1>Xin chào!</h1>
+                  </body>
+              </html>
+              """;
+System.out.println(html);
+```
 
 ---
 
