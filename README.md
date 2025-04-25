@@ -2,13 +2,17 @@
 
 ## 🎯 Giới Thiệu
 
-Đây là kho lưu trữ tài liệu học tập với lộ trình lập trình từ cơ bản đến nâng cao, bao gồm JAVA, SQL, Cấu trúc dữ liệu & Thuật toán (DSA) và Phát triển Web. Mỗi phần được thiết kế có tính tiến triển rõ ràng, giúp bạn từng bước làm chủ các kỹ năng cần thiết và hiểu cách các lĩnh vực này liên kết với nhau.
+Đây là lộ trình học lập trình toàn diện từ cơ bản đến nâng cao, bao gồm JAVA, SQL, DSA và phát triển Web. Mỗi phần được thiết kế với tính tiến triển rõ ràng, giúp bạn làm chủ các kỹ năng cần thiết từng bước một.
 
-Với người mới bắt đầu, việc có lộ trình học tập có cấu trúc sẽ giúp tiết kiệm thời gian tìm kiếm tài liệu và định hướng học tập. Khi đã nắm vững nền tảng, bạn có thể điều chỉnh theo nhu cầu và sở thích riêng, khám phá thêm các công nghệ và ngôn ngữ lập trình khác thông qua tài liệu trực tuyến hoặc tham gia cộng đồng lập trình.
+Lộ trình này giúp bạn:
 
-Tôi đã cố gắng tạo ra một lộ trình học tập rõ ràng và dễ hiểu nhất có thể. Tuy nhiên, nếu bạn có bất kỳ câu hỏi nào hoặc cần thêm thông tin, đừng ngần ngại liên hệ với tôi qua [trang cá nhân](https://klpod221.com).
+- Tiết kiệm thời gian tìm kiếm tài liệu học tập
+- Có định hướng rõ ràng trong quá trình học
+- Học theo cấu trúc logic và khoa học
 
-Lưu ý: **Lộ trình này không phải một quy tắc mà là một hướng dẫn**
+Sau khi nắm vững nền tảng, bạn có thể điều chỉnh hướng học theo nhu cầu cá nhân, khám phá thêm nhiều công nghệ và ngôn ngữ lập trình khác.
+
+**Lưu ý:** Đây không phải quy tắc cứng nhắc mà là hướng dẫn linh hoạt, có thể điều chỉnh theo tốc độ và phong cách học của bạn.
 
 - [Lộ Trình Học Lập Trình Từ Cơ Bản Đến Nâng Cao](#lộ-trình-học-lập-trình-từ-cơ-bản-đến-nâng-cao)
   - [🎯 Giới Thiệu](#-giới-thiệu)
@@ -28,7 +32,6 @@ Lưu ý: **Lộ trình này không phải một quy tắc mà là một hướng
     - [📌 Mô-đun 5: Phát Triển Web Frontend](#-mô-đun-5-phát-triển-web-frontend)
     - [📌 Mô-đun 6: Phát Triển Web Backend với PHP](#-mô-đun-6-phát-triển-web-backend-với-php)
     - [📌 Mô-đun 7: DevOps \& Containerization](#-mô-đun-7-devops--containerization)
-    - [📦 Phiên bản cài đặt cho Windows (không WSL)](#-phiên-bản-cài-đặt-cho-windows-không-wsl)
   - [📋 Cấu Trúc Kho Lưu Trữ](#-cấu-trúc-kho-lưu-trữ)
   - [🔄 Cập Nhật và Đóng Góp](#-cập-nhật-và-đóng-góp)
   - [📞 Liên Hệ Hỗ Trợ](#-liên-hệ-hỗ-trợ)
@@ -38,40 +41,40 @@ Lưu ý: **Lộ trình này không phải một quy tắc mà là một hướng
 
 ### Tại sao lại là JAVA, SQL, DSA và WEB?
 
-- Tư duy lập trình và khả năng giải quyết vấn đề là cốt lõi của lập trình. Các ngôn ngữ lập trình khác nhau có thể có cú pháp và cách tiếp cận khác nhau, nhưng tư duy lập trình vẫn là yếu tố quan trọng nhất. Các bạn có thể coi ngôn ngữ lập trình chỉ là công cụ để thực hiện tư duy lập trình của mình.
-  
-- Về lý do chọn JAVA:
-  - JAVA là một ngôn ngữ lập trình phổ biến và mạnh mẽ, được sử dụng rộng rãi trong nhiều lĩnh vực như phát triển ứng dụng doanh nghiệp, ứng dụng di động (Android), và phát triển web.
-  - JAVA có cú pháp rõ ràng và dễ hiểu mặc dù có thể hơi phức tạp hơn một số ngôn ngữ khác như Python. Điều này giúp người học dễ dàng nắm bắt các khái niệm lập trình cơ bản.
-  - OOP (Programming Object Oriented - Lập trình hướng đối tượng) là một trong những khái niệm quan trọng trong lập trình hiện đại. JAVA hỗ trợ OOP rất tốt, giúp người học hiểu rõ hơn về cách tổ chức mã nguồn và phát triển ứng dụng.
-  
-- Về lý do chọn SQL:
-  - SQL là ngôn ngữ truy vấn cơ sở dữ liệu phổ biến nhất, được sử dụng để quản lý và truy xuất dữ liệu từ các hệ quản trị cơ sở dữ liệu như MySQL, PostgreSQL, Oracle, v.v.
-  - Kiến thức về SQL là rất quan trọng trong việc phát triển ứng dụng, vì hầu hết các ứng dụng đều cần lưu trữ và truy xuất dữ liệu từ cơ sở dữ liệu.
+**Tư duy lập trình** là cốt lõi, ngôn ngữ lập trình chỉ là công cụ thực hiện tư duy đó.
 
-- Về lý do chọn DSA:
-  - Cấu trúc dữ liệu và thuật toán là nền tảng của lập trình. Chúng giúp người học hiểu rõ hơn về cách tổ chức và xử lý dữ liệu trong ứng dụng.
-  - Kiến thức về DSA là rất quan trọng trong việc giải quyết các bài toán phức tạp và tối ưu hóa hiệu suất của ứng dụng.
-  - Nhiều công ty công nghệ lớn thường sử dụng các bài toán DSA trong quá trình phỏng vấn tuyển dụng, vì vậy việc nắm vững kiến thức này sẽ giúp bạn tự tin hơn trong các cuộc phỏng vấn.
-  - Kiến thức về DSA cũng giúp bạn phát triển tư duy logic và khả năng giải quyết vấn đề, điều này rất quan trọng trong bất kỳ lĩnh vực nào liên quan đến lập trình.
+**JAVA:**
 
-- Về lý do chọn WEB:
-  - Phát triển web là một trong những lĩnh vực phát triển nhanh nhất trong ngành công nghệ thông tin. Hầu hết các ứng dụng hiện đại đều có giao diện web hoặc ứng dụng di động.
-  - Kiến thức về phát triển web giúp bạn hiểu rõ hơn về cách xây dựng và triển khai ứng dụng trên nền tảng web, từ việc thiết kế giao diện người dùng đến việc xử lý dữ liệu và tương tác với cơ sở dữ liệu.
-  - Nắm vững kiến thức về phát triển web cũng giúp bạn có khả năng làm việc trong nhiều lĩnh vực khác nhau, từ phát triển ứng dụng doanh nghiệp đến phát triển ứng dụng di động.
-  - Đây cũng là một trong những lĩnh vực có nhu cầu tuyển dụng cao nhất hiện nay, vì vậy việc nắm vững kiến thức về phát triển web sẽ giúp bạn có nhiều cơ hội nghề nghiệp hơn.
-  - Ngoài ra, bạn cũng có thể sử dụng [Electron](https://www.electronjs.org/) để phát triển ứng dụng desktop hoặc [React Native](https://reactnative.dev/) để phát triển ứng dụng di động từ kiến thức về phát triển web.
+- Ngôn ngữ phổ biến trong phát triển ứng dụng doanh nghiệp, Android và web
+- Cú pháp rõ ràng, giúp dễ dàng nắm bắt khái niệm lập trình cơ bản
+- Hỗ trợ mạnh mẽ lập trình hướng đối tượng (OOP) - nền tảng quan trọng trong lập trình hiện đại
 
-- Cuối cùng, việc học lập trình không chỉ dừng lại ở việc nắm vững một ngôn ngữ hay công nghệ nào đó. Bạn cần có tư duy lập trình tốt, khả năng giải quyết vấn đề và kỹ năng tự học liên tục để theo kịp sự phát triển nhanh chóng của ngành công nghệ thông tin.
+**SQL:**
+
+- Ngôn ngữ chuẩn để quản lý và truy vấn cơ sở dữ liệu (MySQL, PostgreSQL, Oracle)
+- Kỹ năng thiết yếu vì hầu hết ứng dụng đều cần lưu trữ và truy xuất dữ liệu
+
+**DSA (Cấu trúc dữ liệu & Thuật toán):**
+
+- Nền tảng củng cố tư duy và kỹ năng giải quyết vấn đề
+- Giúp tối ưu hiệu suất ứng dụng và xử lý bài toán phức tạp
+- Kiến thức cần thiết trong phỏng vấn tuyển dụng tại các công ty công nghệ
+
+**WEB:**
+
+- Lĩnh vực phát triển nhanh nhất, nhu cầu tuyển dụng cao
+- Kỹ năng linh hoạt: từ thiết kế giao diện đến xử lý dữ liệu
+- Mở rộng được sang phát triển ứng dụng desktop (Electron) hoặc di động (React Native)
+
+**Tóm lại:** Học lập trình không chỉ là làm chủ công nghệ, mà còn là phát triển tư duy, kỹ năng giải quyết vấn đề và khả năng tự học liên tục.
 
 ### Đã có rất nhiều AI có thể giúp bạn học lập trình, tại sao bạn vẫn cần lộ trình này?
 
-- Như mục đích ban đầu của lộ trình này, tôi muốn giúp bạn có một lộ trình học tập rõ ràng và dễ hiểu nhất có thể cũng như phát triển tư duy lập trình của bạn theo đúng hướng. AI có thể giúp bạn tìm kiếm thông tin, giải thích các khái niệm và thậm chí viết mã cho bạn. Tuy nhiên, AI không thể thay thế hoàn toàn khả năng tư duy và giải quyết vấn đề của con người và việc học lập trình không chỉ đơn thuần là việc hiểu cú pháp hay cách sử dụng một ngôn ngữ lập trình. Đây là một quá trình liên tục và cần có sự kiên nhẫn, thực hành và trải nghiệm thực tế.
+AI có thể giúp tìm kiếm thông tin, giải thích khái niệm hoặc viết mã, nhưng không thể thay thế quá trình phát triển tư duy và kỹ năng giải quyết vấn đề của con người. Lộ trình này cung cấp một hướng dẫn có cấu trúc, giúp bạn xây dựng nền tảng vững chắc theo trình tự hợp lý, điều mà AI khó có thể thay thế hoàn toàn.
 
 ### Tại sao lại có lộ trình học tập này?
 
-- Lộ trình học tập này ban đầu được xây dựng để hỗ trợ tôi trong việc đào tạo nhân viên mới tại công ty. Tuy nhiên, sau khi hoàn thành, tôi nhận thấy rằng lộ trình này có thể hữu ích cho nhiều người khác trong việc học lập trình. Do đó, tôi quyết định chia sẻ nó với cộng đồng lập trình viên.
-- Để viết lộ trình này, tôi đã tham khảo nhiều tài liệu, khóa học và kinh nghiệm cá nhân trong quá trình học tập và làm việc. Tôi hy vọng rằng lộ trình này sẽ giúp bạn tiết kiệm thời gian và công sức trong việc tìm kiếm tài liệu và hướng dẫn học tập.
+Lộ trình này được phát triển ban đầu để đào tạo nhân viên mới, sau đó được chia sẻ rộng rãi nhằm giúp mọi người tiết kiệm thời gian tìm kiếm tài liệu và định hướng học tập. Nội dung được tổng hợp từ nhiều nguồn tài liệu, khóa học và kinh nghiệm thực tế, đảm bảo tính hiệu quả và thực tiễn.
 
 ## 🛠️ Phương Pháp Học Tập
 
@@ -180,10 +183,6 @@ Thời gian ước tính cho mỗi phần là tương đối và có thể thay 
 | 34 | 🐳 **DOCKER: NỀN TẢNG CONTAINER HÓA** | 1 tuần | [Docker.md](./DOCKER/Docker.md) |
 | 35 | ⚙️ **KUBERNETES: HỆ THỐNG ĐIỀU PHỐI CONTAINER** | 2 tuần | [Kubernetes.md](./DOCKER/Kubernetes.md) |
 | 36 | 🎓 **TỔNG KẾT LỘ TRÌNH HỌC** | - | [CONCLUSION.md](./CONCLUSION.md) |
-
-### 📦 Phiên bản cài đặt cho Windows (không WSL)
-
-Nếu bạn muốn làm việc trực tiếp trên Windows mà không sử dụng WSL (Windows Subsystem for Linux), vui lòng tham khảo hướng dẫn cài đặt dành riêng cho Windows tại [INSTALL-WINDOWS.md](./INSTALL-WINDOWS.md).
 
 ## 📋 Cấu Trúc Kho Lưu Trữ
 
