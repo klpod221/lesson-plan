@@ -5,14 +5,14 @@
   - [🧑‍🏫 Bài 1: Giới thiệu về SQL và CSDL](#-bài-1-giới-thiệu-về-sql-và-csdl)
     - [Khái niệm cơ sở dữ liệu quan hệ](#khái-niệm-cơ-sở-dữ-liệu-quan-hệ)
     - [Các hệ quản trị CSDL phổ biến](#các-hệ-quản-trị-csdl-phổ-biến)
-    - [Môi trường làm việc](#môi-trường-làm-việc)
-      - [Cài đặt MySQL](#cài-đặt-mysql)
-      - [Cấu hình cơ bản](#cấu-hình-cơ-bản)
     - [Công cụ quản lý](#công-cụ-quản-lý)
+    - [Sử dụng phpMyAdmin để quản lý cơ sở dữ liệu](#sử-dụng-phpmyadmin-để-quản-lý-cơ-sở-dữ-liệu)
+      - [Sử dụng phpMyAdmin](#sử-dụng-phpmyadmin)
+    - [Sử dụng VSCode extension để kết nối CSDL](#sử-dụng-vscode-extension-để-kết-nối-csdl)
   - [🧑‍🏫 Bài 2: Tạo và quản lý cơ sở dữ liệu](#-bài-2-tạo-và-quản-lý-cơ-sở-dữ-liệu)
     - [Tạo và quản lý cơ sở dữ liệu](#tạo-và-quản-lý-cơ-sở-dữ-liệu)
     - [Các kiểu dữ liệu cơ bản trong SQL](#các-kiểu-dữ-liệu-cơ-bản-trong-sql)
-    - [Ràng buộc trong SQL](#ràng-buộc-trong-sql)
+    - [Một số ràng buộc trong SQL](#một-số-ràng-buộc-trong-sql)
     - [Tạo bảng và ràng buộc](#tạo-bảng-và-ràng-buộc)
     - [Sơ đồ quan hệ của cơ sở dữ liệu](#sơ-đồ-quan-hệ-của-cơ-sở-dữ-liệu)
   - [🧑‍🏫 Bài 3: Thao tác dữ liệu](#-bài-3-thao-tác-dữ-liệu)
@@ -61,83 +61,6 @@
 | Oracle      | Độ ổn định cao, nhiều tính năng doanh nghiệp | Rất đắt và phức tạp                          |
 | SQLite      | Nhẹ, không cần máy chủ, nhúng được           | Không phù hợp cho ứng dụng đa người dùng lớn |
 
-### Môi trường làm việc
-
-#### Cài đặt MySQL
-
-(Nếu các bạn đã cài đặt theo hướng dẫn trước đó thì có thể bỏ qua bước này)
-
-- Linux (Ubuntu/Debian):
-
-  ```bash
-  sudo apt update
-  sudo apt install mysql-server
-  sudo systemctl start mysql
-  sudo systemctl enable mysql
-  sudo mysql_secure_installation  # Thiết lập bảo mật
-  ```
-
-- Linux (CentOS/RHEL):
-
-  ```bash
-  sudo yum install mysql-server
-  sudo systemctl start mysqld
-  sudo systemctl enable mysqld
-  sudo mysql_secure_installation
-  ```
-
-- Windows:
-
-  - Tải MySQL Installer từ [trang chủ MySQL](https://dev.mysql.com/downloads/installer/)
-  - Chạy installer và làm theo hướng dẫn cài đặt
-  - Chọn "Developer Default" hoặc "Custom" để cài MySQL Server và các công cụ
-  - Thiết lập mật khẩu root trong quá trình cài đặt
-
-- macOS:
-
-  - Phương pháp 1: Sử dụng Homebrew
-
-  ```bash
-  brew install mysql
-  brew services start mysql
-  mysql_secure_installation
-  ```
-
-  - Phương pháp 2: Tải MySQL dmg từ [trang chủ MySQL](https://dev.mysql.com/downloads/mysql/)
-
-#### Cấu hình cơ bản
-
-- Đăng nhập vào MySQL:
-
-  ```bash
-  mysql -u root -p
-  ```
-
-- Tạo người dùng mới:
-
-  ```sql
-  CREATE USER 'username'@'localhost' IDENTIFIED BY 'password';
-  ```
-
-- Tạo cơ sở dữ liệu:
-
-  ```sql
-  CREATE DATABASE my_database;
-  ```
-
-- Cấp quyền cho người dùng:
-
-  ```sql
-  GRANT ALL PRIVILEGES ON my_database.* TO 'username'@'localhost';
-  FLUSH PRIVILEGES;
-  ```
-
-- Kiểm tra người dùng và quyền:
-
-  ```sql
-  SHOW GRANTS FOR 'username'@'localhost';
-  ```
-
 ### Công cụ quản lý
 
 - [MySQL Workbench](https://www.mysql.com/products/workbench/): Công cụ chính thức của MySQL, hỗ trợ thiết kế và quản lý cơ sở dữ liệu
@@ -146,6 +69,67 @@
 - [DBeaver](https://dbeaver.io/): Công cụ quản lý CSDL đa nền tảng, hỗ trợ nhiều loại CSDL khác nhau
 - [DataGrip](https://www.jetbrains.com/datagrip/): Công cụ quản lý CSDL của JetBrains, hỗ trợ nhiều loại CSDL, có phí
 - [Navicat](https://www.navicat.com/en/products/navicat-for-mysql): Công cụ quản lý CSDL thương mại, giao diện đẹp và nhiều tính năng mạnh mẽ
+
+### Sử dụng phpMyAdmin để quản lý cơ sở dữ liệu
+
+- phpMyAdmin là công cụ quản lý MySQL/MariaDB được viết bằng PHP, cho phép bạn quản lý cơ sở dữ liệu qua trình duyệt web. Đây là công cụ rất phổ biến, đặc biệt với người mới bắt đầu vì giao diện trực quan và dễ sử dụng.
+- Tôi đã hướng dẫn cài đặt phpMyAdmin trong phần [cài đặt môi trường học tập](../INSTALL.md). Bạn có thể tham khảo lại để biết cách cài đặt và cấu hình.
+
+#### Sử dụng phpMyAdmin
+
+1. **Đăng nhập**:
+
+   - Username: thường là "root"
+   - Password: mật khẩu bạn đã thiết lập cho MySQL
+
+2. **Giao diện chính**:
+
+   - Bên trái: Danh sách các cơ sở dữ liệu
+   - Bên phải: Các tùy chọn và thông tin
+
+3. **Các tính năng cơ bản**:
+
+   - Tạo cơ sở dữ liệu mới: Nhấp vào "New" hoặc "Database"
+   - Tạo bảng: Chọn cơ sở dữ liệu, nhấp vào "Create table"
+   - Thực hiện truy vấn: Nhấp vào tab "SQL" để nhập và chạy các câu lệnh SQL
+   - Quản lý dữ liệu: Nhấp vào tên bảng để xem, thêm, sửa, xóa dữ liệu
+   - Xuất/nhập dữ liệu: Sử dụng các tùy chọn "Export" và "Import"
+
+4. **Ưu điểm của phpMyAdmin**:
+   - Giao diện trực quan, dễ sử dụng
+   - Không cần cài đặt phần mềm riêng (chỉ cần trình duyệt)
+   - Hỗ trợ nhiều tính năng nâng cao như quản lý người dùng, quyền truy cập
+   - Có thể thực hiện các thao tác phức tạp mà không cần viết SQL
+
+### Sử dụng VSCode extension để kết nối CSDL
+
+- Như đã đề cập đến trong phần [về VSCode](../INSTALL.md#cài-đặt-các-extension-cần-thiết) của bài cài đặt môi trường học tập, bạn có thể sử dụng extension [MySQL](https://marketplace.visualstudio.com/items?itemName=cweijan.vscode-mysql-client2) để kết nối và quản lý cơ sở dữ liệu ngay trong VSCode. Các bước thực hiện như sau:
+
+  1. Cài đặt extension MySQL từ VS Code Marketplace
+  2. Sau khi cài đặt xong, bạn sẽ thấy biểu tượng MySQL xuất hiện trong thanh bên trái của VS Code
+  3. Nhấp vào biểu tượng MySQL, sau đó nhấn vào biểu tượng "+" để tạo kết nối mới
+  4. Nhập thông tin kết nối:
+     - **Connection name**: Tên kết nối (tự đặt)
+     - **Select Type**: Chọn loại kết nối (MySQL hoặc MariaDB)
+     - **Host**: Địa chỉ máy chủ (thường là localhost)
+     - **Port**: Cổng kết nối (mặc định là 3306)
+     - **Username**: Tên người dùng (thường là root)
+     - **Password**: Mật khẩu của người dùng
+     - **Database**: Tên cơ sở dữ liệu (có thể để trống để hiển thị tất cả cơ sở dữ liệu)
+  5. Nhấn nút "Connect" để kiểm tra kết nối
+     - Nếu kết nối thành công, bạn sẽ thấy danh sách các cơ sở dữ liệu và bảng trong thanh bên trái
+     - Nếu không thành công, hãy kiểm tra lại thông tin kết nối và đảm bảo rằng MySQL server đang chạy
+  6. Nhấn "Save" để lưu kết nối
+  7. Sau khi kết nối thành công, bạn có thể:
+     - Xem tất cả cơ sở dữ liệu trong hệ thống
+     - Mở rộng cơ sở dữ liệu để xem các bảng, view, procedure, và các thành phần khác
+     - Nhấp chuột phải vào các thành phần để thực hiện các thao tác như chỉnh sửa dữ liệu, xuất dữ liệu, v.v.
+     - Tạo file SQL và chạy các câu lệnh trực tiếp từ VS Code
+
+  ```sql
+  -- test.sql
+  SHOW DATABASES; -- Hiển thị danh sách các cơ sở dữ liệu
+  ```
 
 ---
 
@@ -180,12 +164,13 @@ DROP DATABASE school_management;
   | BOOLEAN      | Giá trị logic (TRUE/FALSE)                       | TRUE, FALSE           |
   | BLOB         | Dữ liệu nhị phân lớn                             | Hình ảnh, tệp         |
 
-### Ràng buộc trong SQL
+### Một số ràng buộc trong SQL
 
-- `PRIMARY KEY`: Khóa chính, xác định duy nhất mỗi bản ghi
+- `PRIMARY KEY`: Khóa chính, đảm bảo tính duy nhất cho mỗi bản ghi
+- `AUTO_INCREMENT`: Tự động tăng giá trị cho cột (thường dùng cho khóa chính)
 - `FOREIGN KEY`: Khóa ngoại, liên kết với khóa chính của bảng khác
 - `NOT NULL`: Bắt buộc phải có giá trị
-- `UNIQUE`: Đảm bảo giá trị không trùng lặp
+- `UNIQUE`: Đảm bảo giá trị là duy nhất trong cột
 - `DEFAULT`: Xác định giá trị mặc định
 - `CHECK`: Thêm điều kiện hợp lệ cho giá trị
 
@@ -200,7 +185,7 @@ CREATE TABLE students (
     email VARCHAR(100) UNIQUE,
     date_of_birth DATE,
     gender CHAR(1),
-    admission_date DATE DEFAULT CURRENT_DATE,
+    admission_date DATE DEFAULT (CURRENT_DATE),
     is_active BOOLEAN DEFAULT TRUE
 );
 
@@ -611,7 +596,7 @@ Xây dựng cơ sở dữ liệu để lưu trữ và quản lý điểm sinh vi
   - `physics_score`
   - `chemistry_score`
   - `average_score` (có thể tính toán)
-  - `rank` (xếp loại học lực)
+  - `classification` (xếp loại học lực)
 
 ### Yêu cầu
 
@@ -628,15 +613,15 @@ Xây dựng cơ sở dữ liệu để lưu trữ và quản lý điểm sinh vi
 ### Kết quả chạy chương trình (Ví dụ)
 
 ```text
-+------------+---------------+------------+---------------+-----------------+---------------+-------------+
-| student_id | full_name     | math_score | physics_score | chemistry_score | average_score | rank        |
-+------------+---------------+------------+---------------+-----------------+---------------+-------------+
-|          4 | Phạm Thị D    |        9.0 |           8.5 |             8.0 |          8.50 | Giỏi        |
-|          1 | Nguyễn Văn A  |        8.5 |           7.5 |             9.0 |          8.33 | Giỏi        |
-|          2 | Trần Thị B    |        6.5 |           7.0 |             8.0 |          7.17 | Khá         |
-|          3 | Lê Văn C      |        5.0 |           6.0 |             7.0 |          6.00 | Trung bình  |
-|          5 | Hoàng Văn E   |        4.0 |           5.0 |             4.5 |          4.50 | Yếu         |
-+------------+---------------+------------+---------------+-----------------+---------------+-------------+
++------------+---------------+------------+---------------+-----------------+---------------+----------------+
+| student_id | full_name     | math_score | physics_score | chemistry_score | average_score | classification |
++------------+---------------+------------+---------------+-----------------+---------------+----------------+
+|          4 | Phạm Thị D    |        9.0 |           8.5 |             8.0 |          8.50 | Giỏi           |
+|          1 | Nguyễn Văn A  |        8.5 |           7.5 |             9.0 |          8.33 | Giỏi           |
+|          2 | Trần Thị B    |        6.5 |           7.0 |             8.0 |          7.17 | Khá            |
+|          3 | Lê Văn C      |        5.0 |           6.0 |             7.0 |          6.00 | Trung bình     |
+|          5 | Hoàng Văn E   |        4.0 |           5.0 |             4.5 |          4.50 | Yếu            |
++------------+---------------+------------+---------------+-----------------+---------------+----------------+
 ```
 
 ---

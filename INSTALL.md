@@ -496,7 +496,7 @@ Mở VSCode và cài đặt các extension sau thông qua Marketplace hoặc tì
 
 4. **Database**:
 
-   - [MySQL](https://marketplace.visualstudio.com/items?itemName=formulahendry.vscode-mysql)
+   - [MySQL](https://marketplace.visualstudio.com/items?itemName=cweijan.vscode-mysql-client2)
 
 5. **Docker**:
 
