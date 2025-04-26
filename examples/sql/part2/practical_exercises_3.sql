@@ -363,5 +363,3 @@ FROM
 WHERE
     r.status = 'Active'
 ORDER BY r.reservation_date DESC;
-
-

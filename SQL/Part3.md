@@ -12,7 +12,7 @@
     - [Trigger AFTER UPDATE](#trigger-after-update)
     - [Trigger BEFORE DELETE](#trigger-before-delete)
     - [Trigger để duy trì tính toàn vẹn dữ liệu](#trigger-để-duy-trì-tính-toàn-vẹn-dữ-liệu)
-  - [🧑‍🏫 Bài 3: Giao dịch và xử lý đồng thời](#-bài-3-giao-dịch-và-xử-lý-đồng-thời)
+  - [🧑‍🏫 Bài 3: Transaction và xử lý đồng thời](#-bài-3-transaction-và-xử-lý-đồng-thời)
     - [Quản lý transaction](#quản-lý-transaction)
     - [Các cấp độ cô lập (Isolation Levels)](#các-cấp-độ-cô-lập-isolation-levels)
     - [Xử lý lock và deadlock](#xử-lý-lock-và-deadlock)
@@ -37,11 +37,6 @@
 ---
 
 ## 🧑‍🏫 Bài 1: Thủ tục lưu trữ nâng cao
-
-- Tạo và quản lý stored procedure có tham số
-- Xử lý lỗi trong stored procedure
-- Sử dụng cursor để xử lý dữ liệu theo dòng
-- Thủ tục lưu trữ có trả về giá trị
 
 ### Stored Procedure có tham số
 
@@ -200,12 +195,9 @@ FROM Students s;
 
 ## 🧑‍🏫 Bài 2: Trigger và ràng buộc
 
-- Tạo trigger cho các sự kiện INSERT, UPDATE, DELETE
-- Trigger BEFORE và AFTER
-- Kiểm tra ràng buộc phức tạp
-- Sử dụng trigger để duy trì tính toàn vẹn dữ liệu
-
 ### Trigger BEFORE INSERT
+
+- Thực hiện trước khi một bản ghi được chèn vào bảng
 
 ```sql
 DELIMITER //
@@ -230,6 +222,8 @@ DELIMITER ;
 ```
 
 ### Trigger AFTER UPDATE
+
+- Thực hiện sau khi một bản ghi được cập nhật
 
 ```sql
 DELIMITER //
@@ -261,6 +255,8 @@ DELIMITER ;
 ```
 
 ### Trigger BEFORE DELETE
+
+- Thực hiện trước khi một bản ghi bị xóa
 
 ```sql
 DELIMITER //
@@ -320,12 +316,7 @@ DELIMITER ;
 
 ---
 
-## 🧑‍🏫 Bài 3: Giao dịch và xử lý đồng thời
-
-- Quản lý transaction với COMMIT và ROLLBACK
-- Cách xử lý lock và deadlock
-- Cấp độ cô lập (Isolation levels)
-- Hiệu suất trong môi trường nhiều người dùng
+## 🧑‍🏫 Bài 3: Transaction và xử lý đồng thời
 
 ### Quản lý transaction
 
@@ -365,10 +356,10 @@ SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED;
 -- REPEATABLE READ (mức mặc định trong MySQL, đảm bảo đọc lại cùng dữ liệu)
 SET SESSION TRANSACTION ISOLATION LEVEL REPEATABLE READ;
 
--- SERIALIZABLE (mức cao nhất, mọi giao dịch được thực hiện tuần tự)
+-- SERIALIZABLE (mức cao nhất, mọi transaction được thực hiện tuần tự)
 SET SESSION TRANSACTION ISOLATION LEVEL SERIALIZABLE;
 
--- Ví dụ giao dịch với mức REPEATABLE READ
+-- Ví dụ transaction với mức REPEATABLE READ
 SET SESSION TRANSACTION ISOLATION LEVEL REPEATABLE READ;
 START TRANSACTION;
 
@@ -417,11 +408,6 @@ COMMIT;
 ---
 
 ## 🧑‍🏫 Bài 4: Bảo mật dữ liệu
-
-- Tạo và quản lý người dùng
-- Phân quyền hệ thống và đối tượng
-- Mã hóa và bảo mật dữ liệu
-- Phòng chống SQL Injection
 
 ### Quản lý người dùng và phân quyền
 
@@ -490,6 +476,17 @@ $stmt = $pdo->prepare("SELECT * FROM Users WHERE username = ? AND password_hash 
 $stmt->execute([$username, hash('sha256', $password . $salt)]);
 */
 
+-- Java với JDBC
+/*
+PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM Users WHERE username = ? AND password_hash = ?");
+pstmt.setString(1, username);
+pstmt.setString(2, hash("SHA-256", password + salt));
+ResultSet rs = pstmt.executeQuery();
+if (rs.next()) {
+    // Đăng nhập thành công
+}
+*/
+
 -- Hoặc sử dụng stored procedure
 DELIMITER //
 CREATE PROCEDURE sp_AuthenticateUser(
@@ -517,11 +514,6 @@ CALL sp_AuthenticateUser('user1', 'password123');
 ---
 
 ## 🧑‍🏫 Bài 5: SQL và ứng dụng web
-
-- Kết nối cơ sở dữ liệu từ ứng dụng
-- Tối ưu truy vấn cho ứng dụng web
-- Mô hình ORM và SQL
-- Xử lý vấn đề N+1 và hiệu suất
 
 ### Kết nối cơ sở dữ liệu từ ứng dụng
 
