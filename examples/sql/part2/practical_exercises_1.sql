@@ -42,6 +42,7 @@ VALUES ('CS101', 'Computer Science'),
 DROP PROCEDURE IF EXISTS generate_sample_data;
 
 DELIMITER //
+
 CREATE PROCEDURE generate_sample_data(IN num_records INT)
 BEGIN
     DECLARE i INT DEFAULT 0;
@@ -106,7 +107,7 @@ DELIMITER;
 -- 6. Chạy procedure để tạo dữ liệu mẫu 100,000 bản ghi
 -- Ghi chú: Thời gian chạy procedure này có thể lâu tùy thuộc vào cấu hình máy chủ và tốc độ I/O
 -- bạn có thể điều chỉnh số lượng bản ghi để kiểm tra (ví dụ: 10,000 hoặc 50,000)
-CALL generate_sample_data (100000);
+CALL generate_sample_data (10);
 
 -- 7. Phân tích và so sánh hiệu suất trước và sau khi tạo index
 

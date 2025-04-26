@@ -304,6 +304,8 @@ Hàm người dùng (User-Defined Functions) là các đoạn code SQL được 
 
 #### Ví dụ 1: Hàm tính tuổi từ ngày sinh
 
+- DELIMITER được sử dụng để thay đổi ký tự phân cách giữa các câu lệnh SQL, giúp dễ dàng viết nhiều câu lệnh trong một hàm hoặc thủ tục.
+
 ```sql
 DELIMITER //
 CREATE FUNCTION calculate_age(birthdate DATE)
