@@ -185,7 +185,7 @@ SELECT * FROM LargeTable
 ORDER BY id
 LIMIT 1000 OFFSET 10000;
 
--- Sử dụng truy vấn theo batch với clôt ID
+-- Sử dụng truy theo batch để xử lý dữ liệu lớn
 -- Batch 1:
 SELECT * FROM LargeTable WHERE id BETWEEN 1 AND 10000;
 -- Batch 2:
@@ -1009,10 +1009,10 @@ CREATE TABLE product_details (
 
 Xây dựng cơ sở dữ liệu quản lý đăng ký môn học:
 
-- `Students`: thông tin sinh viên
-- `Courses`: thông tin khóa học
-- `Enrollments`: đăng ký khóa học
-- `CourseSchedules`: lịch học
+- `students`: thông tin sinh viên
+- `courses`: thông tin khóa học
+- `enrollments`: đăng ký khóa học
+- `course_schedules`: lịch học
 
 ### Yêu cầu
 
