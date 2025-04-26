@@ -200,7 +200,7 @@ myCar.start();          // Gọi phương thức của đối tượng
 | Tiêu chí        | Lập trình hướng đối tượng              | Lập trình thủ tục                           |
 | --------------- | -------------------------------------- | ------------------------------------------- |
 | Tổ chức         | Dựa trên các đối tượng                 | Dựa trên các hàm và quy trình               |
-| Tính mô-đun     | Cao                                    | Thấp                                        |
+| Tính Module     | Cao                                    | Thấp                                        |
 | Tái sử dụng mã  | Dễ dàng thông qua kế thừa              | Khó khăn, thường phải sao chép mã           |
 | Bảo mật dữ liệu | Cao nhờ đóng gói                       | Thấp, dữ liệu thường được truy cập toàn cục |
 | Phức tạp        | Ban đầu cao hơn, thiết kế phức tạp hơn | Đơn giản hơn cho ứng dụng nhỏ               |

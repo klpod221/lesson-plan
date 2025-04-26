@@ -24,14 +24,14 @@ Sau khi nắm vững nền tảng, bạn có thể điều chỉnh hướng họ
   - [🚀 Mục Tiêu](#-mục-tiêu)
   - [📋 Đối Tượng](#-đối-tượng)
   - [📚 Lộ Trình Học](#-lộ-trình-học)
-    - [📌 Mô-đun 0: Kỹ Năng Tự Học \& Cài Đặt Môi Trường](#-mô-đun-0-kỹ-năng-tự-học--cài-đặt-môi-trường)
-    - [📌 Mô-đun 1: Lập Trình Java Cơ Bản](#-mô-đun-1-lập-trình-java-cơ-bản)
-    - [📌 Mô-đun 2: Cơ Sở Dữ Liệu SQL](#-mô-đun-2-cơ-sở-dữ-liệu-sql)
-    - [📌 Mô-đun 3: Java Nâng Cao \& Ứng Dụng](#-mô-đun-3-java-nâng-cao--ứng-dụng)
-    - [📌 Mô-đun 4: Cấu Trúc Dữ Liệu \& Thuật Toán](#-mô-đun-4-cấu-trúc-dữ-liệu--thuật-toán)
-    - [📌 Mô-đun 5: Phát Triển Web Frontend](#-mô-đun-5-phát-triển-web-frontend)
-    - [📌 Mô-đun 6: Phát Triển Web Backend với PHP](#-mô-đun-6-phát-triển-web-backend-với-php)
-    - [📌 Mô-đun 7: DevOps \& Containerization](#-mô-đun-7-devops--containerization)
+    - [📌 Module 0: Kỹ Năng Tự Học \& Cài Đặt Môi Trường](#-module-0-kỹ-năng-tự-học--cài-đặt-môi-trường)
+    - [📌 Module 1: Lập Trình Java Cơ Bản](#-module-1-lập-trình-java-cơ-bản)
+    - [📌 Module 2: Cơ Sở Dữ Liệu SQL](#-module-2-cơ-sở-dữ-liệu-sql)
+    - [📌 Module 3: Java Nâng Cao \& Ứng Dụng](#-module-3-java-nâng-cao--ứng-dụng)
+    - [📌 Module 4: Cấu Trúc Dữ Liệu \& Thuật Toán](#-module-4-cấu-trúc-dữ-liệu--thuật-toán)
+    - [📌 Module 5: Phát Triển Web Frontend](#-module-5-phát-triển-web-frontend)
+    - [📌 Module 6: Phát Triển Web Backend với PHP](#-module-6-phát-triển-web-backend-với-php)
+    - [📌 Module 7: DevOps \& Containerization](#-module-7-devops--containerization)
   - [📋 Cấu Trúc Kho Lưu Trữ](#-cấu-trúc-kho-lưu-trữ)
   - [🔄 Cập Nhật và Đóng Góp](#-cập-nhật-và-đóng-góp)
   - [📞 Liên Hệ Hỗ Trợ](#-liên-hệ-hỗ-trợ)
@@ -108,7 +108,7 @@ Lộ trình này được phát triển ban đầu để đào tạo nhân viên
 
 Thời gian ước tính cho mỗi phần là tương đối và có thể thay đổi tùy thuộc vào tốc độ học tập của bạn. Bạn có thể điều chỉnh thời gian học cho phù hợp với lịch trình cá nhân. Dù bạn học nhanh hay chậm, điều quan trọng là bạn cần kiên trì và thực hành thường xuyên.
 
-### 📌 Mô-đun 0: Kỹ Năng Tự Học & Cài Đặt Môi Trường
+### 📌 Module 0: Kỹ Năng Tự Học & Cài Đặt Môi Trường
 
 | STT | Nội dung | Thời gian | Tài liệu |
 |-----|----------|-----------|----------|
@@ -120,7 +120,7 @@ Thời gian ước tính cho mỗi phần là tương đối và có thể thay 
 | 6 | 🔄 **GIT VÀ GITHUB CƠ BẢN** | 0.5 tuần | [GIT.md](./GIT.md) |
 | 7 | 🌐 **TỔNG QUAN VỀ LẬP TRÌNH** | 0.5 tuần | [INTRODUCTION.md](./INTRODUCTION.md) |
 
-### 📌 Mô-đun 1: Lập Trình Java Cơ Bản
+### 📌 Module 1: Lập Trình Java Cơ Bản
 
 | STT | Nội dung | Thời gian | Tài liệu |
 |-----|----------|-----------|----------|
@@ -129,7 +129,7 @@ Thời gian ước tính cho mỗi phần là tương đối và có thể thay 
 | 10 | 🧩 **LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG (OOP)** | 1.5 tuần | [Part3.md](./JAVA/Part3.md) |
 | 11 | 📁 **XỬ LÝ NGOẠI LỆ, FILE I/O VÀ COLLECTIONS** | 1.5 tuần | [Part4.md](./JAVA/Part4.md) |
 
-### 📌 Mô-đun 2: Cơ Sở Dữ Liệu SQL
+### 📌 Module 2: Cơ Sở Dữ Liệu SQL
 
 | STT | Nội dung | Thời gian | Tài liệu |
 |-----|----------|-----------|----------|
@@ -139,14 +139,14 @@ Thời gian ước tính cho mỗi phần là tương đối và có thể thay 
 | 15 | ⚡ **SQL CHUYÊN SÂU VÀ HIỆU SUẤT** | 1 tuần | [Part4.md](./SQL/Part4.md) |
 | 16 | 🏆 **BÀI TẬP LỚN SQL** | 1 tuần | [FINAL.md](./SQL/FINAL.md) |
 
-### 📌 Mô-đun 3: Java Nâng Cao & Ứng Dụng
+### 📌 Module 3: Java Nâng Cao & Ứng Dụng
 
 | STT | Nội dung | Thời gian | Tài liệu |
 |-----|----------|-----------|----------|
 | 17 | 🧵 **LUỒNG, ĐA LUỒNG VÀ JDBC** | 1 tuần | [Part5.md](./JAVA/Part5.md) |
 | 18 | 🏆 **BÀI TẬP LỚN JAVA** | 1 tuần | [FINAL.md](./JAVA/FINAL.md) |
 
-### 📌 Mô-đun 4: Cấu Trúc Dữ Liệu & Thuật Toán
+### 📌 Module 4: Cấu Trúc Dữ Liệu & Thuật Toán
 
 | STT | Nội dung | Thời gian | Tài liệu |
 |-----|----------|-----------|----------|
@@ -156,7 +156,7 @@ Thời gian ước tính cho mỗi phần là tương đối và có thể thay 
 | 22 | 🔍 **CÁC CẤU TRÚC DỮ LIỆU CHUYÊN BIỆT** | 1 tuần | [Part4.md](./DSA/Part4.md) |
 | 23 | ⚡ **THUẬT TOÁN ỨNG DỤNG VÀ TỐI ƯU HÓA** | 1 tuần | [Part5.md](./DSA/Part5.md) |
 
-### 📌 Mô-đun 5: Phát Triển Web Frontend
+### 📌 Module 5: Phát Triển Web Frontend
 
 | STT | Nội dung | Thời gian | Tài liệu |
 |-----|----------|-----------|----------|
@@ -165,7 +165,7 @@ Thời gian ước tính cho mỗi phần là tương đối và có thể thay 
 | 26 | 🔄 **JAVASCRIPT - LẬP TRÌNH CHO WEB** | 1.5 tuần | [Part3.md](./WEB/Part3.md) |
 | 27 | ⚙️ **FRAMEWORK & CÔNG CỤ PHÁT TRIỂN WEB HIỆN ĐẠI** | 1.5 tuần | [Part4.md](./WEB/Part4.md) |
 
-### 📌 Mô-đun 6: Phát Triển Web Backend với PHP
+### 📌 Module 6: Phát Triển Web Backend với PHP
 
 | STT | Nội dung | Thời gian | Tài liệu |
 |-----|----------|-----------|----------|
@@ -176,7 +176,7 @@ Thời gian ước tính cho mỗi phần là tương đối và có thể thay 
 | 32 | 🚀 **XU HƯỚNG HIỆN ĐẠI VÀ CÔNG NGHỆ MỚI TRONG PHP** | 1 tuần | [Part5.md](./PHP/Part5.md) |
 | 33 | 🌐 **PHÁT TRIỂN VÀ TRIỂN KHAI CHUYÊN NGHIỆP** | 1 tuần | [Part6.md](./PHP/Part6.md) |
 
-### 📌 Mô-đun 7: DevOps & Containerization
+### 📌 Module 7: DevOps & Containerization
 
 | STT | Nội dung | Thời gian | Tài liệu |
 |-----|----------|-----------|----------|
