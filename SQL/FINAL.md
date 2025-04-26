@@ -19,11 +19,11 @@ Thiết kế và triển khai cơ sở dữ liệu hoàn chỉnh cho ứng dụn
 
 ### Yêu cầu cơ sở dữ liệu
 
-- Bảng `Users` với phân loại độc giả/nhân viên
-- Bảng `Books` với đầy đủ thông tin sách
-- Bảng `Transactions` lưu giao dịch mượn/trả
-- Bảng `Categories` để phân loại sách
-- Bảng `Publishers` thông tin nhà xuất bản
+- Bảng `users` với phân loại độc giả/nhân viên
+- Bảng `books` với đầy đủ thông tin sách
+- Bảng `transactions` lưu giao dịch mượn/trả
+- Bảng `categories` để phân loại sách
+- Bảng `publishers` thông tin nhà xuất bản
 
 ### Chức năng SQL cần triển khai
 
@@ -32,7 +32,7 @@ Thiết kế và triển khai cơ sở dữ liệu hoàn chỉnh cho ứng dụn
    - Đăng ký người dùng mới
    - Thêm sách mới vào hệ thống
    - Xử lý giao dịch mượn sách
-   - Xử lý trả sách và tính phí phạt quá hạn
+   - Xử lý trả sách và phạt quá hạn
    - Tìm kiếm sách nâng cao (theo nhiều tiêu chí)
 
 2. **Triggers**:
@@ -56,7 +56,13 @@ Thiết kế và triển khai cơ sở dữ liệu hoàn chỉnh cho ứng dụn
 
 5. **Bảo mật**:
    - Phân quyền người dùng (độc giả, nhân viên)
-   - Mã hóa thông tin nhạy cảm (như mật khẩu)
+   - Sử dụng view để ẩn thông tin nhạy cảm
+
+---
+
+Sau khi hoàn thành bài tập lớn này, bạn đã nắm vững các khái niệm cơ bản và nâng cao trong SQL, bao gồm việc thiết kế cơ sở dữ liệu, viết các câu truy vấn phức tạp, sử dụng stored procedures, triggers, views và tối ưu hóa hiệu suất.
+
+Sau đây các bạn sẽ quay lại với JAVA để tiếp tục học tập và áp dụng các kiến thức đã học trong SQL vào các ứng dụng thực tế.
 
 ---
 
