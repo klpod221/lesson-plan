@@ -287,8 +287,8 @@
    import java.io.BufferedReader;
    import java.io.FileReader;
    import java.io.IOException;
-   import java.util.ArrayList;
-   import java.util.List;
+   import java.util.ArrayList; // Bạn sẽ học về ArrayList trong phần Collections
+   import java.util.List; // Bạn sẽ học về List trong phần Collections
 
    class Student {
        private String id;
@@ -349,48 +349,43 @@
 
 ### Tổng quan về Collections Framework
 
-   ```java
-   import java.util.ArrayList;
-   import java.util.Collection;
-   import java.util.HashSet;
-   import java.util.HashMap;
+- Collections Framework là một kiến trúc được thiết kế để lưu trữ và thao tác với nhóm các đối tượng trong Java.
+- Nó cung cấp các cấu trúc dữ liệu như List, Set, Map và các thuật toán để thao tác với chúng.
+- Collections Framework giải quyết nhu cầu tổ chức và xử lý dữ liệu theo cách linh hoạt và hiệu quả.
 
-   public class CollectionsOverview {
-       public static void main(String[] args) {
-           // Collection (interface) là lớp cha của List, Set, Queue
-           Collection<String> collection;
+**Các thành phần chính của Collections Framework:**
 
-           // ArrayList - triển khai của List interface
-           ArrayList<String> arrayList = new ArrayList<>();
-           arrayList.add("JAVA");
-           arrayList.add("Python");
-           arrayList.add("JavaScript");
-           arrayList.add("JAVA"); // Cho phép phần tử trùng lặp
+1. **Interfaces (Giao diện):**
+   - `Collection`: Giao diện cơ sở cho hầu hết các collections, định nghĩa các phương thức như add(), remove(), contains()
+   - `List`: Danh sách có thứ tự, cho phép phần tử trùng lặp (ArrayList, LinkedList)
+   - `Set`: Tập hợp không chứa phần tử trùng lặp (HashSet, TreeSet)
+   - `Queue`: Hàng đợi, các phần tử được xử lý theo thứ tự FIFO (First-In-First-Out)
+   - `Map`: Lưu trữ dữ liệu dạng key-value, key không được trùng lặp (HashMap, TreeMap)
 
-           System.out.println("ArrayList (cho phép trùng lặp):");
-           System.out.println(arrayList); // [JAVA, Python, JavaScript, JAVA]
+2. **Implementations (Các lớp thực thi):**
+   - Các lớp triển khai các giao diện trên, mỗi lớp có đặc điểm và ứng dụng riêng
+   - Ví dụ: ArrayList (mảng động), LinkedList (danh sách liên kết), HashSet, TreeSet, HashMap, TreeMap
 
-           // HashSet - triển khai của Set interface
-           HashSet<String> hashSet = new HashSet<>();
-           hashSet.add("JAVA");
-           hashSet.add("Python");
-           hashSet.add("JavaScript");
-           hashSet.add("JAVA"); // Không thêm vào (Set không cho phép trùng lặp)
+3. **Algorithms (Thuật toán):**
+   - Các phương thức tĩnh của lớp `Collections` cung cấp các thuật toán như sắp xếp, tìm kiếm, xáo trộn...
+   - Ví dụ: Collections.sort(), Collections.binarySearch(), Collections.shuffle()
 
-           System.out.println("\nHashSet (không cho phép trùng lặp):");
-           System.out.println(hashSet); // [JAVA, Python, JavaScript]
+**Lợi ích của Collections Framework:**
 
-           // HashMap - triển khai của Map interface
-           HashMap<Integer, String> hashMap = new HashMap<>();
-           hashMap.put(1, "One");
-           hashMap.put(2, "Two");
-           hashMap.put(3, "Three");
+- **Tái sử dụng**: Không cần tự viết các cấu trúc dữ liệu phức tạp
+- **Hiệu suất**: Các triển khai đã được tối ưu hóa
+- **Tính linh hoạt**: Dễ dàng chuyển đổi giữa các cấu trúc dữ liệu
+- **Chuẩn hóa**: API nhất quán giữa các cấu trúc dữ liệu khác nhau
+- **Tích hợp**: Hoạt động tốt với các thành phần khác của Java như Stream API
 
-           System.out.println("\nHashMap (lưu trữ theo cặp key-value):");
-           System.out.println(hashMap); // {1=One, 2=Two, 3=Three}
-       }
-   }
-   ```
+**Lựa chọn cấu trúc dữ liệu phù hợp:**
+
+- **ArrayList**: Khi cần truy cập ngẫu nhiên nhanh và ít thao tác thêm/xóa ở giữa danh sách
+- **LinkedList**: Khi cần thêm/xóa nhiều ở đầu/cuối/giữa danh sách
+- **HashSet**: Khi cần tìm kiếm nhanh và không quan tâm đến thứ tự
+- **TreeSet**: Khi cần duy trì thứ tự sắp xếp của phần tử
+- **HashMap**: Khi cần tìm kiếm nhanh dựa trên key và không quan tâm đến thứ tự của key
+- **TreeMap**: Khi cần duy trì thứ tự sắp xếp của key
 
 ### Collection vs Map
 
@@ -1161,7 +1156,7 @@ Viết chương trình quản lý danh sách khóa học:
 ### Yêu cầu
 
 - Sử dụng `ArrayList` hoặc `HashMap` để lưu danh sách khóa học.
-- Lưu trữ dữ liệu vào file và nạp lại khi khởi động chương trình.
+- Lưu trữ dữ liệu vào file (có thể là csv) và nạp lại khi khởi động chương trình.
 - Xử lý các trường hợp lỗi như trùng mã khóa học, file không tồn tại,...
 
 ---
