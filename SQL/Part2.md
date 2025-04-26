@@ -99,11 +99,6 @@
 
 ## 🧑‍🏫 Bài 1: Truy vấn nâng cao
 
-- Truy vấn con (Subquery)
-- Common Table Expressions (CTE) với `WITH`
-- Toán tử tập hợp: `UNION`, `INTERSECT`, `EXCEPT`
-- Window Functions: `OVER`, `PARTITION BY`, `ROW_NUMBER`
-
 ### Truy vấn con (Subquery)
 
 Truy vấn con là một câu truy vấn SQL lồng trong một câu truy vấn khác, có thể xuất hiện trong mệnh đề WHERE, FROM, hoặc SELECT.
@@ -302,11 +297,6 @@ FROM students;
 ---
 
 ## 🧑‍🏫 Bài 2: Hàm và thủ tục lưu trữ
-
-- Tạo và sử dụng hàm người dùng
-- Thủ tục lưu trữ (Stored Procedures)
-- Triggers và sự kiện
-- Giao dịch và xử lý lỗi
 
 ### Tạo và sử dụng hàm người dùng
 
@@ -695,11 +685,6 @@ CALL insert_new_student('Nguyễn Văn A', 'nguyenvana@example.com', 1);
 
 ## 🧑‍🏫 Bài 3: Tối ưu hóa truy vấn
 
-- Chỉ mục (Indexes) và cách hoạt động
-- Phân tích kế hoạch thực thi truy vấn
-- Kỹ thuật tối ưu câu lệnh SQL
-- Theo dõi và đánh giá hiệu suất
-
 ### Chỉ mục (Indexes) và cách hoạt động
 
 Chỉ mục là cấu trúc dữ liệu giúp tăng tốc độ truy vấn bằng cách tạo ra một bảng tra cứu nhanh cho một hoặc nhiều cột trong cơ sở dữ liệu.
@@ -931,11 +916,6 @@ ORDER BY avg_score DESC;
 
 ## 🧑‍🏫 Bài 4: Thiết kế cơ sở dữ liệu
 
-- Chuẩn hóa và phi chuẩn hóa
-- Mô hình dữ liệu: khái niệm và ứng dụng
-- Ràng buộc toàn vẹn và quan hệ
-- Thiết kế hướng hiệu suất
-
 ### Chuẩn hóa và phi chuẩn hóa
 
 Chuẩn hóa là quá trình cấu trúc cơ sở dữ liệu để giảm thiểu sự dư thừa và đảm bảo tính nhất quán của dữ liệu. Phi chuẩn hóa là quá trình ngược lại, thêm dư thừa có chủ đích để tối ưu hiệu suất.
@@ -1084,7 +1064,29 @@ DELIMITER ;
 
 #### Ví dụ 1: Mô hình Entity-Relationship (ER)
 
-![ER Diagram](/assets/er_diagram.png)
+Mô hình ER là một cách biểu diễn các thực thể và mối quan hệ giữa chúng trong cơ sở dữ liệu.
+
+```text
++----------------+          +----------------+
+|    Students    |          |     Courses    |
++----------------+          +----------------+
+| id (PK)        |          | id (PK)        |
+| fullname       |          | course_code    |
+| email          |          | title          |
+| date_of_birth  |          | description    |
+| address        |          | credits        |
++----------------+          +----------------+
+         |                          |
+         |                          |
+         +--------------------------+
+         | Enrollments              |
+         +--------------------------+
+         | student_id (FK)          |
+         | course_id (FK)           |
+         | enrollment_date          |
+         | grade                    |
+         +--------------------------+
+```
 
 ```sql
 -- Triển khai mô hình ER thành các bảng
@@ -1107,7 +1109,7 @@ CREATE TABLE courses (
 CREATE TABLE enrollments (
     student_id INT,
     course_id INT,
-    enrollment_date DATE DEFAULT CURRENT_DATE,
+    enrollment_date DATE DEFAULT (CURRENT_DATE),
     grade DECIMAL(4,2),
     PRIMARY KEY (student_id, course_id),
     FOREIGN KEY (student_id) REFERENCES students(id),
@@ -1239,7 +1241,7 @@ CREATE TABLE enrollments (
     id INT AUTO_INCREMENT PRIMARY KEY,
     student_id INT,
     course_id INT,
-    enrollment_date DATE DEFAULT CURRENT_DATE, -- Tự động set ngày hiện tại
+    enrollment_date DATE DEFAULT (CURRENT_DATE), -- Tự động set ngày hiện tại
     status VARCHAR(20) DEFAULT 'Active', -- Trạng thái mặc định
     FOREIGN KEY (student_id) REFERENCES students(id),
     FOREIGN KEY (course_id) REFERENCES courses(id)
@@ -1302,6 +1304,8 @@ SELECT * FROM orders WHERE order_date BETWEEN '2022-01-01' AND '2022-12-31';
 ```
 
 #### Ví dụ 3: Đánh chỉ mục hiệu quả
+
+- Đánh chỉ mục cho các cột thường xuyên được sử dụng trong điều kiện WHERE hoặc JOIN
 
 ```sql
 -- Tạo chỉ mục đơn cho các cột thường dùng trong WHERE
@@ -1400,9 +1404,22 @@ GRANT SELECT ON school_management_academic.students TO 'teacher_user'@'localhost
 ### Bài tập thực hành: Thiết kế cơ sở dữ liệu
 
 1. Cho dữ liệu bán hàng chưa được chuẩn hóa, hãy phân tích và thiết kế lại theo các dạng chuẩn 1NF, 2NF và 3NF
-2. Thiết kế mô hình ER cho hệ thống quản lý thư viện, bao gồm sách, độc giả, mượn trả sách
-3. Chuyển đổi mô hình ER thành các bảng SQL với đầy đủ ràng buộc
-4. Xác định các chỉ mục cần thiết để cải thiện hiệu suất truy vấn
+
+   ```sql
+    -- Bảng chưa chuẩn hóa
+    CREATE TABLE sales (
+        order_id INT,
+        customer_name VARCHAR(100),
+        product_name VARCHAR(100),
+        quantity INT,
+        price DECIMAL(10,2),
+        order_date DATE
+    );
+   ```
+
+    - **Yêu cầu**: Tách thành các bảng riêng biệt cho khách hàng, sản phẩm và đơn hàng. Đảm bảo không có dữ liệu dư thừa và tất cả các bảng đều đạt chuẩn 3NF.
+
+2. Thiết kế mô hình ER cho hệ thống quản lý thư viện, bao gồm sách, độc giả, mượn trả sách; Chuyển đổi mô hình ER thành các bảng SQL với đầy đủ ràng buộc; Xác định các chỉ mục cần thiết để cải thiện hiệu suất truy vấn
 
 ---
 
