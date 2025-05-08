@@ -68,9 +68,22 @@
 
 ### Khái niệm container
 
-- Container là đơn vị phần mềm tiêu chuẩn đóng gói mã nguồn và các phụ thuộc của ứng dụng
-- Container đảm bảo ứng dụng chạy nhanh, đáng tin cậy và nhất quán trên mọi môi trường
-- Container cô lập tài nguyên và tăng hiệu quả sử dụng hệ thống
+- **Container là gì?**: Một gói phần mềm nhẹ chứa mọi thứ cần thiết để chạy một ứng dụng
+  - Code của ứng dụng
+  - Thư viện và phần mềm hỗ trợ
+  - Cấu hình và các biến môi trường
+
+- **Cách hoạt động**: 
+  - Tách biệt ứng dụng khỏi môi trường
+  - Nhiều container chạy trên cùng một máy 
+  - Tất cả chia sẻ hệ điều hành của máy chủ
+  - Mỗi container hoạt động như một tiến trình riêng biệt
+
+- **Ưu điểm nổi bật**:
+  - **Nhất quán**: Hoạt động giống nhau ở mọi nơi - máy tính cá nhân, máy chủ hay cloud
+  - **Nhẹ**: Khởi động trong vài giây và sử dụng ít tài nguyên
+  - **Cô lập**: Các ứng dụng không ảnh hưởng lẫn nhau
+  - **Dễ triển khai**: Chỉ cần một lệnh để khởi chạy
 
 ### Container vs Virtual Machine
 
