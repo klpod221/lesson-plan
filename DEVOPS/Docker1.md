@@ -2,15 +2,18 @@
 
 - [🐳 DOCKER: NẮM VỮNG NỀN TẢNG](#-docker-nắm-vững-nền-tảng)
   - [🎯 Mục Tiêu Tổng Quát](#-mục-tiêu-tổng-quát)
-  - [🎯 Mục Tiêu](#-mục-tiêu)
+  - [🎯 Mục Tiêu Chi Tiết (Bài học này)](#-mục-tiêu-chi-tiết-bài-học-này)
   - [1. 🌟 Giới Thiệu](#1--giới-thiệu)
     - [Vấn đề "It works on my machine!"](#vấn-đề-it-works-on-my-machine)
     - [Giải pháp là gì? VMs vs Containers](#giải-pháp-là-gì-vms-vs-containers)
   - [2. 🐧 Linux Cơ Bản Cho Docker](#2--linux-cơ-bản-cho-docker)
+    - [Tại sao cần biết Linux cơ bản?](#tại-sao-cần-biết-linux-cơ-bản)
     - [Di chuyển \& Quản lý file/thư mục](#di-chuyển--quản-lý-filethư-mục)
     - [Quyền (Permissions) cơ bản](#quyền-permissions-cơ-bản)
     - [Một số lệnh hữu ích khác](#một-số-lệnh-hữu-ích-khác)
+    - [Trình quản lý gói (Package Managers)](#trình-quản-lý-gói-package-managers)
   - [3. 💡 Docker Core Concepts](#3--docker-core-concepts)
+    - [Kiến trúc tổng quan của Docker](#kiến-trúc-tổng-quan-của-docker)
     - [Docker Engine](#docker-engine)
     - [Image](#image)
     - [Container](#container)
@@ -20,9 +23,11 @@
     - [Quản lý Images](#quản-lý-images)
     - [Quản lý Containers](#quản-lý-containers)
     - [Tương tác với Container](#tương-tác-với-container)
+    - [Xem thông tin và dọn dẹp](#xem-thông-tin-và-dọn-dẹp)
   - [5. 📝 Dockerfile: Công Thức Tạo Image](#5--dockerfile-công-thức-tạo-image)
     - [Các chỉ thị (Instructions) phổ biến](#các-chỉ-thị-instructions-phổ-biến)
     - [Ví dụ Dockerfile đơn giản (Node.js App)](#ví-dụ-dockerfile-đơn-giản-nodejs-app)
+    - [Thứ tự lệnh và Caching](#thứ-tự-lệnh-và-caching)
   - [6. 🛠️ Thực Hành: Dockerize Ứng Dụng "Hello World" với Nginx](#6-️-thực-hành-dockerize-ứng-dụng-hello-world-với-nginx)
   - [7. 🏋️ Bài Tập](#7-️-bài-tập)
 
@@ -39,13 +44,14 @@
 
 ---
 
-## 🎯 Mục Tiêu
+## 🎯 Mục Tiêu Chi Tiết (Bài học này)
 
-- Hiểu được vấn đề Docker giải quyết (**"It works on my machine!"**).
-- Nắm vững các khái niệm: `Image`, `Container`, `Dockerfile`, `Registry`.
-- Thành thạo các lệnh `Docker CLI` cơ bản.
-- Làm quen với các lệnh `Linux` cơ bản cần thiết khi làm việc với Docker.
-- Thực hành xây dựng `Dockerfile` đầu tiên và chạy `container`.
+- Hiểu được vấn đề Docker giải quyết (**"It works on my machine!"** và sự khác biệt môi trường).
+- Phân biệt được sự khác nhau giữa **Virtual Machines (VMs)** và **Containers**.
+- Nắm vững các khái niệm cốt lõi: `Image`, `Container`, `Dockerfile`, `Registry`, `Docker Engine`.
+- Thành thạo các lệnh `Docker CLI` cơ bản để quản lý images và containers.
+- Làm quen với các lệnh `Linux` cơ bản cần thiết khi làm việc với Docker, đặc biệt là bên trong containers và khi viết Dockerfiles.
+- Thực hành xây dựng `Dockerfile` đầu tiên, build image và chạy `container` từ image đó.
 
 ---
 
@@ -53,433 +59,946 @@
 
 ### Vấn đề "It works on my machine!"
 
-- Môi trường khác nhau giữa dev, staging, production.
-- Xung đột thư viện, phiên bản phần mềm.
-- Khó khăn khi setup môi trường cho người mới.
+Đây là một câu nói "kinh điển" trong giới lập trình, phản ánh một vấn đề phổ biến:
+
+- **Môi trường khác nhau:** Ứng dụng chạy tốt trên máy của lập trình viên (dev) nhưng lại lỗi khi triển khai lên môi trường staging hoặc production. Lý do có thể là phiên bản hệ điều hành khác nhau, thư viện thiếu hoặc khác phiên bản, cấu hình môi trường (biến môi trường, đường dẫn file) không đồng nhất.
+- **Xung đột thư viện (Dependency Hell):** Nhiều ứng dụng trên cùng một server có thể yêu cầu các phiên bản khác nhau của cùng một thư viện, dẫn đến xung đột.
+- **Khó khăn khi setup môi trường cho người mới:** Mỗi khi có thành viên mới tham gia dự án, việc cài đặt và cấu hình môi trường phát triển giống hệt mọi người tốn nhiều thời gian và dễ xảy ra lỗi.
+- **Tính di động kém:** Việc di chuyển ứng dụng từ server này sang server khác, hoặc từ on-premise lên cloud gặp nhiều trở ngại.
 
 ![Hình ảnh minh họa: meme "works on my machine"](../images/devops/itworksonmymachine.webp)
+_(Chú thích: Hình ảnh này thể hiện sự bối rối khi ứng dụng hoạt động trên máy local nhưng lỗi ở môi trường khác)_
+
+Docker ra đời để giải quyết những vấn đề này bằng cách cung cấp một môi trường đóng gói, nhất quán và di động cho ứng dụng.
 
 ### Giải pháp là gì? VMs vs Containers
 
-| Tính năng        | Virtual Machines (VMs)                                   | Containers (Docker)                             |
-| :--------------- | :------------------------------------------------------- | :---------------------------------------------- |
-| **Isolation**    | OS Level (mỗi VM có Kernel riêng)                        | Process Level (chia sẻ Kernel của Host OS)      |
-| **Overhead**     | Cao (RAM, CPU, Disk cho cả OS khách)                     | Thấp (chỉ tài nguyên cho ứng dụng)              |
-| **Startup Time** | Chậm (phút)                                              | Nhanh (giây)                                    |
-| **Portability**  | Khá (image VM lớn)                                       | Rất cao (image container nhỏ gọn)               |
-| **Density**      | Thấp (ít VM trên một host)                               | Cao (nhiều container trên một host)             |
-| **Use Case**     | Cần OS khác hoàn toàn, yêu cầu bảo mật kernel riêng biệt | Đóng gói và chạy ứng dụng, microservices, CI/CD |
+Trước Docker, **Virtual Machines (VMs)** là giải pháp phổ biến để tạo môi trường cô lập. Tuy nhiên, Containers (do Docker tiên phong) mang lại nhiều ưu điểm vượt trội.
+
+| Tính năng        | Virtual Machines (VMs)                                                                                                                                                       | Containers (Docker)                                                                                  |
+| :--------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------- |
+| **Isolation**    | **OS Level**: Mỗi VM có một Hệ Điều Hành (Guest OS) và Kernel riêng biệt, hoàn toàn cô lập với Host OS và các VM khác.                                                       | **Process Level**: Containers chia sẻ Kernel của Host OS. Cô lập ở mức process, filesystem, network. |
+| **Overhead**     | **Cao**: Mỗi VM cần tài nguyên (RAM, CPU, Disk) cho cả Guest OS, gây lãng phí nếu chỉ chạy một ứng dụng nhỏ.                                                                 | **Thấp**: Chỉ tiêu tốn tài nguyên cho ứng dụng và các dependencies của nó, không cần Guest OS riêng. |
+| **Startup Time** | **Chậm (phút)**: Phải khởi động cả một Guest OS.                                                                                                                             | **Nhanh (giây)**: Chỉ cần khởi động process của ứng dụng.                                            |
+| **Portability**  | **Khá**: Image VM thường rất lớn (GBs), di chuyển và quản lý phức tạp hơn.                                                                                                   | **Rất cao**: Image container nhỏ gọn hơn nhiều (MBs đến vài trăm MBs), dễ dàng di chuyển và chia sẻ. |
+| **Density**      | **Thấp**: Số lượng VM có thể chạy trên một host bị giới hạn bởi tài nguyên cần cho Guest OS.                                                                                 | **Cao**: Có thể chạy nhiều container hơn trên cùng một host do overhead thấp.                        |
+| **Use Case**     | Cần chạy các OS khác nhau hoàn toàn trên cùng một host (VD: Windows trên Linux). Yêu cầu mức độ bảo mật kernel riêng biệt. Chạy các ứng dụng "legacy" không dễ containerize. | Đóng gói và chạy ứng dụng, microservices, CI/CD pipelines, môi trường phát triển nhất quán.          |
 
 **Sơ đồ kiến trúc:**
 
 ```text
-      App A | App B             App A | App B | App C
-      Bins/Libs | Bins/Libs     Bins/Libs | Bins/Libs | Bins/Libs
-      Guest OS | Guest OS       ---------------------
-      Hypervisor                Container Engine (Docker)
-      ---------------------     ---------------------
-      Host OS                   Host OS
-      ---------------------     ---------------------
-      Infrastructure            Infrastructure
+      App A | App B                       App A | App B | App C
+      Bins/Libs | Bins/Libs               Bins/Libs | Bins/Libs | Bins/Libs
+      Guest OS | Guest OS                 ---------------------
+      Hypervisor                          Container Engine (Docker)
+      ---------------------               ---------------------
+      Host OS                             Host OS
+      ---------------------               ---------------------
+      Infrastructure                      Infrastructure
 
-      (VM Architecture)         (Container Architecture)
+      (VM Architecture)                   (Container Architecture)
 ```
 
-Docker là một nền tảng **containerization** giúp đóng gói ứng dụng và các dependencies của nó thành một đơn vị gọi là **container**.
+**Docker là một nền tảng containerization** giúp đóng gói ứng dụng và tất cả các dependencies của nó (thư viện, runtime, system tools, code) thành một đơn vị chuẩn hóa, di động gọi là **container**. Container này có thể chạy nhất quán trên bất kỳ máy nào có cài Docker, bất kể môi trường bên dưới.
 
 ## 2. 🐧 Linux Cơ Bản Cho Docker
 
-Nhiều `Docker image` được xây dựng dựa trên Linux. Hiểu một số lệnh cơ bản giúp bạn tương tác với `container` và viết `Dockerfile` hiệu quả hơn.
+### Tại sao cần biết Linux cơ bản?
+
+- **Base Images:** Phần lớn các Docker images phổ biến (ví dụ: `ubuntu`, `alpine`, `centos`, `node`, `python`, `nginx`) được xây dựng dựa trên các bản phân phối Linux.
+- **Dockerfile Instructions:** Nhiều lệnh trong `Dockerfile` (như `RUN`) thực chất là các lệnh shell của Linux để cài đặt phần mềm, cấu hình, v.v.
+- **Interacting with Containers:** Khi bạn cần gỡ lỗi hoặc kiểm tra một container đang chạy, bạn thường sẽ `exec` vào container đó và sử dụng các lệnh Linux để xem logs, kiểm tra file, tiến trình.
+
+Hiểu một số lệnh Linux cơ bản sẽ giúp bạn làm việc với Docker hiệu quả hơn rất nhiều.
 
 ### Di chuyển & Quản lý file/thư mục
 
-- `pwd` (print working directory): Hiển thị thư mục hiện tại.
-- `ls` (list): Liệt kê file và thư mục.
-  - `ls -l`: Hiển thị chi tiết.
-  - `ls -a`: Hiển thị cả file ẩn.
-- `cd <directory>` (change directory): Chuyển thư mục.
+- `pwd` (print working directory): Hiển thị thư mục làm việc hiện tại.
+  - _Ví dụ:_ `pwd` -> `/app`
+- `ls` (list): Liệt kê file và thư mục trong thư mục hiện tại (hoặc thư mục được chỉ định).
+  - `ls -l`: Hiển thị chi tiết (quyền, chủ sở hữu, kích thước, ngày sửa đổi).
+  - `ls -a` hoặc `ls -A`: Hiển thị cả file/thư mục ẩn (bắt đầu bằng dấu `.`, `-A` không hiện `.` và `..`).
+  - `ls -lh`: Hiển thị chi tiết với kích thước dễ đọc (KB, MB, GB).
+  - _Ví dụ:_ `ls -lha /var/log`
+- `cd <directory>` (change directory): Chuyển đến thư mục được chỉ định.
   - `cd ..`: Lên thư mục cha.
-  - `cd ~` hoặc `cd`: Về thư mục home.
+  - `cd ~` hoặc `cd`: Về thư mục home của user hiện tại.
+  - `cd -`: Quay lại thư mục trước đó.
+  - _Ví dụ:_ `cd /etc/nginx`
 - `mkdir <directory_name>` (make directory): Tạo thư mục mới.
+  - `mkdir -p /path/to/nested/directory`: Tạo cả các thư mục cha nếu chưa tồn tại.
+  - _Ví dụ:_ `mkdir my_project`
+- `touch <file_name>`: Tạo file rỗng nếu chưa tồn tại, hoặc cập nhật thời gian truy cập/sửa đổi của file nếu đã tồn tại.
+  - _Ví dụ:_ `touch app.log`
 - `rm <file_name>` (remove): Xóa file.
-  - `rm -r <directory_name>`: Xóa thư mục và nội dung bên trong (cẩn thận!).
-  - `rm -rf <directory_name>`: Xóa thư mục và nội dung bên trong, không hỏi (RẤT CẨN THẬN!).
+  - `rm -r <directory_name>`: Xóa thư mục và toàn bộ nội dung bên trong (recursive). **CẨN THẬN!**
+  - `rm -f <file_name>`: Xóa file mà không hỏi xác nhận (force).
+  - `rm -rf <directory_name>`: Xóa thư mục và nội dung bên trong, không hỏi xác nhận. **RẤT CẨN THẬN! Lệnh này có thể xóa sạch dữ liệu nếu dùng sai.**
+  - _Ví dụ:_ `rm old_log.txt`, `rm -rf temp_files/`
 - `cp <source> <destination>` (copy): Sao chép file hoặc thư mục.
-  - `cp -r <source_dir> <destination_dir>`: Sao chép thư mục.
+  - `cp file1.txt file2.txt`: Sao chép `file1.txt` thành `file2.txt`.
+  - `cp -r <source_dir> <destination_dir>`: Sao chép thư mục (recursive).
+  - _Ví dụ:_ `cp config.yaml /app/config/`, `cp -r public_html/* /var/www/html/`
 - `mv <source> <destination>` (move): Di chuyển hoặc đổi tên file/thư mục.
+  - `mv old_name.txt new_name.txt`: Đổi tên file.
+  - `mv file.txt /tmp/`: Di chuyển file vào thư mục `/tmp`.
+  - _Ví dụ:_ `mv app.log app.log.bkp`, `mv build_output /opt/app`
 
 ### Quyền (Permissions) cơ bản
 
-- Lệnh `ls -l` sẽ hiển thị quyền dạng `-rwxr-xr--`.
+Khi dùng `ls -l`, bạn sẽ thấy thông tin quyền dạng `drwxr-xr--`:
+
+- Ký tự đầu: `d` (directory), `-` (file), `l` (symbolic link).
+- 3 nhóm tiếp theo (mỗi nhóm 3 ký tự `rwx`):
+  1. **User (Owner):** Quyền của người sở hữu file/thư mục.
+  2. **Group:** Quyền của nhóm sở hữu file/thư mục.
+  3. **Others:** Quyền của những người dùng khác.
+- `r`: read (đọc), `w`: write (ghi), `x`: execute (thực thi).
+
 - `chmod <permissions> <file/directory>`: Thay đổi quyền.
-  - Ví dụ: `chmod +x script.sh` (thêm quyền execute cho file script).
-  - Ví dụ: `chmod 755 data_folder` (set quyền rwxr-xr-x).
+  - Dạng số (octal): `r=4, w=2, x=1`. Ví dụ: `chmod 755 script.sh` (owner: rwx=7, group: r-x=5, others: r-x=5).
+  - Dạng ký hiệu: `u` (user), `g` (group), `o` (others), `a` (all); `+` (thêm quyền), `-` (bỏ quyền), `=` (gán quyền).
+  - _Ví dụ:_ `chmod +x script.sh` (thêm quyền execute cho owner, group, others).
+  - _Ví dụ:_ `chmod u+x script.sh` (thêm quyền execute chỉ cho owner).
+  - _Ví dụ:_ `chmod 600 private_key.pem` (owner: rw-, group/others: ---).
+- `chown <user>:<group> <file/directory>`: Thay đổi chủ sở hữu và nhóm sở hữu.
+  - _Ví dụ:_ `chown www-data:www-data /var/www/html` (thường dùng cho web server).
 
 ### Một số lệnh hữu ích khác
 
-- `cat <file_name>`: Xem nội dung file.
+- `cat <file_name>`: Xem toàn bộ nội dung file ra màn hình.
+  - `cat file1.txt file2.txt > combined.txt`: Nối nội dung file1 và file2 rồi ghi vào combined.txt.
+- `less <file_name>` hoặc `more <file_name>`: Xem nội dung file từng trang (dùng phím cách để cuộn, `q` để thoát). `less` linh hoạt hơn.
+- `head <file_name>`: Xem 10 dòng đầu tiên của file.
+  - `head -n 20 <file_name>`: Xem 20 dòng đầu.
+- `tail <file_name>`: Xem 10 dòng cuối cùng của file.
+  - `tail -n 20 <file_name>`: Xem 20 dòng cuối.
+  - `tail -f <file_name>`: Theo dõi file, hiển thị các dòng mới được thêm vào (rất hữu ích để xem log trực tiếp).
 - `echo "text"`: In text ra màn hình.
-  - `echo "text" > file.txt`: Ghi text vào file (ghi đè).
+  - `echo "text" > file.txt`: Ghi text vào file (ghi đè nếu file đã tồn tại, tạo mới nếu chưa).
   - `echo "text" >> file.txt`: Ghi text vào cuối file (append).
-- `grep "pattern" <file_name>`: Tìm kiếm text trong file.
+  - _Ví dụ:_ `echo "API_KEY=12345" > .env`
+- `grep "pattern" <file_name>`: Tìm kiếm một "pattern" (chuỗi ký tự, biểu thức chính quy) trong file.
+  - `grep -i "error" app.log`: Tìm "error" không phân biệt hoa thường.
+  - `grep -r "config_value" /etc/`: Tìm "config_value" trong tất cả file thuộc thư mục `/etc` và con của nó.
+  - `ps aux | grep nginx`: Tìm tiến trình có tên `nginx`.
 - `find <directory> -name "<pattern>"`: Tìm kiếm file/thư mục.
-- `apt update` / `apt install <package>` (Debian/Ubuntu) hoặc `yum update` / `yum install <package>` (CentOS/RHEL): Quản lý package (thường dùng trong `Dockerfile`).
+  - _Ví dụ:_ `find /app -name "*.js"` (tìm tất cả file có đuôi .js trong /app).
+  - _Ví dụ:_ `find . -type f -mtime -7` (tìm file được sửa đổi trong 7 ngày gần nhất ở thư mục hiện tại).
+- `df -h` (disk free): Hiển thị dung lượng ổ đĩa còn trống (dạng dễ đọc).
+- `du -sh <directory/file>` (disk usage): Hiển thị dung lượng sử dụng bởi file/thư mục (dạng dễ đọc, `-s` là summary).
+- `ps aux`: Liệt kê tất cả các tiến trình đang chạy.
+- `top` hoặc `htop`: Hiển thị các tiến trình đang chạy và tài nguyên hệ thống (CPU, RAM) theo thời gian thực. `htop` thân thiện hơn.
+- `kill <pid>`: Gửi tín hiệu (mặc định là TERM) để dừng một tiến trình (PID là Process ID).
+  - `kill -9 <pid>`: Force kill (SIGKILL).
+- `which <command_name>`: Hiển thị đường dẫn đầy đủ của một lệnh.
+  - _Ví dụ:_ `which python` -> `/usr/bin/python`
+- `man <command_name>`: Hiển thị trang manual (hướng dẫn sử dụng) của một lệnh.
+- `sudo <command>`: Thực thi lệnh với quyền superuser (root). Cần thiết cho các tác vụ yêu cầu quyền quản trị.
+
+### Trình quản lý gói (Package Managers)
+
+Thường được sử dụng trong `Dockerfile` để cài đặt phần mềm.
+
+- Debian/Ubuntu: `apt-get update`, `apt-get install <package>`, `apt-get remove <package>`.
+  - Ví dụ: `RUN apt-get update && apt-get install -y curl vim`
+  - `-y`: tự động trả lời yes cho các câu hỏi.
+- Alpine Linux: `apk update`, `apk add <package>`, `apk del <package>`. (Alpine thường được ưu tiên cho image nhỏ gọn).
+  - Ví dụ: `RUN apk add --no-cache curl`
+  - `--no-cache`: không lưu cache của package manager, giúp image nhỏ hơn.
+- CentOS/RHEL/Fedora: `yum install <package>` (cũ hơn) hoặc `dnf install <package>`.
+  - Ví dụ: `RUN yum install -y httpd`
 
 ## 3. 💡 Docker Core Concepts
 
-```text
-+----------------------+                         +------------------------------------------------------+                         +-----------------------+
-|                      |                         |                    DOCKER HOST                       |                         |                       |
-|    DOCKER CLIENT     |------------------------>|  +-----------------------------------------------+   |<------------------------|       REGISTRY        |
-|  (e.g., `docker` CLI)|  1. Lệnh từ người dùng  |  |                 Docker Daemon                 |   |  3. Pull/Push Images    |  (e.g., Docker Hub,   |
-|                      |  (build, run, pull,     |  |                   (`dockerd`)                 |   |                         |  AWS ECR, Google GCR) |
-|                      |   push, ps, etc.)       |  |       (Lắng nghe API, Quản lý Objects)        |   |                         |                       |
-+----------------------+                         |  +---------------------▲--┬----------------------+   |                         +-----------------------+
-                                                 |                        |  |                          |
-                                                 |     (Tải/Lưu Images)   |  | 2. Tạo/Chạy/Quản lý      |
-                                                 |                        |  |    Containers từ Images  |
-                                                 |                        |  |    Build Images từ       |
-                                                 |                        |  |    Dockerfile            |
-                                                 |                        |  |                          |
-                                                 |  +---------------------┴--▼----------------------+   |
-                                                 |  |       IMAGES          |       CONTAINERS      |   |
-                                                 |  | (Templates Read-Only) | (Running Instances)   |   |
-                                                 |  |  - ubuntu:latest      |  - my_app_container   |   |
-                                                 |  |  - nginx:alpine       |  - db_container       |   |
-                                                 |  |  - my_custom_app:v1   |  - ...                |   |
-                                                 |  +-----------------------+-----------------------+   |
-                                                 +------------------------------------------------------+
+### Kiến trúc tổng quan của Docker
 
+```text
++----------------------+                          +------------------------------------------------------------+                         +-----------------------+
+|                      | --- Lệnh (build, run) -->|                      DOCKER HOST                           |                         |                       |
+|    DOCKER CLIENT     |                          |  +------------------------------------------------------+  |<---- Pull (kéo về) -----|       REGISTRY        |
+|  (e.g., `docker` CLI)|                          |  |                  Docker Daemon                       |  |                         |  (e.g., Docker Hub,   |
+|  (Bạn tương tác ở đây)|                         |  |                   (`dockerd`)                        |  |---- Push (đẩy lên) ---->|  AWS ECR, Google GCR) |
+|                      | <-- Thông tin, kết quả --|  |        (Lắng nghe API, Quản lý Objects)              |  |                         |                       |
++----------------------+                          |  +-----------------------▲--┬---------------------------+  |                         +-----------------------+
+                                                  |                          |  |                              |
+                                                  | (Tải Images từ Registry  |  | (Chạy Containers từ Images)  |
+                                                  |  Lưu trữ Images local)   |  | (Build Images từ Dockerfile) |
+                                                  |                          |  |                              |
+                                                  |  +-----------------------┴--▼---------------------------+  |
+                                                  |  |       IMAGES            |       CONTAINERS           |  |
+                                                  |  | (Templates Read-Only)   | (Running Instances)        |  |
+                                                  |  |  - ubuntu:latest        |  - my_app_container        |  |
+                                                  |  |  - nginx:alpine         |  - db_container            |  |
+                                                  |  |  - my_custom_app:v1     |  - ...                     |  |
+                                                  |  +-------------------------+----------------------------+  |
+                                                  +------------------------------------------------------------+
 ```
 
 ### Docker Engine
 
+Docker Engine là thành phần cốt lõi của Docker, hoạt động theo kiến trúc client-server:
+
 ```text
   +-----------------+      +-----------------+      +-------------------------+
-  |   Người dùng    |----->|   Docker CLI    |----->|        REST API         |<---+
+  |   Người dùng    |----->|   Docker CLI    |----->|        REST API         |<---+ (Giao tiếp qua socket)
   +-----------------+      |   (`docker`)    |      +-------------------------+    |
                            +-----------------+                                     |
-                                                                                   |
+                                                      Docker Daemon (`dockerd`)    |
                                 +--------------------------------------------------+
-                                |                 Docker Daemon                    |
-                                |                 (`dockerd`) 🧠                   |
-                                |  - Lắng nghe API requests                        |
-                                |  - Quản lý Images, Containers, Networks, Volumes |
+                                |                 "Trái tim của Docker" 🧠         |
+                                |  - Chạy ngầm (background process) trên Host OS.  |
+                                |  - Lắng nghe các yêu cầu từ Docker API.          |
+                                |  - Quản lý các đối tượng Docker: Images,         |
+                                |    Containers, Networks, Volumes.                |
+                                |  - Tương tác với Kernel của Host OS để tạo       |
+                                |    và quản lý sự cô lập của containers.          |
                                 +--------------------------------------------------+
 ```
 
 - **Docker Daemon (`dockerd`)**:
-  - "Bộ não" 🧠 của Docker.
-  - Chạy ngầm trên máy chủ.
-  - Lắng nghe các yêu cầu từ Docker API.
-  - Chịu trách nhiệm quản lý các đối tượng Docker như images, containers, networks, và volumes.
+  - Là một service (dịch vụ) chạy ngầm liên tục trên máy chủ (host machine).
+  - "Bộ não" 🧠 hay "trái tim" của Docker, chịu trách nhiệm thực hiện các công việc nặng nhọc.
+  - Lắng nghe các yêu cầu từ Docker API (thường qua một Unix socket, hoặc network interface).
+  - Quản lý vòng đời của các đối tượng Docker:
+    - Build images từ Dockerfiles.
+    - Tải (pull) images từ registries.
+    - Lưu trữ (push) images lên registries.
+    - Tạo, chạy, dừng, xóa containers.
+    - Quản lý networks cho containers giao tiếp.
+    - Quản lý volumes cho lưu trữ dữ liệu bền bỉ.
 - **REST API**:
-  - Một giao diện (interface) mà các chương trình có thể sử dụng để "nói chuyện" với Daemon.
-  - Docker CLI sử dụng API này để gửi lệnh.
+  - Một giao diện (interface) chuẩn hóa mà các chương trình (như Docker CLI) có thể sử dụng để "nói chuyện" và ra lệnh cho Docker Daemon.
+  - Cho phép tự động hóa và tích hợp Docker với các công cụ khác.
 - **Docker CLI (`docker`)**:
-  - Công cụ dòng lệnh (Command Line Interface) cho người dùng.
-  - Bạn gõ lệnh `docker run`, `docker ps`, v.v., và CLI sẽ gửi yêu cầu tương ứng đến Daemon thông qua REST API.
+  - Công cụ dòng lệnh (Command Line Interface) chính mà người dùng tương tác với Docker.
+  - Khi bạn gõ lệnh `docker run`, `docker ps`, `docker build`, v.v., CLI sẽ dịch lệnh đó thành một yêu cầu API và gửi đến Docker Daemon.
+  - Daemon xử lý yêu cầu và CLI hiển thị kết quả cho bạn.
+  - CLI có thể giao tiếp với Daemon trên cùng máy hoặc một Daemon từ xa.
 
 ### Image
 
-- Là một **template read-only** (chỉ đọc), giống như một bản thiết kế hoặc một khuôn mẫu để tạo container.
-- Chứa mọi thứ cần thiết để chạy một ứng dụng: mã nguồn, một runtime, thư viện, biến môi trường, và file cấu hình.
-- Giống như một "snapshot" 📸 của một hệ thống file thu nhỏ.
-- Images được xây dựng theo **lớp (layers)**. Mỗi lệnh trong Dockerfile tạo ra một lớp mới.
-  - **Ví dụ về Layers:**
+- Là một **template read-only** (chỉ đọc, không thể thay đổi sau khi tạo). Nó giống như một bản thiết kế chi tiết, một khuôn mẫu, hoặc một "snapshot" 📸 của một hệ thống file thu nhỏ, đã được cấu hình sẵn.
+- Chứa mọi thứ cần thiết để chạy một ứng dụng:
+  - Mã nguồn ứng dụng (hoặc phiên bản đã biên dịch).
+  - Một runtime (VD: Node.js, Python interpreter, JRE).
+  - Các thư viện hệ thống và ứng dụng.
+  - Biến môi trường.
+  - File cấu hình mặc định.
+  - Metadata (như port nào sẽ được expose, lệnh nào sẽ chạy khi container khởi động).
+- Images được xây dựng theo **lớp (layers)**. Mỗi instruction trong `Dockerfile` (sẽ học sau) thường tạo ra một lớp mới, được xếp chồng lên lớp trước đó.
 
-```text
-+------------------------------------+  Layer 3 (Ứng dụng của bạn)
-|         your_app_code              |
-+------------------------------------+
-|              nginx                 |  Layer 2 (Thêm Nginx)
-+------------------------------------+
-|              ubuntu                |  Layer 1 (Base Image)
-+------------------------------------+
-==> Final Image (ubuntu + nginx + your_app_code)
-```
+  ```text
+  +------------------------------------+  Layer N (VD: Lệnh CMD mặc định)
+  |         Default Command            |
+  +------------------------------------+
+  |        COPY your_app_code          |  Layer N-1 (Mã nguồn ứng dụng của bạn)
+  +------------------------------------+
+  |        RUN npm install             |  Layer N-2 (Cài đặt dependencies)
+  +------------------------------------+
+  |        COPY package.json ./        |  Layer N-3
+  +------------------------------------+
+  |              ...                   |  ...
+  +------------------------------------+
+  |   FROM node:18-alpine (Base Image) |  Layer 1 (Gồm nhiều lớp con của Node & Alpine)
+  +------------------------------------+
+  ==> Final Image (read-only)
+  ```
 
-- Lợi ích của layers:
-  - **Tái sử dụng**: Các lớp chung (như `ubuntu`) có thể được chia sẻ giữa nhiều image.
-  - **Tối ưu lưu trữ**: Chỉ lưu trữ phần thay đổi ở mỗi lớp.
-  - **Tốc độ build nhanh hơn**: Docker cache lại các lớp không thay đổi.
+- **Lợi ích của layers:**
+  - **Tái sử dụng (Reusability)**: Các lớp chung (như base OS, runtime) có thể được chia sẻ giữa nhiều image, tiết kiệm dung lượng disk.
+  - **Tối ưu lưu trữ (Storage Efficiency)**: Chỉ phần thay đổi (delta) ở mỗi lớp được lưu trữ. Nếu nhiều image dùng chung một lớp, lớp đó chỉ lưu một lần.
+  - **Tốc độ build nhanh hơn (Faster Builds)**: Docker cache lại các lớp không thay đổi. Nếu bạn chỉ thay đổi một lớp ở trên cùng, Docker chỉ cần build lại từ lớp đó, không phải build lại toàn bộ image.
+  - **Truyền tải hiệu quả (Efficient Transfers)**: Khi pull hoặc push image, chỉ những lớp chưa có ở local/remote mới được truyền đi.
 
 ### Container
 
-- Là một **phiên bản chạy (runnable instance)** của một Image.
-- Khi bạn "chạy" một Image, bạn tạo ra một Container.
+- Là một **phiên bản chạy (runnable instance)** của một Image. Giống như một đối tượng (object) được tạo ra từ một lớp (class) trong lập trình hướng đối tượng.
+- Khi bạn "chạy" một Image (bằng lệnh `docker run`), Docker Engine sẽ tạo ra một Container từ Image đó.
 - Bạn có thể tạo, khởi động, dừng, di chuyển, và xóa Containers.
-- Mỗi Container là một môi trường **isolated** (cô lập):
-
-  - Nó có hệ thống file, process, network riêng.
+- Mỗi Container là một môi trường **isolated** (cô lập) và **ephemeral** (tạm thời, trừ khi dùng volumes):
+  - Nó có hệ thống file riêng (được tạo từ các lớp của image, cộng thêm một lớp "writable" trên cùng để container có thể thay đổi).
+  - Có namespace process riêng (không thấy process của host hay container khác).
+  - Có network interface riêng (IP address riêng trong Docker network).
   - Cô lập với các Containers khác và với máy chủ (host machine).
-  - Tuy nhiên, tất cả Containers trên cùng một host **chia sẻ kernel của host**.
-
-- **So sánh dễ hiểu:**
-  - **Image** giống như một `Class` trong lập trình hướng đối tượng.
-  - **Container** giống như một `Object` (thể hiện cụ thể) của `Class` đó.
+  - Tuy nhiên, tất cả Containers trên cùng một host **chia sẻ kernel của Host OS**. Đây là điểm khác biệt chính với VM.
+- **Trạng thái:** Một container có thể ở các trạng thái khác nhau: created, running, paused, exited, dead.
 
 ```text
 +-----------------------+         +-----------------------+
 |     Image: my_app     |         |     Image: database   |
 |  (Template Read-Only) |         |  (Template Read-Only) |
+|  (Layers: OS, Runtime,|         |  (Layers: OS, DB Eng, |
+|   Libs, App Code)     |         |   Config)             |
 +-----------------------+         +-----------------------+
           |                                  |
-          | .------------ chạy ------------. |
+          | .------------ `docker run` ------------. |
           V                                  V
-+-----------------------+         +-----------------------+
-|  Container A (my_app) |         | Container B (database)|
-| (Isolated Environment)|         | (Isolated Environment)|
-+-----------------------+         +-----------------------+
++--------------------------------+  +--------------------------------+
+|  Container A (my_app_instance1)|  | Container B (db_instance1)     |
+|  (Image Layers + Writable Layer)|  | (Image Layers + Writable Layer)|
+|  - Own Filesystem view         |  |  - Own Filesystem view         |
+|  - Own Process space           |  |  - Own Process space           |
+|  - Own Network Interface       |  |  - Own Network Interface       |
++--------------------------------+  +--------------------------------+
 
-Trên cùng một Host Machine (chia sẻ Kernel)
+Trên cùng một Host Machine (chia sẻ Kernel của Host OS)
 ```
 
 ### Dockerfile
 
-- Là một **file text** đơn giản, không có phần mở rộng (nhưng thường đặt tên là `Dockerfile`).
-- Chứa một chuỗi các **instructions** (chỉ dẫn) để Docker Engine tự động **build** (xây dựng) một Image.
-- Giống như một "kịch bản" hoặc "công thức" để tạo ra Image.
+- Là một **file text** đơn giản, không có phần mở rộng (nhưng theo quy ước, tên là `Dockerfile`).
+- Chứa một chuỗi các **instructions** (chỉ dẫn, lệnh) mà Docker Engine sẽ đọc và thực thi tuần tự để tự động **build** (xây dựng) một Docker Image.
+- Giống như một "kịch bản", "công thức nấu ăn" hoặc "bản vẽ kỹ thuật" để tạo ra Image.
+- Mỗi instruction trong Dockerfile thường tạo ra một layer mới trong image.
 - **Luồng làm việc:**
-  `Dockerfile` --(`docker build . -t my_image_name`)--> `Image` 🖼️
+  `Dockerfile` --(Input cho lệnh `docker build . -t my_image_name`)--> `Image` 🖼️
 
 ### Registry (Docker Hub)
 
-- Là một **kho lưu trữ (repository)** tập trung cho các Docker Images.
-- Cho phép bạn lưu trữ, quản lý và chia sẻ Images.
+- Là một **kho lưu trữ (repository)** tập trung và là hệ thống phân phối cho các Docker Images.
+- Cho phép bạn lưu trữ (push), quản lý, tìm kiếm và chia sẻ (pull) Images.
 - **Docker Hub**:
-  - Là registry **công cộng** lớn nhất và mặc định của Docker.
-  - Chứa hàng ngàn Images được tạo sẵn bởi cộng đồng và các nhà cung cấp (ví dụ: `ubuntu`, `nginx`, `python`, `mysql`).
-  - Bạn có thể tạo tài khoản và push (đẩy) Image của mình lên Docker Hub (public hoặc private).
+  - Là registry **công cộng (public)** lớn nhất và mặc định của Docker. Được host bởi Docker, Inc.
+  - Chứa hàng ngàn Images được tạo sẵn bởi cộng đồng và các nhà cung cấp phần mềm (ví dụ: `ubuntu`, `nginx`, `python`, `mysql`, `node`).
+  - Bạn có thể tạo tài khoản miễn phí và push (đẩy) Image của mình lên Docker Hub dưới dạng public (mọi người thấy) hoặc private (chỉ bạn hoặc team thấy, có giới hạn ở gói miễn phí).
 - **Private Registries**:
-  - Bạn cũng có thể tự host registry riêng hoặc sử dụng các dịch vụ private registry từ các nhà cung cấp cloud.
-  - Ví dụ: Amazon ECR (Elastic Container Registry), Google GCR (Google Container Registry), Azure ACR, Harbor.
-- **Các lệnh cơ bản:**
+  - Ngoài Docker Hub, bạn cũng có thể tự host registry riêng của mình (ví dụ dùng Docker Registry image, Harbor) để tăng cường bảo mật và kiểm soát.
+  - Các nhà cung cấp cloud lớn cũng cung cấp dịch vụ private registry:
+    - Amazon ECR (Elastic Container Registry)
+    - Google GCR (Google Container Registry) / Artifact Registry
+    - Azure ACR (Azure Container Registry)
+    - GitHub Container Registry
+- **Các lệnh cơ bản liên quan đến Registry:**
 
+  - `docker login [SERVER_ADDRESS]`: Đăng nhập vào một registry. Mặc định là Docker Hub.
   - `docker pull <image_name>:<tag>`: Tải (download) một Image từ Registry về máy local.
+    - _Ví dụ:_ `docker pull ubuntu:22.04`
 
     ```text
-    [Local Machine] <--- (docker pull ubuntu) --- [☁️ Docker Hub / Registry]
+    [Local Machine] <--- (docker pull ubuntu:22.04) --- [☁️ Docker Hub / Other Registry]
     ```
 
-  - `docker push <your_username>/<image_name>:<tag>`: Đẩy (upload) một Image từ máy local lên Registry.
+  - `docker push <username>/<image_name>:<tag>`: Đẩy (upload) một Image từ máy local của bạn lên Registry (sau khi đã `docker tag` image đúng cách).
+    - _Ví dụ:_ `docker push mydockerhubuser/my-custom-app:1.0`
 
     ```text
-    [Local Machine] --- (docker push myuser/myimage) ---> [☁️ Docker Hub / Registry]
+    [Local Machine] --- (docker push myuser/myimage:v1) ---> [☁️ Docker Hub / Other Registry]
     ```
+
+  - `docker search <keyword>`: Tìm kiếm image trên Docker Hub.
 
   ```text
-                             +-----------------------+
-                             | Docker Hub / Registry |
-                             | (e.g., AWS ECR, GCR)  |
-                             +-----------┬-----------+
+                             +----------------------------+
+                             | Docker Hub / Private Registry|
+                             | (e.g., ECR, GCR, Harbor)   |
+                             +-----------┬----------------+
                                          |
-                      docker pull <image>|  docker push <image>
+                      docker pull <image>|  docker push <your_repo/image>
                                          |
                    ┌─────────────────────┴─────────────────────┐
                    │                                           │
                    ▼                                           ▲
       +---------------------------+               +---------------------------+
       |      Local Machine 1      |               |      Local Machine 2      |
-      | (Dev, CI/CD Server, etc.) |               | (Production Server, etc.) |
+      | (Dev Laptop, CI Server)   |               | (Production Server, Staging)|
       +---------------------------+               +---------------------------+
   ```
 
 ## 4. ⚙️ Docker CLI Cơ Bản
 
-Cú pháp chung: `docker [COMMAND] [OPTIONS] [ARGUMENTS]`
+Cú pháp chung: `docker [OPTIONS] COMMAND [ARGUMENTS...]`
+Để xem tất cả các lệnh: `docker --help` hoặc `docker COMMAND --help` (ví dụ `docker run --help`).
 
 ### Quản lý Images
 
-- `docker images`: Liệt kê các images có trên local machine.
-- `docker pull <image_name>:<tag>`: Tải image từ registry.
-  - Ví dụ: `docker pull nginx:latest`
-  - Ví dụ: `docker pull ubuntu:20.04`
-- `docker rmi <image_id_or_name>`: Xóa một image.
-  - `docker rmi $(docker images -q -f dangling=true)`: Xóa các image "dangling" (không được tag và không được container nào sử dụng).
-- `docker build -t <image_name>:<tag> <path_to_dockerfile_directory>`: Build image từ Dockerfile.
-  - Ví dụ: `docker build -t myapp:1.0 .` (dấu `.` là thư mục hiện tại)
+- `docker images` hoặc `docker image ls`: Liệt kê tất cả images có trên local machine.
+  - `docker images -q`: Chỉ hiển thị Image ID.
+- `docker pull <image_name>:<tag>`: Tải image từ registry (mặc định là Docker Hub).
+  - `<tag>` chỉ định phiên bản. Nếu không có tag, mặc định là `:latest`.
+  - Ví dụ: `docker pull nginx:latest` (phiên bản Nginx mới nhất)
+  - Ví dụ: `docker pull ubuntu:20.04` (Ubuntu phiên bản 20.04)
+- `docker rmi <image_id_or_name:tag>`: Xóa một hoặc nhiều image khỏi local machine.
+  - Image phải không được sử dụng bởi bất kỳ container nào (kể cả container đã dừng).
+  - `docker rmi -f <image_id>`: Force remove image (xóa kể cả khi có container đang dùng – không khuyến khích).
+  - `docker rmi $(docker images -q -f dangling=true)`: Xóa các image "dangling" (image không có tag và không được container nào tham chiếu, thường là image trung gian sau khi build).
+- `docker build -t <image_name>:<tag> <path_to_dockerfile_directory>`: Build một image từ Dockerfile.
+  - `-t`: Tag image với tên và phiên bản (VD: `myapp:1.0`, `yourusername/myapp:latest`).
+  - `.` (dấu chấm): Chỉ định thư mục hiện tại là "build context" (nơi chứa Dockerfile và các file cần COPY vào image).
+  - Ví dụ: `docker build -t my-custom-app:v1.0 .`
+- `docker history <image_name:tag>`: Hiển thị các layer và lịch sử build của image.
+- `docker inspect <image_name:tag_or_id>`: Hiển thị thông tin chi tiết (JSON) về image.
+- `docker tag <source_image_id_or_name:tag> <target_image_name:tag>`: Gắn thêm một tag cho image. Thường dùng để chuẩn bị push lên registry (VD: `docker tag myapp:1.0 myusername/myapp:1.0`).
 
 ### Quản lý Containers
 
-- `docker run [OPTIONS] <image_name>:<tag> [COMMAND] [ARG...]`: Tạo và chạy một container mới từ image.
-  - `docker run hello-world`: Chạy container `hello-world` đơn giản.
-  - `docker run -d -p 8080:80 nginx`:
-    - `-d` (detached): Chạy container ở background.
-    - `-p 8080:80` (port mapping): Map port `8080` của host tới port `80` của container.
-  - `docker run --name my_nginx -d -p 8081:80 nginx`: Đặt tên cho container là `my_nginx`.
-  - `docker run -it ubuntu bash`: Chạy container `ubuntu` và mở terminal `bash` tương tác.
-    - `-i` (interactive): Giữ STDIN mở.
-    - `-t` (tty): Cấp một pseudo-TTY.
+- `docker run [OPTIONS] <image_name>:<tag> [COMMAND] [ARG...]`: Tạo và chạy một container mới từ một image. Nếu image chưa có ở local, Docker sẽ tự động `pull` về.
+  - `docker run hello-world`: Một ví dụ đơn giản để kiểm tra Docker đã cài đặt đúng chưa.
+  - **Common Options:**
+    - `-d` (detached): Chạy container ở background và in ra Container ID.
+    - `-p <host_port>:<container_port>` (port mapping): Ánh xạ port của host tới port của container.
+      - Ví dụ: `-p 8080:80` (truy cập `localhost:8080` trên host sẽ được chuyển tới port `80` của container).
+    - `--name <container_name>`: Đặt tên cho container để dễ quản lý. Nếu không đặt, Docker sẽ tự gán một tên ngẫu nhiên.
+    - `-it` (interactive + TTY): Chạy container ở chế độ tương tác, kết nối terminal của bạn với STDIN/STDOUT/STDERR của container. Thường dùng để chạy shell.
+      - `-i`: Giữ STDIN mở ngay cả khi không attach.
+      - `-t`: Cấp một pseudo-TTY (terminal giả).
+    - `--rm`: Tự động xóa container khi nó dừng (exit). Rất hữu ích cho các tác vụ chạy một lần.
+    - `-v <host_path>:<container_path>` (volume mapping): Mount một thư mục/file từ host vào container. Sẽ học kỹ hơn.
+    - `-e <KEY>=<VALUE>` (environment variable): Thiết lập biến môi trường cho container.
+    - `--network <network_name>`: Kết nối container vào một network cụ thể.
+  - **Ví dụ:**
+    - `docker run -d -p 8080:80 --name my_web_server nginx`
+    - `docker run -it --rm ubuntu bash` (Mở shell bash trong container Ubuntu, container sẽ bị xóa khi thoát bash)
 - `docker ps`: Liệt kê các container đang chạy.
   - `docker ps -a`: Liệt kê tất cả container (cả đang chạy và đã dừng).
-- `docker stop <container_id_or_name>`: Dừng một container đang chạy.
-- `docker start <container_id_or_name>`: Khởi động lại một container đã dừng.
-- `docker rm <container_id_or_name>`: Xóa một container (phải dừng trước).
-  - `docker rm -f <container_id_or_name>`: Xóa container (kể cả đang chạy - force).
-  - `docker container prune`: Xóa tất cả các container đã dừng.
+  - `docker ps -q`: Chỉ hiển thị Container ID.
+- `docker stop <container_id_or_name>`: Dừng một hoặc nhiều container đang chạy (gửi tín hiệu SIGTERM, rồi SIGKILL sau một thời gian chờ).
+- `docker start <container_id_or_name>`: Khởi động lại một hoặc nhiều container đã dừng.
+- `docker restart <container_id_or_name>`: Khởi động lại một container đang chạy hoặc đã dừng.
+- `docker rm <container_id_or_name>`: Xóa một hoặc nhiều container đã dừng.
+  - `docker rm -f <container_id_or_name>`: Xóa container (kể cả đang chạy - force, gửi SIGKILL).
+  - `docker container prune`: Xóa tất cả các container đã dừng. Trả lời `y` để xác nhận.
+  - `docker rm $(docker ps -aq -f status=exited)`: Xóa tất cả các container đã exited.
 
 ### Tương tác với Container
 
-- `docker logs <container_id_or_name>`: Xem logs của container.
-  - `docker logs -f <container_id_or_name>`: Theo dõi logs (follow).
-- `docker exec -it <container_id_or_name> <command>`: Chạy một lệnh bên trong container đang chạy.
-  - Ví dụ: `docker exec -it my_nginx bash` (mở shell `bash` trong container `my_nginx`).
+- `docker logs <container_id_or_name>`: Xem logs (STDOUT/STDERR) của một container.
+  - `docker logs -f <container_id_or_name>`: Theo dõi logs (follow mode - hiển thị log mới khi chúng được tạo ra).
+  - `docker logs --tail 50 <container_id_or_name>`: Xem 50 dòng log cuối cùng.
+- `docker exec [OPTIONS] <container_id_or_name> <command>`: Chạy một lệnh bên trong một container **đang chạy**.
+  - `-it`: Thường dùng với `exec` để có một shell tương tác.
+  - Ví dụ: `docker exec -it my_web_server bash` (mở shell `bash` trong container `my_web_server`).
+  - Ví dụ: `docker exec my_db_container psql -U user -d dbname -c "SELECT * FROM users;"` (chạy lệnh psql trong container DB).
 - `docker cp <host_path> <container_id_or_name>:<container_path>`: Copy file/folder từ host vào container.
+  - Ví dụ: `docker cp ./config.json my_app_container:/app/config.json`
 - `docker cp <container_id_or_name>:<container_path> <host_path>`: Copy file/folder từ container ra host.
+  - Ví dụ: `docker cp my_log_container:/app/logs/error.log ./`
+- `docker attach <container_id_or_name>`: Kết nối STDIN, STDOUT, STDERR của terminal hiện tại với một container đang chạy. **Lưu ý:** Nếu thoát khỏi `attach` (Ctrl+C), container có thể sẽ dừng nếu nó là process chính. Thường `docker exec` an toàn hơn cho tương tác.
+
+### Xem thông tin và dọn dẹp
+
+- `docker inspect <container_id_or_name_or_image_id>`: Hiển thị thông tin chi tiết (dưới dạng JSON) về một container, image, network, volume, ...
+- `docker top <container_id_or_name>`: Hiển thị các tiến trình đang chạy bên trong container.
+- `docker stats [container_id_or_name...]`: Hiển thị thông tin sử dụng tài nguyên (CPU, RAM, Network I/O, Disk I/O) của các container đang chạy, cập nhật liên tục.
+- **Dọn dẹp tài nguyên Docker không sử dụng:**
+  - `docker system df`: Hiển thị dung lượng disk Docker đang sử dụng.
+  - `docker system prune`: Xóa tất cả container đã dừng, network không sử dụng, image dangling, và build cache.
+    - `docker system prune -a`: Xóa mạnh hơn, bao gồm cả images không được tag và không được container nào sử dụng (kể cả container đã dừng).
+    - `docker system prune --volumes`: Xóa cả volumes không được sử dụng (cẩn thận, có thể mất dữ liệu).
+  - `docker image prune`: Xóa image dangling.
+    - `docker image prune -a`: Xóa tất cả image không được sử dụng bởi ít nhất một container.
+  - `docker container prune`: Xóa tất cả container đã dừng.
+  - `docker volume prune`: Xóa tất cả local volume không được sử dụng bởi ít nhất một container.
+  - `docker network prune`: Xóa tất cả network không được sử dụng bởi ít nhất một container.
 
 ## 5. 📝 Dockerfile: Công Thức Tạo Image
 
-`Dockerfile` là file text không có đuôi, mặc định tên là `Dockerfile`.
+`Dockerfile` là file text không có đuôi, mặc định tên là `Dockerfile`. Nó chứa các chỉ thị (instructions) để Docker tự động build một image.
 
 ### Các chỉ thị (Instructions) phổ biến
 
-- `FROM <image>:<tag>`: Chỉ định base image. _Luôn là instruction đầu tiên._
-  - Ví dụ: `FROM ubuntu:22.04`
-  - Ví dụ: `FROM node:18-alpine`
-- `WORKDIR /path/to/workdir`: Thiết lập thư mục làm việc cho các instruction tiếp theo (`RUN`, `CMD`, `ENTRYPOINT`, `COPY`, `ADD`).
-  - Ví dụ: `WORKDIR /app`
-- `COPY <src_on_host> <dest_in_image>`: Sao chép file/thư mục từ host vào image.
-  - Ví dụ: `COPY . .` (sao chép toàn bộ nội dung thư mục build context vào WORKDIR)
-  - Ví dụ: `COPY package.json .`
-- `RUN <command>`: Thực thi lệnh trong một layer mới của image (thường dùng để cài đặt packages, dependencies).
-  - Ví dụ: `RUN apt-get update && apt-get install -y nginx`
-  - Ví dụ: `RUN npm install`
-- `EXPOSE <port>`: Thông báo Docker rằng container sẽ lắng nghe trên port này khi chạy. _Không tự động publish port, cần `-p` khi `docker run`._
-  - Ví dụ: `EXPOSE 80`
-- `CMD ["executable","param1","param2"]` (exec form, ưu tiên) hoặc `CMD command param1 param2` (shell form): Cung cấp lệnh mặc định sẽ được thực thi khi container khởi động. _Chỉ có một `CMD` có hiệu lực, nếu có nhiều `CMD` thì `CMD` cuối cùng sẽ được dùng._ Có thể bị override bởi command khi `docker run`.
-  - Ví dụ: `CMD ["nginx", "-g", "daemon off;"]`
-  - Ví dụ: `CMD ["npm", "start"]`
-- `ENTRYPOINT ["executable","param1","param2"]` (exec form, ưu tiên) hoặc `ENTRYPOINT command param1 param2` (shell form): Cấu hình container sẽ chạy như một executable. Các tham số truyền vào `docker run` sẽ được nối vào sau `ENTRYPOINT`. `CMD` có thể được dùng để cung cấp tham số mặc định cho `ENTRYPOINT`.
-- `ENV <key>=<value>`: Thiết lập biến môi trường.
-  - Ví dụ: `ENV NODE_ENV=production`
+Mỗi chỉ thị thường tạo một layer mới trong image.
+
+1. **`FROM <image>:<tag>` hoặc `FROM <image>@<digest>`**
+
+    - **Mục đích:** Chỉ định base image (image nền) mà image của bạn sẽ được xây dựng dựa trên đó.
+    - **Lưu ý:** _Luôn là instruction đầu tiên trong Dockerfile_ (trừ trường hợp có `ARG` trước `FROM`).
+    - Nên dùng tag cụ thể (VD: `ubuntu:22.04`) thay vì `latest` để đảm bảo tính tái lập (reproducibility). Dùng digest (`sha256:...`) cho độ tin cậy cao nhất.
+    - Ví dụ: `FROM ubuntu:22.04`, `FROM node:18-alpine`, `FROM mcr.microsoft.com/dotnet/sdk:6.0`
+
+2. **`LABEL <key>=<value> [<key2>=<value2> ...]`**
+
+    - **Mục đích:** Thêm metadata vào image dưới dạng cặp key-value (VD: `maintainer`, `version`, `description`).
+    - Ví dụ: `LABEL maintainer="your.email@example.com" version="1.0" description="My awesome app"`
+
+3. **`ARG <name>[=<default_value>]`**
+
+    - **Mục đích:** Định nghĩa biến chỉ tồn tại trong quá trình build image (`docker build`).
+    - Giá trị có thể được truyền vào từ lệnh `docker build --build-arg <name>=<value>`.
+    - Nếu `ARG` được khai báo trước `FROM`, nó có thể được dùng trong `FROM`.
+    - Ví dụ: `ARG APP_VERSION=1.0.0`
+    - Ví dụ: `ARG NODE_VERSION=18 \
+         FROM node:${NODE_VERSION}-alpine as builder`
+
+4. **`ENV <key>=<value>` hoặc `ENV <key1>=<value1> <key2>=<value2> ...`**
+
+    - **Mục đích:** Thiết lập biến môi trường. Biến này sẽ tồn tại cả trong quá trình build và khi container chạy từ image đó.
+    - Giá trị có thể được ghi đè khi chạy container (`docker run -e <key>=<new_value>`).
+    - Ví dụ: `ENV NODE_ENV=production`
+    - Ví dụ: `ENV APP_HOME=/usr/src/app \
+             PATH=$APP_HOME/node_modules/.bin:$PATH`
+
+5. **`WORKDIR /path/to/workdir`**
+
+    - **Mục đích:** Thiết lập thư mục làm việc (working directory) cho các instruction tiếp theo như `RUN`, `CMD`, `ENTRYPOINT`, `COPY`, `ADD`.
+    - Nếu thư mục không tồn tại, nó sẽ được tạo.
+    - Nên dùng đường dẫn tuyệt đối.
+    - Ví dụ: `WORKDIR /app` (các lệnh sau đó như `COPY . .` sẽ copy vào `/app`)
+
+6. **`COPY [--chown=<user>:<group>] <src_on_host>... <dest_in_image>`**
+
+    - **Mục đích:** Sao chép file hoặc thư mục từ "build context" (thư mục chứa Dockerfile trên host) vào filesystem của image.
+    - `<src_on_host>` phải là đường dẫn tương đối so với build context.
+    - `<dest_in_image>` có thể là đường dẫn tuyệt đối, hoặc tương đối so với `WORKDIR`.
+    - Không hỗ trợ lấy file từ URL hoặc giải nén tự động.
+    - `--chown`: Thay đổi owner và group của file/thư mục được copy.
+    - Ví dụ: `COPY . .` (sao chép toàn bộ nội dung thư mục build context vào WORKDIR trong image)
+    - Ví dụ: `COPY package.json yarn.lock ./`
+    - Ví dụ: `COPY --chown=appuser:appgroup app.jar /opt/app/`
+
+7. **`ADD [--chown=<user>:<group>] <src_on_host_or_URL>... <dest_in_image>`**
+
+    - **Mục đích:** Tương tự `COPY`, nhưng có thêm một số "magic":
+      - Nếu `<src>` là URL, nó sẽ tải file về và copy vào `<dest>`.
+      - Nếu `<src>` là một file nén tar (VD: `.tar.gz`, `.tar.bz2`), nó sẽ tự động giải nén vào `<dest>`.
+    - **Khuyến cáo:** Ưu tiên dùng `COPY` trừ khi bạn thực sự cần tính năng tải URL hoặc tự động giải nén của `ADD`, vì `COPY` rõ ràng và dễ đoán hơn.
+    - Ví dụ: `ADD https://example.com/config.zip /app/config/` (sẽ tải và giải nén)
+
+8. **`RUN <command>` (shell form) hoặc `RUN ["executable", "param1", "param2"]` (exec form)**
+
+    - **Mục đích:** Thực thi bất kỳ lệnh nào trong một layer mới của image, bên trên image hiện tại. Kết quả của lệnh sẽ được commit vào layer mới.
+    - Thường dùng để cài đặt packages, dependencies, biên dịch code, tạo thư mục, thay đổi quyền,...
+    - **Shell form:** `RUN apt-get update && apt-get install -y nginx` (chạy trong `/bin/sh -c <command>` hoặc shell được chỉ định bởi `SHELL`).
+    - **Exec form:** `RUN ["/bin/bash", "-c", "echo hello"]` (không dùng shell, thực thi trực tiếp).
+    - Để giảm số lượng layer, có thể nối nhiều lệnh bằng `&&`.
+    - Ví dụ: `RUN apt-get update && apt-get install -y --no-install-recommends \
+               python3 python3-pip \
+           && rm -rf /var/lib/apt/lists/*`
+    - Ví dụ: `RUN npm install --production`
+
+9. **`EXPOSE <port> [<port>/<protocol>...]`**
+
+    - **Mục đích:** Thông báo cho Docker rằng container sẽ lắng nghe trên các network port được chỉ định khi chạy.
+    - Đây chỉ là thông tin metadata, **không tự động publish port ra host**. Bạn vẫn cần dùng cờ `-p` hoặc `-P` với `docker run` để thực sự map port.
+    - Protocol mặc định là `tcp`. Có thể chỉ định `udp`.
+    - Ví dụ: `EXPOSE 80` (ngầm hiểu là 80/tcp)
+    - Ví dụ: `EXPOSE 3000/tcp 5000/udp`
+
+10. **`CMD ["executable","param1","param2"]` (exec form - ưu tiên)**
+
+    - `CMD command param1 param2` (shell form)
+    - `CMD ["param1","param2"]` (làm tham số mặc định cho `ENTRYPOINT`)
+    - **Mục đích:** Cung cấp lệnh mặc định và/hoặc tham số sẽ được thực thi khi container khởi động từ image này.
+    - **Lưu ý:**
+      - Chỉ có một `CMD` instruction có hiệu lực trong Dockerfile. Nếu có nhiều `CMD`, chỉ `CMD` cuối cùng sẽ được dùng.
+      - Lệnh và tham số trong `CMD` có thể bị **ghi đè** hoàn toàn bởi command và arguments được cung cấp khi chạy `docker run <image> [COMMAND_TO_OVERRIDE_CMD]`.
+      - **Exec form** (`["executable", ...]`) là dạng được khuyến khích vì nó rõ ràng và không bị ảnh hưởng bởi shell.
+    - Ví dụ (exec form): `CMD ["nginx", "-g", "daemon off;"]`
+    - Ví dụ (shell form): `CMD echo "Hello Docker"`
+    - Ví dụ (làm param cho ENTRYPOINT): `ENTRYPOINT ["python", "app.py"] \
+                                  CMD ["--port", "8080"]`
+
+11. **`ENTRYPOINT ["executable","param1","param2"]` (exec form - ưu tiên)**
+
+    - `ENTRYPOINT command param1 param2` (shell form)
+    - **Mục đích:** Cấu hình container sẽ chạy như một executable. Lệnh này sẽ **luôn được thực thi** khi container khởi động.
+    - **Khác biệt với `CMD`:**
+      - Các tham số truyền vào `docker run <image> [ARGS_FOR_ENTRYPOINT]` sẽ được **nối vào sau** `ENTRYPOINT` (nếu là exec form).
+      - `ENTRYPOINT` khó bị ghi đè hơn `CMD`. Để ghi đè `ENTRYPOINT`, cần dùng `docker run --entrypoint <new_command>`.
+    - `CMD` có thể được dùng kết hợp với `ENTRYPOINT` để cung cấp các tham số mặc định cho `ENTRYPOINT`.
+    - Ví dụ:
+
+      ```dockerfile
+      ENTRYPOINT ["java", "-jar", "/app/my-app.jar"]
+      CMD ["--profile=prod"] # Tham số mặc định
+      # Khi chạy `docker run my-image --profile=dev`, container sẽ chạy:
+      # java -jar /app/my-app.jar --profile=dev
+      ```
+
+    - Ví dụ (shell form, ít dùng hơn): `ENTRYPOINT exec top -b` (dùng `exec` để `top` là PID 1)
+
+12. **`VOLUME ["/path/to/volume"]` hoặc `VOLUME /path1 /path2 ...`**
+
+    - **Mục đích:** Tạo một mount point với tên được chỉ định và đánh dấu nó là nơi chứa dữ liệu bền bỉ từ host hoặc từ một volume khác.
+    - Khi container chạy, Docker sẽ tự động tạo một anonymous volume và mount vào đường dẫn này nếu không có volume nào khác được mount vào đó bằng `-v` hoặc `--mount` khi `docker run`.
+    - Hữu ích để lưu trữ dữ liệu mà bạn không muốn bị mất khi container bị xóa (VD: database files, logs, user uploads).
+    - Ví dụ: `VOLUME /var/lib/mysql`, `VOLUME /app/data /app/logs`
+
+13. **`USER <user>[:<group>]` hoặc `USER <UID>[:<GID>]`**
+
+    - **Mục đích:** Thiết lập user name (hoặc UID) và tùy chọn group (hoặc GID) để chạy các lệnh `RUN`, `CMD`, `ENTRYPOINT` tiếp theo, cũng như user mặc định khi container chạy.
+    - **Best Practice:** Chạy ứng dụng với user không phải root (non-root user) để tăng cường bảo mật. User này cần được tạo trước (VD: bằng `RUN groupadd ... && useradd ...`).
+    - Ví dụ:
+
+      ```dockerfile
+      RUN groupadd -r myapp && useradd --no-log-init -r -g myapp myappuser
+      USER myappuser
+      ```
+
+14. **`ONBUILD <INSTRUCTION>`**
+
+    - **Mục đích:** Thêm một trigger instruction vào image. Instruction này sẽ không thực thi khi image hiện tại được build, mà sẽ thực thi khi một image khác sử dụng image này làm base image (`FROM current_image`).
+    - Hữu ích cho việc tạo base images dùng chung mà cần thực hiện một số thao tác trên code của image con (VD: copy source code, chạy build script).
+    - Ví dụ (trong một base image `my-node-app-base`):
+
+      ```dockerfile
+      ONBUILD COPY . /app/src
+      ONBUILD RUN npm install
+      ```
+
+      Khi một `Dockerfile` khác có `FROM my-node-app-base`, các lệnh `ONBUILD` này sẽ được thực thi.
+
+15. **`HEALTHCHECK [OPTIONS] CMD <command>` hoặc `HEALTHCHECK NONE`**
+
+    - **Mục đích:** Chỉ định cách Docker kiểm tra xem container có còn "khỏe" (healthy) hay không.
+    - Lệnh `<command>` sẽ được chạy bên trong container theo định kỳ. Nếu lệnh trả về exit code 0, container được coi là healthy. Exit code 1 là unhealthy.
+    - Options: `--interval=DURATION` (mặc định 30s), `--timeout=DURATION` (mặc định 30s), `--start-period=DURATION` (mặc định 0s), `--retries=N` (mặc định 3).
+    - `HEALTHCHECK NONE`: Tắt healthcheck được kế thừa từ base image.
+    - Ví dụ: `HEALTHCHECK --interval=5m --timeout=3s \
+         CMD curl -f http://localhost/ || exit 1`
+
+16. **`SHELL ["executable", "parameters"]`**
+    - **Mục đích:** Thay đổi shell mặc định được sử dụng cho shell form của các lệnh `RUN`, `CMD`, `ENTRYPOINT` (mặc định là `["/bin/sh", "-c"]` trên Linux, `["cmd", "/S", "/C"]` trên Windows).
+    - Ví dụ: `SHELL ["/bin/bash", "-o", "pipefail", "-c"]` (sử dụng bash và bật pipefail)
 
 ### Ví dụ Dockerfile đơn giản (Node.js App)
 
+Giả sử bạn có một ứng dụng Node.js đơn giản với cấu trúc:
+
+```text
+my-node-app/
+├── Dockerfile
+├── package.json
+├── server.js
+└── ... (các file khác)
+```
+
+`package.json`:
+
+```json
+{
+  "name": "my-node-app",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+    // ... các dependencies khác
+  }
+}
+```
+
+`Dockerfile`:
+
 ```dockerfile
-# Sử dụng Node.js phiên bản 18-alpine làm base image
+# 1. Chọn base image: một phiên bản Node.js cụ thể, ưu tiên Alpine cho image nhỏ gọn
 FROM node:18-alpine
 
-# Thiết lập thư mục làm việc bên trong container
+# (Tùy chọn) Thêm labels để cung cấp metadata
+LABEL maintainer="your.email@example.com"
+LABEL version="1.0"
+LABEL description="My Awesome Node.js App"
+
+# 2. Tạo thư mục làm việc bên trong container
+# Lệnh WORKDIR sẽ tạo thư mục nếu chưa tồn tại và cd vào đó
 WORKDIR /usr/src/app
 
-# Sao chép package.json và package-lock.json (nếu có)
+# 3. Sao chép file package.json (và package-lock.json nếu có) vào thư mục làm việc
+# Copy những file này trước để tận dụng Docker layer caching.
+# Nếu những file này không đổi, layer này sẽ được cache, tiết kiệm thời gian build `npm install`.
 COPY package*.json ./
 
-# Cài đặt các dependencies
+# 4. Cài đặt các dependencies của ứng dụng
+# RUN npm ci --only=production  # 'npm ci' nhanh hơn và an toàn hơn cho build, dùng package-lock.json
+                                # '--only=production' để bỏ qua devDependencies nếu là build cho production
 RUN npm install
+# Nếu không phải production build, có thể chỉ cần: RUN npm install
 
-# Sao chép toàn bộ source code của ứng dụng
+# 5. Sao chép toàn bộ source code của ứng dụng vào thư mục làm việc
+# Copy sau khi npm install để nếu code thay đổi thì không cần chạy lại npm install (nếu package*.json không đổi)
 COPY . .
 
-# Thông báo port mà ứng dụng sẽ chạy trên đó
-EXPOSE 3000
+# 6. (Tùy chọn) Thiết lập biến môi trường nếu cần
+ENV NODE_ENV=production
+ENV PORT=3000
 
-# Lệnh để chạy ứng dụng khi container khởi động
+# 7. Thông báo port mà ứng dụng sẽ chạy trên đó (metadata, không tự động publish)
+EXPOSE ${PORT}
+# Hoặc EXPOSE 3000 nếu không dùng biến PORT
+
+# 8. Lệnh để chạy ứng dụng khi container khởi động
+# Dùng exec form của CMD để tránh shell-isms và để process Node.js nhận tín hiệu (PID 1)
 CMD [ "node", "server.js" ]
+# Hoặc nếu dùng script trong package.json: CMD [ "npm", "start" ]
+```
+
+**Để build image này:**
+
+```bash
+cd /path/to/my-node-app
+docker build -t my-node-app:1.0 .
+```
+
+### Thứ tự lệnh và Caching
+
+Docker build image theo từng lớp (layer), mỗi lệnh trong Dockerfile thường tạo ra một lớp. Docker sử dụng cơ chế caching rất thông minh:
+
+- Khi build, Docker kiểm tra xem lớp cho một lệnh cụ thể đã tồn tại trong cache chưa.
+- Nếu một lệnh và các file liên quan (ví dụ `COPY` file) không thay đổi so với lần build trước, Docker sẽ sử dụng lại lớp đó từ cache.
+- **Ngay khi một lớp thay đổi (cache miss), tất cả các lớp tiếp theo sau đó sẽ được build lại, bất kể chúng có thay đổi hay không.**
+
+Do đó, **thứ tự các lệnh rất quan trọng** để tối ưu hóa thời gian build:
+
+- Đặt các lệnh ít thay đổi lên trên cùng (VD: `FROM`, `LABEL`, cài đặt OS packages).
+- Các lệnh liên quan đến dependencies (VD: `COPY package.json`, `RUN npm install`) nên đặt trước các lệnh copy source code (`COPY . .`). Vì `package.json` ít thay đổi hơn toàn bộ source code.
+- Source code (`COPY . .`) thường thay đổi nhiều nhất, nên đặt gần cuối.
+
+**Sử dụng `.dockerignore` file:**
+Tương tự `.gitignore`, tạo file `.dockerignore` trong build context (cùng cấp với `Dockerfile`) để loại bỏ các file/thư mục không cần thiết ra khỏi build context trước khi nó được gửi tới Docker daemon. Điều này giúp:
+
+- Giảm kích thước build context -> gửi tới daemon nhanh hơn.
+- Giảm kích thước image (nếu các file đó vô tình bị `COPY`).
+- Tránh cache busting không cần thiết.
+  Ví dụ `.dockerignore`:
+
+```text
+node_modules
+npm-debug.log
+.git
+.vscode
+README.md
+*.env
 ```
 
 ## 6. 🛠️ Thực Hành: Dockerize Ứng Dụng "Hello World" với Nginx
 
-Mục tiêu: Tạo một `Dockerfile` để phục vụ một trang `index.html` đơn giản bằng `Nginx`.
+Mục tiêu: Tạo một `Dockerfile` để phục vụ một trang `index.html` đơn giản bằng web server `Nginx`.
 
-1. **Tạo file `index.html`:**
+1. **Tạo thư mục dự án và file `index.html`:**
+    Mở terminal của bạn, tạo một thư mục mới (ví dụ `nginx-hello`) và `cd` vào đó:
 
-   ```html
-   <!-- index.html -->
-   <!DOCTYPE html>
-   <html>
-     <head>
-       <title>Hello Docker!</title>
-     </head>
-     <body>
-       <h1>Hello from Nginx inside Docker!</h1>
-       <p>This is my first Dockerized web page.</p>
-     </body>
-   </html>
-   ```
+    ```bash
+    mkdir nginx-hello
+    cd nginx-hello
+    ```
+
+    Bên trong thư mục `nginx-hello`, tạo file `index.html` với nội dung sau:
+
+    ```html
+    <!-- index.html -->
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Hello Docker!</title>
+        <style>
+          body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f8ff;
+          }
+          .container {
+            text-align: center;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          }
+          h1 {
+            color: #333;
+          }
+          p {
+            color: #555;
+          }
+          img {
+            margin-top: 20px;
+            width: 100px;
+          }
+        </style>
+      </head>
+      <body>
+        <div class="container">
+          <h1>Hello from Nginx inside Docker! 🐳</h1>
+          <p>This is my first Dockerized web page. It's pretty cool!</p>
+          <img
+            src="https://www.docker.com/wp-content/uploads/2022/03/Moby-logo.png"
+            alt="Docker Logo"
+          />
+        </div>
+      </body>
+    </html>
+    ```
 
 2. **Tạo file `Dockerfile`:**
+    Trong cùng thư mục `nginx-hello`, tạo file `Dockerfile` (không có phần mở rộng) với nội dung sau:
 
-   ```dockerfile
-   # Sử dụng Nginx image chính thức từ Docker Hub
-   FROM nginx:alpine
+    ```dockerfile
+    # Bước 1: Sử dụng Nginx image chính thức từ Docker Hub, phiên bản alpine cho nhỏ gọn
+    FROM nginx:1.25-alpine
+    # Bạn có thể dùng nginx:latest, nhưng tag cụ thể tốt hơn cho tính ổn định
 
-   # Xóa file index.html mặc định của Nginx
-   RUN rm /usr/share/nginx/html/index.html
+    # (Tùy chọn) Thêm thông tin về người tạo image
+    LABEL maintainer="yourname@example.com"
 
-   # Sao chép file index.html tùy chỉnh của chúng ta vào thư mục phục vụ web của Nginx
-   COPY index.html /usr/share/nginx/html/
+    # Bước 2: Thiết lập thư mục làm việc (không bắt buộc cho ví dụ này nhưng là good practice)
+    # WORKDIR /usr/share/nginx/html
+    # Mặc định Nginx image đã có WORKDIR thích hợp.
 
-   # Expose port 80 (Nginx mặc định chạy trên port 80)
-   EXPOSE 80
+    # Bước 3: Xóa file index.html mặc định của Nginx (nếu bạn muốn thay thế hoàn toàn)
+    # Đường dẫn mặc định của Nginx để phục vụ file tĩnh là /usr/share/nginx/html
+    # RUN rm /usr/share/nginx/html/index.html /usr/share/nginx/html/50x.html
+    # Hoặc đơn giản là copy đè lên
 
-   # Lệnh mặc định để Nginx chạy ở foreground (cần thiết cho Docker)
-   CMD ["nginx", "-g", "daemon off;"]
-   ```
+    # Bước 4: Sao chép file index.html tùy chỉnh của chúng ta từ build context
+    # vào thư mục phục vụ web của Nginx bên trong image.
+    # '.' (dấu chấm đầu tiên) là file index.html trong thư mục hiện tại (build context).
+    # '/usr/share/nginx/html/' là thư mục đích trong container.
+    COPY ./index.html /usr/share/nginx/html/index.html
+
+    # Bước 5: Expose port 80 (Nginx mặc định chạy và lắng nghe trên port 80 bên trong container)
+    # Đây là metadata, không tự động publish port ra host.
+    EXPOSE 80
+
+    # Bước 6: Lệnh mặc định để Nginx chạy ở foreground (cần thiết cho Docker)
+    # Image nginx:alpine đã có CMD này rồi, nên dòng này có thể bỏ qua nếu dùng base image đó.
+    # Nhưng để rõ ràng, ta có thể thêm:
+    # CMD ["nginx", "-g", "daemon off;"]
+    # "-g daemon off;" đảm bảo Nginx chạy ở foreground, nếu không container sẽ exit ngay.
+    ```
 
 3. **Build Docker image:**
-   Mở terminal trong thư mục chứa `index.html` và `Dockerfile`.
+    Đảm bảo bạn đang ở trong thư mục `nginx-hello` (nơi chứa `index.html` và `Dockerfile`).
+    Chạy lệnh sau để build image:
 
-   ```bash
-   docker build -t my-first-nginx .
-   ```
+    ```bash
+    docker build -t my-first-nginx:1.0 .
+    ```
 
-   Kiểm tra image: `docker images` (bạn sẽ thấy `my-first-nginx`).
+    - `docker build`: Lệnh build image.
+    - `-t my-first-nginx:1.0`: Tag image với tên `my-first-nginx` và phiên bản `1.0`.
+    - `.` : Chỉ định build context là thư mục hiện tại.
+
+    Kiểm tra image đã được tạo:
+
+    ```bash
+    docker images
+    ```
+
+    Bạn sẽ thấy `my-first-nginx` với tag `1.0` trong danh sách.
 
 4. **Chạy container từ image vừa build:**
 
-   ```bash
-   docker run -d -p 8080:80 --name web_test my-first-nginx
-   ```
+    ```bash
+    docker run -d -p 8080:80 --name web_test_nginx my-first-nginx:1.0
+    ```
 
-   - `-d`: chạy background
-   - `-p 8080:80`: map port 8080 của host tới port 80 của container
-   - `--name web_test`: đặt tên cho container
+    - `-d`: Chạy container ở chế độ detached (background).
+    - `-p 8080:80`: Map port `8080` của máy host tới port `80` của container (port mà Nginx đang lắng nghe).
+    - `--name web_test_nginx`: Đặt tên cho container là `web_test_nginx` để dễ quản lý.
+    - `my-first-nginx:1.0`: Tên image và tag để chạy.
 
-5. **Kiểm tra:**
-   Mở trình duyệt và truy cập `http://localhost:8080`. Bạn sẽ thấy trang "Hello Docker!".
+    Kiểm tra container đang chạy:
 
-6. **Dọn dẹp:**
+    ```bash
+    docker ps
+    ```
 
-   ```bash
-   docker stop web_test
-   docker rm web_test
-   # docker rmi my-first-nginx # Nếu muốn xóa cả image
-   ```
+    Bạn sẽ thấy container `web_test_nginx` đang chạy.
+
+5. **Kiểm tra kết quả:**
+    Mở trình duyệt web (Chrome, Firefox,...) và truy cập địa chỉ `http://localhost:8080`.
+    Bạn sẽ thấy trang "Hello Docker!" với logo Docker mà bạn đã tạo.
+
+6. **Xem logs của container (tùy chọn):**
+
+    ```bash
+    docker logs web_test_nginx
+    ```
+
+    Bạn sẽ thấy logs access của Nginx.
+
+7. **Dọn dẹp:**
+    Sau khi hoàn thành, bạn có thể dừng và xóa container:
+
+    ```bash
+    docker stop web_test_nginx
+    docker rm web_test_nginx
+    ```
+
+    Nếu muốn xóa cả image đã build:
+
+    ```bash
+    # docker rmi my-first-nginx:1.0
+    ```
+
+Chúc mừng! Bạn đã Dockerize thành công ứng dụng web tĩnh đầu tiên của mình.
 
 ## 7. 🏋️ Bài Tập
 
-**Yêu cầu:** Dockerize một ứng dụng web tĩnh đơn giản.
+**Yêu cầu:** Dockerize một ứng dụng web tĩnh đơn giản của riêng bạn.
 
 1. **Chuẩn bị:**
 
-   - Tạo một thư mục mới cho bài tập, ví dụ `my-static-app`.
-   - Bên trong thư mục đó, tạo một file `index.html` với nội dung HTML tùy ý của bạn (ví dụ: giới thiệu bản thân, một trang "Coming Soon" đơn giản, v.v.).
-   - (Tùy chọn) Thêm một file CSS (`style.css`) và một hình ảnh (`logo.png`) và liên kết chúng từ `index.html`.
+    - Tạo một thư mục mới cho bài tập, ví dụ `my-static-portfolio`.
+    - Bên trong thư mục đó, tạo một file `index.html`. Nội dung HTML có thể là:
+      - Một trang giới thiệu bản thân (portfolio đơn giản).
+      - Một trang "Coming Soon" cho một dự án tưởng tượng.
+      - Bất kỳ nội dung HTML tĩnh nào bạn thích.
+    - **(Tùy chọn nâng cao)** Thêm một file CSS riêng (`style.css`) và một vài hình ảnh (ví dụ: `profile.jpg`, `logo.png`). Liên kết chúng từ `index.html` bằng thẻ `<link>` và `<img>` với đường dẫn tương đối.
 
 2. **Viết `Dockerfile`:**
 
-   - Sử dụng một base image web server phù hợp (ví dụ: `nginx:alpine` hoặc `httpd:alpine`).
-   - `COPY` các file tĩnh của bạn (`index.html`, `style.css`, `logo.png`) vào thư mục thích hợp của web server bên trong image (ví dụ: `/usr/share/nginx/html` cho Nginx, hoặc `/usr/local/apache2/htdocs/` cho httpd).
-   - `EXPOSE` port mà web server lắng nghe (thường là port 80).
-   - Đảm bảo web server chạy ở foreground khi container khởi động (tham khảo `CMD` của Nginx hoặc httpd).
+    - Trong thư mục `my-static-portfolio`, tạo file `Dockerfile`.
+    - Sử dụng một base image web server phù hợp. Gợi ý:
+      - `nginx:alpine` (nhẹ, phổ biến)
+      - `httpd:alpine` (Apache, cũng nhẹ)
+    - `COPY` các file tĩnh của bạn (`index.html`, và `style.css`, `images/` nếu có) vào thư mục phục vụ web mặc định của web server bên trong image:
+      - Cho Nginx: `/usr/share/nginx/html/`
+      - Cho Apache httpd: `/usr/local/apache2/htdocs/`
+      - _Lưu ý:_ Nếu bạn copy cả thư mục (ví dụ: `COPY ./css /usr/share/nginx/html/css`), hãy đảm bảo cấu trúc đường dẫn trong `index.html` của bạn khớp.
+    - `EXPOSE` port mà web server lắng nghe (thường là port 80).
+    - Đảm bảo web server chạy ở foreground khi container khởi động. Hầu hết các image web server chính thức (như `nginx:alpine`, `httpd:alpine`) đã cấu hình `CMD` để chạy ở foreground. Nếu bạn dùng một base image rất cơ bản, bạn có thể cần `CMD ["nginx", "-g", "daemon off;"]` hoặc tương tự cho Apache.
 
 3. **Build và Run:**
 
-   - Build image với một tên và tag tùy chọn (ví dụ: `my-page:1.0`).
-   - Chạy container từ image đó, map một port trên host (ví dụ: 9090) tới port 80 của container.
-   - Truy cập trang web của bạn qua trình duyệt (`http://localhost:9090`).
+    - Mở terminal, `cd` vào thư mục `my-static-portfolio`.
+    - Build image với một tên và tag tùy chọn (ví dụ: `my-portfolio-page:v1`).
+
+      ```bash
+      docker build -t my-portfolio-page:v1 .
+      ```
+
+    - Chạy container từ image đó, map một port trên host (ví dụ: 9090) tới port 80 của container. Đặt tên cho container (ví dụ: `my_site`).
+
+      ```bash
+      docker run -d -p 9090:80 --name my_site my-portfolio-page:v1
+      ```
+
+    - Truy cập trang web của bạn qua trình duyệt (`http://localhost:9090`).
 
 4. **Thao tác thêm (optional):**
-   - Xem logs của container.
-   - Chạy một lệnh `ls` bên trong container đang chạy để kiểm tra xem file đã được copy đúng chỗ chưa (sử dụng `docker exec`).
-   - Dừng và xóa container.
+    - Xem logs của container `my_site`.
+    - Sử dụng `docker exec -it my_site sh` (hoặc `bash` nếu có) để vào bên trong container. Dùng `ls` để kiểm tra xem các file của bạn đã được copy đúng chỗ chưa (ví dụ: `ls /usr/share/nginx/html` hoặc `ls /usr/local/apache2/htdocs`). Gõ `exit` để thoát.
+    - Dừng và xóa container `my_site`.
+    - (Nếu muốn) Xóa image `my-portfolio-page:v1`.
 
 **Gợi ý:**
 
-- Nếu dùng Nginx, bạn có thể cần `COPY` các file vào `/usr/share/nginx/html/`.
-- Nếu dùng Apache httpd, bạn có thể cần `COPY` các file vào `/usr/local/apache2/htdocs/`.
+- Khi `COPY` nhiều file hoặc thư mục, bạn có thể dùng nhiều lệnh `COPY` hoặc copy thư mục cha.
+  Ví dụ, nếu có `index.html`, `css/style.css`, `img/logo.png`:
+
+  ```dockerfile
+  # ...
+  WORKDIR /usr/share/nginx/html # Hoặc /usr/local/apache2/htdocs
+  COPY index.html .
+  COPY css/ ./css/
+  COPY img/ ./img/
+  # Hoặc đơn giản hơn nếu tất cả nằm trong thư mục 'public' trên host:
+  # COPY ./public/ .
+  # ...
+  ```
+
+- Tham khảo lại phần thực hành với Nginx nếu gặp khó khăn.
+
+Chúc bạn thành công với bài tập!
 
 ---
 
