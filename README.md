@@ -181,9 +181,9 @@ Thời gian ước tính cho mỗi phần là tương đối và có thể thay 
 
 | STT | Nội dung                                        | Thời gian | Tài liệu                                |
 | --- | ----------------------------------------------- | --------- | --------------------------------------- |
-| 34  | 🐳 **DOCKER: NẮM VỮNG NỀN TẢNG**                | 1 tuần    | [Docker1.md](./DOCKER/Docker1.md)       |
-| 35  | 🐳 **DOCKER: ORCHESTRATION & BEST PRACTICES**   | 1 tuần    | [Docker2.md](./DOCKER/Docker2.md)       |
-| 36  | ⚙️ **KUBERNETES: HỆ THỐNG ĐIỀU PHỐI CONTAINER** | 2 tuần    | [Kubernetes.md](./DOCKER/Kubernetes.md) |
+| 34  | 🐳 **DOCKER: NẮM VỮNG NỀN TẢNG**                | 1 tuần    | [Docker1.md](./DEVOPS/Docker1.md)       |
+| 35  | 🐳 **DOCKER: ORCHESTRATION & BEST PRACTICES**   | 1 tuần    | [Docker2.md](./DEVOPS/Docker2.md)       |
+| 36  | ⚙️ **KUBERNETES: HỆ THỐNG ĐIỀU PHỐI CONTAINER** | 2 tuần    | [Kubernetes.md](./DEVOPS/Kubernetes.md) |
 
 ### 📌 Tổng Kết
 
@@ -195,7 +195,7 @@ Thời gian ước tính cho mỗi phần là tương đối và có thể thay 
 
 ```text
 lesson-plan/
-├── DOCKER/
+├── DEVOPS/
 │   ├── Docker1.md    # NẮM VỮNG NỀN TẢNG
 │   ├── Docker2.md    # ORCHESTRATION & BEST PRACTICES
 │   └── Kubernetes.md # HỆ THỐNG ĐIỀU PHỐI CONTAINER

@@ -1494,4 +1494,4 @@ e-learning-platform/
 
 [⬅️ Trở lại: PHP/Part5.md](../PHP/Part5.md) |
 [🏠 Home](../README.md) |
-[➡️ Tiếp theo: DOCKER/Docker1.md](../DOCKER/Docker1.md)
+[➡️ Tiếp theo: DEVOPS/Docker1.md](../DEVOPS/Docker1.md)

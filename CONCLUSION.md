@@ -113,5 +113,5 @@ Chúc mừng bạn đã hoàn thành lộ trình học tập! Đây không phả
 
 Nếu có bất kỳ câu hỏi hoặc cần hỗ trợ thêm, đừng ngần ngại liên hệ qua [trang cá nhân](https://klpod221.com). Chúc bạn thành công trong hành trình lập trình phía trước!
 
-[⬅️ Trở lại: DOCKER/Kubernetes.md](../DOCKER/Kubernetes.md) |
+[⬅️ Trở lại: DEVOPS/Kubernetes.md](../DEVOPS/Kubernetes.md) |
 [🏠 Home](../README.md)

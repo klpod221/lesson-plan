@@ -57,7 +57,7 @@
 - Xung đột thư viện, phiên bản phần mềm.
 - Khó khăn khi setup môi trường cho người mới.
 
-[Hình ảnh minh họa: meme "works on my machine"]
+[Hình ảnh minh họa: meme "works on my machine"](../images/devops/itworksonmymachine.webp)
 
 ### Giải pháp là gì? VMs vs Containers
 
@@ -127,45 +127,163 @@ Nhiều `Docker image` được xây dựng dựa trên Linux. Hiểu một số
 
 ## 3. 💡 Docker Core Concepts
 
-[Hình ảnh: Sơ đồ tổng quan Docker Architecture (Client, Docker Host, Registry)]
+```text
++----------------------+                         +------------------------------------------------------+                         +-----------------------+
+|                      |                         |                    DOCKER HOST                       |                         |                       |
+|    DOCKER CLIENT     |------------------------>|  +-----------------------------------------------+   |<------------------------|       REGISTRY        |
+|  (e.g., `docker` CLI)|  1. Lệnh từ người dùng  |  |                 Docker Daemon                 |   |  3. Pull/Push Images    |  (e.g., Docker Hub,   |
+|                      |  (build, run, pull,     |  |                   (`dockerd`)                 |   |                         |  AWS ECR, Google GCR) |
+|                      |   push, ps, etc.)       |  |       (Lắng nghe API, Quản lý Objects)        |   |                         |                       |
++----------------------+                         |  +---------------------▲--┬----------------------+   |                         +-----------------------+
+                                                 |                        |  |                          |
+                                                 |     (Tải/Lưu Images)   |  | 2. Tạo/Chạy/Quản lý      |
+                                                 |                        |  |    Containers từ Images  |
+                                                 |                        |  |    Build Images từ       |
+                                                 |                        |  |    Dockerfile            |
+                                                 |                        |  |                          |
+                                                 |  +---------------------┴--▼----------------------+   |
+                                                 |  |       IMAGES          |       CONTAINERS      |   |
+                                                 |  | (Templates Read-Only) | (Running Instances)   |   |
+                                                 |  |  - ubuntu:latest      |  - my_app_container   |   |
+                                                 |  |  - nginx:alpine       |  - db_container       |   |
+                                                 |  |  - my_custom_app:v1   |  - ...                |   |
+                                                 |  +-----------------------+-----------------------+   |
+                                                 +------------------------------------------------------+
+
+```
 
 ### Docker Engine
 
-- Là ứng dụng client-server bao gồm:
-  - **Docker Daemon** (`dockerd`): "Bộ não" của Docker, lắng nghe API requests, quản lý images, containers, networks, volumes.
-  - **REST API**: Giao diện để client tương tác với Daemon.
-  - **Docker CLI** (`docker`): Client để người dùng gửi lệnh tới Daemon.
+```text
+  +-----------------+      +-----------------+      +-------------------------+
+  |   Người dùng    |----->|   Docker CLI    |----->|        REST API         |<---+
+  +-----------------+      |   (`docker`)    |      +-------------------------+    |
+                           +-----------------+                                     |
+                                                                                   |
+                                +--------------------------------------------------+
+                                |                 Docker Daemon                    |
+                                |                 (`dockerd`) 🧠                   |
+                                |  - Lắng nghe API requests                        |
+                                |  - Quản lý Images, Containers, Networks, Volumes |
+                                +--------------------------------------------------+
+```
+
+- **Docker Daemon (`dockerd`)**:
+  - "Bộ não" 🧠 của Docker.
+  - Chạy ngầm trên máy chủ.
+  - Lắng nghe các yêu cầu từ Docker API.
+  - Chịu trách nhiệm quản lý các đối tượng Docker như images, containers, networks, và volumes.
+- **REST API**:
+  - Một giao diện (interface) mà các chương trình có thể sử dụng để "nói chuyện" với Daemon.
+  - Docker CLI sử dụng API này để gửi lệnh.
+- **Docker CLI (`docker`)**:
+  - Công cụ dòng lệnh (Command Line Interface) cho người dùng.
+  - Bạn gõ lệnh `docker run`, `docker ps`, v.v., và CLI sẽ gửi yêu cầu tương ứng đến Daemon thông qua REST API.
 
 ### Image
 
-- Là một **template read-only** chứa các instructions để tạo ra một container.
-- Giống như một "snapshot" của một hệ thống file thu nhỏ, chứa code, libraries, dependencies, tools, và mọi thứ cần thiết để ứng dụng chạy.
-- Images được xây dựng theo lớp (layers), giúp tối ưu lưu trữ và tốc độ build.
-  - `ubuntu` (base image)
-  - `ubuntu` + `nginx` (layer mới)
-  - `ubuntu` + `nginx` + `your_app_code` (layer mới nhất)
+- Là một **template read-only** (chỉ đọc), giống như một bản thiết kế hoặc một khuôn mẫu để tạo container.
+- Chứa mọi thứ cần thiết để chạy một ứng dụng: mã nguồn, một runtime, thư viện, biến môi trường, và file cấu hình.
+- Giống như một "snapshot" 📸 của một hệ thống file thu nhỏ.
+- Images được xây dựng theo **lớp (layers)**. Mỗi lệnh trong Dockerfile tạo ra một lớp mới.
+  - **Ví dụ về Layers:**
+
+```text
++------------------------------------+  Layer 3 (Ứng dụng của bạn)
+|         your_app_code              |
++------------------------------------+
+|              nginx                 |  Layer 2 (Thêm Nginx)
++------------------------------------+
+|              ubuntu                |  Layer 1 (Base Image)
++------------------------------------+
+==> Final Image (ubuntu + nginx + your_app_code)
+```
+
+- Lợi ích của layers:
+  - **Tái sử dụng**: Các lớp chung (như `ubuntu`) có thể được chia sẻ giữa nhiều image.
+  - **Tối ưu lưu trữ**: Chỉ lưu trữ phần thay đổi ở mỗi lớp.
+  - **Tốc độ build nhanh hơn**: Docker cache lại các lớp không thay đổi.
 
 ### Container
 
-- Là một **phiên bản chạy (runnable instance)** của một image.
-- Có thể tạo, khởi động, dừng, di chuyển, xóa container.
-- Mỗi container là một môi trường **isolated** (cô lập) với các container khác và với host machine (mặc dù chia sẻ kernel của host).
-- **So sánh:** Image là class, Container là object.
+- Là một **phiên bản chạy (runnable instance)** của một Image.
+- Khi bạn "chạy" một Image, bạn tạo ra một Container.
+- Bạn có thể tạo, khởi động, dừng, di chuyển, và xóa Containers.
+- Mỗi Container là một môi trường **isolated** (cô lập):
+
+  - Nó có hệ thống file, process, network riêng.
+  - Cô lập với các Containers khác và với máy chủ (host machine).
+  - Tuy nhiên, tất cả Containers trên cùng một host **chia sẻ kernel của host**.
+
+- **So sánh dễ hiểu:**
+  - **Image** giống như một `Class` trong lập trình hướng đối tượng.
+  - **Container** giống như một `Object` (thể hiện cụ thể) của `Class` đó.
+
+```text
++-----------------------+         +-----------------------+
+|     Image: my_app     |         |     Image: database   |
+|  (Template Read-Only) |         |  (Template Read-Only) |
++-----------------------+         +-----------------------+
+          |                                  |
+          | .------------ chạy ------------. |
+          V                                  V
++-----------------------+         +-----------------------+
+|  Container A (my_app) |         | Container B (database)|
+| (Isolated Environment)|         | (Isolated Environment)|
++-----------------------+         +-----------------------+
+
+Trên cùng một Host Machine (chia sẻ Kernel)
+```
 
 ### Dockerfile
 
-- Là một **file text** chứa một chuỗi các **instructions** để Docker tự động build một image.
-- Ví dụ: "Sử dụng base image `ubuntu`, copy file `app.py` vào, chạy lệnh `pip install -r requirements.txt`, và khi container khởi động thì chạy `python app.py`".
+- Là một **file text** đơn giản, không có phần mở rộng (nhưng thường đặt tên là `Dockerfile`).
+- Chứa một chuỗi các **instructions** (chỉ dẫn) để Docker Engine tự động **build** (xây dựng) một Image.
+- Giống như một "kịch bản" hoặc "công thức" để tạo ra Image.
+- **Luồng làm việc:**
+  `Dockerfile` --(`docker build . -t my_image_name`)--> `Image` 🖼️
 
 ### Registry (Docker Hub)
 
-- Là một **kho lưu trữ (repository)** cho các Docker images.
-- **Docker Hub** là registry công cộng lớn nhất, chứa hàng ngàn image sẵn có.
-- Bạn cũng có thể tạo private registry (VD: AWS ECR, Google GCR, Harbor).
-- Lệnh `docker pull <image_name>` sẽ tải image từ registry về local machine.
-- Lệnh `docker push <image_name>` sẽ đẩy image từ local machine lên registry.
+- Là một **kho lưu trữ (repository)** tập trung cho các Docker Images.
+- Cho phép bạn lưu trữ, quản lý và chia sẻ Images.
+- **Docker Hub**:
+  - Là registry **công cộng** lớn nhất và mặc định của Docker.
+  - Chứa hàng ngàn Images được tạo sẵn bởi cộng đồng và các nhà cung cấp (ví dụ: `ubuntu`, `nginx`, `python`, `mysql`).
+  - Bạn có thể tạo tài khoản và push (đẩy) Image của mình lên Docker Hub (public hoặc private).
+- **Private Registries**:
+  - Bạn cũng có thể tự host registry riêng hoặc sử dụng các dịch vụ private registry từ các nhà cung cấp cloud.
+  - Ví dụ: Amazon ECR (Elastic Container Registry), Google GCR (Google Container Registry), Azure ACR, Harbor.
+- **Các lệnh cơ bản:**
 
-[Hình ảnh: Logo Docker Hub]
+  - `docker pull <image_name>:<tag>`: Tải (download) một Image từ Registry về máy local.
+
+    ```text
+    [Local Machine] <--- (docker pull ubuntu) --- [☁️ Docker Hub / Registry]
+    ```
+
+  - `docker push <your_username>/<image_name>:<tag>`: Đẩy (upload) một Image từ máy local lên Registry.
+
+    ```text
+    [Local Machine] --- (docker push myuser/myimage) ---> [☁️ Docker Hub / Registry]
+    ```
+
+  ```text
+                             +-----------------------+
+                             | Docker Hub / Registry |
+                             | (e.g., AWS ECR, GCR)  |
+                             +-----------┬-----------+
+                                         |
+                      docker pull <image>|  docker push <image>
+                                         |
+                   ┌─────────────────────┴─────────────────────┐
+                   │                                           │
+                   ▼                                           ▲
+      +---------------------------+               +---------------------------+
+      |      Local Machine 1      |               |      Local Machine 2      |
+      | (Dev, CI/CD Server, etc.) |               | (Production Server, etc.) |
+      +---------------------------+               +---------------------------+
+  ```
 
 ## 4. ⚙️ Docker CLI Cơ Bản
 
@@ -367,4 +485,4 @@ Mục tiêu: Tạo một `Dockerfile` để phục vụ một trang `index.html`
 
 [⬅️ Trở lại: PHP/Part6.md](../PHP/Part6.md) |
 [🏠 Home](../README.md) |
-[➡️ Tiếp theo: DOCKER/Docker2.md](../DOCKER/Docker2.md)
+[➡️ Tiếp theo: DEVOPS/Docker2.md](../DEVOPS/Docker2.md)
