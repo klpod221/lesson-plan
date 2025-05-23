@@ -189,7 +189,7 @@ Thời gian ước tính cho mỗi phần là tương đối và có thể thay 
 
 | STT | Nội dung                     | Thời gian | Tài liệu                         |
 | --- | ---------------------------- | --------- | -------------------------------- |
-| 36  | 📋 **TỔNG KẾT LỘ TRÌNH HỌC** | -         | [CONCLUSION.md](./CONCLUSION.md) |
+| 37  | 📋 **TỔNG KẾT LỘ TRÌNH HỌC** | -         | [CONCLUSION.md](./CONCLUSION.md) |
 
 ## 📋 Cấu Trúc Kho Lưu Trữ
 
