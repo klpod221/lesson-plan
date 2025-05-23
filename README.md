@@ -119,7 +119,7 @@ Thời gian ước tính cho mỗi phần là tương đối và có thể thay 
 | 4   | 📈 **PHÁT TRIỂN BẢN THÂN LIÊN TỤC** | 0.5 tuần  | [Part4.md](./SELF-LEARNING/Part4.md) |
 | 5   | 🛠️ **CÀI ĐẶT MÔI TRƯỜNG HỌC TẬP**   | -         | [INSTALL.md](./INSTALL.md)           |
 | 6   | 🔄 **GIT VÀ GITHUB CƠ BẢN**         | 0.5 tuần  | [GIT.md](./GIT.md)                   |
-| 7   | 🌐 **TỔNG QUAN VỀ LẬP TRÌNH**       | 0.5 tuần  | [INTRODUCTION.md](./INTRODUCTION.md) |
+| 7   | 🌐 **TỔNG QUAN VỀ LẬP TRÌNH**        | 0.5 tuần  | [INTRODUCTION.md](./INTRODUCTION.md) |
 
 ### 📌 Module 1: Lập Trình Java Cơ Bản
 
@@ -137,7 +137,7 @@ Thời gian ước tính cho mỗi phần là tương đối và có thể thay 
 | 12  | 💾 **NHẬP MÔN SQL**                | 1 tuần    | [Part1.md](./SQL/Part1.md) |
 | 13  | 📊 **SQL NÂNG CAO**                | 1 tuần    | [Part2.md](./SQL/Part2.md) |
 | 14  | 🔄 **SQL NÂNG CAO VÀ ỨNG DỤNG**    | 1 tuần    | [Part3.md](./SQL/Part3.md) |
-| 15  | ⚡ **SQL CHUYÊN SÂU VÀ HIỆU SUẤT** | 1 tuần    | [Part4.md](./SQL/Part4.md) |
+| 15  | ⚡ **SQL CHUYÊN SÂU VÀ HIỆU SUẤT**  | 1 tuần    | [Part4.md](./SQL/Part4.md) |
 | 16  | 🏆 **BÀI TẬP LỚN SQL**             | 1 tuần    | [FINAL.md](./SQL/FINAL.md) |
 
 ### 📌 Module 3: Java Nâng Cao & Ứng Dụng
@@ -152,10 +152,10 @@ Thời gian ước tính cho mỗi phần là tương đối và có thể thay 
 | STT | Nội dung                                       | Thời gian | Tài liệu                   |
 | --- | ---------------------------------------------- | --------- | -------------------------- |
 | 19  | 🧮 **NHẬP MÔN CẤU TRÚC DỮ LIỆU VÀ THUẬT TOÁN** | 1.5 tuần  | [Part1.md](./DSA/Part1.md) |
-| 20  | 🌐 **CẤU TRÚC DỮ LIỆU NÂNG CAO**               | 1.5 tuần  | [Part2.md](./DSA/Part2.md) |
+| 20  | 🌐 **CẤU TRÚC DỮ LIỆU NÂNG CAO**                | 1.5 tuần  | [Part2.md](./DSA/Part2.md) |
 | 21  | 🧠 **THUẬT TOÁN NÂNG CAO**                     | 1.5 tuần  | [Part3.md](./DSA/Part3.md) |
 | 22  | 🔍 **CÁC CẤU TRÚC DỮ LIỆU CHUYÊN BIỆT**        | 1 tuần    | [Part4.md](./DSA/Part4.md) |
-| 23  | ⚡ **THUẬT TOÁN ỨNG DỤNG VÀ TỐI ƯU HÓA**       | 1 tuần    | [Part5.md](./DSA/Part5.md) |
+| 23  | ⚡ **THUẬT TOÁN ỨNG DỤNG VÀ TỐI ƯU HÓA**        | 1 tuần    | [Part5.md](./DSA/Part5.md) |
 
 ### 📌 Module 5: Phát Triển Web Frontend
 
@@ -175,7 +175,7 @@ Thời gian ước tính cho mỗi phần là tương đối và có thể thay 
 | 30  | 💾 **PHP NÂNG CAO VÀ KẾT NỐI DATABASE**              | 1 tuần    | [Part3.md](./PHP/Part3.md) |
 | 31  | 🏗️ **FRAMEWORK VÀ PHÁT TRIỂN ỨNG DỤNG WEB HIỆN ĐẠI** | 1 tuần    | [Part4.md](./PHP/Part4.md) |
 | 32  | 🚀 **XU HƯỚNG HIỆN ĐẠI VÀ CÔNG NGHỆ MỚI TRONG PHP**  | 1 tuần    | [Part5.md](./PHP/Part5.md) |
-| 33  | 🌐 **PHÁT TRIỂN VÀ TRIỂN KHAI CHUYÊN NGHIỆP**        | 1 tuần    | [Part6.md](./PHP/Part6.md) |
+| 33  | 🌐 **PHÁT TRIỂN VÀ TRIỂN KHAI CHUYÊN NGHIỆP**         | 1 tuần    | [Part6.md](./PHP/Part6.md) |
 
 ### 📌 Module 7: DevOps & Containerization
 
