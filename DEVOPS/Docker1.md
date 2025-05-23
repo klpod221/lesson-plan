@@ -57,7 +57,7 @@
 - Xung đột thư viện, phiên bản phần mềm.
 - Khó khăn khi setup môi trường cho người mới.
 
-[Hình ảnh minh họa: meme "works on my machine"](../images/devops/itworksonmymachine.webp)
+![Hình ảnh minh họa: meme "works on my machine"](../images/devops/itworksonmymachine.webp)
 
 ### Giải pháp là gì? VMs vs Containers
 
