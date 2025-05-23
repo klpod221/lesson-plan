@@ -46,7 +46,7 @@
 
 ## 🎯 Mục Tiêu Chi Tiết (Bài học này)
 
-- Hiểu được vấn đề Docker giải quyết (**"It works on my machine!"** và sự khác biệt môi trường).
+- Hiểu được vấn đề Docker giải quyết.
 - Phân biệt được sự khác nhau giữa **Virtual Machines (VMs)** và **Containers**.
 - Nắm vững các khái niệm cốt lõi: `Image`, `Container`, `Dockerfile`, `Registry`, `Docker Engine`.
 - Thành thạo các lệnh `Docker CLI` cơ bản để quản lý images và containers.
