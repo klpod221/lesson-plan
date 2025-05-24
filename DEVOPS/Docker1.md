@@ -32,8 +32,8 @@
     - [Các chỉ thị (Instructions) phổ biến](#các-chỉ-thị-instructions-phổ-biến)
     - [Ví dụ Dockerfile đơn giản (Node.js App)](#ví-dụ-dockerfile-đơn-giản-nodejs-app)
     - [Thứ tự lệnh và Caching](#thứ-tự-lệnh-và-caching)
-  - [6. 🛠️ Thực Hành: Dockerize Ứng Dụng "Hello World" với Nginx](#6-️-thực-hành-dockerize-ứng-dụng-hello-world-với-nginx)
-  - [7. 🏋️ Bài Tập](#7-️-bài-tập)
+  - [6. 🛠️ Thực Hành: Dockerize Ứng Dụng PHP "Hello World" với Apache](#6-️-thực-hành-dockerize-ứng-dụng-php-hello-world-với-apache)
+  - [7. 🏋️ Bài Tập Nâng Cao: Dockerize Ứng Dụng PHP Động với Cấu Hình Môi Trường](#7-️-bài-tập-nâng-cao-dockerize-ứng-dụng-php-động-với-cấu-hình-môi-trường)
 
 ---
 
@@ -216,6 +216,8 @@
 
 - Điều này có nghĩa là VM1 và VM2 hoàn toàn cô lập về mặt Kernel. Kernel G1 không biết gì về Kernel G2 hay Kernel H.
 
+> Một máy ảo giống như một căn nhà riêng, có nền móng, điện nước riêng.
+
 #### Containers (Docker) hoạt động như thế nào: "Chia sẻ Kernel của Host OS"
 
 - Tất cả các containers chạy trên cùng một máy chủ (Host OS) sẽ **cùng sử dụng chung một Kernel duy nhất, đó là Kernel của Host OS.**
@@ -233,6 +235,11 @@
                     Hardware
   ```
 
+> - Tưởng tượng Tòa nhà chung cư (Host OS):
+>   - Containers = Các căn hộ: Dùng chung nền móng (Kernel Host), điện nước tổng (dịch vụ Host OS).
+>   - Namespaces = Tường riêng, cửa riêng: Căn hộ A không thấy đồ của căn hộ B (cô lập process, network, filesystem view).
+>   - Cgroups = Đồng hồ điện/nước của quản lý: Mỗi căn hộ được dùng giới hạn tài nguyên (CPU, RAM).
+
 - **Điều này có nghĩa là:**
 
   - Khi một ứng dụng bên trong Container 1 (ví dụ, một Nginx server) cần mở một network socket, nó thực hiện một system call. System call này được xử lý trực tiếp bởi **Kernel của Host OS**.
@@ -246,16 +253,8 @@
       - `User namespace`: Ánh xạ user ID trong container sang user ID khác trên host.
     - **Control Groups (cgroups):** Giới hạn và theo dõi tài nguyên (CPU, RAM, I/O) mà mỗi container có thể sử dụng. Điều này ngăn một container "tham lam" chiếm hết tài nguyên của hệ thống.
 
-- **Ví dụ minh họa (Tòa nhà chung cư):**
-  Hãy tưởng tượng một tòa nhà chung cư (Host OS) và một người quản lý tòa nhà (Kernel của Host OS).
-
-  - **VMs giống như các căn nhà riêng biệt:** Mỗi căn nhà (VM) có nền móng (Kernel) riêng, hệ thống điện nước (Guest OS) riêng. Chúng độc lập hoàn toàn.
-  - **Containers giống như các căn hộ trong tòa nhà chung cư:**
-    - Tất cả các căn hộ (containers) đều dùng chung nền móng của tòa nhà (Kernel của Host OS), chung hệ thống điện nước tổng của tòa nhà (các dịch vụ cơ bản của Host OS).
-    - Tuy nhiên, mỗi căn hộ (container) có không gian riêng tư, tường riêng, cửa riêng (namespaces). Bạn ở căn hộ A không thể tự tiện vào căn hộ B.
-    - Người quản lý tòa nhà (Kernel, thông qua Docker Engine) cũng quy định mỗi căn hộ được dùng bao nhiêu điện, nước (cgroups).
-
 - **Hệ quả của việc chia sẻ Kernel:**
+
   - **Khởi động nhanh:** Vì không phải boot cả một hệ điều hành mới, container khởi động gần như tức thì (chỉ là khởi động process của ứng dụng).
   - **Nhẹ hơn:** Không tốn tài nguyên (CPU, RAM, disk) cho Guest OS riêng, chỉ tốn cho ứng dụng và thư viện của nó.
   - **Mật độ cao hơn:** Có thể chạy nhiều container hơn trên cùng một host so với VMs.
@@ -962,28 +961,28 @@ README.md
 *.env
 ```
 
-## 6. 🛠️ Thực Hành: Dockerize Ứng Dụng "Hello World" với Nginx
+## 6. 🛠️ Thực Hành: Dockerize Ứng Dụng PHP "Hello World" với Apache
 
-Mục tiêu: Tạo một `Dockerfile` để phục vụ một trang `index.html` đơn giản bằng web server `Nginx`.
+Mục tiêu: Tạo một `Dockerfile` để phục vụ một trang `index.php` đơn giản bằng web server `Apache` với `PHP`.
 
-1. **Tạo thư mục dự án và file `index.html`:**
-   Mở terminal của bạn, tạo một thư mục mới (ví dụ `nginx-hello`) và `cd` vào đó:
+1. **Tạo thư mục dự án và file `index.php`:**
+   Mở terminal của bạn, tạo một thư mục mới (ví dụ `php-hello-docker`) và `cd` vào đó:
 
    ```bash
-   mkdir nginx-hello
-   cd nginx-hello
+   mkdir php-hello-docker
+   cd php-hello-docker
    ```
 
-   Bên trong thư mục `nginx-hello`, tạo file `index.html` với nội dung sau:
+   Bên trong thư mục `php-hello-docker`, tạo file `index.php` với nội dung sau:
 
-   ```html
-   <!-- index.html -->
+   ```php
+   <!-- index.php -->
    <!DOCTYPE html>
    <html lang="en">
      <head>
        <meta charset="UTF-8" />
        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-       <title>Hello Docker!</title>
+       <title>Hello PHP Docker!</title>
        <style>
          body {
            font-family: Arial, sans-serif;
@@ -992,7 +991,7 @@ Mục tiêu: Tạo một `Dockerfile` để phục vụ một trang `index.html`
            align-items: center;
            height: 100vh;
            margin: 0;
-           background-color: #f0f8ff;
+           background-color: #e6e6fa; /* Lavender */
          }
          .container {
            text-align: center;
@@ -1002,10 +1001,17 @@ Mục tiêu: Tạo một `Dockerfile` để phục vụ một trang `index.html`
            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
          }
          h1 {
-           color: #333;
+           color: #483d8b; /* DarkSlateBlue */
          }
          p {
            color: #555;
+           font-size: 1.2em;
+         }
+         .php-info {
+           margin-top: 15px;
+           padding: 10px;
+           background-color: #f0f0f0;
+           border-left: 4px solid #483d8b;
          }
          img {
            margin-top: 20px;
@@ -1015,8 +1021,13 @@ Mục tiêu: Tạo một `Dockerfile` để phục vụ một trang `index.html`
      </head>
      <body>
        <div class="container">
-         <h1>Hello from Nginx inside Docker! 🐳</h1>
-         <p>This is my first Dockerized web page. It's pretty cool!</p>
+         <h1>Hello from PHP inside Docker! 🐘</h1>
+         <p>This is my first Dockerized PHP application.</p>
+         <div class="php-info">
+           <?php
+             echo "PHP Version: " . phpversion();
+           ?>
+         </div>
          <img
            src="https://www.docker.com/wp-content/uploads/2022/03/Moby-logo.png"
            alt="Docker Logo"
@@ -1027,52 +1038,45 @@ Mục tiêu: Tạo một `Dockerfile` để phục vụ một trang `index.html`
    ```
 
 2. **Tạo file `Dockerfile`:**
-   Trong cùng thư mục `nginx-hello`, tạo file `Dockerfile` (không có phần mở rộng) với nội dung sau:
+   Trong cùng thư mục `php-hello-docker`, tạo file `Dockerfile` (không có phần mở rộng) với nội dung sau:
 
    ```dockerfile
-   # Bước 1: Sử dụng Nginx image chính thức từ Docker Hub, phiên bản alpine cho nhỏ gọn
-   FROM nginx:1.25-alpine
-   # Bạn có thể dùng nginx:latest, nhưng tag cụ thể tốt hơn cho tính ổn định
+   # Bước 1: Sử dụng image PHP chính thức từ Docker Hub với Apache.
+   # Ví dụ: php:8.3-apache (bạn có thể chọn phiên bản PHP khác nếu muốn)
+   FROM php:8.3-apache
 
    # (Tùy chọn) Thêm thông tin về người tạo image
    LABEL maintainer="yourname@example.com"
 
-   # Bước 2: Thiết lập thư mục làm việc (không bắt buộc cho ví dụ này nhưng là good practice)
-   # WORKDIR /usr/share/nginx/html
-   # Mặc định Nginx image đã có WORKDIR thích hợp.
+   # Bước 2: Thiết lập thư mục làm việc (không bắt buộc cho ví dụ này vì Apache đã có mặc định)
+   # WORKDIR /var/www/html
+   # Image php:apache mặc định sử dụng /var/www/html làm DocumentRoot.
 
-   # Bước 3: Xóa file index.html mặc định của Nginx (nếu bạn muốn thay thế hoàn toàn)
-   # Đường dẫn mặc định của Nginx để phục vụ file tĩnh là /usr/share/nginx/html
-   # RUN rm /usr/share/nginx/html/index.html /usr/share/nginx/html/50x.html
-   # Hoặc đơn giản là copy đè lên
+   # Bước 3: Sao chép file index.php tùy chỉnh của chúng ta từ build context
+   # vào thư mục phục vụ web của Apache bên trong image.
+   # '.' (dấu chấm đầu tiên) là thư mục hiện tại (build context) chứa index.php.
+   # '/var/www/html/' là thư mục đích trong container.
+   COPY ./index.php /var/www/html/index.php
 
-   # Bước 4: Sao chép file index.html tùy chỉnh của chúng ta từ build context
-   # vào thư mục phục vụ web của Nginx bên trong image.
-   # '.' (dấu chấm đầu tiên) là file index.html trong thư mục hiện tại (build context).
-   # '/usr/share/nginx/html/' là thư mục đích trong container.
-   COPY ./index.html /usr/share/nginx/html/index.html
-
-   # Bước 5: Expose port 80 (Nginx mặc định chạy và lắng nghe trên port 80 bên trong container)
+   # Bước 4: Expose port 80 (Apache mặc định chạy và lắng nghe trên port 80 bên trong container)
    # Đây là metadata, không tự động publish port ra host.
    EXPOSE 80
 
-   # Bước 6: Lệnh mặc định để Nginx chạy ở foreground (cần thiết cho Docker)
-   # Image nginx:alpine đã có CMD này rồi, nên dòng này có thể bỏ qua nếu dùng base image đó.
-   # Nhưng để rõ ràng, ta có thể thêm:
-   # CMD ["nginx", "-g", "daemon off;"]
-   # "-g daemon off;" đảm bảo Nginx chạy ở foreground, nếu không container sẽ exit ngay.
+   # Bước 5: Lệnh mặc định để Apache chạy đã được cấu hình trong base image php:apache.
+   # Không cần thêm CMD trừ khi bạn muốn ghi đè hành vi mặc định.
+   # CMD ["apache2-foreground"]
    ```
 
 3. **Build Docker image:**
-   Đảm bảo bạn đang ở trong thư mục `nginx-hello` (nơi chứa `index.html` và `Dockerfile`).
+   Đảm bảo bạn đang ở trong thư mục `php-hello-docker` (nơi chứa `index.php` và `Dockerfile`).
    Chạy lệnh sau để build image:
 
    ```bash
-   docker build -t my-first-nginx:1.0 .
+   docker build -t my-first-php-app:1.0 .
    ```
 
    - `docker build`: Lệnh build image.
-   - `-t my-first-nginx:1.0`: Tag image với tên `my-first-nginx` và phiên bản `1.0`.
+   - `-t my-first-php-app:1.0`: Tag image với tên `my-first-php-app` và phiên bản `1.0`.
    - `.` : Chỉ định build context là thư mục hiện tại.
 
    Kiểm tra image đã được tạo:
@@ -1081,18 +1085,18 @@ Mục tiêu: Tạo một `Dockerfile` để phục vụ một trang `index.html`
    docker images
    ```
 
-   Bạn sẽ thấy `my-first-nginx` với tag `1.0` trong danh sách.
+   Bạn sẽ thấy `my-first-php-app` với tag `1.0` trong danh sách.
 
 4. **Chạy container từ image vừa build:**
 
    ```bash
-   docker run -d -p 8080:80 --name web_test_nginx my-first-nginx:1.0
+   docker run -d -p 8080:80 --name web_test_php my-first-php-app:1.0
    ```
 
    - `-d`: Chạy container ở chế độ detached (background).
-   - `-p 8080:80`: Map port `8080` của máy host tới port `80` của container (port mà Nginx đang lắng nghe).
-   - `--name web_test_nginx`: Đặt tên cho container là `web_test_nginx` để dễ quản lý.
-   - `my-first-nginx:1.0`: Tên image và tag để chạy.
+   - `-p 8080:80`: Map port `8080` của máy host tới port `80` của container (port mà Apache đang lắng nghe).
+   - `--name web_test_php`: Đặt tên cho container là `web_test_php` để dễ quản lý.
+   - `my-first-php-app:1.0`: Tên image và tag để chạy.
 
    Kiểm tra container đang chạy:
 
@@ -1100,104 +1104,57 @@ Mục tiêu: Tạo một `Dockerfile` để phục vụ một trang `index.html`
    docker ps
    ```
 
-   Bạn sẽ thấy container `web_test_nginx` đang chạy.
+   Bạn sẽ thấy container `web_test_php` đang chạy.
 
 5. **Kiểm tra kết quả:**
    Mở trình duyệt web (Chrome, Firefox,...) và truy cập địa chỉ `http://localhost:8080`.
-   Bạn sẽ thấy trang "Hello Docker!" với logo Docker mà bạn đã tạo.
+   Bạn sẽ thấy trang "Hello from PHP inside Docker!" cùng với phiên bản PHP đang chạy và logo Docker.
 
 6. **Xem logs của container (tùy chọn):**
 
    ```bash
-   docker logs web_test_nginx
+   docker logs web_test_php
    ```
 
-   Bạn sẽ thấy logs access của Nginx.
+   Bạn sẽ thấy logs access của Apache.
 
 7. **Dọn dẹp:**
    Sau khi hoàn thành, bạn có thể dừng và xóa container:
 
    ```bash
-   docker stop web_test_nginx
-   docker rm web_test_nginx
+   docker stop web_test_php
+   docker rm web_test_php
    ```
 
    Nếu muốn xóa cả image đã build:
 
    ```bash
-   # docker rmi my-first-nginx:1.0
+   # docker rmi my-first-php-app:1.0
    ```
 
-Chúc mừng! Bạn đã Dockerize thành công ứng dụng web tĩnh đầu tiên của mình.
+Chúc mừng! Bạn đã Dockerize thành công ứng dụng PHP đơn giản đầu tiên của mình.
 
-## 7. 🏋️ Bài Tập
+**Lưu ý thêm:**
 
-**Yêu cầu:** Dockerize một ứng dụng web tĩnh đơn giản của riêng bạn.
+- **Nginx + PHP-FPM:** Nếu bạn muốn sử dụng Nginx thay vì Apache cho PHP, `Dockerfile` sẽ phức tạp hơn một chút. Bạn sẽ cần:
+  - Một base image có Nginx (ví dụ `nginx:alpine`).
+  - Cài đặt PHP-FPM vào image đó.
+  - Cấu hình Nginx để chuyển các request `.php` tới PHP-FPM.
+  - Sao chép code PHP của bạn.
+  - Quản lý cả hai tiến trình (Nginx và PHP-FPM) trong container (thường dùng một process manager như `supervisor`).
+    Đây là một bước nâng cao hơn, có thể phù hợp cho một phần thực hành khác hoặc phần mở rộng.
+- **Phiên bản PHP:** Bạn có thể dễ dàng thay đổi phiên bản PHP bằng cách chọn tag khác cho image `php:apache` (ví dụ: `php:8.2-apache`, `php:8.1-apache`, etc.).
 
-1. **Chuẩn bị:**
+## 7. 🏋️ Bài Tập Nâng Cao: Dockerize Ứng Dụng PHP Động với Cấu Hình Môi Trường
 
-   - Tạo một thư mục mới cho bài tập, ví dụ `my-static-portfolio`.
-   - Bên trong thư mục đó, tạo một file `index.html`. Nội dung HTML có thể là:
-     - Một trang giới thiệu bản thân (portfolio đơn giản).
-     - Một trang "Coming Soon" cho một dự án tưởng tượng.
-     - Bất kỳ nội dung HTML tĩnh nào bạn thích.
-   - **(Tùy chọn nâng cao)** Thêm một file CSS riêng (`style.css`) và một vài hình ảnh (ví dụ: `profile.jpg`, `logo.png`). Liên kết chúng từ `index.html` bằng thẻ `<link>` và `<img>` với đường dẫn tương đối.
+**Đề bài:** Dockerize một ứng dụng PHP đơn giản có khả năng tùy chỉnh hiển thị thông qua biến môi trường và (tùy chọn) ghi lại số lượt truy cập
 
-2. **Viết `Dockerfile`:**
+**Mục tiêu học tập của bài tập này:**
 
-   - Trong thư mục `my-static-portfolio`, tạo file `Dockerfile`.
-   - Sử dụng một base image web server phù hợp. Gợi ý:
-     - `nginx:alpine` (nhẹ, phổ biến)
-     - `httpd:alpine` (Apache, cũng nhẹ)
-   - `COPY` các file tĩnh của bạn (`index.html`, và `style.css`, `images/` nếu có) vào thư mục phục vụ web mặc định của web server bên trong image:
-     - Cho Nginx: `/usr/share/nginx/html/`
-     - Cho Apache httpd: `/usr/local/apache2/htdocs/`
-     - _Lưu ý:_ Nếu bạn copy cả thư mục (ví dụ: `COPY ./css /usr/share/nginx/html/css`), hãy đảm bảo cấu trúc đường dẫn trong `index.html` của bạn khớp.
-   - `EXPOSE` port mà web server lắng nghe (thường là port 80).
-   - Đảm bảo web server chạy ở foreground khi container khởi động. Hầu hết các image web server chính thức (như `nginx:alpine`, `httpd:alpine`) đã cấu hình `CMD` để chạy ở foreground. Nếu bạn dùng một base image rất cơ bản, bạn có thể cần `CMD ["nginx", "-g", "daemon off;"]` hoặc tương tự cho Apache.
-
-3. **Build và Run:**
-
-   - Mở terminal, `cd` vào thư mục `my-static-portfolio`.
-   - Build image với một tên và tag tùy chọn (ví dụ: `my-portfolio-page:v1`).
-
-     ```bash
-     docker build -t my-portfolio-page:v1 .
-     ```
-
-   - Chạy container từ image đó, map một port trên host (ví dụ: 9090) tới port 80 của container. Đặt tên cho container (ví dụ: `my_site`).
-
-     ```bash
-     docker run -d -p 9090:80 --name my_site my-portfolio-page:v1
-     ```
-
-   - Truy cập trang web của bạn qua trình duyệt (`http://localhost:9090`).
-
-4. **Thao tác thêm (optional):**
-   - Xem logs của container `my_site`.
-   - Sử dụng `docker exec -it my_site sh` (hoặc `bash` nếu có) để vào bên trong container. Dùng `ls` để kiểm tra xem các file của bạn đã được copy đúng chỗ chưa (ví dụ: `ls /usr/share/nginx/html` hoặc `ls /usr/local/apache2/htdocs`). Gõ `exit` để thoát.
-   - Dừng và xóa container `my_site`.
-   - (Nếu muốn) Xóa image `my-portfolio-page:v1`.
-
-**Gợi ý:**
-
-- Khi `COPY` nhiều file hoặc thư mục, bạn có thể dùng nhiều lệnh `COPY` hoặc copy thư mục cha.
-  Ví dụ, nếu có `index.html`, `css/style.css`, `img/logo.png`:
-
-  ```dockerfile
-  # ...
-  WORKDIR /usr/share/nginx/html # Hoặc /usr/local/apache2/htdocs
-  COPY index.html .
-  COPY css/ ./css/
-  COPY img/ ./img/
-  # Hoặc đơn giản hơn nếu tất cả nằm trong thư mục 'public' trên host:
-  # COPY ./public/ .
-  # ...
-  ```
-
-- Tham khảo lại phần thực hành với Nginx nếu gặp khó khăn.
-
-Chúc bạn thành công với bài tập!
+- Hiểu rõ hơn về việc Dockerize một ứng dụng web động (PHP).
+- Thực hành cách sử dụng biến môi trường để cấu hình ứng dụng một cách linh hoạt từ bên ngoài container.
+- (Nâng cao) Làm quen với việc xử lý file và quản lý quyền cơ bản trong container Docker.
+- (Nâng cao) Tạo tiền đề để giới thiệu về khái niệm "stateful applications" và sự cần thiết của Docker Volumes để lưu trữ dữ liệu bền vững.
 
 ---
 
