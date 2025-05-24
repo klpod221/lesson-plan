@@ -81,9 +81,6 @@
 - **Kernel (nhân hệ điều hành)** là **trái tim** của một hệ điều hành. Nó là lớp phần mềm cốt lõi, quản lý tài nguyên phần cứng của máy tính (CPU, RAM, ổ đĩa, thiết bị mạng) và cung cấp các dịch vụ cơ bản cho tất cả các chương trình khác chạy trên đó.
 - Khi một ứng dụng muốn thực hiện một tác vụ như đọc file, gửi dữ liệu qua mạng, hoặc cấp phát bộ nhớ, nó không làm trực tiếp mà phải thông qua các **system calls (lời gọi hệ thống)** tới Kernel. Kernel sẽ xử lý yêu cầu đó.
   Tuyệt vời! Dưới đây là thông tin về kernel của các hệ điều hành phổ biến, được trình bày theo format bạn yêu cầu:
-
----
-
 - **Kernel của các hệ điều hành phổ biến:**
 
   - **Linux Kernel:**
