@@ -74,10 +74,6 @@
 
 Docker ra đời để giải quyết những vấn đề này bằng cách cung cấp một môi trường đóng gói, nhất quán và di động cho ứng dụng.
 
-Chắc chắn rồi! Dưới đây là nội dung của bạn đã được format lại bằng Markdown để dễ nhìn và chuẩn hơn:
-
----
-
 ### Giải pháp là gì? VMs vs Containers
 
 Để hiểu rõ sự khác biệt giữa Máy ảo (Virtual Machines - VMs) và Containers, trước tiên chúng ta cần nắm được khái niệm **Kernel**.
@@ -659,22 +655,28 @@ Mỗi chỉ thị thường tạo một layer mới trong image.
 
 3. **`ARG <name>[=<default_value>]`**
 
-        - **Mục đích:** Định nghĩa biến chỉ tồn tại trong quá trình build image (`docker build`).
-        - Giá trị có thể được truyền vào từ lệnh `docker build --build-arg <name>=<value>`.
-        - Nếu `ARG` được khai báo trước `FROM`, nó có thể được dùng trong `FROM`.
-        - Ví dụ: `ARG APP_VERSION=1.0.0`
-        - Ví dụ: `ARG NODE_VERSION=18 \
+    - **Mục đích:** Định nghĩa biến chỉ tồn tại trong quá trình build image (`docker build`).
+    - Giá trị có thể được truyền vào từ lệnh `docker build --build-arg <name>=<value>`.
+    - Nếu `ARG` được khai báo trước `FROM`, nó có thể được dùng trong `FROM`.
+    - Ví dụ: `ARG APP_VERSION=1.0.0`
+    - Ví dụ:
 
-    FROM node:${NODE_VERSION}-alpine as builder`
+      ```dockerfile
+      ARG NODE_VERSION=18
+      FROM node:${NODE_VERSION}-alpine as builder
+      ```
 
 4. **`ENV <key>=<value>` hoặc `ENV <key1>=<value1> <key2>=<value2> ...`**
 
-        - **Mục đích:** Thiết lập biến môi trường. Biến này sẽ tồn tại cả trong quá trình build và khi container chạy từ image đó.
-        - Giá trị có thể được ghi đè khi chạy container (`docker run -e <key>=<new_value>`).
-        - Ví dụ: `ENV NODE_ENV=production`
-        - Ví dụ: `ENV APP_HOME=/usr/src/app \
+    - **Mục đích:** Thiết lập biến môi trường. Biến này sẽ tồn tại cả trong quá trình build và khi container chạy từ image đó.
+    - Giá trị có thể được ghi đè khi chạy container (`docker run -e <key>=<new_value>`).
+    - Ví dụ: `ENV NODE_ENV=production`
+    - Ví dụ:
 
-    PATH=$APP_HOME/node_modules/.bin:$PATH`
+      ```dockerfile
+      ENV APP_HOME=/usr/src/app \
+          PATH=$APP_HOME/node_modules/.bin:$PATH
+      ```
 
 5. **`WORKDIR /path/to/workdir`**
 
@@ -704,15 +706,20 @@ Mỗi chỉ thị thường tạo một layer mới trong image.
 
 8. **`RUN <command>` (shell form) hoặc `RUN ["executable", "param1", "param2"]` (exec form)**
 
-        - **Mục đích:** Thực thi bất kỳ lệnh nào trong một layer mới của image, bên trên image hiện tại. Kết quả của lệnh sẽ được commit vào layer mới.
-        - Thường dùng để cài đặt packages, dependencies, biên dịch code, tạo thư mục, thay đổi quyền,...
-        - **Shell form:** `RUN apt-get update && apt-get install -y nginx` (chạy trong `/bin/sh -c <command>` hoặc shell được chỉ định bởi `SHELL`).
-        - **Exec form:** `RUN ["/bin/bash", "-c", "echo hello"]` (không dùng shell, thực thi trực tiếp).
-        - Để giảm số lượng layer, có thể nối nhiều lệnh bằng `&&`.
-        - Ví dụ: `RUN apt-get update && apt-get install -y --no-install-recommends \
-        python3 python3-pip \
+    - **Mục đích:** Thực thi bất kỳ lệnh nào trong một layer mới của image, bên trên image hiện tại. Kết quả của lệnh sẽ được commit vào layer mới.
+    - Thường dùng để cài đặt packages, dependencies, biên dịch code, tạo thư mục, thay đổi quyền,...
+    - **Shell form:** `RUN apt-get update && apt-get install -y nginx` (chạy trong `/bin/sh -c <command>` hoặc shell được chỉ định bởi `SHELL`).
+    - **Exec form:** `RUN ["/bin/bash", "-c", "echo hello"]` (không dùng shell, thực thi trực tiếp).
+    - Để giảm số lượng layer, có thể nối nhiều lệnh bằng `&&`.
+    - Ví dụ:
 
-    && rm -rf /var/lib/apt/lists/\*`- Ví dụ:`RUN npm install --production`
+      ```dockerfile
+      RUN apt-get update && apt-get install -y --no-install-recommends \
+              python3 python3-pip \
+          && rm -rf /var/lib/apt/lists/*
+      ```
+
+    - Ví dụ: `RUN npm install --production`
 
 9. **`EXPOSE <port> [<port>/<protocol>...]`**
 
@@ -724,18 +731,21 @@ Mỗi chỉ thị thường tạo một layer mới trong image.
 
 10. **`CMD ["executable","param1","param2"]` (exec form - ưu tiên)**
 
-        - `CMD command param1 param2` (shell form)
-        - `CMD ["param1","param2"]` (làm tham số mặc định cho `ENTRYPOINT`)
-        - **Mục đích:** Cung cấp lệnh mặc định và/hoặc tham số sẽ được thực thi khi container khởi động từ image này.
-        - **Lưu ý:**
-          - Chỉ có một `CMD` instruction có hiệu lực trong Dockerfile. Nếu có nhiều `CMD`, chỉ `CMD` cuối cùng sẽ được dùng.
-          - Lệnh và tham số trong `CMD` có thể bị **ghi đè** hoàn toàn bởi command và arguments được cung cấp khi chạy `docker run <image> [COMMAND_TO_OVERRIDE_CMD]`.
-          - **Exec form** (`["executable", ...]`) là dạng được khuyến khích vì nó rõ ràng và không bị ảnh hưởng bởi shell.
-        - Ví dụ (exec form): `CMD ["nginx", "-g", "daemon off;"]`
-        - Ví dụ (shell form): `CMD echo "Hello Docker"`
-        - Ví dụ (làm param cho ENTRYPOINT): `ENTRYPOINT ["python", "app.py"] \
+    - `CMD command param1 param2` (shell form)
+    - `CMD ["param1","param2"]` (làm tham số mặc định cho `ENTRYPOINT`)
+    - **Mục đích:** Cung cấp lệnh mặc định và/hoặc tham số sẽ được thực thi khi container khởi động từ image này.
+    - **Lưu ý:**
+      - Chỉ có một `CMD` instruction có hiệu lực trong Dockerfile. Nếu có nhiều `CMD`, chỉ `CMD` cuối cùng sẽ được dùng.
+      - Lệnh và tham số trong `CMD` có thể bị **ghi đè** hoàn toàn bởi command và arguments được cung cấp khi chạy `docker run <image> [COMMAND_TO_OVERRIDE_CMD]`.
+      - **Exec form** (`["executable", ...]`) là dạng được khuyến khích vì nó rõ ràng và không bị ảnh hưởng bởi shell.
+    - Ví dụ (exec form): `CMD ["nginx", "-g", "daemon off;"]`
+    - Ví dụ (shell form): `CMD echo "Hello Docker"`
+    - Ví dụ (làm param cho ENTRYPOINT):
 
-    CMD ["--port", "8080"]`
+      ```dockerfile
+      ENTRYPOINT ["python", "app.py"]
+      CMD ["--port", "8080"]
+      ```
 
 11. **`ENTRYPOINT ["executable","param1","param2"]` (exec form - ưu tiên)**
 
@@ -789,13 +799,16 @@ Mỗi chỉ thị thường tạo một layer mới trong image.
 
 15. **`HEALTHCHECK [OPTIONS] CMD <command>` hoặc `HEALTHCHECK NONE`**
 
-        - **Mục đích:** Chỉ định cách Docker kiểm tra xem container có còn "khỏe" (healthy) hay không.
-        - Lệnh `<command>` sẽ được chạy bên trong container theo định kỳ. Nếu lệnh trả về exit code 0, container được coi là healthy. Exit code 1 là unhealthy.
-        - Options: `--interval=DURATION` (mặc định 30s), `--timeout=DURATION` (mặc định 30s), `--start-period=DURATION` (mặc định 0s), `--retries=N` (mặc định 3).
-        - `HEALTHCHECK NONE`: Tắt healthcheck được kế thừa từ base image.
-        - Ví dụ: `HEALTHCHECK --interval=5m --timeout=3s \
+    - **Mục đích:** Chỉ định cách Docker kiểm tra xem container có còn "khỏe" (healthy) hay không.
+    - Lệnh `<command>` sẽ được chạy bên trong container theo định kỳ. Nếu lệnh trả về exit code 0, container được coi là healthy. Exit code 1 là unhealthy.
+    - Options: `--interval=DURATION` (mặc định 30s), `--timeout=DURATION` (mặc định 30s), `--start-period=DURATION` (mặc định 0s), `--retries=N` (mặc định 3).
+    - `HEALTHCHECK NONE`: Tắt healthcheck được kế thừa từ base image.
+    - Ví dụ:
 
-    CMD curl -f <http://localhost/> || exit 1`
+      ```dockerfile
+      HEALTHCHECK --interval=5m --timeout=3s \
+        CMD curl -f http://localhost/ || exit 1
+      ```
 
 16. **`SHELL ["executable", "parameters"]`**
     - **Mục đích:** Thay đổi shell mặc định được sử dụng cho shell form của các lệnh `RUN`, `CMD`, `ENTRYPOINT` (mặc định là `["/bin/sh", "-c"]` trên Linux, `["cmd", "/S", "/C"]` trên Windows).
