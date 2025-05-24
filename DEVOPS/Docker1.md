@@ -6,6 +6,10 @@
   - [1. 🌟 Giới Thiệu](#1--giới-thiệu)
     - [Vấn đề "It works on my machine!"](#vấn-đề-it-works-on-my-machine)
     - [Giải pháp là gì? VMs vs Containers](#giải-pháp-là-gì-vms-vs-containers)
+      - [Kernel là gì?](#kernel-là-gì)
+      - [Máy ảo (VMs) hoạt động như thế nào?](#máy-ảo-vms-hoạt-động-như-thế-nào)
+      - [Containers (Docker) hoạt động như thế nào: "Chia sẻ Kernel của Host OS"](#containers-docker-hoạt-động-như-thế-nào-chia-sẻ-kernel-của-host-os)
+      - [So sánh VMs và Containers](#so-sánh-vms-và-containers)
   - [2. 🐧 Linux Cơ Bản Cho Docker](#2--linux-cơ-bản-cho-docker)
     - [Tại sao cần biết Linux cơ bản?](#tại-sao-cần-biết-linux-cơ-bản)
     - [Di chuyển \& Quản lý file/thư mục](#di-chuyển--quản-lý-filethư-mục)
@@ -70,158 +74,163 @@
 
 Docker ra đời để giải quyết những vấn đề này bằng cách cung cấp một môi trường đóng gói, nhất quán và di động cho ứng dụng.
 
+Chắc chắn rồi! Dưới đây là nội dung của bạn đã được format lại bằng Markdown để dễ nhìn và chuẩn hơn:
+
+---
+
 ### Giải pháp là gì? VMs vs Containers
 
-1. **Kernel** là gì?
+Để hiểu rõ sự khác biệt giữa Máy ảo (Virtual Machines - VMs) và Containers, trước tiên chúng ta cần nắm được khái niệm **Kernel**.
 
-- Kernel (nhân hệ điều hành) là **trái tim** của một hệ điều hành. Nó là lớp phần mềm cốt lõi, quản lý tài nguyên phần cứng của máy tính (CPU, RAM, ổ đĩa, thiết bị mạng) và cung cấp các dịch vụ cơ bản cho tất cả các chương trình khác chạy trên đó.
-- Khi một ứng dụng muốn thực hiện một tác vụ như đọc file, gửi dữ liệu qua mạng, hoặc cấp phát bộ nhớ, nó không làm trực tiếp mà phải thông qua các **system calls** tới Kernel. Kernel sẽ xử lý yêu cầu đó.
-- Sơ đồ quá trình khởi động máy tính:
+#### Kernel là gì?
 
-```text
-    +-------------------------+
-    |   1. BẬT NGUỒN          |
-    |   (Nhấn nút nguồn)      |
-    +-------------------------+
-              |
-              V
-    +---------------------------------------------------------------------+
-    |   2. BIOS/UEFI CHẠY (Firmware trên Bo mạch chủ)                     |
-    |       |                                                             |
-    |       +-- a. Kích hoạt BIOS/UEFI từ chip ROM                        |
-    |       |                                                             |
-    |       +-- b. POST (Power-On Self-Test)                              |
-    |       |    (Kiểm tra CPU, RAM, VGA, Keyboard...)                    |
-    |       |    (-> Báo lỗi nếu có)                                      |
-    |       |                                                             |
-    |       +-- c. Khởi tạo các thiết bị phần cứng cơ bản                 |
-    |       |                                                             |
-    |       +-- d. Tìm Thiết bị Khởi động (Bootable Device)               |
-    |       |    (Theo thứ tự cấu hình: HDD/SSD, USB, Network...)         |
-    |       |                                                             |
-    |       +-- e. Đọc MBR/ESP từ Thiết bị Khởi động                      |
-    |            |                                                        |
-    |            +--> Tải BOOTLOADER vào RAM                              |
-    |                 (Ví dụ: GRUB, Windows Boot Manager)                 |
-    +---------------------------------------------------------------------+
-                          |
-                          V (Bootloader tiếp quản)
-    +---------------------------------------------------------------------+
-    |   3. BOOTLOADER CHẠY (Trong RAM)                                    |
-    |       |                                                             |
-    |       +-- a. (Tùy chọn) Hiển thị menu chọn Hệ Điều Hành (HĐH)       |
-    |       |                                                             |
-    |       +-- b. Tải KERNEL của HĐH đã chọn vào RAM                     |
-    |       |    (Từ Ổ cứng/SSD)                                          |
-    |       |                                                             |
-    |       +-- c. (Tùy chọn) Tải Initial RAM Disk (initrd/initramfs)     |
-    |            (Chứa driver tạm thời cho Kernel)                        |
-    +---------------------------------------------------------------------+
-                          |
-                          V (Kernel tiếp quản)
-    +---------------------------------------------------------------------+
-    |   4. KERNEL CHẠY (Trong RAM)                                        |
-    |       |                                                             |
-    |       +-- a. Kernel được giải nén và bắt đầu thực thi               |
-    |       |                                                             |
-    |       +-- b. Khởi tạo Cấu trúc Dữ liệu, Device Drivers phức tạp hơn |
-    |       |                                                             |
-    |       +-- c. Mount Hệ thống File Gốc (Root Filesystem)              |
-    |       |                                                             |
-    |       +-- d. Khởi chạy Tiến trình INIT (PID 1)                      |
-    |            (Ví dụ: /sbin/init, systemd)                             |
-    |            (Đây là tiến trình đầu tiên trong User Space)            |
-    +---------------------------------------------------------------------+
-                          |
-                          V (Init process tiếp quản)
-    +---------------------------------------------------------------------+
-    |   5. HỆ ĐIỀU HÀNH KHỞI ĐỘNG HOÀN TẤT                                |
-    |       |                                                             |
-    |       +-- a. Init/systemd khởi chạy các Dịch vụ Hệ thống            |
-    |       |    (Network, Logging, Display Manager...)                   |
-    |       |                                                             |
-    |       +-- b. Khởi chạy Giao diện Người dùng (GUI hoặc CLI)          |
-    |       |    (Login screen, Desktop Environment, Shell...)            |
-    |       |                                                             |
-    |       +-- c. Kernel hoạt động đầy đủ, quản lý hệ thống              |
-    |            |                                                        |
-    |            +--> NGƯỜI DÙNG CÓ THỂ SỬ DỤNG MÁY TÍNH                  |
-    +---------------------------------------------------------------------+
-```
+- **Kernel (nhân hệ điều hành)** là **trái tim** của một hệ điều hành. Nó là lớp phần mềm cốt lõi, quản lý tài nguyên phần cứng của máy tính (CPU, RAM, ổ đĩa, thiết bị mạng) và cung cấp các dịch vụ cơ bản cho tất cả các chương trình khác chạy trên đó.
+- Khi một ứng dụng muốn thực hiện một tác vụ như đọc file, gửi dữ liệu qua mạng, hoặc cấp phát bộ nhớ, nó không làm trực tiếp mà phải thông qua các **system calls (lời gọi hệ thống)** tới Kernel. Kernel sẽ xử lý yêu cầu đó.
 
-2. Máy ảo (VMs) hoạt động như thế nào?
+- **Sơ đồ quá trình khởi động máy tính:**
+  (Sơ đồ này minh họa Kernel được tải và chạy ở giai đoạn nào)
 
-   - Mỗi VM chạy một **hệ điều hành khách (Guest OS) hoàn chỉnh**, bao gồm cả **Kernel riêng** của Guest OS đó.
-   - Ví dụ: Bạn có một máy chủ vật lý chạy Linux (Host OS). Bạn cài một Hypervisor (như VMware, VirtualBox, KVM). Trên Hypervisor đó, bạn có thể tạo:
-     - Một VM chạy Windows (có Kernel Windows riêng).
-     - Một VM khác chạy một phiên bản Ubuntu khác (có Kernel Linux riêng, khác với Kernel của Host OS hoặc cùng phiên bản nhưng độc lập).
-   - **Minh họa VM:**
+  ```text
+      +-------------------------+
+      |   1. BẬT NGUỒN          |
+      |   (Nhấn nút nguồn)      |
+      +-------------------------+
+                |
+                V
+      +---------------------------------------------------------------------+
+      |   2. BIOS/UEFI CHẠY (Firmware trên Bo mạch chủ)                     |
+      |       |                                                             |
+      |       +-- a. Kích hoạt BIOS/UEFI từ chip ROM                        |
+      |       |                                                             |
+      |       +-- b. POST (Power-On Self-Test)                              |
+      |       |    (Kiểm tra CPU, RAM, VGA, Keyboard...)                    |
+      |       |    (-> Báo lỗi nếu có)                                      |
+      |       |                                                             |
+      |       +-- c. Khởi tạo các thiết bị phần cứng cơ bản                 |
+      |       |                                                             |
+      |       +-- d. Tìm Thiết bị Khởi động (Bootable Device)               |
+      |       |    (Theo thứ tự cấu hình: HDD/SSD, USB, Network...)         |
+      |       |                                                             |
+      |       +-- e. Đọc MBR/ESP từ Thiết bị Khởi động                      |
+      |            |                                                        |
+      |            +--> Tải BOOTLOADER vào RAM                              |
+      |                 (Ví dụ: GRUB, Windows Boot Manager)                 |
+      +---------------------------------------------------------------------+
+                            |
+                            V (Bootloader tiếp quản)
+      +---------------------------------------------------------------------+
+      |   3. BOOTLOADER CHẠY (Trong RAM)                                    |
+      |       |                                                             |
+      |       +-- a. (Tùy chọn) Hiển thị menu chọn Hệ Điều Hành (HĐH)       |
+      |       |                                                             |
+      |       +-- b. Tải KERNEL của HĐH đã chọn vào RAM                     |
+      |       |    (Từ Ổ cứng/SSD)                                          |
+      |       |                                                             |
+      |       +-- c. (Tùy chọn) Tải Initial RAM Disk (initrd/initramfs)     |
+      |            (Chứa driver tạm thời cho Kernel)                        |
+      +---------------------------------------------------------------------+
+                            |
+                            V (Kernel tiếp quản)
+      +---------------------------------------------------------------------+
+      |   4. KERNEL CHẠY (Trong RAM)                                        |
+      |       |                                                             |
+      |       +-- a. Kernel được giải nén và bắt đầu thực thi               |
+      |       |                                                             |
+      |       +-- b. Khởi tạo Cấu trúc Dữ liệu, Device Drivers phức tạp hơn |
+      |       |                                                             |
+      |       +-- c. Mount Hệ thống File Gốc (Root Filesystem)              |
+      |       |                                                             |
+      |       +-- d. Khởi chạy Tiến trình INIT (PID 1)                      |
+      |            (Ví dụ: /sbin/init, systemd)                             |
+      |            (Đây là tiến trình đầu tiên trong User Space)            |
+      +---------------------------------------------------------------------+
+                            |
+                            V (Init process tiếp quản)
+      +---------------------------------------------------------------------+
+      |   5. HỆ ĐIỀU HÀNH KHỞI ĐỘNG HOÀN TẤT                                |
+      |       |                                                             |
+      |       +-- a. Init/systemd khởi chạy các Dịch vụ Hệ thống            |
+      |       |    (Network, Logging, Display Manager...)                   |
+      |       |                                                             |
+      |       +-- b. Khởi chạy Giao diện Người dùng (GUI hoặc CLI)          |
+      |       |    (Login screen, Desktop Environment, Shell...)            |
+      |       |                                                             |
+      |       +-- c. Kernel hoạt động đầy đủ, quản lý hệ thống              |
+      |            |                                                        |
+      |            +--> NGƯỜI DÙNG CÓ THỂ SỬ DỤNG MÁY TÍNH                  |
+      +---------------------------------------------------------------------+
+  ```
 
-     ```text
-           App A     |     App B
-        (trong VM1)  |  (trong VM2)
-       --------------|--------------
-        Guest OS 1   |  Guest OS 2
-       (Kernel G1)   |  (Kernel G2)
-       ============================= Hypervisor
-                 Host OS
-                (Kernel H)
-       =============================
-                 Hardware
-     ```
+#### Máy ảo (VMs) hoạt động như thế nào?
 
-   - Điều này có nghĩa là VM1 và VM2 hoàn toàn cô lập về mặt Kernel. Kernel G1 không biết gì về Kernel G2 hay Kernel H.
+- Mỗi VM chạy một **hệ điều hành khách (Guest OS) hoàn chỉnh**, bao gồm cả **Kernel riêng** của Guest OS đó.
+- Ví dụ: Bạn có một máy chủ vật lý chạy Linux (Host OS). Bạn cài một Hypervisor (như VMware, VirtualBox, KVM). Trên Hypervisor đó, bạn có thể tạo:
+  - Một VM chạy Windows (có Kernel Windows riêng).
+  - Một VM khác chạy một phiên bản Ubuntu khác (có Kernel Linux riêng, khác với Kernel của Host OS hoặc cùng phiên bản nhưng độc lập).
+- **Minh họa VM:**
 
-3. Containers (Docker) hoạt động như thế nào:
+  ```text
+        App A     |     App B
+     (trong VM1)  |  (trong VM2)
+    --------------|--------------
+     Guest OS 1   |  Guest OS 2
+    (Kernel G1)   |  (Kernel G2)
+    ============================= Hypervisor
+              Host OS
+             (Kernel H)
+    =============================
+              Hardware
+  ```
 
-   - Tất cả các containers chạy trên cùng một máy chủ (Host OS) sẽ **cùng sử dụng chung một Kernel duy nhất, đó là Kernel của Host OS.**
-   - Containers không có Kernel riêng. Thay vào đó, Docker Engine sử dụng các tính năng của Kernel Host OS (chủ yếu trên Linux là **Namespaces** và **Control Groups - cgroups**) để tạo ra sự cô lập cho các container.
-   - **Minh họa Container:**
+- Điều này có nghĩa là VM1 và VM2 hoàn toàn cô lập về mặt Kernel. Kernel G1 không biết gì về Kernel G2 hay Kernel H.
 
-     ```
-           App A     |     App B     |     App C
-        (Container1)| (Container2)  | (Container3)
-        Libs/Bins A | Libs/Bins B   | Libs/Bins C
-       ------------------------------------------- Docker Engine
-                       Host OS
-                      (Kernel H)
-       ===========================================
-                       Hardware
-     ```
+#### Containers (Docker) hoạt động như thế nào: "Chia sẻ Kernel của Host OS"
 
-   - **Điều này có nghĩa là:**
+- Tất cả các containers chạy trên cùng một máy chủ (Host OS) sẽ **cùng sử dụng chung một Kernel duy nhất, đó là Kernel của Host OS.**
+- Containers không có Kernel riêng. Thay vào đó, Docker Engine sử dụng các tính năng của Kernel Host OS (chủ yếu trên Linux là **Namespaces** và **Control Groups - cgroups**) để tạo ra sự cô lập cho các container.
+- **Minh họa Container:**
 
-     - Khi một ứng dụng bên trong Container 1 (ví dụ, một Nginx server) cần mở một network socket, nó thực hiện một system call. System call này được xử lý trực tiếp bởi **Kernel của Host OS**.
-     - Tương tự, khi một ứng dụng trong Container 2 (ví dụ, một Python app) cần đọc một file, system call của nó cũng được xử lý bởi **Kernel của Host OS**.
-     - Mặc dù cùng dùng chung Kernel, các container vẫn được cô lập với nhau. Docker Engine, thông qua Kernel Host, đảm bảo rằng:
-       - **Namespaces:** Container 1 không "nhìn thấy" các process, network interfaces, hay filesystem của Container 2 (và ngược lại). Mỗi container có một "view" riêng về hệ thống, mặc dù nền tảng là chung.
-         - `PID namespace`: Mỗi container có cây process riêng, bắt đầu từ PID 1.
-         - `Network namespace`: Mỗi container có network stack riêng (IP, routing table, port).
-         - `Mount namespace`: Mỗi container có cấu trúc thư mục (filesystem) riêng.
-         - `UTS namespace`: Mỗi container có hostname riêng.
-         - `User namespace`: Ánh xạ user ID trong container sang user ID khác trên host.
-       - **Control Groups (cgroups):** Giới hạn và theo dõi tài nguyên (CPU, RAM, I/O) mà mỗi container có thể sử dụng. Điều này ngăn một container "tham lam" chiếm hết tài nguyên của hệ thống.
+  ```text
+        App A    |     App B     |     App C
+     (Container1)| (Container2)  | (Container3)
+     Libs/Bins A | Libs/Bins B   | Libs/Bins C
+    ------------------------------------------- Docker Engine
+                    Host OS
+                   (Kernel H)
+    ===========================================
+                    Hardware
+  ```
 
-   - **Ví dụ minh họa:**
+- **Điều này có nghĩa là:**
 
-   Hãy tưởng tượng một tòa nhà chung cư (Host OS) và một người quản lý tòa nhà (Kernel của Host OS).
+  - Khi một ứng dụng bên trong Container 1 (ví dụ, một Nginx server) cần mở một network socket, nó thực hiện một system call. System call này được xử lý trực tiếp bởi **Kernel của Host OS**.
+  - Tương tự, khi một ứng dụng trong Container 2 (ví dụ, một Python app) cần đọc một file, system call của nó cũng được xử lý bởi **Kernel của Host OS**.
+  - Mặc dù cùng dùng chung Kernel, các container vẫn được cô lập với nhau. Docker Engine, thông qua Kernel Host, đảm bảo rằng:
+    - **Namespaces:** Container 1 không "nhìn thấy" các process, network interfaces, hay filesystem của Container 2 (và ngược lại). Mỗi container có một "view" riêng về hệ thống, mặc dù nền tảng là chung.
+      - `PID namespace`: Mỗi container có cây process riêng, bắt đầu từ PID 1.
+      - `Network namespace`: Mỗi container có network stack riêng (IP, routing table, port).
+      - `Mount namespace`: Mỗi container có cấu trúc thư mục (filesystem) riêng.
+      - `UTS namespace`: Mỗi container có hostname riêng.
+      - `User namespace`: Ánh xạ user ID trong container sang user ID khác trên host.
+    - **Control Groups (cgroups):** Giới hạn và theo dõi tài nguyên (CPU, RAM, I/O) mà mỗi container có thể sử dụng. Điều này ngăn một container "tham lam" chiếm hết tài nguyên của hệ thống.
 
-   - **VMs giống như các căn nhà riêng biệt:** Mỗi căn nhà (VM) có nền móng (Kernel) riêng, hệ thống điện nước (Guest OS) riêng. Chúng độc lập hoàn toàn.
-   - **Containers giống như các căn hộ trong tòa nhà chung cư:**
+- **Ví dụ minh họa (Tòa nhà chung cư):**
+  Hãy tưởng tượng một tòa nhà chung cư (Host OS) và một người quản lý tòa nhà (Kernel của Host OS).
 
-     - Tất cả các căn hộ (containers) đều dùng chung nền móng của tòa nhà (Kernel của Host OS), chung hệ thống điện nước tổng của tòa nhà (các dịch vụ cơ bản của Host OS).
-     - Tuy nhiên, mỗi căn hộ (container) có không gian riêng tư, tường riêng, cửa riêng (namespaces). Bạn ở căn hộ A không thể tự tiện vào căn hộ B.
-     - Người quản lý tòa nhà (Kernel, thông qua Docker Engine) cũng quy định mỗi căn hộ được dùng bao nhiêu điện, nước (cgroups).
+  - **VMs giống như các căn nhà riêng biệt:** Mỗi căn nhà (VM) có nền móng (Kernel) riêng, hệ thống điện nước (Guest OS) riêng. Chúng độc lập hoàn toàn.
+  - **Containers giống như các căn hộ trong tòa nhà chung cư:**
+    - Tất cả các căn hộ (containers) đều dùng chung nền móng của tòa nhà (Kernel của Host OS), chung hệ thống điện nước tổng của tòa nhà (các dịch vụ cơ bản của Host OS).
+    - Tuy nhiên, mỗi căn hộ (container) có không gian riêng tư, tường riêng, cửa riêng (namespaces). Bạn ở căn hộ A không thể tự tiện vào căn hộ B.
+    - Người quản lý tòa nhà (Kernel, thông qua Docker Engine) cũng quy định mỗi căn hộ được dùng bao nhiêu điện, nước (cgroups).
 
-   - **Hệ quả của việc chia sẻ Kernel:**
+- **Hệ quả của việc chia sẻ Kernel:**
+  - **Khởi động nhanh:** Vì không phải boot cả một hệ điều hành mới, container khởi động gần như tức thì (chỉ là khởi động process của ứng dụng).
+  - **Nhẹ hơn:** Không tốn tài nguyên (CPU, RAM, disk) cho Guest OS riêng, chỉ tốn cho ứng dụng và thư viện của nó.
+  - **Mật độ cao hơn:** Có thể chạy nhiều container hơn trên cùng một host so với VMs.
+  - **Yêu cầu Kernel tương thích:** Vì chia sẻ Kernel, bạn không thể chạy một container Linux trực tiếp trên một Kernel Windows (và ngược lại) _một cách tự nhiên_.
+    - _Lưu ý:_ Docker Desktop trên Windows hoặc macOS thực chất chạy một máy ảo Linux nhỏ bên dưới để có thể chạy các container Linux. Khi đó, các container Linux đó chia sẻ Kernel của máy ảo Linux này, chứ không phải Kernel của Windows/macOS.
 
-     - **Khởi động nhanh:** Vì không phải boot cả một hệ điều hành mới, container khởi động gần như tức thì (chỉ là khởi động process của ứng dụng).
-     - **Nhẹ hơn:** Không tốn tài nguyên (CPU, RAM, disk) cho Guest OS riêng, chỉ tốn cho ứng dụng và thư viện của nó.
-     - **Mật độ cao hơn:** Có thể chạy nhiều container hơn trên cùng một host so với VMs.
-     - **Yêu cầu Kernel tương thích:** Vì chia sẻ Kernel, bạn không thể chạy một container Linux trực tiếp trên một Kernel Windows (và ngược lại) _một cách tự nhiên_.
-       - _Lưu ý:_ Docker Desktop trên Windows hoặc macOS thực chất chạy một máy ảo Linux nhỏ bên dưới để có thể chạy các container Linux. Khi đó, các container Linux đó chia sẻ Kernel của máy ảo Linux này, chứ không phải Kernel của Windows/macOS.
-
-4. So sánh
+#### So sánh VMs và Containers
 
 | Tính năng        | Virtual Machines (VMs)                                                                                                                                                       | Containers (Docker)                                                                                  |
 | :--------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------- |
@@ -231,6 +240,8 @@ Docker ra đời để giải quyết những vấn đề này bằng cách cung
 | **Portability**  | **Khá**: Image VM thường rất lớn (GBs), di chuyển và quản lý phức tạp hơn.                                                                                                   | **Rất cao**: Image container nhỏ gọn hơn nhiều (MBs đến vài trăm MBs), dễ dàng di chuyển và chia sẻ. |
 | **Density**      | **Thấp**: Số lượng VM có thể chạy trên một host bị giới hạn bởi tài nguyên cần cho Guest OS.                                                                                 | **Cao**: Có thể chạy nhiều container hơn trên cùng một host do overhead thấp.                        |
 | **Use Case**     | Cần chạy các OS khác nhau hoàn toàn trên cùng một host (VD: Windows trên Linux). Yêu cầu mức độ bảo mật kernel riêng biệt. Chạy các ứng dụng "legacy" không dễ containerize. | Đóng gói và chạy ứng dụng, microservices, CI/CD pipelines, môi trường phát triển nhất quán.          |
+
+---
 
 **Docker là một nền tảng containerization** giúp đóng gói ứng dụng và tất cả các dependencies của nó (thư viện, runtime, system tools, code) thành một đơn vị chuẩn hóa, di động gọi là **container**. Container này có thể chạy nhất quán trên bất kỳ máy nào có cài Docker, bất kể môi trường bên dưới.
 
@@ -634,19 +645,19 @@ Cú pháp chung: `docker [OPTIONS] COMMAND [ARGUMENTS...]`
 
 Mỗi chỉ thị thường tạo một layer mới trong image.
 
-1.  **`FROM <image>:<tag>` hoặc `FROM <image>@<digest>`**
+1. **`FROM <image>:<tag>` hoặc `FROM <image>@<digest>`**
 
     - **Mục đích:** Chỉ định base image (image nền) mà image của bạn sẽ được xây dựng dựa trên đó.
     - **Lưu ý:** _Luôn là instruction đầu tiên trong Dockerfile_ (trừ trường hợp có `ARG` trước `FROM`).
     - Nên dùng tag cụ thể (VD: `ubuntu:22.04`) thay vì `latest` để đảm bảo tính tái lập (reproducibility). Dùng digest (`sha256:...`) cho độ tin cậy cao nhất.
     - Ví dụ: `FROM ubuntu:22.04`, `FROM node:18-alpine`, `FROM mcr.microsoft.com/dotnet/sdk:6.0`
 
-2.  **`LABEL <key>=<value> [<key2>=<value2> ...]`**
+2. **`LABEL <key>=<value> [<key2>=<value2> ...]`**
 
     - **Mục đích:** Thêm metadata vào image dưới dạng cặp key-value (VD: `maintainer`, `version`, `description`).
     - Ví dụ: `LABEL maintainer="your.email@example.com" version="1.0" description="My awesome app"`
 
-3.  **`ARG <name>[=<default_value>]`**
+3. **`ARG <name>[=<default_value>]`**
 
         - **Mục đích:** Định nghĩa biến chỉ tồn tại trong quá trình build image (`docker build`).
         - Giá trị có thể được truyền vào từ lệnh `docker build --build-arg <name>=<value>`.
@@ -656,7 +667,7 @@ Mỗi chỉ thị thường tạo một layer mới trong image.
 
     FROM node:${NODE_VERSION}-alpine as builder`
 
-4.  **`ENV <key>=<value>` hoặc `ENV <key1>=<value1> <key2>=<value2> ...`**
+4. **`ENV <key>=<value>` hoặc `ENV <key1>=<value1> <key2>=<value2> ...`**
 
         - **Mục đích:** Thiết lập biến môi trường. Biến này sẽ tồn tại cả trong quá trình build và khi container chạy từ image đó.
         - Giá trị có thể được ghi đè khi chạy container (`docker run -e <key>=<new_value>`).
@@ -665,14 +676,14 @@ Mỗi chỉ thị thường tạo một layer mới trong image.
 
     PATH=$APP_HOME/node_modules/.bin:$PATH`
 
-5.  **`WORKDIR /path/to/workdir`**
+5. **`WORKDIR /path/to/workdir`**
 
     - **Mục đích:** Thiết lập thư mục làm việc (working directory) cho các instruction tiếp theo như `RUN`, `CMD`, `ENTRYPOINT`, `COPY`, `ADD`.
     - Nếu thư mục không tồn tại, nó sẽ được tạo.
     - Nên dùng đường dẫn tuyệt đối.
     - Ví dụ: `WORKDIR /app` (các lệnh sau đó như `COPY . .` sẽ copy vào `/app`)
 
-6.  **`COPY [--chown=<user>:<group>] <src_on_host>... <dest_in_image>`**
+6. **`COPY [--chown=<user>:<group>] <src_on_host>... <dest_in_image>`**
 
     - **Mục đích:** Sao chép file hoặc thư mục từ "build context" (thư mục chứa Dockerfile trên host) vào filesystem của image.
     - `<src_on_host>` phải là đường dẫn tương đối so với build context.
@@ -683,7 +694,7 @@ Mỗi chỉ thị thường tạo một layer mới trong image.
     - Ví dụ: `COPY package.json yarn.lock ./`
     - Ví dụ: `COPY --chown=appuser:appgroup app.jar /opt/app/`
 
-7.  **`ADD [--chown=<user>:<group>] <src_on_host_or_URL>... <dest_in_image>`**
+7. **`ADD [--chown=<user>:<group>] <src_on_host_or_URL>... <dest_in_image>`**
 
     - **Mục đích:** Tương tự `COPY`, nhưng có thêm một số "magic":
       - Nếu `<src>` là URL, nó sẽ tải file về và copy vào `<dest>`.
@@ -691,7 +702,7 @@ Mỗi chỉ thị thường tạo một layer mới trong image.
     - **Khuyến cáo:** Ưu tiên dùng `COPY` trừ khi bạn thực sự cần tính năng tải URL hoặc tự động giải nén của `ADD`, vì `COPY` rõ ràng và dễ đoán hơn.
     - Ví dụ: `ADD https://example.com/config.zip /app/config/` (sẽ tải và giải nén)
 
-8.  **`RUN <command>` (shell form) hoặc `RUN ["executable", "param1", "param2"]` (exec form)**
+8. **`RUN <command>` (shell form) hoặc `RUN ["executable", "param1", "param2"]` (exec form)**
 
         - **Mục đích:** Thực thi bất kỳ lệnh nào trong một layer mới của image, bên trên image hiện tại. Kết quả của lệnh sẽ được commit vào layer mới.
         - Thường dùng để cài đặt packages, dependencies, biên dịch code, tạo thư mục, thay đổi quyền,...
@@ -701,9 +712,9 @@ Mỗi chỉ thị thường tạo một layer mới trong image.
         - Ví dụ: `RUN apt-get update && apt-get install -y --no-install-recommends \
         python3 python3-pip \
 
-    && rm -rf /var/lib/apt/lists/\*`    - Ví dụ:`RUN npm install --production`
+    && rm -rf /var/lib/apt/lists/\*`- Ví dụ:`RUN npm install --production`
 
-9.  **`EXPOSE <port> [<port>/<protocol>...]`**
+9. **`EXPOSE <port> [<port>/<protocol>...]`**
 
     - **Mục đích:** Thông báo cho Docker rằng container sẽ lắng nghe trên các network port được chỉ định khi chạy.
     - Đây chỉ là thông tin metadata, **không tự động publish port ra host**. Bạn vẫn cần dùng cờ `-p` hoặc `-P` với `docker run` để thực sự map port.
@@ -784,7 +795,7 @@ Mỗi chỉ thị thường tạo một layer mới trong image.
         - `HEALTHCHECK NONE`: Tắt healthcheck được kế thừa từ base image.
         - Ví dụ: `HEALTHCHECK --interval=5m --timeout=3s \
 
-    CMD curl -f http://localhost/ || exit 1`
+    CMD curl -f <http://localhost/> || exit 1`
 
 16. **`SHELL ["executable", "parameters"]`**
     - **Mục đích:** Thay đổi shell mặc định được sử dụng cho shell form của các lệnh `RUN`, `CMD`, `ENTRYPOINT` (mặc định là `["/bin/sh", "-c"]` trên Linux, `["cmd", "/S", "/C"]` trên Windows).
