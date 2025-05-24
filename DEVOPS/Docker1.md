@@ -72,7 +72,156 @@ Docker ra đời để giải quyết những vấn đề này bằng cách cung
 
 ### Giải pháp là gì? VMs vs Containers
 
-Trước Docker, **Virtual Machines (VMs)** là giải pháp phổ biến để tạo môi trường cô lập. Tuy nhiên, Containers (do Docker tiên phong) mang lại nhiều ưu điểm vượt trội.
+1. **Kernel** là gì?
+
+- Kernel (nhân hệ điều hành) là **trái tim** của một hệ điều hành. Nó là lớp phần mềm cốt lõi, quản lý tài nguyên phần cứng của máy tính (CPU, RAM, ổ đĩa, thiết bị mạng) và cung cấp các dịch vụ cơ bản cho tất cả các chương trình khác chạy trên đó.
+- Khi một ứng dụng muốn thực hiện một tác vụ như đọc file, gửi dữ liệu qua mạng, hoặc cấp phát bộ nhớ, nó không làm trực tiếp mà phải thông qua các **system calls** tới Kernel. Kernel sẽ xử lý yêu cầu đó.
+- Sơ đồ quá trình khởi động máy tính:
+
+```text
+    +-------------------------+
+    |   1. BẬT NGUỒN          |
+    |   (Nhấn nút nguồn)      |
+    +-------------------------+
+              |
+              V
+    +---------------------------------------------------------------------+
+    |   2. BIOS/UEFI CHẠY (Firmware trên Bo mạch chủ)                     |
+    |       |                                                             |
+    |       +-- a. Kích hoạt BIOS/UEFI từ chip ROM                        |
+    |       |                                                             |
+    |       +-- b. POST (Power-On Self-Test)                              |
+    |       |    (Kiểm tra CPU, RAM, VGA, Keyboard...)                    |
+    |       |    (-> Báo lỗi nếu có)                                      |
+    |       |                                                             |
+    |       +-- c. Khởi tạo các thiết bị phần cứng cơ bản                 |
+    |       |                                                             |
+    |       +-- d. Tìm Thiết bị Khởi động (Bootable Device)               |
+    |       |    (Theo thứ tự cấu hình: HDD/SSD, USB, Network...)         |
+    |       |                                                             |
+    |       +-- e. Đọc MBR/ESP từ Thiết bị Khởi động                      |
+    |            |                                                        |
+    |            +--> Tải BOOTLOADER vào RAM                              |
+    |                 (Ví dụ: GRUB, Windows Boot Manager)                 |
+    +---------------------------------------------------------------------+
+                          |
+                          V (Bootloader tiếp quản)
+    +---------------------------------------------------------------------+
+    |   3. BOOTLOADER CHẠY (Trong RAM)                                    |
+    |       |                                                             |
+    |       +-- a. (Tùy chọn) Hiển thị menu chọn Hệ Điều Hành (HĐH)       |
+    |       |                                                             |
+    |       +-- b. Tải KERNEL của HĐH đã chọn vào RAM                     |
+    |       |    (Từ Ổ cứng/SSD)                                          |
+    |       |                                                             |
+    |       +-- c. (Tùy chọn) Tải Initial RAM Disk (initrd/initramfs)     |
+    |            (Chứa driver tạm thời cho Kernel)                        |
+    +---------------------------------------------------------------------+
+                          |
+                          V (Kernel tiếp quản)
+    +---------------------------------------------------------------------+
+    |   4. KERNEL CHẠY (Trong RAM)                                        |
+    |       |                                                             |
+    |       +-- a. Kernel được giải nén và bắt đầu thực thi               |
+    |       |                                                             |
+    |       +-- b. Khởi tạo Cấu trúc Dữ liệu, Device Drivers phức tạp hơn |
+    |       |                                                             |
+    |       +-- c. Mount Hệ thống File Gốc (Root Filesystem)              |
+    |       |                                                             |
+    |       +-- d. Khởi chạy Tiến trình INIT (PID 1)                      |
+    |            (Ví dụ: /sbin/init, systemd)                             |
+    |            (Đây là tiến trình đầu tiên trong User Space)            |
+    +---------------------------------------------------------------------+
+                          |
+                          V (Init process tiếp quản)
+    +---------------------------------------------------------------------+
+    |   5. HỆ ĐIỀU HÀNH KHỞI ĐỘNG HOÀN TẤT                                |
+    |       |                                                             |
+    |       +-- a. Init/systemd khởi chạy các Dịch vụ Hệ thống            |
+    |       |    (Network, Logging, Display Manager...)                   |
+    |       |                                                             |
+    |       +-- b. Khởi chạy Giao diện Người dùng (GUI hoặc CLI)          |
+    |       |    (Login screen, Desktop Environment, Shell...)            |
+    |       |                                                             |
+    |       +-- c. Kernel hoạt động đầy đủ, quản lý hệ thống              |
+    |            |                                                        |
+    |            +--> NGƯỜI DÙNG CÓ THỂ SỬ DỤNG MÁY TÍNH                  |
+    +---------------------------------------------------------------------+
+```
+
+2. Máy ảo (VMs) hoạt động như thế nào?
+
+   - Mỗi VM chạy một **hệ điều hành khách (Guest OS) hoàn chỉnh**, bao gồm cả **Kernel riêng** của Guest OS đó.
+   - Ví dụ: Bạn có một máy chủ vật lý chạy Linux (Host OS). Bạn cài một Hypervisor (như VMware, VirtualBox, KVM). Trên Hypervisor đó, bạn có thể tạo:
+     - Một VM chạy Windows (có Kernel Windows riêng).
+     - Một VM khác chạy một phiên bản Ubuntu khác (có Kernel Linux riêng, khác với Kernel của Host OS hoặc cùng phiên bản nhưng độc lập).
+   - **Minh họa VM:**
+
+     ```text
+           App A     |     App B
+        (trong VM1)  |  (trong VM2)
+       --------------|--------------
+        Guest OS 1   |  Guest OS 2
+       (Kernel G1)   |  (Kernel G2)
+       ============================= Hypervisor
+                 Host OS
+                (Kernel H)
+       =============================
+                 Hardware
+     ```
+
+   - Điều này có nghĩa là VM1 và VM2 hoàn toàn cô lập về mặt Kernel. Kernel G1 không biết gì về Kernel G2 hay Kernel H.
+
+3. Containers (Docker) hoạt động như thế nào:
+
+   - Tất cả các containers chạy trên cùng một máy chủ (Host OS) sẽ **cùng sử dụng chung một Kernel duy nhất, đó là Kernel của Host OS.**
+   - Containers không có Kernel riêng. Thay vào đó, Docker Engine sử dụng các tính năng của Kernel Host OS (chủ yếu trên Linux là **Namespaces** và **Control Groups - cgroups**) để tạo ra sự cô lập cho các container.
+   - **Minh họa Container:**
+
+     ```
+           App A     |     App B     |     App C
+        (Container1)| (Container2)  | (Container3)
+        Libs/Bins A | Libs/Bins B   | Libs/Bins C
+       ------------------------------------------- Docker Engine
+                       Host OS
+                      (Kernel H)
+       ===========================================
+                       Hardware
+     ```
+
+   - **Điều này có nghĩa là:**
+
+     - Khi một ứng dụng bên trong Container 1 (ví dụ, một Nginx server) cần mở một network socket, nó thực hiện một system call. System call này được xử lý trực tiếp bởi **Kernel của Host OS**.
+     - Tương tự, khi một ứng dụng trong Container 2 (ví dụ, một Python app) cần đọc một file, system call của nó cũng được xử lý bởi **Kernel của Host OS**.
+     - Mặc dù cùng dùng chung Kernel, các container vẫn được cô lập với nhau. Docker Engine, thông qua Kernel Host, đảm bảo rằng:
+       - **Namespaces:** Container 1 không "nhìn thấy" các process, network interfaces, hay filesystem của Container 2 (và ngược lại). Mỗi container có một "view" riêng về hệ thống, mặc dù nền tảng là chung.
+         - `PID namespace`: Mỗi container có cây process riêng, bắt đầu từ PID 1.
+         - `Network namespace`: Mỗi container có network stack riêng (IP, routing table, port).
+         - `Mount namespace`: Mỗi container có cấu trúc thư mục (filesystem) riêng.
+         - `UTS namespace`: Mỗi container có hostname riêng.
+         - `User namespace`: Ánh xạ user ID trong container sang user ID khác trên host.
+       - **Control Groups (cgroups):** Giới hạn và theo dõi tài nguyên (CPU, RAM, I/O) mà mỗi container có thể sử dụng. Điều này ngăn một container "tham lam" chiếm hết tài nguyên của hệ thống.
+
+   - **Ví dụ minh họa:**
+
+   Hãy tưởng tượng một tòa nhà chung cư (Host OS) và một người quản lý tòa nhà (Kernel của Host OS).
+
+   - **VMs giống như các căn nhà riêng biệt:** Mỗi căn nhà (VM) có nền móng (Kernel) riêng, hệ thống điện nước (Guest OS) riêng. Chúng độc lập hoàn toàn.
+   - **Containers giống như các căn hộ trong tòa nhà chung cư:**
+
+     - Tất cả các căn hộ (containers) đều dùng chung nền móng của tòa nhà (Kernel của Host OS), chung hệ thống điện nước tổng của tòa nhà (các dịch vụ cơ bản của Host OS).
+     - Tuy nhiên, mỗi căn hộ (container) có không gian riêng tư, tường riêng, cửa riêng (namespaces). Bạn ở căn hộ A không thể tự tiện vào căn hộ B.
+     - Người quản lý tòa nhà (Kernel, thông qua Docker Engine) cũng quy định mỗi căn hộ được dùng bao nhiêu điện, nước (cgroups).
+
+   - **Hệ quả của việc chia sẻ Kernel:**
+
+     - **Khởi động nhanh:** Vì không phải boot cả một hệ điều hành mới, container khởi động gần như tức thì (chỉ là khởi động process của ứng dụng).
+     - **Nhẹ hơn:** Không tốn tài nguyên (CPU, RAM, disk) cho Guest OS riêng, chỉ tốn cho ứng dụng và thư viện của nó.
+     - **Mật độ cao hơn:** Có thể chạy nhiều container hơn trên cùng một host so với VMs.
+     - **Yêu cầu Kernel tương thích:** Vì chia sẻ Kernel, bạn không thể chạy một container Linux trực tiếp trên một Kernel Windows (và ngược lại) _một cách tự nhiên_.
+       - _Lưu ý:_ Docker Desktop trên Windows hoặc macOS thực chất chạy một máy ảo Linux nhỏ bên dưới để có thể chạy các container Linux. Khi đó, các container Linux đó chia sẻ Kernel của máy ảo Linux này, chứ không phải Kernel của Windows/macOS.
+
+4. So sánh
 
 | Tính năng        | Virtual Machines (VMs)                                                                                                                                                       | Containers (Docker)                                                                                  |
 | :--------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------- |
@@ -82,21 +231,6 @@ Trước Docker, **Virtual Machines (VMs)** là giải pháp phổ biến để 
 | **Portability**  | **Khá**: Image VM thường rất lớn (GBs), di chuyển và quản lý phức tạp hơn.                                                                                                   | **Rất cao**: Image container nhỏ gọn hơn nhiều (MBs đến vài trăm MBs), dễ dàng di chuyển và chia sẻ. |
 | **Density**      | **Thấp**: Số lượng VM có thể chạy trên một host bị giới hạn bởi tài nguyên cần cho Guest OS.                                                                                 | **Cao**: Có thể chạy nhiều container hơn trên cùng một host do overhead thấp.                        |
 | **Use Case**     | Cần chạy các OS khác nhau hoàn toàn trên cùng một host (VD: Windows trên Linux). Yêu cầu mức độ bảo mật kernel riêng biệt. Chạy các ứng dụng "legacy" không dễ containerize. | Đóng gói và chạy ứng dụng, microservices, CI/CD pipelines, môi trường phát triển nhất quán.          |
-
-**Sơ đồ kiến trúc:**
-
-```text
-      App A | App B                       App A | App B | App C
-      Bins/Libs | Bins/Libs               Bins/Libs | Bins/Libs | Bins/Libs
-      Guest OS | Guest OS                 ---------------------
-      Hypervisor                          Container Engine (Docker)
-      ---------------------               ---------------------
-      Host OS                             Host OS
-      ---------------------               ---------------------
-      Infrastructure                      Infrastructure
-
-      (VM Architecture)                   (Container Architecture)
-```
 
 **Docker là một nền tảng containerization** giúp đóng gói ứng dụng và tất cả các dependencies của nó (thư viện, runtime, system tools, code) thành một đơn vị chuẩn hóa, di động gọi là **container**. Container này có thể chạy nhất quán trên bất kỳ máy nào có cài Docker, bất kể môi trường bên dưới.
 
@@ -372,6 +506,7 @@ Trên cùng một Host Machine (chia sẻ Kernel của Host OS)
 
   - `docker login [SERVER_ADDRESS]`: Đăng nhập vào một registry. Mặc định là Docker Hub.
   - `docker pull <image_name>:<tag>`: Tải (download) một Image từ Registry về máy local.
+
     - _Ví dụ:_ `docker pull ubuntu:22.04`
 
     ```text
@@ -379,6 +514,7 @@ Trên cùng một Host Machine (chia sẻ Kernel của Host OS)
     ```
 
   - `docker push <username>/<image_name>:<tag>`: Đẩy (upload) một Image từ máy local của bạn lên Registry (sau khi đã `docker tag` image đúng cách).
+
     - _Ví dụ:_ `docker push mydockerhubuser/my-custom-app:1.0`
 
     ```text
@@ -498,43 +634,45 @@ Cú pháp chung: `docker [OPTIONS] COMMAND [ARGUMENTS...]`
 
 Mỗi chỉ thị thường tạo một layer mới trong image.
 
-1. **`FROM <image>:<tag>` hoặc `FROM <image>@<digest>`**
+1.  **`FROM <image>:<tag>` hoặc `FROM <image>@<digest>`**
 
     - **Mục đích:** Chỉ định base image (image nền) mà image của bạn sẽ được xây dựng dựa trên đó.
     - **Lưu ý:** _Luôn là instruction đầu tiên trong Dockerfile_ (trừ trường hợp có `ARG` trước `FROM`).
     - Nên dùng tag cụ thể (VD: `ubuntu:22.04`) thay vì `latest` để đảm bảo tính tái lập (reproducibility). Dùng digest (`sha256:...`) cho độ tin cậy cao nhất.
     - Ví dụ: `FROM ubuntu:22.04`, `FROM node:18-alpine`, `FROM mcr.microsoft.com/dotnet/sdk:6.0`
 
-2. **`LABEL <key>=<value> [<key2>=<value2> ...]`**
+2.  **`LABEL <key>=<value> [<key2>=<value2> ...]`**
 
     - **Mục đích:** Thêm metadata vào image dưới dạng cặp key-value (VD: `maintainer`, `version`, `description`).
     - Ví dụ: `LABEL maintainer="your.email@example.com" version="1.0" description="My awesome app"`
 
-3. **`ARG <name>[=<default_value>]`**
+3.  **`ARG <name>[=<default_value>]`**
 
-    - **Mục đích:** Định nghĩa biến chỉ tồn tại trong quá trình build image (`docker build`).
-    - Giá trị có thể được truyền vào từ lệnh `docker build --build-arg <name>=<value>`.
-    - Nếu `ARG` được khai báo trước `FROM`, nó có thể được dùng trong `FROM`.
-    - Ví dụ: `ARG APP_VERSION=1.0.0`
-    - Ví dụ: `ARG NODE_VERSION=18 \
-         FROM node:${NODE_VERSION}-alpine as builder`
+        - **Mục đích:** Định nghĩa biến chỉ tồn tại trong quá trình build image (`docker build`).
+        - Giá trị có thể được truyền vào từ lệnh `docker build --build-arg <name>=<value>`.
+        - Nếu `ARG` được khai báo trước `FROM`, nó có thể được dùng trong `FROM`.
+        - Ví dụ: `ARG APP_VERSION=1.0.0`
+        - Ví dụ: `ARG NODE_VERSION=18 \
 
-4. **`ENV <key>=<value>` hoặc `ENV <key1>=<value1> <key2>=<value2> ...`**
+    FROM node:${NODE_VERSION}-alpine as builder`
 
-    - **Mục đích:** Thiết lập biến môi trường. Biến này sẽ tồn tại cả trong quá trình build và khi container chạy từ image đó.
-    - Giá trị có thể được ghi đè khi chạy container (`docker run -e <key>=<new_value>`).
-    - Ví dụ: `ENV NODE_ENV=production`
-    - Ví dụ: `ENV APP_HOME=/usr/src/app \
-             PATH=$APP_HOME/node_modules/.bin:$PATH`
+4.  **`ENV <key>=<value>` hoặc `ENV <key1>=<value1> <key2>=<value2> ...`**
 
-5. **`WORKDIR /path/to/workdir`**
+        - **Mục đích:** Thiết lập biến môi trường. Biến này sẽ tồn tại cả trong quá trình build và khi container chạy từ image đó.
+        - Giá trị có thể được ghi đè khi chạy container (`docker run -e <key>=<new_value>`).
+        - Ví dụ: `ENV NODE_ENV=production`
+        - Ví dụ: `ENV APP_HOME=/usr/src/app \
+
+    PATH=$APP_HOME/node_modules/.bin:$PATH`
+
+5.  **`WORKDIR /path/to/workdir`**
 
     - **Mục đích:** Thiết lập thư mục làm việc (working directory) cho các instruction tiếp theo như `RUN`, `CMD`, `ENTRYPOINT`, `COPY`, `ADD`.
     - Nếu thư mục không tồn tại, nó sẽ được tạo.
     - Nên dùng đường dẫn tuyệt đối.
     - Ví dụ: `WORKDIR /app` (các lệnh sau đó như `COPY . .` sẽ copy vào `/app`)
 
-6. **`COPY [--chown=<user>:<group>] <src_on_host>... <dest_in_image>`**
+6.  **`COPY [--chown=<user>:<group>] <src_on_host>... <dest_in_image>`**
 
     - **Mục đích:** Sao chép file hoặc thư mục từ "build context" (thư mục chứa Dockerfile trên host) vào filesystem của image.
     - `<src_on_host>` phải là đường dẫn tương đối so với build context.
@@ -545,7 +683,7 @@ Mỗi chỉ thị thường tạo một layer mới trong image.
     - Ví dụ: `COPY package.json yarn.lock ./`
     - Ví dụ: `COPY --chown=appuser:appgroup app.jar /opt/app/`
 
-7. **`ADD [--chown=<user>:<group>] <src_on_host_or_URL>... <dest_in_image>`**
+7.  **`ADD [--chown=<user>:<group>] <src_on_host_or_URL>... <dest_in_image>`**
 
     - **Mục đích:** Tương tự `COPY`, nhưng có thêm một số "magic":
       - Nếu `<src>` là URL, nó sẽ tải file về và copy vào `<dest>`.
@@ -553,19 +691,19 @@ Mỗi chỉ thị thường tạo một layer mới trong image.
     - **Khuyến cáo:** Ưu tiên dùng `COPY` trừ khi bạn thực sự cần tính năng tải URL hoặc tự động giải nén của `ADD`, vì `COPY` rõ ràng và dễ đoán hơn.
     - Ví dụ: `ADD https://example.com/config.zip /app/config/` (sẽ tải và giải nén)
 
-8. **`RUN <command>` (shell form) hoặc `RUN ["executable", "param1", "param2"]` (exec form)**
+8.  **`RUN <command>` (shell form) hoặc `RUN ["executable", "param1", "param2"]` (exec form)**
 
-    - **Mục đích:** Thực thi bất kỳ lệnh nào trong một layer mới của image, bên trên image hiện tại. Kết quả của lệnh sẽ được commit vào layer mới.
-    - Thường dùng để cài đặt packages, dependencies, biên dịch code, tạo thư mục, thay đổi quyền,...
-    - **Shell form:** `RUN apt-get update && apt-get install -y nginx` (chạy trong `/bin/sh -c <command>` hoặc shell được chỉ định bởi `SHELL`).
-    - **Exec form:** `RUN ["/bin/bash", "-c", "echo hello"]` (không dùng shell, thực thi trực tiếp).
-    - Để giảm số lượng layer, có thể nối nhiều lệnh bằng `&&`.
-    - Ví dụ: `RUN apt-get update && apt-get install -y --no-install-recommends \
-               python3 python3-pip \
-           && rm -rf /var/lib/apt/lists/*`
-    - Ví dụ: `RUN npm install --production`
+        - **Mục đích:** Thực thi bất kỳ lệnh nào trong một layer mới của image, bên trên image hiện tại. Kết quả của lệnh sẽ được commit vào layer mới.
+        - Thường dùng để cài đặt packages, dependencies, biên dịch code, tạo thư mục, thay đổi quyền,...
+        - **Shell form:** `RUN apt-get update && apt-get install -y nginx` (chạy trong `/bin/sh -c <command>` hoặc shell được chỉ định bởi `SHELL`).
+        - **Exec form:** `RUN ["/bin/bash", "-c", "echo hello"]` (không dùng shell, thực thi trực tiếp).
+        - Để giảm số lượng layer, có thể nối nhiều lệnh bằng `&&`.
+        - Ví dụ: `RUN apt-get update && apt-get install -y --no-install-recommends \
+        python3 python3-pip \
 
-9. **`EXPOSE <port> [<port>/<protocol>...]`**
+    && rm -rf /var/lib/apt/lists/\*`    - Ví dụ:`RUN npm install --production`
+
+9.  **`EXPOSE <port> [<port>/<protocol>...]`**
 
     - **Mục đích:** Thông báo cho Docker rằng container sẽ lắng nghe trên các network port được chỉ định khi chạy.
     - Đây chỉ là thông tin metadata, **không tự động publish port ra host**. Bạn vẫn cần dùng cờ `-p` hoặc `-P` với `docker run` để thực sự map port.
@@ -575,17 +713,18 @@ Mỗi chỉ thị thường tạo một layer mới trong image.
 
 10. **`CMD ["executable","param1","param2"]` (exec form - ưu tiên)**
 
-    - `CMD command param1 param2` (shell form)
-    - `CMD ["param1","param2"]` (làm tham số mặc định cho `ENTRYPOINT`)
-    - **Mục đích:** Cung cấp lệnh mặc định và/hoặc tham số sẽ được thực thi khi container khởi động từ image này.
-    - **Lưu ý:**
-      - Chỉ có một `CMD` instruction có hiệu lực trong Dockerfile. Nếu có nhiều `CMD`, chỉ `CMD` cuối cùng sẽ được dùng.
-      - Lệnh và tham số trong `CMD` có thể bị **ghi đè** hoàn toàn bởi command và arguments được cung cấp khi chạy `docker run <image> [COMMAND_TO_OVERRIDE_CMD]`.
-      - **Exec form** (`["executable", ...]`) là dạng được khuyến khích vì nó rõ ràng và không bị ảnh hưởng bởi shell.
-    - Ví dụ (exec form): `CMD ["nginx", "-g", "daemon off;"]`
-    - Ví dụ (shell form): `CMD echo "Hello Docker"`
-    - Ví dụ (làm param cho ENTRYPOINT): `ENTRYPOINT ["python", "app.py"] \
-                                  CMD ["--port", "8080"]`
+        - `CMD command param1 param2` (shell form)
+        - `CMD ["param1","param2"]` (làm tham số mặc định cho `ENTRYPOINT`)
+        - **Mục đích:** Cung cấp lệnh mặc định và/hoặc tham số sẽ được thực thi khi container khởi động từ image này.
+        - **Lưu ý:**
+          - Chỉ có một `CMD` instruction có hiệu lực trong Dockerfile. Nếu có nhiều `CMD`, chỉ `CMD` cuối cùng sẽ được dùng.
+          - Lệnh và tham số trong `CMD` có thể bị **ghi đè** hoàn toàn bởi command và arguments được cung cấp khi chạy `docker run <image> [COMMAND_TO_OVERRIDE_CMD]`.
+          - **Exec form** (`["executable", ...]`) là dạng được khuyến khích vì nó rõ ràng và không bị ảnh hưởng bởi shell.
+        - Ví dụ (exec form): `CMD ["nginx", "-g", "daemon off;"]`
+        - Ví dụ (shell form): `CMD echo "Hello Docker"`
+        - Ví dụ (làm param cho ENTRYPOINT): `ENTRYPOINT ["python", "app.py"] \
+
+    CMD ["--port", "8080"]`
 
 11. **`ENTRYPOINT ["executable","param1","param2"]` (exec form - ưu tiên)**
 
@@ -639,12 +778,13 @@ Mỗi chỉ thị thường tạo một layer mới trong image.
 
 15. **`HEALTHCHECK [OPTIONS] CMD <command>` hoặc `HEALTHCHECK NONE`**
 
-    - **Mục đích:** Chỉ định cách Docker kiểm tra xem container có còn "khỏe" (healthy) hay không.
-    - Lệnh `<command>` sẽ được chạy bên trong container theo định kỳ. Nếu lệnh trả về exit code 0, container được coi là healthy. Exit code 1 là unhealthy.
-    - Options: `--interval=DURATION` (mặc định 30s), `--timeout=DURATION` (mặc định 30s), `--start-period=DURATION` (mặc định 0s), `--retries=N` (mặc định 3).
-    - `HEALTHCHECK NONE`: Tắt healthcheck được kế thừa từ base image.
-    - Ví dụ: `HEALTHCHECK --interval=5m --timeout=3s \
-         CMD curl -f http://localhost/ || exit 1`
+        - **Mục đích:** Chỉ định cách Docker kiểm tra xem container có còn "khỏe" (healthy) hay không.
+        - Lệnh `<command>` sẽ được chạy bên trong container theo định kỳ. Nếu lệnh trả về exit code 0, container được coi là healthy. Exit code 1 là unhealthy.
+        - Options: `--interval=DURATION` (mặc định 30s), `--timeout=DURATION` (mặc định 30s), `--start-period=DURATION` (mặc định 0s), `--retries=N` (mặc định 3).
+        - `HEALTHCHECK NONE`: Tắt healthcheck được kế thừa từ base image.
+        - Ví dụ: `HEALTHCHECK --interval=5m --timeout=3s \
+
+    CMD curl -f http://localhost/ || exit 1`
 
 16. **`SHELL ["executable", "parameters"]`**
     - **Mục đích:** Thay đổi shell mặc định được sử dụng cho shell form của các lệnh `RUN`, `CMD`, `ENTRYPOINT` (mặc định là `["/bin/sh", "-c"]` trên Linux, `["cmd", "/S", "/C"]` trên Windows).
@@ -767,166 +907,166 @@ README.md
 Mục tiêu: Tạo một `Dockerfile` để phục vụ một trang `index.html` đơn giản bằng web server `Nginx`.
 
 1. **Tạo thư mục dự án và file `index.html`:**
-    Mở terminal của bạn, tạo một thư mục mới (ví dụ `nginx-hello`) và `cd` vào đó:
+   Mở terminal của bạn, tạo một thư mục mới (ví dụ `nginx-hello`) và `cd` vào đó:
 
-    ```bash
-    mkdir nginx-hello
-    cd nginx-hello
-    ```
+   ```bash
+   mkdir nginx-hello
+   cd nginx-hello
+   ```
 
-    Bên trong thư mục `nginx-hello`, tạo file `index.html` với nội dung sau:
+   Bên trong thư mục `nginx-hello`, tạo file `index.html` với nội dung sau:
 
-    ```html
-    <!-- index.html -->
-    <!DOCTYPE html>
-    <html lang="en">
-      <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Hello Docker!</title>
-        <style>
-          body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f0f8ff;
-          }
-          .container {
-            text-align: center;
-            padding: 20px;
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-          }
-          h1 {
-            color: #333;
-          }
-          p {
-            color: #555;
-          }
-          img {
-            margin-top: 20px;
-            width: 100px;
-          }
-        </style>
-      </head>
-      <body>
-        <div class="container">
-          <h1>Hello from Nginx inside Docker! 🐳</h1>
-          <p>This is my first Dockerized web page. It's pretty cool!</p>
-          <img
-            src="https://www.docker.com/wp-content/uploads/2022/03/Moby-logo.png"
-            alt="Docker Logo"
-          />
-        </div>
-      </body>
-    </html>
-    ```
+   ```html
+   <!-- index.html -->
+   <!DOCTYPE html>
+   <html lang="en">
+     <head>
+       <meta charset="UTF-8" />
+       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+       <title>Hello Docker!</title>
+       <style>
+         body {
+           font-family: Arial, sans-serif;
+           display: flex;
+           justify-content: center;
+           align-items: center;
+           height: 100vh;
+           margin: 0;
+           background-color: #f0f8ff;
+         }
+         .container {
+           text-align: center;
+           padding: 20px;
+           background-color: white;
+           border-radius: 10px;
+           box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+         }
+         h1 {
+           color: #333;
+         }
+         p {
+           color: #555;
+         }
+         img {
+           margin-top: 20px;
+           width: 100px;
+         }
+       </style>
+     </head>
+     <body>
+       <div class="container">
+         <h1>Hello from Nginx inside Docker! 🐳</h1>
+         <p>This is my first Dockerized web page. It's pretty cool!</p>
+         <img
+           src="https://www.docker.com/wp-content/uploads/2022/03/Moby-logo.png"
+           alt="Docker Logo"
+         />
+       </div>
+     </body>
+   </html>
+   ```
 
 2. **Tạo file `Dockerfile`:**
-    Trong cùng thư mục `nginx-hello`, tạo file `Dockerfile` (không có phần mở rộng) với nội dung sau:
+   Trong cùng thư mục `nginx-hello`, tạo file `Dockerfile` (không có phần mở rộng) với nội dung sau:
 
-    ```dockerfile
-    # Bước 1: Sử dụng Nginx image chính thức từ Docker Hub, phiên bản alpine cho nhỏ gọn
-    FROM nginx:1.25-alpine
-    # Bạn có thể dùng nginx:latest, nhưng tag cụ thể tốt hơn cho tính ổn định
+   ```dockerfile
+   # Bước 1: Sử dụng Nginx image chính thức từ Docker Hub, phiên bản alpine cho nhỏ gọn
+   FROM nginx:1.25-alpine
+   # Bạn có thể dùng nginx:latest, nhưng tag cụ thể tốt hơn cho tính ổn định
 
-    # (Tùy chọn) Thêm thông tin về người tạo image
-    LABEL maintainer="yourname@example.com"
+   # (Tùy chọn) Thêm thông tin về người tạo image
+   LABEL maintainer="yourname@example.com"
 
-    # Bước 2: Thiết lập thư mục làm việc (không bắt buộc cho ví dụ này nhưng là good practice)
-    # WORKDIR /usr/share/nginx/html
-    # Mặc định Nginx image đã có WORKDIR thích hợp.
+   # Bước 2: Thiết lập thư mục làm việc (không bắt buộc cho ví dụ này nhưng là good practice)
+   # WORKDIR /usr/share/nginx/html
+   # Mặc định Nginx image đã có WORKDIR thích hợp.
 
-    # Bước 3: Xóa file index.html mặc định của Nginx (nếu bạn muốn thay thế hoàn toàn)
-    # Đường dẫn mặc định của Nginx để phục vụ file tĩnh là /usr/share/nginx/html
-    # RUN rm /usr/share/nginx/html/index.html /usr/share/nginx/html/50x.html
-    # Hoặc đơn giản là copy đè lên
+   # Bước 3: Xóa file index.html mặc định của Nginx (nếu bạn muốn thay thế hoàn toàn)
+   # Đường dẫn mặc định của Nginx để phục vụ file tĩnh là /usr/share/nginx/html
+   # RUN rm /usr/share/nginx/html/index.html /usr/share/nginx/html/50x.html
+   # Hoặc đơn giản là copy đè lên
 
-    # Bước 4: Sao chép file index.html tùy chỉnh của chúng ta từ build context
-    # vào thư mục phục vụ web của Nginx bên trong image.
-    # '.' (dấu chấm đầu tiên) là file index.html trong thư mục hiện tại (build context).
-    # '/usr/share/nginx/html/' là thư mục đích trong container.
-    COPY ./index.html /usr/share/nginx/html/index.html
+   # Bước 4: Sao chép file index.html tùy chỉnh của chúng ta từ build context
+   # vào thư mục phục vụ web của Nginx bên trong image.
+   # '.' (dấu chấm đầu tiên) là file index.html trong thư mục hiện tại (build context).
+   # '/usr/share/nginx/html/' là thư mục đích trong container.
+   COPY ./index.html /usr/share/nginx/html/index.html
 
-    # Bước 5: Expose port 80 (Nginx mặc định chạy và lắng nghe trên port 80 bên trong container)
-    # Đây là metadata, không tự động publish port ra host.
-    EXPOSE 80
+   # Bước 5: Expose port 80 (Nginx mặc định chạy và lắng nghe trên port 80 bên trong container)
+   # Đây là metadata, không tự động publish port ra host.
+   EXPOSE 80
 
-    # Bước 6: Lệnh mặc định để Nginx chạy ở foreground (cần thiết cho Docker)
-    # Image nginx:alpine đã có CMD này rồi, nên dòng này có thể bỏ qua nếu dùng base image đó.
-    # Nhưng để rõ ràng, ta có thể thêm:
-    # CMD ["nginx", "-g", "daemon off;"]
-    # "-g daemon off;" đảm bảo Nginx chạy ở foreground, nếu không container sẽ exit ngay.
-    ```
+   # Bước 6: Lệnh mặc định để Nginx chạy ở foreground (cần thiết cho Docker)
+   # Image nginx:alpine đã có CMD này rồi, nên dòng này có thể bỏ qua nếu dùng base image đó.
+   # Nhưng để rõ ràng, ta có thể thêm:
+   # CMD ["nginx", "-g", "daemon off;"]
+   # "-g daemon off;" đảm bảo Nginx chạy ở foreground, nếu không container sẽ exit ngay.
+   ```
 
 3. **Build Docker image:**
-    Đảm bảo bạn đang ở trong thư mục `nginx-hello` (nơi chứa `index.html` và `Dockerfile`).
-    Chạy lệnh sau để build image:
+   Đảm bảo bạn đang ở trong thư mục `nginx-hello` (nơi chứa `index.html` và `Dockerfile`).
+   Chạy lệnh sau để build image:
 
-    ```bash
-    docker build -t my-first-nginx:1.0 .
-    ```
+   ```bash
+   docker build -t my-first-nginx:1.0 .
+   ```
 
-    - `docker build`: Lệnh build image.
-    - `-t my-first-nginx:1.0`: Tag image với tên `my-first-nginx` và phiên bản `1.0`.
-    - `.` : Chỉ định build context là thư mục hiện tại.
+   - `docker build`: Lệnh build image.
+   - `-t my-first-nginx:1.0`: Tag image với tên `my-first-nginx` và phiên bản `1.0`.
+   - `.` : Chỉ định build context là thư mục hiện tại.
 
-    Kiểm tra image đã được tạo:
+   Kiểm tra image đã được tạo:
 
-    ```bash
-    docker images
-    ```
+   ```bash
+   docker images
+   ```
 
-    Bạn sẽ thấy `my-first-nginx` với tag `1.0` trong danh sách.
+   Bạn sẽ thấy `my-first-nginx` với tag `1.0` trong danh sách.
 
 4. **Chạy container từ image vừa build:**
 
-    ```bash
-    docker run -d -p 8080:80 --name web_test_nginx my-first-nginx:1.0
-    ```
+   ```bash
+   docker run -d -p 8080:80 --name web_test_nginx my-first-nginx:1.0
+   ```
 
-    - `-d`: Chạy container ở chế độ detached (background).
-    - `-p 8080:80`: Map port `8080` của máy host tới port `80` của container (port mà Nginx đang lắng nghe).
-    - `--name web_test_nginx`: Đặt tên cho container là `web_test_nginx` để dễ quản lý.
-    - `my-first-nginx:1.0`: Tên image và tag để chạy.
+   - `-d`: Chạy container ở chế độ detached (background).
+   - `-p 8080:80`: Map port `8080` của máy host tới port `80` của container (port mà Nginx đang lắng nghe).
+   - `--name web_test_nginx`: Đặt tên cho container là `web_test_nginx` để dễ quản lý.
+   - `my-first-nginx:1.0`: Tên image và tag để chạy.
 
-    Kiểm tra container đang chạy:
+   Kiểm tra container đang chạy:
 
-    ```bash
-    docker ps
-    ```
+   ```bash
+   docker ps
+   ```
 
-    Bạn sẽ thấy container `web_test_nginx` đang chạy.
+   Bạn sẽ thấy container `web_test_nginx` đang chạy.
 
 5. **Kiểm tra kết quả:**
-    Mở trình duyệt web (Chrome, Firefox,...) và truy cập địa chỉ `http://localhost:8080`.
-    Bạn sẽ thấy trang "Hello Docker!" với logo Docker mà bạn đã tạo.
+   Mở trình duyệt web (Chrome, Firefox,...) và truy cập địa chỉ `http://localhost:8080`.
+   Bạn sẽ thấy trang "Hello Docker!" với logo Docker mà bạn đã tạo.
 
 6. **Xem logs của container (tùy chọn):**
 
-    ```bash
-    docker logs web_test_nginx
-    ```
+   ```bash
+   docker logs web_test_nginx
+   ```
 
-    Bạn sẽ thấy logs access của Nginx.
+   Bạn sẽ thấy logs access của Nginx.
 
 7. **Dọn dẹp:**
-    Sau khi hoàn thành, bạn có thể dừng và xóa container:
+   Sau khi hoàn thành, bạn có thể dừng và xóa container:
 
-    ```bash
-    docker stop web_test_nginx
-    docker rm web_test_nginx
-    ```
+   ```bash
+   docker stop web_test_nginx
+   docker rm web_test_nginx
+   ```
 
-    Nếu muốn xóa cả image đã build:
+   Nếu muốn xóa cả image đã build:
 
-    ```bash
-    # docker rmi my-first-nginx:1.0
-    ```
+   ```bash
+   # docker rmi my-first-nginx:1.0
+   ```
 
 Chúc mừng! Bạn đã Dockerize thành công ứng dụng web tĩnh đầu tiên của mình.
 
@@ -936,48 +1076,48 @@ Chúc mừng! Bạn đã Dockerize thành công ứng dụng web tĩnh đầu ti
 
 1. **Chuẩn bị:**
 
-    - Tạo một thư mục mới cho bài tập, ví dụ `my-static-portfolio`.
-    - Bên trong thư mục đó, tạo một file `index.html`. Nội dung HTML có thể là:
-      - Một trang giới thiệu bản thân (portfolio đơn giản).
-      - Một trang "Coming Soon" cho một dự án tưởng tượng.
-      - Bất kỳ nội dung HTML tĩnh nào bạn thích.
-    - **(Tùy chọn nâng cao)** Thêm một file CSS riêng (`style.css`) và một vài hình ảnh (ví dụ: `profile.jpg`, `logo.png`). Liên kết chúng từ `index.html` bằng thẻ `<link>` và `<img>` với đường dẫn tương đối.
+   - Tạo một thư mục mới cho bài tập, ví dụ `my-static-portfolio`.
+   - Bên trong thư mục đó, tạo một file `index.html`. Nội dung HTML có thể là:
+     - Một trang giới thiệu bản thân (portfolio đơn giản).
+     - Một trang "Coming Soon" cho một dự án tưởng tượng.
+     - Bất kỳ nội dung HTML tĩnh nào bạn thích.
+   - **(Tùy chọn nâng cao)** Thêm một file CSS riêng (`style.css`) và một vài hình ảnh (ví dụ: `profile.jpg`, `logo.png`). Liên kết chúng từ `index.html` bằng thẻ `<link>` và `<img>` với đường dẫn tương đối.
 
 2. **Viết `Dockerfile`:**
 
-    - Trong thư mục `my-static-portfolio`, tạo file `Dockerfile`.
-    - Sử dụng một base image web server phù hợp. Gợi ý:
-      - `nginx:alpine` (nhẹ, phổ biến)
-      - `httpd:alpine` (Apache, cũng nhẹ)
-    - `COPY` các file tĩnh của bạn (`index.html`, và `style.css`, `images/` nếu có) vào thư mục phục vụ web mặc định của web server bên trong image:
-      - Cho Nginx: `/usr/share/nginx/html/`
-      - Cho Apache httpd: `/usr/local/apache2/htdocs/`
-      - _Lưu ý:_ Nếu bạn copy cả thư mục (ví dụ: `COPY ./css /usr/share/nginx/html/css`), hãy đảm bảo cấu trúc đường dẫn trong `index.html` của bạn khớp.
-    - `EXPOSE` port mà web server lắng nghe (thường là port 80).
-    - Đảm bảo web server chạy ở foreground khi container khởi động. Hầu hết các image web server chính thức (như `nginx:alpine`, `httpd:alpine`) đã cấu hình `CMD` để chạy ở foreground. Nếu bạn dùng một base image rất cơ bản, bạn có thể cần `CMD ["nginx", "-g", "daemon off;"]` hoặc tương tự cho Apache.
+   - Trong thư mục `my-static-portfolio`, tạo file `Dockerfile`.
+   - Sử dụng một base image web server phù hợp. Gợi ý:
+     - `nginx:alpine` (nhẹ, phổ biến)
+     - `httpd:alpine` (Apache, cũng nhẹ)
+   - `COPY` các file tĩnh của bạn (`index.html`, và `style.css`, `images/` nếu có) vào thư mục phục vụ web mặc định của web server bên trong image:
+     - Cho Nginx: `/usr/share/nginx/html/`
+     - Cho Apache httpd: `/usr/local/apache2/htdocs/`
+     - _Lưu ý:_ Nếu bạn copy cả thư mục (ví dụ: `COPY ./css /usr/share/nginx/html/css`), hãy đảm bảo cấu trúc đường dẫn trong `index.html` của bạn khớp.
+   - `EXPOSE` port mà web server lắng nghe (thường là port 80).
+   - Đảm bảo web server chạy ở foreground khi container khởi động. Hầu hết các image web server chính thức (như `nginx:alpine`, `httpd:alpine`) đã cấu hình `CMD` để chạy ở foreground. Nếu bạn dùng một base image rất cơ bản, bạn có thể cần `CMD ["nginx", "-g", "daemon off;"]` hoặc tương tự cho Apache.
 
 3. **Build và Run:**
 
-    - Mở terminal, `cd` vào thư mục `my-static-portfolio`.
-    - Build image với một tên và tag tùy chọn (ví dụ: `my-portfolio-page:v1`).
+   - Mở terminal, `cd` vào thư mục `my-static-portfolio`.
+   - Build image với một tên và tag tùy chọn (ví dụ: `my-portfolio-page:v1`).
 
-      ```bash
-      docker build -t my-portfolio-page:v1 .
-      ```
+     ```bash
+     docker build -t my-portfolio-page:v1 .
+     ```
 
-    - Chạy container từ image đó, map một port trên host (ví dụ: 9090) tới port 80 của container. Đặt tên cho container (ví dụ: `my_site`).
+   - Chạy container từ image đó, map một port trên host (ví dụ: 9090) tới port 80 của container. Đặt tên cho container (ví dụ: `my_site`).
 
-      ```bash
-      docker run -d -p 9090:80 --name my_site my-portfolio-page:v1
-      ```
+     ```bash
+     docker run -d -p 9090:80 --name my_site my-portfolio-page:v1
+     ```
 
-    - Truy cập trang web của bạn qua trình duyệt (`http://localhost:9090`).
+   - Truy cập trang web của bạn qua trình duyệt (`http://localhost:9090`).
 
 4. **Thao tác thêm (optional):**
-    - Xem logs của container `my_site`.
-    - Sử dụng `docker exec -it my_site sh` (hoặc `bash` nếu có) để vào bên trong container. Dùng `ls` để kiểm tra xem các file của bạn đã được copy đúng chỗ chưa (ví dụ: `ls /usr/share/nginx/html` hoặc `ls /usr/local/apache2/htdocs`). Gõ `exit` để thoát.
-    - Dừng và xóa container `my_site`.
-    - (Nếu muốn) Xóa image `my-portfolio-page:v1`.
+   - Xem logs của container `my_site`.
+   - Sử dụng `docker exec -it my_site sh` (hoặc `bash` nếu có) để vào bên trong container. Dùng `ls` để kiểm tra xem các file của bạn đã được copy đúng chỗ chưa (ví dụ: `ls /usr/share/nginx/html` hoặc `ls /usr/local/apache2/htdocs`). Gõ `exit` để thoát.
+   - Dừng và xóa container `my_site`.
+   - (Nếu muốn) Xóa image `my-portfolio-page:v1`.
 
 **Gợi ý:**
 
