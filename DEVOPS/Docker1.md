@@ -72,8 +72,6 @@
 
 ![Hình ảnh minh họa: meme "works on my machine"](../images/devops/itworksonmymachine.webp)
 
-Docker ra đời để giải quyết những vấn đề này bằng cách cung cấp một môi trường đóng gói, nhất quán và di động cho ứng dụng.
-
 ### Giải pháp là gì? VMs vs Containers
 
 Để hiểu rõ sự khác biệt giữa Máy ảo (Virtual Machines - VMs) và Containers, trước tiên chúng ta cần nắm được khái niệm **Kernel**.
@@ -82,6 +80,47 @@ Docker ra đời để giải quyết những vấn đề này bằng cách cung
 
 - **Kernel (nhân hệ điều hành)** là **trái tim** của một hệ điều hành. Nó là lớp phần mềm cốt lõi, quản lý tài nguyên phần cứng của máy tính (CPU, RAM, ổ đĩa, thiết bị mạng) và cung cấp các dịch vụ cơ bản cho tất cả các chương trình khác chạy trên đó.
 - Khi một ứng dụng muốn thực hiện một tác vụ như đọc file, gửi dữ liệu qua mạng, hoặc cấp phát bộ nhớ, nó không làm trực tiếp mà phải thông qua các **system calls (lời gọi hệ thống)** tới Kernel. Kernel sẽ xử lý yêu cầu đó.
+  Tuyệt vời! Dưới đây là thông tin về kernel của các hệ điều hành phổ biến, được trình bày theo format bạn yêu cầu:
+
+---
+
+- **Kernel của các hệ điều hành phổ biến:**
+
+  - **Linux Kernel:**
+
+    - **Nguồn gốc & Giấy phép:** Được sáng tạo bởi Linus Torvalds vào năm 1991, lấy cảm hứng từ MINIX (mini-Unix). Phát hành dưới giấy phép GPLv2 (mã nguồn mở hoàn toàn và miễn phí).
+    - **Kiến trúc:** Chủ yếu là **Monolithic** (nguyên khối), nhưng rất **modular** với các Loadable Kernel Modules (LKMs), cho phép tải/dỡ bỏ động các trình điều khiển và tính năng.
+    - **Mô hình Phát triển:** Phát triển mở bởi một cộng đồng toàn cầu, dưới sự giám sát của Linus Torvalds và các maintainer chủ chốt.
+    - **Đặc điểm nổi bật:**
+      - Hỗ trợ phần cứng cực kỳ rộng rãi trên nhiều kiến trúc CPU.
+      - Tính linh hoạt và tùy biến rất cao.
+      - Hỗ trợ một lượng lớn hệ thống file (ext4, XFS, Btrfs, NTFS, FAT, v.v.).
+      - Sử dụng mô hình tiến trình Unix truyền thống (ví dụ: `fork()`, `exec()`).
+    - **Ứng dụng chính:** Máy chủ (web, database, cloud), máy tính để bàn (qua các bản phân phối Linux - Linux distro như Ubuntu, Fedora), thiết bị nhúng, supercomputers, và là nền tảng của Android.
+
+  - **Windows NT Kernel:**
+
+    - **Nguồn gốc & Giấy phép:** (Trước đây là kernel cho hệ điều hành Windows NT, sau này trở thành nền tảng cho tất cả các phiên bản Windows hiện đại như Windows XP, Vista, 7, 8, 10, 11 và các phiên bản Windows Server). Được phát triển bởi Microsoft, có nguồn gốc từ các ý tưởng trong VMS (Digital Equipment Corporation). Mã nguồn đóng, độc quyền của Microsoft.
+    - **Kiến trúc:** **Hybrid**, kết hợp một microkernel nhỏ (NT Executive) với nhiều dịch vụ hệ thống quan trọng (quản lý file, network, đồ họa) chạy trong không gian kernel để tối ưu hiệu năng.
+    - **Mô hình Phát triển:** Phát triển đóng, nội bộ bởi các kỹ sư của Microsoft.
+    - **Đặc điểm nổi bật:**
+      - Tương thích phần mềm rộng rãi, đặc biệt là game và các ứng dụng desktop cho PC.
+      - Sử dụng hệ thống file chính là NTFS (cũng hỗ trợ FAT/exFAT, ReFS).
+      - Mô hình quản lý tiến trình và luồng riêng biệt (ví dụ: `CreateProcess()`).
+      - Hỗ trợ mạnh mẽ cho các dịch vụ doanh nghiệp và Active Directory.
+    - **Ứng dụng chính:** Máy tính cá nhân (Windows 10, Windows 11), máy chủ (Windows Server), hệ máy chơi game Xbox, một số thiết bị nhúng (Windows IoT).
+
+  - **XNU Kernel:**
+    - **Nguồn gốc & Giấy phép:** Tên XNU là viết tắt của "X is Not Unix". Được phát triển bởi Apple. Phần lớn mã nguồn của XNU là mở (ví dụ theo Apple Public Source License - APSL, và các phần theo giấy phép BSD), tuy nhiên, toàn bộ hệ điều hành (macOS, iOS,...) mà nó phục vụ là độc quyền.
+    - **Kiến trúc:** **Hybrid**, dựa trên **microkernel Mach** (từ Carnegie Mellon University) cho các tác vụ cơ bản như quản lý tiến trình, bộ nhớ ảo, và giao tiếp liên tiến trình (IPC). Tích hợp các thành phần từ hệ điều hành **BSD** (ví dụ: network stack, Virtual File System, một số system calls tương thích POSIX) chạy trong cùng không gian địa chỉ với Mach. I/O Kit quản lý các trình điều khiển thiết bị (drivers).
+    - **Mô hình Phát triển:** Chủ yếu phát triển bởi Apple, mặc dù có sự đóng góp từ cộng đồng cho các phần mã nguồn mở của kernel.
+    - **Đặc điểm nổi bật:**
+      - Tích hợp chặt chẽ với phần cứng do Apple thiết kế, mang lại hiệu năng tối ưu.
+      - Cung cấp API tương thích POSIX thông qua lớp BSD.
+      - Sử dụng hệ thống file chính là APFS (Apple File System), trước đó là HFS+.
+      - Tập trung vào trải nghiệm người dùng mượt mà và các tính năng bảo mật.
+      - Sử dụng Kernel Extensions (KEXTs) cho drivers, đang dần chuyển sang DriverKit (cho phép drivers chạy một phần hoặc toàn bộ trong user space).
+    - **Ứng dụng chính:** Máy tính cá nhân (macOS), điện thoại thông minh (iOS), máy tính bảng (iPadOS), đồng hồ thông minh (watchOS), và các thiết bị TV (tvOS) của Apple.
 
 - **Sơ đồ quá trình khởi động máy tính:**
   (Sơ đồ này minh họa Kernel được tải và chạy ở giai đoạn nào)
@@ -643,91 +682,91 @@ Mỗi chỉ thị thường tạo một layer mới trong image.
 
 1. **`FROM <image>:<tag>` hoặc `FROM <image>@<digest>`**
 
-    - **Mục đích:** Chỉ định base image (image nền) mà image của bạn sẽ được xây dựng dựa trên đó.
-    - **Lưu ý:** _Luôn là instruction đầu tiên trong Dockerfile_ (trừ trường hợp có `ARG` trước `FROM`).
-    - Nên dùng tag cụ thể (VD: `ubuntu:22.04`) thay vì `latest` để đảm bảo tính tái lập (reproducibility). Dùng digest (`sha256:...`) cho độ tin cậy cao nhất.
-    - Ví dụ: `FROM ubuntu:22.04`, `FROM node:18-alpine`, `FROM mcr.microsoft.com/dotnet/sdk:6.0`
+   - **Mục đích:** Chỉ định base image (image nền) mà image của bạn sẽ được xây dựng dựa trên đó.
+   - **Lưu ý:** _Luôn là instruction đầu tiên trong Dockerfile_ (trừ trường hợp có `ARG` trước `FROM`).
+   - Nên dùng tag cụ thể (VD: `ubuntu:22.04`) thay vì `latest` để đảm bảo tính tái lập (reproducibility). Dùng digest (`sha256:...`) cho độ tin cậy cao nhất.
+   - Ví dụ: `FROM ubuntu:22.04`, `FROM node:18-alpine`, `FROM mcr.microsoft.com/dotnet/sdk:6.0`
 
 2. **`LABEL <key>=<value> [<key2>=<value2> ...]`**
 
-    - **Mục đích:** Thêm metadata vào image dưới dạng cặp key-value (VD: `maintainer`, `version`, `description`).
-    - Ví dụ: `LABEL maintainer="your.email@example.com" version="1.0" description="My awesome app"`
+   - **Mục đích:** Thêm metadata vào image dưới dạng cặp key-value (VD: `maintainer`, `version`, `description`).
+   - Ví dụ: `LABEL maintainer="your.email@example.com" version="1.0" description="My awesome app"`
 
 3. **`ARG <name>[=<default_value>]`**
 
-    - **Mục đích:** Định nghĩa biến chỉ tồn tại trong quá trình build image (`docker build`).
-    - Giá trị có thể được truyền vào từ lệnh `docker build --build-arg <name>=<value>`.
-    - Nếu `ARG` được khai báo trước `FROM`, nó có thể được dùng trong `FROM`.
-    - Ví dụ: `ARG APP_VERSION=1.0.0`
-    - Ví dụ:
+   - **Mục đích:** Định nghĩa biến chỉ tồn tại trong quá trình build image (`docker build`).
+   - Giá trị có thể được truyền vào từ lệnh `docker build --build-arg <name>=<value>`.
+   - Nếu `ARG` được khai báo trước `FROM`, nó có thể được dùng trong `FROM`.
+   - Ví dụ: `ARG APP_VERSION=1.0.0`
+   - Ví dụ:
 
-      ```dockerfile
-      ARG NODE_VERSION=18
-      FROM node:${NODE_VERSION}-alpine as builder
-      ```
+     ```dockerfile
+     ARG NODE_VERSION=18
+     FROM node:${NODE_VERSION}-alpine as builder
+     ```
 
 4. **`ENV <key>=<value>` hoặc `ENV <key1>=<value1> <key2>=<value2> ...`**
 
-    - **Mục đích:** Thiết lập biến môi trường. Biến này sẽ tồn tại cả trong quá trình build và khi container chạy từ image đó.
-    - Giá trị có thể được ghi đè khi chạy container (`docker run -e <key>=<new_value>`).
-    - Ví dụ: `ENV NODE_ENV=production`
-    - Ví dụ:
+   - **Mục đích:** Thiết lập biến môi trường. Biến này sẽ tồn tại cả trong quá trình build và khi container chạy từ image đó.
+   - Giá trị có thể được ghi đè khi chạy container (`docker run -e <key>=<new_value>`).
+   - Ví dụ: `ENV NODE_ENV=production`
+   - Ví dụ:
 
-      ```dockerfile
-      ENV APP_HOME=/usr/src/app \
-          PATH=$APP_HOME/node_modules/.bin:$PATH
-      ```
+     ```dockerfile
+     ENV APP_HOME=/usr/src/app \
+         PATH=$APP_HOME/node_modules/.bin:$PATH
+     ```
 
 5. **`WORKDIR /path/to/workdir`**
 
-    - **Mục đích:** Thiết lập thư mục làm việc (working directory) cho các instruction tiếp theo như `RUN`, `CMD`, `ENTRYPOINT`, `COPY`, `ADD`.
-    - Nếu thư mục không tồn tại, nó sẽ được tạo.
-    - Nên dùng đường dẫn tuyệt đối.
-    - Ví dụ: `WORKDIR /app` (các lệnh sau đó như `COPY . .` sẽ copy vào `/app`)
+   - **Mục đích:** Thiết lập thư mục làm việc (working directory) cho các instruction tiếp theo như `RUN`, `CMD`, `ENTRYPOINT`, `COPY`, `ADD`.
+   - Nếu thư mục không tồn tại, nó sẽ được tạo.
+   - Nên dùng đường dẫn tuyệt đối.
+   - Ví dụ: `WORKDIR /app` (các lệnh sau đó như `COPY . .` sẽ copy vào `/app`)
 
 6. **`COPY [--chown=<user>:<group>] <src_on_host>... <dest_in_image>`**
 
-    - **Mục đích:** Sao chép file hoặc thư mục từ "build context" (thư mục chứa Dockerfile trên host) vào filesystem của image.
-    - `<src_on_host>` phải là đường dẫn tương đối so với build context.
-    - `<dest_in_image>` có thể là đường dẫn tuyệt đối, hoặc tương đối so với `WORKDIR`.
-    - Không hỗ trợ lấy file từ URL hoặc giải nén tự động.
-    - `--chown`: Thay đổi owner và group của file/thư mục được copy.
-    - Ví dụ: `COPY . .` (sao chép toàn bộ nội dung thư mục build context vào WORKDIR trong image)
-    - Ví dụ: `COPY package.json yarn.lock ./`
-    - Ví dụ: `COPY --chown=appuser:appgroup app.jar /opt/app/`
+   - **Mục đích:** Sao chép file hoặc thư mục từ "build context" (thư mục chứa Dockerfile trên host) vào filesystem của image.
+   - `<src_on_host>` phải là đường dẫn tương đối so với build context.
+   - `<dest_in_image>` có thể là đường dẫn tuyệt đối, hoặc tương đối so với `WORKDIR`.
+   - Không hỗ trợ lấy file từ URL hoặc giải nén tự động.
+   - `--chown`: Thay đổi owner và group của file/thư mục được copy.
+   - Ví dụ: `COPY . .` (sao chép toàn bộ nội dung thư mục build context vào WORKDIR trong image)
+   - Ví dụ: `COPY package.json yarn.lock ./`
+   - Ví dụ: `COPY --chown=appuser:appgroup app.jar /opt/app/`
 
 7. **`ADD [--chown=<user>:<group>] <src_on_host_or_URL>... <dest_in_image>`**
 
-    - **Mục đích:** Tương tự `COPY`, nhưng có thêm một số "magic":
-      - Nếu `<src>` là URL, nó sẽ tải file về và copy vào `<dest>`.
-      - Nếu `<src>` là một file nén tar (VD: `.tar.gz`, `.tar.bz2`), nó sẽ tự động giải nén vào `<dest>`.
-    - **Khuyến cáo:** Ưu tiên dùng `COPY` trừ khi bạn thực sự cần tính năng tải URL hoặc tự động giải nén của `ADD`, vì `COPY` rõ ràng và dễ đoán hơn.
-    - Ví dụ: `ADD https://example.com/config.zip /app/config/` (sẽ tải và giải nén)
+   - **Mục đích:** Tương tự `COPY`, nhưng có thêm một số "magic":
+     - Nếu `<src>` là URL, nó sẽ tải file về và copy vào `<dest>`.
+     - Nếu `<src>` là một file nén tar (VD: `.tar.gz`, `.tar.bz2`), nó sẽ tự động giải nén vào `<dest>`.
+   - **Khuyến cáo:** Ưu tiên dùng `COPY` trừ khi bạn thực sự cần tính năng tải URL hoặc tự động giải nén của `ADD`, vì `COPY` rõ ràng và dễ đoán hơn.
+   - Ví dụ: `ADD https://example.com/config.zip /app/config/` (sẽ tải và giải nén)
 
 8. **`RUN <command>` (shell form) hoặc `RUN ["executable", "param1", "param2"]` (exec form)**
 
-    - **Mục đích:** Thực thi bất kỳ lệnh nào trong một layer mới của image, bên trên image hiện tại. Kết quả của lệnh sẽ được commit vào layer mới.
-    - Thường dùng để cài đặt packages, dependencies, biên dịch code, tạo thư mục, thay đổi quyền,...
-    - **Shell form:** `RUN apt-get update && apt-get install -y nginx` (chạy trong `/bin/sh -c <command>` hoặc shell được chỉ định bởi `SHELL`).
-    - **Exec form:** `RUN ["/bin/bash", "-c", "echo hello"]` (không dùng shell, thực thi trực tiếp).
-    - Để giảm số lượng layer, có thể nối nhiều lệnh bằng `&&`.
-    - Ví dụ:
+   - **Mục đích:** Thực thi bất kỳ lệnh nào trong một layer mới của image, bên trên image hiện tại. Kết quả của lệnh sẽ được commit vào layer mới.
+   - Thường dùng để cài đặt packages, dependencies, biên dịch code, tạo thư mục, thay đổi quyền,...
+   - **Shell form:** `RUN apt-get update && apt-get install -y nginx` (chạy trong `/bin/sh -c <command>` hoặc shell được chỉ định bởi `SHELL`).
+   - **Exec form:** `RUN ["/bin/bash", "-c", "echo hello"]` (không dùng shell, thực thi trực tiếp).
+   - Để giảm số lượng layer, có thể nối nhiều lệnh bằng `&&`.
+   - Ví dụ:
 
-      ```dockerfile
-      RUN apt-get update && apt-get install -y --no-install-recommends \
-              python3 python3-pip \
-          && rm -rf /var/lib/apt/lists/*
-      ```
+     ```dockerfile
+     RUN apt-get update && apt-get install -y --no-install-recommends \
+             python3 python3-pip \
+         && rm -rf /var/lib/apt/lists/*
+     ```
 
-    - Ví dụ: `RUN npm install --production`
+   - Ví dụ: `RUN npm install --production`
 
 9. **`EXPOSE <port> [<port>/<protocol>...]`**
 
-    - **Mục đích:** Thông báo cho Docker rằng container sẽ lắng nghe trên các network port được chỉ định khi chạy.
-    - Đây chỉ là thông tin metadata, **không tự động publish port ra host**. Bạn vẫn cần dùng cờ `-p` hoặc `-P` với `docker run` để thực sự map port.
-    - Protocol mặc định là `tcp`. Có thể chỉ định `udp`.
-    - Ví dụ: `EXPOSE 80` (ngầm hiểu là 80/tcp)
-    - Ví dụ: `EXPOSE 3000/tcp 5000/udp`
+   - **Mục đích:** Thông báo cho Docker rằng container sẽ lắng nghe trên các network port được chỉ định khi chạy.
+   - Đây chỉ là thông tin metadata, **không tự động publish port ra host**. Bạn vẫn cần dùng cờ `-p` hoặc `-P` với `docker run` để thực sự map port.
+   - Protocol mặc định là `tcp`. Có thể chỉ định `udp`.
+   - Ví dụ: `EXPOSE 80` (ngầm hiểu là 80/tcp)
+   - Ví dụ: `EXPOSE 3000/tcp 5000/udp`
 
 10. **`CMD ["executable","param1","param2"]` (exec form - ưu tiên)**
 
