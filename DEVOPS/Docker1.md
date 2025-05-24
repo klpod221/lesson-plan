@@ -67,7 +67,6 @@
 - **Tính di động kém:** Việc di chuyển ứng dụng từ server này sang server khác, hoặc từ on-premise lên cloud gặp nhiều trở ngại.
 
 ![Hình ảnh minh họa: meme "works on my machine"](../images/devops/itworksonmymachine.webp)
-_(Chú thích: Hình ảnh này thể hiện sự bối rối khi ứng dụng hoạt động trên máy local nhưng lỗi ở môi trường khác)_
 
 Docker ra đời để giải quyết những vấn đề này bằng cách cung cấp một môi trường đóng gói, nhất quán và di động cho ứng dụng.
 
