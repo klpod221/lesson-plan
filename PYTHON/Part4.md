@@ -335,8 +335,8 @@ Django Forms giúp tạo, xác thực và xử lý các form HTML một cách an
     ```html
     <h1>Thêm sản phẩm mới</h1>
     <form method="post">
-        {% csrf_token %} <!-- Bắt buộc để bảo mật -->
-        {{ form.as_p }} <!-- Django tự động render các thẻ input -->
+        {% raw %}{% csrf_token %}{% endraw %} <!-- Bắt buộc để bảo mật -->
+        {% raw %}{{ form.as_p }}{% endraw %} <!-- Django tự động render các thẻ input -->
         <button type="submit">Lưu</button>
     </form>
     ```
