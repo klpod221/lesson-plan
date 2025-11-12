@@ -16,10 +16,6 @@ Sau khi nắm vững nền tảng, bạn có thể điều chỉnh hướng họ
 
 - [Lộ Trình Học Lập Trình Từ Cơ Bản Đến Nâng Cao](#lộ-trình-học-lập-trình-từ-cơ-bản-đến-nâng-cao)
   - [🎯 Giới Thiệu](#-giới-thiệu)
-  - [❓ Câu hỏi thường gặp](#-câu-hỏi-thường-gặp)
-    - [Tại sao lại là JAVA, SQL, DSA và WEB?](#tại-sao-lại-là-java-sql-dsa-và-web)
-    - [Đã có rất nhiều AI có thể giúp bạn học lập trình, tại sao bạn vẫn cần lộ trình này?](#đã-có-rất-nhiều-ai-có-thể-giúp-bạn-học-lập-trình-tại-sao-bạn-vẫn-cần-lộ-trình-này)
-    - [Tại sao lại có lộ trình học tập này?](#tại-sao-lại-có-lộ-trình-học-tập-này)
   - [🛠️ Phương Pháp Học Tập](#️-phương-pháp-học-tập)
   - [🚀 Mục Tiêu](#-mục-tiêu)
   - [📋 Đối Tượng](#-đối-tượng)
@@ -33,49 +29,15 @@ Sau khi nắm vững nền tảng, bạn có thể điều chỉnh hướng họ
     - [📌 Module 6: Phát Triển Web Backend với PHP](#-module-6-phát-triển-web-backend-với-php)
     - [📌 Module 7: DevOps \& Containerization](#-module-7-devops--containerization)
     - [📌 Tổng Kết](#-tổng-kết)
-  - [📋 Cấu Trúc Kho Lưu Trữ](#-cấu-trúc-kho-lưu-trữ)
-  - [🔄 Cập Nhật và Đóng Góp](#-cập-nhật-và-đóng-góp)
+  - [� Các Bài Học Bổ Sung](#-các-bài-học-bổ-sung)
+    - [🔤 C/C++ Programming](#-cc-programming)
+    - [🐍 Python Programming](#-python-programming)
+    - [⚛️ React.js](#️-reactjs)
+    - [💚 Vue.js](#-vuejs)
+    - [🦀 Rust Programming](#-rust-programming)
+  - [�🔄 Cập Nhật và Đóng Góp](#-cập-nhật-và-đóng-góp)
   - [📞 Liên Hệ Hỗ Trợ](#-liên-hệ-hỗ-trợ)
   - [📜 Giấy Phép](#-giấy-phép)
-
-## ❓ Câu hỏi thường gặp
-
-### Tại sao lại là JAVA, SQL, DSA và WEB?
-
-**Tư duy lập trình** là cốt lõi, ngôn ngữ lập trình chỉ là công cụ thực hiện tư duy đó.
-
-**JAVA:**
-
-- Ngôn ngữ phổ biến trong phát triển ứng dụng doanh nghiệp, Android và web
-- Cú pháp rõ ràng, giúp dễ dàng nắm bắt khái niệm lập trình cơ bản
-- Hỗ trợ mạnh mẽ lập trình hướng đối tượng (OOP) - nền tảng quan trọng trong lập trình hiện đại
-
-**SQL:**
-
-- Ngôn ngữ chuẩn để quản lý và truy vấn cơ sở dữ liệu (MySQL, PostgreSQL, Oracle)
-- Kỹ năng thiết yếu vì hầu hết ứng dụng đều cần lưu trữ và truy xuất dữ liệu
-
-**DSA (Cấu trúc dữ liệu & Thuật toán):**
-
-- Nền tảng củng cố tư duy và kỹ năng giải quyết vấn đề
-- Giúp tối ưu hiệu suất ứng dụng và xử lý bài toán phức tạp
-- Kiến thức cần thiết trong phỏng vấn tuyển dụng tại các công ty công nghệ
-
-**WEB:**
-
-- Lĩnh vực phát triển nhanh nhất, nhu cầu tuyển dụng cao
-- Kỹ năng linh hoạt: từ thiết kế giao diện đến xử lý dữ liệu
-- Mở rộng được sang phát triển ứng dụng desktop (Electron) hoặc di động (React Native)
-
-**Tóm lại:** Học lập trình không chỉ là làm chủ công nghệ, mà còn là phát triển tư duy, kỹ năng giải quyết vấn đề và khả năng tự học liên tục.
-
-### Đã có rất nhiều AI có thể giúp bạn học lập trình, tại sao bạn vẫn cần lộ trình này?
-
-AI có thể giúp tìm kiếm thông tin, giải thích khái niệm hoặc viết mã, nhưng không thể thay thế quá trình phát triển tư duy và kỹ năng giải quyết vấn đề của con người. Lộ trình này cung cấp một hướng dẫn có cấu trúc, giúp bạn xây dựng nền tảng vững chắc theo trình tự hợp lý, điều mà AI khó có thể thay thế hoàn toàn.
-
-### Tại sao lại có lộ trình học tập này?
-
-Lộ trình này được phát triển ban đầu để đào tạo nhân viên mới, sau đó được chia sẻ rộng rãi nhằm giúp mọi người tiết kiệm thời gian tìm kiếm tài liệu và định hướng học tập. Nội dung được tổng hợp từ nhiều nguồn tài liệu, khóa học và kinh nghiệm thực tế, đảm bảo tính hiệu quả và thực tiễn.
 
 ## 🛠️ Phương Pháp Học Tập
 
@@ -191,60 +153,86 @@ Thời gian ước tính cho mỗi phần là tương đối và có thể thay 
 | --- | ---------------------------- | --------- | -------------------------------- |
 | 37  | 📋 **TỔNG KẾT LỘ TRÌNH HỌC** | -         | [CONCLUSION.md](./CONCLUSION.md) |
 
-## 📋 Cấu Trúc Kho Lưu Trữ
+## � Các Bài Học Bổ Sung
 
-```text
-lesson-plan/
-├── DEVOPS/
-│   ├── Docker1.md    # NẮM VỮNG NỀN TẢNG
-│   ├── Docker2.md    # ORCHESTRATION & BEST PRACTICES
-│   └── Kubernetes.md # HỆ THỐNG ĐIỀU PHỐI CONTAINER
-├── DSA/
-│   ├── Part1.md      # NHẬP MÔN CẤU TRÚC DỮ LIỆU VÀ THUẬT TOÁN
-│   ├── Part2.md      # CẤU TRÚC DỮ LIỆU NÂNG CAO
-│   ├── Part3.md      # THUẬT TOÁN NÂNG CAO
-│   ├── Part4.md      # CÁC CẤU TRÚC DỮ LIỆU CHUYÊN BIỆT
-│   └── Part5.md      # THUẬT TOÁN ỨNG DỤNG VÀ TỐI ƯU HÓA
-├── JAVA/
-│   ├── Part1.md      # NHẬP MÔN JAVA
-│   ├── Part2.md      # MẢNG, CHUỖI VÀ HÀM
-│   ├── Part3.md      # LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG (OOP)
-│   ├── Part4.md      # XỬ LÝ NGOẠI LỆ, FILE I/O VÀ COLLECTIONS
-│   ├── Part5.md      # LUỒNG, ĐA LUỒNG VÀ JDBC
-│   └── FINAL.md      # BÀI TẬP LỚN: QUẢN LÝ THƯ VIỆN
-├── PHP/
-│   ├── Part1.md      # NHẬP MÔN PHP
-│   ├── Part2.md      # LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG VỚI PHP
-│   ├── Part3.md      # PHP NÂNG CAO VÀ KẾT NỐI DATABASE
-│   ├── Part4.md      # FRAMEWORK VÀ PHÁT TRIỂN ỨNG DỤNG WEB HIỆN ĐẠI
-│   ├── Part5.md      # XU HƯỚNG HIỆN ĐẠI VÀ CÔNG NGHỆ MỚI TRONG PHP
-│   └── Part6.md      # PHÁT TRIỂN VÀ TRIỂN KHAI CHUYÊN NGHIỆP
-├── SELF-LEARNING/
-│   ├── Part1.md      # TÌM KIẾM THÔNG TIN HIỆU QUẢ
-│   ├── Part2.md      # XỬ LÝ TÀI LIỆU CHUYÊN NGÀNH
-│   ├── Part3.md      # KỸ THUẬT TỰ HỌC
-│   └── Part4.md      # PHÁT TRIỂN BẢN THÂN LIÊN TỤC
-├── SQL/
-│   ├── Part1.md      # NHẬP MÔN SQL
-│   ├── Part2.md      # SQL NÂNG CAO
-│   ├── Part3.md      # SQL NÂNG CAO VÀ ỨNG DỤNG
-│   ├── Part4.md      # SQL CHUYÊN SÂU VÀ HIỆU SUẤT
-│   └── FINAL.md      # BÀI TẬP LỚN: QUẢN LÝ THƯ VIỆN
-├── WEB/
-│   ├── Part1.md      # NHẬP MÔN HTML
-│   ├── Part2.md      # CSS - ĐỊNH DẠNG TRANG WEB
-│   ├── Part3.md      # JAVASCRIPT - LẬP TRÌNH CHO WEB
-│   └── Part4.md      # FRAMEWORK & CÔNG CỤ PHÁT TRIỂN WEB HIỆN ĐẠI
-├── examples/         # THƯ MỤC CHỨA CÁC BÀI TẬP VÀ DỰ ÁN MẪU
-├── images/
-├── CONCLUSION.md     # TỔNG KẾT LỘ TRÌNH HỌC
-├── GIT.md            # HƯỚNG DẪN SỬ DỤNG GIT
-├── INSTALL.md        # HƯỚNG DẪN CÀI ĐẶT MÔI TRƯỜNG HỌC TẬP
-├── INTRODUCTION.md   # TỔNG QUAN VỀ LẬP TRÌNH
-└── README.md
-```
+Ngoài lộ trình chính, kho lưu trữ còn bao gồm các bài học bổ sung về nhiều ngôn ngữ và công nghệ khác:
 
-## 🔄 Cập Nhật và Đóng Góp
+### 🔤 C/C++ Programming
+
+Khóa học C/C++ toàn diện từ cơ bản đến nâng cao (6 phần):
+
+| STT | Nội dung                                     | Tài liệu                      |
+| --- | -------------------------------------------- | ----------------------------- |
+| 1   | 🏁 **NHẬP MÔN C**                            | [Part1.md](./C-CPP/Part1.md)  |
+| 2   | 📊 **MẢNG VÀ CHUỖI**                         | [Part2.md](./C-CPP/Part2.md)  |
+| 3   | 🔍 **CON TRỎ VÀ QUẢN LÝ BỘ NHỚ**            | [Part3.md](./C-CPP/Part3.md)  |
+| 4   | 📁 **STRUCT, FILE VÀ TIỀN XỬ LÝ**            | [Part4.md](./C-CPP/Part4.md)  |
+| 5   | ➕ **GIỚI THIỆU C++**                        | [Part5.md](./C-CPP/Part5.md)  |
+| 6   | 🚀 **C++ NÂNG CAO**                          | [Part6.md](./C-CPP/Part6.md)  |
+
+### 🐍 Python Programming
+
+Khóa học Python từ cơ bản đến ứng dụng thực tế (9 phần):
+
+| STT | Nội dung                                     | Tài liệu                         |
+| --- | -------------------------------------------- | -------------------------------- |
+| 1   | 🐍 **NHẬP MÔN PYTHON**                       | [Part1.md](./PYTHON/Part1.md)    |
+| 2   | 🧩 **LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG**            | [Part2.md](./PYTHON/Part2.md)    |
+| 3   | 📚 **MODULE, PACKAGE VÀ XỬ LÝ LỖI**         | [Part3.md](./PYTHON/Part3.md)    |
+| 4   | 📁 **FILE I/O VÀ XỬ LÝ DỮ LIỆU**            | [Part4.md](./PYTHON/Part4.md)    |
+| 5   | 🔧 **THƯ VIỆN CHUẨN VÀ CÔNG CỤ**            | [Part5.md](./PYTHON/Part5.md)    |
+| 6   | 🌐 **PHÁT TRIỂN WEB VỚI PYTHON**            | [Part6.md](./PYTHON/Part6.md)    |
+| 7   | 📊 **DATA SCIENCE VÀ MACHINE LEARNING**      | [Part7.md](./PYTHON/Part7.md)    |
+| 8   | 🔬 **PYTHON NÂNG CAO**                       | [Part8.md](./PYTHON/Part8.md)    |
+| 9   | 🚀 **DỰ ÁN THỰC CHIẾN**                      | [Part9.md](./PYTHON/Part9.md)    |
+
+### ⚛️ React.js
+
+Khóa học React.js cho phát triển ứng dụng web hiện đại (7 phần):
+
+| STT | Nội dung                                     | Tài liệu                       |
+| --- | -------------------------------------------- | ------------------------------ |
+| 1   | ⚛️ **NỀN TẢNG REACT**                        | [Part1.md](./REACT/Part1.md)   |
+| 2   | 🎯 **STATE VÀ LIFECYCLE**                    | [Part2.md](./REACT/Part2.md)   |
+| 3   | 🔄 **HOOKS VÀ SIDE EFFECTS**                 | [Part3.md](./REACT/Part3.md)   |
+| 4   | 🌐 **ROUTING VÀ NAVIGATION**                 | [Part4.md](./REACT/Part4.md)   |
+| 5   | 📡 **API INTEGRATION VÀ STATE MANAGEMENT**   | [Part5.md](./REACT/Part5.md)   |
+| 6   | 🎨 **STYLING VÀ UI LIBRARIES**               | [Part6.md](./REACT/Part6.md)   |
+| 7   | 🚀 **PRODUCTION VÀ BEST PRACTICES**          | [Part7.md](./REACT/Part7.md)   |
+
+### 💚 Vue.js
+
+Khóa học Vue.js với Composition API và Ecosystem (6 phần):
+
+| STT | Nội dung                                     | Tài liệu                     |
+| --- | -------------------------------------------- | ---------------------------- |
+| 1   | 💚 **NHẬP MÔN VUE.JS VÀ TƯ DUY REACTIVITY**  | [Part1.md](./VUE/Part1.md)   |
+| 2   | 🔧 **COMPONENTS VÀ PROPS**                   | [Part2.md](./VUE/Part2.md)   |
+| 3   | 🎯 **COMPOSITION API NÂNG CAO**              | [Part3.md](./VUE/Part3.md)   |
+| 4   | 🌐 **VUE ROUTER VÀ NAVIGATION**              | [Part4.md](./VUE/Part4.md)   |
+| 5   | 📡 **STATE MANAGEMENT VỚI PINIA**            | [Part5.md](./VUE/Part5.md)   |
+| 6   | 🚀 **ECOSYSTEM VÀ PRODUCTION**               | [Part6.md](./VUE/Part6.md)   |
+
+### 🦀 Rust Programming
+
+Khóa học Rust toàn diện về hệ thống và performance (6 phần):
+
+| STT | Nội dung                                     | Tài liệu                      |
+| --- | -------------------------------------------- | ----------------------------- |
+| 1   | 🦀 **NHẬP MÔN RUST**                         | [Part1.md](./RUST/Part1.md)   |
+| 2   | 🔐 **OWNERSHIP VÀ BORROWING**                | [Part2.md](./RUST/Part2.md)   |
+| 3   | 🏗️ **STRUCTS VÀ ENUMS**                      | [Part3.md](./RUST/Part3.md)   |
+| 4   | 📦 **COLLECTIONS VÀ ERROR HANDLING**         | [Part4.md](./RUST/Part4.md)   |
+| 5   | 🧬 **TRAITS VÀ GENERICS**                    | [Part5.md](./RUST/Part5.md)   |
+| 6   | ⚡ **ADVANCED TOPICS**                       | [Part6.md](./RUST/Part6.md)   |
+
+**Lưu ý:** Các bài học bổ sung này không bắt buộc trong lộ trình chính nhưng rất hữu ích nếu bạn muốn:
+- Mở rộng kiến thức sang nhiều ngôn ngữ lập trình khác
+- Tìm hiểu các framework frontend hiện đại (React, Vue)
+- Học các ngôn ngữ system programming (C/C++, Rust)
+- Phát triển kỹ năng đa dạng trong lập trình
+
+## �🔄 Cập Nhật và Đóng Góp
 
 Kho lưu trữ này được cập nhật thường xuyên với:
 
