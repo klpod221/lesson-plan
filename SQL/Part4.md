@@ -1,43 +1,19 @@
-# 📘 PHẦN 4: SQL CHUYÊN SÂU VÀ HIỆU SUẤT
+---
+prev:
+  text: '🔄 SQL và Ứng Dụng'
+  link: '/SQL/Part3'
+next:
+  text: '🏆 Bài Tập Lớn SQL'
+  link: '/SQL/FINAL'
+---
 
-- [📘 PHẦN 4: SQL CHUYÊN SÂU VÀ HIỆU SUẤT](#-phần-4-sql-chuyên-sâu-và-hiệu-suất)
-  - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
-  - [🧑‍🏫 Bài 1: Tối ưu hiệu suất](#-bài-1-tối-ưu-hiệu-suất)
-    - [Kế hoạch thực thi truy vấn và cách phân tích](#kế-hoạch-thực-thi-truy-vấn-và-cách-phân-tích)
-    - [Chỉ mục nâng cao (Composite, Covering, Filtered)](#chỉ-mục-nâng-cao-composite-covering-filtered)
-    - [Chiến lược phân vùng dữ liệu](#chiến-lược-phân-vùng-dữ-liệu)
-    - [Điều chỉnh cấu hình máy chủ cơ sở dữ liệu](#điều-chỉnh-cấu-hình-máy-chủ-cơ-sở-dữ-liệu)
-  - [🧑‍🏫 Bài 2: Xử lý dữ liệu lớn](#-bài-2-xử-lý-dữ-liệu-lớn)
-    - [Kỹ thuật thao tác với bảng có hàng triệu dòng](#kỹ-thuật-thao-tác-với-bảng-có-hàng-triệu-dòng)
-    - [Phân tích dữ liệu với các hàm window nâng cao](#phân-tích-dữ-liệu-với-các-hàm-window-nâng-cao)
-    - [Chiến lược sao lưu và phục hồi dữ liệu lớn](#chiến-lược-sao-lưu-và-phục-hồi-dữ-liệu-lớn)
-    - [Truy vấn dữ liệu phân tán](#truy-vấn-dữ-liệu-phân-tán)
-  - [🧑‍🏫 Bài 3: Thiết kế cơ sở dữ liệu nâng cao](#-bài-3-thiết-kế-cơ-sở-dữ-liệu-nâng-cao)
-    - [Mô hình hóa dữ liệu phức tạp](#mô-hình-hóa-dữ-liệu-phức-tạp)
-    - [Thiết kế kiến trúc microservices với cơ sở dữ liệu](#thiết-kế-kiến-trúc-microservices-với-cơ-sở-dữ-liệu)
-    - [Cơ sở dữ liệu đa hình thái (Polyglot Persistence)](#cơ-sở-dữ-liệu-đa-hình-thái-polyglot-persistence)
-    - [Cơ sở dữ liệu NoSQL và SQL](#cơ-sở-dữ-liệu-nosql-và-sql)
-  - [🧑‍🏫 Bài 4: SQL và dữ liệu thực tế](#-bài-4-sql-và-dữ-liệu-thực-tế)
-    - [Xử lý dữ liệu không đồng nhất](#xử-lý-dữ-liệu-không-đồng-nhất)
-    - [Cleaning và chuyển đổi dữ liệu](#cleaning-và-chuyển-đổi-dữ-liệu)
-    - [ETL và data warehouse](#etl-và-data-warehouse)
-    - [Data mining với SQL](#data-mining-với-sql)
-  - [🧑‍🏫 Bài 5: Quản trị và giám sát](#-bài-5-quản-trị-và-giám-sát)
-    - [Công cụ giám sát và phân tích](#công-cụ-giám-sát-và-phân-tích)
-    - [Xử lý sự cố hiệu suất](#xử-lý-sự-cố-hiệu-suất)
-    - [Tự động hóa quản trị cơ sở dữ liệu](#tự-động-hóa-quản-trị-cơ-sở-dữ-liệu)
-    - [Chiến lược mở rộng và nâng cấp](#chiến-lược-mở-rộng-và-nâng-cấp)
-  - [🧪 BÀI TẬP LỚN CUỐI PHẦN: Hệ thống quản lý đăng ký môn học](#-bài-tập-lớn-cuối-phần-hệ-thống-quản-lý-đăng-ký-môn-học)
-    - [Đề bài](#đề-bài)
-    - [Yêu cầu](#yêu-cầu)
+# 📘 PHẦN 4: SQL CHUYÊN SÂU VÀ HIỆU SUẤT
 
 ## 🎯 Mục tiêu tổng quát
 
 - Tối ưu hóa hiệu suất truy vấn và cấu trúc dữ liệu
 - Xử lý dữ liệu lớn một cách hiệu quả
 - Triển khai giải pháp dữ liệu phức tạp
-
----
 
 ## 🧑‍🏫 Bài 1: Tối ưu hiệu suất
 
@@ -172,8 +148,6 @@ slow_query_log=1
 slow_query_log_file=/var/log/mysql/mysql-slow.log
 long_query_time=2
 ```
-
----
 
 ## 🧑‍🏫 Bài 2: Xử lý dữ liệu lớn
 
@@ -329,8 +303,6 @@ PARTITION BY RANGE (user_id) (
 SELECT * FROM global_users WHERE user_id = 1500000;
 */
 ```
-
----
 
 ## 🧑‍🏫 Bài 3: Thiết kế cơ sở dữ liệu nâng cao
 
@@ -556,8 +528,6 @@ ZADD leaderboard 2500 "user:67890"
 ZREVRANGE leaderboard 0 9 WITHSCORES  # Top 10 users
 ```
 
----
-
 ## 🧑‍🏫 Bài 4: SQL và dữ liệu thực tế
 
 ### Xử lý dữ liệu không đồng nhất
@@ -772,8 +742,6 @@ SELECT
     END AS customer_segment
 FROM normalized_metrics;
 ```
-
----
 
 ## 🧑‍🏫 Bài 5: Quản trị và giám sát
 
@@ -1000,8 +968,6 @@ CREATE TABLE product_details (
     FOREIGN KEY (product_id) REFERENCES product_core(product_id)
 );
 ```
-
----
 
 ## 🧪 BÀI TẬP LỚN CUỐI PHẦN: Hệ thống quản lý đăng ký môn học
 

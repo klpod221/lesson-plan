@@ -1,40 +1,5 @@
 # 📘 PHẦN 5: TRAITS VÀ GENERICS
 
-- [📘 PHẦN 5: TRAITS VÀ GENERICS](#-phần-5-traits-và-generics)
-  - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
-  - [🧑‍🏫 Bài 1: Traits cơ bản](#-bài-1-traits-cơ-bản)
-    - [Defining traits](#defining-traits)
-    - [Implementing traits](#implementing-traits)
-    - [Default implementations](#default-implementations)
-    - [Trait bounds](#trait-bounds)
-    - [Multiple traits](#multiple-traits)
-  - [🧑‍🏫 Bài 2: Generic Types](#-bài-2-generic-types)
-    - [Generic functions](#generic-functions)
-    - [Generic structs](#generic-structs)
-    - [Generic enums](#generic-enums)
-    - [Generic methods](#generic-methods)
-    - [Constraints](#constraints)
-  - [🧑‍🏫 Bài 3: Advanced Traits](#-bài-3-advanced-traits)
-    - [Associated types](#associated-types)
-    - [Operator overloading](#operator-overloading)
-    - [Supertraits](#supertraits)
-    - [Trait objects](#trait-objects)
-    - [Dynamic dispatch](#dynamic-dispatch)
-  - [🧑‍🏫 Bài 4: Lifetimes với Generics](#-bài-4-lifetimes-với-generics)
-    - [Generic lifetime parameters](#generic-lifetime-parameters)
-    - [Lifetime bounds](#lifetime-bounds)
-    - [Struct lifetimes](#struct-lifetimes)
-    - [Static lifetime](#static-lifetime)
-  - [🧑‍🏫 Bài 5: Common Traits](#-bài-5-common-traits)
-    - [Debug và Display](#debug-và-display)
-    - [Clone và Copy](#clone-và-copy)
-    - [Iterator](#iterator)
-    - [From và Into](#from-và-into)
-    - [Drop](#drop)
-  - [🧪 BÀI TẬP LỚN CUỐI PHẦN: Generic Data Processing Library](#-bài-tập-lớn-cuối-phần-generic-data-processing-library)
-    - [Mô tả bài toán](#mô-tả-bài-toán)
-    - [Yêu cầu](#yêu-cầu)
-
 ## 🎯 Mục tiêu tổng quát
 
 - Master trait definitions và implementations
@@ -44,8 +9,6 @@
 - Implement common standard library traits
 - Build flexible, reusable code with generics
 - Create type-safe abstractions
-
----
 
 ## 🧑‍🏫 Bài 1: Traits cơ bản
 
@@ -209,8 +172,6 @@ fn returns_summarizable() -> impl Summary {
 // }
 ```
 
----
-
 ## 🧑‍🏫 Bài 2: Generic Types
 
 ### Generic functions
@@ -363,8 +324,6 @@ fn main() {
     pair.cmp_display();
 }
 ```
-
----
 
 ## 🧑‍🏫 Bài 3: Advanced Traits
 
@@ -594,8 +553,6 @@ fn get_drawable(choice: bool) -> Box<dyn Draw> {
 }
 ```
 
----
-
 ## 🧑‍🏫 Bài 4: Lifetimes với Generics
 
 ### Generic lifetime parameters
@@ -692,8 +649,6 @@ fn main() {
     println!("{}", s);
 }
 ```
-
----
 
 ## 🧑‍🏫 Bài 5: Common Traits
 
@@ -873,8 +828,6 @@ fn main() {
     // d dropped automatically at end of scope
 }
 ```
-
----
 
 ## 🧪 BÀI TẬP LỚN CUỐI PHẦN: Generic Data Processing Library
 

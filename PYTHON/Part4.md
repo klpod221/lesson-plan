@@ -1,26 +1,5 @@
 # 🚀 PHẦN 4: PHÁT TRIỂN WEB CHUYÊN NGHIỆP VỚI DJANGO
 
-- [🚀 PHẦN 4: PHÁT TRIỂN WEB CHUYÊN NGHIỆP VỚI DJANGO](#-phần-4-phát-triển-web-chuyên-nghiệp-với-django)
-  - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
-  - [🧑‍🏫 Bài 1: Giới thiệu Django và Cấu trúc MVT](#-bài-1-giới-thiệu-django-và-cấu-trúc-mvt)
-    - [Django là gì?](#django-là-gì)
-    - [Kiến trúc Model-View-Template (MVT)](#kiến-trúc-model-view-template-mvt)
-    - [Cài đặt và Tạo dự án Django đầu tiên](#cài-đặt-và-tạo-dự-án-django-đầu-tiên)
-  - [🧑‍🏫 Bài 2: Django Models và ORM](#-bài-2-django-models-và-orm)
-    - [Django Models là gì?](#django-models-là-gì)
-    - [Tạo Model và Migration](#tạo-model-và-migration)
-    - [Tương tác với dữ liệu qua ORM Shell](#tương-tác-với-dữ-liệu-qua-orm-shell)
-  - [🧑‍🏫 Bài 3: Django Views và Templates](#-bài-3-django-views-và-templates)
-    - [Function-Based Views](#function-based-views)
-    - [Django Template Language (DTL)](#django-template-language-dtl)
-    - [URL Routing trong Django](#url-routing-trong-django)
-  - [🧑‍🏫 Bài 4: Django Admin và Forms](#-bài-4-django-admin-và-forms)
-    - [Khám phá Django Admin](#khám-phá-django-admin)
-    - [Django Forms](#django-forms)
-  - [🧪 BÀI TẬP LỚN CUỐI PHẦN: Xây dựng lại Web App Quản lý Danh bạ với Django](#-bài-tập-lớn-cuối-phần-xây-dựng-lại-web-app-quản-lý-danh-bạ-với-django)
-    - [Mô tả bài toán](#mô-tả-bài-toán)
-    - [Yêu cầu](#yêu-cầu)
-
 ## 🎯 Mục tiêu tổng quát
 
 - Hiểu rõ triết lý "Batteries-included" của Django.
@@ -30,8 +9,6 @@
 - Tận dụng sức mạnh của Django Admin để quản lý dữ liệu mà không cần viết code.
 - Sử dụng Django Forms để xử lý và xác thực dữ liệu từ người dùng một cách hiệu quả.
 - Xây dựng lại ứng dụng từ Phần 3 trên nền tảng Django, sử dụng cơ sở dữ liệu thực sự thay vì file JSON.
-
----
 
 ## 🧑‍🏫 Bài 1: Giới thiệu Django và Cấu trúc MVT
 
@@ -51,7 +28,8 @@ Django theo một biến thể của kiến trúc MVC (Model-View-Controller) g�
 - **Template**: Là lớp trình bày (presentation layer). Nó chỉ chịu trách nhiệm hiển thị dữ liệu nhận được từ View dưới dạng HTML.
 
 Sơ đồ luồng xử lý trong Django:
-```
+
+```text
 (Internet)
     |
     V
@@ -83,16 +61,21 @@ Sơ đồ luồng xử lý trong Django:
 
 ### Cài đặt và Tạo dự án Django đầu tiên
 
-1.  **Cài đặt Django**:
+1. **Cài đặt Django**:
+
     ```bash
     pip install django
     ```
-2.  **Tạo một project**:
+
+2. **Tạo một project**:
+
     ```bash
     django-admin startproject myproject .
     ```
+
     (Dấu `.` để tạo project trong thư mục hiện tại). Cấu trúc thư mục sẽ là:
-    ```
+
+    ```text
     myproject/
     ├── myproject/
     │   ├── __init__.py
@@ -102,25 +85,30 @@ Sơ đồ luồng xử lý trong Django:
     │   └── wsgi.py
     └── manage.py        <-- Công cụ dòng lệnh để quản lý project
     ```
-3.  **Tạo một app**: Một project Django được tạo thành từ nhiều app, mỗi app đảm nhiệm một chức năng riêng.
+
+3. **Tạo một app**: Một project Django được tạo thành từ nhiều app, mỗi app đảm nhiệm một chức năng riêng.
+
     ```bash
     python manage.py startapp myapp
     ```
+
     Bây giờ cấu trúc sẽ có thêm thư mục `myapp`.
-4.  **Đăng ký app**: Mở `myproject/settings.py` và thêm `myapp` vào `INSTALLED_APPS`:
+4. **Đăng ký app**: Mở `myproject/settings.py` và thêm `myapp` vào `INSTALLED_APPS`:
+
     ```python
     INSTALLED_APPS = [
         # ...
         'myapp.apps.MyappConfig', # Hoặc chỉ cần 'myapp'
     ]
     ```
-5.  **Chạy server**:
+
+5. **Chạy server**:
+
     ```bash
     python manage.py runserver
     ```
-    Truy cập `http://127.0.0.1:8000` để xem trang chào mừng của Django.
 
----
+    Truy cập `http://127.0.0.1:8000` để xem trang chào mừng của Django.
 
 ## 🧑‍🏫 Bài 2: Django Models và ORM
 
@@ -132,7 +120,8 @@ Sơ đồ luồng xử lý trong Django:
 
 ### Tạo Model và Migration
 
-1.  **Định nghĩa Model**: Mở `myapp/models.py` và định nghĩa model cho sản phẩm.
+1. **Định nghĩa Model**: Mở `myapp/models.py` và định nghĩa model cho sản phẩm.
+
     ```python
     # myapp/models.py
     from django.db import models
@@ -147,23 +136,31 @@ Sơ đồ luồng xử lý trong Django:
             # Hiển thị tên sản phẩm trong Django Admin
             return self.name
     ```
-2.  **Tạo Migrations**: Django sẽ so sánh model của bạn với database hiện tại và tạo ra một file "migration" mô tả những thay đổi cần thiết.
+
+2. **Tạo Migrations**: Django sẽ so sánh model của bạn với database hiện tại và tạo ra một file "migration" mô tả những thay đổi cần thiết.
+
     ```bash
     python manage.py makemigrations
     ```
-3.  **Áp dụng Migration**: Lệnh này sẽ thực thi các file migration, tạo ra bảng `myapp_product` trong database.
+
+3. **Áp dụng Migration**: Lệnh này sẽ thực thi các file migration, tạo ra bảng `myapp_product` trong database.
+
     ```bash
     python manage.py migrate
     ```
+
     (Mặc định Django sử dụng SQLite, một database đơn giản dựa trên file).
 
 ### Tương tác với dữ liệu qua ORM Shell
 
 Django cung cấp một shell tương tác đã nạp sẵn môi trường project của bạn.
+
 ```bash
 python manage.py shell
 ```
+
 Bên trong shell:
+
 ```python
 >>> from myapp.models import Product
 
@@ -188,7 +185,6 @@ Laptop XYZ
 # Xóa
 >>> specific_product.delete()
 ```
----
 
 ## 🧑‍🏫 Bài 3: Django Views và Templates
 
@@ -197,6 +193,7 @@ Laptop XYZ
 View là một hàm Python nhận vào một đối tượng `request` và trả về một đối tượng `response`.
 
 `myapp/views.py`:
+
 ```python
 from django.shortcuts import render
 from .models import Product
@@ -221,6 +218,7 @@ Rất giống với Jinja2 của Flask nhưng có một vài khác biệt nhỏ 
 
 Tạo thư mục `templates/myapp/` bên trong app `myapp`.
 `myapp/templates/myapp/product_list.html`:
+
 ```html
 <!DOCTYPE html>
 <html>
@@ -248,8 +246,9 @@ Tạo thư mục `templates/myapp/` bên trong app `myapp`.
 
 ### URL Routing trong Django
 
-1.  **Tạo file `urls.py` cho app**:
+1. **Tạo file `urls.py` cho app**:
     `myapp/urls.py`:
+
     ```python
     from django.urls import path
     from . import views
@@ -259,8 +258,10 @@ Tạo thư mục `templates/myapp/` bên trong app `myapp`.
         path('', views.product_list, name='product-list'),
     ]
     ```
-2.  **Liên kết URL của app vào project**:
+
+2. **Liên kết URL của app vào project**:
     `myproject/urls.py`:
+
     ```python
     from django.contrib import admin
     from django.urls import path, include # Thêm include
@@ -270,9 +271,8 @@ Tạo thư mục `templates/myapp/` bên trong app `myapp`.
         path('products/', include('myapp.urls')), # Bao gồm các URL từ myapp
     ]
     ```
-Bây giờ, khi bạn truy cập `http://127.0.0.1:8000/products/`, nó sẽ gọi hàm `product_list` trong `myapp/views.py`.
 
----
+Bây giờ, khi bạn truy cập `http://127.0.0.1:8000/products/`, nó sẽ gọi hàm `product_list` trong `myapp/views.py`.
 
 ## 🧑‍🏫 Bài 4: Django Admin và Forms
 
@@ -280,13 +280,16 @@ Bây giờ, khi bạn truy cập `http://127.0.0.1:8000/products/`, nó sẽ g�
 
 Đây là một trong những tính năng mạnh mẽ nhất của Django. Nó tự động tạo ra một giao diện quản trị hoàn chỉnh cho các model của bạn.
 
-1.  **Tạo tài khoản Superuser**:
+1. **Tạo tài khoản Superuser**:
+
     ```bash
     python manage.py createsuperuser
     ```
+
     (Làm theo hướng dẫn để tạo username, email, password)
-2.  **Đăng ký Model với Admin**:
+2. **Đăng ký Model với Admin**:
     `myapp/admin.py`:
+
     ```python
     from django.contrib import admin
     from .models import Product
@@ -294,14 +297,16 @@ Bây giờ, khi bạn truy cập `http://127.0.0.1:8000/products/`, nó sẽ g�
     # Đăng ký model Product để nó xuất hiện trong trang admin
     admin.site.register(Product)
     ```
-3.  **Truy cập trang Admin**: Chạy server và vào `http://127.0.0.1:8000/admin/`. Đăng nhập với tài khoản superuser vừa tạo. Bạn sẽ thấy một giao diện để Thêm, Sửa, Xóa các sản phẩm một cách trực quan.
+
+3. **Truy cập trang Admin**: Chạy server và vào `http://127.0.0.1:8000/admin/`. Đăng nhập với tài khoản superuser vừa tạo. Bạn sẽ thấy một giao diện để Thêm, Sửa, Xóa các sản phẩm một cách trực quan.
 
 ### Django Forms
 
 Django Forms giúp tạo, xác thực và xử lý các form HTML một cách an toàn và hiệu quả.
 
-1.  **Tạo Form**:
+1. **Tạo Form**:
     `myapp/forms.py` (tạo file mới):
+
     ```python
     from django import forms
     from .models import Product
@@ -311,8 +316,10 @@ Django Forms giúp tạo, xác thực và xử lý các form HTML một cách an
             model = Product
             fields = ['name', 'price', 'description'] # Các trường muốn hiển thị trong form
     ```
-2.  **Sử dụng Form trong View**:
+
+2. **Sử dụng Form trong View**:
     `myapp/views.py`:
+
     ```python
     from django.shortcuts import render, redirect
     from .models import Product
@@ -330,8 +337,10 @@ Django Forms giúp tạo, xác thực và xử lý các form HTML một cách an
         context = {'form': form}
         return render(request, 'myapp/add_product.html', context)
     ```
-3.  **Hiển thị Form trong Template**:
+
+3. **Hiển thị Form trong Template**:
     `myapp/templates/myapp/add_product.html`:
+
     ```html
     <h1>Thêm sản phẩm mới</h1>
     <form method="post">
@@ -340,14 +349,14 @@ Django Forms giúp tạo, xác thực và xử lý các form HTML một cách an
         <button type="submit">Lưu</button>
     </form>
     ```
-4.  **Thêm URL cho view mới**:
+
+4. **Thêm URL cho view mới**:
     `myapp/urls.py`:
+
     ```python
     # ...
     path('add/', views.add_product, name='add-product'),
     ```
-
----
 
 ## 🧪 BÀI TẬP LỚN CUỐI PHẦN: Xây dựng lại Web App Quản lý Danh bạ với Django
 
@@ -357,11 +366,11 @@ Xây dựng lại ứng dụng Quản lý Danh bạ bằng Django, thay thế ho
 
 ### Yêu cầu
 
-1.  **Project và App Setup**:
+1. **Project và App Setup**:
     - Tạo một project Django tên là `contactbook`.
     - Tạo một app bên trong tên là `contacts`.
 
-2.  **Model**:
+2. **Model**:
     - Trong `contacts/models.py`, tạo một model `Contact` với các trường:
       - `name` (CharField)
       - `phone` (CharField)
@@ -369,12 +378,12 @@ Xây dựng lại ứng dụng Quản lý Danh bạ bằng Django, thay thế ho
       - `created_at` (DateTimeField, tự động thêm ngày tạo)
     - Chạy `makemigrations` và `migrate` để tạo bảng trong database.
 
-3.  **Django Admin**:
+3. **Django Admin**:
     - Tạo một tài khoản `superuser`.
     - Đăng ký model `Contact` vào `contacts/admin.py`.
     - Truy cập trang admin và thử thêm vài liên hệ bằng tay để kiểm tra.
 
-4.  **Views và Templates**:
+4. **Views và Templates**:
     - **Danh sách liên hệ (`/`)**:
       - Tạo một view để lấy tất cả liên hệ từ database và hiển thị chúng trong một template `contact_list.html`.
       - Template hiển thị dữ liệu trong một bảng HTML.
@@ -385,8 +394,8 @@ Xây dựng lại ứng dụng Quản lý Danh bạ bằng Django, thay thế ho
       - Tạo một view để xử lý việc thêm liên hệ mới, sử dụng form vừa tạo. Template là `contact_form.html`.
       - Sau khi thêm thành công, chuyển hướng người dùng về trang danh sách.
 
-5.  **URLs**:
+5. **URLs**:
     - Cấu hình `urls.py` cho app `contacts` và include nó vào `urls.py` của project.
 
-6.  **(Tùy chọn nâng cao)**
+6. **(Tùy chọn nâng cao)**
     - Thêm chức năng **Sửa (`/contact/<int:pk>/edit/`)** và **Xóa (`/contact/<int:pk>/delete/`)** liên hệ, cũng sử dụng Django Forms.

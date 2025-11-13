@@ -1,30 +1,5 @@
 # 📘 PHẦN 1: NHẬP MÔN C
 
-- [📘 PHẦN 1: NHẬP MÔN C](#-phần-1-nhập-môn-c)
-  - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
-  - [🧑‍🏫 Bài 1: Giới thiệu ngôn ngữ C](#-bài-1-giới-thiệu-ngôn-ngữ-c)
-    - [C là gì?](#c-là-gì)
-    - [Cài đặt môi trường](#cài-đặt-môi-trường)
-    - [Chương trình C đầu tiên](#chương-trình-c-đầu-tiên)
-  - [🧑‍🏫 Bài 2: Biến và Kiểu dữ liệu](#-bài-2-biến-và-kiểu-dữ-liệu)
-    - [Kiểu dữ liệu cơ bản](#kiểu-dữ-liệu-cơ-bản)
-    - [Biến và hằng số](#biến-và-hằng-số)
-    - [Toán tử](#toán-tử)
-  - [🧑‍🏫 Bài 3: Nhập xuất dữ liệu](#-bài-3-nhập-xuất-dữ-liệu)
-    - [Printf và format specifiers](#printf-và-format-specifiers)
-    - [Scanf và nhập dữ liệu](#scanf-và-nhập-dữ-liệu)
-  - [🧑‍🏫 Bài 4: Cấu trúc điều khiển](#-bài-4-cấu-trúc-điều-khiển)
-    - [Câu lệnh if-else](#câu-lệnh-if-else)
-    - [Switch-case](#switch-case)
-    - [Vòng lặp](#vòng-lặp)
-  - [🧑‍🏫 Bài 5: Hàm trong C](#-bài-5-hàm-trong-c)
-    - [Định nghĩa và gọi hàm](#định-nghĩa-và-gọi-hàm)
-    - [Tham số và giá trị trả về](#tham-số-và-giá-trị-trả-về)
-    - [Scope và Storage Class](#scope-và-storage-class)
-  - [🧪 BÀI TẬP LỚN CUỐI PHẦN: Quản lý sinh viên](#-bài-tập-lớn-cuối-phần-quản-lý-sinh-viên)
-    - [Mô tả bài toán](#mô-tả-bài-toán)
-    - [Yêu cầu](#yêu-cầu)
-
 ## 🎯 Mục tiêu tổng quát
 
 - Hiểu được C là gì và tại sao nên học C
@@ -32,8 +7,6 @@
 - Biết cách nhập xuất dữ liệu
 - Sử dụng thành thạo cấu trúc điều khiển và hàm
 - Xây dựng chương trình C hoàn chỉnh
-
----
 
 ## 🧑‍🏫 Bài 1: Giới thiệu ngôn ngữ C
 
@@ -141,8 +114,6 @@ int add(int a, int b) {
     return a + b;
 }
 ```
-
----
 
 ## 🧑‍🏫 Bài 2: Biến và Kiểu dữ liệu
 
@@ -299,8 +270,6 @@ int main() {
 }
 ```
 
----
-
 ## 🧑‍🏫 Bài 3: Nhập xuất dữ liệu
 
 ### Printf và format specifiers
@@ -446,8 +415,6 @@ int main() {
     return 0;
 }
 ```
-
----
 
 ## 🧑‍🏫 Bài 4: Cấu trúc điều khiển
 
@@ -633,8 +600,6 @@ int main() {
 }
 ```
 
----
-
 ## 🧑‍🏫 Bài 5: Hàm trong C
 
 ### Định nghĩa và gọi hàm
@@ -798,8 +763,6 @@ int main() {
     return 0;
 }
 ```
-
----
 
 ## 🧪 BÀI TẬP LỚN CUỐI PHẦN: Quản lý sinh viên
 

@@ -1,40 +1,13 @@
-# 📘 PHẦN 5: XU HƯỚNG HIỆN ĐẠI VÀ CÔNG NGHỆ MỚI TRONG PHP
+---
+prev:
+  text: '🏗️ Framework & Ứng Dụng'
+  link: '/PHP/Part4'
+next:
+  text: '🌐 Triển Khai Chuyên Nghiệp'
+  link: '/PHP/Part6'
+---
 
-- [📘 PHẦN 5: XU HƯỚNG HIỆN ĐẠI VÀ CÔNG NGHỆ MỚI TRONG PHP](#-phần-5-xu-hướng-hiện-đại-và-công-nghệ-mới-trong-php)
-  - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
-  - [🧑‍🏫 Bài 21: PHP và Containers (Docker)](#-bài-21-php-và-containers-docker)
-    - [Giới thiệu về Docker và containers](#giới-thiệu-về-docker-và-containers)
-    - [Dockerfile cơ bản cho PHP](#dockerfile-cơ-bản-cho-php)
-    - [Docker Compose cho stack LEMP (Linux, Nginx, MySQL, PHP)](#docker-compose-cho-stack-lemp-linux-nginx-mysql-php)
-    - [Cấu hình Nginx trong Docker](#cấu-hình-nginx-trong-docker)
-    - [Triển khai và quản lý container PHP](#triển-khai-và-quản-lý-container-php)
-    - [Thực hành tốt nhất với Docker và PHP](#thực-hành-tốt-nhất-với-docker-và-php)
-  - [🧑‍🏫 Bài 22: Microservices với PHP](#-bài-22-microservices-với-php)
-    - [Giới thiệu về kiến trúc Microservices](#giới-thiệu-về-kiến-trúc-microservices)
-    - [Xây dựng RESTful microservices với PHP](#xây-dựng-restful-microservices-với-php)
-    - [Giao tiếp giữa các microservices](#giao-tiếp-giữa-các-microservices)
-    - [Service Discovery và API Gateway](#service-discovery-và-api-gateway)
-    - [Event-driven architecture và Queues](#event-driven-architecture-và-queues)
-  - [🧑‍🏫 Bài 23: Progressive Web Apps và PHP](#-bài-23-progressive-web-apps-và-php)
-    - [Giới thiệu về Progressive Web Apps (PWA)](#giới-thiệu-về-progressive-web-apps-pwa)
-    - [Web App Manifest và Service Workers](#web-app-manifest-và-service-workers)
-    - [Manifest và Service Worker files](#manifest-và-service-worker-files)
-    - [PHP để handle Push Notifications](#php-để-handle-push-notifications)
-    - [Offline First Strategy](#offline-first-strategy)
-  - [🧑‍🏫 Bài 24: GraphQL API trong PHP](#-bài-24-graphql-api-trong-php)
-    - [Giới thiệu về GraphQL](#giới-thiệu-về-graphql)
-    - [Xây dựng GraphQL server đơn giản](#xây-dựng-graphql-server-đơn-giản)
-    - [GraphQL với Laravel](#graphql-với-laravel)
-    - [GraphQL Queries and Mutations](#graphql-queries-and-mutations)
-    - [Authentication và Authorization trong GraphQL](#authentication-và-authorization-trong-graphql)
-    - [N+1 Problem và Batch Loading](#n1-problem-và-batch-loading)
-  - [🧑‍🏫 Bài 25: JIT trong PHP 8 và Beyond](#-bài-25-jit-trong-php-8-và-beyond)
-    - [Giới thiệu về JIT (Just-In-Time) Compiler trong PHP 8](#giới-thiệu-về-jit-just-in-time-compiler-trong-php-8)
-    - [Hiệu suất với JIT](#hiệu-suất-với-jit)
-    - [Tận dụng tối đa JIT](#tận-dụng-tối-đa-jit)
-  - [🧪 BÀI TẬP LỚN CUỐI PHẦN: Xây dựng hệ thống Microservice với PHP và Docker](#-bài-tập-lớn-cuối-phần-xây-dựng-hệ-thống-microservice-với-php-và-docker)
-    - [Yêu cầu](#yêu-cầu)
-    - [Cấu trúc dự án](#cấu-trúc-dự-án)
+# 📘 PHẦN 5: XU HƯỚNG HIỆN ĐẠI VÀ CÔNG NGHỆ MỚI TRONG PHP
 
 ## 🎯 Mục tiêu tổng quát
 
@@ -43,8 +16,6 @@
 - Biết cách xây dựng Progressive Web Apps với API PHP
 - Làm chủ GraphQL để phát triển API hiện đại
 - Tối ưu hiệu năng ứng dụng với các tính năng mới của PHP 8+
-
----
 
 ## 🧑‍🏫 Bài 21: PHP và Containers (Docker)
 
@@ -283,8 +254,6 @@ services:
       timeout: 10s
       retries: 3
 ```
-
----
 
 ## 🧑‍🏫 Bài 22: Microservices với PHP
 
@@ -752,8 +721,6 @@ $consumer = new OrderEventConsumer();
 $consumer->consume();
 // This script will run continuously, processing messages as they arrive
 ```
-
----
 
 ## 🧑‍🏫 Bài 23: Progressive Web Apps và PHP
 
@@ -1281,8 +1248,6 @@ echo json_encode(['success' => false, 'message' => 'Endpoint not found']);
 </body>
 </html>
 ```
-
----
 
 ## 🧑‍🏫 Bài 24: GraphQL API trong PHP
 
@@ -1848,8 +1813,6 @@ class UserDirective extends BaseDirective implements FieldResolver
     }
 }
 ```
-
----
 
 ## 🧑‍🏫 Bài 25: JIT trong PHP 8 và Beyond
 

@@ -1,27 +1,5 @@
 # 📡 PHẦN 5: API, TESTING VÀ DEPLOYMENT
 
-- [📡 PHẦN 5: API, TESTING VÀ DEPLOYMENT](#-phần-5-api-testing-và-deployment)
-  - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
-  - [🧑‍🏫 Bài 1: Giới thiệu API và Django REST Framework (DRF)](#-bài-1-giới-thiệu-api-và-django-rest-framework-drf)
-    - [API là gì?](#api-là-gì)
-    - [Django REST Framework (DRF)](#django-rest-framework-drf)
-    - [Xây dựng API đầu tiên với DRF](#xây-dựng-api-đầu-tiên-với-drf)
-  - [🧑‍🏫 Bài 2: Authentication và Permissions trong DRF](#-bài-2-authentication-và-permissions-trong-drf)
-    - [Authentication (Xác thực)](#authentication-xác-thực)
-    - [Permissions (Phân quyền)](#permissions-phân-quyền)
-    - [Áp dụng vào API](#áp-dụng-vào-api)
-  - [🧑‍🏫 Bài 3: Viết Test cho ứng dụng Django](#-bài-3-viết-test-cho-ứng-dụng-django)
-    - [Tại sao phải viết Test?](#tại-sao-phải-viết-test)
-    - [Unit Test và Integration Test](#unit-test-và-integration-test)
-    - [Viết Test trong Django](#viết-test-trong-django)
-  - [🧑‍🏫 Bài 4: Deployment - Triển khai ứng dụng](#-bài-4-deployment---triển-khai-ứng-dụng)
-    - [Môi trường Development vs. Production](#môi-trường-development-vs-production)
-    - [Các thành phần của một môi trường Production](#các-thành-phần-của-một-môi-trường-production)
-    - [Triển khai lên một Platform (PaaS)](#triển-khai-lên-một-platform-paas)
-  - [🧪 BÀI TẬP LỚN CUỐI PHẦN: API hóa và Chuẩn bị Deployment cho App Danh bạ](#-bài-tập-lớn-cuối-phần-api-hóa-và-chuẩn-bị-deployment-cho-app-danh-bạ)
-    - [Mô tả bài toán](#mô-tả-bài-toán)
-    - [Yêu cầu](#yêu-cầu)
-
 ## 🎯 Mục tiêu tổng quát
 
 - Hiểu và xây dựng được RESTful API bằng Django REST Framework.
@@ -29,8 +7,6 @@
 - Viết được các bài test (unit test) để đảm bảo chất lượng và sự ổn định của code.
 - Nắm được các khái niệm cơ bản về deployment và các bước để đưa một ứng dụng Django lên môi trường internet thực tế.
 - Chuyển đổi ứng dụng quản lý danh bạ thành một API backend sẵn sàng cho các ứng dụng khác (ví dụ: mobile app, frontend framework) sử dụng và chuẩn bị cho việc deployment.
-
----
 
 ## 🧑‍🏫 Bài 1: Giới thiệu API và Django REST Framework (DRF)
 
@@ -41,7 +17,8 @@
 - **REST (Representational State Transfer)** là một kiểu kiến trúc phổ biến để thiết kế API, sử dụng các phương thức HTTP (GET, POST, PUT, DELETE) để thực hiện các thao tác CRUD (Create, Read, Update, Delete) trên dữ liệu.
 
 Sơ đồ minh họa:
-```
+
+```text
 +--------------+        +-----------------+        +---------------------+
 |              |        |                 |        |                     |
 |  Mobile App  | -----> |                 | <----> |      Database       |
@@ -66,14 +43,17 @@ Sơ đồ minh họa:
 
 ### Xây dựng API đầu tiên với DRF
 
-1.  **Cài đặt và cấu hình**:
+1. **Cài đặt và cấu hình**:
+
     ```bash
     pip install djangorestframework
     ```
+
     Trong `settings.py`, thêm `rest_framework` vào `INSTALLED_APPS`.
 
-2.  **Tạo Serializer**: Serializer giống như Django Form, nhưng dùng cho API. Nó định nghĩa dữ liệu nào sẽ được chuyển đổi sang JSON.
+2. **Tạo Serializer**: Serializer giống như Django Form, nhưng dùng cho API. Nó định nghĩa dữ liệu nào sẽ được chuyển đổi sang JSON.
     `contacts/serializers.py` (tạo file mới):
+
     ```python
     from rest_framework import serializers
     from .models import Contact
@@ -84,8 +64,9 @@ Sơ đồ minh họa:
             fields = ['id', 'name', 'phone', 'email', 'created_at'] # Các trường muốn expose ra API
     ```
 
-3.  **Tạo API View**:
+3. **Tạo API View**:
     `contacts/views.py`:
+
     ```python
     from rest_framework.decorators import api_view
     from rest_framework.response import Response
@@ -99,8 +80,9 @@ Sơ đồ minh họa:
         return Response(serializer.data)
     ```
 
-4.  **Tạo URL cho API**:
+4. **Tạo URL cho API**:
     `contacts/urls.py`:
+
     ```python
     from django.urls import path
     from . import views
@@ -110,15 +92,15 @@ Sơ đồ minh họa:
         path('api/list/', views.contact_api_list, name='contact-api-list'),
     ]
     ```
-    Chạy server và truy cập `http://127.0.0.1:8000/contacts/api/list/`. Bạn sẽ thấy một giao diện web đẹp mắt do DRF tạo ra, hiển thị danh sách liên hệ dưới dạng JSON.
 
----
+    Chạy server và truy cập `http://127.0.0.1:8000/contacts/api/list/`. Bạn sẽ thấy một giao diện web đẹp mắt do DRF tạo ra, hiển thị danh sách liên hệ dưới dạng JSON.
 
 ## 🧑‍🏫 Bài 2: Authentication và Permissions trong DRF
 
 ### Authentication (Xác thực)
 
 Xác thực là quá trình xác định *bạn là ai*. DRF hỗ trợ nhiều cơ chế:
+
 - **SessionAuthentication**: Dùng session của Django, phù hợp cho các web app truyền thống.
 - **TokenAuthentication**: Cơ chế phổ biến cho API. Client gửi một token duy nhất trong mỗi request để chứng minh danh tính.
 - **JWT Authentication**: Một dạng token hiện đại và an toàn hơn.
@@ -126,6 +108,7 @@ Xác thực là quá trình xác định *bạn là ai*. DRF hỗ trợ nhiều 
 ### Permissions (Phân quyền)
 
 Sau khi xác thực, phân quyền sẽ quyết định *bạn được làm gì*.
+
 - `IsAuthenticated`: Chỉ những người dùng đã đăng nhập mới có quyền truy cập.
 - `IsAdminUser`: Chỉ admin (superuser) mới có quyền truy cập.
 - `IsAuthenticatedOrReadOnly`: Ai cũng có thể xem (GET), nhưng chỉ người dùng đã đăng nhập mới có thể thay đổi (POST, PUT, DELETE).
@@ -133,10 +116,11 @@ Sau khi xác thực, phân quyền sẽ quyết định *bạn được làm gì
 
 ### Áp dụng vào API
 
-1.  **Sử dụng Token Authentication**:
+1. **Sử dụng Token Authentication**:
     - Trong `settings.py`, thêm `rest_framework.authtoken` vào `INSTALLED_APPS`.
     - Chạy `python manage.py migrate` để tạo bảng lưu token.
     - Cấu hình DRF để sử dụng token mặc định:
+
       ```python
       # settings.py
       REST_FRAMEWORK = {
@@ -149,8 +133,9 @@ Sau khi xác thực, phân quyền sẽ quyết định *bạn được làm gì
       }
       ```
 
-2.  **Bảo vệ View**:
+2. **Bảo vệ View**:
     `contacts/views.py`:
+
     ```python
     # ...
     from rest_framework.permissions import IsAuthenticated
@@ -168,9 +153,8 @@ Sau khi xác thực, phân quyền sẽ quyết định *bạn được làm gì
                 return Response(serializer.data, status=201) # 201 Created
             return Response(serializer.errors, status=400) # 400 Bad Request
     ```
-    Bây giờ, nếu truy cập API mà không cung cấp token, bạn sẽ nhận được lỗi "Authentication credentials were not provided."
 
----
+    Bây giờ, nếu truy cập API mà không cung cấp token, bạn sẽ nhận được lỗi "Authentication credentials were not provided."
 
 ## 🧑‍🏫 Bài 3: Viết Test cho ứng dụng Django
 
@@ -190,6 +174,7 @@ Sau khi xác thực, phân quyền sẽ quyết định *bạn được làm gì
 Django sử dụng thư viện `unittest` của Python và cung cấp các lớp tiện ích. Test được viết trong file `tests.py` của mỗi app.
 
 `contacts/tests.py`:
+
 ```python
 from django.test import TestCase
 from django.contrib.auth.models import User
@@ -236,9 +221,8 @@ class ContactAPITests(TestCase):
         self.assertTrue(Contact.objects.filter(name='New Contact').exists())
 
 ```
-Chạy test bằng lệnh: `python manage.py test`
 
----
+Chạy test bằng lệnh: `python manage.py test`
 
 ## 🧑‍🏫 Bài 4: Deployment - Triển khai ứng dụng
 
@@ -250,7 +234,8 @@ Chạy test bằng lệnh: `python manage.py test`
 ### Các thành phần của một môi trường Production
 
 Sơ đồ kiến trúc Production đơn giản:
-```
+
+```text
 +------+   (Request)   +-------+   (Forwards to)   +----------+   (Talks to)   +----------+
 | User | ------------> | Nginx | ----------------> | Gunicorn | -------------> | Django   |
 +------+               +-------+                   +----------+                |   App    |
@@ -263,6 +248,7 @@ Sơ đồ kiến trúc Production đơn giản:
                        | static/media |                                        | (PostgreSQL)|
                        +--------------+                                        +----------+
 ```
+
 - **Web Server (Nginx)**: Nhận request từ người dùng. Phục vụ các file tĩnh (CSS, JS) trực tiếp, và chuyển các request động đến Application Server.
 - **Application Server (Gunicorn)**: Chạy ứng dụng Python/Django của bạn, có khả năng xử lý nhiều request đồng thời.
 - **Database (PostgreSQL)**: Hệ quản trị CSDL mạnh mẽ, phù hợp cho môi trường production.
@@ -272,23 +258,24 @@ Sơ đồ kiến trúc Production đơn giản:
 Với người mới bắt đầu, sử dụng một PaaS (Platform as a Service) như **Render.com** hay **Heroku** là cách dễ nhất. Họ sẽ quản lý Nginx, Gunicorn, Database cho bạn.
 
 Các bước chuẩn bị chính:
-1.  **Cài đặt Gunicorn**: `pip install gunicorn`
-2.  **Cài đặt thư viện database**: `pip install psycopg2-binary`
-3.  **Cài đặt WhiteNoise** để phục vụ file tĩnh: `pip install whitenoise` và cấu hình trong `settings.py`.
-4.  **Tạo file `requirements.txt`**: `pip freeze > requirements.txt` để liệt kê các thư viện cần cài.
-5.  **Tạo file `Procfile`**: Chỉ cho PaaS biết cách chạy ứng dụng của bạn.
+
+1. **Cài đặt Gunicorn**: `pip install gunicorn`
+2. **Cài đặt thư viện database**: `pip install psycopg2-binary`
+3. **Cài đặt WhiteNoise** để phục vụ file tĩnh: `pip install whitenoise` và cấu hình trong `settings.py`.
+4. **Tạo file `requirements.txt`**: `pip freeze > requirements.txt` để liệt kê các thư viện cần cài.
+5. **Tạo file `Procfile`**: Chỉ cho PaaS biết cách chạy ứng dụng của bạn.
     `Procfile`:
-    ```
+
+    ```text
     web: gunicorn contactbook.wsgi --log-file -
     ```
-6.  **Cấu hình `settings.py` cho production**:
+
+6. **Cấu hình `settings.py` cho production**:
     - `DEBUG = False`
     - `SECRET_KEY` lấy từ biến môi trường.
     - `ALLOWED_HOSTS` chứa tên miền của bạn.
     - Cấu hình database để kết nối đến PostgreSQL.
-7.  Đẩy code lên GitHub và kết nối với tài khoản PaaS của bạn.
-
----
+7. Đẩy code lên GitHub và kết nối với tài khoản PaaS của bạn.
 
 ## 🧪 BÀI TẬP LỚN CUỐI PHẦN: API hóa và Chuẩn bị Deployment cho App Danh bạ
 
@@ -298,7 +285,7 @@ Phát triển ứng dụng Django Quản lý Danh bạ từ Phần 4 thành mộ
 
 ### Yêu cầu
 
-1.  **Xây dựng RESTful API**:
+1. **Xây dựng RESTful API**:
     - Sử dụng Django REST Framework.
     - Tạo một `ContactSerializer`.
     - Xây dựng các API endpoint cho tất cả các thao tác CRUD:
@@ -309,23 +296,23 @@ Phát triển ứng dụng Django Quản lý Danh bạ từ Phần 4 thành mộ
       - `DELETE /api/contacts/<int:pk>/`: Xóa một liên hệ.
       - (Gợi ý: Sử dụng các lớp `GenericAPIView` hoặc `ModelViewSet` của DRF để làm nhanh hơn).
 
-2.  **Bảo mật API**:
+2. **Bảo mật API**:
     - Thiết lập `TokenAuthentication` làm cơ chế xác thực mặc định.
     - Thiết lập `IsAuthenticated` làm quyền mặc định. Người dùng phải có token hợp lệ để tương tác với API.
 
-3.  **Viết Unit Tests**:
+3. **Viết Unit Tests**:
     - Trong `contacts/tests.py`, viết các test case để kiểm tra:
       - Endpoint lấy danh sách liên hệ (`GET /api/contacts/`) hoạt động đúng.
       - Endpoint tạo liên hệ (`POST /api/contacts/`) hoạt động đúng.
       - Việc truy cập API khi chưa xác thực bị từ chối (trả về status 401 hoặc 403).
 
-4.  **Chuẩn bị Deployment**:
+4. **Chuẩn bị Deployment**:
     - Cài đặt `gunicorn`, `psycopg2-binary`, `whitenoise`.
     - Tạo file `requirements.txt`.
     - Tạo file `Procfile`.
     - Sửa đổi `settings.py` để có thể đọc các cấu hình nhạy cảm (như `SECRET_KEY`, `DATABASE_URL`) từ biến môi trường, và thiết lập `DEBUG=False` nếu biến môi trường cho biết đang ở production.
 
-5.  **(Tùy chọn) Triển khai thực tế**:
+5. **(Tùy chọn) Triển khai thực tế**:
     - Tạo một tài khoản miễn phí trên Render.com.
     - Tạo một project mới, kết nối với repo GitHub của bạn.
     - Cấu hình các biến môi trường cần thiết và triển khai ứng dụng.

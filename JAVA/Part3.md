@@ -1,48 +1,18 @@
-# 📘 PHẦN 3: LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG (OOP)
+---
+prev:
+  text: '📊 Mảng, Chuỗi và Hàm'
+  link: '/JAVA/Part2'
+next:
+  text: '📁 File I/O và Collections'
+  link: '/JAVA/Part4'
+---
 
-- [📘 PHẦN 3: LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG (OOP)](#-phần-3-lập-trình-hướng-đối-tượng-oop)
-  - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
-  - [🧑‍🏫 Bài 1: Giới thiệu về OOP](#-bài-1-giới-thiệu-về-oop)
-    - [Các khái niệm cơ bản trong OOP](#các-khái-niệm-cơ-bản-trong-oop)
-      - [Lớp (Class)](#lớp-class)
-      - [Đối tượng (Object)](#đối-tượng-object)
-      - [Bốn trụ cột của OOP (Các bạn sẽ được tìm hiểu chi tiết qua các ví dụ trong phần bên dưới)](#bốn-trụ-cột-của-oop-các-bạn-sẽ-được-tìm-hiểu-chi-tiết-qua-các-ví-dụ-trong-phần-bên-dưới)
-    - [Tại sao OOP quan trọng?](#tại-sao-oop-quan-trọng)
-    - [So sánh OOP với lập trình thủ tục](#so-sánh-oop-với-lập-trình-thủ-tục)
-  - [🧑‍🏫 Bài 2: Lớp và Đối tượng](#-bài-2-lớp-và-đối-tượng)
-    - [Khai báo lớp và tạo đối tượng](#khai-báo-lớp-và-tạo-đối-tượng)
-    - [Tạo và sử dụng đối tượng](#tạo-và-sử-dụng-đối-tượng)
-    - [Ví dụ thực tế - Lớp quản lý sản phẩm](#ví-dụ-thực-tế---lớp-quản-lý-sản-phẩm)
-  - [🧑‍🏫 Bài 3: Kế thừa](#-bài-3-kế-thừa)
-    - [Cơ bản về kế thừa](#cơ-bản-về-kế-thừa)
-    - [Sử dụng kế thừa](#sử-dụng-kế-thừa)
-    - [Từ khóa super trong kế thừa](#từ-khóa-super-trong-kế-thừa)
-    - [Ví dụ thực tế - Hệ thống quản lý nhân viên](#ví-dụ-thực-tế---hệ-thống-quản-lý-nhân-viên)
-  - [🧑‍🏫 Bài 4: Đóng gói (Encapsulation)](#-bài-4-đóng-gói-encapsulation)
-    - [Đóng gói dữ liệu](#đóng-gói-dữ-liệu)
-    - [Sử dụng lớp đã đóng gói](#sử-dụng-lớp-đã-đóng-gói)
-    - [Các mức độ truy cập trong JAVA](#các-mức-độ-truy-cập-trong-java)
-    - [Ví dụ thực tế - Lớp Student với đóng gói](#ví-dụ-thực-tế---lớp-student-với-đóng-gói)
-  - [🧑‍🏫 Bài 5: Đa hình (Polymorphism)](#-bài-5-đa-hình-polymorphism)
-    - [Đa hình với nạp chồng phương thức (Method Overloading)](#đa-hình-với-nạp-chồng-phương-thức-method-overloading)
-    - [Đa hình với ghi đè phương thức (Method Overriding)](#đa-hình-với-ghi-đè-phương-thức-method-overriding)
-    - [Đa hình với lớp trừu tượng (Abstract Class)](#đa-hình-với-lớp-trừu-tượng-abstract-class)
-    - [Ví dụ thực tế - Hệ thống thanh toán](#ví-dụ-thực-tế---hệ-thống-thanh-toán)
-  - [🧑‍🏫 Bài 6: Interface và Abstract Class](#-bài-6-interface-và-abstract-class)
-    - [Interface trong JAVA](#interface-trong-java)
-    - [Multiple Interface](#multiple-interface)
-    - [Abstract Class vs Interface](#abstract-class-vs-interface)
-    - [Ví dụ thực tế - Hệ thống thông báo](#ví-dụ-thực-tế---hệ-thống-thông-báo)
-  - [🧪 BÀI TẬP LỚN CUỐI PHẦN: Quản lý sinh viên, giảng viên và khóa học](#-bài-tập-lớn-cuối-phần-quản-lý-sinh-viên-giảng-viên-và-khóa-học)
-    - [Mô tả bài toán](#mô-tả-bài-toán)
-    - [Các chức năng cần có](#các-chức-năng-cần-có)
+# 📘 PHẦN 3: LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG (OOP)
 
 ## 🎯 Mục tiêu tổng quát
 
 - Hiểu và áp dụng các nguyên lý của lập trình hướng đối tượng trong JAVA.
 - Làm việc với các lớp, đối tượng, kế thừa, đóng gói, và đa hình.
-
----
 
 ## 🧑‍🏫 Bài 1: Giới thiệu về OOP
 
@@ -340,8 +310,6 @@ public class ProductDemo {
 }
 ```
 
----
-
 ## 🧑‍🏫 Bài 3: Kế thừa
 
 ### Cơ bản về kế thừa
@@ -546,8 +514,6 @@ public class InheritanceDemo {
       }
   }
   ```
-
----
 
 ## 🧑‍🏫 Bài 4: Đóng gói (Encapsulation)
 
@@ -835,8 +801,6 @@ public class StudentDemo {
     }
 }
 ```
-
----
 
 ## 🧑‍🏫 Bài 5: Đa hình (Polymorphism)
 
@@ -1207,8 +1171,6 @@ public class PaymentSystemDemo {
     }
 }
 ```
-
----
 
 ## 🧑‍🏫 Bài 6: Interface và Abstract Class
 
@@ -1658,8 +1620,6 @@ public class NotificationSystemDemo {
     }
 }
 ```
-
----
 
 ## 🧪 BÀI TẬP LỚN CUỐI PHẦN: Quản lý sinh viên, giảng viên và khóa học
 

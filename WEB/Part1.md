@@ -1,47 +1,19 @@
-# 📘 PHẦN 1: NHẬP MÔN HTML
+---
+prev:
+  text: '⚡ Thuật Toán Ứng Dụng'
+  link: '/DSA/Part5'
+next:
+  text: '🎨 CSS - Định Dạng Trang Web'
+  link: '/WEB/Part2'
+---
 
-- [📘 PHẦN 1: NHẬP MÔN HTML](#-phần-1-nhập-môn-html)
-  - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
-  - [🧑‍🏫 Bài 1: Giới thiệu HTML](#-bài-1-giới-thiệu-html)
-    - [HTML là gì?](#html-là-gì)
-    - [Cấu trúc cơ bản của trang HTML](#cấu-trúc-cơ-bản-của-trang-html)
-    - [Giải thích](#giải-thích)
-  - [🧑‍🏫 Bài 2: Các thẻ HTML cơ bản](#-bài-2-các-thẻ-html-cơ-bản)
-    - [Thẻ tiêu đề](#thẻ-tiêu-đề)
-    - [Thẻ định dạng văn bản](#thẻ-định-dạng-văn-bản)
-    - [Thẻ list (danh sách)](#thẻ-list-danh-sách)
-    - [Thẻ liên kết và hình ảnh](#thẻ-liên-kết-và-hình-ảnh)
-  - [🧑‍🏫 Bài 3: Bảng và Form trong HTML](#-bài-3-bảng-và-form-trong-html)
-    - [Bảng (Tables)](#bảng-tables)
-    - [Form (Biểu mẫu)](#form-biểu-mẫu)
-  - [🧑‍🏫 Bài 4: Các thẻ HTML5 ngữ nghĩa (Semantic Elements)](#-bài-4-các-thẻ-html5-ngữ-nghĩa-semantic-elements)
-    - [Định nghĩa](#định-nghĩa)
-    - [Các thẻ ngữ nghĩa trong HTML5](#các-thẻ-ngữ-nghĩa-trong-html5)
-  - [🧑‍🏫 Bài 5: Sử dụng Developer Tools trên trình duyệt](#-bài-5-sử-dụng-developer-tools-trên-trình-duyệt)
-    - [Giới thiệu về Developer Tools](#giới-thiệu-về-developer-tools)
-    - [Cách mở Developer Tools](#cách-mở-developer-tools)
-    - [Các thành phần chính của Developer Tools](#các-thành-phần-chính-của-developer-tools)
-    - [Kiểm tra và chỉnh sửa HTML](#kiểm-tra-và-chỉnh-sửa-html)
-    - [Lợi ích của Developer Tools](#lợi-ích-của-developer-tools)
-  - [🧑‍🏫 Bài 6: Emmet - Công cụ hỗ trợ viết HTML nhanh](#-bài-6-emmet---công-cụ-hỗ-trợ-viết-html-nhanh)
-    - [Giới thiệu về Emmet](#giới-thiệu-về-emmet)
-    - [Cú pháp cơ bản của Emmet](#cú-pháp-cơ-bản-của-emmet)
-    - [Ví dụ sử dụng Emmet](#ví-dụ-sử-dụng-emmet)
-    - [Emmet cho form](#emmet-cho-form)
-    - [Lợi ích của Emmet](#lợi-ích-của-emmet)
-    - [Các trình soạn thảo hỗ trợ Emmet](#các-trình-soạn-thảo-hỗ-trợ-emmet)
-  - [🧪 BÀI TẬP LỚN CUỐI PHẦN: Xây dựng trang Portfolio (Hồ sơ cá nhân)](#-bài-tập-lớn-cuối-phần-xây-dựng-trang-portfolio-hồ-sơ-cá-nhân)
-    - [Mô tả bài toán](#mô-tả-bài-toán)
-    - [Yêu cầu](#yêu-cầu)
-    - [Mockup trang web tham khảo](#mockup-trang-web-tham-khảo)
+# 📘 PHẦN 1: NHẬP MÔN HTML
 
 ## 🎯 Mục tiêu tổng quát
 
 - Hiểu về cấu trúc của một trang web HTML
 - Biết cách sử dụng các thẻ HTML cơ bản
 - Tạo được trang web tĩnh đầu tiên
-
----
 
 ## 🧑‍🏫 Bài 1: Giới thiệu HTML
 
@@ -78,8 +50,6 @@ Hãy thử tạo một file `index.html` với nội dung trên và mở nó tro
 - `<body>`: Chứa nội dung hiển thị của trang web
 - `<h1>`: Tiêu đề cấp 1
 - `<p>`: Đoạn văn bản
-
----
 
 ## 🧑‍🏫 Bài 2: Các thẻ HTML cơ bản
 
@@ -147,8 +117,6 @@ Hãy thử tạo một file `index.html` với nội dung trên và mở nó tro
 <!-- Hình ảnh -->
 <img src="image.jpg" alt="Mô tả hình ảnh" width="300" height="200" />
 ```
-
----
 
 ## 🧑‍🏫 Bài 3: Bảng và Form trong HTML
 
@@ -235,8 +203,6 @@ Hãy thử tạo một file `index.html` với nội dung trên và mở nó tro
 </form>
 ```
 
----
-
 ## 🧑‍🏫 Bài 4: Các thẻ HTML5 ngữ nghĩa (Semantic Elements)
 
 ### Định nghĩa
@@ -318,8 +284,6 @@ HTML5 giới thiệu các thẻ ngữ nghĩa giúp tổ chức và mô tả rõ 
 - `<figcaption>`: Định nghĩa chú thích cho thẻ figure
 - `<time>`: Định nghĩa ngày/giờ
 
----
-
 ## 🧑‍🏫 Bài 5: Sử dụng Developer Tools trên trình duyệt
 
 ### Giới thiệu về Developer Tools
@@ -357,8 +321,6 @@ Developer Tools (DevTools) là một bộ công cụ tích hợp trong các trì
 - Kiểm tra và chỉnh sửa HTML, CSS, JavaScript trực tiếp
 - Phân tích và quản lý các yêu cầu mạng
 - Kiểm tra các vấn đề bảo mật
-
----
 
 ## 🧑‍🏫 Bài 6: Emmet - Công cụ hỗ trợ viết HTML nhanh
 
@@ -439,8 +401,6 @@ Kết quả:
 - WebStorm
 - Notepad++
 - và nhiều IDE khác...
-
----
 
 ## 🧪 BÀI TẬP LỚN CUỐI PHẦN: Xây dựng trang Portfolio (Hồ sơ cá nhân)
 

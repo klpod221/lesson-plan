@@ -1,36 +1,5 @@
 # 📘 PHẦN 6: STL, TEMPLATES VÀ MODERN C++
 
-- [📘 PHẦN 6: STL, TEMPLATES VÀ MODERN C++](#-phần-6-stl-templates-và-modern-c)
-  - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
-  - [🧑‍🏫 Bài 1: Function Templates](#-bài-1-function-templates)
-    - [Template cơ bản](#template-cơ-bản)
-    - [Multiple template parameters](#multiple-template-parameters)
-    - [Template specialization](#template-specialization)
-  - [🧑‍🏫 Bài 2: Class Templates](#-bài-2-class-templates)
-    - [Class template cơ bản](#class-template-cơ-bản)
-    - [Template với multiple parameters](#template-với-multiple-parameters)
-    - [Template member functions](#template-member-functions)
-  - [🧑‍🏫 Bài 3: STL Containers](#-bài-3-stl-containers)
-    - [Vector](#vector)
-    - [List](#list)
-    - [Map và Unordered Map](#map-và-unordered-map)
-    - [Set và Unordered Set](#set-và-unordered-set)
-    - [Queue và Stack](#queue-và-stack)
-  - [🧑‍🏫 Bài 4: STL Algorithms và Iterators](#-bài-4-stl-algorithms-và-iterators)
-    - [Iterators](#iterators)
-    - [Common algorithms](#common-algorithms)
-    - [Lambda expressions](#lambda-expressions)
-  - [🧑‍🏫 Bài 5: Modern C++ Features (C++11/14/17)](#-bài-5-modern-c-features-c111417)
-    - [Auto keyword](#auto-keyword)
-    - [Range-based for loops](#range-based-for-loops)
-    - [Smart pointers](#smart-pointers)
-    - [Move semantics](#move-semantics)
-    - [nullptr và constexpr](#nullptr-và-constexpr)
-  - [🧪 BÀI TẬP LỚN CUỐI PHẦN: Hệ thống quản lý thư viện sách](#-bài-tập-lớn-cuối-phần-hệ-thống-quản-lý-thư-viện-sách)
-    - [Mô tả bài toán](#mô-tả-bài-toán)
-    - [Yêu cầu](#yêu-cầu)
-    - [Yêu cầu mở rộng](#yêu-cầu-mở-rộng)
-
 ## 🎯 Mục tiêu tổng quát
 
 - Hiểu và sử dụng templates trong C++
@@ -40,8 +9,6 @@
 - Hiểu các tính năng Modern C++ (C++11/14/17)
 - Sử dụng smart pointers
 - Áp dụng move semantics
-
----
 
 ## 🧑‍🏫 Bài 1: Function Templates
 
@@ -157,8 +124,6 @@ int main() {
     return 0;
 }
 ```
-
----
 
 ## 🧑‍🏫 Bài 2: Class Templates
 
@@ -310,8 +275,6 @@ int main() {
     return 0;
 }
 ```
-
----
 
 ## 🧑‍🏫 Bài 3: STL Containers
 
@@ -577,8 +540,6 @@ int main() {
 }
 ```
 
----
-
 ## 🧑‍🏫 Bài 4: STL Algorithms và Iterators
 
 ### Iterators
@@ -739,8 +700,6 @@ int main() {
     return 0;
 }
 ```
-
----
 
 ## 🧑‍🏫 Bài 5: Modern C++ Features (C++11/14/17)
 
@@ -1062,8 +1021,6 @@ int main() {
     return 0;
 }
 ```
-
----
 
 ## 🧪 BÀI TẬP LỚN CUỐI PHẦN: Hệ thống quản lý thư viện sách
 

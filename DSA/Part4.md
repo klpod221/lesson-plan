@@ -1,74 +1,13 @@
-# 📘 PHẦN 4: CÁC CẤU TRÚC DỮ LIỆU CHUYÊN BIỆT
+---
+prev:
+  text: '🧠 Thuật Toán Nâng Cao'
+  link: '/DSA/Part3'
+next:
+  text: '⚡ Thuật Toán Ứng Dụng'
+  link: '/DSA/Part5'
+---
 
-- [📘 PHẦN 4: CÁC CẤU TRÚC DỮ LIỆU CHUYÊN BIỆT](#-phần-4-các-cấu-trúc-dữ-liệu-chuyên-biệt)
-  - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
-  - [🧑‍🏫 Bài 1: Cây cân bằng (AVL, Red-Black Trees)](#-bài-1-cây-cân-bằng-avl-red-black-trees)
-    - [Cây AVL](#cây-avl)
-      - [Các tính chất của cây AVL](#các-tính-chất-của-cây-avl)
-      - [Các thao tác tái cân bằng](#các-thao-tác-tái-cân-bằng)
-      - [Cài đặt cây AVL đầy đủ](#cài-đặt-cây-avl-đầy-đủ)
-    - [Cây Red-Black](#cây-red-black)
-      - [Tính chất của cây Red-Black](#tính-chất-của-cây-red-black)
-      - [Cài đặt cây Red-Black](#cài-đặt-cây-red-black)
-    - [So sánh cây AVL và cây Red-Black](#so-sánh-cây-avl-và-cây-red-black)
-  - [🧑‍🏫 Bài 2: Cây B và B+](#-bài-2-cây-b-và-b)
-    - [Cây B](#cây-b)
-      - [Tính chất của cây B bậc M](#tính-chất-của-cây-b-bậc-m)
-      - [Cấu trúc nút trong cây B](#cấu-trúc-nút-trong-cây-b)
-      - [Cài đặt cây B](#cài-đặt-cây-b)
-    - [Cây B+](#cây-b-1)
-      - [Cấu trúc nút trong cây B+](#cấu-trúc-nút-trong-cây-b-1)
-      - [Cài đặt cây B+ (phiên bản đơn giản)](#cài-đặt-cây-b-phiên-bản-đơn-giản)
-  - [🧑‍🏫 Bài 3: Heap và Priority Queue](#-bài-3-heap-và-priority-queue)
-    - [Cấu trúc Heap](#cấu-trúc-heap)
-    - [Cài đặt Heap](#cài-đặt-heap)
-      - [Max Heap](#max-heap)
-      - [Min Heap](#min-heap)
-    - [Priority Queue](#priority-queue)
-      - [Cài đặt Priority Queue sử dụng Heap](#cài-đặt-priority-queue-sử-dụng-heap)
-    - [Heap Sort](#heap-sort)
-    - [5. Ứng dụng của Heap và Priority Queue](#5-ứng-dụng-của-heap-và-priority-queue)
-    - [6. Bài tập](#6-bài-tập)
-      - [Bài tập 1: Cài đặt thuật toán tìm k phần tử lớn nhất trong một mảng sử dụng min-heap](#bài-tập-1-cài-đặt-thuật-toán-tìm-k-phần-tử-lớn-nhất-trong-một-mảng-sử-dụng-min-heap)
-      - [Bài tập 2: Sử dụng priority queue để lập lịch CPU (xử lý các tiến trình theo độ ưu tiên)](#bài-tập-2-sử-dụng-priority-queue-để-lập-lịch-cpu-xử-lý-các-tiến-trình-theo-độ-ưu-tiên)
-    - [7. Phân tích hiệu năng](#7-phân-tích-hiệu-năng)
-  - [🧑‍🏫 Bài 4: Trie và ứng dụng](#-bài-4-trie-và-ứng-dụng)
-    - [Cấu trúc dữ liệu Trie](#cấu-trúc-dữ-liệu-trie)
-      - [Đặc điểm của Trie](#đặc-điểm-của-trie)
-      - [Cấu trúc nút của Trie](#cấu-trúc-nút-của-trie)
-    - [Cài đặt cơ bản của Trie](#cài-đặt-cơ-bản-của-trie)
-    - [Ứng dụng của Trie](#ứng-dụng-của-trie)
-      - [Tự động hoàn thành (Autocomplete)](#tự-động-hoàn-thành-autocomplete)
-      - [Kiểm tra tiền tố (Prefix checking)](#kiểm-tra-tiền-tố-prefix-checking)
-      - [Tìm kiếm từ trong ma trận (Word Search)](#tìm-kiếm-từ-trong-ma-trận-word-search)
-      - [Từ điển (Dictionary)](#từ-điển-dictionary)
-    - [Trie với bảng băm (Hash Trie)](#trie-với-bảng-băm-hash-trie)
-    - [Trie nén (Compressed Trie)](#trie-nén-compressed-trie)
-    - [Phân tích hiệu năng của Trie](#phân-tích-hiệu-năng-của-trie)
-    - [So sánh với các cấu trúc dữ liệu khác](#so-sánh-với-các-cấu-trúc-dữ-liệu-khác)
-    - [Bài tập](#bài-tập)
-      - [Bài tập 1: Đếm số từ có tiền tố chung](#bài-tập-1-đếm-số-từ-có-tiền-tố-chung)
-      - [Bài tập 2: Tìm từ dài nhất có tất cả tiền tố trong từ điển](#bài-tập-2-tìm-từ-dài-nhất-có-tất-cả-tiền-tố-trong-từ-điển)
-      - [Bài tập 3: Xây dựng trò chơi tìm từ (Word Boggle)](#bài-tập-3-xây-dựng-trò-chơi-tìm-từ-word-boggle)
-  - [🧑‍🏫 Bài 5: Segment Tree và Fenwick Tree](#-bài-5-segment-tree-và-fenwick-tree)
-    - [Segment Tree](#segment-tree)
-      - [Tính chất của Segment Tree](#tính-chất-của-segment-tree)
-      - [Cài đặt Segment Tree](#cài-đặt-segment-tree)
-    - [Lazy Propagation trong Segment Tree](#lazy-propagation-trong-segment-tree)
-    - [Fenwick Tree (Binary Indexed Tree)](#fenwick-tree-binary-indexed-tree)
-      - [Tính chất của Fenwick Tree](#tính-chất-của-fenwick-tree)
-      - [Cài đặt Fenwick Tree](#cài-đặt-fenwick-tree)
-    - [Fenwick Tree 2D](#fenwick-tree-2d)
-    - [So sánh Segment Tree và Fenwick Tree](#so-sánh-segment-tree-và-fenwick-tree)
-    - [Ứng dụng của Segment Tree và Fenwick Tree](#ứng-dụng-của-segment-tree-và-fenwick-tree)
-    - [Bài luyện tập](#bài-luyện-tập)
-      - [Bài tập 1: Truy vấn tổng đoạn và cập nhật phần tử](#bài-tập-1-truy-vấn-tổng-đoạn-và-cập-nhật-phần-tử)
-      - [Bài tập 2: Truy vấn giá trị nhỏ nhất đoạn](#bài-tập-2-truy-vấn-giá-trị-nhỏ-nhất-đoạn)
-      - [Bài tập 3: Đếm số phần tử lớn hơn hoặc bằng k trong đoạn \[l, r\]](#bài-tập-3-đếm-số-phần-tử-lớn-hơn-hoặc-bằng-k-trong-đoạn-l-r)
-  - [🧑‍💻 Bài tập lớn: Xây dựng hệ thống tìm kiếm văn bản đơn giản](#-bài-tập-lớn-xây-dựng-hệ-thống-tìm-kiếm-văn-bản-đơn-giản)
-    - [Mô tả bài toán](#mô-tả-bài-toán)
-    - [Các thành phần cần triển khai](#các-thành-phần-cần-triển-khai)
-    - [Các tính năng mở rộng có thể thêm vào](#các-tính-năng-mở-rộng-có-thể-thêm-vào)
+# 📘 PHẦN 4: CÁC CẤU TRÚC DỮ LIỆU CHUYÊN BIỆT
 
 ## 🎯 Mục tiêu tổng quát
 
@@ -76,8 +15,6 @@
 - Phân tích được ưu nhược điểm của từng cấu trúc và biết lựa chọn cấu trúc phù hợp với bài toán.
 - Áp dụng các cấu trúc dữ liệu chuyên biệt vào các bài toán thực tế.
 - Tối ưu hóa giải pháp sử dụng các cấu trúc dữ liệu đặc thù.
-
----
 
 ## 🧑‍🏫 Bài 1: Cây cân bằng (AVL, Red-Black Trees)
 
@@ -439,8 +376,6 @@ public class RedBlackTree {
 | Bộ nhớ        | 1 bit hệ số cân bằng/chiều cao mỗi nút | 1 bit màu mỗi nút     |
 | Tìm kiếm      | Nhanh hơn do cân bằng tốt              | Chậm hơn một chút     |
 | Ứng dụng      | Tra cứu thường xuyên                   | Chèn/xóa thường xuyên |
-
----
 
 ## 🧑‍🏫 Bài 2: Cây B và B+
 

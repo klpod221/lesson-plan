@@ -1,56 +1,13 @@
-# 📘 PHẦN 3: JAVASCRIPT - LẬP TRÌNH CHO WEB
+---
+prev:
+  text: '🎨 CSS - Định Dạng Trang Web'
+  link: '/WEB/Part2'
+next:
+  text: '⚙️ Framework & Công Cụ'
+  link: '/WEB/Part4'
+---
 
-- [📘 PHẦN 3: JAVASCRIPT - LẬP TRÌNH CHO WEB](#-phần-3-javascript---lập-trình-cho-web)
-  - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
-  - [🧑‍🏫 Bài 1: Giới thiệu JavaScript](#-bài-1-giới-thiệu-javascript)
-    - [JavaScript là gì?](#javascript-là-gì)
-    - [Cách thêm JavaScript vào HTML](#cách-thêm-javascript-vào-html)
-    - [Vị trí đặt JavaScript](#vị-trí-đặt-javascript)
-    - [Output trong JavaScript](#output-trong-javascript)
-    - [Chạy code JavaScript mà không cần trình duyệt (thông qua Node.js)](#chạy-code-javascript-mà-không-cần-trình-duyệt-thông-qua-nodejs)
-  - [🧑‍🏫 Bài 2: Cú pháp và biến trong JavaScript](#-bài-2-cú-pháp-và-biến-trong-javascript)
-    - [Khai báo biến](#khai-báo-biến)
-    - [Kiểu dữ liệu](#kiểu-dữ-liệu)
-    - [Dấu phẩy động (floating point)](#dấu-phẩy-động-floating-point)
-    - [Phép toán và biểu thức](#phép-toán-và-biểu-thức)
-    - [Scope (phạm vi) biến](#scope-phạm-vi-biến)
-  - [🧑‍🏫 Bài 3: Cấu trúc điều khiển](#-bài-3-cấu-trúc-điều-khiển)
-    - [Câu lệnh điều kiện](#câu-lệnh-điều-kiện)
-    - [Vòng lặp](#vòng-lặp)
-  - [🧑‍🏫 Bài 4: Hàm trong JavaScript](#-bài-4-hàm-trong-javascript)
-    - [Định nghĩa hàm](#định-nghĩa-hàm)
-    - [Tham số hàm](#tham-số-hàm)
-    - [Phạm vi và closure](#phạm-vi-và-closure)
-    - [Higher-order functions](#higher-order-functions)
-  - [🧑‍🏫 Bài 5: Object và Array](#-bài-5-object-và-array)
-    - [Object](#object)
-    - [Array](#array)
-  - [🧑‍🏫 Bài 6: DOM - Document Object Model](#-bài-6-dom---document-object-model)
-    - [DOM là gì?](#dom-là-gì)
-    - [Truy cập phần tử DOM](#truy-cập-phần-tử-dom)
-    - [Thay đổi nội dung DOM](#thay-đổi-nội-dung-dom)
-    - [Tạo và thêm/xóa phần tử](#tạo-và-thêmxóa-phần-tử)
-  - [🧑‍🏫 Bài 7: Event và xử lý event](#-bài-7-event-và-xử-lý-event)
-    - [Event là gì?](#event-là-gì)
-    - [Đăng ký event](#đăng-ký-event)
-    - [Các loại event phổ biến](#các-loại-event-phổ-biến)
-    - [Event object](#event-object)
-    - [Event propagation](#event-propagation)
-    - [Event delegation](#event-delegation)
-  - [🧑‍🏫 Bài 8: Asynchronous JavaScript](#-bài-8-asynchronous-javascript)
-    - [Giới thiệu về Asynchronous JavaScript](#giới-thiệu-về-asynchronous-javascript)
-    - [Callback](#callback)
-    - [Promises](#promises)
-    - [Async/Await (ES8)](#asyncawait-es8)
-    - [Fetch API](#fetch-api)
-  - [🧑‍🏫 Bài 9: Local Storage và Session Storage](#-bài-9-local-storage-và-session-storage)
-    - [Web Storage API](#web-storage-api)
-    - [Trường hợp sử dụng](#trường-hợp-sử-dụng)
-  - [🧪 BÀI TẬP LỚN CUỐI PHẦN: Xây dựng ứng dụng Quản lý nhiệm vụ (Todo List)](#-bài-tập-lớn-cuối-phần-xây-dựng-ứng-dụng-quản-lý-nhiệm-vụ-todo-list)
-    - [Mô tả bài toán](#mô-tả-bài-toán)
-    - [Yêu cầu](#yêu-cầu)
-    - [Tính năng nâng cao (không bắt buộc)](#tính-năng-nâng-cao-không-bắt-buộc)
-    - [Mockup ứng dụng tham khảo](#mockup-ứng-dụng-tham-khảo)
+# 📘 PHẦN 3: JAVASCRIPT - LẬP TRÌNH CHO WEB
 
 ## 🎯 Mục tiêu tổng quát
 
@@ -58,8 +15,6 @@
 - Thành thạo cú pháp và các cấu trúc cơ bản của JavaScript
 - Biết cách thao tác với DOM để tạo trang web động
 - Xử lý event, gọi API và xử lý dữ liệu
-
----
 
 ## 🧑‍🏫 Bài 1: Giới thiệu JavaScript
 
@@ -170,8 +125,6 @@ node script.js
 - **Lưu ý**:
   - Node.js không hỗ trợ DOM, vì vậy không thể sử dụng các phương thức như `document.getElementById()` hay `alert()`.
   - Có thể sử dụng các module như `fs` để thao tác với file hệ thống, hoặc `http` để tạo server HTTP.
-
----
 
 ## 🧑‍🏫 Bài 2: Cú pháp và biến trong JavaScript
 
@@ -341,8 +294,6 @@ console.log(globalVar); // Truy cập được
 // console.log(notReallyBlockVar); // Lỗi: notReallyBlockVar is not defined
 ```
 
----
-
 ## 🧑‍🏫 Bài 3: Cấu trúc điều khiển
 
 ### Câu lệnh điều kiện
@@ -459,8 +410,6 @@ for (let i = 0; i < 10; i++) {
   console.log(i); // 0, 1, 2, 3, 4, 6, 7, 8, 9
 }
 ```
-
----
 
 ## 🧑‍🏫 Bài 4: Hàm trong JavaScript
 
@@ -621,8 +570,6 @@ console.log(double(5)); // 10
 console.log(triple(5)); // 15
 ```
 
----
-
 ## 🧑‍🏫 Bài 5: Object và Array
 
 ### Object
@@ -743,8 +690,6 @@ console.log(second); // 2
 console.log(rest); // [3, 4, 5]
 ```
 
----
-
 ## 🧑‍🏫 Bài 6: DOM - Document Object Model
 
 ### DOM là gì?
@@ -860,8 +805,6 @@ element.remove(); // Cách mới (ES6)
 // Clone phần tử
 const clone = element.cloneNode(true); // true: clone toàn bộ subtree, false: chỉ clone node
 ```
-
----
 
 ## 🧑‍🏫 Bài 7: Event và xử lý event
 
@@ -991,8 +934,6 @@ document
     }
   });
 ```
-
----
 
 ## 🧑‍🏫 Bài 8: Asynchronous JavaScript
 
@@ -1205,8 +1146,6 @@ async function fetchUsers() {
 }
 ```
 
----
-
 ## 🧑‍🏫 Bài 9: Local Storage và Session Storage
 
 ### Web Storage API
@@ -1282,8 +1221,6 @@ function logout() {
   sessionStorage.removeItem("currentUser");
 }
 ```
-
----
 
 ## 🧪 BÀI TẬP LỚN CUỐI PHẦN: Xây dựng ứng dụng Quản lý nhiệm vụ (Todo List)
 

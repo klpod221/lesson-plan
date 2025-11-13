@@ -1,28 +1,13 @@
-# 📘 TỔNG QUAN VỀ LẬP TRÌNH
-
-- [📘 TỔNG QUAN VỀ LẬP TRÌNH](#-tổng-quan-về-lập-trình)
-  - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
-  - [🧑‍🏫 Bài 1: Giới thiệu về lập trình và ngôn ngữ lập trình](#-bài-1-giới-thiệu-về-lập-trình-và-ngôn-ngữ-lập-trình)
-    - [Lập trình là gì?](#lập-trình-là-gì)
-    - [Các khái niệm cơ bản trong lập trình](#các-khái-niệm-cơ-bản-trong-lập-trình)
-    - [Ngôn ngữ lập trình](#ngôn-ngữ-lập-trình)
-    - [Quy trình phát triển phần mềm cơ bản](#quy-trình-phát-triển-phần-mềm-cơ-bản)
-  - [🧑‍🏫 Bài 2: Cơ bản về máy tính, hệ điều hành và mạng máy tính](#-bài-2-cơ-bản-về-máy-tính-hệ-điều-hành-và-mạng-máy-tính)
-    - [Kiến trúc máy tính cơ bản](#kiến-trúc-máy-tính-cơ-bản)
-    - [Hệ điều hành (Operating System)](#hệ-điều-hành-operating-system)
-    - [Mạng máy tính](#mạng-máy-tính)
-  - [🧑‍🏫 Bài 3: Công cụ lập trình và môi trường phát triển](#-bài-3-công-cụ-lập-trình-và-môi-trường-phát-triển)
-    - [Môi trường phát triển tích hợp (IDE - Integrated Development Environment)](#môi-trường-phát-triển-tích-hợp-ide---integrated-development-environment)
-    - [Trình biên dịch và thông dịch (Compilers \& Interpreters)](#trình-biên-dịch-và-thông-dịch-compilers--interpreters)
-    - [Hệ thống quản lý phiên bản (Version Control System)](#hệ-thống-quản-lý-phiên-bản-version-control-system)
-    - [Công cụ hỗ trợ phát triển khác](#công-cụ-hỗ-trợ-phát-triển-khác)
-  - [🧑‍🏫 Bài 4: Tổ chức mã nguồn và quản lý dự án lập trình](#-bài-4-tổ-chức-mã-nguồn-và-quản-lý-dự-án-lập-trình)
-    - [Cấu trúc dự án](#cấu-trúc-dự-án)
-    - [Quy ước đặt tên và coding style](#quy-ước-đặt-tên-và-coding-style)
-    - [Quản lý dự án lập trình](#quản-lý-dự-án-lập-trình)
-    - [Bảo mật và chất lượng mã nguồn](#bảo-mật-và-chất-lượng-mã-nguồn)
-
 ---
+prev:
+  text: '🏠 Trang Chủ'
+  link: '/'
+next:
+  text: '🛠️ Cài Đặt Môi Trường'
+  link: '/INSTALL'
+---
+
+# 📘 TỔNG QUAN VỀ LẬP TRÌNH
 
 ## 🎯 Mục tiêu tổng quát
 
@@ -30,8 +15,6 @@
 - Nắm vững các khái niệm cơ bản về máy tính, hệ điều hành và mạng máy tính.
 - Làm quen với các công cụ lập trình và môi trường phát triển.
 - Biết cách tổ chức mã nguồn và quản lý dự án lập trình.
-
----
 
 ## 🧑‍🏫 Bài 1: Giới thiệu về lập trình và ngôn ngữ lập trình
 
@@ -250,8 +233,6 @@ Lập trình là quá trình viết, kiểm thử, sửa lỗi và bảo trì m�
 6. **Bảo trì**: Cập nhật, sửa lỗi và nâng cấp chương trình
    - Ví dụ: Thêm tính năng mới hoặc sửa lỗi sau khi phát hiện.
 
----
-
 ## 🧑‍🏫 Bài 2: Cơ bản về máy tính, hệ điều hành và mạng máy tính
 
 ### Kiến trúc máy tính cơ bản
@@ -424,8 +405,6 @@ Mạng máy tính
    - **WAN (Wide Area Network)**: Mạng diện rộng kết nối nhiều LAN
    - **Internet**: Mạng toàn cầu kết nối hàng tỷ thiết bị
 
----
-
 ## 🧑‍🏫 Bài 3: Công cụ lập trình và môi trường phát triển
 
 ### Môi trường phát triển tích hợp (IDE - Integrated Development Environment)
@@ -496,8 +475,6 @@ Mạng máy tính
    - **GitHub Actions**
    - **GitLab CI/CD**
    - **Travis CI**
-
----
 
 ## 🧑‍🏫 Bài 4: Tổ chức mã nguồn và quản lý dự án lập trình
 

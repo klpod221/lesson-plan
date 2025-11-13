@@ -1,39 +1,5 @@
 # 📘 PHẦN 3: STRUCTS VÀ FILE I/O
 
-- [📘 PHẦN 3: STRUCTS VÀ FILE I/O](#-phần-3-structs-và-file-io)
-  - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
-  - [🧑‍🏫 Bài 1: Structs và typedef](#-bài-1-structs-và-typedef)
-    - [Định nghĩa struct](#định-nghĩa-struct)
-    - [Struct với hàm](#struct-với-hàm)
-    - [Array of structs](#array-of-structs)
-  - [🧑‍🏫 Bài 2: Nested struct và pointer to struct](#-bài-2-nested-struct-và-pointer-to-struct)
-    - [Nested structs](#nested-structs)
-    - [Pointer to struct](#pointer-to-struct)
-    - [Array of pointers to struct](#array-of-pointers-to-struct)
-  - [🧑‍🏫 Bài 3: Memory layout \& memcpy với struct](#-bài-3-memory-layout--memcpy-với-struct)
-    - [Memory layout và padding](#memory-layout-và-padding)
-    - [Copying structs](#copying-structs)
-    - [Shallow copy vs Deep copy](#shallow-copy-vs-deep-copy)
-    - [memcmp để so sánh struct](#memcmp-để-so-sánh-struct)
-  - [🧑‍🏫 Bài 4: File I/O cơ bản (text \& binary)](#-bài-4-file-io-cơ-bản-text--binary)
-    - [File operations cơ bản](#file-operations-cơ-bản)
-    - [File modes](#file-modes)
-    - [Binary file I/O](#binary-file-io)
-    - [File positioning](#file-positioning)
-    - [Error handling với file](#error-handling-với-file)
-    - [CSV file operations](#csv-file-operations)
-  - [🧑‍🏫 Bài 5: Lưu/đọc cấu trúc dữ liệu từ file](#-bài-5-lưuđọc-cấu-trúc-dữ-liệu-từ-file)
-    - [Lưu/đọc binary với array of structs](#lưuđọc-binary-với-array-of-structs)
-    - [Lưu/đọc text format (CSV)](#lưuđọc-text-format-csv)
-    - [Append data vào file](#append-data-vào-file)
-    - [Update specific record trong file](#update-specific-record-trong-file)
-  - [🧪 BÀI TẬP LỚN CUỐI PHẦN: Hệ thống quản lý sinh viên với file persistence](#-bài-tập-lớn-cuối-phần-hệ-thống-quản-lý-sinh-viên-với-file-persistence)
-    - [Mô tả bài toán](#mô-tả-bài-toán)
-    - [Yêu cầu kỹ thuật](#yêu-cầu-kỹ-thuật)
-    - [Code mẫu hoàn chỉnh](#code-mẫu-hoàn-chỉnh)
-    - [Hướng dẫn sử dụng](#hướng-dẫn-sử-dụng)
-    - [Yêu cầu mở rộng (tự làm)](#yêu-cầu-mở-rộng-tự-làm)
-
 ## 🎯 Mục tiêu tổng quát
 
 - Hiểu cách định nghĩa và sử dụng `struct` trong C
@@ -41,8 +7,6 @@
 - Hiểu layout bộ nhớ của struct và khi nào cần `memcpy` hoặc padding
 - Sử dụng `FILE*` API để đọc/ghi file text và binary
 - Thiết kế chức năng lưu/khôi phục danh sách động của struct vào file an toàn
-
----
 
 ## 🧑‍🏫 Bài 1: Structs và typedef
 
@@ -246,8 +210,6 @@ int main() {
 ```
 
 Các field trong `struct` có thể có padding do alignment. Kích thước `sizeof` không phải là tổng trực tiếp của kích thước các thành phần.
-
----
 
 ## 🧑‍🏫 Bài 2: Nested struct và pointer to struct
 
@@ -475,8 +437,6 @@ int main() {
 }
 ```
 
----
-
 ## 🧑‍🏫 Bài 3: Memory layout & memcpy với struct
 
 ### Memory layout và padding
@@ -684,8 +644,6 @@ int main() {
 - Với struct chứa con trỏ, cần implement deep copy manually
 - `memcmp` không đáng tin cậy với struct có padding
 - Sắp xếp lại thứ tự field để giảm padding và tiết kiệm bộ nhớ
-
----
 
 ## 🧑‍🏫 Bài 4: File I/O cơ bản (text & binary)
 
@@ -1014,8 +972,6 @@ int main() {
 ```
 
 Lưu ý xử lý lỗi: luôn kiểm tra trả về của `fopen`, `fread`, `fwrite` để đảm bảo thao tác file thành công.
-
----
 
 ## 🧑‍🏫 Bài 5: Lưu/đọc cấu trúc dữ liệu từ file
 
@@ -1433,8 +1389,6 @@ int main() {
 - Luôn kiểm tra return value của file operations
 - Đóng file sau khi sử dụng để tránh data corruption
 - Xử lý realloc khi load dynamic data từ file
-
----
 
 ## 🧪 BÀI TẬP LỚN CUỐI PHẦN: Hệ thống quản lý sinh viên với file persistence
 

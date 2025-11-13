@@ -1,23 +1,5 @@
 # ⚙️ PHẦN 8: TỰ ĐỘNG HÓA VÀ LẬP TRÌNH SCRIPTING VỚI PYTHON
 
-- [⚙️ PHẦN 8: TỰ ĐỘNG HÓA VÀ LẬP TRÌNH SCRIPTING VỚI PYTHON](#️-phần-8-tự-động-hóa-và-lập-trình-scripting-với-python)
-  - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
-  - [🧑‍🏫 Bài 1: Thao tác với Hệ thống File](#-bài-1-thao-tác-với-hệ-thống-file)
-    - [`pathlib`: Con đường hiện đại để làm việc với file](#pathlib-con-đường-hiện-đại-để-làm-việc-với-file)
-    - [`shutil`: Các thao tác file cấp cao](#shutil-các-thao-tác-file-cấp-cao)
-  - [🧑‍🏫 Bài 2: Tương tác với các Tiến trình và Web](#-bài-2-tương-tác-với-các-tiến-trình-và-web)
-    - [Chạy các chương trình khác với `subprocess`](#chạy-các-chương-trình-khác-với-subprocess)
-    - [Tự động hóa Web Scraping với `requests` và `BeautifulSoup`](#tự-động-hóa-web-scraping-với-requests-và-beautifulsoup)
-  - [🧑‍🏫 Bài 3: Tự động hóa các Ứng dụng Văn phòng](#-bài-3-tự-động-hóa-các-ứng-dụng-văn-phòng)
-    - [Làm việc với file Excel bằng `openpyxl`](#làm-việc-với-file-excel-bằng-openpyxl)
-    - [Tự động gửi Email với `smtplib`](#tự-động-gửi-email-với-smtplib)
-  - [🧑‍🏫 Bài 4: Tự động hóa Giao diện và Lập lịch](#-bài-4-tự-động-hóa-giao-diện-và-lập-lịch)
-    - [Điều khiển Chuột và Bàn phím với `pyautogui`](#điều-khiển-chuột-và-bàn-phím-với-pyautogui)
-    - [Lập lịch chạy Script với `schedule`](#lập-lịch-chạy-script-với-schedule)
-  - [🧪 BÀI TẬP LỚN CUỐI PHẦN: Script tự động dọn dẹp Thư mục](#-bài-tập-lớn-cuối-phần-script-tự-động-dọn-dẹp-thư-mục)
-    - [Mô tả bài toán](#mô-tả-bài-toán)
-    - [Yêu cầu](#yêu-cầu)
-
 ## 🎯 Mục tiêu tổng quát
 
 - Sử dụng Python để thao tác với các file và thư mục trên máy tính một cách hiệu quả.
@@ -25,8 +7,6 @@
 - Tự động hóa các tác vụ liên quan đến ứng dụng văn phòng như Excel và Email.
 - Có khả năng điều khiển giao diện người dùng (GUI) và lập lịch để các script tự động chạy theo thời gian định sẵn.
 - Xây dựng một script tự động hóa hoàn chỉnh để giải quyết một vấn đề thực tế.
-
----
 
 ## 🧑‍🏫 Bài 1: Thao tác với Hệ thống File
 
@@ -91,8 +71,6 @@ print(f"Đã di chuyển {source_file} đến {new_location}")
 # print("Đã xóa thư mục 'data' và toàn bộ nội dung.")
 ```
 
----
-
 ## 🧑‍🏫 Bài 2: Tương tác với các Tiến trình và Web
 
 ### Chạy các chương trình khác với `subprocess`
@@ -146,8 +124,6 @@ try:
 except requests.exceptions.RequestException as e:
     print(f"Lỗi khi truy cập web: {e}")
 ```
-
----
 
 ## 🧑‍🏫 Bài 3: Tự động hóa các Ứng dụng Văn phòng
 
@@ -216,8 +192,6 @@ except Exception as e:
 
 ```
 
----
-
 ## 🧑‍🏫 Bài 4: Tự động hóa Giao diện và Lập lịch
 
 ### Điều khiển Chuột và Bàn phím với `pyautogui`
@@ -273,9 +247,8 @@ while True:
     schedule.run_pending()
     time.sleep(1)
 ```
-**Lưu ý:** `schedule` chỉ chạy khi script Python đang hoạt động. Để lập lịch chạy ngay cả khi bạn không mở terminal, bạn cần dùng các công cụ của hệ điều hành như **Cron** (trên Linux/macOS) hoặc **Task Scheduler** (trên Windows).
 
----
+**Lưu ý:** `schedule` chỉ chạy khi script Python đang hoạt động. Để lập lịch chạy ngay cả khi bạn không mở terminal, bạn cần dùng các công cụ của hệ điều hành như **Cron** (trên Linux/macOS) hoặc **Task Scheduler** (trên Windows).
 
 ## 🧪 BÀI TẬP LỚN CUỐI PHẦN: Script tự động dọn dẹp Thư mục
 
@@ -285,7 +258,7 @@ Thư mục "Downloads" của bạn thường trở nên lộn xộn với đủ 
 
 ### Yêu cầu
 
-1.  **Thiết lập cấu trúc**:
+1. **Thiết lập cấu trúc**:
     - Tạo một thư mục gốc, ví dụ `messy_folder`.
     - Bên trong `messy_folder`, tạo ra một vài file giả lập với các phần mở rộng khác nhau:
       - `image1.jpg`, `photo.png`
@@ -293,9 +266,10 @@ Thư mục "Downloads" của bạn thường trở nên lộn xộn với đủ 
       - `archive.zip`, `data.rar`
       - `script.py`, `text.txt`
 
-2.  **Viết Script `organizer.py`**:
+2. **Viết Script `organizer.py`**:
     - Script sẽ chỉ định `messy_folder` là thư mục nguồn.
     - Script sẽ định nghĩa các danh mục và các phần mở rộng tương ứng, ví dụ:
+
       ```python
       CATEGORIES = {
           "IMAGES": [".jpg", ".jpeg", ".png", ".gif"],
@@ -304,15 +278,17 @@ Thư mục "Downloads" của bạn thường trở nên lộn xộn với đủ 
           "SCRIPTS": [".py", ".js"]
       }
       ```
+
     - Dùng `pathlib` để duyệt qua tất cả các file (không phải thư mục) trong `messy_folder`.
     - Với mỗi file, kiểm tra phần mở rộng của nó (`.suffix`).
     - Dựa vào phần mở rộng, xác định file đó thuộc danh mục nào.
     - Tạo một thư mục con tương ứng với danh mục (ví dụ `messy_folder/IMAGES`) nếu nó chưa tồn tại.
     - Di chuyển file vào thư mục con đó.
 
-3.  **Ghi Log (Tùy chọn nhưng khuyến khích)**:
+3. **Ghi Log (Tùy chọn nhưng khuyến khích)**:
     - Sau khi di chuyển tất cả các file, script sẽ ghi một file `log.txt` trong `messy_folder`, tóm tắt lại các hành động đã thực hiện. Ví dụ:
-      ```
+
+      ```text
       File Organization Log - [Ngày giờ hiện tại]
       -----------------------------------------
       Moved image1.jpg to IMAGES
@@ -321,5 +297,5 @@ Thư mục "Downloads" của bạn thường trở nên lộn xộn với đủ 
       Summary: 2 image(s), 1 document(s) moved.
       ```
 
-4.  **Hướng dẫn sử dụng**:
+4. **Hướng dẫn sử dụng**:
     - Cuối script, có thể in ra một thông báo "Dọn dẹp hoàn tất! Xem log.txt để biết chi tiết."

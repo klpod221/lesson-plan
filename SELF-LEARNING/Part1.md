@@ -1,25 +1,13 @@
-# 📘 PHẦN 1: TÌM KIẾM THÔNG TIN HIỆU QUẢ
+---
+prev:
+  text: '🔄 Git & GitHub'
+  link: '/GIT'
+next:
+  text: '📑 Xử Lý Tài Liệu'
+  link: '/SELF-LEARNING/Part2'
+---
 
-- [📘 PHẦN 1: TÌM KIẾM THÔNG TIN HIỆU QUẢ](#-phần-1-tìm-kiếm-thông-tin-hiệu-quả)
-  - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
-  - [🧑‍🏫 Bài 1: Cơ sở và chiến lược tìm kiếm thông tin](#-bài-1-cơ-sở-và-chiến-lược-tìm-kiếm-thông-tin)
-    - [Tầm quan trọng của kỹ năng tìm kiếm thông tin](#tầm-quan-trọng-của-kỹ-năng-tìm-kiếm-thông-tin)
-    - [Nguyên tắc tìm kiếm hiệu quả](#nguyên-tắc-tìm-kiếm-hiệu-quả)
-    - [Kỹ thuật tìm kiếm nâng cao với Google](#kỹ-thuật-tìm-kiếm-nâng-cao-với-google)
-    - [Kỹ thuật phân tích lỗi để tìm kiếm giải pháp](#kỹ-thuật-phân-tích-lỗi-để-tìm-kiếm-giải-pháp)
-  - [🧑‍🏫 Bài 2: Công cụ tìm kiếm chuyên dụng cho lập trình](#-bài-2-công-cụ-tìm-kiếm-chuyên-dụng-cho-lập-trình)
-    - [Các nền tảng hỏi đáp và chia sẻ kiến thức](#các-nền-tảng-hỏi-đáp-và-chia-sẻ-kiến-thức)
-    - [Tài liệu API và thư viện](#tài-liệu-api-và-thư-viện)
-    - [Cộng đồng và diễn đàn chuyên ngành](#cộng-đồng-và-diễn-đàn-chuyên-ngành)
-  - [🧑‍🏫 Bài 3: Đánh giá độ tin cậy của thông tin](#-bài-3-đánh-giá-độ-tin-cậy-của-thông-tin)
-    - [Tiêu chí đánh giá nguồn thông tin](#tiêu-chí-đánh-giá-nguồn-thông-tin)
-    - [Phân biệt ý kiến cá nhân và thực tế khách quan](#phân-biệt-ý-kiến-cá-nhân-và-thực-tế-khách-quan)
-    - [Nhận biết thông tin lỗi thời hoặc sai lệch](#nhận-biết-thông-tin-lỗi-thời-hoặc-sai-lệch)
-  - [🧑‍🏫 Bài 4: Tổ chức và quản lý thông tin](#-bài-4-tổ-chức-và-quản-lý-thông-tin)
-    - [Công cụ lưu trữ và tổ chức thông tin](#công-cụ-lưu-trữ-và-tổ-chức-thông-tin)
-    - [Phương pháp tổ chức thông tin](#phương-pháp-tổ-chức-thông-tin)
-    - [Chiến lược học tập và ứng dụng thông tin](#chiến-lược-học-tập-và-ứng-dụng-thông-tin)
-  - [🧪 BÀI TẬP THỰC HÀNH](#-bài-tập-thực-hành)
+# 📘 PHẦN 1: TÌM KIẾM THÔNG TIN HIỆU QUẢ
 
 ## 🎯 Mục tiêu tổng quát
 
@@ -27,8 +15,6 @@
 - Biết cách sử dụng công cụ tìm kiếm chuyên ngành CNTT
 - Đánh giá được độ tin cậy và chất lượng của thông tin
 - Tổ chức thông tin một cách hệ thống để dễ dàng truy cập sau này
-
----
 
 ## 🧑‍🏫 Bài 1: Cơ sở và chiến lược tìm kiếm thông tin
 
@@ -77,8 +63,6 @@
 - Loại bỏ thông tin cụ thể chỉ liên quan đến mã của bạn (đường dẫn file, tên biến đặc thù)
 - Thêm tên công nghệ/thư viện vào chuỗi tìm kiếm
 - Tìm kiếm mã lỗi thay vì toàn bộ thông báo lỗi
-
----
 
 ## 🧑‍🏫 Bài 2: Công cụ tìm kiếm chuyên dụng cho lập trình
 
@@ -139,8 +123,6 @@
    - CodeRanch, DZone, HackerNews,...
    - Hội nhóm Facebook về công nghệ và lập trình
 
----
-
 ## 🧑‍🏫 Bài 3: Đánh giá độ tin cậy của thông tin
 
 ### Tiêu chí đánh giá nguồn thông tin
@@ -196,8 +178,6 @@
    - Có lỗi cú pháp trong mã nguồn
    - Kết quả không thể tái tạo được
    - Phản hồi tiêu cực từ cộng đồng
-
----
 
 ## 🧑‍🏫 Bài 4: Tổ chức và quản lý thông tin
 
@@ -257,8 +237,6 @@
    - Fork và mở rộng các dự án mã nguồn mở
    - Giải quyết coding challenges liên quan
 
----
-
 ## 🧪 BÀI TẬP THỰC HÀNH
 
 1. **Xây dựng cơ sở kiến thức cá nhân**
@@ -284,8 +262,6 @@
    - Chọn một chủ đề công nghệ
    - Tìm 5 nguồn thông tin khác nhau về chủ đề đó
    - Đánh giá độ tin cậy của từng nguồn theo tiêu chí đã học
-
----
 
 [🏠 Home](../README.md) |
 [➡️ Tiếp theo: /SELF-LEARNING/Part2.md](../SELF-LEARNING/Part2.md)

@@ -1,81 +1,19 @@
-# 📘 PHẦN 4: FRAMEWORK & CÔNG CỤ PHÁT TRIỂN WEB HIỆN ĐẠI
+---
+prev:
+  text: '🔄 JavaScript'
+  link: '/WEB/Part3'
+next:
+  text: '🐘 Module 7: Nhập Môn PHP'
+  link: '/PHP/Part1'
+---
 
-- [📘 PHẦN 4: FRAMEWORK \& CÔNG CỤ PHÁT TRIỂN WEB HIỆN ĐẠI](#-phần-4-framework--công-cụ-phát-triển-web-hiện-đại)
-  - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
-  - [🧑‍🏫 Bài 1: Giới thiệu về Frontend Framework](#-bài-1-giới-thiệu-về-frontend-framework)
-    - [Framework là gì và tại sao cần framework?](#framework-là-gì-và-tại-sao-cần-framework)
-    - [Các frontend framework phổ biến](#các-frontend-framework-phổ-biến)
-  - [🧑‍🏫 Bài 2: Giới thiệu về React.js](#-bài-2-giới-thiệu-về-reactjs)
-    - [React là gì?](#react-là-gì)
-    - [Cài đặt và khởi tạo dự án React](#cài-đặt-và-khởi-tạo-dự-án-react)
-    - [JSX - JavaScript XML](#jsx---javascript-xml)
-    - [Components](#components)
-    - [Props và State](#props-và-state)
-    - [Vòng đời component với useEffect](#vòng-đời-component-với-useeffect)
-    - [Xử lý sự kiện](#xử-lý-sự-kiện)
-    - [Danh sách và key](#danh-sách-và-key)
-    - [Conditional Rendering](#conditional-rendering)
-    - [Form và input](#form-và-input)
-  - [🧑‍🏫 Bài 3: State Management trong React](#-bài-3-state-management-trong-react)
-    - [State Management là gì?](#state-management-là-gì)
-    - [Context API](#context-api)
-    - [Redux - State Management Library](#redux---state-management-library)
-    - [Redux Toolkit - Cách tiếp cận hiện đại](#redux-toolkit---cách-tiếp-cận-hiện-đại)
-  - [🧑‍🏫 Bài 4: Routing trong React](#-bài-4-routing-trong-react)
-    - [React Router](#react-router)
-    - [Nested Routes](#nested-routes)
-    - [Protected Routes](#protected-routes)
-  - [🧑‍🏫 Bài 5: Giới thiệu về Node.js và NPM](#-bài-5-giới-thiệu-về-nodejs-và-npm)
-    - [Node.js là gì?](#nodejs-là-gì)
-    - [NPM (Node Package Manager)](#npm-node-package-manager)
-    - [Cài đặt Node.js và NPM](#cài-đặt-nodejs-và-npm)
-    - [Sử dụng NPM cơ bản](#sử-dụng-npm-cơ-bản)
-    - [package.json file](#packagejson-file)
-    - [Chạy scripts](#chạy-scripts)
-  - [🧑‍🏫 Bài 6: Công cụ build và bundler](#-bài-6-công-cụ-build-và-bundler)
-    - [Bundlers là gì?](#bundlers-là-gì)
-    - [Webpack](#webpack)
-    - [Vite](#vite)
-    - [Babel](#babel)
-    - [ESLint và Prettier](#eslint-và-prettier)
-  - [🧑‍🏫 Bài 7: Backend APIs với Express.js](#-bài-7-backend-apis-với-expressjs)
-    - [Express.js là gì?](#expressjs-là-gì)
-    - [Cài đặt và thiết lập Express](#cài-đặt-và-thiết-lập-express)
-    - [Routing](#routing)
-    - [Middleware](#middleware)
-    - [Kết nối với Database (MongoDB)](#kết-nối-với-database-mongodb)
-  - [🧑‍🏫 Bài 8: REST API và RESTful Services](#-bài-8-rest-api-và-restful-services)
-    - [REST (Representational State Transfer) là gì?](#rest-representational-state-transfer-là-gì)
-    - [Các nguyên tắc của REST](#các-nguyên-tắc-của-rest)
-    - [HTTP Methods trong REST](#http-methods-trong-rest)
-    - [RESTful API Conventions](#restful-api-conventions)
-    - [Status Codes trong REST API](#status-codes-trong-rest-api)
-    - [API Documentation với Swagger/OpenAPI](#api-documentation-với-swaggeropenapi)
-    - [API Versioning](#api-versioning)
-    - [API Authentication](#api-authentication)
-    - [CORS (Cross-Origin Resource Sharing)](#cors-cross-origin-resource-sharing)
-    - [Rate Limiting](#rate-limiting)
-  - [🧑‍🏫 Bài 9: Deployment và CI/CD cơ bản](#-bài-9-deployment-và-cicd-cơ-bản)
-    - [Các nền tảng hosting phổ biến](#các-nền-tảng-hosting-phổ-biến)
-    - [Triển khai lên Vercel](#triển-khai-lên-vercel)
-    - [Triển khai lên Netlify](#triển-khai-lên-netlify)
-    - [Cấu hình Continuous Integration/Continuous Deployment (CI/CD)](#cấu-hình-continuous-integrationcontinuous-deployment-cicd)
-      - [GitHub Actions](#github-actions)
-    - [Netlify CI/CD](#netlify-cicd)
-    - [Docker cơ bản cho deployment](#docker-cơ-bản-cho-deployment)
-  - [🧪 BÀI TẬP LỚN CUỐI PHẦN: Xây dựng Ứng dụng Full-Stack với React và Express](#-bài-tập-lớn-cuối-phần-xây-dựng-ứng-dụng-full-stack-với-react-và-express)
-    - [Đề bài](#đề-bài)
-    - [Yêu cầu](#yêu-cầu)
-    - [Gợi ý cấu trúc dự án](#gợi-ý-cấu-trúc-dự-án)
-    - [Đánh giá](#đánh-giá)
+# 📘 PHẦN 4: FRAMEWORK & CÔNG CỤ PHÁT TRIỂN WEB HIỆN ĐẠI
 
 ## 🎯 Mục tiêu tổng quát
 
 - Hiểu được vai trò và lợi ích của các framework trong phát triển web
 - Làm quen với các công cụ phát triển web hiện đại
 - Biết cách tổ chức và triển khai dự án web chuyên nghiệp
-
----
 
 ## 🧑‍🏫 Bài 1: Giới thiệu về Frontend Framework
 
@@ -135,8 +73,6 @@
 | Vue.js    | Dễ         | Cao       | Lớn        | Rất tốt  | Rất nhẹ     |
 | Angular   | Khó        | Tốt       | Lớn        | Tốt      | Nặng        |
 | Svelte    | Dễ         | Rất cao   | Trung bình | Tốt      | Rất nhẹ     |
-
----
 
 ## 🧑‍🏫 Bài 2: Giới thiệu về React.js
 
@@ -417,8 +353,6 @@ function SimpleForm() {
 }
 ```
 
----
-
 ## 🧑‍🏫 Bài 3: State Management trong React
 
 ### State Management là gì?
@@ -635,8 +569,6 @@ function TodoApp() {
 }
 ```
 
----
-
 ## 🧑‍🏫 Bài 4: Routing trong React
 
 ### React Router
@@ -794,8 +726,6 @@ function App() {
 }
 ```
 
----
-
 ## 🧑‍🏫 Bài 5: Giới thiệu về Node.js và NPM
 
 ### Node.js là gì?
@@ -894,8 +824,6 @@ npm start
 # Chạy script test
 npm test
 ```
-
----
 
 ## 🧑‍🏫 Bài 6: Công cụ build và bundler
 
@@ -1031,8 +959,6 @@ module.exports = {
   "trailingComma": "es5"
 }
 ```
-
----
 
 ## 🧑‍🏫 Bài 7: Backend APIs với Express.js
 
@@ -1268,8 +1194,6 @@ app.get("/api/users/:id", async (req, res) => {
   }
 });
 ```
-
----
 
 ## 🧑‍🏫 Bài 8: REST API và RESTful Services
 
@@ -1585,8 +1509,6 @@ const loginLimiter = rateLimit({
 app.use("/api/login", loginLimiter);
 ```
 
----
-
 ## 🧑‍🏫 Bài 9: Deployment và CI/CD cơ bản
 
 ### Các nền tảng hosting phổ biến
@@ -1738,8 +1660,6 @@ docker build -t my-app .
 # Run Docker container
 docker run -p 3000:3000 my-app
 ```
-
----
 
 ## 🧪 BÀI TẬP LỚN CUỐI PHẦN: Xây dựng Ứng dụng Full-Stack với React và Express
 

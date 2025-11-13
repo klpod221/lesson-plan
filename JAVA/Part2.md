@@ -1,46 +1,19 @@
-# 📘 PHẦN 2: MẢNG, CHUỖI VÀ HÀM
+---
+prev:
+  text: '☕ Nhập Môn Java'
+  link: '/JAVA/Part1'
+next:
+  text: '🧩 Module 3: Lập Trình Hướng Đối Tượng'
+  link: '/JAVA/Part3'
+---
 
-- [📘 PHẦN 2: MẢNG, CHUỖI VÀ HÀM](#-phần-2-mảng-chuỗi-và-hàm)
-  - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
-  - [🧑‍🏫 Bài 1: Mảng trong JAVA](#-bài-1-mảng-trong-java)
-    - [Khái niệm về mảng](#khái-niệm-về-mảng)
-    - [Khai báo và khởi tạo mảng](#khai-báo-và-khởi-tạo-mảng)
-    - [Mảng đa chiều](#mảng-đa-chiều)
-    - [Cách lưu mảng trong bộ nhớ](#cách-lưu-mảng-trong-bộ-nhớ)
-    - [Truy cập và sửa đổi phần tử](#truy-cập-và-sửa-đổi-phần-tử)
-    - [Ví dụ thực tế - Tính điểm trung bình](#ví-dụ-thực-tế---tính-điểm-trung-bình)
-  - [🧑‍🏫 Bài 2: Chuỗi trong JAVA](#-bài-2-chuỗi-trong-java)
-    - [Khai báo và khởi tạo chuỗi](#khai-báo-và-khởi-tạo-chuỗi)
-    - [Các phương thức phổ biến của String](#các-phương-thức-phổ-biến-của-string)
-    - [So sánh chuỗi](#so-sánh-chuỗi)
-    - [Ví dụ thực tế - Đếm từ trong chuỗi](#ví-dụ-thực-tế---đếm-từ-trong-chuỗi)
-  - [🧑‍🏫 Bài 3: Hàm trong JAVA](#-bài-3-hàm-trong-java)
-    - [Cú pháp khai báo hàm](#cú-pháp-khai-báo-hàm)
-    - [Các loại hàm](#các-loại-hàm)
-    - [Tham số và đối số](#tham-số-và-đối-số)
-    - [Phạm vi biến](#phạm-vi-biến)
-    - [Ví dụ thực tế - Tính tiền lãi ngân hàng](#ví-dụ-thực-tế---tính-tiền-lãi-ngân-hàng)
-  - [🧑‍🏫 Bài 4: Cách sử dụng mảng và chuỗi kết hợp](#-bài-4-cách-sử-dụng-mảng-và-chuỗi-kết-hợp)
-    - [Khai báo và khởi tạo mảng chuỗi](#khai-báo-và-khởi-tạo-mảng-chuỗi)
-    - [Tìm kiếm trong mảng chuỗi](#tìm-kiếm-trong-mảng-chuỗi)
-    - [Sắp xếp mảng chuỗi](#sắp-xếp-mảng-chuỗi)
-    - [Xử lý chuỗi trong mảng](#xử-lý-chuỗi-trong-mảng)
-    - [Ví dụ thực tế - Phân tích danh sách học sinh](#ví-dụ-thực-tế---phân-tích-danh-sách-học-sinh)
-  - [🧑‍🏫 Bài 5: Hàm và mảng](#-bài-5-hàm-và-mảng)
-    - [Truyền mảng vào hàm](#truyền-mảng-vào-hàm)
-    - [Các hàm xử lý mảng phổ biến](#các-hàm-xử-lý-mảng-phổ-biến)
-    - [Ví dụ thực tế - Phân tích dữ liệu bán hàng](#ví-dụ-thực-tế---phân-tích-dữ-liệu-bán-hàng)
-  - [🧪 BÀI TẬP LỚN CUỐI PHẦN: Quản lý điểm sinh viên với mảng](#-bài-tập-lớn-cuối-phần-quản-lý-điểm-sinh-viên-với-mảng)
-    - [Mô tả bài toán](#mô-tả-bài-toán)
-    - [Kết quả chạy chương trình (Ví dụ)](#kết-quả-chạy-chương-trình-ví-dụ)
+# 📘 PHẦN 2: MẢNG, CHUỖI VÀ HÀM
 
 ## 🎯 Mục tiêu tổng quát
 
 - Làm quen với việc sử dụng mảng để lưu trữ và xử lý tập hợp dữ liệu.
 - Hiểu và làm việc với chuỗi trong JAVA.
 - Tạo và sử dụng hàm để tách chương trình thành các khối logic độc lập.
-
----
 
 ## 🧑‍🏫 Bài 1: Mảng trong JAVA
 
@@ -151,8 +124,6 @@ public class AverageCalculator {
 }
 ```
 
----
-
 ## 🧑‍🏫 Bài 2: Chuỗi trong JAVA
 
 - Chuỗi là một đối tượng trong JAVA, không phải kiểu dữ liệu nguyên thủy.
@@ -244,8 +215,6 @@ public class AverageCalculator {
        }
    }
    ```
-
----
 
 ## 🧑‍🏫 Bài 3: Hàm trong JAVA
 
@@ -360,8 +329,6 @@ public class AverageCalculator {
        }
    }
    ```
-
----
 
 ## 🧑‍🏫 Bài 4: Cách sử dụng mảng và chuỗi kết hợp
 
@@ -515,8 +482,6 @@ public class AverageCalculator {
        }
    }
    ```
-
----
 
 ## 🧑‍🏫 Bài 5: Hàm và mảng
 
@@ -711,8 +676,6 @@ public class AverageCalculator {
        }
    }
    ```
-
----
 
 ## 🧪 BÀI TẬP LỚN CUỐI PHẦN: Quản lý điểm sinh viên với mảng
 

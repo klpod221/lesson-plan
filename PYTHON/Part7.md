@@ -1,30 +1,5 @@
 # 🤖 PHẦN 7: NHẬP MÔN KHOA HỌC DỮ LIỆU VÀ MACHINE LEARNING
 
-- [🤖 PHẦN 7: NHẬP MÔN KHOA HỌC DỮ LIỆU VÀ MACHINE LEARNING](#-phần-7-nhập-môn-khoa-học-dữ-liệu-và-machine-learning)
-  - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
-  - [🧑‍🏫 Bài 1: Tổng quan và Quy trình làm việc](#-bài-1-tổng-quan-và-quy-trình-làm-việc)
-    - [AI, ML, và Khoa học Dữ liệu](#ai-ml-và-khoa-học-dữ-liệu)
-    - [Quy trình một dự án Machine Learning](#quy-trình-một-dự-án-machine-learning)
-    - [Giới thiệu Scikit-learn](#giới-thiệu-scikit-learn)
-  - [🧑‍🏫 Bài 2: Học có giám sát (Supervised Learning) - Hồi quy (Regression)](#-bài-2-học-có-giám-sát-supervised-learning---hồi-quy-regression)
-    - [Bài toán Hồi quy là gì?](#bài-toán-hồi-quy-là-gì)
-    - [Mô hình Hồi quy Tuyến tính (Linear Regression)](#mô-hình-hồi-quy-tuyến-tính-linear-regression)
-    - [Đánh giá mô hình Hồi quy (MSE, R²)](#đánh-giá-mô-hình-hồi-quy-mse-r)
-  - [🧑‍🏫 Bài 3: Học có giám sát (Supervised Learning) - Phân loại (Classification)](#-bài-3-học-có-giám-sát-supervised-learning---phân-loại-classification)
-    - [Bài toán Phân loại là gì?](#bài-toán-phân-loại-là-gì)
-    - [Các mô hình Phân loại phổ biến](#các-mô-hình-phân-loại-phổ-biến)
-    - [Đánh giá mô hình Phân loại (Accuracy, Confusion Matrix)](#đánh-giá-mô-hình-phân-loại-accuracy-confusion-matrix)
-  - [🧑‍🏫 Bài 4: Học không giám sát (Unsupervised Learning) - Gom cụm (Clustering)](#-bài-4-học-không-giám-sát-unsupervised-learning---gom-cụm-clustering)
-    - [Khi nào cần Học không giám sát?](#khi-nào-cần-học-không-giám-sát)
-    - [Thuật toán K-Means Clustering](#thuật-toán-k-means-clustering)
-  - [🧑‍🏫 Bài 5: Giới thiệu về Deep Learning và Mạng Neural](#-bài-5-giới-thiệu-về-deep-learning-và-mạng-neural)
-    - [Khi nào Machine Learning là không đủ?](#khi-nào-machine-learning-là-không-đủ)
-    - [Mạng Neural nhân tạo là gì?](#mạng-neural-nhân-tạo-là-gì)
-    - [Giới thiệu TensorFlow và Keras](#giới-thiệu-tensorflow-và-keras)
-  - [🧪 BÀI TẬP LỚN CUỐI PHẦN: Dự đoán Khách hàng rời bỏ (Customer Churn Prediction)](#-bài-tập-lớn-cuối-phần-dự-đoán-khách-hàng-rời-bỏ-customer-churn-prediction)
-    - [Mô tả bài toán](#mô-tả-bài-toán)
-    - [Yêu cầu](#yêu-cầu)
-
 ## 🎯 Mục tiêu tổng quát
 
 - Hiểu rõ vị trí của Machine Learning trong lĩnh vực AI và Khoa học Dữ liệu.
@@ -33,8 +8,6 @@
 - Áp dụng được thuật toán gom cụm để khám phá các nhóm tiềm ẩn trong dữ liệu.
 - Có cái nhìn tổng quan về Deep Learning và các thư viện phổ biến như TensorFlow/Keras.
 - Hoàn thành một dự án phân loại hoàn chỉnh, giải quyết một bài toán kinh doanh thực tế.
-
----
 
 ## 🧑‍🏫 Bài 1: Tổng quan và Quy trình làm việc
 
@@ -47,13 +20,15 @@
 ### Quy trình một dự án Machine Learning
 
 Sơ đồ quy trình tiêu chuẩn:
-```
+
+```text
 +----------------+   +-----------+   +---------------+   +------------+   +-----------+   +-----------+
 |   Xác định     |   | Thu thập  |   | Tiền xử lý &  |   | Lựa chọn & |   |  Đánh giá  |   | Tinh chỉnh |
 |   Bài toán     |-->|  Dữ liệu  |-->|  Khám phá     |-->|  Huấn luyện |-->|  Mô hình  |-->| & Triển khai|
 | (Problem Def.) |   | (Data Acq)|   |  (EDA & Prep) |   |  (Modeling)  |   | (Evaluation)|   | (Deployment)|
 +----------------+   +-----------+   +---------------+   +------------+   +-----------+   +-----------+
 ```
+
 Chúng ta sẽ đi theo quy trình này trong suốt phần học.
 
 ### Giới thiệu Scikit-learn
@@ -63,8 +38,6 @@ Chúng ta sẽ đi theo quy trình này trong suốt phần học.
   - `model.fit(X, y)`: Huấn luyện (dạy) mô hình.
   - `model.predict(X_new)`: Đưa ra dự đoán cho dữ liệu mới.
   - `model.score(X, y)`: Đánh giá hiệu suất của mô hình.
-
----
 
 ## 🧑‍🏫 Bài 2: Học có giám sát (Supervised Learning) - Hồi quy (Regression)
 
@@ -79,6 +52,7 @@ Chúng ta sẽ đi theo quy trình này trong suốt phần học.
 - Đây là mô hình đơn giản và dễ diễn giải nhất. Nó cố gắng tìm một đường thẳng (hoặc một siêu phẳng) phù hợp nhất với dữ liệu.
 
 **Ví dụ code:**
+
 ```python
 import numpy as np
 from sklearn.model_selection import train_test_split
@@ -118,8 +92,6 @@ print(f"Mean Squared Error (MSE): {mse:.2f}")
 print(f"R-squared (R²): {r2:.2f}")
 ```
 
----
-
 ## 🧑‍🏫 Bài 3: Học có giám sát (Supervised Learning) - Phân loại (Classification)
 
 ### Bài toán Phân loại là gì?
@@ -134,6 +106,7 @@ print(f"R-squared (R²): {r2:.2f}")
 - **Decision Tree (Cây quyết định)**: Mô hình dễ hiểu, hoạt động bằng cách liên tục chia dữ liệu dựa trên các câu hỏi có/không về các feature.
 
 **Ví dụ code với Cây quyết định:**
+
 ```python
 from sklearn.tree import DecisionTreeClassifier
 from sklearn import datasets
@@ -180,8 +153,6 @@ plt.ylabel('Actual')
 plt.show()
 ```
 
----
-
 ## 🧑‍🏫 Bài 4: Học không giám sát (Unsupervised Learning) - Gom cụm (Clustering)
 
 ### Khi nào cần Học không giám sát?
@@ -197,6 +168,7 @@ plt.show()
 - Thuật toán sẽ cố gắng phân chia các điểm dữ liệu vào K cụm sao cho các điểm trong cùng một cụm gần nhau nhất có thể.
 
 **Ví dụ code:**
+
 ```python
 from sklearn.cluster import KMeans
 from sklearn.datasets import make_blobs
@@ -219,8 +191,6 @@ plt.title('K-Means Clustering')
 plt.show()
 ```
 
----
-
 ## 🧑‍🏫 Bài 5: Giới thiệu về Deep Learning và Mạng Neural
 
 ### Khi nào Machine Learning là không đủ?
@@ -240,6 +210,7 @@ plt.show()
 - **Keras**: Là một API bậc cao, cực kỳ thân thiện với người dùng, được tích hợp sẵn trong TensorFlow. Keras giúp việc xây dựng một mạng neural trở nên đơn giản như xếp các khối Lego.
 
 **Ví dụ xây dựng một mạng neural đơn giản với Keras:**
+
 ```python
 import tensorflow as tf
 from tensorflow import keras
@@ -262,8 +233,6 @@ model.compile(optimizer='adam',
 # (Sau đó sẽ là bước huấn luyện model.fit(X_train, y_train, ...))
 ```
 
----
-
 ## 🧪 BÀI TẬP LỚN CUỐI PHẦN: Dự đoán Khách hàng rời bỏ (Customer Churn Prediction)
 
 ### Mô tả bài toán
@@ -276,21 +245,21 @@ Một công ty viễn thông muốn dự đoán những khách hàng nào có kh
 
 Thực hiện toàn bộ quy trình của một dự án Machine Learning trong Jupyter Notebook.
 
-1.  **Phân tích Khám phá Dữ liệu (EDA)**:
+1. **Phân tích Khám phá Dữ liệu (EDA)**:
     - Đọc và làm sạch dữ liệu (xử lý giá trị thiếu nếu có).
     - Sử dụng các kiến thức từ Phần 6 để trực quan hóa dữ liệu, tìm hiểu mối quan hệ giữa các đặc trưng và biến `Churn` (ví dụ: loại hợp đồng, thời gian gắn bó ảnh hưởng đến tỷ lệ rời bỏ như thế nào?).
 
-2.  **Tiền xử lý Dữ liệu**:
+2. **Tiền xử lý Dữ liệu**:
     - Chuyển đổi các cột dạng chữ (categorical) thành dạng số mà mô hình có thể hiểu được (sử dụng `pd.get_dummies` hoặc `OneHotEncoder`).
     - Chuẩn hóa (scale) các cột số để chúng có cùng thang đo (sử dụng `StandardScaler` hoặc `MinMaxScaler`).
 
-3.  **Xây dựng và Huấn luyện Mô hình**:
+3. **Xây dựng và Huấn luyện Mô hình**:
     - Chia dữ liệu thành tập train và tập test.
     - Thử nghiệm ít nhất 2 mô hình phân loại khác nhau (ví dụ: Logistic Regression và Decision Tree/Random Forest).
 
-4.  **Đánh giá Mô hình**:
+4. **Đánh giá Mô hình**:
     - Tính toán `accuracy` cho cả hai mô hình.
     - Vẽ `confusion matrix` để hiểu rõ hơn về hiệu suất của mô hình tốt nhất. Chú ý đến số lượng khách hàng bị dự đoán sai là "Không rời bỏ" trong khi thực tế họ "Có rời bỏ" (False Negatives).
     - Dựa trên kết quả, bạn sẽ đề xuất mô hình nào cho công ty? Tại sao?
 
-5.  **Kết luận**: Tóm tắt kết quả và đưa ra một vài gợi ý cho phía kinh doanh dựa trên những gì mô hình đã học được (ví dụ: "Những khách hàng có hợp đồng theo tháng và sử dụng dịch vụ Internet cáp quang có tỷ lệ rời bỏ cao nhất. Cần có chính sách chăm sóc đặc biệt cho nhóm này.").
+5. **Kết luận**: Tóm tắt kết quả và đưa ra một vài gợi ý cho phía kinh doanh dựa trên những gì mô hình đã học được (ví dụ: "Những khách hàng có hợp đồng theo tháng và sử dụng dịch vụ Internet cáp quang có tỷ lệ rời bỏ cao nhất. Cần có chính sách chăm sóc đặc biệt cho nhóm này.").

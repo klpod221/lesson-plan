@@ -1,40 +1,5 @@
 # 📘 PHẦN 4: COLLECTIONS VÀ ERROR HANDLING
 
-- [📘 PHẦN 4: COLLECTIONS VÀ ERROR HANDLING](#-phần-4-collections-và-error-handling)
-  - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
-  - [🧑‍🏫 Bài 1: Vectors](#-bài-1-vectors)
-    - [Creating vectors](#creating-vectors)
-    - [Updating vectors](#updating-vectors)
-    - [Reading elements](#reading-elements)
-    - [Iterating](#iterating)
-    - [Storing enums](#storing-enums)
-  - [🧑‍🏫 Bài 2: Strings](#-bài-2-strings)
-    - [Creating strings](#creating-strings)
-    - [Updating strings](#updating-strings)
-    - [Indexing strings](#indexing-strings)
-    - [Slicing strings](#slicing-strings)
-    - [Iterating strings](#iterating-strings)
-  - [🧑‍🏫 Bài 3: Hash Maps](#-bài-3-hash-maps)
-    - [Creating hash maps](#creating-hash-maps)
-    - [Accessing values](#accessing-values)
-    - [Updating hash maps](#updating-hash-maps)
-    - [Iterating hash maps](#iterating-hash-maps)
-  - [🧑‍🏫 Bài 4: Advanced Error Handling](#-bài-4-advanced-error-handling)
-    - [Recoverable errors](#recoverable-errors)
-    - [Unrecoverable errors](#unrecoverable-errors)
-    - [Custom error types](#custom-error-types)
-    - [Error conversion](#error-conversion)
-    - [Best practices](#best-practices)
-  - [🧑‍🏫 Bài 5: Testing](#-bài-5-testing)
-    - [Writing tests](#writing-tests)
-    - [Test organization](#test-organization)
-    - [Running tests](#running-tests)
-    - [Test assertions](#test-assertions)
-    - [Integration tests](#integration-tests)
-  - [🧪 BÀI TẬP LỚN CUỐI PHẦN: Contact Management System](#-bài-tập-lớn-cuối-phần-contact-management-system)
-    - [Mô tả bài toán](#mô-tả-bài-toán)
-    - [Yêu cầu](#yêu-cầu)
-
 ## 🎯 Mục tiêu tổng quát
 
 - Master các collection types: Vec, String, HashMap
@@ -43,8 +8,6 @@
 - Custom error types và conversion
 - Writing effective tests
 - Build real-world data management system
-
----
 
 ## 🧑‍🏫 Bài 1: Vectors
 
@@ -213,8 +176,6 @@ fn main() {
 }
 ```
 
----
-
 ## 🧑‍🏫 Bài 2: Strings
 
 ### Creating strings
@@ -349,8 +310,6 @@ fn main() {
     println!("{}", s.to_uppercase());
 }
 ```
-
----
 
 ## 🧑‍🏫 Bài 3: Hash Maps
 
@@ -487,8 +446,6 @@ fn main() {
     println!("{:?}", scores);
 }
 ```
-
----
 
 ## 🧑‍🏫 Bài 4: Advanced Error Handling
 
@@ -664,8 +621,6 @@ fn main() {
     }
 }
 ```
-
----
 
 ## 🧑‍🏫 Bài 5: Testing
 
@@ -864,8 +819,6 @@ fn test_with_setup() {
     // Test code
 }
 ```
-
----
 
 ## 🧪 BÀI TẬP LỚN CUỐI PHẦN: Contact Management System
 

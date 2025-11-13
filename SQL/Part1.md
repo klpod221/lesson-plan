@@ -1,47 +1,19 @@
-# 📘 PHẦN 1: NHẬP MÔN SQL
+---
+prev:
+  text: '🏆 Bài Tập Lớn Java'
+  link: '/JAVA/FINAL'
+next:
+  text: '📊 SQL Nâng Cao'
+  link: '/SQL/Part2'
+---
 
-- [📘 PHẦN 1: NHẬP MÔN SQL](#-phần-1-nhập-môn-sql)
-  - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
-  - [🧑‍🏫 Bài 1: Giới thiệu về SQL và CSDL](#-bài-1-giới-thiệu-về-sql-và-csdl)
-    - [Khái niệm cơ sở dữ liệu quan hệ](#khái-niệm-cơ-sở-dữ-liệu-quan-hệ)
-    - [Các hệ quản trị CSDL phổ biến](#các-hệ-quản-trị-csdl-phổ-biến)
-    - [Công cụ quản lý](#công-cụ-quản-lý)
-    - [Sử dụng phpMyAdmin để quản lý cơ sở dữ liệu](#sử-dụng-phpmyadmin-để-quản-lý-cơ-sở-dữ-liệu)
-      - [Sử dụng phpMyAdmin](#sử-dụng-phpmyadmin)
-    - [Sử dụng VSCode extension để kết nối CSDL](#sử-dụng-vscode-extension-để-kết-nối-csdl)
-  - [🧑‍🏫 Bài 2: Tạo và quản lý cơ sở dữ liệu](#-bài-2-tạo-và-quản-lý-cơ-sở-dữ-liệu)
-    - [Tạo và quản lý cơ sở dữ liệu](#tạo-và-quản-lý-cơ-sở-dữ-liệu)
-    - [Các kiểu dữ liệu cơ bản trong SQL](#các-kiểu-dữ-liệu-cơ-bản-trong-sql)
-    - [Một số ràng buộc trong SQL](#một-số-ràng-buộc-trong-sql)
-    - [Tạo bảng và ràng buộc](#tạo-bảng-và-ràng-buộc)
-    - [Sơ đồ quan hệ của cơ sở dữ liệu](#sơ-đồ-quan-hệ-của-cơ-sở-dữ-liệu)
-  - [🧑‍🏫 Bài 3: Thao tác dữ liệu](#-bài-3-thao-tác-dữ-liệu)
-    - [Thêm dữ liệu với INSERT INTO](#thêm-dữ-liệu-với-insert-into)
-    - [Cập nhật dữ liệu với UPDATE](#cập-nhật-dữ-liệu-với-update)
-    - [Xóa dữ liệu với DELETE](#xóa-dữ-liệu-với-delete)
-    - [Thay đổi cấu trúc bảng với ALTER TABLE](#thay-đổi-cấu-trúc-bảng-với-alter-table)
-  - [🧑‍🏫 Bài 4: Truy vấn dữ liệu](#-bài-4-truy-vấn-dữ-liệu)
-    - [Truy vấn cơ bản với SELECT](#truy-vấn-cơ-bản-với-select)
-    - [Lọc dữ liệu với WHERE](#lọc-dữ-liệu-với-where)
-    - [Sắp xếp kết quả với ORDER BY](#sắp-xếp-kết-quả-với-order-by)
-    - [Giới hạn kết quả với LIMIT (MySQL, PostgreSQL) hoặc TOP (SQL Server)](#giới-hạn-kết-quả-với-limit-mysql-postgresql-hoặc-top-sql-server)
-  - [🧑‍🏫 Bài 5: Kết hợp dữ liệu](#-bài-5-kết-hợp-dữ-liệu)
-    - [Kết hợp bảng với JOIN](#kết-hợp-bảng-với-join)
-    - [Nhóm dữ liệu với GROUP BY](#nhóm-dữ-liệu-với-group-by)
-    - [Hàm tổng hợp](#hàm-tổng-hợp)
-    - [Lọc nhóm dữ liệu với HAVING](#lọc-nhóm-dữ-liệu-với-having)
-  - [🧪 BÀI TẬP LỚN CUỐI PHẦN: Quản lý sinh viên](#-bài-tập-lớn-cuối-phần-quản-lý-sinh-viên)
-    - [Mô tả bài toán](#mô-tả-bài-toán)
-    - [Yêu cầu](#yêu-cầu)
-    - [Kết quả chạy chương trình (Ví dụ)](#kết-quả-chạy-chương-trình-ví-dụ)
+# 📘 PHẦN 1: NHẬP MÔN SQL
 
 ## 🎯 Mục tiêu tổng quát
 
 - Làm quen với cú pháp và cách sử dụng ngôn ngữ truy vấn SQL
 - Biết cách tạo cơ sở dữ liệu, bảng và thao tác dữ liệu
 - Hiểu được các câu lệnh truy vấn và kết hợp dữ liệu
-
----
 
 ## 🧑‍🏫 Bài 1: Giới thiệu về SQL và CSDL
 
@@ -130,8 +102,6 @@
   -- test.sql
   SHOW DATABASES; -- Hiển thị danh sách các cơ sở dữ liệu
   ```
-
----
 
 ## 🧑‍🏫 Bài 2: Tạo và quản lý cơ sở dữ liệu
 
@@ -233,8 +203,6 @@ CREATE TABLE enrollments (
   - Một sinh viên (`students`) có thể đăng ký nhiều khóa học → Mối quan hệ 1-n với `enrollments`
   - Một khóa học (`courses`) có thể được nhiều sinh viên đăng ký → Mối quan hệ 1-n với `enrollments`
   - Bảng `enrollments` là bảng trung gian tạo mối quan hệ n-n giữa sinh viên và khóa học
-
----
 
 ## 🧑‍🏫 Bài 3: Thao tác dữ liệu
 
@@ -339,8 +307,6 @@ ALTER TABLE enrollments DROP FOREIGN KEY fk_student;
 ALTER TABLE students RENAME TO student_records;
 ```
 
----
-
 ## 🧑‍🏫 Bài 4: Truy vấn dữ liệu
 
 ### Truy vấn cơ bản với SELECT
@@ -428,8 +394,6 @@ SELECT TOP 5 * FROM students;
 -- Kết hợp ORDER BY và LIMIT để lấy top 3 điểm cao nhất
 SELECT * FROM enrollments ORDER BY grade DESC LIMIT 3;
 ```
-
----
 
 ## 🧑‍🏫 Bài 5: Kết hợp dữ liệu
 
@@ -579,8 +543,6 @@ GROUP BY c.department
 HAVING average_credits > 3 -- Lọc sau khi nhóm
 ORDER BY course_count DESC;
 ```
-
----
 
 ## 🧪 BÀI TẬP LỚN CUỐI PHẦN: Quản lý sinh viên
 

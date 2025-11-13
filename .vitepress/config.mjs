@@ -3,7 +3,7 @@ import { withMermaid } from 'vitepress-plugin-mermaid'
 
 // https://vitepress.dev/reference/site-config
 export default withMermaid(defineConfig({
-  title: "Lesson Plan",
+  title: "Lesson Plan - By klpod221",
   description: "Tổng Hợp Tài Liệu Học Lập Trình - By klpod221",
   lang: 'vi-VN',
   base: '/lesson-plan/',
@@ -39,6 +39,8 @@ export default withMermaid(defineConfig({
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     logo: '/logo.png',
+
+    siteTitle: "Lesson Plan",
     
     nav: [
       { text: 'Trang Chủ', link: '/' },
@@ -70,156 +72,35 @@ export default withMermaid(defineConfig({
     ],
 
     sidebar: {
-      // Trang giới thiệu và cài đặt
-      '/INTRODUCTION': [
-        {
-          text: '🎓 Bắt Đầu',
-          collapsed: false,
-          items: [
-            { text: '🌐 Tổng Quan Lập Trình', link: '/INTRODUCTION' },
-            { text: '🛠️ Cài Đặt Môi Trường', link: '/INSTALL' },
-            { text: '🔄 Git & GitHub', link: '/GIT' }
-          ]
-        },
-        {
-          text: '📚 Module 1: Kỹ Năng Tự Học',
-          collapsed: true,
-          items: [
-            { text: '🔍 Tìm Kiếm Thông Tin', link: '/SELF-LEARNING/Part1' },
-            { text: '📑 Xử Lý Tài Liệu', link: '/SELF-LEARNING/Part2' }
-          ]
-        }
-      ],
-
-      '/INSTALL': [
-        {
-          text: '🎓 Bắt Đầu',
-          collapsed: false,
-          items: [
-            { text: '🌐 Tổng Quan Lập Trình', link: '/INTRODUCTION' },
-            { text: '🛠️ Cài Đặt Môi Trường', link: '/INSTALL' },
-            { text: '🔄 Git & GitHub', link: '/GIT' }
-          ]
-        },
-        {
-          text: '📚 Module 1: Kỹ Năng Tự Học',
-          collapsed: true,
-          items: [
-            { text: '🔍 Tìm Kiếm Thông Tin', link: '/SELF-LEARNING/Part1' },
-            { text: '📑 Xử Lý Tài Liệu', link: '/SELF-LEARNING/Part2' }
-          ]
-        }
-      ],
-
-      '/GIT': [
-        {
-          text: '🎓 Bắt Đầu',
-          collapsed: false,
-          items: [
-            { text: '🌐 Tổng Quan Lập Trình', link: '/INTRODUCTION' },
-            { text: '🛠️ Cài Đặt Môi Trường', link: '/INSTALL' },
-            { text: '🔄 Git & GitHub', link: '/GIT' }
-          ]
-        },
-        {
-          text: '📚 Module 1: Kỹ Năng Tự Học',
-          collapsed: true,
-          items: [
-            { text: '🔍 Tìm Kiếm Thông Tin', link: '/SELF-LEARNING/Part1' },
-            { text: '📑 Xử Lý Tài Liệu', link: '/SELF-LEARNING/Part2' }
-          ]
-        }
-      ],
-
-      // Lộ trình chính - có liên kết giữa các module
       '/SELF-LEARNING/': [
         {
-          text: '🎓 Bắt Đầu',
-          collapsed: true,
-          items: [
-            { text: '🌐 Tổng Quan Lập Trình', link: '/INTRODUCTION' },
-            { text: '🛠️ Cài Đặt Môi Trường', link: '/INSTALL' },
-            { text: '🔄 Git & GitHub', link: '/GIT' }
-          ]
-        },
-        {
-          text: '📚 Module 1: Kỹ Năng Tự Học',
-          collapsed: false,
+          text: '🧠 Kỹ Năng Tự Học',
           items: [
             { text: '🔍 Tìm Kiếm Thông Tin', link: '/SELF-LEARNING/Part1' },
             { text: '📑 Xử Lý Tài Liệu', link: '/SELF-LEARNING/Part2' },
             { text: '🧠 Kỹ Thuật Tự Học', link: '/SELF-LEARNING/Part3' },
             { text: '📈 Phát Triển Bản Thân', link: '/SELF-LEARNING/Part4' }
-          ]
-        },
-        {
-          text: '📚 Module 2: Java Cơ Bản',
-          collapsed: true,
-          items: [
-            { text: '☕ Nhập Môn Java', link: '/JAVA/Part1' },
-            { text: '📊 Mảng, Chuỗi và Hàm', link: '/JAVA/Part2' }
-          ]
-        },
-        {
-          text: '📚 Module 3: OOP',
-          collapsed: true,
-          items: [
-            { text: '🧩 Lập Trình Hướng Đối Tượng', link: '/JAVA/Part3' }
           ]
         }
       ],
 
       '/JAVA/': [
         {
-          text: '📚 Module 1: Kỹ Năng Tự Học',
-          collapsed: true,
-          items: [
-            { text: '🔍 Tìm Kiếm Thông Tin', link: '/SELF-LEARNING/Part1' },
-            { text: '📑 Xử Lý Tài Liệu', link: '/SELF-LEARNING/Part2' },
-            { text: '🧠 Kỹ Thuật Tự Học', link: '/SELF-LEARNING/Part3' },
-            { text: '📈 Phát Triển Bản Thân', link: '/SELF-LEARNING/Part4' }
-          ]
-        },
-        {
-          text: '📚 Module 2: Java Cơ Bản',
-          collapsed: false,
+          text: '☕ Java Programming',
           items: [
             { text: '☕ Nhập Môn Java', link: '/JAVA/Part1' },
-            { text: '📊 Mảng, Chuỗi và Hàm', link: '/JAVA/Part2' }
-          ]
-        },
-        {
-          text: '📚 Module 3: OOP',
-          collapsed: false,
-          items: [
+            { text: '📊 Mảng, Chuỗi và Hàm', link: '/JAVA/Part2' },
             { text: '🧩 Lập Trình Hướng Đối Tượng', link: '/JAVA/Part3' },
             { text: '📁 File I/O và Collections', link: '/JAVA/Part4' },
             { text: '🧵 Luồng, Đa Luồng và JDBC', link: '/JAVA/Part5' },
             { text: '🏆 Bài Tập Lớn', link: '/JAVA/FINAL' }
-          ]
-        },
-        {
-          text: '📚 Module 4: SQL & Database',
-          collapsed: true,
-          items: [
-            { text: '💾 Nhập Môn SQL', link: '/SQL/Part1' },
-            { text: '📊 SQL Nâng Cao', link: '/SQL/Part2' }
           ]
         }
       ],
 
       '/SQL/': [
         {
-          text: '📚 Module 3: OOP',
-          collapsed: true,
-          items: [
-            { text: '🧩 Lập Trình Hướng Đối Tượng', link: '/JAVA/Part3' },
-            { text: '� File I/O và Collections', link: '/JAVA/Part4' }
-          ]
-        },
-        {
-          text: '📚 Module 4: SQL & Database',
-          collapsed: false,
+          text: '💾 SQL & Database',
           items: [
             { text: '💾 Nhập Môn SQL', link: '/SQL/Part1' },
             { text: '📊 SQL Nâng Cao', link: '/SQL/Part2' },
@@ -227,29 +108,12 @@ export default withMermaid(defineConfig({
             { text: '⚡ SQL Chuyên Sâu', link: '/SQL/Part4' },
             { text: '🏆 Bài Tập Lớn', link: '/SQL/FINAL' }
           ]
-        },
-        {
-          text: '📚 Module 5: DSA',
-          collapsed: true,
-          items: [
-            { text: '🧮 Nhập Môn DSA', link: '/DSA/Part1' },
-            { text: '🌐 Cấu Trúc Dữ Liệu Nâng Cao', link: '/DSA/Part2' }
-          ]
         }
       ],
 
       '/DSA/': [
         {
-          text: '📚 Module 4: SQL & Database',
-          collapsed: true,
-          items: [
-            { text: '💾 Nhập Môn SQL', link: '/SQL/Part1' },
-            { text: '⚡ SQL Chuyên Sâu', link: '/SQL/Part4' }
-          ]
-        },
-        {
-          text: '📚 Module 5: DSA',
-          collapsed: false,
+          text: '🧮 Data Structures & Algorithms',
           items: [
             { text: '🧮 Nhập Môn DSA', link: '/DSA/Part1' },
             { text: '🌐 Cấu Trúc Dữ Liệu Nâng Cao', link: '/DSA/Part2' },
@@ -257,58 +121,24 @@ export default withMermaid(defineConfig({
             { text: '🔍 Cấu Trúc Dữ Liệu Chuyên Biệt', link: '/DSA/Part4' },
             { text: '⚡ Thuật Toán Ứng Dụng', link: '/DSA/Part5' }
           ]
-        },
-        {
-          text: '📚 Module 6: Web Frontend',
-          collapsed: true,
-          items: [
-            { text: '📝 Nhập Môn HTML', link: '/WEB/Part1' },
-            { text: '🎨 CSS - Định Dạng Trang Web', link: '/WEB/Part2' }
-          ]
         }
       ],
 
       '/WEB/': [
         {
-          text: '📚 Module 5: DSA',
-          collapsed: true,
-          items: [
-            { text: '🧮 Nhập Môn DSA', link: '/DSA/Part1' },
-            { text: '⚡ Thuật Toán Ứng Dụng', link: '/DSA/Part5' }
-          ]
-        },
-        {
-          text: '📚 Module 6: Web Frontend',
-          collapsed: false,
+          text: '🌐 Web Development',
           items: [
             { text: '📝 Nhập Môn HTML', link: '/WEB/Part1' },
             { text: '🎨 CSS - Định Dạng Trang Web', link: '/WEB/Part2' },
             { text: '🔄 JavaScript', link: '/WEB/Part3' },
             { text: '⚙️ Framework & Công Cụ', link: '/WEB/Part4' }
           ]
-        },
-        {
-          text: '📚 Module 7: Backend',
-          collapsed: true,
-          items: [
-            { text: '🐘 Nhập Môn PHP', link: '/PHP/Part1' },
-            { text: '🧩 OOP với PHP', link: '/PHP/Part2' }
-          ]
         }
       ],
 
       '/PHP/': [
         {
-          text: '� Module 6: Web Frontend',
-          collapsed: true,
-          items: [
-            { text: '📝 Nhập Môn HTML', link: '/WEB/Part1' },
-            { text: '⚙️ Framework & Công Cụ', link: '/WEB/Part4' }
-          ]
-        },
-        {
-          text: '📚 Module 7: Backend (PHP)',
-          collapsed: false,
+          text: '🐘 PHP Development',
           items: [
             { text: '🐘 Nhập Môn PHP', link: '/PHP/Part1' },
             { text: '🧩 OOP với PHP', link: '/PHP/Part2' },
@@ -317,80 +147,23 @@ export default withMermaid(defineConfig({
             { text: '🚀 Xu Hướng Hiện Đại', link: '/PHP/Part5' },
             { text: '🌐 Triển Khai Chuyên Nghiệp', link: '/PHP/Part6' }
           ]
-        },
-        {
-          text: '📚 Module 8: DevOps',
-          collapsed: true,
-          items: [
-            { text: '🐳 Docker: Nền Tảng', link: '/DEVOPS/Docker1' },
-            { text: '🐳 Docker: Orchestration', link: '/DEVOPS/Docker2' }
-          ]
         }
       ],
-
 
       '/DEVOPS/': [
         {
-          text: '📚 Module 7: Backend',
-          collapsed: true,
-          items: [
-            { text: '🐘 Nhập Môn PHP', link: '/PHP/Part1' },
-            { text: '🌐 Triển Khai Chuyên Nghiệp', link: '/PHP/Part6' }
-          ]
-        },
-        {
-          text: '📚 Module 8: DevOps',
-          collapsed: false,
+          text: '🐳 DevOps & Containers',
           items: [
             { text: '🐳 Docker: Nền Tảng', link: '/DEVOPS/Docker1' },
             { text: '🐳 Docker: Orchestration', link: '/DEVOPS/Docker2' },
             { text: '⚙️ Kubernetes', link: '/DEVOPS/Kubernetes' }
           ]
-        },
-        {
-          text: '🎓 Hoàn Thành Lộ Trình',
-          collapsed: true,
-          items: [
-            { text: '📋 Tổng Kết & Định Hướng', link: '/CONCLUSION' }
-          ]
         }
       ],
 
-      '/CONCLUSION': [
-        {
-          text: '📚 Module 8: DevOps',
-          collapsed: true,
-          items: [
-            { text: '🐳 Docker: Nền Tảng', link: '/DEVOPS/Docker1' },
-            { text: '🐳 Docker: Orchestration', link: '/DEVOPS/Docker2' },
-            { text: '⚙️ Kubernetes', link: '/DEVOPS/Kubernetes' }
-          ]
-        },
-        {
-          text: '🎓 Hoàn Thành Lộ Trình',
-          collapsed: false,
-          items: [
-            { text: '📋 Tổng Kết & Định Hướng', link: '/CONCLUSION' }
-          ]
-        },
-        {
-          text: '📚 Tài Liệu Bổ Sung',
-          collapsed: true,
-          items: [
-            { text: '🔤 C/C++', link: '/C-CPP/Part1' },
-            { text: '🐍 Python', link: '/PYTHON/Part1' },
-            { text: '🦀 Rust', link: '/RUST/Part1' },
-            { text: '⚛️ React', link: '/REACT/Part1' },
-            { text: '💚 Vue', link: '/VUE/Part1' }
-          ]
-        }
-      ],
-
-      // Tài liệu bổ sung - không có liên kết với lộ trình chính
       '/C-CPP/': [
         {
           text: '🔤 C/C++ Programming',
-          collapsed: false,
           items: [
             { text: '🏁 Nhập Môn C', link: '/C-CPP/Part1' },
             { text: '📊 Mảng và Chuỗi', link: '/C-CPP/Part2' },
@@ -405,7 +178,6 @@ export default withMermaid(defineConfig({
       '/PYTHON/': [
         {
           text: '🐍 Python Programming',
-          collapsed: false,
           items: [
             { text: '🐍 Nhập Môn Python', link: '/PYTHON/Part1' },
             { text: '🧩 OOP với Python', link: '/PYTHON/Part2' },
@@ -423,7 +195,6 @@ export default withMermaid(defineConfig({
       '/REACT/': [
         {
           text: '⚛️ React.js',
-          collapsed: false,
           items: [
             { text: '⚛️ Nền Tảng React', link: '/REACT/Part1' },
             { text: '🎯 State và Lifecycle', link: '/REACT/Part2' },
@@ -439,7 +210,6 @@ export default withMermaid(defineConfig({
       '/VUE/': [
         {
           text: '💚 Vue.js',
-          collapsed: false,
           items: [
             { text: '💚 Nhập Môn Vue.js', link: '/VUE/Part1' },
             { text: '🔧 Components và Props', link: '/VUE/Part2' },
@@ -454,7 +224,6 @@ export default withMermaid(defineConfig({
       '/RUST/': [
         {
           text: '🦀 Rust Programming',
-          collapsed: false,
           items: [
             { text: '🦀 Nhập Môn Rust', link: '/RUST/Part1' },
             { text: '🔐 Ownership và Borrowing', link: '/RUST/Part2' },

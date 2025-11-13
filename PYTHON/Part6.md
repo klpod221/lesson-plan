@@ -1,28 +1,5 @@
 # 📊 PHẦN 6: PHÂN TÍCH VÀ TRỰC QUAN HÓA DỮ LIỆU
 
-- [📊 PHẦN 6: PHÂN TÍCH VÀ TRỰC QUAN HÓA DỮ LIỆU](#-phần-6-phân-tích-và-trực-quan-hóa-dữ-liệu)
-  - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
-  - [🧑‍🏫 Bài 1: Môi trường làm việc và Giới thiệu NumPy](#-bài-1-môi-trường-làm-việc-và-giới-thiệu-numpy)
-    - [Jupyter Notebook: Sân chơi của nhà khoa học dữ liệu](#jupyter-notebook-sân-chơi-của-nhà-khoa-học-dữ-liệu)
-    - [NumPy: Nền tảng tính toán khoa học](#numpy-nền-tảng-tính-toán-khoa-học)
-  - [🧑‍🏫 Bài 2: Phân tích Dữ liệu với Pandas - Phần 1](#-bài-2-phân-tích-dữ-liệu-với-pandas---phần-1)
-    - [Giới thiệu Pandas: Series và DataFrame](#giới-thiệu-pandas-series-và-dataframe)
-    - [Đọc và Ghi dữ liệu (CSV, Excel)](#đọc-và-ghi-dữ-liệu-csv-excel)
-    - [Khám phá dữ liệu ban đầu](#khám-phá-dữ-liệu-ban-đầu)
-  - [🧑‍🏫 Bài 3: Phân tích Dữ liệu với Pandas - Phần 2](#-bài-3-phân-tích-dữ-liệu-với-pandas---phần-2)
-    - [Lựa chọn và Lọc dữ liệu (Indexing \& Slicing)](#lựa-chọn-và-lọc-dữ-liệu-indexing--slicing)
-    - [Làm sạch dữ liệu (Handling Missing Values)](#làm-sạch-dữ-liệu-handling-missing-values)
-    - [Thao tác trên cột và thêm cột mới](#thao-tác-trên-cột-và-thêm-cột-mới)
-  - [🧑‍🏫 Bài 4: Trực quan hóa Dữ liệu với Matplotlib và Seaborn](#-bài-4-trực-quan-hóa-dữ-liệu-với-matplotlib-và-seaborn)
-    - [Matplotlib: Xây dựng biểu đồ từ gốc](#matplotlib-xây-dựng-biểu-đồ-từ-gốc)
-    - [Seaborn: Vẽ biểu đồ thống kê đẹp mắt](#seaborn-vẽ-biểu-đồ-thống-kê-đẹp-mắt)
-  - [🧑‍🏫 Bài 5: Phân tích nâng cao với Pandas](#-bài-5-phân-tích-nâng-cao-với-pandas)
-    - [Gom nhóm dữ liệu (Grouping with `groupby`)](#gom-nhóm-dữ-liệu-grouping-with-groupby)
-    - [Kết hợp các DataFrame (Merging, Joining, Concatenating)](#kết-hợp-các-dataframe-merging-joining-concatenating)
-  - [🧪 BÀI TẬP LỚN CUỐI PHẦN: Phân tích Dữ liệu Bán lẻ](#-bài-tập-lớn-cuối-phần-phân-tích-dữ-liệu-bán-lẻ)
-    - [Mô tả bài toán](#mô-tả-bài-toán)
-    - [Yêu cầu](#yêu-cầu)
-
 ## 🎯 Mục tiêu tổng quát
 
 - Thành thạo môi trường làm việc Jupyter Notebook cho phân tích dữ liệu.
@@ -31,8 +8,6 @@
 - Sử dụng Matplotlib và Seaborn để tạo ra các biểu đồ trực quan, truyền tải thông tin hiệu quả.
 - Hoàn thành một dự án phân tích dữ liệu nhỏ, trả lời các câu hỏi kinh doanh dựa trên một bộ dữ liệu thực tế.
 
----
-
 ## 🧑‍🏫 Bài 1: Môi trường làm việc và Giới thiệu NumPy
 
 ### Jupyter Notebook: Sân chơi của nhà khoa học dữ liệu
@@ -40,10 +15,13 @@
 - Jupyter Notebook là một ứng dụng web cho phép bạn tạo và chia sẻ các tài liệu chứa code, phương trình, trực quan hóa và văn bản tường thuật.
 - Cực kỳ hữu ích cho việc khám phá dữ liệu tương tác vì bạn có thể chạy từng khối code (cell) và xem ngay kết quả.
 - **Cài đặt**:
+
   ```bash
   pip install notebook
   ```
+
 - **Khởi động**:
+
   ```bash
   jupyter notebook
   ```
@@ -75,8 +53,6 @@ matrix = np.array([[1, 2, 3], [4, 5, 6]])
 print("Ma trận:\n", matrix)
 print(f"Kích thước: {matrix.shape}") # (2, 3) -> 2 hàng, 3 cột
 ```
-
----
 
 ## 🧑‍🏫 Bài 2: Phân tích Dữ liệu với Pandas - Phần 1
 
@@ -128,8 +104,6 @@ df.info()
 # Xem các thống kê mô tả cơ bản cho các cột số
 print("\nThống kê mô tả:\n", df.describe())
 ```
-
----
 
 ## 🧑‍🏫 Bài 3: Phân tích Dữ liệu với Pandas - Phần 2
 
@@ -193,8 +167,6 @@ df['Nhóm tuổi'] = df['Tuổi'].apply(categorize_age)
 print("\nDataFrame với cột Nhóm tuổi:\n", df)
 ```
 
----
-
 ## 🧑‍🏫 Bài 4: Trực quan hóa Dữ liệu với Matplotlib và Seaborn
 
 ### Matplotlib: Xây dựng biểu đồ từ gốc
@@ -227,8 +199,6 @@ plt.show()
 # Biểu đồ phân tán (scatterplot) để xem mối quan hệ
 # sns.scatterplot(x='col1', y='col2', data=real_df)
 ```
-
----
 
 ## 🧑‍🏫 Bài 5: Phân tích nâng cao với Pandas
 
@@ -265,8 +235,6 @@ merged_left = pd.merge(df1, df2, on='key', how='left')
 print("\nLeft Merge:\n", merged_left)
 ```
 
----
-
 ## 🧪 BÀI TẬP LỚN CUỐI PHẦN: Phân tích Dữ liệu Bán lẻ
 
 ### Mô tả bài toán
@@ -279,27 +247,27 @@ Bạn được cung cấp một bộ dữ liệu về các giao dịch bán hàn
 
 Sử dụng Jupyter Notebook để thực hiện và trình bày toàn bộ quá trình phân tích.
 
-1.  **Đọc và Khám phá Dữ liệu**:
+1. **Đọc và Khám phá Dữ liệu**:
     - Đọc file dữ liệu vào một DataFrame.
     - Hiển thị thông tin cơ bản: `head()`, `info()`, `describe()`.
     - Kiểm tra xem có bao nhiêu dữ liệu bị thiếu ở mỗi cột.
 
-2.  **Làm sạch và Tiền xử lý Dữ liệu**:
+2. **Làm sạch và Tiền xử lý Dữ liệu**:
     - Xóa các hàng có `CustomerID` bị thiếu (vì không thể phân tích theo khách hàng).
     - Chuyển cột `InvoiceDate` sang kiểu dữ liệu datetime.
     - Tạo các cột mới để phân tích dễ hơn:
         - `TotalPrice = Quantity * UnitPrice`.
         - `Month`, `DayOfWeek`, `Hour` từ cột `InvoiceDate`.
 
-3.  **Phân tích và Trả lời câu hỏi**:
+3. **Phân tích và Trả lời câu hỏi**:
     - **Top 10 sản phẩm bán chạy nhất là gì?** (dựa trên tổng số lượng `Quantity`).
     - **Top 10 khách hàng chi tiêu nhiều nhất là ai?** (dựa trên tổng `TotalPrice`).
     - **Doanh thu thay đổi như thế nào theo từng tháng?**
     - **Khách hàng thường mua sắm vào thời điểm nào trong ngày/trong tuần?**
 
-4.  **Trực quan hóa Dữ liệu**:
+4. **Trực quan hóa Dữ liệu**:
     - Vẽ biểu đồ cột cho Top 10 sản phẩm và Top 10 khách hàng.
     - Vẽ biểu đồ đường thể hiện doanh thu theo tháng.
     - Vẽ biểu đồ cột thể hiện số lượng đơn hàng theo giờ trong ngày.
 
-5.  **Tổng kết**: Viết một vài câu kết luận về những insight bạn tìm thấy được từ dữ liệu (ví dụ: "Tháng 11 có doanh thu cao nhất, có thể do chuẩn bị cho dịp lễ. Công ty nên đẩy mạnh marketing vào thời gian này.").
+5. **Tổng kết**: Viết một vài câu kết luận về những insight bạn tìm thấy được từ dữ liệu (ví dụ: "Tháng 11 có doanh thu cao nhất, có thể do chuẩn bị cho dịp lễ. Công ty nên đẩy mạnh marketing vào thời gian này.").

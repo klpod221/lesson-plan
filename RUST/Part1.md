@@ -1,45 +1,5 @@
 # 📘 PHẦN 1: NHẬP MÔN RUST
 
-- [📘 PHẦN 1: NHẬP MÔN RUST](#-phần-1-nhập-môn-rust)
-  - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
-  - [🧑‍🏫 Bài 1: Giới thiệu Rust](#-bài-1-giới-thiệu-rust)
-    - [Rust là gì?](#rust-là-gì)
-    - [Tại sao học Rust?](#tại-sao-học-rust)
-    - [Cài đặt Rust](#cài-đặt-rust)
-    - [Rust Toolchain](#rust-toolchain)
-    - [Chương trình đầu tiên](#chương-trình-đầu-tiên)
-    - [Cấu trúc Cargo project](#cấu-trúc-cargo-project)
-  - [🧑‍🏫 Bài 2: Biến và Kiểu dữ liệu](#-bài-2-biến-và-kiểu-dữ-liệu)
-    - [Biến trong Rust](#biến-trong-rust)
-    - [Mutability](#mutability)
-    - [Constants và Static](#constants-và-static)
-    - [Shadowing](#shadowing)
-    - [Kiểu dữ liệu số](#kiểu-dữ-liệu-số)
-    - [Boolean và Character](#boolean-và-character)
-    - [Compound types](#compound-types)
-  - [🧑‍🏫 Bài 3: Hàm và Control Flow](#-bài-3-hàm-và-control-flow)
-    - [Định nghĩa hàm](#định-nghĩa-hàm)
-    - [Parameters và Arguments](#parameters-và-arguments)
-    - [Return values](#return-values)
-    - [Expressions vs Statements](#expressions-vs-statements)
-    - [If expressions](#if-expressions)
-    - [Loop và iteration](#loop-và-iteration)
-  - [🧑‍🏫 Bài 4: String và Input/Output](#-bài-4-string-và-inputoutput)
-    - [String types](#string-types)
-    - [String operations](#string-operations)
-    - [Print formatting](#print-formatting)
-    - [Reading input](#reading-input)
-    - [Error handling cơ bản](#error-handling-cơ-bản)
-  - [🧑‍🏫 Bài 5: Modules và Crates](#-bài-5-modules-và-crates)
-    - [Module system](#module-system)
-    - [Paths và visibility](#paths-và-visibility)
-    - [Use keyword](#use-keyword)
-    - [External crates](#external-crates)
-    - [Organizing code](#organizing-code)
-  - [🧪 BÀI TẬP LỚN CUỐI PHẦN: Chương trình quản lý công việc (Todo App)](#-bài-tập-lớn-cuối-phần-chương-trình-quản-lý-công-việc-todo-app)
-    - [Mô tả bài toán](#mô-tả-bài-toán)
-    - [Yêu cầu](#yêu-cầu)
-
 ## 🎯 Mục tiêu tổng quát
 
 - Hiểu được Rust là gì và tại sao nên sử dụng Rust
@@ -48,8 +8,6 @@
 - Làm việc với String và I/O operations
 - Hiểu module system và cách tổ chức code
 - Xây dựng ứng dụng console hoàn chỉnh
-
----
 
 ## 🧑‍🏫 Bài 1: Giới thiệu Rust
 
@@ -305,8 +263,6 @@ authors = ["Your Name <you@example.com>"]
 opt-level = 3
 lto = true
 ```
-
----
 
 ## 🧑‍🏫 Bài 2: Biến và Kiểu dữ liệu
 
@@ -703,8 +659,6 @@ fn print_slice(slice: &[i32]) {
 }
 ```
 
----
-
 ## 🧑‍🏫 Bài 3: Hàm và Control Flow
 
 ### Định nghĩa hàm
@@ -1034,8 +988,6 @@ fn main() {
 }
 ```
 
----
-
 ## 🧑‍🏫 Bài 4: String và Input/Output
 
 ### String types
@@ -1355,8 +1307,6 @@ fn main() {
 }
 ```
 
----
-
 ## 🧑‍🏫 Bài 5: Modules và Crates
 
 ### Module system
@@ -1611,8 +1561,6 @@ my_app/
         └── mod.rs
 ```
 
----
-
 ## 🧪 BÀI TẬP LỚN CUỐI PHẦN: Chương trình quản lý công việc (Todo App)
 
 ### Mô tả bài toán
@@ -1835,8 +1783,6 @@ fn main() {
 - Sử dụng `colored` crate để tô màu output
 - Tổ chức code thành modules: models, services, utils
 - Thêm unit tests cho các functions
-
----
 
 [⏭️ Tiếp theo: RUST/Part2.md - Ownership & Borrowing](Part2.md) |
 [🏠 Home](../README.md)

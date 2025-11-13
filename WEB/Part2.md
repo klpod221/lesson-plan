@@ -1,62 +1,19 @@
-# 📘 PHẦN 2: CSS - ĐỊNH DẠNG TRANG WEB
+---
+prev:
+  text: '📝 Nhập Môn HTML'
+  link: '/WEB/Part1'
+next:
+  text: '🔄 JavaScript'
+  link: '/WEB/Part3'
+---
 
-- [📘 PHẦN 2: CSS - ĐỊNH DẠNG TRANG WEB](#-phần-2-css---định-dạng-trang-web)
-  - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
-  - [🧑‍🏫 Bài 1: Giới thiệu CSS](#-bài-1-giới-thiệu-css)
-    - [CSS là gì?](#css-là-gì)
-    - [Cách thêm CSS vào HTML](#cách-thêm-css-vào-html)
-    - [Ưu và nhược điểm từng loại](#ưu-và-nhược-điểm-từng-loại)
-  - [🧑‍🏫 Bài 2: CSS Selectors (Bộ chọn)](#-bài-2-css-selectors-bộ-chọn)
-    - [Cú pháp CSS](#cú-pháp-css)
-    - [Các loại selector cơ bản](#các-loại-selector-cơ-bản)
-    - [Selector kết hợp](#selector-kết-hợp)
-    - [Độ ưu tiên (Specificity) trong CSS](#độ-ưu-tiên-specificity-trong-css)
-  - [🧑‍🏫 Bài 3: CSS Box Model](#-bài-3-css-box-model)
-    - [Box Model](#box-model)
-    - [Chi tiết Box Model](#chi-tiết-box-model)
-    - [Box-sizing](#box-sizing)
-    - [Margin, Padding và Border](#margin-padding-và-border)
-  - [🧑‍🏫 Bài 4: Typography và màu sắc](#-bài-4-typography-và-màu-sắc)
-    - [Typography (kiểu chữ)](#typography-kiểu-chữ)
-    - [Sử dụng Google Fonts (hoặc font từ các nguồn online khác)](#sử-dụng-google-fonts-hoặc-font-từ-các-nguồn-online-khác)
-    - [Sử dụng font từ file cục bộ](#sử-dụng-font-từ-file-cục-bộ)
-    - [Màu sắc](#màu-sắc)
-  - [🧑‍🏫 Bài 5: Layout và Positioning](#-bài-5-layout-và-positioning)
-    - [Display Property](#display-property)
-    - [Position Property](#position-property)
-    - [Float và Clear](#float-và-clear)
-    - [Z-index - Xếp lớp phần tử](#z-index---xếp-lớp-phần-tử)
-  - [🧑‍🏫 Bài 6: Flexbox Layout](#-bài-6-flexbox-layout)
-    - [Flexbox](#flexbox)
-    - [Ví dụ ứng dụng Flexbox](#ví-dụ-ứng-dụng-flexbox)
-  - [🧑‍🏫 Bài 7: Grid Layout](#-bài-7-grid-layout)
-    - [Grid Layout](#grid-layout)
-    - [Ví dụ ứng dụng Grid](#ví-dụ-ứng-dụng-grid)
-  - [🧑‍🏫 Bài 8: Responsive Web Design](#-bài-8-responsive-web-design)
-    - [Responsive Web Design](#responsive-web-design)
-    - [Media Queries](#media-queries)
-    - [Viewport Meta Tag](#viewport-meta-tag)
-    - [Responsive Units](#responsive-units)
-    - [Mobile-first Approach](#mobile-first-approach)
-    - [Responsive Images](#responsive-images)
-  - [🧑‍🏫 Bài 9: CSS Transitions và Animations](#-bài-9-css-transitions-và-animations)
-    - [Transitions (Hiệu ứng chuyển đổi)](#transitions-hiệu-ứng-chuyển-đổi)
-    - [Animations (Hoạt hình)](#animations-hoạt-hình)
-    - [Animation Properties](#animation-properties)
-    - [Transform](#transform)
-  - [🧪 BÀI TẬP LỚN CUỐI PHẦN: Xây dựng giao diện trang web Portfolio sử dụng CSS](#-bài-tập-lớn-cuối-phần-xây-dựng-giao-diện-trang-web-portfolio-sử-dụng-css)
-    - [Mô tả bài toán](#mô-tả-bài-toán)
-    - [Yêu cầu](#yêu-cầu)
-    - [Gợi ý thiết kế](#gợi-ý-thiết-kế)
-    - [Kết quả mong đợi](#kết-quả-mong-đợi)
+# 📘 PHẦN 2: CSS - ĐỊNH DẠNG TRANG WEB
 
 ## 🎯 Mục tiêu tổng quát
 
 - Hiểu về CSS và vai trò của nó trong phát triển web
 - Thành thạo các cách áp dụng CSS vào HTML
 - Nắm vững các thuộc tính CSS cơ bản và cách sử dụng
-
----
 
 ## 🧑‍🏫 Bài 1: Giới thiệu CSS
 
@@ -112,8 +69,6 @@ p {
 | Inline   | Ưu tiên cao nhất, sẽ ghi đè các thuộc tính css khác | Khó bảo trì, code lặp lại nhiều              |
 | Internal | Áp dụng cho một trang, không cần file riêng         | Phải copy khi dùng cho trang khác            |
 | External | Dễ bảo trì, tái sử dụng trên nhiều trang            | Trang có thể hiển thị trước khi CSS được tải |
-
----
 
 ## 🧑‍🏫 Bài 2: CSS Selectors (Bộ chọn)
 
@@ -227,10 +182,6 @@ p {
 } /* Cao nhất */
 ```
 
----
-
-## 🧑‍🏫 Bài 3: CSS Box Model
-
 ### Box Model
 
 - Đây là mô hình hộp trong CSS mô tả không gian chiếm bởi một phần tử HTML
@@ -301,8 +252,6 @@ border-right: 2px dashed blue;
 border-bottom: 2px dotted green;
 border-left: 2px double orange;
 ```
-
----
 
 ## 🧑‍🏫 Bài 4: Typography và màu sắc
 
@@ -399,8 +348,6 @@ color: hsl(0, 100%, 50%); /* Đỏ */
 color: hsla(0, 100%, 50%, 0.5); /* Đỏ với độ trong suốt 50% */
 ```
 
----
-
 ## 🧑‍🏫 Bài 5: Layout và Positioning
 
 ### Display Property
@@ -469,8 +416,6 @@ clear: both; /* Không cho phần tử nổi cả hai bên */
   z-index: 2; /* Hiển thị phía trên .background */
 }
 ```
-
----
 
 ## 🧑‍🏫 Bài 6: Flexbox Layout
 
@@ -560,8 +505,6 @@ clear: both; /* Không cho phần tử nổi cả hai bên */
   border: 1px solid #ddd;
 }
 ```
-
----
 
 ## 🧑‍🏫 Bài 7: Grid Layout
 
@@ -664,8 +607,6 @@ clear: both; /* Không cho phần tử nổi cả hai bên */
   gap: 10px;
 }
 ```
-
----
 
 ## 🧑‍🏫 Bài 8: Responsive Web Design
 
@@ -783,8 +724,6 @@ img {
 </picture>
 ```
 
----
-
 ## 🧑‍🏫 Bài 9: CSS Transitions và Animations
 
 ### Transitions (Hiệu ứng chuyển đổi)
@@ -890,8 +829,6 @@ img {
   transform: rotate(45deg) scale(1.5) translateX(50px);
 }
 ```
-
----
 
 ## 🧪 BÀI TẬP LỚN CUỐI PHẦN: Xây dựng giao diện trang web Portfolio sử dụng CSS
 

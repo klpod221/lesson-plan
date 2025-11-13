@@ -1,41 +1,12 @@
+---
+prev:
+  text: '💾 PHP Nâng Cao'
+  link: '/PHP/Part3'
+next:
+  text: '🚀 Xu Hướng Hiện Đại'
+  link: '/PHP/Part5'
+---
 # 📘 PHẦN 4: FRAMEWORK VÀ PHÁT TRIỂN ỨNG DỤNG WEB HIỆN ĐẠI
-
-- [📘 PHẦN 4: FRAMEWORK VÀ PHÁT TRIỂN ỨNG DỤNG WEB HIỆN ĐẠI](#-phần-4-framework-và-phát-triển-ứng-dụng-web-hiện-đại)
-  - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
-  - [🧑‍🏫 Bài 17: Giới thiệu về MVC và Framework](#-bài-17-giới-thiệu-về-mvc-và-framework)
-    - [Mô hình MVC (Model-View-Controller)](#mô-hình-mvc-model-view-controller)
-    - [Cấu trúc mô hình MVC](#cấu-trúc-mô-hình-mvc)
-      - [Luồng xử lý trong MVC](#luồng-xử-lý-trong-mvc)
-      - [Vai trò của các thành phần](#vai-trò-của-các-thành-phần)
-    - [Ví dụ MVC đơn giản](#ví-dụ-mvc-đơn-giản)
-      - [Cấu trúc thư mục](#cấu-trúc-thư-mục)
-      - [Nội dung các file](#nội-dung-các-file)
-    - [Giới thiệu về Framework PHP phổ biến](#giới-thiệu-về-framework-php-phổ-biến)
-  - [🧑‍🏫 Bài 18: Laravel Framework](#-bài-18-laravel-framework)
-    - [Cài đặt và Cấu hình Laravel](#cài-đặt-và-cấu-hình-laravel)
-    - [Cấu trúc thư mục Laravel](#cấu-trúc-thư-mục-laravel)
-    - [Routing và Controller trong Laravel](#routing-và-controller-trong-laravel)
-    - [Controller trong Laravel](#controller-trong-laravel)
-    - [Model và Eloquent ORM](#model-và-eloquent-orm)
-    - [Blade Templating System](#blade-templating-system)
-    - [Migrations và Database](#migrations-và-database)
-  - [🧑‍🏫 Bài 19: Testing trong PHP](#-bài-19-testing-trong-php)
-    - [Unit Testing với PHPUnit](#unit-testing-với-phpunit)
-    - [Feature Testing trong Laravel](#feature-testing-trong-laravel)
-    - [Mock Objects và Testing với Dependencies](#mock-objects-và-testing-với-dependencies)
-    - [Code Coverage và Best Practices](#code-coverage-và-best-practices)
-      - [Code Coverage](#code-coverage)
-      - [Best Practices cho Testing](#best-practices-cho-testing)
-  - [🧑‍🏫 Bài 20: Tối ưu Laravel cho Product](#-bài-20-tối-ưu-laravel-cho-product)
-    - [Laravel cache và tối ưu hóa autoloader](#laravel-cache-và-tối-ưu-hóa-autoloader)
-    - [Tối ưu hóa cấu hình PHP](#tối-ưu-hóa-cấu-hình-php)
-    - [Laravel Performance Tips](#laravel-performance-tips)
-    - [Monitoring và Logging](#monitoring-và-logging)
-    - [Security trong Production](#security-trong-production)
-  - [🧪 BÀI TẬP LỚN CUỐI PHẦN: Xây dựng ứng dụng web bằng Laravel](#-bài-tập-lớn-cuối-phần-xây-dựng-ứng-dụng-web-bằng-laravel)
-    - [Mô tả bài toán](#mô-tả-bài-toán)
-    - [Yêu cầu](#yêu-cầu)
-    - [Cấu trúc dự án đề xuất](#cấu-trúc-dự-án-đề-xuất)
 
 ## 🎯 Mục tiêu tổng quát
 
@@ -44,8 +15,6 @@
 - Sử dụng thành thạo Composer để quản lý thư viện và dependencies
 - Biết cách viết test và áp dụng TDD (Test-Driven Development)
 - Triển khai ứng dụng PHP lên môi trường production an toàn
-
----
 
 ## 🧑‍🏫 Bài 17: Giới thiệu về MVC và Framework
 
@@ -1011,8 +980,6 @@ class CreateUsersTable extends Migration
 ?>
 ```
 
----
-
 ## 🧑‍🏫 Bài 19: Testing trong PHP
 
 ### Unit Testing với PHPUnit
@@ -1415,8 +1382,6 @@ vendor/bin/phpunit --filter testRegisterWithValidData tests/UserServiceTest.php
     - **Dummies**: Tham số bắt buộc nhưng không sử dụng
     - **Fakes**: Thay thế implementation thật bằng bản đơn giản hơn
 
----
-
 ## 🧑‍🏫 Bài 20: Tối ưu Laravel cho Product
 
 ### Laravel cache và tối ưu hóa autoloader
@@ -1755,8 +1720,6 @@ try {
     error_reporting(E_ALL);
     ?>
     ```
-
----
 
 ## 🧪 BÀI TẬP LỚN CUỐI PHẦN: Xây dựng ứng dụng web bằng Laravel
 

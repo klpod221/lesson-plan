@@ -1,25 +1,5 @@
 # 🌐 PHẦN 3: NHẬP MÔN PHÁT TRIỂN WEB VỚI FLASK
 
-- [🌐 PHẦN 3: NHẬP MÔN PHÁT TRIỂN WEB VỚI FLASK](#-phần-3-nhập-môn-phát-triển-web-với-flask)
-  - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
-  - [🧑‍🏫 Bài 1: Giới thiệu Web và Flask](#-bài-1-giới-thiệu-web-và-flask)
-    - [Mô hình Client-Server](#mô-hình-client-server)
-    - [Flask là gì?](#flask-là-gì)
-    - [Ứng dụng Flask đầu tiên](#ứng-dụng-flask-đầu-tiên)
-  - [🧑‍🏫 Bài 2: Routing và Templates](#-bài-2-routing-và-templates)
-    - [Routing (Định tuyến)](#routing-định-tuyến)
-    - [Templates với Jinja2](#templates-với-jinja2)
-  - [🧑‍🏫 Bài 3: Xử lý Form và Request](#-bài-3-xử-lý-form-và-request)
-    - [Phương thức GET và POST](#phương-thức-get-và-post)
-    - [Xử lý dữ liệu từ Form](#xử-lý-dữ-liệu-từ-form)
-  - [🧑‍🏫 Bài 4: Cấu trúc dự án và File tĩnh](#-bài-4-cấu-trúc-dự-án-và-file-tĩnh)
-    - [Tổ chức thư mục dự án](#tổ-chức-thư-mục-dự-án)
-    - [Sử dụng file tĩnh (CSS, JS, Images)](#sử-dụng-file-tĩnh-css-js-images)
-  - [🧪 BÀI TẬP LỚN CUỐI PHẦN: Xây dựng Web App Quản lý Danh bạ](#-bài-tập-lớn-cuối-phần-xây-dựng-web-app-quản-lý-danh-bạ)
-    - [Mô tả bài toán](#mô-tả-bài-toán)
-    - [Yêu cầu](#yêu-cầu)
-    - [Sơ đồ luồng dữ liệu (Ví dụ: Thêm liên hệ)](#sơ-đồ-luồng-dữ-liệu-ví-dụ-thêm-liên-hệ)
-
 ## 🎯 Mục tiêu tổng quát
 
 - Hiểu được các khái niệm cơ bản của web: HTTP, Client-Server, Request-Response.
@@ -30,18 +10,18 @@
 - Tổ chức một dự án Flask theo cấu trúc chuẩn.
 - Chuyển đổi ứng dụng dòng lệnh ở Phần 2 thành một ứng dụng web hoàn chỉnh.
 
----
-
 ## 🧑‍🏫 Bài 1: Giới thiệu Web và Flask
 
 ### Mô hình Client-Server
 
 Web hoạt động dựa trên mô hình Client-Server.
+
 - **Client**: Trình duyệt web của bạn (Chrome, Firefox,...). Nó gửi đi các **Request** (yêu cầu) để lấy thông tin.
 - **Server**: Máy tính chứa code ứng dụng web của bạn (Flask app). Nó lắng nghe các request, xử lý chúng và trả về các **Response** (phản hồi), thường là mã HTML, CSS, JavaScript.
 
 Sơ đồ mô hình:
-```
+
+```text
 +----------------+                           +-----------------+
 |                |      1. HTTP Request      |                 |
 |     Client     | ------------------------> |      Server     |
@@ -60,11 +40,14 @@ Sơ đồ mô hình:
 
 ### Ứng dụng Flask đầu tiên
 
-1.  **Cài đặt Flask**: Mở terminal và chạy lệnh:
+1. **Cài đặt Flask**: Mở terminal và chạy lệnh:
+
     ```bash
     pip install Flask
     ```
-2.  **Tạo file `app.py`**:
+
+2. **Tạo file `app.py`**:
+
     ```python
     # File: app.py
     from flask import Flask
@@ -86,15 +69,16 @@ Sơ đồ mô hình:
     if __name__ == '__main__':
         app.run(debug=True) # debug=True để server tự khởi động lại khi có thay đổi code
     ```
-3.  **Chạy ứng dụng**: Mở terminal trong cùng thư mục và chạy:
+
+3. **Chạy ứng dụng**: Mở terminal trong cùng thư mục và chạy:
+
     ```bash
     python app.py
     ```
-4.  Mở trình duyệt và truy cập:
+
+4. Mở trình duyệt và truy cập:
     - `http://127.0.0.1:5000` để xem "Hello, World from Flask!".
     - `http://127.0.0.1:5000/about` để xem trang giới thiệu.
-
----
 
 ## 🧑‍🏫 Bài 2: Routing và Templates
 
@@ -129,10 +113,11 @@ def show_post(post_id):
 
 Thay vì trả về chuỗi HTML trực tiếp trong Python, chúng ta nên tách HTML ra các file riêng gọi là **template**. Flask sử dụng template engine tên là **Jinja2**.
 
-1.  Tạo thư mục `templates` trong cùng cấp với `app.py`.
-2.  Tạo file `index.html` bên trong thư mục `templates`.
+1. Tạo thư mục `templates` trong cùng cấp với `app.py`.
+2. Tạo file `index.html` bên trong thư mục `templates`.
 
 `templates/index.html`:
+
 ```html
 <!DOCTYPE html>
 <html lang="vi">
@@ -162,6 +147,7 @@ Thay vì trả về chuỗi HTML trực tiếp trong Python, chúng ta nên tác
 ```
 
 `app.py`:
+
 ```python
 from flask import Flask, render_template
 
@@ -188,8 +174,6 @@ if __name__ == '__main__':
     app.run(debug=True)
 ```
 
----
-
 ## 🧑‍🏫 Bài 3: Xử lý Form và Request
 
 ### Phương thức GET và POST
@@ -198,7 +182,8 @@ if __name__ == '__main__':
 - **POST**: Dùng để *gửi* dữ liệu lên server để tạo hoặc cập nhật tài nguyên. Dữ liệu được gửi đi trong phần thân (body) của request, không hiển thị trên URL.
 
 Sơ đồ so sánh:
-```
+
+```text
        GET Request (/search?q=python)            POST Request (/login)
 +----------------------------------------+ +-----------------------------------------+
 | URL: /search?q=python                  | | URL: /login                             |
@@ -213,6 +198,7 @@ Sơ đồ so sánh:
 Flask cung cấp đối tượng `request` để truy cập vào dữ liệu của request hiện tại.
 
 `templates/login.html`:
+
 ```html
 <!DOCTYPE html>
 <html>
@@ -239,6 +225,7 @@ Flask cung cấp đối tượng `request` để truy cập vào dữ liệu c�
 ```
 
 `app.py`:
+
 ```python
 from flask import Flask, render_template, request
 
@@ -266,15 +253,13 @@ if __name__ == '__main__':
     app.run(debug=True)
 ```
 
----
-
 ## 🧑‍🏫 Bài 4: Cấu trúc dự án và File tĩnh
 
 ### Tổ chức thư mục dự án
 
 Khi dự án lớn hơn, việc đặt tất cả vào một file `app.py` là không tốt. Ta nên tổ chức theo cấu trúc sau:
 
-```
+```text
 contact_app/
 │
 ├── app.py              # File chính khởi tạo và chạy Flask app
@@ -299,6 +284,7 @@ contact_app/
 - Ta dùng hàm `url_for()` trong template để tạo đường dẫn đúng đến file tĩnh.
 
 `static/css/style.css`:
+
 ```css
 body {
     font-family: sans-serif;
@@ -319,6 +305,7 @@ th {
 ```
 
 `templates/index.html` (thêm dòng link CSS):
+
 ```html
 <!DOCTYPE html>
 <html lang="vi">
@@ -334,8 +321,6 @@ th {
 </html>
 ```
 
----
-
 ## 🧪 BÀI TẬP LỚN CUỐI PHẦN: Xây dựng Web App Quản lý Danh bạ
 
 ### Mô tả bài toán
@@ -344,11 +329,11 @@ Chuyển đổi hoàn toàn ứng dụng Quản lý Danh bạ từ giao diện d
 
 ### Yêu cầu
 
-1.  **Tổ chức dự án**:
+1. **Tổ chức dự án**:
     - Tạo cấu trúc thư mục như đã hướng dẫn ở Bài 4.
     - Tái sử dụng các file `contact.py`, `manager.py` và `contacts.json` từ bài tập Phần 2.
 
-2.  **Chức năng chính**:
+2. **Chức năng chính**:
     - **Trang chủ (`/`)**:
       - Hiển thị danh sách tất cả các liên hệ trong một bảng HTML.
       - Dữ liệu được đọc từ `contacts.json` thông qua `ContactManager`.
@@ -362,17 +347,17 @@ Chuyển đổi hoàn toàn ứng dụng Quản lý Danh bạ từ giao diện d
         - Dùng `ContactManager` để thêm liên hệ và lưu vào `contacts.json`.
         - **Chuyển hướng (redirect)** người dùng về trang chủ để xem danh sách đã cập nhật.
 
-3.  **Giao diện**:
+3. **Giao diện**:
     - Sử dụng một file `style.css` đơn giản để làm cho bảng và form trông dễ nhìn hơn.
     - Liên kết file CSS vào các template HTML bằng `url_for()`.
 
-4.  **Luồng dữ liệu**:
+4. **Luồng dữ liệu**:
     - Tận dụng `render_template` để gửi dữ liệu (danh sách liên hệ) từ Python sang HTML.
     - Tận dụng đối tượng `request` để lấy dữ liệu từ HTML (form) về Python.
 
 ### Sơ đồ luồng dữ liệu (Ví dụ: Thêm liên hệ)
 
-```
+```text
 (User)           (Browser)              (Flask App)             (Files)
   |                  |                      |                      |
   | Click "Thêm Mới" |                      |                      |

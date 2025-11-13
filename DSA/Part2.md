@@ -1,53 +1,19 @@
-# 📘 PHẦN 2: CẤU TRÚC DỮ LIỆU NÂNG CAO
+---
+prev:
+  text: '🧮 Nhập Môn DSA'
+  link: '/DSA/Part1'
+next:
+  text: '🧠 Thuật Toán Nâng Cao'
+  link: '/DSA/Part3'
+---
 
-- [📘 PHẦN 2: CẤU TRÚC DỮ LIỆU NÂNG CAO](#-phần-2-cấu-trúc-dữ-liệu-nâng-cao)
-  - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
-  - [🧑‍🏫 Bài 1: Ngăn xếp (Stack)](#-bài-1-ngăn-xếp-stack)
-    - [Khái niệm về Stack](#khái-niệm-về-stack)
-    - [Cài đặt Stack sử dụng mảng](#cài-đặt-stack-sử-dụng-mảng)
-    - [Cài đặt Stack sử dụng danh sách liên kết](#cài-đặt-stack-sử-dụng-danh-sách-liên-kết)
-    - [Ứng dụng của Stack](#ứng-dụng-của-stack)
-      - [Kiểm tra chuỗi dấu ngoặc](#kiểm-tra-chuỗi-dấu-ngoặc)
-      - [Đảo ngược chuỗi](#đảo-ngược-chuỗi)
-      - [Chuyển đổi biểu thức trung tố sang hậu tố](#chuyển-đổi-biểu-thức-trung-tố-sang-hậu-tố)
-  - [🧑‍🏫 Bài 2: Hàng đợi (Queue)](#-bài-2-hàng-đợi-queue)
-    - [Khái niệm về Queue](#khái-niệm-về-queue)
-    - [Cài đặt Queue sử dụng mảng (Queue vòng)](#cài-đặt-queue-sử-dụng-mảng-queue-vòng)
-    - [Cài đặt Queue sử dụng danh sách liên kết](#cài-đặt-queue-sử-dụng-danh-sách-liên-kết)
-    - [Ứng dụng của Queue](#ứng-dụng-của-queue)
-      - [Thuật toán BFS (Breadth-First Search)](#thuật-toán-bfs-breadth-first-search)
-      - [Mô phỏng hàng đợi dịch vụ](#mô-phỏng-hàng-đợi-dịch-vụ)
-      - [Level-order traversal trong cây nhị phân](#level-order-traversal-trong-cây-nhị-phân)
-  - [🧑‍🏫 Bài 3: Danh sách liên kết đôi và vòng](#-bài-3-danh-sách-liên-kết-đôi-và-vòng)
-    - [Danh sách liên kết đôi (Doubly Linked List)](#danh-sách-liên-kết-đôi-doubly-linked-list)
-    - [Danh sách liên kết vòng (Circular Linked List)](#danh-sách-liên-kết-vòng-circular-linked-list)
-    - [Ứng dụng của danh sách liên kết đôi và vòng](#ứng-dụng-của-danh-sách-liên-kết-đôi-và-vòng)
-      - [Browser History (Danh sách liên kết đôi)](#browser-history-danh-sách-liên-kết-đôi)
-      - [Round Robin Scheduling (Danh sách liên kết vòng)](#round-robin-scheduling-danh-sách-liên-kết-vòng)
-  - [🧑‍🏫 Bài 4: Cây nhị phân](#-bài-4-cây-nhị-phân)
-    - [Khái niệm về cây](#khái-niệm-về-cây)
-    - [Cây nhị phân tìm kiếm (Binary Search Tree - BST)](#cây-nhị-phân-tìm-kiếm-binary-search-tree---bst)
-    - [Cân bằng cây nhị phân (chúng ta sẽ học về các loại cây cân bằng trong phần sau)](#cân-bằng-cây-nhị-phân-chúng-ta-sẽ-học-về-các-loại-cây-cân-bằng-trong-phần-sau)
-  - [Ứng dụng của cây nhị phân](#ứng-dụng-của-cây-nhị-phân)
-  - [🧑‍🏫 Bài 5: Bảng băm (Hash Table)](#-bài-5-bảng-băm-hash-table)
-    - [Khái niệm về bảng băm](#khái-niệm-về-bảng-băm)
-    - [Hàm băm (Hash Function)](#hàm-băm-hash-function)
-    - [Xử lý va chạm (Collision Resolution)](#xử-lý-va-chạm-collision-resolution)
-      - [Chuỗi liên kết (Chaining)](#chuỗi-liên-kết-chaining)
-      - [Địa chỉ mở (Open Addressing)](#địa-chỉ-mở-open-addressing)
-    - [Cài đặt bảng băm sử dụng chuỗi liên kết](#cài-đặt-bảng-băm-sử-dụng-chuỗi-liên-kết)
-    - [Ứng dụng của bảng băm](#ứng-dụng-của-bảng-băm)
-  - [🧪 BÀI TẬP LỚN CUỐI PHẦN: Bộ đánh giá biểu thức số học](#-bài-tập-lớn-cuối-phần-bộ-đánh-giá-biểu-thức-số-học)
-    - [Mô tả bài toán](#mô-tả-bài-toán)
-    - [Kết quả chạy chương trình (Ví dụ)](#kết-quả-chạy-chương-trình-ví-dụ)
+# 📘 PHẦN 2: CẤU TRÚC DỮ LIỆU NÂNG CAO
 
 ## 🎯 Mục tiêu tổng quát
 
 - Nắm vững các cấu trúc dữ liệu nâng cao như Stack, Queue, cây nhị phân, bảng băm.
 - Hiểu cách cài đặt và ứng dụng của từng cấu trúc dữ liệu.
 - Biết cách lựa chọn cấu trúc dữ liệu phù hợp cho từng bài toán.
-
----
 
 ## 🧑‍🏫 Bài 1: Ngăn xếp (Stack)
 
@@ -271,8 +237,6 @@ private int precedence(char ch) {
     return -1;
 }
 ```
-
----
 
 ## 🧑‍🏫 Bài 2: Hàng đợi (Queue)
 
@@ -521,8 +485,6 @@ public void levelOrderTraversal(Node root) {
     }
 }
 ```
-
----
 
 ## 🧑‍🏫 Bài 3: Danh sách liên kết đôi và vòng
 
@@ -839,8 +801,6 @@ public class RoundRobinScheduler {
 }
 ```
 
----
-
 ## 🧑‍🏫 Bài 4: Cây nhị phân
 
 ### Khái niệm về cây
@@ -1017,8 +977,6 @@ public class BinarySearchTree {
 3. Đánh giá biểu thức
 4. Mã hóa Huffman
 5. Thuật toán tìm kiếm và sắp xếp
-
----
 
 ## 🧑‍🏫 Bài 5: Bảng băm (Hash Table)
 
@@ -1234,8 +1192,6 @@ public class Dictionary {
     }
 }
 ```
-
----
 
 ## 🧪 BÀI TẬP LỚN CUỐI PHẦN: Bộ đánh giá biểu thức số học
 

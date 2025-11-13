@@ -1,36 +1,5 @@
 # 📘 PHẦN 6: ADVANCED TOPICS
 
-- [📘 PHẦN 6: ADVANCED TOPICS](#-phần-6-advanced-topics)
-  - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
-  - [🧑‍🏫 Bài 1: Concurrency](#-bài-1-concurrency)
-    - [Threads](#threads)
-    - [Message passing](#message-passing)
-    - [Shared state](#shared-state)
-    - [Sync và Send traits](#sync-và-send-traits)
-  - [🧑‍🏫 Bài 2: Async/Await](#-bài-2-asyncawait)
-    - [Async basics](#async-basics)
-    - [Futures](#futures)
-    - [Async runtime](#async-runtime)
-    - [Tokio framework](#tokio-framework)
-  - [🧑‍🏫 Bài 3: Macros](#-bài-3-macros)
-    - [Declarative macros](#declarative-macros)
-    - [Procedural macros](#procedural-macros)
-    - [Custom derive](#custom-derive)
-  - [🧑‍🏫 Bài 4: Unsafe Rust](#-bài-4-unsafe-rust)
-    - [Unsafe superpowers](#unsafe-superpowers)
-    - [Raw pointers](#raw-pointers)
-    - [Unsafe functions](#unsafe-functions)
-    - [FFI](#ffi)
-  - [🧑‍🏫 Bài 5: Advanced Patterns](#-bài-5-advanced-patterns)
-    - [Smart pointers](#smart-pointers)
-    - [Interior mutability](#interior-mutability)
-    - [Type aliases](#type-aliases)
-    - [Never type](#never-type)
-    - [Function pointers](#function-pointers)
-  - [🧪 BÀI TẬP LỚN CUỐI PHẦN: Concurrent Web Scraper](#-bài-tập-lớn-cuối-phần-concurrent-web-scraper)
-    - [Mô tả bài toán](#mô-tả-bài-toán)
-    - [Yêu cầu](#yêu-cầu)
-
 ## 🎯 Mục tiêu tổng quát
 
 - Master concurrent programming với threads
@@ -40,8 +9,6 @@
 - Advanced type system features
 - Build high-performance concurrent applications
 - Real-world async web scraping project
-
----
 
 ## 🧑‍🏫 Bài 1: Concurrency
 
@@ -251,8 +218,6 @@ fn main() {
 }
 ```
 
----
-
 ## 🧑‍🏫 Bài 2: Async/Await
 
 ### Async basics
@@ -418,8 +383,6 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 }
 ```
 
----
-
 ## 🧑‍🏫 Bài 3: Macros
 
 ### Declarative macros
@@ -556,8 +519,6 @@ fn main() {
 }
 ```
 
----
-
 ## 🧑‍🏫 Bài 4: Unsafe Rust
 
 ### Unsafe superpowers
@@ -672,8 +633,6 @@ pub extern "C" fn call_from_c() {
     println!("Just called a Rust function from C!");
 }
 ```
-
----
 
 ## 🧑‍🏫 Bài 5: Advanced Patterns
 
@@ -871,8 +830,6 @@ fn main() {
     println!("{}", f(5));
 }
 ```
-
----
 
 ## 🧪 BÀI TẬP LỚN CUỐI PHẦN: Concurrent Web Scraper
 
@@ -1290,8 +1247,6 @@ mod tests {
    - Performance metrics
    - Resource usage
    - Logging system
-
----
 
 **🎉 CHÚC MỪNG! Bạn đã hoàn thành toàn bộ khóa học Rust!**
 

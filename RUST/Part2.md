@@ -1,42 +1,5 @@
 # 📘 PHẦN 2: OWNERSHIP VÀ BORROWING
 
-- [📘 PHẦN 2: OWNERSHIP VÀ BORROWING](#-phần-2-ownership-và-borrowing)
-  - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
-  - [🧑‍🏫 Bài 1: Ownership - Khái niệm cốt lõi của Rust](#-bài-1-ownership---khái-niệm-cốt-lõi-của-rust)
-    - [Memory management models](#memory-management-models)
-    - [Ownership rules](#ownership-rules)
-    - [Move semantics](#move-semantics)
-    - [Copy trait](#copy-trait)
-    - [Clone](#clone)
-    - [Ownership và functions](#ownership-và-functions)
-  - [🧑‍🏫 Bài 2: References và Borrowing](#-bài-2-references-và-borrowing)
-    - [Immutable references](#immutable-references)
-    - [Mutable references](#mutable-references)
-    - [Borrowing rules](#borrowing-rules)
-    - [Dangling references](#dangling-references)
-    - [Reference scope](#reference-scope)
-  - [🧑‍🏫 Bài 3: Slices](#-bài-3-slices)
-    - [String slices](#string-slices)
-    - [Array slices](#array-slices)
-    - [Slice as parameters](#slice-as-parameters)
-    - [String literals as slices](#string-literals-as-slices)
-    - [Other slice types](#other-slice-types)
-  - [🧑‍🏫 Bài 4: Lifetimes cơ bản](#-bài-4-lifetimes-cơ-bản)
-    - [Lifetime concepts](#lifetime-concepts)
-    - [Lifetime annotations](#lifetime-annotations)
-    - [Lifetime elision](#lifetime-elision)
-    - [Struct lifetimes](#struct-lifetimes)
-    - [Common lifetime patterns](#common-lifetime-patterns)
-  - [🧑‍🏫 Bài 5: Smart Pointers cơ bản](#-bài-5-smart-pointers-cơ-bản)
-    - [Box`<T>`](#boxt)
-    - [Rc`<T>` - Reference Counting](#rct---reference-counting)
-    - [RefCell`<T>` - Interior Mutability](#refcellt---interior-mutability)
-    - [Combining Rc và RefCell](#combining-rc-và-refcell)
-    - [Memory leaks và prevention](#memory-leaks-và-prevention)
-  - [🧪 BÀI TẬP LỚN CUỐI PHẦN: Hệ thống quản lý sinh viên](#-bài-tập-lớn-cuối-phần-hệ-thống-quản-lý-sinh-viên)
-    - [Mô tả bài toán](#mô-tả-bài-toán)
-    - [Yêu cầu](#yêu-cầu)
-
 ## 🎯 Mục tiêu tổng quát
 
 - Hiểu sâu về ownership - đặc trưng quan trọng nhất của Rust
@@ -46,8 +9,6 @@
 - Hiểu lifetimes và cách compiler kiểm tra
 - Sử dụng smart pointers cơ bản: Box, Rc, RefCell
 - Xây dựng ứng dụng memory-safe mà không có garbage collector
-
----
 
 ## 🧑‍🏫 Bài 1: Ownership - Khái niệm cốt lõi của Rust
 
@@ -344,8 +305,6 @@ fn calculate_length(s: String) -> usize {
 
 **Solution: Use references!** (next lesson)
 
----
-
 ## 🧑‍🏫 Bài 2: References và Borrowing
 
 ### Immutable references
@@ -600,8 +559,6 @@ fn main() {
     println!("Data: {:?}", data);
 }
 ```
-
----
 
 ## 🧑‍🏫 Bài 3: Slices
 
@@ -881,8 +838,6 @@ fn double_values(slice: &mut [i32]) {
     }
 }
 ```
-
----
 
 ## 🧑‍🏫 Bài 4: Lifetimes cơ bản
 
@@ -1170,8 +1125,6 @@ fn longest_with_announcement<'a, 'b>(
     }
 }
 ```
-
----
 
 ## 🧑‍🏫 Bài 5: Smart Pointers cơ bản
 
@@ -1472,8 +1425,6 @@ fn main() {
     // When b dropped, a can be dropped too
 }
 ```
-
----
 
 ## 🧪 BÀI TẬP LỚN CUỐI PHẦN: Hệ thống quản lý sinh viên
 

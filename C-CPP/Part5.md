@@ -1,34 +1,5 @@
 # 📘 PHẦN 5: OOP NÂNG CAO - INHERITANCE VÀ POLYMORPHISM
 
-- [📘 PHẦN 5: OOP NÂNG CAO - INHERITANCE VÀ POLYMORPHISM](#-phần-5-oop-nâng-cao---inheritance-và-polymorphism)
-  - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
-  - [🧑‍🏫 Bài 1: Inheritance (Kế thừa)](#-bài-1-inheritance-kế-thừa)
-    - [Single Inheritance](#single-inheritance)
-    - [Protected members](#protected-members)
-    - [Constructor và Destructor trong inheritance](#constructor-và-destructor-trong-inheritance)
-    - [Method overriding](#method-overriding)
-  - [🧑‍🏫 Bài 2: Access Control trong Inheritance](#-bài-2-access-control-trong-inheritance)
-    - [Public inheritance](#public-inheritance)
-    - [Protected inheritance](#protected-inheritance)
-    - [Private inheritance](#private-inheritance)
-  - [🧑‍🏫 Bài 3: Polymorphism (Đa hình)](#-bài-3-polymorphism-đa-hình)
-    - [Compile-time Polymorphism](#compile-time-polymorphism)
-    - [Runtime Polymorphism với Virtual Functions](#runtime-polymorphism-với-virtual-functions)
-    - [Pure Virtual Functions và Abstract Classes](#pure-virtual-functions-và-abstract-classes)
-    - [Virtual Destructors](#virtual-destructors)
-  - [🧑‍🏫 Bài 4: Multiple Inheritance](#-bài-4-multiple-inheritance)
-    - [Cơ bản về Multiple Inheritance](#cơ-bản-về-multiple-inheritance)
-    - [Diamond Problem và Virtual Inheritance](#diamond-problem-và-virtual-inheritance)
-  - [🧑‍🏫 Bài 5: Advanced OOP Concepts](#-bài-5-advanced-oop-concepts)
-    - [Abstract classes và Interfaces](#abstract-classes-và-interfaces)
-    - [Object slicing](#object-slicing)
-    - [Dynamic casting](#dynamic-casting)
-    - [Operator overloading trong inheritance](#operator-overloading-trong-inheritance)
-  - [🧪 BÀI TẬP LỚN CUỐI PHẦN: Hệ thống quản lý hình học](#-bài-tập-lớn-cuối-phần-hệ-thống-quản-lý-hình-học)
-    - [Mô tả bài toán](#mô-tả-bài-toán)
-    - [Yêu cầu](#yêu-cầu)
-    - [Yêu cầu mở rộng](#yêu-cầu-mở-rộng)
-
 ## 🎯 Mục tiêu tổng quát
 
 - Hiểu và áp dụng inheritance trong C++
@@ -37,8 +8,6 @@
 - Hiểu về abstract classes và interfaces
 - Xử lý multiple inheritance và diamond problem
 - Áp dụng advanced OOP concepts trong thực tế
-
----
 
 ## 🧑‍🏫 Bài 1: Inheritance (Kế thừa)
 
@@ -302,8 +271,6 @@ int main() {
 }
 ```
 
----
-
 ## 🧑‍🏫 Bài 2: Access Control trong Inheritance
 
 ### Public inheritance
@@ -439,8 +406,6 @@ int main() {
 | public      | public            | protected            | private             |
 | protected   | protected         | protected            | private             |
 | private     | not accessible    | not accessible       | not accessible      |
-
----
 
 ## 🧑‍🏫 Bài 3: Polymorphism (Đa hình)
 
@@ -710,8 +675,6 @@ int main() {
 
 **Lưu ý quan trọng:** Luôn khai báo destructor là `virtual` trong base class nếu dự định sử dụng polymorphism!
 
----
-
 ## 🧑‍🏫 Bài 4: Multiple Inheritance
 
 ### Cơ bản về Multiple Inheritance
@@ -896,8 +859,6 @@ int main() {
     return 0;
 }
 ```
-
----
 
 ## 🧑‍🏫 Bài 5: Advanced OOP Concepts
 
@@ -1184,8 +1145,6 @@ int main() {
     return 0;
 }
 ```
-
----
 
 ## 🧪 BÀI TẬP LỚN CUỐI PHẦN: Hệ thống quản lý hình học
 

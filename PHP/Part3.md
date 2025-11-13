@@ -1,37 +1,13 @@
-# 📘 PHẦN 3: PHP NÂNG CAO VÀ KẾT NỐI DATABASE
+---
+prev:
+  text: '🧩 OOP với PHP'
+  link: '/PHP/Part2'
+next:
+  text: '🏗️ Framework & Ứng Dụng'
+  link: '/PHP/Part4'
+---
 
-- [📘 PHẦN 3: PHP NÂNG CAO VÀ KẾT NỐI DATABASE](#-phần-3-php-nâng-cao-và-kết-nối-database)
-  - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
-  - [🧑‍🏫 Bài 12: Kết nối và thao tác với Database](#-bài-12-kết-nối-và-thao-tác-với-database)
-    - [Kết nối với MySQL](#kết-nối-với-mysql)
-    - [Thực hiện truy vấn cơ bản](#thực-hiện-truy-vấn-cơ-bản)
-    - [Xử lý kết quả truy vấn](#xử-lý-kết-quả-truy-vấn)
-    - [Transactions](#transactions)
-  - [🧑‍🏫 Bài 13: PHP Data Objects (PDO)](#-bài-13-php-data-objects-pdo)
-    - [Giới thiệu về PDO](#giới-thiệu-về-pdo)
-    - [Cấu hình PDO và xử lý lỗi](#cấu-hình-pdo-và-xử-lý-lỗi)
-    - [Prepared Statements](#prepared-statements)
-    - [Truy vấn nâng cao với PDO](#truy-vấn-nâng-cao-với-pdo)
-  - [🧑‍🏫 Bài 14: RESTful API với PHP](#-bài-14-restful-api-với-php)
-    - [Giới thiệu về REST API](#giới-thiệu-về-rest-api)
-    - [Xây dựng REST API cơ bản](#xây-dựng-rest-api-cơ-bản)
-    - [Xác thực API với JWT](#xác-thực-api-với-jwt)
-    - [Middleware bảo vệ API](#middleware-bảo-vệ-api)
-  - [🧑‍🏫 Bài 15: Bảo mật trong PHP](#-bài-15-bảo-mật-trong-php)
-    - [Ngăn chặn SQL Injection](#ngăn-chặn-sql-injection)
-    - [Ngăn chặn XSS (Cross-Site Scripting)](#ngăn-chặn-xss-cross-site-scripting)
-    - [Ngăn chặn CSRF (Cross-Site Request Forgery)](#ngăn-chặn-csrf-cross-site-request-forgery)
-    - [Bảo vệ mật khẩu](#bảo-vệ-mật-khẩu)
-    - [Bảo mật file upload](#bảo-mật-file-upload)
-  - [🧑‍🏫 Bài 16: Caching và Optimization](#-bài-16-caching-và-optimization)
-    - [Output Buffering và Page Caching](#output-buffering-và-page-caching)
-    - [Memcached](#memcached)
-    - [Redis](#redis)
-    - [Tối ưu hóa code PHP](#tối-ưu-hóa-code-php)
-  - [🧪 BÀI TẬP LỚN CUỐI PHẦN: Xây dựng hệ thống API cho ứng dụng blog](#-bài-tập-lớn-cuối-phần-xây-dựng-hệ-thống-api-cho-ứng-dụng-blog)
-    - [Mô tả bài toán](#mô-tả-bài-toán)
-    - [Yêu cầu](#yêu-cầu)
-    - [Cấu trúc dự án đề xuất](#cấu-trúc-dự-án-đề-xuất)
+# 📘 PHẦN 3: PHP NÂNG CAO VÀ KẾT NỐI DATABASE
 
 ## 🎯 Mục tiêu tổng quát
 
@@ -40,8 +16,6 @@
 - Nắm vững các vấn đề bảo mật và cách phòng tránh
 - Biết cách tối ưu hóa ứng dụng PHP
 - Áp dụng các kiến thức nâng cao để xây dựng ứng dụng web hoàn chỉnh
-
----
 
 ## 🧑‍🏫 Bài 12: Kết nối và thao tác với Database
 
@@ -235,8 +209,6 @@ try {
 }
 ?>
 ```
-
----
 
 ## 🧑‍🏫 Bài 13: PHP Data Objects (PDO)
 
@@ -460,8 +432,6 @@ try {
 }
 ?>
 ```
-
----
 
 ## 🧑‍🏫 Bài 14: RESTful API với PHP
 
@@ -865,8 +835,6 @@ class AuthMiddleware {
 ?>
 ```
 
----
-
 ## 🧑‍🏫 Bài 15: Bảo mật trong PHP
 
 ### Ngăn chặn SQL Injection
@@ -1120,8 +1088,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['file'])) {
     <button type="submit">Upload</button>
 </form>
 ```
-
----
 
 ## 🧑‍🏫 Bài 16: Caching và Optimization
 
@@ -1523,8 +1489,6 @@ $filtered = array_filter($numbers, function($number) {
 }); // Returns only [3 => 4]
 ?>
 ```
-
----
 
 ## 🧪 BÀI TẬP LỚN CUỐI PHẦN: Xây dựng hệ thống API cho ứng dụng blog
 

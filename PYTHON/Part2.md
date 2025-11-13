@@ -1,27 +1,5 @@
 # 📗 PHẦN 2: LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG VÀ CÁC KHÁI NIỆM TRUNG GIAN
 
-- [📗 PHẦN 2: LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG VÀ CÁC KHÁI NIỆM TRUNG GIAN](#-phần-2-lập-trình-hướng-đối-tượng-và-các-khái-niệm-trung-gian)
-  - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
-  - [🧑‍🏫 Bài 1: Lập trình Hướng đối tượng (OOP) - Khái niệm cơ bản](#-bài-1-lập-trình-hướng-đối-tượng-oop---khái-niệm-cơ-bản)
-    - [Tại sao cần OOP?](#tại-sao-cần-oop)
-    - [Class và Object](#class-và-object)
-    - [Phương thức khởi tạo `__init__` và `self`](#phương-thức-khởi-tạo-__init__-và-self)
-  - [🧑‍🏫 Bài 2: Các trụ cột của OOP](#-bài-2-các-trụ-cột-của-oop)
-    - [Tính kế thừa (Inheritance)](#tính-kế-thừa-inheritance)
-    - [Tính đóng gói (Encapsulation)](#tính-đóng-gói-encapsulation)
-    - [Tính đa hình (Polymorphism)](#tính-đa-hình-polymorphism)
-  - [🧑‍🏫 Bài 3: Xử lý File và Định dạng JSON](#-bài-3-xử-lý-file-và-định-dạng-json)
-    - [Đọc và Ghi file văn bản](#đọc-và-ghi-file-văn-bản)
-    - [Làm việc với JSON](#làm-việc-với-json)
-  - [🧑‍🏫 Bài 4: Modules và Xử lý Lỗi (Exceptions)](#-bài-4-modules-và-xử-lý-lỗi-exceptions)
-    - [Modules trong Python](#modules-trong-python)
-    - [Xử lý ngoại lệ với try-except](#xử-lý-ngoại-lệ-với-try-except)
-  - [🧪 BÀI TẬP LỚN CUỐI PHẦN: Nâng cấp ứng dụng Quản lý Danh bạ](#-bài-tập-lớn-cuối-phần-nâng-cấp-ứng-dụng-quản-lý-danh-bạ)
-    - [Mô tả bài toán](#mô-tả-bài-toán)
-    - [Yêu cầu](#yêu-cầu)
-    - [Sơ đồ kiến trúc đề xuất](#sơ-đồ-kiến-trúc-đề-xuất)
-    - [Luồng hoạt động gợi ý](#luồng-hoạt-động-gợi-ý)
-
 ## 🎯 Mục tiêu tổng quát
 
 - Hiểu và áp dụng được tư duy lập trình hướng đối tượng (OOP).
@@ -31,13 +9,12 @@
 - Xử lý các lỗi có thể xảy ra trong chương trình một cách chuyên nghiệp.
 - Nâng cấp ứng dụng từ Phần 1 để có khả năng lưu trữ dữ liệu lâu dài và có cấu trúc tốt hơn.
 
----
-
 ## 🧑‍🏫 Bài 1: Lập trình Hướng đối tượng (OOP) - Khái niệm cơ bản
 
 ### Tại sao cần OOP?
 
 OOP giúp chúng ta mô hình hóa các đối tượng trong thế giới thực vào trong code. Thay vì suy nghĩ về chương trình như một chuỗi các thủ tục, chúng ta suy nghĩ về nó như một tập hợp các đối tượng tương tác với nhau.
+
 - **Dễ tổ chức**: Gom dữ liệu (thuộc tính) và hành vi (phương thức) liên quan vào cùng một đối tượng.
 - **Dễ tái sử dụng**: Có thể sử dụng lại các lớp đã định nghĩa ở nhiều nơi.
 - **Dễ bảo trì và mở rộng**: Thay đổi một đối tượng không ảnh hưởng nhiều đến các đối tượng khác.
@@ -48,7 +25,8 @@ OOP giúp chúng ta mô hình hóa các đối tượng trong thế giới thự
 - **Object (Đối tượng)**: Là một thể hiện (instance) cụ thể của một lớp. Bạn có thể tạo nhiều đối tượng từ một lớp duy nhất.
 
 Sơ đồ minh họa:
-```
+
+```text
       +---------------------+
       |      Class: Car     |  (Bản thiết kế)
       |---------------------|
@@ -111,8 +89,6 @@ student1.display_info()
 student2.add_subject("Lập trình Python")
 student2.display_info()
 ```
-
----
 
 ## 🧑‍🏫 Bài 2: Các trụ cột của OOP
 
@@ -216,8 +192,6 @@ animal_sound(cat)  # In ra "Meo meo!"
 animal_sound(duck) # In ra "Quạc quạc!"
 ```
 
----
-
 ## 🧑‍🏫 Bài 3: Xử lý File và Định dạng JSON
 
 ### Đọc và Ghi file văn bản
@@ -277,8 +251,6 @@ except FileNotFoundError:
     print("Không tìm thấy file JSON.")
 ```
 
----
-
 ## 🧑‍🏫 Bài 4: Modules và Xử lý Lỗi (Exceptions)
 
 ### Modules trong Python
@@ -288,6 +260,7 @@ Module là một file Python (`.py`) chứa các định nghĩa và câu lệnh.
 **Ví dụ:** Tạo 2 file trong cùng một thư mục.
 
 `utils.py`:
+
 ```python
 # File: utils.py
 PI = 3.14159
@@ -301,6 +274,7 @@ def greet(name):
 ```
 
 `main.py`:
+
 ```python
 # File: main.py
 import utils # Import toàn bộ module
@@ -320,7 +294,8 @@ print(greet("Python Developer"))
 Ngoại lệ (Exception) là các lỗi xảy ra trong quá trình thực thi chương trình. Sử dụng khối `try...except` để "bắt" các lỗi này và xử lý chúng một cách an toàn, tránh làm chương trình bị dừng đột ngột.
 
 Sơ đồ logic:
-```
+
+```text
       (Bắt đầu)
           |
           V
@@ -364,8 +339,6 @@ finally:
     print("Chương trình kết thúc.")
 ```
 
----
-
 ## 🧪 BÀI TẬP LỚN CUỐI PHẦN: Nâng cấp ứng dụng Quản lý Danh bạ
 
 ### Mô tả bài toán
@@ -374,7 +347,7 @@ Nâng cấp ứng dụng Quản lý Danh bạ từ Phần 1 bằng cách áp d�
 
 ### Yêu cầu
 
-1.  **Tái cấu trúc với OOP**:
+1. **Tái cấu trúc với OOP**:
     - Tạo một class `Contact` với các thuộc tính như `name`, `phone`, `email`.
     - Tạo một class `ContactManager` để quản lý danh sách các đối tượng `Contact`. Class này sẽ chứa các phương thức như:
       - `add_contact(contact)`
@@ -383,16 +356,16 @@ Nâng cấp ứng dụng Quản lý Danh bạ từ Phần 1 bằng cách áp d�
       - `load_contacts()` (đọc từ file)
       - `save_contacts()` (lưu vào file)
 
-2.  **Lưu trữ dữ liệu bền vững**:
+2. **Lưu trữ dữ liệu bền vững**:
     - Sử dụng file `contacts.json` để lưu trữ danh bạ.
     - Khi chương trình khởi động, phương thức `load_contacts()` sẽ được gọi để đọc dữ liệu từ `contacts.json` (nếu có) và tạo ra danh sách các đối tượng `Contact`.
     - Trước khi chương trình thoát, phương thức `save_contacts()` sẽ được gọi để ghi lại danh sách liên hệ hiện tại vào file `contacts.json`.
 
-3.  **Xử lý lỗi**:
+3. **Xử lý lỗi**:
     - Sử dụng `try-except` để xử lý trường hợp file `contacts.json` không tồn tại khi khởi động lần đầu (`FileNotFoundError`). Trong trường hợp này, chương trình nên bắt đầu với một danh bạ trống.
     - Xử lý các lỗi nhập liệu từ người dùng (ví dụ: nhập lựa chọn menu không hợp lệ).
 
-4.  **(Tùy chọn) Tổ chức code**:
+4. **(Tùy chọn) Tổ chức code**:
     - Chia code thành các module:
       - `contact.py`: Chứa class `Contact`.
       - `manager.py`: Chứa class `ContactManager`.
@@ -400,7 +373,7 @@ Nâng cấp ứng dụng Quản lý Danh bạ từ Phần 1 bằng cách áp d�
 
 ### Sơ đồ kiến trúc đề xuất
 
-```
+```text
 +------------+        +-------------+        +-----------------+
 |  main.py   |        | manager.py  |        |   contact.py    |
 | (UI &      | ---->  | (Class      | ---->  |   (Class        |
@@ -417,12 +390,12 @@ Nâng cấp ứng dụng Quản lý Danh bạ từ Phần 1 bằng cách áp d�
 
 ### Luồng hoạt động gợi ý
 
-1.  `main.py` chạy, tạo một đối tượng `ContactManager`.
-2.  Đối tượng `ContactManager` được khởi tạo, nó sẽ gọi ngay phương thức `load_contacts()` của chính nó.
-3.  `load_contacts()`:
+1. `main.py` chạy, tạo một đối tượng `ContactManager`.
+2. Đối tượng `ContactManager` được khởi tạo, nó sẽ gọi ngay phương thức `load_contacts()` của chính nó.
+3. `load_contacts()`:
     - `try` để mở và đọc `contacts.json`.
     - Với mỗi dictionary đọc được từ JSON, tạo một đối tượng `Contact` và thêm vào danh sách liên hệ của manager.
     - `except FileNotFoundError`: Bỏ qua và bắt đầu với danh sách rỗng.
-4.  Vòng lặp `while` trong `main.py` hiển thị menu và nhận lựa chọn người dùng.
-5.  Dựa trên lựa chọn, `main.py` gọi các phương thức tương ứng của đối tượng `ContactManager` (ví dụ `add_contact`, `display_all`,...).
-6.  Khi người dùng chọn "Thoát", `main.py` sẽ gọi phương thức `save_contacts()` của `ContactManager` trước khi kết thúc chương trình.
+4. Vòng lặp `while` trong `main.py` hiển thị menu và nhận lựa chọn người dùng.
+5. Dựa trên lựa chọn, `main.py` gọi các phương thức tương ứng của đối tượng `ContactManager` (ví dụ `add_contact`, `display_all`,...).
+6. Khi người dùng chọn "Thoát", `main.py` sẽ gọi phương thức `save_contacts()` của `ContactManager` trước khi kết thúc chương trình.

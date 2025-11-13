@@ -1,41 +1,13 @@
-# 📘 PHẦN 2: LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG VỚI PHP
+---
+prev:
+  text: '🐘 Nhập Môn PHP'
+  link: '/PHP/Part1'
+next:
+  text: '💾 PHP Nâng Cao'
+  link: '/PHP/Part3'
+---
 
-- [📘 PHẦN 2: LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG VỚI PHP](#-phần-2-lập-trình-hướng-đối-tượng-với-php)
-  - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
-  - [🧑‍🏫 Bài 6: Lập trình hướng đối tượng trong PHP](#-bài-6-lập-trình-hướng-đối-tượng-trong-php)
-    - [Tạo Class và Object](#tạo-class-và-object)
-    - [Access Modifiers (Phạm vi truy cập)](#access-modifiers-phạm-vi-truy-cập)
-    - [Thuộc tính và phương thức tĩnh (Static)](#thuộc-tính-và-phương-thức-tĩnh-static)
-    - [Constant trong Class](#constant-trong-class)
-  - [🧑‍🏫 Bài 7: Kế thừa và đa hình](#-bài-7-kế-thừa-và-đa-hình)
-    - [Kế thừa (Inheritance)](#kế-thừa-inheritance)
-    - [Đa hình (Polymorphism)](#đa-hình-polymorphism)
-    - [Final Keyword](#final-keyword)
-  - [🧑‍🏫 Bài 8: Interface và Abstract Class](#-bài-8-interface-và-abstract-class)
-    - [Abstract Class](#abstract-class)
-    - [Interface](#interface)
-    - [Sự khác biệt giữa Abstract Class và Interface](#sự-khác-biệt-giữa-abstract-class-và-interface)
-  - [🧑‍🏫 Bài 9: Magic Methods và Namespace](#-bài-9-magic-methods-và-namespace)
-    - [Magic Methods trong PHP](#magic-methods-trong-php)
-    - [Namespace trong PHP](#namespace-trong-php)
-  - [🧑‍🏫 Bài 10: Auto loading và PSR Standards](#-bài-10-auto-loading-và-psr-standards)
-    - [Autoloading trong PHP](#autoloading-trong-php)
-    - [Sử dụng composer autoloader](#sử-dụng-composer-autoloader)
-    - [PSR Standards (PHP Standards Recommendations)](#psr-standards-php-standards-recommendations)
-      - [PSR-1: Basic Coding Standard](#psr-1-basic-coding-standard)
-    - [PSR-2: Coding Style Guide](#psr-2-coding-style-guide)
-    - [PSR-4: Autoloader](#psr-4-autoloader)
-  - [🧑‍🏫 Bài 11: Composer và Package Management](#-bài-11-composer-và-package-management)
-    - [Giới thiệu về Composer](#giới-thiệu-về-composer)
-    - [Tạo và sử dụng package](#tạo-và-sử-dụng-package)
-    - [Sử dụng autoloading với Composer](#sử-dụng-autoloading-với-composer)
-    - [Sử dụng một vài packages phổ biến](#sử-dụng-một-vài-packages-phổ-biến)
-      - [Cú pháp cài đặt](#cú-pháp-cài-đặt)
-      - [Ví dụ sử dụng một số package phổ biến](#ví-dụ-sử-dụng-một-số-package-phổ-biến)
-  - [🧪 BÀI TẬP LỚN CUỐI PHẦN: Xây dựng hệ thống quản lý thư viện](#-bài-tập-lớn-cuối-phần-xây-dựng-hệ-thống-quản-lý-thư-viện)
-    - [Mô tả bài toán](#mô-tả-bài-toán)
-    - [Yêu cầu](#yêu-cầu)
-    - [Cấu trúc thư mục đề xuất](#cấu-trúc-thư-mục-đề-xuất)
+# 📘 PHẦN 2: LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG VỚI PHP
 
 ## 🎯 Mục tiêu tổng quát
 
@@ -44,8 +16,6 @@
 - Sử dụng được các magic methods, namespace và autoloading
 - Hiểu và tuân thủ các chuẩn PSR trong PHP
 - Xây dựng được ứng dụng theo mô hình hướng đối tượng
-
----
 
 ## 🧑‍🏫 Bài 6: Lập trình hướng đối tượng trong PHP
 
@@ -207,8 +177,6 @@ $config = new Config();
 echo "App Info: " . $config->getAppInfo() . "<br>";
 ?>
 ```
-
----
 
 ## 🧑‍🏫 Bài 7: Kế thừa và đa hình
 
@@ -384,8 +352,6 @@ echo $child->finalMethod() . "<br>";
 echo $child->normalMethod() . "<br>";
 ?>
 ```
-
----
 
 ## 🧑‍🏫 Bài 8: Interface và Abstract Class
 
@@ -655,8 +621,6 @@ echo $postgres->disconnect() . "<br>";
 ?>
 ```
 
----
-
 ## 🧑‍🏫 Bài 9: Magic Methods và Namespace
 
 ### Magic Methods trong PHP
@@ -861,8 +825,6 @@ $logger2 = new Logger();
 $logger2->log("Another message");
 ?>
 ```
-
----
 
 ## 🧑‍🏫 Bài 10: Auto loading và PSR Standards
 
@@ -1243,8 +1205,6 @@ try {
 }
 ?>
 ```
-
----
 
 ## 🧪 BÀI TẬP LỚN CUỐI PHẦN: Xây dựng hệ thống quản lý thư viện
 

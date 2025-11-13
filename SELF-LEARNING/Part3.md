@@ -1,25 +1,13 @@
-# 📘 PHẦN 3: KỸ THUẬT TỰ HỌC
+---
+prev:
+  text: '📑 Xử Lý Tài Liệu'
+  link: '/SELF-LEARNING/Part2'
+next:
+  text: '📈 Phát Triển Bản Thân'
+  link: '/SELF-LEARNING/Part4'
+---
 
-- [📘 PHẦN 3: KỸ THUẬT TỰ HỌC](#-phần-3-kỹ-thuật-tự-học)
-  - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
-  - [🧑‍🏫 Bài 1: Tư duy và tâm lý của người tự học](#-bài-1-tư-duy-và-tâm-lý-của-người-tự-học)
-    - [Tư duy phát triển (Growth Mindset)](#tư-duy-phát-triển-growth-mindset)
-    - [Vượt qua rào cản học tập](#vượt-qua-rào-cản-học-tập)
-    - [Xây dựng thói quen học liên tục](#xây-dựng-thói-quen-học-liên-tục)
-  - [🧑‍🏫 Bài 2: Phương pháp học hiệu quả](#-bài-2-phương-pháp-học-hiệu-quả)
-    - [Hiểu về quá trình học tập](#hiểu-về-quá-trình-học-tập)
-    - [Kỹ thuật học tập hiệu quả](#kỹ-thuật-học-tập-hiệu-quả)
-    - [Quản lý tài nguyên học tập](#quản-lý-tài-nguyên-học-tập)
-  - [🧑‍🏫 Bài 3: Xây dựng và thực hiện lộ trình học tập](#-bài-3-xây-dựng-và-thực-hiện-lộ-trình-học-tập)
-    - [Phân tích nhu cầu và mục tiêu học tập](#phân-tích-nhu-cầu-và-mục-tiêu-học-tập)
-    - [Thiết kế lộ trình học tập](#thiết-kế-lộ-trình-học-tập)
-    - [Thực hiện và theo dõi tiến độ](#thực-hiện-và-theo-dõi-tiến-độ)
-  - [🧑‍🏫 Bài 4: Phương pháp học thực hành và làm dự án](#-bài-4-phương-pháp-học-thực-hành-và-làm-dự-án)
-    - [Học qua thực hành](#học-qua-thực-hành)
-    - [Dự án cá nhân như công cụ học tập](#dự-án-cá-nhân-như-công-cụ-học-tập)
-    - [Học từ lỗi và debug](#học-từ-lỗi-và-debug)
-    - [Học qua community và pair programming](#học-qua-community-và-pair-programming)
-  - [🧪 BÀI TẬP THỰC HÀNH](#-bài-tập-thực-hành)
+# 📘 PHẦN 3: KỸ THUẬT TỰ HỌC
 
 ## 🎯 Mục tiêu tổng quát
 
@@ -27,8 +15,6 @@
 - Nắm vững các phương pháp học hiệu quả phù hợp với lĩnh vực CNTT
 - Biết cách xây dựng lộ trình học tập cá nhân hóa
 - Phát triển kỹ năng học thông qua thực hành và dự án
-
----
 
 ## 🧑‍🏫 Bài 1: Tư duy và tâm lý của người tự học
 
@@ -95,8 +81,6 @@
    - Xác định thời điểm năng suất cao nhất trong ngày
    - Tạo không gian riêng cho việc học tập
    - Đặt ranh giới giữa học tập, làm việc và nghỉ ngơi
-
----
 
 ## 🧑‍🏫 Bài 2: Phương pháp học hiệu quả
 
@@ -169,8 +153,6 @@
    - Công cụ học lập trình: freeCodeCamp, LeetCode, HackerRank
    - Extension cho IDE: hỗ trợ học và thực hành code
 
----
-
 ## 🧑‍🏫 Bài 3: Xây dựng và thực hiện lộ trình học tập
 
 ### Phân tích nhu cầu và mục tiêu học tập
@@ -230,10 +212,6 @@
    - Xem xét lại lộ trình khi có công nghệ mới
    - Thay đổi phương pháp học nếu tiến độ chậm
    - Tăng hoặc giảm phạm vi dựa trên thời gian thực tế
-
----
-
-## 🧑‍🏫 Bài 4: Phương pháp học thực hành và làm dự án
 
 ### Học qua thực hành
 
@@ -316,8 +294,6 @@
    - Tìm mentor để hướng dẫn học tập
    - Dạy lại người khác để củng cố kiến thức
    - Xây dựng mạng lưới học tập và hỗ trợ
-
----
 
 ## 🧪 BÀI TẬP THỰC HÀNH
 

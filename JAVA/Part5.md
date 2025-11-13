@@ -1,89 +1,19 @@
-# 📘 PHẦN 5: LUỒNG, ĐA LUỒNG VÀ JDBC
+---
+prev:
+  text: '📁 File I/O và Collections'
+  link: '/JAVA/Part4'
+next:
+  text: '🏆 Bài Tập Lớn Java'
+  link: '/JAVA/FINAL'
+---
 
-- [📘 PHẦN 5: LUỒNG, ĐA LUỒNG VÀ JDBC](#-phần-5-luồng-đa-luồng-và-jdbc)
-  - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
-  - [🧑‍🏫 Bài 1: JAVA I/O Streams](#-bài-1-java-io-streams)
-    - [Khái niệm luồng (Streams) trong Java](#khái-niệm-luồng-streams-trong-java)
-      - [Phân loại cơ bản](#phân-loại-cơ-bản)
-    - [Các lớp thường sử dụng](#các-lớp-thường-sử-dụng)
-      - [Luồng byte](#luồng-byte)
-      - [Luồng ký tự](#luồng-ký-tự)
-    - [Đọc file với InputStream và Reader](#đọc-file-với-inputstream-và-reader)
-      - [Đọc file nhị phân với FileInputStream](#đọc-file-nhị-phân-với-fileinputstream)
-      - [Đọc file văn bản với BufferedReader](#đọc-file-văn-bản-với-bufferedreader)
-    - [Ghi file với OutputStream và Writer](#ghi-file-với-outputstream-và-writer)
-      - [Ghi file nhị phân với FileOutputStream](#ghi-file-nhị-phân-với-fileoutputstream)
-      - [Ghi file văn bản với BufferedWriter](#ghi-file-văn-bản-với-bufferedwriter)
-    - [Ứng dụng thực tế: Sao chép file với buffer](#ứng-dụng-thực-tế-sao-chép-file-với-buffer)
-    - [Serialization và Deserialization](#serialization-và-deserialization)
-    - [Xử lý với các loại encoding khác nhau](#xử-lý-với-các-loại-encoding-khác-nhau)
-    - [Thực hành: Tạo ứng dụng ghi nhật ký (Logger)](#thực-hành-tạo-ứng-dụng-ghi-nhật-ký-logger)
-  - [🧑‍🏫 Bài 2: Đa luồng trong JAVA](#-bài-2-đa-luồng-trong-java)
-    - [Khái niệm Thread và lợi ích của đa luồng](#khái-niệm-thread-và-lợi-ích-của-đa-luồng)
-      - [Lợi ích của đa luồng](#lợi-ích-của-đa-luồng)
-    - [Tạo Thread trong Java](#tạo-thread-trong-java)
-      - [1. Kế thừa lớp Thread](#1-kế-thừa-lớp-thread)
-      - [2. Triển khai giao diện Runnable](#2-triển-khai-giao-diện-runnable)
-      - [3. Sử dụng biểu thức lambda (Java 8+)](#3-sử-dụng-biểu-thức-lambda-java-8)
-    - [Quản lý luồng](#quản-lý-luồng)
-      - [Bắt đầu luồng (start)](#bắt-đầu-luồng-start)
-      - [Chờ luồng kết thúc (join)](#chờ-luồng-kết-thúc-join)
-      - [Tạm dừng luồng (sleep)](#tạm-dừng-luồng-sleep)
-      - [Ngắt một luồng (interrupt)](#ngắt-một-luồng-interrupt)
-      - [Ưu tiên luồng (priority)](#ưu-tiên-luồng-priority)
-    - [Đồng bộ hóa (Synchronization)](#đồng-bộ-hóa-synchronization)
-      - [Vấn đề race condition](#vấn-đề-race-condition)
-      - [Đồng bộ hóa bằng từ khóa synchronized](#đồng-bộ-hóa-bằng-từ-khóa-synchronized)
-      - [Ví dụ thực tế: Đồng bộ hóa truy cập tập tin](#ví-dụ-thực-tế-đồng-bộ-hóa-truy-cập-tập-tin)
-    - [Các vấn đề trong lập trình đa luồng](#các-vấn-đề-trong-lập-trình-đa-luồng)
-      - [Deadlock (Bế tắc)](#deadlock-bế-tắc)
-      - [Tránh Deadlock](#tránh-deadlock)
-    - [Ví dụ thực tế: Mô phỏng nhà hàng](#ví-dụ-thực-tế-mô-phỏng-nhà-hàng)
-    - [Thực hành: Tạo chương trình tải file song song](#thực-hành-tạo-chương-trình-tải-file-song-song)
-  - [🧑‍🏫 Bài 3: Lập trình đồng thời (Concurrency)](#-bài-3-lập-trình-đồng-thời-concurrency)
-    - [Concurrency API trong Java](#concurrency-api-trong-java)
-      - [ExecutorService và Thread Pool](#executorservice-và-thread-pool)
-      - [Các loại Executor phổ biến](#các-loại-executor-phổ-biến)
-    - [Callable và Future](#callable-và-future)
-    - [CompletableFuture trong Java 8+](#completablefuture-trong-java-8)
-    - [Đồng bộ hóa nâng cao với Lock Interface](#đồng-bộ-hóa-nâng-cao-với-lock-interface)
-    - [Semaphore và Latch](#semaphore-và-latch)
-    - [Biến nguyên tử (Atomic Variables)](#biến-nguyên-tử-atomic-variables)
-    - [ConcurrentHashMap và CopyOnWriteArrayList](#concurrenthashmap-và-copyonwritearraylist)
-    - [Ví dụ thực tế: Xử lý dữ liệu song song](#ví-dụ-thực-tế-xử-lý-dữ-liệu-song-song)
-    - [Phương pháp hay nhất (Best Practices)](#phương-pháp-hay-nhất-best-practices)
-    - [Bài tập thực hành: Xây dựng hệ thống Index tài liệu song song](#bài-tập-thực-hành-xây-dựng-hệ-thống-index-tài-liệu-song-song)
-  - [🧑‍🏫 Bài 4: Kết nối cơ sở dữ liệu với JDBC](#-bài-4-kết-nối-cơ-sở-dữ-liệu-với-jdbc)
-    - [Tải Driver và tạo kết nối](#tải-driver-và-tạo-kết-nối)
-    - [Sử dụng Statement để thực thi truy vấn](#sử-dụng-statement-để-thực-thi-truy-vấn)
-    - [Sử dụng PreparedStatement để thực thi truy vấn an toàn](#sử-dụng-preparedstatement-để-thực-thi-truy-vấn-an-toàn)
-    - [Sử dụng try-with-resources với JDBC](#sử-dụng-try-with-resources-với-jdbc)
-    - [Ví dụ thực tế - Kết nối và truy vấn cơ sở dữ liệu](#ví-dụ-thực-tế---kết-nối-và-truy-vấn-cơ-sở-dữ-liệu)
-  - [🧑‍🏫 Bài 5: Thao tác CRUD với JDBC](#-bài-5-thao-tác-crud-với-jdbc)
-    - [Tạo bảng trong cơ sở dữ liệu](#tạo-bảng-trong-cơ-sở-dữ-liệu)
-    - [Thêm dữ liệu (Create)](#thêm-dữ-liệu-create)
-    - [Truy vấn dữ liệu (Read)](#truy-vấn-dữ-liệu-read)
-    - [Cập nhật dữ liệu (Update)](#cập-nhật-dữ-liệu-update)
-    - [Xóa dữ liệu (Delete)](#xóa-dữ-liệu-delete)
-    - [Ví dụ thực tế - Quản lý sinh viên CRUD hoàn chỉnh](#ví-dụ-thực-tế---quản-lý-sinh-viên-crud-hoàn-chỉnh)
-    - [Xử lý lỗi và Transaction](#xử-lý-lỗi-và-transaction)
-  - [🧑‍🏫 Bài 6: Thực hành viết ứng dụng với JDBC](#-bài-6-thực-hành-viết-ứng-dụng-với-jdbc)
-    - [Thiết kế cơ sở dữ liệu đơn giản](#thiết-kế-cơ-sở-dữ-liệu-đơn-giản)
-    - [Lớp kết nối cơ sở dữ liệu](#lớp-kết-nối-cơ-sở-dữ-liệu)
-    - [Lớp DAO (Data Access Object) cho Student](#lớp-dao-data-access-object-cho-student)
-    - [Lớp Student](#lớp-student)
-    - [Ứng dụng hoàn chỉnh với đa luồng](#ứng-dụng-hoàn-chỉnh-với-đa-luồng)
-  - [🧪 BÀI TẬP LỚN CUỐI PHẦN: Hệ thống quản lý sinh viên với cơ sở dữ liệu](#-bài-tập-lớn-cuối-phần-hệ-thống-quản-lý-sinh-viên-với-cơ-sở-dữ-liệu)
-    - [Mô tả bài tập](#mô-tả-bài-tập)
-    - [Yêu cầu](#yêu-cầu)
+# 📘 PHẦN 5: LUỒNG, ĐA LUỒNG VÀ JDBC
 
 ## 🎯 Mục tiêu tổng quát
 
 - Hiểu cách xử lý nhập/xuất dữ liệu bằng luồng (Streams).
 - Làm quen với lập trình đa luồng (Multithreading).
 - Kết nối và thao tác dữ liệu với cơ sở dữ liệu sử dụng JDBC.
-
----
 
 ## 🧑‍🏫 Bài 1: JAVA I/O Streams
 
@@ -301,8 +231,6 @@ public class SimpleLogger {
     }
 }
 ```
-
----
 
 ## 🧑‍🏫 Bài 2: Đa luồng trong JAVA
 
@@ -951,8 +879,6 @@ public class ParallelDownloader {
     }
 }
 ```
-
----
 
 ## 🧑‍🏫 Bài 3: Lập trình đồng thời (Concurrency)
 
@@ -1754,8 +1680,6 @@ public class ParallelDocumentIndexer {
 
 Với những kiến thức về lập trình đồng thời trong Java, bạn có thể xây dựng các ứng dụng hiệu quả, tận dụng tốt nguồn tài nguyên phần cứng và đạt hiệu suất cao hơn so với lập trình tuần tự truyền thống.
 
----
-
 ## 🧑‍🏫 Bài 4: Kết nối cơ sở dữ liệu với JDBC
 
 ### Tải Driver và tạo kết nối
@@ -1928,8 +1852,6 @@ public class JDBCExample {
     }
 }
 ```
-
----
 
 ## 🧑‍🏫 Bài 5: Thao tác CRUD với JDBC
 
@@ -2280,8 +2202,6 @@ public static void registerStudentWithCourses(Connection conn, String studentNam
     }
 }
 ```
-
----
 
 ## 🧑‍🏫 Bài 6: Thực hành viết ứng dụng với JDBC
 
@@ -2833,8 +2753,6 @@ public class StudentManagementApp {
     }
 }
 ```
-
----
 
 ## 🧪 BÀI TẬP LỚN CUỐI PHẦN: Hệ thống quản lý sinh viên với cơ sở dữ liệu
 

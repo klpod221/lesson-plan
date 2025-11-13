@@ -1,3 +1,10 @@
+---
+prev:
+  text: '⚙️ Kubernetes'
+  link: '/DEVOPS/Kubernetes'
+next: false
+---
+
 # Tổng kết lộ trình học tập
 
 ## 📋 Tổng quan

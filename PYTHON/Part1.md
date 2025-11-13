@@ -1,29 +1,5 @@
 # 📘 PHẦN 1: NHẬP MÔN PYTHON
 
-- [📘 PHẦN 1: NHẬP MÔN PYTHON](#-phần-1-nhập-môn-python)
-  - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
-  - [🧑‍🏫 Bài 1: Giới thiệu Python](#-bài-1-giới-thiệu-python)
-    - [Python là gì?](#python-là-gì)
-    - [Cài đặt và Chạy file Python đầu tiên](#cài-đặt-và-chạy-file-python-đầu-tiên)
-    - [Sơ đồ minh họa môi trường Python](#sơ-đồ-minh-họa-môi-trường-python)
-  - [🧑‍🏫 Bài 2: Biến, Kiểu dữ liệu và Toán tử](#-bài-2-biến-kiểu-dữ-liệu-và-toán-tử)
-    - [Biến trong Python](#biến-trong-python)
-    - [Các kiểu dữ liệu cơ bản](#các-kiểu-dữ-liệu-cơ-bản)
-    - [Các toán tử chính](#các-toán-tử-chính)
-  - [🧑‍🏫 Bài 3: Cấu trúc điều khiển](#-bài-3-cấu-trúc-điều-khiển)
-    - [Cấu trúc điều kiện (if/elif/else)](#cấu-trúc-điều-kiện-ifelifelse)
-    - [Vòng lặp](#vòng-lặp)
-  - [🧑‍🏫 Bài 4: Cấu trúc dữ liệu cơ bản](#-bài-4-cấu-trúc-dữ-liệu-cơ-bản)
-    - [List (Danh sách)](#list-danh-sách)
-    - [Dictionary (Từ điển)](#dictionary-từ-điển)
-    - [Tuple và Set](#tuple-và-set)
-  - [🧑‍🏫 Bài 5: Hàm (Functions)](#-bài-5-hàm-functions)
-  - [🧪 BÀI TẬP LỚN CUỐI PHẦN: Ứng dụng quản lý danh bạ trên Terminal](#-bài-tập-lớn-cuối-phần-ứng-dụng-quản-lý-danh-bạ-trên-terminal)
-    - [Mô tả bài toán](#mô-tả-bài-toán)
-    - [Yêu cầu](#yêu-cầu)
-    - [Gợi ý cấu trúc dữ liệu](#gợi-ý-cấu-trúc-dữ-liệu)
-    - [Luồng hoạt động chính](#luồng-hoạt-động-chính)
-
 ## 🎯 Mục tiêu tổng quát
 
 - Hiểu được Python là gì, triết lý và các ứng dụng của nó.
@@ -31,8 +7,6 @@
 - Biết cách sử dụng các cấu trúc dữ liệu quan trọng như List, Dictionary.
 - Xây dựng được các hàm để tái sử dụng code.
 - Tạo được một ứng dụng dòng lệnh (command-line) đơn giản.
-
----
 
 ## 🧑‍🏫 Bài 1: Giới thiệu Python
 
@@ -45,9 +19,9 @@
 
 ### Cài đặt và Chạy file Python đầu tiên
 
-1.  Tải và cài đặt Python từ [python.org](https://python.org).
-2.  Tạo file `hello.py`.
-3.  Mở terminal và chạy lệnh: `python hello.py`
+1. Tải và cài đặt Python từ [python.org](https://python.org).
+2. Tạo file `hello.py`.
+3. Mở terminal và chạy lệnh: `python hello.py`
 
 ```python
 # Đây là comment một dòng
@@ -67,7 +41,7 @@ print(f"Hôm nay là ngày {today.day} tháng {today.month} năm {today.year}")
 
 ### Sơ đồ minh họa môi trường Python
 
-```
+```text
             +----------------------+
 Bạn viết -> |      hello.py      | --(Chạy lệnh: python hello.py)--> Python Interpreter
             | (Mã nguồn Python)  |                                        |
@@ -79,8 +53,6 @@ Bạn viết -> |      hello.py      | --(Chạy lệnh: python hello.py)--> Pyt
                                                                     |    Terminal)    |
                                                                     +-----------------+
 ```
-
----
 
 ## 🧑‍🏫 Bài 2: Biến, Kiểu dữ liệu và Toán tử
 
@@ -147,8 +119,6 @@ print(f"or: {is_active or has_permission}")  # True
 print(f"not: {not is_active}")              # False
 ```
 
----
-
 ## 🧑‍🏫 Bài 3: Cấu trúc điều khiển
 
 ### Cấu trúc điều kiện (if/elif/else)
@@ -214,8 +184,6 @@ for i in range(1, 11):
         break # Thoát khỏi vòng lặp khi i = 8
     print(i, end=" ") # in trên cùng một dòng
 ```
-
----
 
 ## 🧑‍🏫 Bài 4: Cấu trúc dữ liệu cơ bản
 
@@ -288,8 +256,6 @@ colors = {'red', 'green', 'blue', 'red'}
 print(colors) # {'red', 'green', 'blue'} (tự động loại bỏ 'red' trùng lặp)
 ```
 
----
-
 ## 🧑‍🏫 Bài 5: Hàm (Functions)
 
 - Khối code có thể tái sử dụng.
@@ -331,8 +297,6 @@ print(f"Trung bình 1: {avg1}")
 print(f"Trung bình 2: {avg2}")
 ```
 
----
-
 ## 🧪 BÀI TẬP LỚN CUỐI PHẦN: Ứng dụng quản lý danh bạ trên Terminal
 
 ### Mô tả bài toán
@@ -346,11 +310,11 @@ Xây dựng một ứng dụng quản lý danh bạ đơn giản chạy trên c�
 
 ### Yêu cầu
 
-1.  Sử dụng một **List** để lưu trữ danh bạ. Mỗi liên hệ trong danh bạ là một **Dictionary** có các `key` là `name` và `phone`.
-2.  Sử dụng các **Hàm** để tổ chức code cho mỗi chức năng (ví dụ: `display_contacts()`, `add_contact()`, `find_contact()`).
-3.  Sử dụng vòng lặp `while` để chương trình chạy liên tục cho đến khi người dùng chọn thoát.
-4.  Sử dụng `if/elif/else` để xử lý lựa chọn của người dùng.
-5.  Sử dụng `input()` để nhận dữ liệu từ người dùng và `print()` để hiển thị thông tin.
+1. Sử dụng một **List** để lưu trữ danh bạ. Mỗi liên hệ trong danh bạ là một **Dictionary** có các `key` là `name` và `phone`.
+2. Sử dụng các **Hàm** để tổ chức code cho mỗi chức năng (ví dụ: `display_contacts()`, `add_contact()`, `find_contact()`).
+3. Sử dụng vòng lặp `while` để chương trình chạy liên tục cho đến khi người dùng chọn thoát.
+4. Sử dụng `if/elif/else` để xử lý lựa chọn của người dùng.
+5. Sử dụng `input()` để nhận dữ liệu từ người dùng và `print()` để hiển thị thông tin.
 
 ### Gợi ý cấu trúc dữ liệu
 
@@ -363,7 +327,7 @@ contacts = [
 
 ### Luồng hoạt động chính
 
-```
+```text
 (Bắt đầu)
     |
     V

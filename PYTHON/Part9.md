@@ -1,29 +1,5 @@
 # 💡 PHẦN 9: CÁC CHỦ ĐỀ NÂNG CAO VÀ HƯỚNG ĐI TIẾP THEO
 
-- [💡 PHẦN 9: CÁC CHỦ ĐỀ NÂNG CAO VÀ HƯỚNG ĐI TIẾP THEO](#-phần-9-các-chủ-đề-nâng-cao-và-hướng-đi-tiếp-theo)
-  - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
-  - [🧑‍🏫 Bài 1: Lập trình Bất đồng bộ (Asynchronous Programming)](#-bài-1-lập-trình-bất-đồng-bộ-asynchronous-programming)
-    - [Tại sao cần lập trình bất đồng bộ?](#tại-sao-cần-lập-trình-bất-đồng-bộ)
-    - [`async` và `await`: Cú pháp cốt lõi](#async-và-await-cú-pháp-cốt-lõi)
-    - [Ví dụ với `asyncio` và `aiohttp`](#ví-dụ-với-asyncio-và-aiohttp)
-  - [🧑‍🏫 Bài 2: Đóng gói và Phân phối Dự án Python](#-bài-2-đóng-gói-và-phân-phối-dự-án-python)
-    - [Tạo một gói có thể cài đặt (Installable Package)](#tạo-một-gói-có-thể-cài-đặt-installable-package)
-    - [Chia sẻ gói của bạn trên PyPI](#chia-sẻ-gói-của-bạn-trên-pypi)
-  - [🧑‍🏫 Bài 3: Tối ưu hóa hiệu năng và Quản lý Bộ nhớ](#-bài-3-tối-ưu-hóa-hiệu-năng-và-quản-lý-bộ-nhớ)
-    - [Profiling: Tìm điểm nghẽn trong code](#profiling-tìm-điểm-nghẽn-trong-code)
-    - [Generators và Quản lý bộ nhớ hiệu quả](#generators-và-quản-lý-bộ-nhớ-hiệu-quả)
-    - [Global Interpreter Lock (GIL) là gì?](#global-interpreter-lock-gil-là-gì)
-  - [🧑‍🏫 Bài 4: Các Nguyên tắc và Mẫu thiết kế (Design Patterns)](#-bài-4-các-nguyên-tắc-và-mẫu-thiết-kế-design-patterns)
-    - [Nguyên tắc SOLID](#nguyên-tắc-solid)
-    - [Các mẫu thiết kế phổ biến trong Python](#các-mẫu-thiết-kế-phổ-biến-trong-python)
-  - [🧑‍🏫 Bài 5: Xây dựng Lộ trình Sự nghiệp với Python](#-bài-5-xây-dựng-lộ-trình-sự-nghiệp-với-python)
-    - [Tổng kết các kỹ năng đã học](#tổng-kết-các-kỹ-năng-đã-học)
-    - [Các hướng đi chuyên sâu](#các-hướng-đi-chuyên-sâu)
-    - [Xây dựng Portfolio và Đóng góp cho Cộng đồng](#xây-dựng-portfolio-và-đóng-góp-cho-cộng-đồng)
-  - [🏆 DỰ ÁN CUỐI CÙNG (Capstone Project): Tự chọn](#-dự-án-cuối-cùng-capstone-project-tự-chọn)
-    - [Mô tả](#mô-tả)
-    - [Gợi ý dự án](#gợi-ý-dự-án)
-
 ## 🎯 Mục tiêu tổng quát
 
 - Hiểu và áp dụng được lập trình bất đồng bộ để xử lý các tác vụ I/O hiệu quả.
@@ -31,8 +7,6 @@
 - Nắm được các kỹ thuật cơ bản để tối ưu hóa hiệu năng và quản lý bộ nhớ.
 - Làm quen với các nguyên tắc thiết kế phần mềm tốt và một số mẫu thiết kế phổ biến.
 - Tổng kết lại toàn bộ kiến thức, xây dựng một cái nhìn tổng thể về hệ sinh thái Python và định hướng con đường sự nghiệp tiếp theo.
-
----
 
 ## 🧑‍🏫 Bài 1: Lập trình Bất đồng bộ (Asynchronous Programming)
 
@@ -43,7 +17,8 @@
 - Lập trình bất đồng bộ (asynchronous) cho phép chương trình thực hiện các công việc khác trong khi đang chờ, giúp tăng thông lượng (throughput) đáng kể.
 
 Sơ đồ so sánh:
-```
+
+```text
 Đồng bộ (Synchronous):
 | Task A (start) ---> Chờ... ---> Task A (end) |
                                                | Task B (start) ---> Chờ... ---> Task B (end) |
@@ -54,6 +29,7 @@ Bất đồng bộ (Asynchronous):
                       |                       |               |
                       +-----------------------+---------------+-----> Thời gian
 ```
+
 ### `async` và `await`: Cú pháp cốt lõi
 
 - `async def`: Dùng để khai báo một **coroutine**, một hàm có thể tạm dừng và tiếp tục.
@@ -98,9 +74,8 @@ if __name__ == '__main__':
     asyncio.run(main())
     print(f"Tổng thời gian: {time.time() - start_time:.2f} giây")
 ```
-Bạn sẽ thấy tổng thời gian chạy sẽ ngắn hơn nhiều so với việc gọi các URL một cách tuần tự.
 
----
+Bạn sẽ thấy tổng thời gian chạy sẽ ngắn hơn nhiều so với việc gọi các URL một cách tuần tự.
 
 ## 🧑‍🏫 Bài 2: Đóng gói và Phân phối Dự án Python
 
@@ -108,7 +83,8 @@ Bạn sẽ thấy tổng thời gian chạy sẽ ngắn hơn nhiều so với vi
 
 - Biến dự án của bạn thành một gói mà người khác có thể cài đặt bằng `pip`.
 - Cấu trúc thư mục đề xuất:
-  ```
+
+  ```text
   myproject/
   ├── src/
   │   └── mypackage/
@@ -118,7 +94,9 @@ Bạn sẽ thấy tổng thời gian chạy sẽ ngắn hơn nhiều so với vi
   ├── README.md
   └── ...
   ```
+
 - **`pyproject.toml`**: File cấu hình hiện đại sử dụng `setuptools`.
+
   ```toml
   [project]
   name = "mypackage"
@@ -136,6 +114,7 @@ Bạn sẽ thấy tổng thời gian chạy sẽ ngắn hơn nhiều so với vi
   [project.urls]
   "Homepage" = "https://github.com/yourusername/myproject"
   ```
+
 - **Xây dựng gói**:
   - `pip install build`
   - `python -m build`
@@ -148,13 +127,13 @@ Bạn sẽ thấy tổng thời gian chạy sẽ ngắn hơn nhiều so với vi
   1. Tạo tài khoản trên [PyPI](https://pypi.org/).
   2. Cài đặt `twine`: `pip install twine`.
   3. Upload gói của bạn:
+
      ```bash
      twine upload dist/*
      ```
+
      (Nhập username và password PyPI của bạn)
 - Sau khi thành công, bất kỳ ai cũng có thể cài đặt gói của bạn bằng: `pip install mypackage`.
-
----
 
 ## 🧑‍🏫 Bài 3: Tối ưu hóa hiệu năng và Quản lý Bộ nhớ
 
@@ -176,6 +155,7 @@ def slow_function():
 # Chạy profiling cho hàm
 cProfile.run('slow_function()')
 ```
+
 Kết quả sẽ cho bạn biết số lần mỗi hàm được gọi và tổng thời gian dành cho nó.
 
 ### Generators và Quản lý bộ nhớ hiệu quả
@@ -215,13 +195,12 @@ for item in my_gen:
   - Dùng **đa tiến trình (multiprocessing)** cho các tác vụ CPU-bound.
   - Dùng **đa luồng (threading)** hoặc **bất đồng bộ (asyncio)** cho các tác vụ I/O-bound.
 
----
-
 ## 🧑‍🏫 Bài 4: Các Nguyên tắc và Mẫu thiết kế (Design Patterns)
 
 ### Nguyên tắc SOLID
 
 Đây là 5 nguyên tắc thiết kế hướng đối tượng giúp code trở nên dễ hiểu, linh hoạt và dễ bảo trì hơn.
+
 - **S** - **Single Responsibility Principle**: Mỗi lớp chỉ nên có một lý do để thay đổi (chỉ chịu một trách nhiệm).
 - **O** - **Open/Closed Principle**: Có thể mở rộng (extend) một lớp, nhưng không sửa đổi (modify) nó.
 - **L** - **Liskov Substitution Principle**: Các đối tượng của lớp con có thể thay thế các đối tượng của lớp cha mà không làm hỏng chương trình.
@@ -234,8 +213,6 @@ for item in my_gen:
 - **Singleton Pattern**: Đảm bảo rằng một lớp chỉ có một thể hiện (instance) duy nhất và cung cấp một điểm truy cập toàn cục đến nó.
 - **Decorator Pattern**: Cho phép thêm các hành vi mới vào một đối tượng một cách linh hoạt bằng cách "bọc" nó trong một đối tượng decorator. (Bạn đã thấy nó với `@app.route` trong Flask/Django, `@api_view` trong DRF).
 
----
-
 ## 🧑‍🏫 Bài 5: Xây dựng Lộ trình Sự nghiệp với Python
 
 ### Tổng kết các kỹ năng đã học
@@ -246,15 +223,16 @@ for item in my_gen:
 ### Các hướng đi chuyên sâu
 
 Dựa trên các phần đã học, bạn có thể chọn một hoặc nhiều hướng để đào sâu:
-1.  **Backend/Web Developer**:
+
+1. **Backend/Web Developer**:
     - Đào sâu vào Django/Flask.
     - Học về DevOps, Docker, Kubernetes.
     - Tìm hiểu về các loại database khác nhau (NoSQL như MongoDB).
-2.  **Data Scientist / Machine Learning Engineer**:
+2. **Data Scientist / Machine Learning Engineer**:
     - Đào sâu vào Deep Learning (TensorFlow/PyTorch).
     - Học các lĩnh vực chuyên biệt: Xử lý Ngôn ngữ Tự nhiên (NLP), Thị giác Máy tính (Computer Vision).
     - Tìm hiểu về các công cụ Big Data (Spark, Hadoop).
-3.  **Automation/DevOps Engineer**:
+3. **Automation/DevOps Engineer**:
     - Đào sâu vào scripting, `subprocess`.
     - Học các công cụ tự động hóa hạ tầng như Ansible, Terraform.
     - Tìm hiểu về CI/CD (Continuous Integration/Continuous Deployment) với Jenkins, GitLab CI.
@@ -264,8 +242,6 @@ Dựa trên các phần đã học, bạn có thể chọn một hoặc nhiều 
 - **Portfolio**: Là tập hợp các dự án tốt nhất của bạn. Đây là thứ quan trọng nhất khi đi xin việc. Hãy chọn 1-2 dự án tâm đắc, hoàn thiện chúng và đưa lên GitHub.
 - **Đóng góp mã nguồn mở**: Tìm một dự án bạn yêu thích, bắt đầu bằng việc sửa các lỗi nhỏ, cải thiện tài liệu. Đây là cách tuyệt vời để học hỏi và được công nhận.
 - **Viết blog, chia sẻ kiến thức**: Dạy lại là cách học tốt nhất.
-
----
 
 ## 🏆 DỰ ÁN CUỐI CÙNG (Capstone Project): Tự chọn
 

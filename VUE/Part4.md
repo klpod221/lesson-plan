@@ -1,24 +1,5 @@
 # 📘 PHẦN 4: ROUTING VÀ LẤY DỮ LIỆU TỪ API
 
-- [📘 PHẦN 4: ROUTING VÀ LẤY DỮ LIỆU TỪ API](#-phần-4-routing-và-lấy-dữ-liệu-từ-api)
-  - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
-  - [🧑‍🏫 Bài 1: Giới thiệu Vue Router](#-bài-1-giới-thiệu-vue-router)
-    - [Single Page Application (SPA) và Client-side Routing](#single-page-application-spa-và-client-side-routing)
-    - [Cài đặt và thiết lập](#cài-đặt-và-thiết-lập)
-  - [🧑‍🏫 Bài 2: Cấu hình và sử dụng Routes](#-bài-2-cấu-hình-và-sử-dụng-routes)
-    - [Định nghĩa Routes](#định-nghĩa-routes)
-    - [`<router-view>` và `<router-link>`](#router-view-và-router-link)
-  - [🧑‍🏫 Bài 3: Dynamic Routes và truy cập Params](#-bài-3-dynamic-routes-và-truy-cập-params)
-    - [Route động](#route-động)
-    - [Truy cập tham số Route](#truy-cập-tham-số-route)
-  - [🧑‍🏫 Bài 4: Lấy dữ liệu từ API (Data Fetching)](#-bài-4-lấy-dữ-liệu-từ-api-data-fetching)
-    - [Sử dụng `fetch` trong hook `onMounted`](#sử-dụng-fetch-trong-hook-onmounted)
-    - [Xử lý trạng thái Loading và Error](#xử-lý-trạng-thái-loading-và-error)
-    - [Tạo Composable Function `useFetch` để tái sử dụng](#tạo-composable-function-usefetch-để-tái-sử-dụng)
-  - [🧪 BÀI TẬP LỚN CUỐI PHẦN: "SimpleStore" với nhiều trang và dữ liệu động](#-bài-tập-lớn-cuối-phần-simplestore-với-nhiều-trang-và-dữ-liệu-động)
-    - [Mô tả bài toán](#mô-tả-bài-toán)
-    - [Yêu cầu](#yêu-cầu)
-
 ## 🎯 Mục tiêu tổng quát
 
 - Hiểu vai trò của client-side router và cách Vue Router hoạt động.
@@ -27,19 +8,21 @@
 - Lấy dữ liệu từ API bên ngoài một cách hiệu quả, bao gồm việc xử lý các trạng thái tải và lỗi.
 - Đóng gói logic fetch dữ liệu vào một Composable function để dễ dàng tái sử dụng.
 
----
-
 ## 🧑‍🏫 Bài 1: Giới thiệu Vue Router
 
 ### Single Page Application (SPA) và Client-side Routing
+
 Một ứng dụng Vue mặc định là một SPA. Toàn bộ ứng dụng được tải một lần duy nhất, và các "trang" tiếp theo được hiển thị bằng cách thay đổi nội dung trên trang mà không cần tải lại từ server. **Vue Router** là thư viện chính thức của Vue, giúp quản lý việc điều hướng này, đồng bộ URL trên thanh địa chỉ với giao diện đang hiển thị.
 
 ### Cài đặt và thiết lập
-1.  **Cài đặt:**
+
+1. **Cài đặt:**
+
     ```bash
     npm install vue-router@4
     ```
-2.  **Tạo và cấu hình router:**
+
+2. **Tạo và cấu hình router:**
     Tạo một thư mục `src/router` và file `index.js` bên trong.
 
     ```javascript
@@ -65,7 +48,8 @@ Một ứng dụng Vue mặc định là một SPA. Toàn bộ ứng dụng đư
 
     export default router;
     ```
-3.  **Tích hợp vào ứng dụng:**
+
+3. **Tích hợp vào ứng dụng:**
     Trong `src/main.js`, import và bảo Vue sử dụng router.
 
     ```javascript
@@ -83,11 +67,10 @@ Một ứng dụng Vue mặc định là một SPA. Toàn bộ ứng dụng đư
     app.mount('#app');
     ```
 
----
-
 ## 🧑‍🏫 Bài 2: Cấu hình và sử dụng Routes
 
 ### Định nghĩa Routes
+
 Bạn cần tạo các component tương ứng với mỗi trang. Theo quy ước, các component này thường được đặt trong thư mục `src/views` hoặc `src/pages`.
 
 ```javascript
@@ -103,10 +86,12 @@ const routes = [
 ```
 
 ### `<router-view>` và `<router-link>`
--   **`<router-view>`**: Là một component đặc biệt, đóng vai trò như một "placeholder". Vue Router sẽ render component tương ứng với URL hiện tại vào vị trí của `<router-view>`.
--   **`<router-link>`**: Là component để tạo các liên kết điều hướng. Nó sẽ được render thành thẻ `<a>`, nhưng nó ngăn chặn việc tải lại trang.
+
+- **`<router-view>`**: Là một component đặc biệt, đóng vai trò như một "placeholder". Vue Router sẽ render component tương ứng với URL hiện tại vào vị trí của `<router-view>`.
+- **`<router-link>`**: Là component để tạo các liên kết điều hướng. Nó sẽ được render thành thẻ `<a>`, nhưng nó ngăn chặn việc tải lại trang.
 
 **Ví dụ trong `App.vue`:**
+
 ```vue
 <template>
   <div id="app">
@@ -125,11 +110,10 @@ const routes = [
 </template>
 ```
 
----
-
 ## 🧑‍🏫 Bài 3: Dynamic Routes và truy cập Params
 
 ### Route động
+
 Để tạo các trang có URL thay đổi, ví dụ `/products/1`, `/products/2`, chúng ta sử dụng dấu hai chấm `:` trong `path`.
 
 ```javascript
@@ -144,9 +128,11 @@ const routes = [
 ```
 
 ### Truy cập tham số Route
+
 Trong component của trang (ví dụ `ProductDetailPage.vue`), bạn có thể truy cập các tham số này thông qua object `$route` hoặc hook `useRoute`.
 
 **Sử dụng hook `useRoute` (khuyến khích trong Composition API):**
+
 ```vue
 <!-- src/views/ProductDetailPage.vue -->
 <script setup>
@@ -170,11 +156,10 @@ onMounted(() => {
 </template>
 ```
 
----
-
 ## 🧑‍🏫 Bài 4: Lấy dữ liệu từ API (Data Fetching)
 
 ### Sử dụng `fetch` trong hook `onMounted`
+
 `onMounted` là nơi lý tưởng để thực hiện các cuộc gọi API lấy dữ liệu ban đầu cho một trang, vì nó đảm bảo component đã được gắn vào DOM.
 
 ```vue
@@ -200,6 +185,7 @@ onMounted(async () => {
 ```
 
 ### Xử lý trạng thái Loading và Error
+
 Một trải nghiệm người dùng tốt đòi hỏi phải xử lý các trạng thái này.
 
 ```vue
@@ -233,9 +219,11 @@ onMounted(async () => {
 ```
 
 ### Tạo Composable Function `useFetch` để tái sử dụng
+
 Logic fetch dữ liệu (bao gồm loading, error) thường được lặp lại ở nhiều nơi. Chúng ta có thể trích xuất nó ra một "Composable function" (tương tự Custom Hook trong React).
 
 **Tạo file `src/composables/useFetch.js`:**
+
 ```javascript
 // src/composables/useFetch.js
 import { ref, watchEffect } from 'vue';
@@ -263,7 +251,9 @@ export function useFetch(url) {
   return { data, loading, error };
 }
 ```
+
 **Sử dụng trong component:**
+
 ```vue
 <script setup>
 import { useFetch } from '../composables/useFetch';
@@ -274,33 +264,33 @@ const { data: products, loading, error } = useFetch(apiUrl);
 </script>
 ```
 
----
-
 ## 🧪 BÀI TẬP LỚN CUỐI PHẦN: "SimpleStore" với nhiều trang và dữ liệu động
 
 ### Mô tả bài toán
+
 Chuyển đổi ứng dụng "SimpleStore" thành một SPA đa trang thực thụ. Dữ liệu sản phẩm sẽ không còn được hardcode mà sẽ được lấy từ API công khai.
 
 ### Yêu cầu
-1.  **Cấu trúc lại thư mục**:
-    -   Tạo thư mục `src/views`.
-    -   Chuyển các component trang hiện có (`HomePage`, `ShoppingCart`...) vào thư mục này.
-2.  **Thiết lập Vue Router**:
-    -   Cài đặt và cấu hình Vue Router.
-    -   Tạo ít nhất 3 route:
-        -   `/`: `HomePage.vue` - Hiển thị danh sách tất cả sản phẩm.
-        -   `/product/:id`: `ProductDetailPage.vue` - Hiển thị chi tiết một sản phẩm.
-        -   `/cart`: `CartPage.vue` (chính là `ShoppingCart.vue` cũ).
-    -   Cập nhật `App.vue` để chứa `<router-view>` và các `<router-link>` trong header để điều hướng.
-3.  **Lấy dữ liệu động**:
-    -   Trong `HomePage.vue`, sử dụng `onMounted` và `fetch` để lấy danh sách sản phẩm từ `https://fakestoreapi.com/products`.
-    -   Hiển thị trạng thái "Đang tải..." trong khi chờ API trả về.
-4.  **Trang chi tiết sản phẩm**:
-    -   Trong `HomePage.vue`, mỗi `ProductCard` phải là một `<router-link>` dẫn đến trang chi tiết của sản phẩm đó.
-    -   Trong `ProductDetailPage.vue`, sử dụng hook `useRoute` để lấy `id` của sản phẩm từ URL.
-    -   Gọi API `https://fakestoreapi.com/products/:id` để lấy thông tin chi tiết của sản phẩm đó và hiển thị ra.
-5.  **(Nâng cao) Tái sử dụng logic**:
-    -   Tạo một composable `useFetch.js` như ví dụ trên.
-    -   Sử dụng `useFetch` trong cả `HomePage.vue` và `ProductDetailPage.vue` để làm cho code gọn gàng hơn.
+
+1. **Cấu trúc lại thư mục**:
+    - Tạo thư mục `src/views`.
+    - Chuyển các component trang hiện có (`HomePage`, `ShoppingCart`...) vào thư mục này.
+2. **Thiết lập Vue Router**:
+    - Cài đặt và cấu hình Vue Router.
+    - Tạo ít nhất 3 route:
+        - `/`: `HomePage.vue` - Hiển thị danh sách tất cả sản phẩm.
+        - `/product/:id`: `ProductDetailPage.vue` - Hiển thị chi tiết một sản phẩm.
+        - `/cart`: `CartPage.vue` (chính là `ShoppingCart.vue` cũ).
+    - Cập nhật `App.vue` để chứa `<router-view>` và các `<router-link>` trong header để điều hướng.
+3. **Lấy dữ liệu động**:
+    - Trong `HomePage.vue`, sử dụng `onMounted` và `fetch` để lấy danh sách sản phẩm từ `https://fakestoreapi.com/products`.
+    - Hiển thị trạng thái "Đang tải..." trong khi chờ API trả về.
+4. **Trang chi tiết sản phẩm**:
+    - Trong `HomePage.vue`, mỗi `ProductCard` phải là một `<router-link>` dẫn đến trang chi tiết của sản phẩm đó.
+    - Trong `ProductDetailPage.vue`, sử dụng hook `useRoute` để lấy `id` của sản phẩm từ URL.
+    - Gọi API `https://fakestoreapi.com/products/:id` để lấy thông tin chi tiết của sản phẩm đó và hiển thị ra.
+5. **(Nâng cao) Tái sử dụng logic**:
+    - Tạo một composable `useFetch.js` như ví dụ trên.
+    - Sử dụng `useFetch` trong cả `HomePage.vue` và `ProductDetailPage.vue` để làm cho code gọn gàng hơn.
 
 **Mục tiêu:** Kết thúc phần này, bạn sẽ có một ứng dụng Vue SPA hoàn chỉnh, có thể điều hướng giữa các trang, lấy dữ liệu từ một nguồn bên ngoài, và có cấu trúc code tốt thông qua việc tái sử dụng logic.

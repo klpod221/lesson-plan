@@ -1,90 +1,13 @@
-# 📘 PHẦN 5: THUẬT TOÁN ỨNG DỤNG VÀ TỐI ƯU HÓA
+---
+prev:
+  text: '🔍 Cấu Trúc Dữ Liệu Chuyên Biệt'
+  link: '/DSA/Part4'
+next:
+  text: '📝 Module 6: Nhập Môn HTML'
+  link: '/WEB/Part1'
+---
 
-- [📘 PHẦN 5: THUẬT TOÁN ỨNG DỤNG VÀ TỐI ƯU HÓA](#-phần-5-thuật-toán-ứng-dụng-và-tối-ưu-hóa)
-  - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
-  - [🧑‍🏫 Bài 1: Thuật toán xử lý chuỗi](#-bài-1-thuật-toán-xử-lý-chuỗi)
-    - [1. Tìm kiếm chuỗi con (String Matching)](#1-tìm-kiếm-chuỗi-con-string-matching)
-      - [a. Thuật toán Brute Force](#a-thuật-toán-brute-force)
-      - [b. Thuật toán Knuth-Morris-Pratt (KMP)](#b-thuật-toán-knuth-morris-pratt-kmp)
-      - [c. Thuật toán Boyer-Moore](#c-thuật-toán-boyer-moore)
-      - [d. Thuật toán Rabin-Karp](#d-thuật-toán-rabin-karp)
-    - [2. Xử lý chuỗi nâng cao](#2-xử-lý-chuỗi-nâng-cao)
-      - [a. Thuật toán Z](#a-thuật-toán-z)
-      - [b. Thuật toán Manacher (tìm chuỗi đối xứng)](#b-thuật-toán-manacher-tìm-chuỗi-đối-xứng)
-      - [c. Thuật toán Suffix Array và LCP Array](#c-thuật-toán-suffix-array-và-lcp-array)
-    - [3. Ứng dụng của thuật toán xử lý chuỗi](#3-ứng-dụng-của-thuật-toán-xử-lý-chuỗi)
-      - [a. Tìm kiếm mẫu trong văn bản và DNA](#a-tìm-kiếm-mẫu-trong-văn-bản-và-dna)
-      - [b. Tìm chuỗi con chung dài nhất (Longest Common Substring)](#b-tìm-chuỗi-con-chung-dài-nhất-longest-common-substring)
-      - [c. Tìm chuỗi con chung dài nhất cho nhiều chuỗi](#c-tìm-chuỗi-con-chung-dài-nhất-cho-nhiều-chuỗi)
-      - [d. Nén chuỗi (Run-Length Encoding)](#d-nén-chuỗi-run-length-encoding)
-    - [4. So sánh các thuật toán tìm kiếm chuỗi](#4-so-sánh-các-thuật-toán-tìm-kiếm-chuỗi)
-  - [🧑‍🏫 Bài 2: Kỹ thuật hai con trỏ và cửa sổ trượt](#-bài-2-kỹ-thuật-hai-con-trỏ-và-cửa-sổ-trượt)
-    - [1. Kỹ thuật hai con trỏ (Two Pointers)](#1-kỹ-thuật-hai-con-trỏ-two-pointers)
-      - [a. Hai con trỏ cùng hướng (Same Direction)](#a-hai-con-trỏ-cùng-hướng-same-direction)
-      - [b. Hai con trỏ ngược hướng (Opposite Direction)](#b-hai-con-trỏ-ngược-hướng-opposite-direction)
-      - [c. Hai con trỏ trên hai mảng](#c-hai-con-trỏ-trên-hai-mảng)
-    - [2. Kỹ thuật cửa sổ trượt (Sliding Window)](#2-kỹ-thuật-cửa-sổ-trượt-sliding-window)
-      - [a. Cửa sổ cố định (Fixed Size Window)](#a-cửa-sổ-cố-định-fixed-size-window)
-      - [b. Cửa sổ thay đổi kích thước (Variable Size Window)](#b-cửa-sổ-thay-đổi-kích-thước-variable-size-window)
-    - [3. Ứng dụng và bài toán thực tế](#3-ứng-dụng-và-bài-toán-thực-tế)
-      - [a. Tìm tập con có tổng bằng một giá trị cho trước](#a-tìm-tập-con-có-tổng-bằng-một-giá-trị-cho-trước)
-      - [b. Tìm ba số có tổng bằng 0](#b-tìm-ba-số-có-tổng-bằng-0)
-      - [c. Tìm tất cả các anagram trong chuỗi](#c-tìm-tất-cả-các-anagram-trong-chuỗi)
-    - [4. So sánh hai kỹ thuật](#4-so-sánh-hai-kỹ-thuật)
-  - [🧑‍🏫 Bài 3: Thuật toán chia để trị](#-bài-3-thuật-toán-chia-để-trị)
-    - [1. Nguyên lý chia để trị](#1-nguyên-lý-chia-để-trị)
-      - [Cấu trúc chung của thuật toán chia để trị](#cấu-trúc-chung-của-thuật-toán-chia-để-trị)
-    - [2. Các thuật toán chia để trị cơ bản](#2-các-thuật-toán-chia-để-trị-cơ-bản)
-      - [a. Merge Sort](#a-merge-sort)
-      - [b. Quick Sort](#b-quick-sort)
-      - [c. Binary Search](#c-binary-search)
-    - [3. Thuật toán chia để trị nâng cao](#3-thuật-toán-chia-để-trị-nâng-cao)
-      - [a. Bài toán tìm số đa số (Majority Element)](#a-bài-toán-tìm-số-đa-số-majority-element)
-      - [b. Bài toán tìm cặp điểm gần nhất (Closest Pair of Points)](#b-bài-toán-tìm-cặp-điểm-gần-nhất-closest-pair-of-points)
-      - [c. Thuật toán Strassen nhân ma trận](#c-thuật-toán-strassen-nhân-ma-trận)
-  - [🧑‍🏫 Bài 4: Tìm kiếm theo không gian trạng thái](#-bài-4-tìm-kiếm-theo-không-gian-trạng-thái)
-    - [1. Giới thiệu về không gian trạng thái](#1-giới-thiệu-về-không-gian-trạng-thái)
-    - [2. Tìm kiếm không thông báo (Uninformed Search)](#2-tìm-kiếm-không-thông-báo-uninformed-search)
-      - [a. Tìm kiếm theo chiều rộng (BFS)](#a-tìm-kiếm-theo-chiều-rộng-bfs)
-      - [b. Tìm kiếm theo chiều sâu (DFS)](#b-tìm-kiếm-theo-chiều-sâu-dfs)
-      - [c. Tìm kiếm theo chiều sâu có giới hạn (Depth-Limited Search)](#c-tìm-kiếm-theo-chiều-sâu-có-giới-hạn-depth-limited-search)
-      - [d. Tìm kiếm theo chiều sâu lặp (Iterative Deepening DFS)](#d-tìm-kiếm-theo-chiều-sâu-lặp-iterative-deepening-dfs)
-    - [3. Các thuật toán tìm kiếm được thông báo (Informed Search)](#3-các-thuật-toán-tìm-kiếm-được-thông-báo-informed-search)
-      - [a. Tìm kiếm tốt nhất đầu tiên (Best-First Search)](#a-tìm-kiếm-tốt-nhất-đầu-tiên-best-first-search)
-      - [b. Thuật toán A\* Search](#b-thuật-toán-a-search)
-    - [4. Các chiến lược heuristic phổ biến](#4-các-chiến-lược-heuristic-phổ-biến)
-      - [a. Khoảng cách Manhattan](#a-khoảng-cách-manhattan)
-      - [b. Khoảng cách Euclidean](#b-khoảng-cách-euclidean)
-      - [c. Số ô sai vị trí (cho bài toán N-puzzle)](#c-số-ô-sai-vị-trí-cho-bài-toán-n-puzzle)
-    - [5. Ứng dụng trong các bài toán thực tế](#5-ứng-dụng-trong-các-bài-toán-thực-tế)
-      - [a. Bài toán 8-puzzle (8-sliding puzzle)](#a-bài-toán-8-puzzle-8-sliding-puzzle)
-      - [b. Bài toán tìm đường đi trong mê cung](#b-bài-toán-tìm-đường-đi-trong-mê-cung)
-  - [🧑‍🏫 Bài 5: Phân tích và tối ưu hóa thuật toán](#-bài-5-phân-tích-và-tối-ưu-hóa-thuật-toán)
-    - [1. Phân tích độ phức tạp thuật toán](#1-phân-tích-độ-phức-tạp-thuật-toán)
-      - [a. Các ký hiệu tiệm cận (Asymptotic notation)](#a-các-ký-hiệu-tiệm-cận-asymptotic-notation)
-      - [b. Phân tích trường hợp tốt nhất, trung bình và xấu nhất](#b-phân-tích-trường-hợp-tốt-nhất-trung-bình-và-xấu-nhất)
-      - [c. Phân tích không gian và thời gian](#c-phân-tích-không-gian-và-thời-gian)
-    - [2. Các kỹ thuật tối ưu hóa thuật toán](#2-các-kỹ-thuật-tối-ưu-hóa-thuật-toán)
-      - [a. Memoization và Dynamic Programming](#a-memoization-và-dynamic-programming)
-      - [b. Tối ưu hóa vòng lặp và điều kiện](#b-tối-ưu-hóa-vòng-lặp-và-điều-kiện)
-      - [c. Sử dụng cấu trúc dữ liệu thích hợp](#c-sử-dụng-cấu-trúc-dữ-liệu-thích-hợp)
-      - [d. Trao đổi giữa thời gian và không gian](#d-trao-đổi-giữa-thời-gian-và-không-gian)
-    - [3. Kỹ thuật profile và benchmark](#3-kỹ-thuật-profile-và-benchmark)
-      - [a. Đo thời gian thực thi](#a-đo-thời-gian-thực-thi)
-      - [b. Đo lường sử dụng bộ nhớ](#b-đo-lường-sử-dụng-bộ-nhớ)
-      - [c. Xác định bottlenecks](#c-xác-định-bottlenecks)
-    - [4. Các nguyên tắc tối ưu hóa thuật toán](#4-các-nguyên-tắc-tối-ưu-hóa-thuật-toán)
-      - [a. Nguyên tắc "profile trước khi tối ưu"](#a-nguyên-tắc-profile-trước-khi-tối-ưu)
-      - [b. Cân nhắc giữa khả năng đọc và hiệu suất](#b-cân-nhắc-giữa-khả-năng-đọc-và-hiệu-suất)
-      - [c. Tránh tối ưu hóa quá sớm](#c-tránh-tối-ưu-hóa-quá-sớm)
-      - [d. Tối ưu theo trường hợp sử dụng thực tế](#d-tối-ưu-theo-trường-hợp-sử-dụng-thực-tế)
-  - [🧑‍💻 Bài tập lớn: Xây dựng ứng dụng GPS đơn giản dựa trên thuật toán đồ thị](#-bài-tập-lớn-xây-dựng-ứng-dụng-gps-đơn-giản-dựa-trên-thuật-toán-đồ-thị)
-    - [1. Mô tả dự án](#1-mô-tả-dự-án)
-    - [2. Các thành phần chính](#2-các-thành-phần-chính)
-      - [a. Mô hình hóa bản đồ thành đồ thị](#a-mô-hình-hóa-bản-đồ-thành-đồ-thị)
-      - [b. Thuật toán tìm đường đi ngắn nhất](#b-thuật-toán-tìm-đường-đi-ngắn-nhất)
-      - [c. Giao diện người dùng đơn giản](#c-giao-diện-người-dùng-đơn-giản)
-    - [3. Các cải tiến và mở rộng](#3-các-cải-tiến-và-mở-rộng)
+# 📘 PHẦN 5: THUẬT TOÁN ỨNG DỤNG VÀ TỐI ƯU HÓA
 
 ## 🎯 Mục tiêu tổng quát
 
@@ -94,8 +17,6 @@
 - Nắm vững các kỹ thuật tìm kiếm trong không gian trạng thái
 - Biết cách phân tích và tối ưu hóa thuật toán hiệu quả
 - Xây dựng được ứng dụng thực tế sử dụng các thuật toán đồ thị
-
----
 
 ## 🧑‍🏫 Bài 1: Thuật toán xử lý chuỗi
 
@@ -595,8 +516,6 @@ public static String compress(String s) {
 
 Với n là độ dài chuỗi chính và m là độ dài mẫu tìm kiếm.
 
----
-
 ## 🧑‍🏫 Bài 2: Kỹ thuật hai con trỏ và cửa sổ trượt
 
 ### 1. Kỹ thuật hai con trỏ (Two Pointers)
@@ -1071,8 +990,6 @@ public static List<Integer> findAnagrams(String s, String p) {
 | **Kích thước**       | Không duy trì kích thước cố định      | Có thể cố định hoặc thay đổi                   |
 | **Độ phức tạp**      | Thường là O(n)                        | Thường là O(n)                                 |
 | **Bài toán phù hợp** | Mảng đã sắp xếp, tìm tổng...          | Dãy con liên tiếp, chuỗi con...                |
-
----
 
 ## 🧑‍🏫 Bài 3: Thuật toán chia để trị
 

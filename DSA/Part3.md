@@ -1,52 +1,13 @@
-# 📘 PHẦN 3: THUẬT TOÁN NÂNG CAO
+---
+prev:
+  text: '🌐 Cấu Trúc Dữ Liệu Nâng Cao'
+  link: '/DSA/Part2'
+next:
+  text: '🔍 Cấu Trúc Dữ Liệu Chuyên Biệt'
+  link: '/DSA/Part4'
+---
 
-- [📘 PHẦN 3: THUẬT TOÁN NÂNG CAO](#-phần-3-thuật-toán-nâng-cao)
-  - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
-  - [🧑‍🏫 Bài 1: Thuật toán đệ quy](#-bài-1-thuật-toán-đệ-quy)
-    - [Khái niệm về đệ quy](#khái-niệm-về-đệ-quy)
-      - [Ví dụ 1: Tính giai thừa](#ví-dụ-1-tính-giai-thừa)
-      - [Ví dụ 2: Dãy Fibonacci](#ví-dụ-2-dãy-fibonacci)
-      - [Ví dụ 3: Tháp Hà Nội](#ví-dụ-3-tháp-hà-nội)
-    - [Đệ quy đuôi (Tail Recursion)](#đệ-quy-đuôi-tail-recursion)
-    - [Ưu và nhược điểm của đệ quy](#ưu-và-nhược-điểm-của-đệ-quy)
-  - [🧑‍🏫 Bài 2: Thuật toán sắp xếp nâng cao](#-bài-2-thuật-toán-sắp-xếp-nâng-cao)
-    - [Quick Sort](#quick-sort)
-    - [Merge Sort](#merge-sort)
-    - [Heap Sort](#heap-sort)
-    - [So sánh các thuật toán sắp xếp nâng cao](#so-sánh-các-thuật-toán-sắp-xếp-nâng-cao)
-  - [🧑‍🏫 Bài 3: Các thuật toán Graph](#-bài-3-các-thuật-toán-graph)
-    - [Biểu diễn đồ thị](#biểu-diễn-đồ-thị)
-      - [Ma trận kề (Adjacency Matrix)](#ma-trận-kề-adjacency-matrix)
-      - [Danh sách kề (Adjacency List)](#danh-sách-kề-adjacency-list)
-    - [Duyệt đồ thị](#duyệt-đồ-thị)
-      - [Duyệt theo chiều sâu (DFS - Depth-First Search)](#duyệt-theo-chiều-sâu-dfs---depth-first-search)
-      - [Duyệt theo chiều rộng (BFS - Breadth-First Search)](#duyệt-theo-chiều-rộng-bfs---breadth-first-search)
-    - [Thuật toán tìm đường đi ngắn nhất](#thuật-toán-tìm-đường-đi-ngắn-nhất)
-      - [Thuật toán Dijkstra](#thuật-toán-dijkstra)
-      - [Thuật toán Bellman-Ford](#thuật-toán-bellman-ford)
-      - [Thuật toán Floyd-Warshall](#thuật-toán-floyd-warshall)
-    - [So sánh các thuật toán tìm đường đi ngắn nhất](#so-sánh-các-thuật-toán-tìm-đường-đi-ngắn-nhất)
-  - [🧑‍🏫 Bài 4: Thuật toán tham lam (Greedy Algorithms)](#-bài-4-thuật-toán-tham-lam-greedy-algorithms)
-    - [Khái niệm thuật toán tham lam](#khái-niệm-thuật-toán-tham-lam)
-    - [Ứng dụng của thuật toán tham lam](#ứng-dụng-của-thuật-toán-tham-lam)
-      - [Bài toán tìm số đồng xu tối thiểu](#bài-toán-tìm-số-đồng-xu-tối-thiểu)
-      - [Bài toán lập lịch công việc](#bài-toán-lập-lịch-công-việc)
-    - [Thuật toán Huffman Coding](#thuật-toán-huffman-coding)
-    - [Đặc điểm của thuật toán tham lam](#đặc-điểm-của-thuật-toán-tham-lam)
-  - [🧑‍🏫 Bài 5: Quy hoạch động (Dynamic Programming)](#-bài-5-quy-hoạch-động-dynamic-programming)
-    - [Khái niệm quy hoạch động (DP)](#khái-niệm-quy-hoạch-động-dp)
-    - [Bài toán Fibonacci](#bài-toán-fibonacci)
-      - [Fibonacci với đệ quy thông thường](#fibonacci-với-đệ-quy-thông-thường)
-      - [Fibonacci với quy hoạch động (memoization - top-down)](#fibonacci-với-quy-hoạch-động-memoization---top-down)
-      - [Fibonacci với quy hoạch động (tabulation - bottom-up)](#fibonacci-với-quy-hoạch-động-tabulation---bottom-up)
-    - [Bài toán dãy con tăng dài nhất (Longest Increasing Subsequence - LIS)](#bài-toán-dãy-con-tăng-dài-nhất-longest-increasing-subsequence---lis)
-    - [Bài toán balo (Knapsack Problem)](#bài-toán-balo-knapsack-problem)
-    - [Bài toán tìm đường đi xa nhất (Longest Path in DAG)](#bài-toán-tìm-đường-đi-xa-nhất-longest-path-in-dag)
-    - [So sánh quy hoạch động và thuật toán tham lam](#so-sánh-quy-hoạch-động-và-thuật-toán-tham-lam)
-    - [Các bước giải quyết bài toán bằng quy hoạch động](#các-bước-giải-quyết-bài-toán-bằng-quy-hoạch-động)
-  - [🧑‍💻 Bài tập lớn cuối phần: Xây dựng ứng dụng tìm đường đi ngắn nhất](#-bài-tập-lớn-cuối-phần-xây-dựng-ứng-dụng-tìm-đường-đi-ngắn-nhất)
-    - [Mô tả bài toán](#mô-tả-bài-toán)
-    - [Kết quả chạy chương trình (Ví dụ)](#kết-quả-chạy-chương-trình-ví-dụ)
+# 📘 PHẦN 3: THUẬT TOÁN NÂNG CAO
 
 ## 🎯 Mục tiêu tổng quát
 
@@ -54,8 +15,6 @@
 - Biết cách áp dụng các kỹ thuật thiết kế thuật toán vào bài toán thực tế.
 - Phân tích được ưu nhược điểm của mỗi thuật toán và lựa chọn thuật toán phù hợp.
 - Nắm vững cách tiếp cận và giải quyết các bài toán phức tạp.
-
----
 
 ## 🧑‍🏫 Bài 1: Thuật toán đệ quy
 
@@ -140,8 +99,6 @@ public static int factorial(int n) {
 | Mã nguồn ngắn gọn, dễ hiểu | Chi phí lưu trữ stack cao |
 | Tự nhiên cho một số bài toán | Có thể gây tràn stack với đầu vào lớn |
 | Dễ dàng cài đặt một số thuật toán (ví dụ DFS) | Thường chậm hơn giải pháp vòng lặp |
-
----
 
 ## 🧑‍🏫 Bài 2: Thuật toán sắp xếp nâng cao
 
@@ -313,8 +270,6 @@ private static void heapify(int[] arr, int n, int i) {
 | Quick Sort | O(n log n)           | O(n²)              | O(log n) | Không   | Nhanh nhất trên thực tế với dữ liệu ngẫu nhiên      |
 | Merge Sort | O(n log n)           | O(n log n)         | O(n)     | Có      | Hiệu quả với danh sách liên kết, đảm bảo O(n log n) |
 | Heap Sort  | O(n log n)           | O(n log n)         | O(1)     | Không   | Không cần bộ nhớ phụ, ít sử dụng trong thực tế      |
-
----
 
 ## 🧑‍🏫 Bài 3: Các thuật toán Graph
 
@@ -742,8 +697,6 @@ public class FloydWarshall {
 | Bellman-Ford   | O(V\*E)     | Có                     | Có                     | Định tuyến mạng, forex trading                         |
 | Floyd-Warshall | O(V³)       | Có                     | Có                     | Tất cả các cặp đường đi ngắn nhất, ma trận khoảng cách |
 
----
-
 ## 🧑‍🏫 Bài 4: Thuật toán tham lam (Greedy Algorithms)
 
 ### Khái niệm thuật toán tham lam
@@ -939,8 +892,6 @@ public class HuffmanCoding {
 - Huffman Coding (nén dữ liệu)
 - Bài toán lập lịch công việc
 - Bài toán đổi tiền với một số hệ thống tiền tệ
-
----
 
 ## 🧑‍🏫 Bài 5: Quy hoạch động (Dynamic Programming)
 
@@ -1139,8 +1090,6 @@ private static void topologicalSortUtil(int v, boolean[] visited, Stack<Integer>
 2. Định nghĩa đệ quy về giá trị của lời giải tối ưu
 3. Tính toán giá trị của lời giải tối ưu (bottom-up hoặc top-down)
 4. Xây dựng lời giải tối ưu từ thông tin đã tính toán (nếu cần)
-
----
 
 ## 🧑‍💻 Bài tập lớn cuối phần: Xây dựng ứng dụng tìm đường đi ngắn nhất
 

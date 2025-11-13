@@ -1,39 +1,5 @@
 # 📘 PHẦN 4: GIỚI THIỆU C++ VÀ LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG
 
-- [📘 PHẦN 4: GIỚI THIỆU C++ VÀ LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG](#-phần-4-giới-thiệu-c-và-lập-trình-hướng-đối-tượng)
-  - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
-  - [🧑‍🏫 Bài 1: Từ C sang C++ - Những khác biệt cơ bản](#-bài-1-từ-c-sang-c---những-khác-biệt-cơ-bản)
-    - [Hello World và namespace](#hello-world-và-namespace)
-    - [Input/Output với cin/cout](#inputoutput-với-cincout)
-    - [Biến và references](#biến-và-references)
-    - [Function overloading](#function-overloading)
-    - [Default parameters](#default-parameters)
-    - [Dynamic memory với new/delete](#dynamic-memory-với-newdelete)
-  - [🧑‍🏫 Bài 2: Classes và Objects](#-bài-2-classes-và-objects)
-    - [Định nghĩa class cơ bản](#định-nghĩa-class-cơ-bản)
-    - [Access specifiers](#access-specifiers)
-    - [Member functions](#member-functions)
-    - [Getters và Setters](#getters-và-setters)
-  - [🧑‍🏫 Bài 3: Constructors và Destructors](#-bài-3-constructors-và-destructors)
-    - [Constructor](#constructor)
-    - [Constructor overloading](#constructor-overloading)
-    - [Destructor](#destructor)
-    - [Copy constructor](#copy-constructor)
-    - [Member initializer list](#member-initializer-list)
-  - [🧑‍🏫 Bài 4: Encapsulation và Data Hiding](#-bài-4-encapsulation-và-data-hiding)
-    - [Encapsulation trong thực tế](#encapsulation-trong-thực-tế)
-    - [Friend functions và friend classes](#friend-functions-và-friend-classes)
-    - [Static members](#static-members)
-    - [Const members](#const-members)
-  - [🧑‍🏫 Bài 5: Operator Overloading cơ bản](#-bài-5-operator-overloading-cơ-bản)
-    - [Overloading arithmetic operators](#overloading-arithmetic-operators)
-    - [Overloading comparison operators](#overloading-comparison-operators)
-    - [Overloading stream operators](#overloading-stream-operators)
-    - [Overloading subscript operator](#overloading-subscript-operator)
-  - [🧪 BÀI TẬP LỚN CUỐI PHẦN: Xây dựng lớp BankAccount](#-bài-tập-lớn-cuối-phần-xây-dựng-lớp-bankaccount)
-    - [Mô tả bài toán](#mô-tả-bài-toán)
-    - [Yêu cầu](#yêu-cầu)
-
 ## 🎯 Mục tiêu tổng quát
 
 - Hiểu sự khác biệt giữa C và C++
@@ -42,8 +8,6 @@
 - Hiểu về constructors, destructors
 - Áp dụng encapsulation và data hiding
 - Sử dụng operator overloading cơ bản
-
----
 
 ## 🧑‍🏫 Bài 1: Từ C sang C++ - Những khác biệt cơ bản
 
@@ -311,8 +275,6 @@ int main() {
 }
 ```
 
----
-
 ## 🧑‍🏫 Bài 2: Classes và Objects
 
 ### Định nghĩa class cơ bản
@@ -572,8 +534,6 @@ int main() {
     return 0;
 }
 ```
-
----
 
 ## 🧑‍🏫 Bài 3: Constructors và Destructors
 
@@ -860,8 +820,6 @@ int main() {
 }
 ```
 
----
-
 ## 🧑‍🏫 Bài 4: Encapsulation và Data Hiding
 
 ### Encapsulation trong thực tế
@@ -1125,8 +1083,6 @@ int main() {
 }
 ```
 
----
-
 ## 🧑‍🏫 Bài 5: Operator Overloading cơ bản
 
 ### Overloading arithmetic operators
@@ -1386,8 +1342,6 @@ int main() {
     return 0;
 }
 ```
-
----
 
 ## 🧪 BÀI TẬP LỚN CUỐI PHẦN: Xây dựng lớp BankAccount
 

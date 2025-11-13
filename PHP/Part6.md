@@ -1,43 +1,13 @@
-# 📘 PHẦN 6: PHÁT TRIỂN VÀ TRIỂN KHAI CHUYÊN NGHIỆP
+---
+prev:
+  text: '🚀 Xu Hướng Hiện Đại'
+  link: '/PHP/Part5'
+next:
+  text: '🐳 Module 8: Docker - Nền Tảng'
+  link: '/DEVOPS/Docker1'
+---
 
-- [📘 PHẦN 6: PHÁT TRIỂN VÀ TRIỂN KHAI CHUYÊN NGHIỆP](#-phần-6-phát-triển-và-triển-khai-chuyên-nghiệp)
-  - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
-  - [🧑‍🏫 Bài 26: Quy trình phát triển phần mềm chuyên nghiệp](#-bài-26-quy-trình-phát-triển-phần-mềm-chuyên-nghiệp)
-    - [Git Flow và Quản lý phiên bản](#git-flow-và-quản-lý-phiên-bản)
-    - [Code Reviews và Pull Requests](#code-reviews-và-pull-requests)
-    - [Áp dụng TDD (Test-Driven Development)](#áp-dụng-tdd-test-driven-development)
-    - [Áp dụng DDD (Domain-Driven Design)](#áp-dụng-ddd-domain-driven-design)
-    - [Quy trình làm việc với Jira/Trello](#quy-trình-làm-việc-với-jiratrello)
-  - [🧑‍🏫 Bài 27: CI/CD cho ứng dụng PHP](#-bài-27-cicd-cho-ứng-dụng-php)
-    - [Giới thiệu CI/CD](#giới-thiệu-cicd)
-    - [Thiết lập PHPUnit trong dự án](#thiết-lập-phpunit-trong-dự-án)
-    - [Code Quality Tools](#code-quality-tools)
-    - [PHP Static Analysis Tool (PHPStan)](#php-static-analysis-tool-phpstan)
-    - [Triển khai tự động với Laravel Forge/Envoyer](#triển-khai-tự-động-với-laravel-forgeenvoyer)
-    - [Zero-Downtime Deployment](#zero-downtime-deployment)
-  - [🧑‍🏫 Bài 28: Giám sát và logging ứng dụng PHP](#-bài-28-giám-sát-và-logging-ứng-dụng-php)
-    - [Monolog trong PHP](#monolog-trong-php)
-    - [Giám sát với ELK Stack (Elasticsearch, Logstash, Kibana)](#giám-sát-với-elk-stack-elasticsearch-logstash-kibana)
-    - [Cấu hình Logstash](#cấu-hình-logstash)
-    - [Monitoring với Prometheus và Grafana](#monitoring-với-prometheus-và-grafana)
-    - [Prometheus Metrics Endpoint](#prometheus-metrics-endpoint)
-    - [Xử lý Exception và Error Tracking](#xử-lý-exception-và-error-tracking)
-  - [🧑‍🏫 Bài 29: Performance tuning và profiling](#-bài-29-performance-tuning-và-profiling)
-    - [Công cụ Profiling cho PHP](#công-cụ-profiling-cho-php)
-    - [Blackfire.io Integration](#blackfireio-integration)
-    - [Database Query Optimization](#database-query-optimization)
-    - [Caching Strategies](#caching-strategies)
-    - [Load Testing với k6](#load-testing-với-k6)
-    - [Best Practices cho Performance](#best-practices-cho-performance)
-  - [🧑‍🏫 Bài 30: Chuẩn bị cho phỏng vấn PHP và phát triển sự nghiệp](#-bài-30-chuẩn-bị-cho-phỏng-vấn-php-và-phát-triển-sự-nghiệp)
-    - [Câu hỏi phỏng vấn PHP thường gặp](#câu-hỏi-phỏng-vấn-php-thường-gặp)
-    - [Porfolio và Open Source](#porfolio-và-open-source)
-    - [Career Path trong PHP](#career-path-trong-php)
-    - [Technical Interview Preparation](#technical-interview-preparation)
-  - [🧪 DỰ ÁN TỔNG HỢP CUỐI KHÓA: Xây dựng hệ thống E-Learning hoàn chỉnh](#-dự-án-tổng-hợp-cuối-khóa-xây-dựng-hệ-thống-e-learning-hoàn-chỉnh)
-    - [Yêu cầu](#yêu-cầu)
-    - [Cấu trúc dự án](#cấu-trúc-dự-án)
-    - [Tiêu chí đánh giá](#tiêu-chí-đánh-giá)
+# 📘 PHẦN 6: PHÁT TRIỂN VÀ TRIỂN KHAI CHUYÊN NGHIỆP
 
 ## 🎯 Mục tiêu tổng quát
 
@@ -46,8 +16,6 @@
 - Hiểu và áp dụng các kỹ thuật giám sát, logging hiện đại cho ứng dụng PHP
 - Tối ưu hiệu năng ứng dụng thông qua các công cụ profiling và kỹ thuật cải thiện performance
 - Chuẩn bị kiến thức và kỹ năng cần thiết cho phỏng vấn và phát triển sự nghiệp trong lĩnh vực PHP
-
----
 
 ## 🧑‍🏫 Bài 26: Quy trình phát triển phần mềm chuyên nghiệp
 
@@ -292,8 +260,6 @@ class MySqlUserRepository implements UserRepository {
    - Điều gì cần cải thiện?
    - Các hành động cho sprint tiếp theo
 
----
-
 ## 🧑‍🏫 Bài 27: CI/CD cho ứng dụng PHP
 
 ### Giới thiệu CI/CD
@@ -518,8 +484,6 @@ Quy trình Zero-Downtime Deployment:
 8. **Dọn dẹp**:
 
    - Giữ X releases gần nhất, xóa các release cũ
-
----
 
 ## 🧑‍🏫 Bài 28: Giám sát và logging ứng dụng PHP
 
@@ -766,8 +730,6 @@ try {
 }
 ?>
 ```
-
----
 
 ## 🧑‍🏫 Bài 29: Performance tuning và profiling
 
@@ -1102,8 +1064,6 @@ export default function () {
    ?>
    ```
 
----
-
 ## 🧑‍🏫 Bài 30: Chuẩn bị cho phỏng vấn PHP và phát triển sự nghiệp
 
 ### Câu hỏi phỏng vấn PHP thường gặp
@@ -1333,8 +1293,6 @@ Theo dõi và cập nhật kiến thức PHP:
 */
 ?>
 ```
-
----
 
 ## 🧪 DỰ ÁN TỔNG HỢP CUỐI KHÓA: Xây dựng hệ thống E-Learning hoàn chỉnh
 

@@ -1,26 +1,13 @@
-# 📘 PHẦN 2: XỬ LÝ TÀI LIỆU CHUYÊN NGÀNH
+---
+prev:
+  text: '🔍 Tìm Kiếm Thông Tin'
+  link: '/SELF-LEARNING/Part1'
+next:
+  text: '🧠 Kỹ Thuật Tự Học'
+  link: '/SELF-LEARNING/Part3'
+---
 
-- [📘 PHẦN 2: XỬ LÝ TÀI LIỆU CHUYÊN NGÀNH](#-phần-2-xử-lý-tài-liệu-chuyên-ngành)
-  - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
-  - [🧑‍🏫 Bài 1: Đọc và hiểu tài liệu kỹ thuật](#-bài-1-đọc-và-hiểu-tài-liệu-kỹ-thuật)
-    - [Cấu trúc của tài liệu kỹ thuật](#cấu-trúc-của-tài-liệu-kỹ-thuật)
-    - [Chiến lược đọc hiệu quả](#chiến-lược-đọc-hiệu-quả)
-    - [Hiểu thuật ngữ chuyên ngành](#hiểu-thuật-ngữ-chuyên-ngành)
-    - [Giải mã hình ảnh kỹ thuật và biểu đồ](#giải-mã-hình-ảnh-kỹ-thuật-và-biểu-đồ)
-  - [🧑‍🏫 Bài 2: Xử lý paper nghiên cứu và bài báo học thuật](#-bài-2-xử-lý-paper-nghiên-cứu-và-bài-báo-học-thuật)
-    - [Cấu trúc của một paper nghiên cứu](#cấu-trúc-của-một-paper-nghiên-cứu)
-    - [Kỹ thuật xử lý paper khó](#kỹ-thuật-xử-lý-paper-khó)
-    - [Theo dõi nghiên cứu trong lĩnh vực](#theo-dõi-nghiên-cứu-trong-lĩnh-vực)
-  - [🧑‍🏫 Bài 3: Tài liệu mã nguồn mở và API Documentation](#-bài-3-tài-liệu-mã-nguồn-mở-và-api-documentation)
-    - [Làm việc với API Documentation](#làm-việc-với-api-documentation)
-    - [Nghiên cứu mã nguồn mở](#nghiên-cứu-mã-nguồn-mở)
-    - [Đọc hiểu và sử dụng documentation tools](#đọc-hiểu-và-sử-dụng-documentation-tools)
-  - [🧑‍🏫 Bài 4: Tạo tài liệu và chia sẻ kiến thức](#-bài-4-tạo-tài-liệu-và-chia-sẻ-kiến-thức)
-    - [Nguyên tắc viết tài liệu kỹ thuật hiệu quả](#nguyên-tắc-viết-tài-liệu-kỹ-thuật-hiệu-quả)
-    - [Tạo tài liệu mã nguồn](#tạo-tài-liệu-mã-nguồn)
-    - [Chia sẻ kiến thức với cộng đồng](#chia-sẻ-kiến-thức-với-cộng-đồng)
-    - [Công cụ hỗ trợ tạo tài liệu](#công-cụ-hỗ-trợ-tạo-tài-liệu)
-  - [🧪 BÀI TẬP THỰC HÀNH](#-bài-tập-thực-hành)
+# 📘 PHẦN 2: XỬ LÝ TÀI LIỆU CHUYÊN NGÀNH
 
 ## 🎯 Mục tiêu tổng quát
 
@@ -28,8 +15,6 @@
 - Phát triển kỹ năng đọc và hiểu các paper nghiên cứu công nghệ
 - Thành thạo việc sử dụng tài liệu API và mã nguồn mở
 - Học cách tạo tài liệu chuyên nghiệp để chia sẻ kiến thức
-
----
 
 ## 🧑‍🏫 Bài 1: Đọc và hiểu tài liệu kỹ thuật
 
@@ -104,8 +89,6 @@
    - Theo dõi luồng dữ liệu/thông tin/quá trình
    - Đặt câu hỏi về từng phần chưa hiểu
 
----
-
 ## 🧑‍🏫 Bài 2: Xử lý paper nghiên cứu và bài báo học thuật
 
 ### Cấu trúc của một paper nghiên cứu
@@ -170,8 +153,6 @@
    - Công bố ở hội nghị/tạp chí uy tín (ICML, NeurIPS, CVPR, ACL, etc.)
    - Paper survey hoặc tổng quan (review papers)
    - Được đề cập nhiều trong cộng đồng
-
----
 
 ## 🧑‍🏫 Bài 3: Tài liệu mã nguồn mở và API Documentation
 
@@ -249,8 +230,6 @@
    - Sử dụng công cụ phân tích tĩnh code
    - Dùng IDE để khám phá code structure
    - Hỏi cộng đồng qua Stack Overflow, Reddit, Discord
-
----
 
 ## 🧑‍🏫 Bài 4: Tạo tài liệu và chia sẻ kiến thức
 
@@ -347,8 +326,6 @@
    - GitHub Actions để build và deploy docs
    - CI/CD pipelines cho documentation
    - API documentation generators
-
----
 
 ## 🧪 BÀI TẬP THỰC HÀNH
 

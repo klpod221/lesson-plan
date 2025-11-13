@@ -1,23 +1,5 @@
 # 📘 PHẦN 2: TRẠNG THÁI (STATE) VÀ TÍNH TƯƠNG TÁC
 
-- [📘 PHẦN 2: TRẠNG THÁI (STATE) VÀ TÍNH TƯƠNG TÁC](#-phần-2-trạng-thái-state-và-tính-tương-tác)
-  - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
-  - [🧑‍🏫 Bài 1: State và Hook `useState`](#-bài-1-state-và-hook-usestate)
-    - [State là gì?](#state-là-gì)
-    - [Giới thiệu Hook `useState`](#giới-thiệu-hook-usestate)
-    - [Cập nhật State](#cập-nhật-state)
-  - [🧑‍🏫 Bài 2: Xử lý sự kiện (Handling Events)](#-bài-2-xử-lý-sự-kiện-handling-events)
-    - [Sự kiện trong React](#sự-kiện-trong-react)
-    - [Truyền hàm xử lý sự kiện qua Props](#truyền-hàm-xử-lý-sự-kiện-qua-props)
-  - [🧑‍🏫 Bài 3: Render có điều kiện và List](#-bài-3-render-có-điều-kiện-và-list)
-    - [Render có điều kiện (Conditional Rendering)](#render-có-điều-kiện-conditional-rendering)
-    - [Render danh sách và thuộc tính `key`](#render-danh-sách-và-thuộc-tính-key)
-  - [🧑‍🏫 Bài 4: Xử lý Form cơ bản](#-bài-4-xử-lý-form-cơ-bản)
-    - [Controlled Components](#controlled-components)
-  - [🧪 BÀI TẬP LỚN CUỐI PHẦN: Thêm giỏ hàng và tương tác cho "SimpleStore"](#-bài-tập-lớn-cuối-phần-thêm-giỏ-hàng-và-tương-tác-cho-simplestore)
-    - [Mô tả bài toán](#mô-tả-bài-toán)
-    - [Yêu cầu](#yêu-cầu)
-
 ## 🎯 Mục tiêu tổng quát
 
 - Hiểu khái niệm `state` và vai trò của nó trong việc tạo ra các component động.
@@ -25,8 +7,6 @@
 - Xử lý các sự kiện người dùng như click, nhập liệu.
 - Sử dụng render có điều kiện để hiển thị hoặc ẩn các phần tử UI.
 - Nắm vững cách render danh sách dữ liệu và tầm quan trọng của `key`.
-
----
 
 ## 🧑‍🏫 Bài 1: State và Hook `useState`
 
@@ -37,7 +17,8 @@
 - **Props** là để truyền dữ liệu từ cha xuống con, còn **State** là để quản lý dữ liệu nội tại của component.
 
 Sơ đồ hoạt động của State:
-```
+
+```text
 [ Tương tác người dùng (ví dụ: click) ]
     |
     V
@@ -82,11 +63,10 @@ function Counter() {
 - **Không bao giờ** thay đổi state trực tiếp: `count = count + 1;` (SAI)
 - **Luôn luôn** sử dụng hàm setter do `useState` cung cấp: `setCount(count + 1);` (ĐÚNG)
 - Khi cập nhật state dựa trên giá trị cũ, nên dùng dạng callback để đảm bảo tính chính xác:
+
   ```jsx
   setCount(prevCount => prevCount + 1);
   ```
-
----
 
 ## 🧑‍🏫 Bài 2: Xử lý sự kiện (Handling Events)
 
@@ -114,7 +94,8 @@ function AlertButton() {
 Bạn có thể truyền các hàm xử lý sự kiện từ component cha xuống component con.
 
 Sơ đồ luồng sự kiện:
-```
+
+```text
 [ Parent Component (định nghĩa hàm onAction) ] --(props: onAction)--> [ Child Component (Button) ]
                 ^                                                                |
                 |----------------(Khi click, gọi props.onAction())---------------|
@@ -148,7 +129,6 @@ function App() {
   );
 }
 ```
----
 
 ## 🧑‍🏫 Bài 3: Render có điều kiện và List
 
@@ -199,13 +179,13 @@ function ProductList({ products }) {
   return <ul>{listItems}</ul>;
 }
 ```
-**Lưu ý:** Không nên dùng index của mảng làm `key` nếu danh sách có thể thay đổi thứ tự, thêm, xóa.
 
----
+**Lưu ý:** Không nên dùng index của mảng làm `key` nếu danh sách có thể thay đổi thứ tự, thêm, xóa.
 
 ## 🧑‍🏫 Bài 4: Xử lý Form cơ bản
 
 ### Controlled Components
+
 Trong HTML, các thẻ form như `<input>`, `<textarea>` tự quản lý state của chúng. Trong React, chúng ta có thể làm cho component React trở thành "nguồn chân lý duy nhất" bằng cách sử dụng state. Một thẻ input có giá trị được kiểm soát bởi React được gọi là "controlled component".
 
 ```jsx
@@ -235,29 +215,29 @@ function NameForm() {
 }
 ```
 
----
-
 ## 🧪 BÀI TẬP LỚN CUỐI PHẦN: Thêm giỏ hàng và tương tác cho "SimpleStore"
 
 ### Mô tả bài toán
+
 Nâng cấp trang "SimpleStore" đã tạo ở Phần 1. Thêm chức năng cho phép người dùng "Thêm vào giỏ hàng" và xem tổng số lượng sản phẩm trong giỏ.
 
 ### Yêu cầu
-1.  **Component `Header.jsx`:**
-    -   Sử dụng `useState` để quản lý số lượng sản phẩm trong giỏ hàng (`cartCount`).
-    -   Hiển thị `cartCount` ở góc trên bên phải của header. Ví dụ: `Giỏ hàng (0)`.
-2.  **Component `App.jsx`:**
-    -   Quản lý state của giỏ hàng, có thể là một mảng các sản phẩm trong giỏ: `const [cart, setCart] = useState([]);`
-    -   Viết một hàm `handleAddToCart(product)` để xử lý việc thêm sản phẩm vào giỏ hàng. Hàm này sẽ được truyền xuống `ProductList` và `ProductCard`.
-        -   Logic bên trong: `setCart(prevCart => [...prevCart, product]);`
-3.  **Component `ProductCard.jsx`:**
-    -   Nhận hàm `onAddToCart` từ `props`.
-    -   Thêm một nút "Thêm vào giỏ hàng".
-    -   Khi click vào nút này, gọi hàm `onAddToCart` và truyền thông tin sản phẩm của card đó vào.
-4.  **Kết nối các component:**
-    -   `App` component sẽ truyền hàm `handleAddToCart` xuống `ProductList`.
-    -   `ProductList` sẽ truyền tiếp hàm đó xuống từng `ProductCard`.
-    -   Khi một sản phẩm được thêm vào giỏ hàng (state `cart` trong `App` thay đổi), `App` sẽ tính toán tổng số lượng và truyền xuống `Header` để cập nhật hiển thị.
+
+1. **Component `Header.jsx`:**
+    - Sử dụng `useState` để quản lý số lượng sản phẩm trong giỏ hàng (`cartCount`).
+    - Hiển thị `cartCount` ở góc trên bên phải của header. Ví dụ: `Giỏ hàng (0)`.
+2. **Component `App.jsx`:**
+    - Quản lý state của giỏ hàng, có thể là một mảng các sản phẩm trong giỏ: `const [cart, setCart] = useState([]);`
+    - Viết một hàm `handleAddToCart(product)` để xử lý việc thêm sản phẩm vào giỏ hàng. Hàm này sẽ được truyền xuống `ProductList` và `ProductCard`.
+        - Logic bên trong: `setCart(prevCart => [...prevCart, product]);`
+3. **Component `ProductCard.jsx`:**
+    - Nhận hàm `onAddToCart` từ `props`.
+    - Thêm một nút "Thêm vào giỏ hàng".
+    - Khi click vào nút này, gọi hàm `onAddToCart` và truyền thông tin sản phẩm của card đó vào.
+4. **Kết nối các component:**
+    - `App` component sẽ truyền hàm `handleAddToCart` xuống `ProductList`.
+    - `ProductList` sẽ truyền tiếp hàm đó xuống từng `ProductCard`.
+    - Khi một sản phẩm được thêm vào giỏ hàng (state `cart` trong `App` thay đổi), `App` sẽ tính toán tổng số lượng và truyền xuống `Header` để cập nhật hiển thị.
         - Sơ đồ: `App (state: cart) --(props: cart.length)--> Header`
         - Sơ đồ: `App (hàm: handleAddToCart) --props--> ProductList --props--> ProductCard`
 

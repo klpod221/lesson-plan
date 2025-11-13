@@ -1,58 +1,18 @@
-# 📘 PHẦN 1: NHẬP MÔN JAVA
+---
+prev:
+  text: '📈 Phát Triển Bản Thân'
+  link: '/SELF-LEARNING/Part4'
+next:
+  text: '📊 Mảng, Chuỗi và Hàm'
+  link: '/JAVA/Part2'
+---
 
-- [📘 PHẦN 1: NHẬP MÔN JAVA](#-phần-1-nhập-môn-java)
-  - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
-  - [🧑‍🏫 Bài 1: Cấu trúc chương trình JAVA](#-bài-1-cấu-trúc-chương-trình-java)
-    - [Tổ chức project JAVA cơ bản](#tổ-chức-project-java-cơ-bản)
-    - [Phương thức main](#phương-thức-main)
-    - [Giải thích](#giải-thích)
-    - [Quy ước đặt tên](#quy-ước-đặt-tên)
-    - [Chạy chương trình](#chạy-chương-trình)
-    - [Biên dịch và chạy chương trình từ VS Code](#biên-dịch-và-chạy-chương-trình-từ-vs-code)
-    - [Nhập liệu từ bàn phím](#nhập-liệu-từ-bàn-phím)
-      - [Các phương thức nhập liệu cơ bản](#các-phương-thức-nhập-liệu-cơ-bản)
-      - [Vấn đề phổ biến và giải pháp](#vấn-đề-phổ-biến-và-giải-pháp)
-    - [Hiển thị dữ liệu ra màn hình](#hiển-thị-dữ-liệu-ra-màn-hình)
-      - [Các phương thức hiển thị cơ bản](#các-phương-thức-hiển-thị-cơ-bản)
-      - [Hiển thị với các kiểu dữ liệu khác nhau](#hiển-thị-với-các-kiểu-dữ-liệu-khác-nhau)
-      - [Các định dạng đặc biệt](#các-định-dạng-đặc-biệt)
-      - [Ví dụ định dạng nâng cao](#ví-dụ-định-dạng-nâng-cao)
-      - [Phương thức Format](#phương-thức-format)
-  - [🧑‍🏫 Bài 2: Biến và kiểu dữ liệu](#-bài-2-biến-và-kiểu-dữ-liệu)
-    - [Khái niệm biến trong JAVA](#khái-niệm-biến-trong-java)
-    - [Kiểu dữ liệu nguyên thủy](#kiểu-dữ-liệu-nguyên-thủy)
-    - [Kiểu dữ liệu tham chiếu](#kiểu-dữ-liệu-tham-chiếu)
-    - [Cách lưu trữ dữ liệu trong bộ nhớ](#cách-lưu-trữ-dữ-liệu-trong-bộ-nhớ)
-    - [Khai báo và khởi tạo biến](#khai-báo-và-khởi-tạo-biến)
-    - [Ép kiểu](#ép-kiểu)
-  - [🧑‍🏫 Bài 3: Toán tử và biểu thức](#-bài-3-toán-tử-và-biểu-thức)
-    - [Toán tử số học](#toán-tử-số-học)
-    - [Toán tử gán](#toán-tử-gán)
-    - [Toán tử so sánh](#toán-tử-so-sánh)
-    - [Toán tử logic](#toán-tử-logic)
-    - [Thứ tự ưu tiên toán tử](#thứ-tự-ưu-tiên-toán-tử)
-    - [Ví dụ thứ tự ưu tiên](#ví-dụ-thứ-tự-ưu-tiên)
-  - [🧑‍🏫 Bài 4: Câu lệnh điều kiện](#-bài-4-câu-lệnh-điều-kiện)
-    - [Câu lệnh if](#câu-lệnh-if)
-    - [Câu lệnh switch-case](#câu-lệnh-switch-case)
-    - [Switch với JAVA 12+ (cú pháp mới)](#switch-với-java-12-cú-pháp-mới)
-    - [Biểu thức điều kiện phức hợp](#biểu-thức-điều-kiện-phức-hợp)
-    - [Toán tử ba ngôi](#toán-tử-ba-ngôi)
-  - [🧑‍🏫 Bài 5: Câu lệnh lặp](#-bài-5-câu-lệnh-lặp)
-    - [Vòng lặp for](#vòng-lặp-for)
-    - [Vòng lặp while](#vòng-lặp-while)
-    - [Vòng lặp do-while](#vòng-lặp-do-while)
-    - [Từ khóa break và continue](#từ-khóa-break-và-continue)
-  - [🧪 Bài tập lớn cuối phần: Quản lý điểm sinh viên](#-bài-tập-lớn-cuối-phần-quản-lý-điểm-sinh-viên)
-    - [Mô tả bài toán](#mô-tả-bài-toán)
-    - [Kết quả chạy chương trình (Ví dụ)](#kết-quả-chạy-chương-trình-ví-dụ)
+# 📘 PHẦN 1: NHẬP MÔN JAVA
 
 ## 🎯 Mục tiêu tổng quát
 
 - Làm quen với cú pháp và cách tổ chức chương trình JAVA.
 - Biết cách khai báo biến, sử dụng kiểu dữ liệu, câu lệnh điều kiện và vòng lặp.
-
----
 
 ## 🧑‍🏫 Bài 1: Cấu trúc chương trình JAVA
 
@@ -307,8 +267,6 @@ String html = """
 System.out.println(html);
 ```
 
----
-
 ## 🧑‍🏫 Bài 2: Biến và kiểu dữ liệu
 
 ### Khái niệm biến trong JAVA
@@ -387,8 +345,6 @@ double numDouble = num;  // 10.0
 double pi = 3.14;
 int wholePi = (int) pi;  // 3
 ```
-
----
 
 ## 🧑‍🏫 Bài 3: Toán tử và biểu thức
 
@@ -469,8 +425,6 @@ boolean notResult = !condition1;               // false
 int result = 5 + 3 * 2;  // 5 + 6 = 11 (nhân trước, cộng sau)
 int result2 = (5 + 3) * 2;  // 8 * 2 = 16 (dấu ngoặc ưu tiên cao nhất)
 ```
-
----
 
 ## 🧑‍🏫 Bài 4: Câu lệnh điều kiện
 
@@ -581,8 +535,6 @@ int age = 20;
 String status = (age >= 18) ? "Đã trưởng thành" : "Chưa trưởng thành";
 System.out.println(status);  // Đã trưởng thành
 ```
-
----
 
 ## 🧑‍🏫 Bài 5: Câu lệnh lặp
 
@@ -716,8 +668,6 @@ outerLoop: for (int i = 1; i <= 3; i++) {
     }
 }
 ```
-
----
 
 ## 🧪 Bài tập lớn cuối phần: Quản lý điểm sinh viên
 

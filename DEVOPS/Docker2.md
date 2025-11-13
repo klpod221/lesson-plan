@@ -1,51 +1,13 @@
-# 🐳 DOCKER: ORCHESTRATION & BEST PRACTICES
-
-- [🐳 DOCKER: ORCHESTRATION \& BEST PRACTICES](#-docker-orchestration--best-practices)
-  - [🎯 Mục Tiêu](#-mục-tiêu)
-  - [1. ⏪ Ôn Lại phần trước](#1--ôn-lại-phần-trước)
-    - [Key Concepts: Image, Container, Dockerfile, Registry](#key-concepts-image-container-dockerfile-registry)
-    - [Basic Docker CLI Commands](#basic-docker-cli-commands)
-  - [2. 🚀 Giới Thiệu Docker Compose](#2--giới-thiệu-docker-compose)
-    - [Tại sao cần Docker Compose? Vấn đề với nhiều `docker run`](#tại-sao-cần-docker-compose-vấn-đề-với-nhiều-docker-run)
-    - [Docker Compose là gì?](#docker-compose-là-gì)
-    - [Cài đặt Docker Compose](#cài-đặt-docker-compose)
-  - [3. 🎼 Cú Pháp `docker-compose.yml`](#3--cú-pháp-docker-composeyml)
-    - [`version`](#version)
-    - [`services`](#services)
-    - [`build` vs `image`](#build-vs-image)
-    - [`ports`](#ports)
-    - [`volumes`](#volumes)
-    - [`environment`](#environment)
-    - [`env_file`](#env_file)
-    - [`depends_on`](#depends_on)
-    - [`networks`](#networks)
-    - [`command`](#command)
-    - [`entrypoint`](#entrypoint)
-    - [`restart`](#restart)
-    - [`healthcheck`](#healthcheck)
-    - [`expose`](#expose)
-    - [`extends`](#extends)
-    - [`secrets` và `configs`](#secrets-và-configs)
-    - [Ví dụ `docker-compose.yml` đơn giản](#ví-dụ-docker-composeyml-đơn-giản)
-    - [Các lệnh Docker Compose cơ bản](#các-lệnh-docker-compose-cơ-bản)
-  - [4. 🔗 Docker Networking (với Compose)](#4--docker-networking-với-compose)
-    - [Mạng mặc định (Default Bridge Network)](#mạng-mặc-định-default-bridge-network)
-    - [Kết nối giữa các services (Service Discovery)](#kết-nối-giữa-các-services-service-discovery)
-    - [Custom Networks](#custom-networks)
-  - [5. 💾 Docker Volumes (với Compose)](#5--docker-volumes-với-compose)
-    - [Tại sao cần Volumes? (Data Persistence)](#tại-sao-cần-volumes-data-persistence)
-    - [Các loại Volumes trong Docker](#các-loại-volumes-trong-docker)
-    - [Khai báo và sử dụng Volumes trong Compose](#khai-báo-và-sử-dụng-volumes-trong-compose)
-  - [6. 🛠️ Thực Hành: Xây Dựng Ứng Dụng Web + Database + Cache với Docker Compose](#6-️-thực-hành-xây-dựng-ứng-dụng-web--database--cache-với-docker-compose)
-  - [7. ✨ Best Practices \& Mẹo](#7--best-practices--mẹo)
-    - [Dockerfile Best Practices (Nhắc lại và bổ sung)](#dockerfile-best-practices-nhắc-lại-và-bổ-sung)
-    - [Docker Compose Best Practices](#docker-compose-best-practices)
-    - [Sử dụng `.dockerignore`](#sử-dụng-dockerignore)
-    - [Quản lý môi trường (Dev, Staging, Prod)](#quản-lý-môi-trường-dev-staging-prod)
-  - [8. 🏋️ Bài Tập](#8-️-bài-tập)
-  - [9. 📚 Tài Liệu Tham Khảo \& Next Steps](#9--tài-liệu-tham-khảo--next-steps)
-
 ---
+prev:
+  text: '🐳 Docker: Nền Tảng'
+  link: '/DEVOPS/Docker1'
+next:
+  text: '⚙️ Kubernetes'
+  link: '/DEVOPS/Kubernetes'
+---
+
+# 🐳 DOCKER: ORCHESTRATION & BEST PRACTICES
 
 ## 🎯 Mục Tiêu
 
@@ -55,8 +17,6 @@
 - Thực hành xây dựng một ứng dụng **multi-container** phức tạp hơn, bao gồm web, database và caching.
 - Tìm hiểu và áp dụng các **best practices** khi làm việc với Docker và Docker Compose để tối ưu hóa quy trình phát triển và triển khai.
 - Hiểu cách Docker Compose đơn giản hóa việc thiết lập môi trường phát triển và đảm bảo tính nhất quán.
-
----
 
 ## 1. ⏪ Ôn Lại phần trước
 

@@ -1,45 +1,19 @@
-# 📘 PHẦN 4: XỬ LÝ NGOẠI LỆ, FILE I/O VÀ COLLECTIONS
+---
+prev:
+  text: '🧩 Lập Trình Hướng Đối Tượng'
+  link: '/JAVA/Part3'
+next:
+  text: '🧵 Luồng, Đa Luồng và JDBC'
+  link: '/JAVA/Part5'
+---
 
-- [📘 PHẦN 4: XỬ LÝ NGOẠI LỆ, FILE I/O VÀ COLLECTIONS](#-phần-4-xử-lý-ngoại-lệ-file-io-và-collections)
-  - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
-  - [🧑‍🏫 Bài 1: Xử lý ngoại lệ (Exception Handling)](#-bài-1-xử-lý-ngoại-lệ-exception-handling)
-    - [Khái niệm ngoại lệ (Exception) và cơ chế xử lý](#khái-niệm-ngoại-lệ-exception-và-cơ-chế-xử-lý)
-    - [Try-catch-finally](#try-catch-finally)
-    - [Đa catch và thứ tự catch](#đa-catch-và-thứ-tự-catch)
-    - [Throw và Throws](#throw-và-throws)
-    - [Tạo Exception tùy chỉnh](#tạo-exception-tùy-chỉnh)
-  - [🧑‍🏫 Bài 2: Đọc ghi file văn bản](#-bài-2-đọc-ghi-file-văn-bản)
-    - [Đọc file với FileReader và BufferedReader](#đọc-file-với-filereader-và-bufferedreader)
-    - [Ghi file với FileWriter và BufferedWriter](#ghi-file-với-filewriter-và-bufferedwriter)
-    - [Kiểm tra và thao tác với File](#kiểm-tra-và-thao-tác-với-file)
-    - [Đọc ghi file với try-with-resources](#đọc-ghi-file-với-try-with-resources)
-    - [Ví dụ thực tế - Đọc dữ liệu CSV](#ví-dụ-thực-tế---đọc-dữ-liệu-csv)
-  - [🧑‍🏫 Bài 3: Giới thiệu Collections Framework](#-bài-3-giới-thiệu-collections-framework)
-    - [Tổng quan về Collections Framework](#tổng-quan-về-collections-framework)
-    - [Collection vs Map](#collection-vs-map)
-    - [Các thao tác cơ bản với Collections](#các-thao-tác-cơ-bản-với-collections)
-  - [🧑‍🏫 Bài 4: List, Set và Map](#-bài-4-list-set-và-map)
-    - [ArrayList và LinkedList](#arraylist-và-linkedlist)
-    - [HashSet và TreeSet](#hashset-và-treeset)
-    - [HashMap và TreeMap](#hashmap-và-treemap)
-    - [Ví dụ thực tế - Quản lý danh bạ](#ví-dụ-thực-tế---quản-lý-danh-bạ)
-  - [🧑‍🏫 Bài 5: Kết hợp File và Collections](#-bài-5-kết-hợp-file-và-collections)
-    - [Đọc file và lưu vào List](#đọc-file-và-lưu-vào-list)
-    - [Ghi List ra file](#ghi-list-ra-file)
-    - [Đọc file CSV vào List đối tượng](#đọc-file-csv-vào-list-đối-tượng)
-    - [Ghi Map ra file](#ghi-map-ra-file)
-    - [Ví dụ thực tế - Hệ thống quản lý sách đơn giản](#ví-dụ-thực-tế---hệ-thống-quản-lý-sách-đơn-giản)
-  - [🧪 BÀI TẬP LỚN CUỐI PHẦN: Hệ thống quản lý khóa học](#-bài-tập-lớn-cuối-phần-hệ-thống-quản-lý-khóa-học)
-    - [Mô tả bài toán](#mô-tả-bài-toán)
-    - [Yêu cầu](#yêu-cầu)
+# 📘 PHẦN 4: XỬ LÝ NGOẠI LỆ, FILE I/O VÀ COLLECTIONS
 
 ## 🎯 Mục tiêu tổng quát
 
 - Hiểu và xử lý lỗi bằng cách sử dụng cơ chế ngoại lệ trong JAVA.
 - Đọc ghi dữ liệu vào file văn bản.
 - Làm việc với các cấu trúc dữ liệu động trong JAVA: List, Set, Map.
-
----
 
 ## 🧑‍🏫 Bài 1: Xử lý ngoại lệ (Exception Handling)
 
@@ -144,8 +118,6 @@
        }
    }
    ```
-
----
 
 ## 🧑‍🏫 Bài 2: Đọc ghi file văn bản
 
@@ -343,8 +315,6 @@
    }
    ```
 
----
-
 ## 🧑‍🏫 Bài 3: Giới thiệu Collections Framework
 
 ### Tổng quan về Collections Framework
@@ -496,8 +466,6 @@
        }
    }
    ```
-
----
 
 ## 🧑‍🏫 Bài 4: List, Set và Map
 
@@ -734,8 +702,6 @@
        }
    }
    ```
-
----
 
 ## 🧑‍🏫 Bài 5: Kết hợp File và Collections
 
@@ -1138,8 +1104,6 @@
    }
    ```
 
----
-
 ## 🧪 BÀI TẬP LỚN CUỐI PHẦN: Hệ thống quản lý khóa học
 
 ### Mô tả bài toán
@@ -1158,8 +1122,6 @@ Viết chương trình quản lý danh sách khóa học:
 - Sử dụng `ArrayList` hoặc `HashMap` để lưu danh sách khóa học.
 - Lưu trữ dữ liệu vào file (có thể là csv) và nạp lại khi khởi động chương trình.
 - Xử lý các trường hợp lỗi như trùng mã khóa học, file không tồn tại,...
-
----
 
 Sau khi hoàn thành phần này, bạn đã nắm vững các khái niệm nền tảng của JAVA - từ cú pháp, cấu trúc điều khiển, lập trình hướng đối tượng đến Collections Framework. Các ví dụ thực tế trong bài học cũng đã giúp bạn có cơ hội áp dụng lý thuyết vào những tình huống cụ thể.
 

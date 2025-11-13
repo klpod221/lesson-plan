@@ -1,43 +1,5 @@
 # 📘 PHẦN 3: STRUCTS VÀ ENUMS
 
-- [📘 PHẦN 3: STRUCTS VÀ ENUMS](#-phần-3-structs-và-enums)
-  - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
-  - [🧑‍🏫 Bài 1: Structs cơ bản](#-bài-1-structs-cơ-bản)
-    - [Định nghĩa và khởi tạo](#định-nghĩa-và-khởi-tạo)
-    - [Field init shorthand](#field-init-shorthand)
-    - [Struct update syntax](#struct-update-syntax)
-    - [Tuple structs](#tuple-structs)
-    - [Unit-like structs](#unit-like-structs)
-    - [Ownership trong structs](#ownership-trong-structs)
-  - [🧑‍🏫 Bài 2: Methods và Associated Functions](#-bài-2-methods-và-associated-functions)
-    - [Defining methods](#defining-methods)
-    - [Self parameters](#self-parameters)
-    - [Multiple impl blocks](#multiple-impl-blocks)
-    - [Associated functions](#associated-functions)
-    - [Method chaining](#method-chaining)
-  - [🧑‍🏫 Bài 3: Enums và Pattern Matching](#-bài-3-enums-và-pattern-matching)
-    - [Defining enums](#defining-enums)
-    - [Enums với data](#enums-với-data)
-    - [Match expression](#match-expression)
-    - [If let](#if-let)
-    - [While let](#while-let)
-    - [Match guards](#match-guards)
-  - [🧑‍🏫 Bài 4: Option và Result](#-bài-4-option-và-result)
-    - [Option`<T>`](#optiont)
-    - [Working with Option](#working-with-option)
-    - [Result\<T, E\>](#resultt-e)
-    - [Error propagation](#error-propagation)
-    - [Custom error types](#custom-error-types)
-  - [🧑‍🏫 Bài 5: Advanced Patterns](#-bài-5-advanced-patterns)
-    - [Destructuring](#destructuring)
-    - [Ignoring values](#ignoring-values)
-    - [Match ranges](#match-ranges)
-    - [@ bindings](#-bindings)
-    - [Refutability](#refutability)
-  - [🧪 BÀI TẬP LỚN CUỐI PHẦN: Hệ thống quản lý sản phẩm](#-bài-tập-lớn-cuối-phần-hệ-thống-quản-lý-sản-phẩm)
-    - [Mô tả bài toán](#mô-tả-bài-toán)
-    - [Yêu cầu](#yêu-cầu)
-
 ## 🎯 Mục tiêu tổng quát
 
 - Nắm vững cách định nghĩa và sử dụng structs
@@ -47,8 +9,6 @@
 - Làm việc với Option`<T>` và Result`<T, E>`
 - Apply advanced patterns và destructuring
 - Xây dựng ứng dụng với data structures phức tạp
-
----
 
 ## 🧑‍🏫 Bài 1: Structs cơ bản
 
@@ -228,8 +188,6 @@ fn main() {
 }
 ```
 
----
-
 ## 🧑‍🏫 Bài 2: Methods và Associated Functions
 
 ### Defining methods
@@ -399,8 +357,6 @@ fn main() {
     println!("{:#?}", builder);
 }
 ```
-
----
 
 ## 🧑‍🏫 Bài 3: Enums và Pattern Matching
 
@@ -617,8 +573,6 @@ fn main() {
     }
 }
 ```
-
----
 
 ## 🧑‍🏫 Bài 4: Option và Result
 
@@ -844,8 +798,6 @@ fn main() {
 }
 ```
 
----
-
 ## 🧑‍🏫 Bài 5: Advanced Patterns
 
 ### Destructuring
@@ -1019,8 +971,6 @@ fn main() {
     // Use if let or match instead
 }
 ```
-
----
 
 ## 🧪 BÀI TẬP LỚN CUỐI PHẦN: Hệ thống quản lý sản phẩm
 

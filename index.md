@@ -2,7 +2,7 @@
 layout: home
 
 hero:
-  name: "Tài Liệu Lập Trình"
+  name: "Tài Liệu Học Lập Trình"
   text: "Cơ Bản Đến Nâng Cao"
   tagline: Java, SQL, DSA, Web Development và nhiều công nghệ khác
   image:
@@ -172,8 +172,6 @@ Triển khai và vận hành ứng dụng trên môi trường thực tế.
 
 [Học DevOps →](/DEVOPS/Docker1)
 
----
-
 ## 🎨 Tài Liệu Bổ Sung & Nâng Cao
 
 ### Ngôn Ngữ Lập Trình
@@ -196,8 +194,6 @@ Nâng cao kỹ năng frontend với các framework hiện đại:
 ::: warning Không nhất thiết học tất cả
 Bạn **không cần** học hết tất cả các tài liệu. Hãy tập trung vào lộ trình chính (Module 1-8) trước, sau đó chọn lĩnh vực chuyên sâu phù hợp với mục tiêu nghề nghiệp.
 :::
-
----
 
 ## 📊 Lộ Trình Tóm Tắt
 
@@ -224,8 +220,6 @@ graph TD
 ```
 
 **Ước tính thời gian:** 6-9 tháng (học toàn thời gian) hoặc 12-18 tháng (học bán thời gian)
-
----
 
 ## 💡 Lời Khuyên Cho Người Học
 
@@ -271,10 +265,6 @@ Tập trung vào **nền tảng** trước. Một khi đã nắm vững cơ bả
 ::: warning Chất lượng quan trọng hơn số lượng
 2 giờ tập trung tuyệt đối tốt hơn 5 giờ học lơ là. Tắt thông báo, tìm nơi yên tĩnh và tập trung 100%.
 :::
-
----
-
----
 
 ## 📞 Liên Hệ & Hỗ Trợ
 

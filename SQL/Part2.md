@@ -1,93 +1,13 @@
-# 📘 PHẦN 2: SQL NÂNG CAO
+---
+prev:
+  text: '💾 Nhập Môn SQL'
+  link: '/SQL/Part1'
+next:
+  text: '🔄 SQL và Ứng Dụng'
+  link: '/SQL/Part3'
+---
 
-- [📘 PHẦN 2: SQL NÂNG CAO](#-phần-2-sql-nâng-cao)
-  - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
-  - [🧑‍🏫 Bài 1: Truy vấn nâng cao](#-bài-1-truy-vấn-nâng-cao)
-    - [Truy vấn con (Subquery)](#truy-vấn-con-subquery)
-      - [Ví dụ 1: Truy vấn con trong mệnh đề WHERE](#ví-dụ-1-truy-vấn-con-trong-mệnh-đề-where)
-      - [Ví dụ 2: Truy vấn con trong mệnh đề FROM](#ví-dụ-2-truy-vấn-con-trong-mệnh-đề-from)
-      - [Ví dụ 3: Truy vấn con tương quan](#ví-dụ-3-truy-vấn-con-tương-quan)
-    - [Common Table Expressions (CTE) với WITH](#common-table-expressions-cte-với-with)
-      - [Ví dụ 1: CTE cơ bản](#ví-dụ-1-cte-cơ-bản)
-      - [Ví dụ 2: CTE đệ quy](#ví-dụ-2-cte-đệ-quy)
-    - [Toán tử tập hợp: UNION, INTERSECT, EXCEPT](#toán-tử-tập-hợp-union-intersect-except)
-      - [Ví dụ 1: UNION](#ví-dụ-1-union)
-      - [Ví dụ 2: INTERSECT](#ví-dụ-2-intersect)
-      - [Ví dụ 3: EXCEPT (MINUS)](#ví-dụ-3-except-minus)
-    - [Window Functions](#window-functions)
-      - [Ví dụ 1: ROW\_NUMBER()](#ví-dụ-1-row_number)
-      - [Ví dụ 2: PARTITION BY](#ví-dụ-2-partition-by)
-      - [Ví dụ 3: Hàm tổng hợp qua cửa sổ](#ví-dụ-3-hàm-tổng-hợp-qua-cửa-sổ)
-      - [Ví dụ 4: NTILE() và các hàm khác](#ví-dụ-4-ntile-và-các-hàm-khác)
-  - [🧑‍🏫 Bài 2: Hàm và thủ tục lưu trữ](#-bài-2-hàm-và-thủ-tục-lưu-trữ)
-    - [Tạo và sử dụng hàm người dùng](#tạo-và-sử-dụng-hàm-người-dùng)
-      - [Ví dụ 1: Hàm tính tuổi từ ngày sinh](#ví-dụ-1-hàm-tính-tuổi-từ-ngày-sinh)
-      - [Ví dụ 2: Hàm tính điểm trung bình](#ví-dụ-2-hàm-tính-điểm-trung-bình)
-      - [Ví dụ 3: Hàm xếp loại học lực](#ví-dụ-3-hàm-xếp-loại-học-lực)
-    - [Thủ tục lưu trữ (Stored Procedures)](#thủ-tục-lưu-trữ-stored-procedures)
-      - [Ví dụ 1: Thủ tục cơ bản để lấy thông tin sinh viên](#ví-dụ-1-thủ-tục-cơ-bản-để-lấy-thông-tin-sinh-viên)
-      - [Ví dụ 2: Thủ tục với tham số đầu ra](#ví-dụ-2-thủ-tục-với-tham-số-đầu-ra)
-      - [Ví dụ 3: Thủ tục cập nhật dữ liệu](#ví-dụ-3-thủ-tục-cập-nhật-dữ-liệu)
-    - [Triggers và sự kiện](#triggers-và-sự-kiện)
-      - [Ví dụ 1: Trigger kiểm tra điểm trước khi chèn](#ví-dụ-1-trigger-kiểm-tra-điểm-trước-khi-chèn)
-      - [Ví dụ 2: Trigger cập nhật lịch sử thay đổi](#ví-dụ-2-trigger-cập-nhật-lịch-sử-thay-đổi)
-      - [Ví dụ 3: Event định kỳ tính toán thống kê](#ví-dụ-3-event-định-kỳ-tính-toán-thống-kê)
-    - [Giao dịch và xử lý lỗi](#giao-dịch-và-xử-lý-lỗi)
-      - [Ví dụ 1: Giao dịch cơ bản](#ví-dụ-1-giao-dịch-cơ-bản)
-      - [Ví dụ 2: Xử lý lỗi với DECLARE...HANDLER](#ví-dụ-2-xử-lý-lỗi-với-declarehandler)
-      - [Ví dụ 3: Kiểm soát lỗi với SIGNAL](#ví-dụ-3-kiểm-soát-lỗi-với-signal)
-  - [🧑‍🏫 Bài 3: Tối ưu hóa truy vấn](#-bài-3-tối-ưu-hóa-truy-vấn)
-    - [Chỉ mục (Indexes) và cách hoạt động](#chỉ-mục-indexes-và-cách-hoạt-động)
-      - [Ví dụ 1: Tạo chỉ mục cơ bản](#ví-dụ-1-tạo-chỉ-mục-cơ-bản)
-      - [Ví dụ 2: Chỉ mục đa cột (Composite Index)](#ví-dụ-2-chỉ-mục-đa-cột-composite-index)
-      - [Ví dụ 3: Loại bỏ chỉ mục](#ví-dụ-3-loại-bỏ-chỉ-mục)
-      - [Ví dụ 4: Chỉ mục đầy đủ văn bản (Fulltext Index)](#ví-dụ-4-chỉ-mục-đầy-đủ-văn-bản-fulltext-index)
-    - [Phân tích kế hoạch thực thi truy vấn](#phân-tích-kế-hoạch-thực-thi-truy-vấn)
-      - [Ví dụ 1: Sử dụng EXPLAIN](#ví-dụ-1-sử-dụng-explain)
-      - [Ví dụ 2: EXPLAIN với chỉ mục](#ví-dụ-2-explain-với-chỉ-mục)
-      - [Ví dụ 3: Phân tích JOIN](#ví-dụ-3-phân-tích-join)
-    - [Kỹ thuật tối ưu câu lệnh SQL](#kỹ-thuật-tối-ưu-câu-lệnh-sql)
-      - [Ví dụ 1: Chỉ chọn những cột cần thiết](#ví-dụ-1-chỉ-chọn-những-cột-cần-thiết)
-      - [Ví dụ 2: Sử dụng điều kiện lọc hiệu quả](#ví-dụ-2-sử-dụng-điều-kiện-lọc-hiệu-quả)
-      - [Ví dụ 3: Tránh sử dụng hàm trên cột trong điều kiện WHERE](#ví-dụ-3-tránh-sử-dụng-hàm-trên-cột-trong-điều-kiện-where)
-      - [Ví dụ 4: Sử dụng LIMIT để giới hạn kết quả](#ví-dụ-4-sử-dụng-limit-để-giới-hạn-kết-quả)
-      - [Ví dụ 5: Sử dụng EXISTS thay vì IN cho subquery](#ví-dụ-5-sử-dụng-exists-thay-vì-in-cho-subquery)
-    - [Theo dõi và đánh giá hiệu suất](#theo-dõi-và-đánh-giá-hiệu-suất)
-      - [Ví dụ 1: Theo dõi truy vấn chậm](#ví-dụ-1-theo-dõi-truy-vấn-chậm)
-      - [Ví dụ 2: Xem trạng thái của hệ thống](#ví-dụ-2-xem-trạng-thái-của-hệ-thống)
-      - [Ví dụ 3: Phân tích câu lệnh bằng ANALYZE](#ví-dụ-3-phân-tích-câu-lệnh-bằng-analyze)
-      - [Ví dụ 4: Tối ưu hóa câu lệnh SQL](#ví-dụ-4-tối-ưu-hóa-câu-lệnh-sql)
-    - [Bài tập thực hành](#bài-tập-thực-hành)
-  - [🧑‍🏫 Bài 4: Thiết kế cơ sở dữ liệu](#-bài-4-thiết-kế-cơ-sở-dữ-liệu)
-    - [Chuẩn hóa và phi chuẩn hóa](#chuẩn-hóa-và-phi-chuẩn-hóa)
-      - [Ví dụ 1: Dữ liệu chưa chuẩn hóa](#ví-dụ-1-dữ-liệu-chưa-chuẩn-hóa)
-      - [Ví dụ 2: Chuẩn hóa dạng 1NF](#ví-dụ-2-chuẩn-hóa-dạng-1nf)
-      - [Ví dụ 3: Chuẩn hóa dạng 2NF](#ví-dụ-3-chuẩn-hóa-dạng-2nf)
-      - [Ví dụ 4: Chuẩn hóa dạng 3NF](#ví-dụ-4-chuẩn-hóa-dạng-3nf)
-      - [Ví dụ 5: Phi chuẩn hóa có chủ đích](#ví-dụ-5-phi-chuẩn-hóa-có-chủ-đích)
-    - [Mô hình dữ liệu: khái niệm và ứng dụng](#mô-hình-dữ-liệu-khái-niệm-và-ứng-dụng)
-      - [Ví dụ 1: Mô hình Entity-Relationship (ER)](#ví-dụ-1-mô-hình-entity-relationship-er)
-      - [Ví dụ 2: Mối quan hệ một-nhiều (One-to-Many)](#ví-dụ-2-mối-quan-hệ-một-nhiều-one-to-many)
-      - [Ví dụ 3: Mối quan hệ nhiều-nhiều (Many-to-Many)](#ví-dụ-3-mối-quan-hệ-nhiều-nhiều-many-to-many)
-      - [Ví dụ 4: Mối quan hệ một-một (One-to-One)](#ví-dụ-4-mối-quan-hệ-một-một-one-to-one)
-    - [Ràng buộc toàn vẹn và quan hệ](#ràng-buộc-toàn-vẹn-và-quan-hệ)
-      - [Ví dụ 1: Ràng buộc khóa chính (PRIMARY KEY)](#ví-dụ-1-ràng-buộc-khóa-chính-primary-key)
-      - [Ví dụ 2: Ràng buộc khóa ngoại (FOREIGN KEY)](#ví-dụ-2-ràng-buộc-khóa-ngoại-foreign-key)
-      - [Ví dụ 3: Ràng buộc CHECK](#ví-dụ-3-ràng-buộc-check)
-      - [Ví dụ 4: Ràng buộc DEFAULT](#ví-dụ-4-ràng-buộc-default)
-      - [Ví dụ 5: Ràng buộc NOT NULL](#ví-dụ-5-ràng-buộc-not-null)
-    - [Thiết kế hướng hiệu suất](#thiết-kế-hướng-hiệu-suất)
-      - [Ví dụ 1: Chọn kiểu dữ liệu phù hợp](#ví-dụ-1-chọn-kiểu-dữ-liệu-phù-hợp)
-      - [Ví dụ 2: Phân vùng bảng (Table Partitioning)](#ví-dụ-2-phân-vùng-bảng-table-partitioning)
-      - [Ví dụ 3: Đánh chỉ mục hiệu quả](#ví-dụ-3-đánh-chỉ-mục-hiệu-quả)
-      - [Ví dụ 4: Sử dụng các bảng tổng hợp (Materialized Views)](#ví-dụ-4-sử-dụng-các-bảng-tổng-hợp-materialized-views)
-      - [Ví dụ 5: Thiết kế schema hợp lý](#ví-dụ-5-thiết-kế-schema-hợp-lý)
-    - [Bài tập thực hành: Thiết kế cơ sở dữ liệu](#bài-tập-thực-hành-thiết-kế-cơ-sở-dữ-liệu)
-  - [🧑‍🏫 Bài 5: Bảo mật và quản trị](#-bài-5-bảo-mật-và-quản-trị)
-    - [Giám sát và điều chỉnh hệ thống](#giám-sát-và-điều-chỉnh-hệ-thống)
-  - [🧪 BÀI TẬP LỚN CUỐI PHẦN: Quản lý sinh viên và lớp học](#-bài-tập-lớn-cuối-phần-quản-lý-sinh-viên-và-lớp-học)
-    - [Mô tả bài toán](#mô-tả-bài-toán)
-    - [Yêu cầu](#yêu-cầu)
+# 📘 PHẦN 2: SQL NÂNG CAO
 
 ## 🎯 Mục tiêu tổng quát
 
@@ -97,9 +17,9 @@
 
 ---
 
-## 🧑‍🏫 Bài 1: Truy vấn nâng cao
+## 🧑‍🏫 Bài 1: Truy vấn nâng cao và Window Functions
 
-### Truy vấn con (Subquery)
+### Truy vấn con (Subqueries)
 
 Truy vấn con là một câu truy vấn SQL lồng trong một câu truy vấn khác, có thể xuất hiện trong mệnh đề WHERE, FROM, hoặc SELECT.
 
@@ -294,13 +214,61 @@ SELECT
 FROM students;
 ```
 
+#### Ví dụ 5: RANK() và DENSE_RANK()
+
+```sql
+-- So sánh RANK() và DENSE_RANK()
+SELECT
+    student_id,
+    fullname,
+    score,
+    RANK() OVER (ORDER BY score DESC) AS rank,
+    DENSE_RANK() OVER (ORDER BY score DESC) AS dense_rank,
+    ROW_NUMBER() OVER (ORDER BY score DESC) AS row_num
+FROM students;
+
+-- Giải thích kết quả:
+-- RANK(): Có khoảng trống khi có điểm trùng (1, 2, 2, 4, 5)
+-- DENSE_RANK(): Không có khoảng trống (1, 2, 2, 3, 4)
+-- ROW_NUMBER(): Luôn tăng dần, không trùng (1, 2, 3, 4, 5)
+```
+
+#### Ví dụ 6: Running Total (Tổng lũy kế)
+
+```sql
+-- Tính tổng lũy kế của điểm số theo thời gian
+SELECT
+    student_id,
+    exam_date,
+    score,
+    SUM(score) OVER (
+        PARTITION BY student_id 
+        ORDER BY exam_date
+        ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW
+    ) AS running_total,
+    AVG(score) OVER (
+        PARTITION BY student_id 
+        ORDER BY exam_date
+        ROWS BETWEEN 2 PRECEDING AND CURRENT ROW
+    ) AS moving_avg_3_exams
+FROM exam_results
+ORDER BY student_id, exam_date;
+```
+
+### Bài tập thực hành bài 1
+
+1. **Subqueries**: Viết truy vấn tìm các lớp có điểm trung bình cao hơn điểm trung bình chung của toàn trường
+2. **CTE**: Sử dụng CTE để tính xếp hạng học sinh trong từng lớp, sau đó lấy top 3 học sinh mỗi lớp
+3. **Set Operations**: Tìm các sinh viên đăng ký cả 3 môn: Toán, Văn và Anh
+4. **Window Functions**:
+   - Tính điểm trung bình động (moving average) của 3 bài kiểm tra gần nhất cho mỗi sinh viên
+   - Xếp hạng sinh viên theo điểm, hiển thị cả điểm của người trên và người dưới
+
 ---
 
-## 🧑‍🏫 Bài 2: Hàm và thủ tục lưu trữ
+## 🧑‍🏫 Bài 2: Functions, Procedures và Triggers
 
 ### Tạo và sử dụng hàm người dùng
-
-Hàm người dùng (User-Defined Functions) là các đoạn code SQL được lưu trữ và có thể tái sử dụng, trả về một giá trị duy nhất.
 
 #### Ví dụ 1: Hàm tính tuổi từ ngày sinh
 
@@ -683,8 +651,6 @@ DELIMITER ;
 CALL insert_new_student('Nguyễn Văn A', 'nguyenvana@example.com', 1);
 ```
 
----
-
 ## 🧑‍🏫 Bài 3: Tối ưu hóa truy vấn
 
 ### Chỉ mục (Indexes) và cách hoạt động
@@ -907,7 +873,7 @@ HAVING avg_score > 7.5
 ORDER BY avg_score DESC;
 ```
 
-### Bài tập thực hành
+### Bài tập thực hành bài 3
 
 1. Tạo một bảng Students với 100,000 bản ghi mẫu
 2. Thực hiện các truy vấn khác nhau và sử dụng EXPLAIN để phân tích

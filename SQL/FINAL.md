@@ -1,3 +1,12 @@
+---
+prev:
+  text: '⚡ SQL Chuyên Sâu'
+  link: '/SQL/Part4'
+next:
+  text: '🧮 Module 5: Nhập Môn DSA'
+  link: '/DSA/Part1'
+---
+
 # 🧪 BÀI TẬP LỚN (SQL)
 
 ## **Đề bài: Xây dựng CSDL cho ứng dụng Quản lý Thư viện**

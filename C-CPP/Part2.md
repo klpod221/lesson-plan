@@ -1,31 +1,5 @@
 # 📘 PHẦN 2: CON TRỎ VÀ MẢNG
 
-- [📘 PHẦN 2: CON TRỎ VÀ MẢNG](#-phần-2-con-trỏ-và-mảng)
-  - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
-  - [🧑‍🏫 Bài 1: Mảng trong C](#-bài-1-mảng-trong-c)
-    - [Mảng một chiều](#mảng-một-chiều)
-    - [Mảng ký tự (Strings)](#mảng-ký-tự-strings)
-    - [Mảng nhiều chiều](#mảng-nhiều-chiều)
-  - [🧑‍🏫 Bài 2: Con trỏ cơ bản](#-bài-2-con-trỏ-cơ-bản)
-    - [Khái niệm con trỏ](#khái-niệm-con-trỏ)
-    - [Khai báo và sử dụng con trỏ](#khai-báo-và-sử-dụng-con-trỏ)
-    - [Con trỏ NULL và void](#con-trỏ-null-và-void)
-  - [🧑‍🏫 Bài 3: Con trỏ và Mảng](#-bài-3-con-trỏ-và-mảng)
-    - [Mối quan hệ giữa con trỏ và mảng](#mối-quan-hệ-giữa-con-trỏ-và-mảng)
-    - [Pointer Arithmetic](#pointer-arithmetic)
-    - [Con trỏ và chuỗi](#con-trỏ-và-chuỗi)
-  - [🧑‍🏫 Bài 4: Con trỏ và Hàm](#-bài-4-con-trỏ-và-hàm)
-    - [Pass by reference](#pass-by-reference)
-    - [Con trỏ hàm](#con-trỏ-hàm)
-    - [Trả về con trỏ từ hàm](#trả-về-con-trỏ-từ-hàm)
-  - [🧑‍🏫 Bài 5: Quản lý bộ nhớ động](#-bài-5-quản-lý-bộ-nhớ-động)
-    - [malloc, calloc, realloc, free](#malloc-calloc-realloc-free)
-    - [Memory leaks và best practices](#memory-leaks-và-best-practices)
-    - [Dynamic arrays](#dynamic-arrays)
-  - [🧪 BÀI TẬP LỚN CUỐI PHẦN: Quản lý danh sách động](#-bài-tập-lớn-cuối-phần-quản-lý-danh-sách-động)
-    - [Mô tả bài toán](#mô-tả-bài-toán)
-    - [Yêu cầu](#yêu-cầu)
-
 ## 🎯 Mục tiêu tổng quát
 
 - Nắm vững cách sử dụng mảng
@@ -33,8 +7,6 @@
 - Biết cách quản lý bộ nhớ động
 - Sử dụng con trỏ với hàm
 - Xây dựng chương trình với dynamic data structures
-
----
 
 ## 🧑‍🏫 Bài 1: Mảng trong C
 
@@ -374,8 +346,6 @@ int main() {
 }
 ```
 
----
-
 ## 🧑‍🏫 Bài 2: Con trỏ cơ bản
 
 ### Khái niệm con trỏ
@@ -498,8 +468,6 @@ int main() {
 }
 ```
 
----
-
 ## 🧑‍🏫 Bài 3: Con trỏ và Mảng
 
 ### Mối quan hệ giữa con trỏ và mảng
@@ -613,8 +581,6 @@ int main() {
     return 0;
 }
 ```
-
----
 
 ## 🧑‍🏫 Bài 4: Con trỏ và Hàm
 
@@ -806,8 +772,6 @@ int main() {
     return 0;
 }
 ```
-
----
 
 ## 🧑‍🏫 Bài 5: Quản lý bộ nhớ động
 
@@ -1010,8 +974,6 @@ int main() {
     return 0;
 }
 ```
-
----
 
 ## 🧪 BÀI TẬP LỚN CUỐI PHẦN: Quản lý danh sách động
 

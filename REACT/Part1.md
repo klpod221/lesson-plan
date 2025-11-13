@@ -1,29 +1,11 @@
 # 📘 PHẦN 1: NỀN TẢNG REACT
 
-- [📘 PHẦN 1: NỀN TẢNG REACT](#-phần-1-nền-tảng-react)
-  - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
-  - [🧑‍🏫 Bài 1: Giới thiệu React và Môi trường](#-bài-1-giới-thiệu-react-và-môi-trường)
-    - [React là gì?](#react-là-gì)
-    - [Thiết lập môi trường (Vite)](#thiết-lập-môi-trường-vite)
-  - [🧑‍🏫 Bài 2: JSX - JavaScript XML](#-bài-2-jsx---javascript-xml)
-    - [Cú pháp JSX](#cú-pháp-jsx)
-    - [Nhúng biểu thức JavaScript vào JSX](#nhúng-biểu-thức-javascript-vào-jsx)
-  - [🧑‍🏫 Bài 3: Components và Props](#-bài-3-components-và-props)
-    - [Function Components](#function-components)
-    - [Props (Properties)](#props-properties)
-    - [Tổ chức Components](#tổ-chức-components)
-  - [🧪 BÀI TẬP LỚN CUỐI PHẦN: Xây dựng giao diện tĩnh cho trang "SimpleStore"](#-bài-tập-lớn-cuối-phần-xây-dựng-giao-diện-tĩnh-cho-trang-simplestore)
-    - [Mô tả bài toán](#mô-tả-bài-toán)
-    - [Yêu cầu](#yêu-cầu)
-
 ## 🎯 Mục tiêu tổng quát
 
 - Hiểu được khái niệm cơ bản về React, tại sao nó ra đời và vai trò của nó trong phát triển web hiện đại.
 - Nắm vững cú pháp JSX để mô tả giao diện người dùng.
 - Biết cách tạo và sử dụng các Components để xây dựng giao diện theo hướng module hóa.
 - Hiểu và sử dụng `props` để truyền dữ liệu từ component cha xuống component con.
-
----
 
 ## 🧑‍🏫 Bài 1: Giới thiệu React và Môi trường
 
@@ -36,7 +18,7 @@
 
 Sơ đồ hoạt động cơ bản:
 
-```
+```text
 [ Dữ liệu (State/Props) ] ----> [ React Component ] ----> [ Giao diện (UI) ]
 ```
 
@@ -45,6 +27,7 @@ Sơ đồ hoạt động cơ bản:
 Chúng ta sẽ sử dụng Vite, một công cụ build hiện đại, để tạo dự án React một cách nhanh chóng.
 
 Mở terminal và chạy lệnh sau:
+
 ```bash
 # Sử dụng npm
 npm create vite@latest simple-store -- --template react
@@ -61,9 +44,8 @@ npm install
 # Chạy server phát triển
 npm run dev
 ```
-Truy cập vào địa chỉ `http://localhost:5173` (hoặc cổng khác được hiển thị trong terminal) để xem ứng dụng của bạn.
 
----
+Truy cập vào địa chỉ `http://localhost:5173` (hoặc cổng khác được hiển thị trong terminal) để xem ứng dụng của bạn.
 
 ## 🧑‍🏫 Bài 2: JSX - JavaScript XML
 
@@ -84,7 +66,9 @@ function App() {
 
 export default App;
 ```
+
 **Lưu ý:**
+
 - `class` trong HTML được viết thành `className` trong JSX.
 - Mọi thẻ phải được đóng (`<br>` phải thành `<br />`).
 - Component chỉ có thể trả về một phần tử gốc duy nhất. Sử dụng Fragment (`<>...</>`) nếu cần.
@@ -116,8 +100,6 @@ function App() {
 export default App;
 ```
 
----
-
 ## 🧑‍🏫 Bài 3: Components và Props
 
 ### Function Components
@@ -138,7 +120,8 @@ export default Greeting;
 Props (viết tắt của properties) là cách để truyền dữ liệu từ component cha xuống component con. Props là đối tượng chỉ đọc.
 
 Sơ đồ truyền Props:
-```
+
+```text
 [ App Component (dữ liệu) ] ----(props)----> [ ProductCard Component ]
 ```
 
@@ -176,7 +159,7 @@ export default App;
 
 Tạo một cây component để quản lý giao diện.
 
-```
+```text
 App
 ├── Header.jsx
 └── ProductList.jsx
@@ -185,29 +168,29 @@ App
     └── ...
 ```
 
----
-
 ## 🧪 BÀI TẬP LỚN CUỐI PHẦN: Xây dựng giao diện tĩnh cho trang "SimpleStore"
 
 ### Mô tả bài toán
+
 Tạo một trang web hiển thị danh sách các sản phẩm. Dữ liệu sản phẩm sẽ được lưu trữ tạm thời trong một mảng JavaScript. Giao diện hoàn toàn tĩnh, chưa có tương tác.
 
 ### Yêu cầu
-1.  **Cấu trúc thư mục:**
-    -   Tạo thư mục `src/components`.
-    -   Bên trong, tạo các file component: `Header.jsx`, `ProductList.jsx`, `ProductCard.jsx`.
-2.  **Dữ liệu:**
-    -   Trong file `src/App.jsx`, tạo một mảng dữ liệu `products` chứa thông tin của ít nhất 4 sản phẩm. Mỗi sản phẩm là một object có `id`, `name`, `price`, và `imageUrl`.
-3.  **Component `ProductCard.jsx`:**
-    -   Nhận `name`, `price`, `imageUrl` qua `props`.
-    -   Hiển thị thông tin sản phẩm trong một thẻ `div` có style đơn giản.
-4.  **Component `ProductList.jsx`:**
-    -   Nhận mảng `products` qua `props`.
-    -   Sử dụng hàm `.map()` để lặp qua mảng `products` và render ra một danh sách các `ProductCard`.
-5.  **Component `Header.jsx`:**
-    -   Hiển thị tiêu đề của trang web, ví dụ: "Welcome to SimpleStore".
-6.  **Component `App.jsx`:**
-    -   Là component gốc, import và sắp xếp `Header` và `ProductList`.
-    -   Truyền mảng `products` vào cho `ProductList`.
+
+1. **Cấu trúc thư mục:**
+    - Tạo thư mục `src/components`.
+    - Bên trong, tạo các file component: `Header.jsx`, `ProductList.jsx`, `ProductCard.jsx`.
+2. **Dữ liệu:**
+    - Trong file `src/App.jsx`, tạo một mảng dữ liệu `products` chứa thông tin của ít nhất 4 sản phẩm. Mỗi sản phẩm là một object có `id`, `name`, `price`, và `imageUrl`.
+3. **Component `ProductCard.jsx`:**
+    - Nhận `name`, `price`, `imageUrl` qua `props`.
+    - Hiển thị thông tin sản phẩm trong một thẻ `div` có style đơn giản.
+4. **Component `ProductList.jsx`:**
+    - Nhận mảng `products` qua `props`.
+    - Sử dụng hàm `.map()` để lặp qua mảng `products` và render ra một danh sách các `ProductCard`.
+5. **Component `Header.jsx`:**
+    - Hiển thị tiêu đề của trang web, ví dụ: "Welcome to SimpleStore".
+6. **Component `App.jsx`:**
+    - Là component gốc, import và sắp xếp `Header` và `ProductList`.
+    - Truyền mảng `products` vào cho `ProductList`.
 
 **Mục tiêu:** Kết thúc phần này, bạn sẽ có một trang web hiển thị danh sách sản phẩm, được xây dựng hoàn toàn bằng các component React và dữ liệu tĩnh.

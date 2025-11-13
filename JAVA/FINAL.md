@@ -1,3 +1,12 @@
+---
+prev:
+  text: '🧵 Luồng, Đa Luồng và JDBC'
+  link: '/JAVA/Part5'
+next:
+  text: '💾 Module 4: Nhập Môn SQL'
+  link: '/SQL/Part1'
+---
+
 # 🧪 BÀI TẬP LỚN (JAVA)
 
 ## **Đề bài: Xây dựng ứng dụng Quản lý Thư viện**

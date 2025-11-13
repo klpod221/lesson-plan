@@ -1,41 +1,13 @@
-# 🐳 DOCKER: NẮM VỮNG NỀN TẢNG
-
-- [🐳 DOCKER: NẮM VỮNG NỀN TẢNG](#-docker-nắm-vững-nền-tảng)
-  - [🎯 Mục Tiêu Tổng Quát](#-mục-tiêu-tổng-quát)
-  - [🎯 Mục Tiêu Chi Tiết (Bài học này)](#-mục-tiêu-chi-tiết-bài-học-này)
-  - [1. 🌟 Giới Thiệu](#1--giới-thiệu)
-    - [Vấn đề "It works on my machine!"](#vấn-đề-it-works-on-my-machine)
-    - [Giải pháp là gì? VMs vs Containers](#giải-pháp-là-gì-vms-vs-containers)
-      - [Kernel là gì?](#kernel-là-gì)
-      - [Máy ảo (VMs) hoạt động như thế nào?](#máy-ảo-vms-hoạt-động-như-thế-nào)
-      - [Containers (Docker) hoạt động như thế nào: "Chia sẻ Kernel của Host OS"](#containers-docker-hoạt-động-như-thế-nào-chia-sẻ-kernel-của-host-os)
-      - [So sánh VMs và Containers](#so-sánh-vms-và-containers)
-  - [2. 🐧 Linux Cơ Bản Cho Docker](#2--linux-cơ-bản-cho-docker)
-    - [Tại sao cần biết Linux cơ bản?](#tại-sao-cần-biết-linux-cơ-bản)
-    - [Di chuyển \& Quản lý file/thư mục](#di-chuyển--quản-lý-filethư-mục)
-    - [Quyền (Permissions) cơ bản](#quyền-permissions-cơ-bản)
-    - [Một số lệnh hữu ích khác](#một-số-lệnh-hữu-ích-khác)
-    - [Trình quản lý gói (Package Managers)](#trình-quản-lý-gói-package-managers)
-  - [3. 💡 Docker Core Concepts](#3--docker-core-concepts)
-    - [Kiến trúc tổng quan của Docker](#kiến-trúc-tổng-quan-của-docker)
-    - [Docker Engine](#docker-engine)
-    - [Image](#image)
-    - [Container](#container)
-    - [Dockerfile](#dockerfile)
-    - [Registry (Docker Hub)](#registry-docker-hub)
-  - [4. ⚙️ Docker CLI Cơ Bản](#4-️-docker-cli-cơ-bản)
-    - [Quản lý Images](#quản-lý-images)
-    - [Quản lý Containers](#quản-lý-containers)
-    - [Tương tác với Container](#tương-tác-với-container)
-    - [Xem thông tin và dọn dẹp](#xem-thông-tin-và-dọn-dẹp)
-  - [5. 📝 Dockerfile: Công Thức Tạo Image](#5--dockerfile-công-thức-tạo-image)
-    - [Các chỉ thị (Instructions) phổ biến](#các-chỉ-thị-instructions-phổ-biến)
-    - [Ví dụ Dockerfile đơn giản (Node.js App)](#ví-dụ-dockerfile-đơn-giản-nodejs-app)
-    - [Thứ tự lệnh và Caching](#thứ-tự-lệnh-và-caching)
-  - [6. 🛠️ Thực Hành: Dockerize Ứng Dụng PHP "Hello World" với Apache](#6-️-thực-hành-dockerize-ứng-dụng-php-hello-world-với-apache)
-  - [7. 🏋️ Bài Tập Nâng Cao: Dockerize Ứng Dụng PHP Động với Cấu Hình Môi Trường](#7-️-bài-tập-nâng-cao-dockerize-ứng-dụng-php-động-với-cấu-hình-môi-trường)
-
 ---
+prev:
+  text: '🌐 Triển Khai Chuyên Nghiệp'
+  link: '/PHP/Part6'
+next:
+  text: '🐳 Docker: Orchestration'
+  link: '/DEVOPS/Docker2'
+---
+
+# 🐳 DOCKER: NẮM VỮNG NỀN TẢNG
 
 ## 🎯 Mục Tiêu Tổng Quát
 
@@ -46,8 +18,6 @@
 - Làm quen với các **lệnh Linux cơ bản** thường dùng khi làm việc với Docker.
 - Tự tin áp dụng Docker vào **workflow phát triển hàng ngày** để tăng hiệu suất và tính nhất quán.
 
----
-
 ## 🎯 Mục Tiêu Chi Tiết (Bài học này)
 
 - Hiểu được vấn đề Docker giải quyết.
@@ -56,8 +26,6 @@
 - Thành thạo các lệnh `Docker CLI` cơ bản để quản lý images và containers.
 - Làm quen với các lệnh `Linux` cơ bản cần thiết khi làm việc với Docker, đặc biệt là bên trong containers và khi viết Dockerfiles.
 - Thực hành xây dựng `Dockerfile` đầu tiên, build image và chạy `container` từ image đó.
-
----
 
 ## 1. 🌟 Giới Thiệu
 

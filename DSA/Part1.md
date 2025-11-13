@@ -1,45 +1,19 @@
-# 📘 PHẦN 1: NHẬP MÔN CẤU TRÚC DỮ LIỆU VÀ THUẬT TOÁN
+---
+prev:
+  text: '🏆 Bài Tập Lớn SQL'
+  link: '/SQL/FINAL'
+next:
+  text: '🌐 Cấu Trúc Dữ Liệu Nâng Cao'
+  link: '/DSA/Part2'
+---
 
-- [📘 PHẦN 1: NHẬP MÔN CẤU TRÚC DỮ LIỆU VÀ THUẬT TOÁN](#-phần-1-nhập-môn-cấu-trúc-dữ-liệu-và-thuật-toán)
-  - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
-  - [🧑‍🏫 Bài 1: Giới thiệu về cấu trúc dữ liệu và thuật toán](#-bài-1-giới-thiệu-về-cấu-trúc-dữ-liệu-và-thuật-toán)
-    - [Khái niệm cấu trúc dữ liệu](#khái-niệm-cấu-trúc-dữ-liệu)
-    - [Khái niệm thuật toán](#khái-niệm-thuật-toán)
-    - [Mối quan hệ giữa cấu trúc dữ liệu và thuật toán](#mối-quan-hệ-giữa-cấu-trúc-dữ-liệu-và-thuật-toán)
-    - [Tầm quan trọng của DSA](#tầm-quan-trọng-của-dsa)
-    - [Ví dụ minh họa](#ví-dụ-minh-họa)
-  - [🧑‍🏫 Bài 2: Phân tích độ phức tạp thuật toán](#-bài-2-phân-tích-độ-phức-tạp-thuật-toán)
-    - [Định nghĩa độ phức tạp thuật toán](#định-nghĩa-độ-phức-tạp-thuật-toán)
-    - [Ký hiệu Big-O](#ký-hiệu-big-o)
-    - [Phân tích thuật toán](#phân-tích-thuật-toán)
-    - [So sánh các độ phức tạp thuật toán](#so-sánh-các-độ-phức-tạp-thuật-toán)
-  - [🧑‍🏫 Bài 3: Mảng và danh sách](#-bài-3-mảng-và-danh-sách)
-    - [Mảng (Array)](#mảng-array)
-    - [Mảng đa chiều](#mảng-đa-chiều)
-    - [Danh sách liên kết (Linked List)](#danh-sách-liên-kết-linked-list)
-    - [Danh sách liên kết đơn](#danh-sách-liên-kết-đơn)
-    - [So sánh Mảng và Danh sách liên kết](#so-sánh-mảng-và-danh-sách-liên-kết)
-  - [🧑‍🏫 Bài 4: Thuật toán sắp xếp cơ bản](#-bài-4-thuật-toán-sắp-xếp-cơ-bản)
-    - [Thuật toán sắp xếp nổi bọt (Bubble Sort)](#thuật-toán-sắp-xếp-nổi-bọt-bubble-sort)
-    - [Thuật toán sắp xếp chọn (Selection Sort)](#thuật-toán-sắp-xếp-chọn-selection-sort)
-    - [Thuật toán sắp xếp chèn (Insertion Sort)](#thuật-toán-sắp-xếp-chèn-insertion-sort)
-    - [So sánh các thuật toán sắp xếp cơ bản](#so-sánh-các-thuật-toán-sắp-xếp-cơ-bản)
-  - [🧑‍🏫 Bài 5: Thuật toán tìm kiếm cơ bản](#-bài-5-thuật-toán-tìm-kiếm-cơ-bản)
-    - [Tìm kiếm tuyến tính (Linear Search)](#tìm-kiếm-tuyến-tính-linear-search)
-    - [Tìm kiếm nhị phân (Binary Search)](#tìm-kiếm-nhị-phân-binary-search)
-    - [Binary Search đệ quy](#binary-search-đệ-quy)
-    - [So sánh thuật toán tìm kiếm](#so-sánh-thuật-toán-tìm-kiếm)
-  - [🧪 BÀI TẬP LỚN CUỐI PHẦN: Quản lý danh sách sinh viên](#-bài-tập-lớn-cuối-phần-quản-lý-danh-sách-sinh-viên)
-    - [Mô tả bài toán](#mô-tả-bài-toán)
-    - [Kết quả chạy chương trình (Ví dụ)](#kết-quả-chạy-chương-trình-ví-dụ)
+# 📘 PHẦN 1: NHẬP MÔN CẤU TRÚC DỮ LIỆU VÀ THUẬT TOÁN
 
 ## 🎯 Mục tiêu tổng quát
 
 - Làm quen với khái niệm cấu trúc dữ liệu và thuật toán.
 - Hiểu cách phân tích độ phức tạp thuật toán.
 - Nắm vững các cấu trúc dữ liệu cơ bản và thuật toán sắp xếp, tìm kiếm.
-
----
 
 ## 🧑‍🏫 Bài 1: Giới thiệu về cấu trúc dữ liệu và thuật toán
 
@@ -96,8 +70,6 @@ public class FindMax {
     }
 }
 ```
-
----
 
 ## 🧑‍🏫 Bài 2: Phân tích độ phức tạp thuật toán
 
@@ -178,8 +150,6 @@ public int binarySearch(int[] sortedArray, int target) {
 | O(n²)       | Bậc hai        | Chậm        | Bubble Sort, Selection Sort |
 | O(2^n)      | Hàm mũ         | Rất chậm    | Giải thuật đệ quy Fibonacci |
 | O(n!)       | Giai thừa      | Cực kỳ chậm | Bài toán người du lịch      |
-
----
 
 ## 🧑‍🏫 Bài 3: Mảng và danh sách
 
@@ -301,8 +271,6 @@ list.printList(); // 10 -> 20 -> 30 -> null
 | Kích thước    | Cố định (JAVA)      | Động                                           |
 | Ứng dụng      | Truy cập ngẫu nhiên | Chèn/xóa thường xuyên                          |
 
----
-
 ## 🧑‍🏫 Bài 4: Thuật toán sắp xếp cơ bản
 
 ### Thuật toán sắp xếp nổi bọt (Bubble Sort)
@@ -382,8 +350,6 @@ public static void insertionSort(int[] arr) {
 | Bubble Sort    | O(n²)                | O(n)               | O(n²)              | O(1)   | Có      |
 | Selection Sort | O(n²)                | O(n²)              | O(n²)              | O(1)   | Không   |
 | Insertion Sort | O(n²)                | O(n)               | O(n²)              | O(1)   | Có      |
-
----
 
 ## 🧑‍🏫 Bài 5: Thuật toán tìm kiếm cơ bản
 
@@ -472,8 +438,6 @@ public static int binarySearch(int[] arr, int x) {
 | ------------------- | ----------- | --------------- | -------------------------- | ---------------------- |
 | Tìm kiếm tuyến tính | O(n)        | Không           | Đơn giản, phù hợp mảng nhỏ | Chậm với mảng lớn      |
 | Tìm kiếm nhị phân   | O(log n)    | Mảng đã sắp xếp | Nhanh với mảng lớn         | Cần mảng sắp xếp trước |
-
----
 
 ## 🧪 BÀI TẬP LỚN CUỐI PHẦN: Quản lý danh sách sinh viên
 

@@ -1,3 +1,12 @@
+---
+prev:
+  text: '🛠️ Cài Đặt Môi Trường'
+  link: '/INSTALL'
+next:
+  text: '🔍 Module 1: Tìm Kiếm Thông Tin'
+  link: '/SELF-LEARNING/Part1'
+---
+
 # 📘 GIT VÀ GITHUB CƠ BẢN
 
 - [📘 GIT VÀ GITHUB CƠ BẢN](#-git-và-github-cơ-bản)
@@ -48,8 +57,6 @@
     - [Git aliases](#git-aliases)
   - [🧪 BÀI TẬP LỚN CUỐI PHẦN: tạo và quản lý code mà bạn sẽ thực hiện trong các phần sau của khóa học bằng Git và GitHub](#-bài-tập-lớn-cuối-phần-tạo-và-quản-lý-code-mà-bạn-sẽ-thực-hiện-trong-các-phần-sau-của-khóa-học-bằng-git-và-github)
 
----
-
 ## 🎯 Mục tiêu tổng quát
 
 - Làm quen với Git và GitHub, các lệnh cơ bản để quản lý mã nguồn.
@@ -58,8 +65,6 @@
 - Hiểu cách làm việc nhóm với Git và GitHub, giải quyết xung đột mã nguồn.
 - Nắm vững quy trình phát triển phần mềm với Git Flow.
 - Thực hành các kỹ thuật quản lý mã nguồn như tag, rebase và cherry-pick.
-
----
 
 ## 🧑‍🏫 Bài 1: Giới thiệu về Git và GitHub
 
@@ -129,8 +134,6 @@ GitHub là dịch vụ lưu trữ Git trên cloud, cung cấp giao diện web đ
                                                        | Repository     |
                                                        +----------------+
 ```
-
----
 
 ## 🧑‍🏫 Bài 2: Các lệnh Git cơ bản
 
@@ -225,8 +228,6 @@ node_modules/
 
 Các mẫu phổ biến cho `.gitignore` theo ngôn ngữ có sẵn tại: [github.com/github/gitignore](https://github.com/github/gitignore)
 
----
-
 ## 🧑‍🏫 Bài 3: Làm việc với GitHub
 
 ### Tạo tài khoản và repository
@@ -319,8 +320,6 @@ GitHub Actions là dịch vụ CI/CD tích hợp của GitHub:
 
 2. Push lên GitHub
 3. Xem kết quả trong tab "Actions"
-
----
 
 ## 🧑‍🏫 Bài 4: Branching và Merging
 
@@ -420,8 +419,6 @@ git stash drop stash@{0}
 git stash clear
 ```
 
----
-
 ## 🧑‍🏫 Bài 5: Làm việc nhóm và giải quyết xung đột
 
 ### Pull Request (PR)
@@ -490,8 +487,6 @@ Các bước giải quyết:
 5. **Code review**: Luôn có người khác review code trước khi merge
 6. **Test trước khi push**: Đảm bảo code hoạt động đúng
 7. **Cập nhật documentation**: Đảm bảo tài liệu luôn mới nhất
-
----
 
 ## 🧑‍🏫 Bài 6: Git Flow và quy trình phát triển
 
@@ -605,8 +600,6 @@ Git Flow là một mô hình phân nhánh giúp quản lý dự án phần mềm
 - **GitHub Flow**: Đơn giản hóa với chỉ main và feature branches
 - **GitLab Flow**: Thêm các environment branches (production, staging)
 - **Trunk-based Development**: Phát triển chủ yếu trên branch chính, branch tính năng ngắn
-
----
 
 ## 🧑‍🏫 Bài 7: Kỹ thuật Git nâng cao
 
@@ -765,8 +758,6 @@ git config --global alias.br branch
 git config --global alias.last 'log -1 HEAD'
 git config --global alias.visual '!gitk'
 ```
-
----
 
 ## 🧪 BÀI TẬP LỚN CUỐI PHẦN: tạo và quản lý code mà bạn sẽ thực hiện trong các phần sau của khóa học bằng Git và GitHub
 

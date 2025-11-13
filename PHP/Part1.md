@@ -1,28 +1,13 @@
-# 📘 PHẦN 1: NHẬP MÔN PHP
+---
+prev:
+  text: '⚙️ Framework & Công Cụ'
+  link: '/WEB/Part4'
+next:
+  text: '🧩 OOP với PHP'
+  link: '/PHP/Part2'
+---
 
-- [📘 PHẦN 1: NHẬP MÔN PHP](#-phần-1-nhập-môn-php)
-  - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
-  - [🧑‍🏫 Bài 1: Giới thiệu PHP](#-bài-1-giới-thiệu-php)
-    - [PHP là gì?](#php-là-gì)
-    - [File PHP đầu tiên](#file-php-đầu-tiên)
-    - [Cú pháp PHP cơ bản](#cú-pháp-php-cơ-bản)
-  - [🧑‍🏫 Bài 2: Biến và kiểu dữ liệu trong PHP](#-bài-2-biến-và-kiểu-dữ-liệu-trong-php)
-    - [Biến trong PHP](#biến-trong-php)
-    - [Kiểu dữ liệu cơ bản](#kiểu-dữ-liệu-cơ-bản)
-    - [Hằng số](#hằng-số)
-  - [🧑‍🏫 Bài 3: Toán tử và cấu trúc điều khiển](#-bài-3-toán-tử-và-cấu-trúc-điều-khiển)
-    - [Các toán tử trong PHP](#các-toán-tử-trong-php)
-    - [Cấu trúc điều kiện](#cấu-trúc-điều-kiện)
-    - [Vòng lặp](#vòng-lặp)
-  - [🧑‍🏫 Bài 4: Hàm và Array trong PHP](#-bài-4-hàm-và-array-trong-php)
-    - [Hàm trong PHP](#hàm-trong-php)
-    - [Array trong PHP](#array-trong-php)
-  - [🧑‍🏫 Bài 5: PHP và HTML](#-bài-5-php-và-html)
-    - [Kết hợp PHP với HTML](#kết-hợp-php-với-html)
-    - [Xử lý form với PHP](#xử-lý-form-với-php)
-  - [🧪 BÀI TẬP LỚN CUỐI PHẦN: Tạo trang quản lý sản phẩm đơn giản](#-bài-tập-lớn-cuối-phần-tạo-trang-quản-lý-sản-phẩm-đơn-giản)
-    - [Mô tả bài toán](#mô-tả-bài-toán)
-    - [Yêu cầu](#yêu-cầu)
+# 📘 PHẦN 1: NHẬP MÔN PHP
 
 ## 🎯 Mục tiêu tổng quát
 
@@ -30,8 +15,6 @@
 - Nắm vững cú pháp PHP, biến, hàm và cấu trúc điều khiển
 - Biết cách kết hợp PHP với HTML để tạo trang web động
 - Xây dựng được ứng dụng web đơn giản với PHP
-
----
 
 ## 🧑‍🏫 Bài 1: Giới thiệu PHP
 
@@ -82,8 +65,6 @@ Truy cập vào `http://localhost:8000` để xem kết quả.
 - Mỗi câu lệnh kết thúc bằng dấu chấm phẩy (;)
 - PHP phân biệt chữ hoa và chữ thường trong tên biến
 - Có thể nhúng nhiều block PHP trong một trang HTML
-
----
 
 ## 🧑‍🏫 Bài 2: Biến và kiểu dữ liệu trong PHP
 
@@ -161,8 +142,6 @@ Truy cập vào `http://localhost:8000` để xem kết quả.
     echo "Database: " . DATABASE;
 ?>
 ```
-
----
 
 ## 🧑‍🏫 Bài 3: Toán tử và cấu trúc điều khiển
 
@@ -306,8 +285,6 @@ Truy cập vào `http://localhost:8000` để xem kết quả.
     }
 ?>
 ```
-
----
 
 ## 🧑‍🏫 Bài 4: Hàm và Array trong PHP
 
@@ -466,8 +443,6 @@ Truy cập vào `http://localhost:8000` để xem kết quả.
     print_r($colorArray);
 ?>
 ```
-
----
 
 ## 🧑‍🏫 Bài 5: PHP và HTML
 
@@ -709,8 +684,6 @@ Truy cập vào `http://localhost:8000` để xem kết quả.
 </body>
 </html>
 ```
-
----
 
 ## 🧪 BÀI TẬP LỚN CUỐI PHẦN: Tạo trang quản lý sản phẩm đơn giản
 

@@ -1,88 +1,13 @@
-# 📘 KUBERNETES: HỆ THỐNG ĐIỀU PHỐI CONTAINER
+---
+prev:
+  text: '🐳 Docker: Orchestration'
+  link: '/DEVOPS/Docker2'
+next:
+  text: '📋 Tổng Kết & Định Hướng'
+  link: '/CONCLUSION'
+---
 
-- [📘 KUBERNETES: HỆ THỐNG ĐIỀU PHỐI CONTAINER](#-kubernetes-hệ-thống-điều-phối-container)
-  - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
-  - [🧑‍🏫 Bài 1: Giới thiệu về Kubernetes](#-bài-1-giới-thiệu-về-kubernetes)
-    - [Kubernetes là gì?](#kubernetes-là-gì)
-    - [Lịch sử phát triển](#lịch-sử-phát-triển)
-    - [Lợi ích của Kubernetes](#lợi-ích-của-kubernetes)
-    - [Các giải pháp thay thế cho Kubernetes](#các-giải-pháp-thay-thế-cho-kubernetes)
-    - [Use cases phổ biến](#use-cases-phổ-biến)
-  - [🧑‍🏫 Bài 2: Kiến trúc Kubernetes](#-bài-2-kiến-trúc-kubernetes)
-    - [Tổng quan kiến trúc](#tổng-quan-kiến-trúc)
-    - [Control Plane Components](#control-plane-components)
-    - [Node Components](#node-components)
-    - [Các Add-ons quan trọng](#các-add-ons-quan-trọng)
-    - [Mô hình hoạt động](#mô-hình-hoạt-động)
-  - [🧑‍🏫 Bài 3: Cài đặt và Cấu hình Kubernetes](#-bài-3-cài-đặt-và-cấu-hình-kubernetes)
-    - [Các phương pháp cài đặt Kubernetes](#các-phương-pháp-cài-đặt-kubernetes)
-    - [Cài đặt Minikube cho môi trường phát triển](#cài-đặt-minikube-cho-môi-trường-phát-triển)
-    - [Cài đặt kubectl - công cụ CLI để tương tác với Kubernetes](#cài-đặt-kubectl---công-cụ-cli-để-tương-tác-với-kubernetes)
-    - [Cài đặt cluster với kubeadm](#cài-đặt-cluster-với-kubeadm)
-    - [Xác nhận cài đặt Kubernetes](#xác-nhận-cài-đặt-kubernetes)
-    - [Cấu hình Kubernetes](#cấu-hình-kubernetes)
-  - [🧑‍🏫 Bài 4: Kubernetes Objects và Workloads](#-bài-4-kubernetes-objects-và-workloads)
-    - [Kubernetes Objects là gì?](#kubernetes-objects-là-gì)
-    - [Các Objects phổ biến](#các-objects-phổ-biến)
-    - [Pod](#pod)
-    - [Deployment](#deployment)
-    - [Service](#service)
-    - [DaemonSet](#daemonset)
-    - [StatefulSet](#statefulset)
-    - [Job và CronJob](#job-và-cronjob)
-    - [Quản lý Kubernetes Objects](#quản-lý-kubernetes-objects)
-  - [🧑‍🏫 Bài 5: Networking trong Kubernetes](#-bài-5-networking-trong-kubernetes)
-    - [Mô hình networking của Kubernetes](#mô-hình-networking-của-kubernetes)
-    - [Các thành phần networking](#các-thành-phần-networking)
-    - [Network Plugins (CNI)](#network-plugins-cni)
-    - [Service ()](#service-)
-    - [Các loại Services](#các-loại-services)
-    - [Ingress](#ingress)
-    - [Network Policies](#network-policies)
-    - [Debugging Network Issues](#debugging-network-issues)
-  - [🧑‍🏫 Bài 6: Storage và Persistence](#-bài-6-storage-và-persistence)
-    - [Persistent Storage trong Kubernetes](#persistent-storage-trong-kubernetes)
-    - [Volumes](#volumes)
-    - [Các loại Volumes phổ biến](#các-loại-volumes-phổ-biến)
-      - [emptyDir](#emptydir)
-      - [hostPath](#hostpath)
-    - [Persistent Storage Architecture](#persistent-storage-architecture)
-      - [PersistentVolume (PV)](#persistentvolume-pv)
-      - [PersistentVolumeClaim (PVC)](#persistentvolumeclaim-pvc)
-      - [Sử dụng PVC trong Pod](#sử-dụng-pvc-trong-pod)
-      - [StorageClass](#storageclass)
-      - [Volume Snapshots](#volume-snapshots)
-      - [StatefulSet với Storage](#statefulset-với-storage)
-    - [Best Practices](#best-practices)
-  - [🧑‍🏫 Bài 7: ConfigMaps và Secrets](#-bài-7-configmaps-và-secrets)
-    - [ConfigMaps](#configmaps)
-    - [Tạo ConfigMap](#tạo-configmap)
-    - [Sử dụng ConfigMap](#sử-dụng-configmap)
-    - [Secrets](#secrets)
-    - [Tạo Secret](#tạo-secret)
-    - [Tạo Secret từ command line](#tạo-secret-từ-command-line)
-    - [Sử dụng Secret](#sử-dụng-secret)
-    - [Secret Types](#secret-types)
-    - [Docker Registry Secret](#docker-registry-secret)
-    - [Sử dụng Docker Registry Secret](#sử-dụng-docker-registry-secret)
-    - [Best Practices (Bí quyết bảo mật Secrets)](#best-practices-bí-quyết-bảo-mật-secrets)
-  - [🧑‍🏫 Bài 8: Helm - Package Manager cho Kubernetes](#-bài-8-helm---package-manager-cho-kubernetes)
-    - [Helm là gì?](#helm-là-gì)
-    - [Khái niệm cơ bản của Helm](#khái-niệm-cơ-bản-của-helm)
-    - [Cài đặt Helm](#cài-đặt-helm)
-    - [Cấu trúc của một Helm Chart](#cấu-trúc-của-một-helm-chart)
-      - [Chart.yaml](#chartyaml)
-      - [values.yaml](#valuesyaml)
-      - [Template file (deployment.yaml)](#template-file-deploymentyaml)
-    - [Helm Commands](#helm-commands)
-      - [Tạo Helm Chart mới](#tạo-helm-chart-mới)
-      - [Helm Template Functions](#helm-template-functions)
-    - [Chart Hooks](#chart-hooks)
-    - [Best Practices (Bí quyết sử dụng Helm)](#best-practices-bí-quyết-sử-dụng-helm)
-  - [🧪 BÀI TẬP LỚN CUỐI PHẦN: Xây dựng và triển khai ứng dụng microservices trên Kubernetes](#-bài-tập-lớn-cuối-phần-xây-dựng-và-triển-khai-ứng-dụng-microservices-trên-kubernetes)
-    - [Mô tả bài toán](#mô-tả-bài-toán)
-    - [Yêu cầu](#yêu-cầu)
-    - [Kết quả đạt được](#kết-quả-đạt-được)
+# 📘 KUBERNETES: HỆ THỐNG ĐIỀU PHỐI CONTAINER
 
 ## 🎯 Mục tiêu tổng quát
 
@@ -91,8 +16,6 @@
 - Biết cách triển khai và quản lý ứng dụng container trên Kubernetes
 - Hiểu được các thành phần cơ bản của Kubernetes
 - Triển khai ứng dụng có tính sẵn sàng cao và khả năng mở rộng
-
----
 
 ## 🧑‍🏫 Bài 1: Giới thiệu về Kubernetes
 
@@ -130,8 +53,6 @@
 - DevOps: Hỗ trợ quy trình DevOps tự động
 - Big Data: Xử lý dữ liệu lớn với khả năng mở rộng
 - Hybrid Cloud: Chạy workloads trên nhiều môi trường cloud khác nhau
-
----
 
 ## 🧑‍🏫 Bài 2: Kiến trúc Kubernetes
 
@@ -223,8 +144,6 @@
 - Scheduler quyết định pod sẽ chạy trên node nào
 - Kubelet trên node nhận thông tin và tạo pod
 - Kube-proxy cấu hình mạng cho pod
-
----
 
 ## 🧑‍🏫 Bài 3: Cài đặt và Cấu hình Kubernetes
 
@@ -349,8 +268,6 @@ kubectl get namespaces
 # Thực hiện lệnh trong namespace cụ thể
 kubectl get pods -n my-namespace
 ```
-
----
 
 ## 🧑‍🏫 Bài 4: Kubernetes Objects và Workloads
 
@@ -562,8 +479,6 @@ kubectl scale deployment/nginx-deployment --replicas=5
 kubectl delete deployment nginx-deployment
 ```
 
----
-
 ## 🧑‍🏫 Bài 5: Networking trong Kubernetes
 
 ### Mô hình networking của Kubernetes
@@ -736,8 +651,6 @@ kubectl get endpoints my-service
 # Xem network policies
 kubectl get networkpolicies
 ```
-
----
 
 ## 🧑‍🏫 Bài 6: Storage và Persistence
 
@@ -935,8 +848,6 @@ spec:
 3. Cấu hình backup và disaster recovery
 4. Sử dụng StatefulSets với volumeClaimTemplates cho ứng dụng stateful
 5. Giám sát dung lượng và hiệu suất storage
-
----
 
 ## 🧑‍🏫 Bài 7: ConfigMaps và Secrets
 
@@ -1148,8 +1059,6 @@ spec:
 4. Thiết lập network policies cho Pods với Secrets
 5. Encrypt etcd để bảo vệ Secrets khi lưu trữ
 
----
-
 ## 🧑‍🏫 Bài 8: Helm - Package Manager cho Kubernetes
 
 ### Helm là gì?
@@ -1360,8 +1269,6 @@ spec:
 3. Đặt thực nghiệm với templates trong values.yaml
 4. Sử dụng helpers để tái sử dụng code
 5. Thêm NOTES.txt để hướng dẫn người dùng
-
----
 
 ## 🧪 BÀI TẬP LỚN CUỐI PHẦN: Xây dựng và triển khai ứng dụng microservices trên Kubernetes
 
