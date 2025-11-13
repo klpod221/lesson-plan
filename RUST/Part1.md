@@ -56,17 +56,20 @@
 ### Rust là gì?
 
 Rust là ngôn ngữ lập trình **systems programming** hiện đại, được thiết kế để đảm bảo:
+
 - **Memory safety** - Không có null pointers, buffer overflows, data races
 - **Performance** - Hiệu suất ngang C/C++
 - **Concurrency** - Thread-safe tại compile time
 
 **Lịch sử:**
+
 - Bắt đầu năm 2006 bởi Graydon Hoare
 - Mozilla bắt đầu sponsor từ 2009
 - Phiên bản 1.0 ra mắt năm 2015
 - Rust Foundation được thành lập năm 2021
 
 **Ứng dụng:**
+
 - Operating systems (Linux kernel modules, Redox OS)
 - Web browsers (Firefox components)
 - Game engines (Bevy, Amethyst)
@@ -78,6 +81,7 @@ Rust là ngôn ngữ lập trình **systems programming** hiện đại, đượ
 ### Tại sao học Rust?
 
 **Ưu điểm:**
+
 1. **Memory safety without garbage collector**
    - Không có segmentation faults
    - Không có data races
@@ -103,6 +107,7 @@ Rust là ngôn ngữ lập trình **systems programming** hiện đại, đượ
    - Excellent documentation
 
 **Nhược điểm:**
+
 - Learning curve cao (ownership, borrowing, lifetimes)
 - Compile time chậm hơn
 - Không phù hợp cho rapid prototyping
@@ -110,6 +115,7 @@ Rust là ngôn ngữ lập trình **systems programming** hiện đại, đượ
 ### Cài đặt Rust
 
 **Linux/macOS:**
+
 ```bash
 # Cài đặt rustup (Rust installer)
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
@@ -124,16 +130,19 @@ rustup --version
 ```
 
 **Windows:**
-- Download rustup-init.exe từ https://rustup.rs/
+
+- Download rustup-init.exe từ <https://rustup.rs/>
 - Chạy installer và follow instructions
 - Có thể cần cài Visual Studio C++ Build Tools
 
 **Cập nhật:**
+
 ```bash
 rustup update
 ```
 
 **Gỡ cài đặt:**
+
 ```bash
 rustup self uninstall
 ```
@@ -141,6 +150,7 @@ rustup self uninstall
 ### Rust Toolchain
 
 **rustc** - Rust compiler:
+
 ```bash
 # Compile file
 rustc main.rs
@@ -153,6 +163,7 @@ rustc --check main.rs
 ```
 
 **cargo** - Build system và package manager:
+
 ```bash
 # Tạo project mới
 cargo new my_project
@@ -183,6 +194,7 @@ cargo clippy
 ```
 
 **rustup** - Toolchain manager:
+
 ```bash
 # Xem toolchain hiện tại
 rustup show
@@ -202,7 +214,7 @@ rustup component add clippy
 
 ### Chương trình đầu tiên
 
-**Cách 1: Sử dụng rustc trực tiếp**
+Cách 1: Sử dụng rustc trực tiếp
 
 ```rust
 // main.rs
@@ -217,7 +229,7 @@ rustc main.rs
 ./main
 ```
 
-**Cách 2: Sử dụng Cargo (khuyến nghị)**
+Cách 2: Sử dụng Cargo (khuyến nghị)
 
 ```bash
 # Tạo project
@@ -235,6 +247,7 @@ cargo run
 ```
 
 **Giải thích code:**
+
 ```rust
 fn main() {           // Hàm main - entry point
     println!(         // Macro (chú ý dấu !)
@@ -245,6 +258,7 @@ fn main() {           // Hàm main - entry point
 ```
 
 **Điểm cần lưu ý:**
+
 - `fn` - keyword để định nghĩa function
 - `main()` - hàm đặc biệt, điểm bắt đầu chương trình
 - `println!` - macro (có dấu `!`), không phải function
@@ -253,7 +267,7 @@ fn main() {           // Hàm main - entry point
 
 ### Cấu trúc Cargo project
 
-```
+```text
 my_project/
 ├── Cargo.toml          # Project configuration
 ├── Cargo.lock          # Dependency lock file
@@ -272,6 +286,7 @@ my_project/
 ```
 
 **Cargo.toml:**
+
 ```toml
 [package]
 name = "my_project"
@@ -298,6 +313,7 @@ lto = true
 ### Biến trong Rust
 
 **Immutable by default:**
+
 ```rust
 fn main() {
     let x = 5;
@@ -308,6 +324,7 @@ fn main() {
 ```
 
 **Tại sao immutable by default?**
+
 - Prevents bugs (accidental mutations)
 - Easier to reason about code
 - Enables compiler optimizations
@@ -329,6 +346,7 @@ fn main() {
 ```
 
 **Type annotations:**
+
 ```rust
 fn main() {
     // Compiler can infer types
@@ -350,6 +368,7 @@ fn main() {
 ### Constants và Static
 
 **Constants:**
+
 ```rust
 // Global scope
 const MAX_POINTS: u32 = 100_000;
@@ -364,6 +383,7 @@ fn main() {
 ```
 
 **Static variables:**
+
 ```rust
 static LANGUAGE: &str = "Rust";
 static mut COUNTER: u32 = 0;  // Mutable static (unsafe!)
@@ -380,6 +400,7 @@ fn main() {
 ```
 
 **Khác biệt const vs static:**
+
 | Feature | const | static |
 |---------|-------|--------|
 | Memory address | Inlined | Has fixed address |
@@ -408,6 +429,7 @@ fn main() {
 ```
 
 **Shadowing vs Mutability:**
+
 ```rust
 fn main() {
     // Shadowing - OK
@@ -421,6 +443,7 @@ fn main() {
 ```
 
 **Shadowing trong scopes:**
+
 ```rust
 fn main() {
     let x = 5;
@@ -437,6 +460,7 @@ fn main() {
 ### Kiểu dữ liệu số
 
 **Integer types:**
+
 | Length | Signed | Unsigned |
 |--------|--------|----------|
 | 8-bit  | i8     | u8       |
@@ -471,6 +495,7 @@ fn main() {
 ```
 
 **Integer overflow:**
+
 ```rust
 fn main() {
     let mut x: u8 = 255;
@@ -491,6 +516,7 @@ fn main() {
 ```
 
 **Floating-point types:**
+
 ```rust
 fn main() {
     let x = 2.0;        // f64 (default)
@@ -514,6 +540,7 @@ fn main() {
 ```
 
 **Numeric operations:**
+
 ```rust
 fn main() {
     // Arithmetic
@@ -539,6 +566,7 @@ fn main() {
 ### Boolean và Character
 
 **Boolean type:**
+
 ```rust
 fn main() {
     let t = true;
@@ -561,6 +589,7 @@ fn main() {
 ```
 
 **Character type:**
+
 ```rust
 fn main() {
     let c = 'z';
@@ -578,6 +607,7 @@ fn main() {
 ### Compound types
 
 **Tuples:**
+
 ```rust
 fn main() {
     // Define tuple
@@ -616,6 +646,7 @@ fn find_min_max(numbers: Vec<i32>) -> (i32, i32) {
 ```
 
 **Arrays:**
+
 ```rust
 fn main() {
     // Fixed size, same type
@@ -646,6 +677,7 @@ fn main() {
 ```
 
 **Slices:**
+
 ```rust
 fn main() {
     let arr = [1, 2, 3, 4, 5, 6];
@@ -704,6 +736,7 @@ fn greet_person_twice(name: &str, times: i32) {
 ```
 
 **Naming convention:**
+
 - Functions: `snake_case`
 - Types: `PascalCase`
 - Constants: `SCREAMING_SNAKE_CASE`
@@ -835,6 +868,7 @@ fn main() {
 ```
 
 **Statement có `;` - Expression không có `;`:**
+
 ```rust
 fn example() -> i32 {
     let x = 5;     // Statement
@@ -893,6 +927,7 @@ fn main() {
 ### Loop và iteration
 
 **Infinite loop:**
+
 ```rust
 fn main() {
     let mut counter = 0;
@@ -919,6 +954,7 @@ fn main() {
 ```
 
 **While loop:**
+
 ```rust
 fn main() {
     let mut number = 3;
@@ -938,6 +974,7 @@ fn main() {
 ```
 
 **For loop:**
+
 ```rust
 fn main() {
     // Iterate over array
@@ -970,6 +1007,7 @@ fn main() {
 ```
 
 **Loop labels:**
+
 ```rust
 fn main() {
     let mut count = 0;
@@ -1003,6 +1041,7 @@ fn main() {
 ### String types
 
 **Two main string types:**
+
 1. `String` - Owned, growable, heap-allocated
 2. `&str` - String slice, borrowed, often stack-allocated
 
@@ -1027,6 +1066,7 @@ fn main() {
 ```
 
 **When to use which?**
+
 - Use `&str` for:
   - Function parameters (more flexible)
   - String literals
@@ -1102,6 +1142,7 @@ fn main() {
 ```
 
 **String conversion:**
+
 ```rust
 fn main() {
     // &str to String
@@ -1202,6 +1243,7 @@ fn main() {
 ```
 
 **Reading numbers:**
+
 ```rust
 use std::io;
 
@@ -1221,6 +1263,7 @@ fn main() {
 ```
 
 **Better error handling:**
+
 ```rust
 use std::io;
 
@@ -1250,6 +1293,7 @@ fn main() {
 ### Error handling cơ bản
 
 **Result type:**
+
 ```rust
 use std::fs::File;
 use std::io::ErrorKind;
@@ -1276,6 +1320,7 @@ fn main() {
 ```
 
 **Using unwrap and expect:**
+
 ```rust
 use std::fs::File;
 
@@ -1290,6 +1335,7 @@ fn main() {
 ```
 
 **Propagating errors:**
+
 ```rust
 use std::fs::File;
 use std::io::{self, Read};
@@ -1316,6 +1362,7 @@ fn main() {
 ### Module system
 
 **Defining modules:**
+
 ```rust
 // lib.rs or main.rs
 
@@ -1366,7 +1413,8 @@ fn main() {
 ### Paths và visibility
 
 **File structure:**
-```
+
+```text
 src/
 ├── main.rs
 ├── lib.rs
@@ -1381,6 +1429,7 @@ src/
 ```
 
 **src/utils/mod.rs:**
+
 ```rust
 pub mod math;
 pub mod string_ops;
@@ -1391,6 +1440,7 @@ pub use string_ops::capitalize;
 ```
 
 **src/utils/math.rs:**
+
 ```rust
 pub fn add(a: i32, b: i32) -> i32 {
     a + b
@@ -1407,6 +1457,7 @@ fn internal_helper() {
 ```
 
 **src/utils/string_ops.rs:**
+
 ```rust
 pub fn capitalize(s: &str) -> String {
     let mut chars = s.chars();
@@ -1422,6 +1473,7 @@ pub fn reverse(s: &str) -> String {
 ```
 
 **src/main.rs:**
+
 ```rust
 mod utils;
 
@@ -1466,6 +1518,7 @@ fn main() {
 ```
 
 **Nested paths:**
+
 ```rust
 // Instead of:
 // use std::io;
@@ -1486,6 +1539,7 @@ use std::{cmp::Ordering, fmt::Display};
 ### External crates
 
 **Cargo.toml:**
+
 ```toml
 [dependencies]
 rand = "0.8"
@@ -1494,6 +1548,7 @@ tokio = { version = "1", features = ["full"] }
 ```
 
 **Using external crate:**
+
 ```rust
 use rand::Rng;
 
@@ -1509,6 +1564,7 @@ fn main() {
 ```
 
 **Popular crates:**
+
 - `serde` - Serialization/deserialization
 - `tokio` - Async runtime
 - `reqwest` - HTTP client
@@ -1521,6 +1577,7 @@ fn main() {
 ### Organizing code
 
 **Best practices:**
+
 1. One module per file
 2. Use mod.rs for module directories
 3. Keep related functionality together
@@ -1528,7 +1585,8 @@ fn main() {
 5. Re-export commonly used items
 
 **Example structure:**
-```
+
+```text
 my_app/
 ├── Cargo.toml
 ├── src/
@@ -1560,6 +1618,7 @@ my_app/
 ### Mô tả bài toán
 
 Xây dựng ứng dụng quản lý công việc (Todo List) trong terminal với các chức năng:
+
 - Thêm công việc mới
 - Xem danh sách công việc
 - Đánh dấu công việc hoàn thành
@@ -1574,7 +1633,8 @@ Xây dựng ứng dụng quản lý công việc (Todo List) trong terminal vớ
    - Vec để lưu danh sách todos
 
 2. **Chức năng cơ bản:**
-   ```
+
+   ```text
    Todo Manager
    1. Add todo
    2. List todos
@@ -1592,7 +1652,8 @@ Xây dựng ứng dụng quản lý công việc (Todo List) trong terminal vớ
    - Xử lý lỗi khi đọc/ghi file
 
 4. **Format hiển thị:**
-   ```
+
+   ```text
    ID | Title                    | Status    | Created
    ---+-------------------------+-----------+-------------------
    1  | Learn Rust              | ✓ Done    | 2024-01-15 10:30
@@ -1768,6 +1829,7 @@ fn main() {
 10. Color-coded output (using crate `colored`)
 
 **Gợi ý implementation:**
+
 - Sử dụng `serde` crate để serialize/deserialize
 - Sử dụng `chrono` crate để xử lý date/time
 - Sử dụng `colored` crate để tô màu output

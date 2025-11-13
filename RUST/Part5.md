@@ -187,6 +187,7 @@ where
 ```
 
 **Returning traits:**
+
 ```rust
 fn returns_summarizable() -> impl Summary {
     Tweet {
@@ -268,6 +269,7 @@ fn main() {
 ```
 
 **Multiple type parameters:**
+
 ```rust
 #[derive(Debug)]
 struct Point<T, U> {
@@ -434,6 +436,7 @@ fn main() {
 ```
 
 **Generic Add:**
+
 ```rust
 use std::ops::Add;
 
@@ -826,6 +829,7 @@ fn main() {
 ```
 
 **String conversions:**
+
 ```rust
 fn main() {
     let my_str = "hello";
@@ -877,6 +881,7 @@ fn main() {
 ### Mô tả bài toán
 
 Xây dựng thư viện xử lý dữ liệu generic với:
+
 - Generic data structures (List, Stack, Queue)
 - Data transformations (Map, Filter, Reduce)
 - Statistical operations
@@ -887,6 +892,7 @@ Xây dựng thư viện xử lý dữ liệu generic với:
 ### Yêu cầu
 
 **1. Generic data structures:**
+
 ```rust
 pub trait Collection<T> {
     fn add(&mut self, item: T);
@@ -909,6 +915,7 @@ pub struct List<T> {
 ```
 
 **2. Data transformation traits:**
+
 ```rust
 pub trait Transformable<T> {
     fn map<F, U>(self, f: F) -> Vec<U>
@@ -930,6 +937,7 @@ impl<T> Transformable<T> for Vec<T> {
 ```
 
 **3. Statistical operations:**
+
 ```rust
 pub trait Statistics {
     fn mean(&self) -> f64;
@@ -946,6 +954,7 @@ impl Statistics for Vec<f64> {
 ```
 
 **4. Custom iterator:**
+
 ```rust
 pub struct RangeIterator<T> {
     current: T,

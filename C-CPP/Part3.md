@@ -34,7 +34,6 @@
     - [Hướng dẫn sử dụng](#hướng-dẫn-sử-dụng)
     - [Yêu cầu mở rộng (tự làm)](#yêu-cầu-mở-rộng-tự-làm)
 
-
 ## 🎯 Mục tiêu tổng quát
 
 - Hiểu cách định nghĩa và sử dụng `struct` trong C
@@ -680,6 +679,7 @@ int main() {
 ```
 
 **Lưu ý quan trọng:**
+
 - `memcpy` và assignment operator (`=`) đều copy toàn bộ struct
 - Với struct chứa con trỏ, cần implement deep copy manually
 - `memcmp` không đáng tin cậy với struct có padding
@@ -1427,6 +1427,7 @@ int main() {
 ```
 
 **Ghi chú quan trọng:**
+
 - **Binary format:** Nhanh, compact nhưng không portable giữa các hệ thống khác nhau (endianness, struct padding)
 - **Text format (CSV/JSON):** Dễ debug, portable, human-readable nhưng chậm hơn và tốn không gian hơn
 - Luôn kiểm tra return value của file operations
@@ -1440,6 +1441,7 @@ int main() {
 ### Mô tả bài toán
 
 Xây dựng chương trình quản lý danh sách sinh viên với các chức năng:
+
 - Thêm sinh viên mới (tự động mở rộng mảng động)
 - Xóa sinh viên theo ID
 - Tìm kiếm sinh viên
@@ -1879,6 +1881,7 @@ int main() {
 ### Hướng dẫn sử dụng
 
 Compile và chạy:
+
 ```bash
 gcc -o student_manager student_manager.c
 ./student_manager

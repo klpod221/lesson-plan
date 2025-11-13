@@ -227,6 +227,7 @@ Khóa học Rust toàn diện về hệ thống và performance (6 phần):
 | 6   | ⚡ **ADVANCED TOPICS**                       | [Part6.md](./RUST/Part6.md)   |
 
 **Lưu ý:** Các bài học bổ sung này không bắt buộc trong lộ trình chính nhưng rất hữu ích nếu bạn muốn:
+
 - Mở rộng kiến thức sang nhiều ngôn ngữ lập trình khác
 - Tìm hiểu các framework frontend hiện đại (React, Vue)
 - Học các ngôn ngữ system programming (C/C++, Rust)

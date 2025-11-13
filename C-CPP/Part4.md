@@ -438,6 +438,7 @@ int main() {
 ```
 
 **Ba loại access specifiers:**
+
 - `public`: Truy cập được từ mọi nơi
 - `private`: Chỉ truy cập được trong class (default cho class)
 - `protected`: Truy cập được trong class và các class con (sẽ học ở Part 5)
@@ -1393,6 +1394,7 @@ int main() {
 ### Mô tả bài toán
 
 Xây dựng hệ thống quản lý tài khoản ngân hàng với các chức năng:
+
 - Tạo tài khoản mới
 - Gửi tiền
 - Rút tiền

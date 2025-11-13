@@ -122,6 +122,7 @@ fn main() {
 ```
 
 **Ownership rules:**
+
 ```rust
 fn main() {
     let mut v = vec![1, 2, 3, 4, 5];
@@ -161,6 +162,7 @@ fn main() {
 ```
 
 **Iterator methods:**
+
 ```rust
 fn main() {
     let v = vec![1, 2, 3, 4, 5];
@@ -316,6 +318,7 @@ fn main() {
 ```
 
 **String methods:**
+
 ```rust
 fn main() {
     let s = String::from("  Hello, World!  ");
@@ -372,6 +375,7 @@ fn main() {
 ```
 
 **Ownership:**
+
 ```rust
 use std::collections::HashMap;
 
@@ -529,6 +533,7 @@ fn main() {
 ```
 
 **Backtrace:**
+
 ```bash
 # Set RUST_BACKTRACE=1 to see backtrace
 # RUST_BACKTRACE=1 cargo run
@@ -688,6 +693,7 @@ mod tests {
 ```
 
 **Testing a function:**
+
 ```rust
 pub fn add_two(a: i32) -> i32 {
     a + 2
@@ -709,6 +715,7 @@ mod tests {
 ### Test organization
 
 **Unit tests (same file):**
+
 ```rust
 pub fn add(a: i32, b: i32) -> i32 {
     a + b
@@ -726,6 +733,7 @@ mod tests {
 ```
 
 **Module tests:**
+
 ```rust
 // src/lib.rs
 pub mod math {
@@ -827,6 +835,7 @@ mod tests {
 ### Integration tests
 
 **tests/integration_test.rs:**
+
 ```rust
 use my_crate;
 
@@ -837,6 +846,7 @@ fn test_integration() {
 ```
 
 **tests/common/mod.rs (shared code):**
+
 ```rust
 pub fn setup() {
     // Setup code
@@ -844,6 +854,7 @@ pub fn setup() {
 ```
 
 **tests/integration_test.rs:**
+
 ```rust
 mod common;
 
@@ -861,6 +872,7 @@ fn test_with_setup() {
 ### Mô tả bài toán
 
 Xây dựng hệ thống quản lý danh bạ với các tính năng:
+
 - Thêm/sửa/xóa contacts
 - Search và filter
 - Groups và tags
@@ -871,6 +883,7 @@ Xây dựng hệ thống quản lý danh bạ với các tính năng:
 ### Yêu cầu
 
 **1. Data structures:**
+
 ```rust
 use std::collections::HashMap;
 use serde::{Deserialize, Serialize};
@@ -899,6 +912,7 @@ pub struct ContactBook {
 ```
 
 **2. Error handling:**
+
 ```rust
 use std::fmt;
 use std::io;
@@ -944,6 +958,7 @@ impl From<serde_json::Error> for ContactError {
 ```
 
 **3. Core functionality:**
+
 ```rust
 impl ContactBook {
     pub fn new() -> Self;
@@ -977,6 +992,7 @@ impl ContactBook {
 ```
 
 **4. Validation:**
+
 ```rust
 fn validate_email(email: &str) -> Result<(), ContactError> {
     if email.contains('@') && email.contains('.') {

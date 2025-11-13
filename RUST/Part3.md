@@ -23,9 +23,9 @@
     - [While let](#while-let)
     - [Match guards](#match-guards)
   - [🧑‍🏫 Bài 4: Option và Result](#-bài-4-option-và-result)
-    - [Option&lt;T&gt;](#optiont)
+    - [Option`<T>`](#optiont)
     - [Working with Option](#working-with-option)
-    - [Result&lt;T, E&gt;](#resultt-e)
+    - [Result\<T, E\>](#resultt-e)
     - [Error propagation](#error-propagation)
     - [Custom error types](#custom-error-types)
   - [🧑‍🏫 Bài 5: Advanced Patterns](#-bài-5-advanced-patterns)
@@ -44,7 +44,7 @@
 - Implement methods và associated functions
 - Hiểu và sử dụng enums hiệu quả
 - Master pattern matching với match, if let, while let
-- Làm việc với Option<T> và Result<T, E>
+- Làm việc với Option`<T>` và Result`<T, E>`
 - Apply advanced patterns và destructuring
 - Xây dựng ứng dụng với data structures phức tạp
 
@@ -55,6 +55,7 @@
 ### Định nghĩa và khởi tạo
 
 **Classic struct:**
+
 ```rust
 struct User {
     username: String,
@@ -77,6 +78,7 @@ fn main() {
 ```
 
 **Mutable struct:**
+
 ```rust
 fn main() {
     let mut user = User {
@@ -174,6 +176,7 @@ fn main() {
 ### Ownership trong structs
 
 **Storing references requires lifetimes:**
+
 ```rust
 // This won't compile without lifetimes
 // struct User {
@@ -201,6 +204,7 @@ fn main() {
 ```
 
 **Prefer owned types:**
+
 ```rust
 #[derive(Debug)]
 struct User {
@@ -452,6 +456,7 @@ fn main() {
 ```
 
 **Methods on enums:**
+
 ```rust
 impl Message {
     fn call(&self) {
@@ -496,6 +501,7 @@ fn main() {
 ```
 
 **Match with data:**
+
 ```rust
 #[derive(Debug)]
 enum UsState {
@@ -528,6 +534,7 @@ fn value_in_cents(coin: Coin) -> u8 {
 ```
 
 **Catch-all:**
+
 ```rust
 fn main() {
     let number = 7;
@@ -615,7 +622,7 @@ fn main() {
 
 ## 🧑‍🏫 Bài 4: Option và Result
 
-### Option<T>
+### Option`<T>`
 
 ```rust
 fn main() {
@@ -632,6 +639,7 @@ fn main() {
 ```
 
 **Why Option instead of null?**
+
 ```rust
 // Rust doesn't have null!
 // Option forces you to handle the None case
@@ -726,6 +734,7 @@ fn main() {
 ```
 
 **Shortcuts:**
+
 ```rust
 use std::fs::File;
 
@@ -742,6 +751,7 @@ fn main() {
 ### Error propagation
 
 **The ? operator:**
+
 ```rust
 use std::fs::File;
 use std::io::{self, Read};
@@ -774,6 +784,7 @@ fn main() {
 ```
 
 **? in main:**
+
 ```rust
 use std::error::Error;
 use std::fs::File;
@@ -840,6 +851,7 @@ fn main() {
 ### Destructuring
 
 **Structs:**
+
 ```rust
 struct Point {
     x: i32,
@@ -866,6 +878,7 @@ fn main() {
 ```
 
 **Enums:**
+
 ```rust
 enum Message {
     Quit,
@@ -883,6 +896,7 @@ fn process_message(msg: Message) {
 ```
 
 **Nested destructuring:**
+
 ```rust
 enum Color {
     Rgb(u8, u8, u8),
@@ -980,6 +994,7 @@ fn main() {
 ### Refutability
 
 **Irrefutable patterns (always match):**
+
 ```rust
 fn main() {
     let x = 5;  // Irrefutable
@@ -988,6 +1003,7 @@ fn main() {
 ```
 
 **Refutable patterns (can fail to match):**
+
 ```rust
 fn main() {
     let some_value = Some(5);
@@ -1011,6 +1027,7 @@ fn main() {
 ### Mô tả bài toán
 
 Xây dựng hệ thống quản lý cửa hàng bán lẻ với nhiều loại sản phẩm:
+
 - Electronics (laptop, phone, tablet)
 - Clothing (shirt, pants, shoes)
 - Food (fresh, packaged, frozen)
@@ -1020,6 +1037,7 @@ Mỗi loại có thuộc tính riêng và cách tính giá khác nhau.
 ### Yêu cầu
 
 **1. Data structures:**
+
 ```rust
 #[derive(Debug, Clone)]
 enum ProductCategory {
@@ -1072,6 +1090,7 @@ struct Transaction {
 ```
 
 **2. Core functionality:**
+
 ```rust
 impl Product {
     fn new(id: u32, name: String, category: ProductCategory, base_price: f64) -> Self;
@@ -1091,6 +1110,7 @@ impl Cart {
 ```
 
 **3. Pattern matching requirements:**
+
 - Match on ProductCategory để tính giá đặc biệt
 - Match on DiscountType để apply discount
 - Match on PaymentMethod để xử lý thanh toán

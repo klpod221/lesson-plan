@@ -352,8 +352,8 @@ void transpose(int mat[][COLS], int result[][ROWS], int rows) {
 }
 
 int main() {
-    int a[ROWS][COLS] = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-    int b[ROWS][COLS] = {{9, 8, 7}, {6, 5, 4}, {3, 2, 1}};
+    int a[ROWS][COLS] = {% raw %}{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}}{% endraw %};
+    int b[ROWS][COLS] = {% raw %}{{9, 8, 7}, {6, 5, 4}, {3, 2, 1}}{% endraw %};
     int result[ROWS][COLS];
     
     printf("Matrix A:\n");
@@ -382,7 +382,7 @@ int main() {
 
 Con trỏ là biến lưu trữ địa chỉ của biến khác trong bộ nhớ.
 
-```
+```text
 Memory:
 ┌─────────┬─────────┬─────────┬─────────┐
 │  ...    │  0x100  │  0x104  │  ...    │

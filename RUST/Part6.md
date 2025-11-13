@@ -69,6 +69,7 @@ fn main() {
 ```
 
 **Moving data into threads:**
+
 ```rust
 use std::thread;
 
@@ -116,6 +117,7 @@ fn main() {
 ```
 
 **Multiple producers:**
+
 ```rust
 use std::sync::mpsc;
 use std::thread;
@@ -182,6 +184,7 @@ fn main() {
 ```
 
 **RwLock for read-heavy workloads:**
+
 ```rust
 use std::sync::{Arc, RwLock};
 use std::thread;
@@ -318,6 +321,7 @@ async fn main() {
 ### Async runtime
 
 **Add to Cargo.toml:**
+
 ```toml
 [dependencies]
 tokio = { version = "1", features = ["full"] }
@@ -337,6 +341,7 @@ async fn main() {
 ```
 
 **Concurrent execution:**
+
 ```rust
 use tokio::time::{sleep, Duration};
 
@@ -396,6 +401,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 ```
 
 **Async HTTP client:**
+
 ```rust
 use reqwest;
 
@@ -454,6 +460,7 @@ fn main() {
 ```
 
 **Pattern matching:**
+
 ```rust
 macro_rules! test {
     ($left:expr; and $right:expr) => {
@@ -477,6 +484,7 @@ fn main() {
 ```
 
 **Repetition:**
+
 ```rust
 macro_rules! vec_strs {
     ($($element:expr),*) => {{
@@ -497,6 +505,7 @@ fn main() {
 ### Procedural macros
 
 **Cargo.toml:**
+
 ```toml
 [lib]
 proc-macro = true
@@ -508,6 +517,7 @@ proc-macro2 = "1.0"
 ```
 
 **lib.rs:**
+
 ```rust
 use proc_macro::TokenStream;
 use quote::quote;
@@ -585,6 +595,7 @@ fn main() {
 ```
 
 **Arbitrary memory:**
+
 ```rust
 fn main() {
     let address = 0x012345usize;
@@ -612,6 +623,7 @@ fn main() {
 ```
 
 **Safe abstraction:**
+
 ```rust
 use std::slice;
 
@@ -653,6 +665,7 @@ fn main() {
 ```
 
 **Calling Rust from C:**
+
 ```rust
 #[no_mangle]
 pub extern "C" fn call_from_c() {
@@ -712,6 +725,7 @@ fn main() {
 ```
 
 **Mock object pattern:**
+
 ```rust
 pub trait Messenger {
     fn send(&self, msg: &str);
@@ -846,6 +860,7 @@ fn main() {
 ```
 
 **Returning closures:**
+
 ```rust
 fn returns_closure() -> Box<dyn Fn(i32) -> i32> {
     Box::new(|x| x + 1)
@@ -864,6 +879,7 @@ fn main() {
 ### Mô tả bài toán
 
 Xây dựng web scraper đa luồng với các tính năng:
+
 - Async HTTP requests
 - Concurrent URL fetching
 - HTML parsing
@@ -875,6 +891,7 @@ Xây dựng web scraper đa luồng với các tính năng:
 ### Yêu cầu
 
 **Cargo.toml:**
+
 ```toml
 [dependencies]
 tokio = { version = "1", features = ["full"] }
@@ -887,6 +904,7 @@ thiserror = "1.0"
 ```
 
 **1. Data structures:**
+
 ```rust
 use serde::{Deserialize, Serialize};
 use std::collections::{HashSet, HashMap};
@@ -911,6 +929,7 @@ pub struct Scraper {
 ```
 
 **2. Error handling:**
+
 ```rust
 use thiserror::Error;
 
@@ -931,6 +950,7 @@ pub enum ScraperError {
 ```
 
 **3. Core functionality:**
+
 ```rust
 impl Scraper {
     pub fn new(max_depth: usize, max_pages: usize) -> Self;
@@ -1276,6 +1296,7 @@ mod tests {
 **🎉 CHÚC MỪNG! Bạn đã hoàn thành toàn bộ khóa học Rust!**
 
 Những gì đã học:
+
 - ✅ Basics: Variables, functions, control flow
 - ✅ Ownership: Borrowing, references, lifetimes
 - ✅ Structs & Enums: Pattern matching, Option, Result
@@ -1284,6 +1305,7 @@ Những gì đã học:
 - ✅ Advanced: Concurrency, async/await, macros, unsafe
 
 Next steps:
+
 1. Build real-world projects
 2. Contribute to open source
 3. Explore Rust ecosystem (web, CLI, embedded)

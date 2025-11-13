@@ -29,6 +29,7 @@
   - [🧪 BÀI TẬP LỚN CUỐI PHẦN: Hệ thống quản lý thư viện sách](#-bài-tập-lớn-cuối-phần-hệ-thống-quản-lý-thư-viện-sách)
     - [Mô tả bài toán](#mô-tả-bài-toán)
     - [Yêu cầu](#yêu-cầu)
+    - [Yêu cầu mở rộng](#yêu-cầu-mở-rộng)
 
 ## 🎯 Mục tiêu tổng quát
 
@@ -768,7 +769,7 @@ int main() {
     cout << endl;
     
     // Auto with map
-    auto ages = map<string, int>{{"Alice", 25}, {"Bob", 30}};
+    auto ages = map<string, int>{% raw %}{{"Alice", 25}, {"Bob", 30}}{% endraw %};
     
     for (const auto &pair : ages) {
         cout << pair.first << ": " << pair.second << endl;
@@ -812,7 +813,7 @@ int main() {
     cout << endl;
     
     // With map
-    map<string, int> ages = {{"Alice", 25}, {"Bob", 30}, {"Charlie", 28}};
+    map<string, int> ages = {% raw %}{{"Alice", 25}, {"Bob", 30}, {"Charlie", 28}}{% endraw %};
     
     for (const auto &[name, age] : ages) {  // C++17 structured bindings
         cout << name << " is " << age << " years old" << endl;
@@ -1069,6 +1070,7 @@ int main() {
 ### Mô tả bài toán
 
 Xây dựng hệ thống quản lý thư viện sách sử dụng STL và Modern C++:
+
 - Quản lý sách (thêm, xóa, tìm kiếm, sắp xếp)
 - Quản lý độc giả
 - Mượn/trả sách

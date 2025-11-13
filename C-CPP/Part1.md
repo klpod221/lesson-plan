@@ -45,6 +45,7 @@
 - Được sử dụng rộng rãi trong: Operating Systems, Embedded Systems, System Programming
 
 **Đặc điểm:**
+
 - Hiệu suất cao, gần với phần cứng
 - Portable - chạy trên nhiều platform
 - Cú pháp đơn giản nhưng mạnh mẽ
@@ -53,6 +54,7 @@
 ### Cài đặt môi trường
 
 **Linux/macOS:**
+
 ```bash
 # Linux (Ubuntu/Debian)
 sudo apt-get install build-essential
@@ -65,10 +67,12 @@ gcc --version
 ```
 
 **Windows:**
+
 - Cài đặt MinGW hoặc MSYS2
 - Hoặc sử dụng Visual Studio
 
 **IDE/Editor:**
+
 - VS Code (khuyến nghị)
 - Code::Blocks
 - CLion
@@ -98,6 +102,7 @@ gcc hello.c -o hello
 ```
 
 **Giải thích:**
+
 - `#include <stdio.h>` - Include thư viện standard input/output
 - `int main()` - Hàm main, điểm bắt đầu chương trình
 - `printf()` - Hàm in ra màn hình
@@ -874,7 +879,7 @@ int main() {
 
 **Kết quả mong đợi:**
 
-```
+```text
 === STUDENT MANAGEMENT ===
 1. Add Student
 2. Display Students

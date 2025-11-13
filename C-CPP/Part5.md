@@ -27,6 +27,7 @@
   - [🧪 BÀI TẬP LỚN CUỐI PHẦN: Hệ thống quản lý hình học](#-bài-tập-lớn-cuối-phần-hệ-thống-quản-lý-hình-học)
     - [Mô tả bài toán](#mô-tả-bài-toán)
     - [Yêu cầu](#yêu-cầu)
+    - [Yêu cầu mở rộng](#yêu-cầu-mở-rộng)
 
 ## 🎯 Mục tiêu tổng quát
 
@@ -1191,6 +1192,7 @@ int main() {
 ### Mô tả bài toán
 
 Xây dựng hệ thống quản lý các hình học 2D với hierarchy đầy đủ:
+
 - Abstract base class `Shape`
 - Derived classes: `Circle`, `Rectangle`, `Triangle`, `Polygon`
 - Tính toán diện tích, chu vi

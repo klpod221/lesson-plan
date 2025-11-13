@@ -28,9 +28,9 @@
     - [Struct lifetimes](#struct-lifetimes)
     - [Common lifetime patterns](#common-lifetime-patterns)
   - [🧑‍🏫 Bài 5: Smart Pointers cơ bản](#-bài-5-smart-pointers-cơ-bản)
-    - [Box&lt;T&gt;](#boxt)
-    - [Rc&lt;T&gt; - Reference Counting](#rct---reference-counting)
-    - [RefCell&lt;T&gt; - Interior Mutability](#refcellt---interior-mutability)
+    - [Box`<T>`](#boxt)
+    - [Rc`<T>` - Reference Counting](#rct---reference-counting)
+    - [RefCell`<T>` - Interior Mutability](#refcellt---interior-mutability)
     - [Combining Rc và RefCell](#combining-rc-và-refcell)
     - [Memory leaks và prevention](#memory-leaks-và-prevention)
   - [🧪 BÀI TẬP LỚN CUỐI PHẦN: Hệ thống quản lý sinh viên](#-bài-tập-lớn-cuối-phần-hệ-thống-quản-lý-sinh-viên)
@@ -56,31 +56,37 @@
 **Các cách quản lý memory:**
 
 1. **Manual memory management (C/C++)**
+
    ```c
    // C code
    int* ptr = malloc(sizeof(int));
    *ptr = 42;
    free(ptr);  // Phải nhớ free
    ```
+
    - Ưu: Hiệu suất cao, kiểm soát hoàn toàn
    - Nhược: Dễ gây memory leaks, dangling pointers, double free
 
 2. **Garbage Collection (Java, Python, Go)**
+
    ```java
    // Java code
    String s = new String("hello");
    // GC tự động thu hồi memory
    ```
+
    - Ưu: Dễ sử dụng, an toàn
    - Nhược: Runtime overhead, pause times, không predictable
 
 3. **Ownership (Rust)**
+
    ```rust
    fn main() {
        let s = String::from("hello");
        // Compiler tự động drop khi out of scope
    }  // s dropped here
    ```
+
    - Ưu: Memory safe + Zero cost
    - Nhược: Learning curve cao
 
@@ -104,6 +110,7 @@ fn main() {
 ```
 
 **Stack vs Heap:**
+
 ```rust
 fn main() {
     // Stack allocated (known size, fast)
@@ -120,7 +127,8 @@ fn main() {
 ```
 
 **Visualizing memory:**
-```
+
+```text
 Stack allocated:
 x: 5     -> copied to y
 y: 5
@@ -133,6 +141,7 @@ s2: [ptr, len, capacity] -> [h,e,l,l,o] on heap
 ### Move semantics
 
 **Move khi assign:**
+
 ```rust
 fn main() {
     let s1 = String::from("hello");
@@ -144,11 +153,13 @@ fn main() {
 ```
 
 **Tại sao move?**
+
 - Prevent double free
 - Ensure single owner
 - Zero cost abstraction
 
 **Move with functions:**
+
 ```rust
 fn main() {
     let s = String::from("hello");
@@ -163,6 +174,7 @@ fn takes_ownership(some_string: String) {
 ```
 
 **Return ownership:**
+
 ```rust
 fn main() {
     let s1 = gives_ownership();         // Function gives ownership
@@ -187,6 +199,7 @@ fn takes_and_gives_back(a_string: String) -> String {
 ### Copy trait
 
 **Types that implement Copy:**
+
 ```rust
 fn main() {
     // All these types implement Copy trait
@@ -209,6 +222,7 @@ fn main() {
 ```
 
 **Types that DON'T implement Copy:**
+
 ```rust
 fn main() {
     let s1 = String::from("hello");    // String
@@ -227,6 +241,7 @@ fn main() {
 ### Clone
 
 **Explicit deep copy:**
+
 ```rust
 fn main() {
     let s1 = String::from("hello");
@@ -244,6 +259,7 @@ fn main() {
 ```
 
 **Clone vs Copy:**
+
 | | Copy | Clone |
 |---|------|-------|
 | Implicit/Explicit | Implicit | Explicit (`clone()`) |
@@ -252,6 +268,7 @@ fn main() {
 | Usage | Automatic | Manual call |
 
 **When to clone:**
+
 ```rust
 fn main() {
     let s1 = String::from("expensive data");
@@ -277,6 +294,7 @@ fn process_string(s: &String) {
 ### Ownership và functions
 
 **Complete example:**
+
 ```rust
 fn main() {
     let s = String::from("hello");
@@ -310,6 +328,7 @@ fn calculate_length(s: String) -> (String, usize) {
 ```
 
 **Problem with ownership:**
+
 ```rust
 fn main() {
     let s1 = String::from("hello");
@@ -332,6 +351,7 @@ fn calculate_length(s: String) -> usize {
 ### Immutable references
 
 **Borrowing without taking ownership:**
+
 ```rust
 fn main() {
     let s1 = String::from("hello");
@@ -347,7 +367,8 @@ fn calculate_length(s: &String) -> usize {
 ```
 
 **Visual representation:**
-```
+
+```text
 s1 (owner) ──────> [String data on heap]
                ↑
                │
@@ -355,6 +376,7 @@ s1 (owner) ──────> [String data on heap]
 ```
 
 **Multiple immutable references:**
+
 ```rust
 fn main() {
     let s = String::from("hello");
@@ -368,6 +390,7 @@ fn main() {
 ```
 
 **References are immutable by default:**
+
 ```rust
 fn main() {
     let s = String::from("hello");
@@ -381,6 +404,7 @@ fn main() {
 ### Mutable references
 
 **Borrow mutably:**
+
 ```rust
 fn main() {
     let mut s = String::from("hello");
@@ -396,6 +420,7 @@ fn change(some_string: &mut String) {
 ```
 
 **Only ONE mutable reference at a time:**
+
 ```rust
 fn main() {
     let mut s = String::from("hello");
@@ -408,6 +433,7 @@ fn main() {
 ```
 
 **Why this restriction?**
+
 - Prevent data races at compile time
 - Data race occurs when:
   1. Two or more pointers access same data
@@ -415,6 +441,7 @@ fn main() {
   3. No synchronization mechanism
 
 **Can create multiple mutable references in different scopes:**
+
 ```rust
 fn main() {
     let mut s = String::from("hello");
@@ -434,12 +461,14 @@ fn main() {
 ### Borrowing rules
 
 **The Rules:**
+
 1. You can have EITHER:
    - One mutable reference
    - Any number of immutable references
 2. References must always be valid
 
 **Cannot mix mutable and immutable:**
+
 ```rust
 fn main() {
     let mut s = String::from("hello");
@@ -453,6 +482,7 @@ fn main() {
 ```
 
 **Why?**
+
 ```rust
 // If this was allowed:
 let mut s = String::from("hello");
@@ -463,6 +493,7 @@ println!("{}", r1);  // r1 would see unexpected change!
 ```
 
 **Valid pattern:**
+
 ```rust
 fn main() {
     let mut s = String::from("hello");
@@ -480,6 +511,7 @@ fn main() {
 ### Dangling references
 
 **Rust prevents dangling references:**
+
 ```rust
 fn main() {
     let reference_to_nothing = dangle();
@@ -492,6 +524,7 @@ fn dangle() -> &String {  // ERROR: returns a reference to data owned by functio
 ```
 
 **Correct version:**
+
 ```rust
 fn main() {
     let string = no_dangle();
@@ -505,6 +538,7 @@ fn no_dangle() -> String {
 ```
 
 **Another dangling example:**
+
 ```rust
 fn main() {
     let r;
@@ -519,6 +553,7 @@ fn main() {
 ### Reference scope
 
 **Non-Lexical Lifetimes (NLL):**
+
 ```rust
 fn main() {
     let mut s = String::from("hello");
@@ -534,6 +569,7 @@ fn main() {
 ```
 
 **Before NLL (Rust 2015):**
+
 ```rust
 // This would error in older Rust
 fn main() {
@@ -549,6 +585,7 @@ fn main() {
 ```
 
 **Practical example:**
+
 ```rust
 fn main() {
     let mut data = vec![1, 2, 3];
@@ -571,6 +608,7 @@ fn main() {
 ### String slices
 
 **String slice type: `&str`**
+
 ```rust
 fn main() {
     let s = String::from("hello world");
@@ -583,6 +621,7 @@ fn main() {
 ```
 
 **Slice syntax:**
+
 ```rust
 fn main() {
     let s = String::from("hello world");
@@ -601,6 +640,7 @@ fn main() {
 ```
 
 **Why slices?**
+
 ```rust
 // Without slices
 fn first_word(s: &String) -> usize {
@@ -627,6 +667,7 @@ fn main() {
 ```
 
 **With slices:**
+
 ```rust
 fn first_word(s: &String) -> &str {
     let bytes = s.as_bytes();
@@ -653,6 +694,7 @@ fn main() {
 ### Array slices
 
 **Slice type: `&[T]`**
+
 ```rust
 fn main() {
     let arr = [1, 2, 3, 4, 5];
@@ -665,6 +707,7 @@ fn main() {
 ```
 
 **Working with slices:**
+
 ```rust
 fn main() {
     let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
@@ -694,6 +737,7 @@ fn print_slice(slice: &[i32]) {
 ### Slice as parameters
 
 **Better function signatures:**
+
 ```rust
 fn main() {
     let s = String::from("hello world");
@@ -737,6 +781,7 @@ fn sum_slice(slice: &[i32]) -> i32 {
 ```
 
 **Why `&str` is better than `&String`:**
+
 ```rust
 // Bad: only accepts &String
 fn process_bad(s: &String) {
@@ -763,6 +808,7 @@ fn main() {
 ### String literals as slices
 
 **String literals are slices:**
+
 ```rust
 fn main() {
     // Type is &str
@@ -776,6 +822,7 @@ fn main() {
 ```
 
 **String vs &str:**
+
 ```rust
 fn main() {
     // String: owned, mutable, heap-allocated
@@ -801,6 +848,7 @@ fn main() {
 ### Other slice types
 
 **Generic slices:**
+
 ```rust
 fn main() {
     let numbers: Vec<i32> = vec![1, 2, 3, 4, 5];
@@ -815,6 +863,7 @@ fn main() {
 ```
 
 **Mutable slices:**
+
 ```rust
 fn main() {
     let mut numbers = [1, 2, 3, 4, 5];
@@ -840,6 +889,7 @@ fn double_values(slice: &mut [i32]) {
 ### Lifetime concepts
 
 **Why lifetimes?**
+
 ```rust
 fn main() {
     let string1 = String::from("long string");
@@ -863,7 +913,8 @@ fn longest(x: &str, y: &str) -> &str {
 ```
 
 **Compiler error:**
-```
+
+```text
 error[E0106]: missing lifetime specifier
  --> src/main.rs
   |
@@ -874,6 +925,7 @@ error[E0106]: missing lifetime specifier
 ### Lifetime annotations
 
 **Syntax:**
+
 ```rust
 &i32        // Reference
 &'a i32     // Reference with explicit lifetime
@@ -881,6 +933,7 @@ error[E0106]: missing lifetime specifier
 ```
 
 **Annotating longest:**
+
 ```rust
 fn longest<'a>(x: &'a str, y: &'a str) -> &'a str {
     if x.len() > y.len() {
@@ -892,10 +945,12 @@ fn longest<'a>(x: &'a str, y: &'a str) -> &'a str {
 ```
 
 **What this means:**
+
 - Return value lives as long as the shorter of x or y
 - Compiler will enforce this
 
 **Valid usage:**
+
 ```rust
 fn main() {
     let string1 = String::from("long string");
@@ -907,6 +962,7 @@ fn main() {
 ```
 
 **Invalid usage:**
+
 ```rust
 fn main() {
     let string1 = String::from("long string");
@@ -922,6 +978,7 @@ fn main() {
 ```
 
 **Multiple lifetimes:**
+
 ```rust
 fn main() {
     let s1 = String::from("hello");
@@ -946,6 +1003,7 @@ fn first_word_or_second<'a, 'b>(first: &'a str, second: &'b str) -> &'a str {
 **Compiler can infer lifetimes in simple cases:**
 
 **Before elision rules:**
+
 ```rust
 fn first_word<'a>(s: &'a str) -> &'a str {
     let bytes = s.as_bytes();
@@ -961,6 +1019,7 @@ fn first_word<'a>(s: &'a str) -> &'a str {
 ```
 
 **After elision rules (can omit):**
+
 ```rust
 fn first_word(s: &str) -> &str {
     let bytes = s.as_bytes();
@@ -976,11 +1035,13 @@ fn first_word(s: &str) -> &str {
 ```
 
 **Elision rules:**
+
 1. Each parameter gets its own lifetime
 2. If one input lifetime, assign to output
 3. If multiple input lifetimes and one is `&self` or `&mut self`, assign self's lifetime to output
 
 **Examples:**
+
 ```rust
 // Rule 1 + 2
 fn example1(s: &str) -> &str { s }
@@ -1004,6 +1065,7 @@ impl MyStruct {
 ### Struct lifetimes
 
 **Struct holding references:**
+
 ```rust
 struct ImportantExcerpt<'a> {
     part: &'a str,
@@ -1022,6 +1084,7 @@ fn main() {
 ```
 
 **Invalid usage:**
+
 ```rust
 fn main() {
     let excerpt;
@@ -1037,6 +1100,7 @@ fn main() {
 ```
 
 **Methods with lifetimes:**
+
 ```rust
 impl<'a> ImportantExcerpt<'a> {
     fn level(&self) -> i32 {
@@ -1063,6 +1127,7 @@ fn main() {
 ### Common lifetime patterns
 
 **The static lifetime:**
+
 ```rust
 fn main() {
     // String literals have 'static lifetime
@@ -1076,6 +1141,7 @@ fn main() {
 ```
 
 **Don't overuse 'static:**
+
 ```rust
 // Bad: unnecessarily restrictive
 fn bad_example(x: &'static str) -> &'static str {
@@ -1089,6 +1155,7 @@ fn good_example<'a>(x: &'a str) -> &'a str {
 ```
 
 **Multiple lifetime parameters:**
+
 ```rust
 fn longest_with_announcement<'a, 'b>(
     x: &'a str,
@@ -1108,9 +1175,10 @@ fn longest_with_announcement<'a, 'b>(
 
 ## 🧑‍🏫 Bài 5: Smart Pointers cơ bản
 
-### Box<T>
+### Box`<T>`
 
 **Heap allocation:**
+
 ```rust
 fn main() {
     // Store i32 on heap
@@ -1124,11 +1192,13 @@ fn main() {
 ```
 
 **When to use Box:**
+
 1. Unknown size at compile time
 2. Transfer ownership of large data without copying
 3. Trait objects
 
 **Recursive types:**
+
 ```rust
 // ERROR: infinite size
 // enum List {
@@ -1162,6 +1232,7 @@ fn print_list(list: &List) {
 ```
 
 **Large data on heap:**
+
 ```rust
 fn main() {
     // Stack allocated (expensive to move)
@@ -1175,9 +1246,10 @@ fn main() {
 }
 ```
 
-### Rc<T> - Reference Counting
+### Rc`<T>` - Reference Counting
 
 **Multiple ownership:**
+
 ```rust
 use std::rc::Rc;
 
@@ -1198,6 +1270,7 @@ fn main() {
 ```
 
 **Rc with list:**
+
 ```rust
 use std::rc::Rc;
 
@@ -1225,12 +1298,14 @@ fn main() {
 ```
 
 **Rc limitations:**
+
 - Single-threaded only (use `Arc` for multi-threaded)
 - Immutable only (use `RefCell` for mutability)
 
-### RefCell<T> - Interior Mutability
+### RefCell`<T>` - Interior Mutability
 
 **Mutate through immutable reference:**
+
 ```rust
 use std::cell::RefCell;
 
@@ -1254,6 +1329,7 @@ fn main() {
 ```
 
 **Runtime borrowing rules:**
+
 ```rust
 use std::cell::RefCell;
 
@@ -1273,6 +1349,7 @@ fn main() {
 ```
 
 **When to use RefCell:**
+
 - Need mutability through shared reference
 - Testing/mocking
 - Cache/memoization
@@ -1281,6 +1358,7 @@ fn main() {
 ### Combining Rc và RefCell
 
 **Multiple ownership with mutability:**
+
 ```rust
 use std::rc::Rc;
 use std::cell::RefCell;
@@ -1300,6 +1378,7 @@ fn main() {
 ```
 
 **Shared mutable list:**
+
 ```rust
 use std::rc::Rc;
 use std::cell::RefCell;
@@ -1330,6 +1409,7 @@ fn main() {
 ### Memory leaks và prevention
 
 **Reference cycles cause leaks:**
+
 ```rust
 use std::rc::Rc;
 use std::cell::RefCell;
@@ -1360,6 +1440,7 @@ fn main() {
 ```
 
 **Prevention with Weak:**
+
 ```rust
 use std::rc::{Rc, Weak};
 use std::cell::RefCell;
@@ -1399,6 +1480,7 @@ fn main() {
 ### Mô tả bài toán
 
 Xây dựng hệ thống quản lý sinh viên với các chức năng:
+
 - Thêm, sửa, xóa sinh viên
 - Quản lý điểm số (thêm, sửa, xóa môn học)
 - Tính điểm trung bình
@@ -1408,6 +1490,7 @@ Xây dựng hệ thống quản lý sinh viên với các chức năng:
 - Undo/Redo operations
 
 **Yêu cầu đặc biệt về Ownership:**
+
 - Sử dụng `Rc<RefCell<>>` cho shared mutable state
 - Implement proper borrowing trong các methods
 - Avoid memory leaks (no reference cycles)
@@ -1417,6 +1500,7 @@ Xây dựng hệ thống quản lý sinh viên với các chức năng:
 ### Yêu cầu
 
 **1. Data structures:**
+
 ```rust
 use std::rc::Rc;
 use std::cell::RefCell;
@@ -1449,6 +1533,7 @@ enum Operation {
 ```
 
 **2. Core methods:**
+
 ```rust
 impl StudentManager {
     fn new() -> Self;
@@ -1468,6 +1553,7 @@ impl Student {
 ```
 
 **3. Advanced features:**
+
 - Iterator for students
 - Filter by grade range
 - Sort by name/grade
@@ -1647,7 +1733,7 @@ fn main() {
 1. **Undo/Redo:**
    - Lưu lại history của operations
    - Implement undo/redo stack
-   
+
 2. **Filtering & Sorting:**
    - Filter by grade range
    - Sort by multiple criteria
