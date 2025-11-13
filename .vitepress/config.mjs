@@ -1,7 +1,8 @@
 import { defineConfig } from 'vitepress'
+import { withMermaid } from 'vitepress-plugin-mermaid'
 
 // https://vitepress.dev/reference/site-config
-export default defineConfig({
+export default withMermaid(defineConfig({
   title: "Lesson Plan",
   description: "Tổng Hợp Tài Liệu Học Lập Trình - By klpod221",
   lang: 'vi-VN',
@@ -22,6 +23,11 @@ export default defineConfig({
       'config': 'ini',
       'assembly': 'asm'
     }
+  },
+
+  // Mermaid configuration
+  mermaid: {
+    // Optional: Mermaid configuration options
   },
   
   head: [
@@ -524,4 +530,4 @@ export default defineConfig({
     lightModeSwitchTitle: 'Chuyển sang chế độ sáng',
     darkModeSwitchTitle: 'Chuyển sang chế độ tối'
   }
-})
+}))

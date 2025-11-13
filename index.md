@@ -3,7 +3,7 @@ layout: home
 
 hero:
   name: "Tài Liệu Lập Trình"
-  text: "Từ Cơ Bản Đến Nâng Cao"
+  text: "Cơ Bản Đến Nâng Cao"
   tagline: Java, SQL, DSA, Web Development và nhiều công nghệ khác
   image:
     src: /logo.png
