@@ -20,10 +20,6 @@ Xem trang chủ để biết lộ trình học chi tiết và các module khuy�
 - **GitHub:** [klpod221](https://github.com/klpod221)
 - **Email:** <klpod221@gmail.com>
 
-## 📜 Giấy Phép
-
-[MIT License](./LICENSE)
-
 ---
 
 _Chúc bạn học tập hiệu quả!_ 🚀

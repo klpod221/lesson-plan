@@ -941,7 +941,6 @@ spl_autoload_register(function($className) {
 
 - Trong thực tế, đây là cách được dùng phổ biến nhất
 - Composer là một công cụ quản lý thư viện cho PHP, giúp tự động tải các class và thư viện mà bạn sử dụng trong dự án.
-- Tôi đã hướng dẫn các bạn cách cài đặt Composer trong phần [ENVIROMENT-INSTALL](../ENVIROMENT-INSTALL.md) nếu bạn chưa cài đặt. Còn để hiểu về Composer, tôi sẽ hướng dẫn bạn trong phần [dưới](#sử-dụng-autoloading-với-composer)
 
 ### PSR Standards (PHP Standards Recommendations)
 
