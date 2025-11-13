@@ -1300,9 +1300,3 @@ library-management/
 ├── composer.json
 └── README.md
 ```
-
----
-
-[⬅️ Trở lại: PHP/Part1.md](../PHP/Part1.md) |
-[🏠 Home](../README.md) |
-[➡️ Tiếp theo: PHP/Part2.md](../PHP/Part2.md)

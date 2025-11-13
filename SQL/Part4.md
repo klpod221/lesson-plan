@@ -1025,9 +1025,3 @@ Xây dựng cơ sở dữ liệu quản lý đăng ký môn học:
 - Tạo view và function để:
   - Hiển thị thời khóa biểu cho sinh viên
   - Kiểm tra xung đột lịch học khi đăng ký
-
----
-
-[⬅️ Trở lại: SQL/Part3.md](../SQL/Part3.md) |
-[🏠 Home](../README.md) |
-[➡️ Tiếp theo: SQL/FINAL.md](../SQL/FINAL.md)

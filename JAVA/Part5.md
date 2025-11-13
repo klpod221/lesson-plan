@@ -2855,9 +2855,3 @@ Xây dựng ứng dụng JAVA với các chức năng:
 - Sử dụng JDBC để thao tác dữ liệu.
 - Xử lý đa luồng khi đọc/ghi dữ liệu từ/đến file backup song song với thao tác người dùng.
 - Đảm bảo dữ liệu không bị xung đột khi có nhiều thao tác đồng thời.
-
----
-
-[⬅️ Trở lại: SQL/FINAL.md](../SQL/FINAL.md) |
-[🏠 Home](../README.md) |
-[➡️ Tiếp theo: JAVA/FINAL.md](../JAVA/FINAL.md)

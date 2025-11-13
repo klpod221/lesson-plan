@@ -1155,9 +1155,3 @@ Chúc mừng! Bạn đã Dockerize thành công ứng dụng PHP đơn giản đ
 - Thực hành cách sử dụng biến môi trường để cấu hình ứng dụng một cách linh hoạt từ bên ngoài container.
 - (Nâng cao) Làm quen với việc xử lý file và quản lý quyền cơ bản trong container Docker.
 - (Nâng cao) Tạo tiền đề để giới thiệu về khái niệm "stateful applications" và sự cần thiết của Docker Volumes để lưu trữ dữ liệu bền vững.
-
----
-
-[⬅️ Trở lại: PHP/Part6.md](../PHP/Part6.md) |
-[🏠 Home](../README.md) |
-[➡️ Tiếp theo: DEVOPS/Docker2.md](../DEVOPS/Docker2.md)

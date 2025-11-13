@@ -534,9 +534,3 @@ Mở Settings (Ctrl+,) và thêm các cấu hình sau:
   }
 }
 ```
-
----
-
-[⬅️ Trở lại: SELF-LEARNING/Part4.md](../SELF-LEARNING/Part4.md) |
-[🏠 Home](../README.md) |
-[➡️ Tiếp theo: GIT.md](./GIT.md)

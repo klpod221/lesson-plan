@@ -1234,9 +1234,3 @@ Khoảng cách: 1680 km
 Chọn chức năng: 0
 Cảm ơn bạn đã sử dụng chương trình!
 ```
-
----
-
-[⬅️ Trở lại: DSA/Part2.md](../DSA/Part2.md) |
-[🏠 Home](../README.md) |
-[➡️ Tiếp theo: DSA/Part4.md](../DSA/Part4.md)

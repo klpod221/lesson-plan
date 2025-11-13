@@ -1373,9 +1373,3 @@ fn main() {
    - Save to JSON/CSV
    - Load from file
    - Backup system
-
----
-
-[⬅️ Trở lại: RUST/Part2.md](Part2.md) |
-[⏭️ Tiếp theo: RUST/Part4.md](Part4.md) |
-[🏠 Home](../README.md)

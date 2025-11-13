@@ -1759,9 +1759,3 @@ fn main() {
    - Serialize với `serde_json`
    - Auto-save every N operations
    - Import/Export CSV
-
----
-
-[⬅️ Trở lại: RUST/Part1.md](Part1.md) |
-[⏭️ Tiếp theo: RUST/Part3.md](Part3.md) |
-[🏠 Home](../README.md)

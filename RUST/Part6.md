@@ -1311,8 +1311,3 @@ Next steps:
 3. Explore Rust ecosystem (web, CLI, embedded)
 4. Master advanced patterns
 5. Join Rust community
-
----
-
-[⬅️ Trở lại: RUST/Part5.md](Part5.md) |
-[🏠 Home](../README.md)

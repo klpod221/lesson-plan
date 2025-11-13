@@ -85,9 +85,3 @@ Thiết kế và triển khai ứng dụng Java console hoàn chỉnh cho hệ t
    - Xử lý các trường hợp ngoại lệ
 
 Bài tập này sẽ kết hợp với bài tập SQL để tạo thành một ứng dụng hoàn chỉnh, trong đó phần JAVA sẽ tạo logic nghiệp vụ và giao diện dòng lệnh, còn phần SQL sẽ đảm nhiệm việc lưu trữ và xử lý dữ liệu.
-
----
-
-[⬅️ Trở lại: JAVA/Part4.md](../JAVA/Part4.md) |
-[🏠 Home](../README.md) |
-[➡️ Tiếp theo: SQL/FINAL.md](../SQL/FINAL.md)

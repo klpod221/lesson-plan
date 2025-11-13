@@ -1896,9 +1896,3 @@ gcc -o student_manager student_manager.c
 5. Thêm tìm kiếm theo tên (partial match)
 6. Implement undo/redo cho các thao tác
 7. Thêm chức năng pagination khi hiển thị danh sách dài
-
----
-
-[⬅️ Trở lại: C-CPP/Part2.md](Part2.md) |
-[🏠 Home](../README.md) |
-[➡️ Tiếp theo: C-CPP/Part4.md](Part4.md)

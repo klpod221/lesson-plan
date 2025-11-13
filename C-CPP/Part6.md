@@ -1255,8 +1255,3 @@ int main() {
 6. Implement search với multiple criteria (title AND author AND year)
 7. Add book recommendations (based on borrow history)
 8. Thread-safe operations (C++11 `<mutex>`)
-
----
-
-[⬅️ Trở lại: C-CPP/Part5.md](Part5.md) |
-[🏠 Home](../README.md)

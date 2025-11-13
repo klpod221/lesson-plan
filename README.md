@@ -1,25 +1,26 @@
-# Lộ Trình Học Lập Trình Từ Cơ Bản Đến Nâng Cao
+# Tổng Hợp Tài Liệu Học Lập Trình Từ Cơ Bản Đến Nâng Cao
 
 ## 🎯 Giới Thiệu
 
-Đây là lộ trình học lập trình toàn diện từ cơ bản đến nâng cao, bao gồm JAVA, SQL, DSA và phát triển Web. Mỗi phần được thiết kế với tính tiến triển rõ ràng, giúp bạn làm chủ các kỹ năng cần thiết từng bước một.
+Đây là tổng hợp tài liệu học lập trình toàn diện từ cơ bản đến nâng cao, bao gồm lộ trình chính (JAVA, SQL, DSA và phát triển Web) cùng các tài liệu bổ sung về nhiều ngôn ngữ và công nghệ khác. Mỗi phần được thiết kế với tính tiến triển rõ ràng, giúp bạn làm chủ các kỹ năng cần thiết từng bước một.
 
-Lộ trình này giúp bạn:
+Tài liệu này giúp bạn:
 
 - Tiết kiệm thời gian tìm kiếm tài liệu học tập
-- Có định hướng rõ ràng trong quá trình học
+- Có lộ trình chính rõ ràng để theo dõi
 - Học theo cấu trúc logic và khoa học
+- Tham khảo thêm nhiều tài liệu bổ sung theo nhu cầu
 
-Sau khi nắm vững nền tảng, bạn có thể điều chỉnh hướng học theo nhu cầu cá nhân, khám phá thêm nhiều công nghệ và ngôn ngữ lập trình khác.
+Sau khi nắm vững lộ trình chính, bạn có thể khám phá các tài liệu bổ sung về C/C++, Python, React, Vue, Rust và nhiều công nghệ khác.
 
 **Lưu ý:** Đây không phải quy tắc cứng nhắc mà là hướng dẫn linh hoạt, có thể điều chỉnh theo tốc độ và phong cách học của bạn.
 
-- [Lộ Trình Học Lập Trình Từ Cơ Bản Đến Nâng Cao](#lộ-trình-học-lập-trình-từ-cơ-bản-đến-nâng-cao)
+- [Tổng Hợp Tài Liệu Học Lập Trình Từ Cơ Bản Đến Nâng Cao](#tổng-hợp-tài-liệu-học-lập-trình-từ-cơ-bản-đến-nâng-cao)
   - [🎯 Giới Thiệu](#-giới-thiệu)
   - [🛠️ Phương Pháp Học Tập](#️-phương-pháp-học-tập)
   - [🚀 Mục Tiêu](#-mục-tiêu)
   - [📋 Đối Tượng](#-đối-tượng)
-  - [📚 Lộ Trình Học](#-lộ-trình-học)
+  - [📚 Lộ Trình Chính](#-lộ-trình-chính)
     - [📌 Module 0: Kỹ Năng Tự Học \& Cài Đặt Môi Trường](#-module-0-kỹ-năng-tự-học--cài-đặt-môi-trường)
     - [📌 Module 1: Lập Trình Java Cơ Bản](#-module-1-lập-trình-java-cơ-bản)
     - [📌 Module 2: Cơ Sở Dữ Liệu SQL](#-module-2-cơ-sở-dữ-liệu-sql)
@@ -29,7 +30,7 @@ Sau khi nắm vững nền tảng, bạn có thể điều chỉnh hướng họ
     - [📌 Module 6: Phát Triển Web Backend với PHP](#-module-6-phát-triển-web-backend-với-php)
     - [📌 Module 7: DevOps \& Containerization](#-module-7-devops--containerization)
     - [📌 Tổng Kết](#-tổng-kết)
-  - [� Các Bài Học Bổ Sung](#-các-bài-học-bổ-sung)
+  - [📚 Tài Liệu Bổ Sung](#-tài-liệu-bổ-sung)
     - [🔤 C/C++ Programming](#-cc-programming)
     - [🐍 Python Programming](#-python-programming)
     - [⚛️ React.js](#️-reactjs)
@@ -53,8 +54,9 @@ Sau khi nắm vững nền tảng, bạn có thể điều chỉnh hướng họ
 
 ## 🚀 Mục Tiêu
 
-- Cung cấp kiến thức toàn diện về lập trình từ cơ bản đến nâng cao
-- Xây dựng nền tảng vững chắc về ngôn ngữ lập trình JAVA
+- Cung cấp tài liệu toàn diện về lập trình từ cơ bản đến nâng cao
+- Xây dựng lộ trình chính vững chắc với JAVA, SQL, DSA và Web Development
+- Tổng hợp tài liệu bổ sung về nhiều ngôn ngữ và công nghệ hiện đại
 - Phát triển kỹ năng thiết kế và quản lý cơ sở dữ liệu với SQL
 - Nắm vững các cấu trúc dữ liệu và thuật toán quan trọng
 - Làm chủ các công nghệ phát triển web hiện đại
@@ -65,9 +67,9 @@ Sau khi nắm vững nền tảng, bạn có thể điều chỉnh hướng họ
 - Người mới bắt đầu học lập trình
 - Sinh viên CNTT muốn củng cố kiến thức
 - Lập trình viên muốn mở rộng kỹ năng sang nhiều lĩnh vực
-- Những người tự học muốn có lộ trình rõ ràng
+- Những người tự học muốn có lộ trình và tài liệu tham khảo rõ ràng
 
-## 📚 Lộ Trình Học
+## 📚 Lộ Trình Chính
 
 Thời gian ước tính cho mỗi phần là tương đối và có thể thay đổi tùy thuộc vào tốc độ học tập của bạn. Bạn có thể điều chỉnh thời gian học cho phù hợp với lịch trình cá nhân. Dù bạn học nhanh hay chậm, điều quan trọng là bạn cần kiên trì và thực hành thường xuyên.
 
@@ -153,13 +155,13 @@ Thời gian ước tính cho mỗi phần là tương đối và có thể thay 
 | --- | ---------------------------- | --------- | -------------------------------- |
 | 37  | 📋 **TỔNG KẾT LỘ TRÌNH HỌC** | -         | [CONCLUSION.md](./CONCLUSION.md) |
 
-## � Các Bài Học Bổ Sung
+## 📚 Tài Liệu Bổ Sung
 
-Ngoài lộ trình chính, kho lưu trữ còn bao gồm các bài học bổ sung về nhiều ngôn ngữ và công nghệ khác:
+Ngoài lộ trình chính, kho lưu trữ còn tổng hợp các tài liệu bổ sung về nhiều ngôn ngữ và công nghệ khác:
 
 ### 🔤 C/C++ Programming
 
-Khóa học C/C++ toàn diện từ cơ bản đến nâng cao (6 phần):
+Tài liệu C/C++ toàn diện từ cơ bản đến nâng cao (6 phần):
 
 | STT | Nội dung                                     | Tài liệu                      |
 | --- | -------------------------------------------- | ----------------------------- |
@@ -172,7 +174,7 @@ Khóa học C/C++ toàn diện từ cơ bản đến nâng cao (6 phần):
 
 ### 🐍 Python Programming
 
-Khóa học Python từ cơ bản đến ứng dụng thực tế (9 phần):
+Tài liệu Python từ cơ bản đến ứng dụng thực tế (9 phần):
 
 | STT | Nội dung                                     | Tài liệu                         |
 | --- | -------------------------------------------- | -------------------------------- |
@@ -188,7 +190,7 @@ Khóa học Python từ cơ bản đến ứng dụng thực tế (9 phần):
 
 ### ⚛️ React.js
 
-Khóa học React.js cho phát triển ứng dụng web hiện đại (7 phần):
+Tài liệu React.js cho phát triển ứng dụng web hiện đại (7 phần):
 
 | STT | Nội dung                                     | Tài liệu                       |
 | --- | -------------------------------------------- | ------------------------------ |
@@ -202,7 +204,7 @@ Khóa học React.js cho phát triển ứng dụng web hiện đại (7 phần)
 
 ### 💚 Vue.js
 
-Khóa học Vue.js với Composition API và Ecosystem (6 phần):
+Tài liệu Vue.js với Composition API và Ecosystem (6 phần):
 
 | STT | Nội dung                                     | Tài liệu                     |
 | --- | -------------------------------------------- | ---------------------------- |
@@ -215,7 +217,7 @@ Khóa học Vue.js với Composition API và Ecosystem (6 phần):
 
 ### 🦀 Rust Programming
 
-Khóa học Rust toàn diện về hệ thống và performance (6 phần):
+Tài liệu Rust toàn diện về hệ thống và performance (6 phần):
 
 | STT | Nội dung                                     | Tài liệu                      |
 | --- | -------------------------------------------- | ----------------------------- |
@@ -226,12 +228,13 @@ Khóa học Rust toàn diện về hệ thống và performance (6 phần):
 | 5   | 🧬 **TRAITS VÀ GENERICS**                    | [Part5.md](./RUST/Part5.md)   |
 | 6   | ⚡ **ADVANCED TOPICS**                       | [Part6.md](./RUST/Part6.md)   |
 
-**Lưu ý:** Các bài học bổ sung này không bắt buộc trong lộ trình chính nhưng rất hữu ích nếu bạn muốn:
+**Lưu ý:** Các tài liệu bổ sung này không bắt buộc trong lộ trình chính nhưng rất hữu ích nếu bạn muốn:
 
 - Mở rộng kiến thức sang nhiều ngôn ngữ lập trình khác
 - Tìm hiểu các framework frontend hiện đại (React, Vue)
 - Học các ngôn ngữ system programming (C/C++, Rust)
 - Phát triển kỹ năng đa dạng trong lập trình
+- Tham khảo thêm tài liệu theo nhu cầu cá nhân
 
 ## �🔄 Cập Nhật và Đóng Góp
 

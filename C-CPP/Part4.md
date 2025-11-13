@@ -1498,9 +1498,3 @@ int main() {
     return 0;
 }
 ```
-
----
-
-[⬅️ Trở lại: C-CPP/Part3.md](Part3.md) |
-[🏠 Home](../README.md) |
-[➡️ Tiếp theo: C-CPP/Part5.md](Part5.md)

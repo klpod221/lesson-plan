@@ -2029,9 +2029,3 @@ e-commerce-microservices/
 └── message-broker/
    └── rabbitmq/
 ```
-
----
-
-[⬅️ Trở lại: PHP/Part4.md](../PHP/Part4.md) |
-[🏠 Home](../README.md) |
-[➡️ Tiếp theo: PHP/Part6.md](../PHP/Part6.md)

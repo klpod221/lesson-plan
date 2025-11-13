@@ -730,9 +730,3 @@ Xây dựng trang web đơn giản cho phép:
 - Tạo form thêm sản phẩm mới với các trường: tên, mô tả, giá, số lượng
 - Xây dựng chức năng tìm kiếm và lọc sản phẩm
 - Tổ chức code theo cấu trúc rõ ràng, dễ bảo trì
-
----
-
-[⬅️ Trở lại: WEB/Part4.md](../WEB/Part4.md) |
-[🏠 Home](../README.md) |
-[➡️ Tiếp theo: PHP/Part1.md](../PHP/Part1.md)

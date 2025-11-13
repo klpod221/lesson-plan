@@ -900,9 +900,3 @@ Average: 8.33, Grade: A
 
 Top Student: John Doe (Average: 8.33)
 ```
-
----
-
-[⬅️ Trở lại: README.md](../README.md) |
-[🏠 Home](../README.md) |
-[➡️ Tiếp theo: C-CPP/Part2.md](Part2.md)

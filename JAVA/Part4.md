@@ -1164,9 +1164,3 @@ Viết chương trình quản lý danh sách khóa học:
 Sau khi hoàn thành phần này, bạn đã nắm vững các khái niệm nền tảng của JAVA - từ cú pháp, cấu trúc điều khiển, lập trình hướng đối tượng đến Collections Framework. Các ví dụ thực tế trong bài học cũng đã giúp bạn có cơ hội áp dụng lý thuyết vào những tình huống cụ thể.
 
 Đến đây, chúng ta sẽ tạm gác lại hành trình với JAVA để bước vào thế giới của SQL - ngôn ngữ truy vấn cơ sở dữ liệu được sử dụng rộng rãi nhất hiện nay. Việc này không chỉ mở rộng kiến thức cho bạn mà còn giúp bạn hiểu sâu hơn về cách thức ứng dụng tương tác với cơ sở dữ liệu - một kỹ năng thiết yếu trong hầu hết các dự án phát triển phần mềm thực tế.
-
----
-
-[⬅️ Trở lại: JAVA/Part3.md](../JAVA/Part3.md) |
-[🏠 Home](../README.md) |
-[➡️ Tiếp theo: SQL/Part1.md](../SQL/Part1.md)

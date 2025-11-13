@@ -1376,9 +1376,3 @@ fn main() {
    - ASCII charts
    - Data export for plotting
    - Summary reports
-
----
-
-[⬅️ Trở lại: RUST/Part4.md](Part4.md) |
-[⏭️ Tiếp theo: RUST/Part6.md](Part6.md) |
-[🏠 Home](../README.md)

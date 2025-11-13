@@ -1275,9 +1275,3 @@ Lỗi: Chia cho 0!
 Nhập biểu thức (nhập 'exit' để thoát): exit
 Cảm ơn bạn đã sử dụng chương trình!
 ```
-
----
-
-[⬅️ Trở lại: DSA/Part1.md](../DSA/Part1.md) |
-[🏠 Home](../README.md) |
-[➡️ Tiếp theo: DSA/Part2.md](../DSA/Part2.md)

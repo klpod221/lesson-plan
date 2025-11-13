@@ -1331,9 +1331,3 @@ Xây dựng một ứng dụng Todo List hoàn chỉnh với các chức năng:
 | 2 tasks left | Clear completed                |
 +-----------------------------------------------+
 ```
-
----
-
-[⬅️ Trở lại: WEB/Part2.md](../WEB/Part2.md) |
-[🏠 Home](../README.md) |
-[➡️ Tiếp theo: WEB/Part4.md](../WEB/Part4.md)

@@ -1,0 +1,111 @@
+/**
+ * Custom CSS for VitePress theme
+ * Enhance code blocks with copy button and better styling
+ */
+
+/* Code block enhancements */
+:root {
+  --vp-c-brand: #10b981;
+  --vp-c-brand-light: #34d399;
+  --vp-c-brand-lighter: #6ee7b7;
+  --vp-c-brand-dark: #059669;
+  --vp-c-brand-darker: #047857;
+}
+
+/* Custom styles for code blocks */
+div[class*='language-'] {
+  position: relative;
+  margin: 16px 0;
+  border-radius: 8px;
+}
+
+/* Copy button styling - VitePress has built-in copy button */
+.vp-code-group .tabs {
+  padding-top: 12px;
+}
+
+/* Enhance inline code */
+.vp-doc :not(pre) > code {
+  padding: 3px 6px;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+/* Better table styling */
+.vp-doc table {
+  display: block;
+  overflow-x: auto;
+  margin: 20px 0;
+}
+
+/* Custom homepage hero styling */
+.VPHero .name {
+  background: linear-gradient(120deg, #10b981 0%, #059669 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Improve sidebar styling */
+.VPSidebar {
+  padding-top: 24px;
+}
+
+/* Better mobile responsiveness */
+@media (max-width: 768px) {
+  .vp-doc h1 {
+    font-size: 1.75rem;
+  }
+  
+  .vp-doc h2 {
+    font-size: 1.5rem;
+  }
+}
+
+/* Custom alert boxes */
+.custom-block {
+  margin: 16px 0;
+  border-left: 4px solid var(--vp-c-brand);
+  padding: 12px 24px;
+  border-radius: 4px;
+}
+
+.custom-block.tip {
+  background-color: var(--vp-c-bg-soft);
+  border-color: var(--vp-c-brand);
+}
+
+.custom-block.warning {
+  background-color: rgba(234, 179, 8, 0.1);
+  border-color: #eab308;
+}
+
+.custom-block.danger {
+  background-color: rgba(239, 68, 68, 0.1);
+  border-color: #ef4444;
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Better focus states for accessibility */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--vp-c-brand);
+  outline-offset: 2px;
+}
+
+/* Print styles */
+@media print {
+  .VPNav,
+  .VPSidebar,
+  .VPFooter {
+    display: none !important;
+  }
+  
+  .VPDoc {
+    max-width: 100% !important;
+  }
+}

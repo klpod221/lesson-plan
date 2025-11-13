@@ -1101,9 +1101,3 @@ int main() {
 
 // TODO: Implement all functions
 ```
-
----
-
-[⬅️ Trở lại: C-CPP/Part1.md](Part1.md) |
-[🏠 Home](../README.md) |
-[➡️ Tiếp theo: C-CPP/Part3.md](Part3.md)

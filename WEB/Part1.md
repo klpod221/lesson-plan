@@ -528,9 +528,3 @@ Tạo một trang web giới thiệu bản thân với đầy đủ các phần 
 | [GitHub] [LinkedIn] [Twitter] [Instagram]               |
 +---------------------------------------------------------+
 ```
-
----
-
-[⬅️ Trở lại: DSA/Part5.md](../DSA/Part5.md) |
-[🏠 Home](../README.md) |
-[➡️ Tiếp theo: WEB/Part2.md](../WEB/Part2.md)

@@ -1,0 +1,24 @@
+{
+  "name": "lesson-plan",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Tổng Hợp Tài Liệu Học Lập Trình Từ Cơ Bản Đến Nâng Cao",
+  "scripts": {
+    "docs:dev": "vitepress dev",
+    "docs:build": "vitepress build",
+    "docs:preview": "vitepress preview"
+  },
+  "keywords": [
+    "programming",
+    "java",
+    "sql",
+    "web-development",
+    "tutorial",
+    "documentation"
+  ],
+  "author": "klpod221",
+  "license": "MIT",
+  "devDependencies": {
+    "vitepress": "^1.6.4"
+  }
+}

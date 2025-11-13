@@ -1789,9 +1789,3 @@ Chúc bạn thành công với bài tập này! Nó sẽ giúp bạn hiểu rõ 
 - **Docker Security:** Tìm hiểu về các best practice để bảo mật Docker images và containers (quét lỗ hổng, image signing, runtime security).
 - **Service Mesh (Istio, Linkerd):** Cho các ứng dụng microservices phức tạp, quản lý traffic, observability, security giữa các services.
 - **Infrastructure as Code (Terraform, Pulumi):** Kết hợp Docker với các công cụ IaC để quản lý toàn bộ hạ tầng.
-
----
-
-[⬅️ Trở lại: DEVOPS/Docker1.md](./Docker1.md) |
-[🏠 Home](../README.md) |
-[➡️ Tiếp theo: (Bài học tiếp theo, ví dụ về Kubernetes hoặc CI/CD)](../DEVOPS/Kubernetes1.md)

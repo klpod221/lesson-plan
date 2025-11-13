@@ -781,9 +781,3 @@ git config --global alias.visual '!gitk'
 9. Sử dụng lệnh `git push -u origin main` để đẩy các thay đổi lên GitHub.
 10. Tiếp tục thực hiện các phần của khóa học và commit các thay đổi thường xuyên.
 11. Khi hoàn thành một phần, tạo một branch mới cho phần tiếp theo và lặp lại quy trình commit và push.
-
----
-
-[⬅️ Trở lại: INSTALL.md](./INSTALL.md) |
-[🏠 Home](./README.md) |
-[➡️Tiếp theo: INTRODUCTION.md](./INTRODUCTION.md)

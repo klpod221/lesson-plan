@@ -1594,9 +1594,3 @@ Mở rộng cơ sở dữ liệu quản lý sinh viên:
   - Sắp xếp sinh viên theo điểm trung bình
   - Tìm sinh viên có điểm cao nhất trong mỗi lớp
 - Truy vấn dữ liệu từ nhiều bảng bằng các loại JOIN
-
----
-
-[⬅️ Trở lại: SQL/Part2.md](../SQL/Part2.md) |
-[🏠 Home](../README.md) |
-[➡️ Tiếp theo: SQL/Part3.md](../SQL/Part3.md)

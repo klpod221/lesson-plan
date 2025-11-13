@@ -1447,9 +1447,3 @@ int main() {
 5. Save/load shapes to/from file (text hoặc binary)
 6. Implement copy constructor và assignment operator đúng cách
 7. Thêm move constructor và move assignment (C++11)
-
----
-
-[⬅️ Trở lại: C-CPP/Part4.md](Part4.md) |
-[🏠 Home](../README.md) |
-[➡️ Tiếp theo: C-CPP/Part6.md](Part6.md)

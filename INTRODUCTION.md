@@ -582,9 +582,3 @@ Mạng máy tính
 Như vậy, bạn đã được trang bị cái nhìn tổng quan về thế giới lập trình: từ các ngôn ngữ và khái niệm cơ bản, kiến trúc máy tính và hệ điều hành, đến mạng máy tính, công cụ phát triển, và phương pháp quản lý dự án. Đây chính là nền móng vững chắc để bạn tiếp tục hành trình học tập và phát triển kỹ năng lập trình của mình.
 
 Tiếp theo chúng ta sẽ chính thức bắt đầu với ngôn ngữ lập trình JAVA, một trong những ngôn ngữ phổ biến và mạnh mẽ nhất hiện nay. Hãy cùng khám phá!
-
----
-
-[⬅️ Trở lại: GIT.md](./GIT.md) |
-[🏠 Home](./README.md) |
-[➡️ Tiếp theo: JAVA/Part1.md](./JAVA/Part1.md)

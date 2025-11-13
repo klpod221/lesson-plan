@@ -2671,9 +2671,3 @@ Xây dựng một hệ thống tìm kiếm văn bản đơn giản có thể:
 5. **Highlighting**: Đánh dấu các từ khóa trong kết quả tìm kiếm
 6. **Pagination**: Phân trang kết quả tìm kiếm
 7. **Filtering**: Lọc kết quả theo các tiêu chí khác nhau
-
----
-
-[⬅️ Trở lại: DSA/Part3.md](../DSA/Part3.md) |
-[🏠 Home](../README.md) |
-[➡️ Tiếp theo: DSA/Part5.md](../DSA/Part5.md)

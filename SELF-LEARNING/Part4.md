@@ -347,9 +347,3 @@
 Sau khi hoàn thành phần này, bạn sẽ có cái nhìn tổng quan về cách phát triển bản thân liên tục trong ngành công nghệ thông tin. Hãy nhớ rằng việc học không bao giờ dừng lại và việc theo dõi xu hướng công nghệ mới là rất quan trọng để duy trì sự cạnh tranh trong lĩnh vực này.
 
 Ở phần tiếp theo, chúng ta sẽ tìm hiểu bắt đầu với việc cài đặt môi trường phát triển và các công cụ cần thiết để các bạn có thể bắt đầu thực hành lập trình.
-
----
-
-[⬅️ Trở lại: SELF-LEARNING/Part3.md](../SELF-LEARNING/Part3.md) |
-[🏠 Home](../README.md) |
-[➡️ Tiếp theo: INSTALL.md](../INSTALL.md)

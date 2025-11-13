@@ -1410,9 +1410,3 @@ fn main() {
    - Command line arguments
    - Pretty formatting
    - Help system
-
----
-
-[⬅️ Trở lại: RUST/Part3.md](Part3.md) |
-[⏭️ Tiếp theo: RUST/Part5.md](Part5.md) |
-[🏠 Home](../README.md)

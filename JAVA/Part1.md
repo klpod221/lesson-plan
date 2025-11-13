@@ -753,9 +753,3 @@ Sinh viên: Nguyễn Văn A
 Điểm trung bình: 8.33
 Xếp loại: Giỏi
 ```
-
----
-
-[⬅️ Trở lại: INTRODUCTION.md](../INTRODUCTION.md) |
-[🏠 Home](../README.md) |
-[➡️ Tiếp theo: JAVA/Part2.md](../JAVA/Part2.md)

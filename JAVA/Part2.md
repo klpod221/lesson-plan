@@ -756,9 +756,3 @@ Nguyễn Văn A - Điểm trung bình: 8.67 - Xếp loại: Giỏi
 Trần Thị B - Điểm trung bình: 7.17 - Xếp loại: Khá
 Lê Văn C - Điểm trung bình: 6.00 - Xếp loại: Trung bình
 ```
-
----
-
-[⬅️ Trở lại: JAVA/Part1.md](../JAVA/Part1.md) |
-[🏠 Home](../README.md) |
-[➡️ Tiếp theo: JAVA/Part3.md](../JAVA/Part3.md)

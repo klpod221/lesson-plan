@@ -981,9 +981,3 @@ nav {
 ### Kết quả mong đợi
 
 Một trang portfolio hoàn chỉnh với giao diện hấp dẫn, layout responsive, các hiệu ứng tương tác và hoạt ảnh phù hợp để thu hút người xem.
-
----
-
-[⬅️ Trở lại: WEB/Part1.md](../WEB/Part1.md) |
-[🏠 Home](../README.md) |
-[➡️ Tiếp theo: WEB/Part2.md](../WEB/Part2.md)

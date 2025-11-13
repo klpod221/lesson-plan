@@ -112,6 +112,3 @@ Sau khi hoàn thành lộ trình này, bạn có thể tiếp tục phát triể
 Chúc mừng bạn đã hoàn thành lộ trình học tập! Đây không phải là điểm kết thúc mà là khởi đầu cho một hành trình phát triển chuyên nghiệp trong ngành công nghệ thông tin. Hãy tiếp tục học hỏi, thực hành và phát triển bản thân mỗi ngày.
 
 Nếu có bất kỳ câu hỏi hoặc cần hỗ trợ thêm, đừng ngần ngại liên hệ qua [trang cá nhân](https://klpod221.com). Chúc bạn thành công trong hành trình lập trình phía trước!
-
-[⬅️ Trở lại: DEVOPS/Kubernetes.md](../DEVOPS/Kubernetes.md) |
-[🏠 Home](../README.md)

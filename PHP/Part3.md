@@ -1600,9 +1600,3 @@ blog-api/
 ├── composer.json
 └── README.md
 ```
-
----
-
-[⬅️ Trở lại: PHP/Part2.md](../PHP/Part2.md) |
-[🏠 Home](../README.md) |
-[➡️ Tiếp theo: PHP/Part3.md](../PHP/Part3.md)

@@ -688,9 +688,3 @@ Xây dựng cơ sở dữ liệu quản lý thư viện với các bảng:
 - Tạo các triggers để:
   - Tự động cập nhật số lượng sách khi có giao dịch mượn/trả
   - Kiểm tra điều kiện trước khi cho mượn sách
-
----
-
-[⬅️ Trở lại: SQL/Part2.md](../SQL/Part2.md) |
-[🏠 Home](../README.md) |
-[➡️ Tiếp theo: SQL/Part4.md](../SQL/Part4.md)

@@ -63,9 +63,3 @@ Thiết kế và triển khai cơ sở dữ liệu hoàn chỉnh cho ứng dụn
 Sau khi hoàn thành bài tập lớn này, bạn đã nắm vững các khái niệm cơ bản và nâng cao trong SQL, bao gồm việc thiết kế cơ sở dữ liệu, viết các câu truy vấn phức tạp, sử dụng stored procedures, triggers, views và tối ưu hóa hiệu suất.
 
 Sau đây các bạn sẽ quay lại với JAVA để tiếp tục học tập và áp dụng các kiến thức đã học trong SQL vào các ứng dụng thực tế.
-
----
-
-[⬅️ Trở lại: SQL/Part4.md](../SQL/Part4.md) |
-[🏠 Home](../README.md) |
-[➡️ Tiếp theo: JAVA/Part5.md](../JAVA/Part5.md)

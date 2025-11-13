@@ -343,9 +343,3 @@
    - Tham gia một nhóm học tập hoặc cộng đồng online
    - Đóng góp vào một dự án mã nguồn mở (dù chỉ là documentation)
    - Chia sẻ điều đã học với người khác qua blog hoặc video
-
----
-
-[⬅️ Trở lại: SELF-LEARNING/Part2.md](../SELF-LEARNING/Part2.md) |
-[🏠 Home](../README.md) |
-[➡️ Tiếp theo: SELF-LEARNING/Part4.md](../SELF-LEARNING/Part4.md)

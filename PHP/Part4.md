@@ -1873,9 +1873,3 @@ project-management/
 ├── README.md
 └── webpack.mix.js
 ```
-
----
-
-[⬅️ Trở lại: PHP/Part3.md](../PHP/Part3.md) |
-[🏠 Home](../README.md) |
-[➡️ Tiếp theo: PHP/Part5.md](../PHP/Part5.md)
