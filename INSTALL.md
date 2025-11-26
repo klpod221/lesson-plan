@@ -605,7 +605,6 @@ Open Settings (`Ctrl/Cmd + ,`) or edit `settings.json`:
 
 - **Windows Terminal** (Windows) - Already available on Windows 11
 - **iTerm2** (MacOS) - Best for MacOS
-- **Terminator / Alacritty** (Linux) - Light, fast
 
 ## ✅ Check Installation
 

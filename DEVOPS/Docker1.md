@@ -38,7 +38,7 @@ This is a "classic" saying in the programming world, reflecting a common problem
 - **Difficult environment setup for newcomers:** Every time a new member joins the project, installing and configuring the development environment exactly like everyone else takes time and is error-prone.
 - **Poor portability:** Moving app from one server to another, or from on-premise to cloud faces many obstacles.
 
-![Illustration image: "works on my machine" meme](../../images/devops/itworksonmymachine.webp)
+![Illustration image: "works on my machine" meme](../images/devops/itworksonmymachine.webp)
 
 ### What is the solution? VMs vs Containers
 

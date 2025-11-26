@@ -605,7 +605,6 @@ Mở Settings (`Ctrl/Cmd + ,`) hoặc chỉnh sửa `settings.json`:
 
 - **Windows Terminal** (Windows) - Đã có sẵn trên Windows 11
 - **iTerm2** (MacOS) - Tốt nhất cho MacOS
-- **Terminator / Alacritty** (Linux) - Nhẹ, nhanh
 
 ## ✅ Kiểm tra cài đặt
 
