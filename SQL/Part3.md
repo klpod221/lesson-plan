@@ -1,26 +1,26 @@
 ---
 prev:
-  text: '📊 SQL Nâng Cao'
+  text: '📊 Advanced SQL'
   link: '/SQL/Part2'
 next:
-  text: '⚡ SQL Chuyên Sâu'
+  text: '⚡ Expert SQL'
   link: '/SQL/Part4'
 ---
 
-# 📘 PHẦN 3: SQL NÂNG CAO VÀ ỨNG DỤNG
+# 📘 PART 3: ADVANCED SQL AND APPLICATIONS
 
-## 🎯 Mục tiêu tổng quát
+## 🎯 General Objectives
 
-- Xây dựng được các chức năng phức tạp với thủ tục lưu trữ
-- Hiểu và triển khai được các quy tắc ràng buộc dữ liệu
-- Bảo đảm tính toàn vẹn dữ liệu trong môi trường đa người dùng
+- Build complex functions with stored procedures.
+- Understand and implement data constraint rules.
+- Ensure data integrity in a multi-user environment.
 
-## 🧑‍🏫 Bài 1: Thủ tục lưu trữ nâng cao
+## 🧑‍🏫 Lesson 1: Advanced Stored Procedures
 
-### Stored Procedure có tham số
+### Stored Procedure with Parameters
 
 ```sql
--- Tạo stored procedure để thêm sinh viên mới
+-- Create stored procedure to add a new student
 DELIMITER //
 CREATE PROCEDURE sp_AddStudent(
     IN p_first_name VARCHAR(50),
@@ -38,12 +38,12 @@ BEGIN
 END //
 DELIMITER ;
 
--- Gọi stored procedure
-CALL sp_AddStudent('Hoàng', 'Trần', 'hoang.tran@example.com', '2001-08-15', 'M', @new_id);
+-- Call stored procedure
+CALL sp_AddStudent('Hoang', 'Tran', 'hoang.tran@example.com', '2001-08-15', 'M', @new_id);
 SELECT @new_id AS new_student_id;
 ```
 
-### Xử lý lỗi trong Stored Procedure
+### Error Handling in Stored Procedure
 
 ```sql
 DELIMITER //
@@ -57,39 +57,39 @@ BEGIN
     BEGIN
         SET exit_handler = TRUE;
         ROLLBACK;
-        SELECT 'Lỗi xảy ra trong quá trình đăng ký khóa học' AS error_message;
+        SELECT 'Error occurred during course enrollment' AS error_message;
     END;
 
     START TRANSACTION;
 
-    -- Kiểm tra sinh viên có tồn tại không
+    -- Check if student exists
     IF NOT EXISTS (SELECT 1 FROM Students WHERE student_id = p_student_id) THEN
-        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Sinh viên không tồn tại';
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Student does not exist';
     END IF;
 
-    -- Kiểm tra khóa học có tồn tại không
+    -- Check if course exists
     IF NOT EXISTS (SELECT 1 FROM Courses WHERE course_id = p_course_id) THEN
-        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Khóa học không tồn tại';
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Course does not exist';
     END IF;
 
-    -- Kiểm tra sinh viên đã đăng ký khóa học này chưa
+    -- Check if student already enrolled in this course
     IF EXISTS (SELECT 1 FROM Enrollments WHERE student_id = p_student_id AND course_id = p_course_id) THEN
-        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Sinh viên đã đăng ký khóa học này';
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Student already enrolled in this course';
     END IF;
 
-    -- Thêm đăng ký mới
+    -- Add new enrollment
     INSERT INTO Enrollments(student_id, course_id, enrollment_date)
     VALUES(p_student_id, p_course_id, CURDATE());
 
     IF exit_handler = FALSE THEN
         COMMIT;
-        SELECT 'Đăng ký khóa học thành công' AS success_message;
+        SELECT 'Course enrollment successful' AS success_message;
     END IF;
 END //
 DELIMITER ;
 ```
 
-### Sử dụng Cursor để xử lý dữ liệu theo dòng
+### Using Cursor to Process Data Row by Row
 
 ```sql
 DELIMITER //
@@ -99,46 +99,46 @@ BEGIN
     DECLARE s_id INT;
     DECLARE s_avg DECIMAL(4,2);
 
-    -- Khai báo cursor
+    -- Declare cursor
     DECLARE student_cursor CURSOR FOR
         SELECT student_id, (math_score + physics_score + chemistry_score)/3 AS avg_score
         FROM Students;
 
-    -- Khai báo handler cho cursor
+    -- Declare handler for cursor
     DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = TRUE;
 
-    -- Mở cursor
+    -- Open cursor
     OPEN student_cursor;
 
-    -- Bắt đầu vòng lặp
+    -- Start loop
     student_loop: LOOP
-        -- Đọc dữ liệu từng dòng
+        -- Read data row by row
         FETCH student_cursor INTO s_id, s_avg;
 
-        -- Kiểm tra đã hết dữ liệu chưa
+        -- Check if data is exhausted
         IF done THEN
             LEAVE student_loop;
         END IF;
 
-        -- Cập nhật xếp loại dựa trên điểm trung bình
+        -- Update rank based on average score
         UPDATE Students SET
             average_score = s_avg,
             rank = CASE
-                WHEN s_avg >= 8.0 THEN 'Giỏi'
-                WHEN s_avg >= 6.5 THEN 'Khá'
-                WHEN s_avg >= 5.0 THEN 'Trung bình'
-                ELSE 'Yếu'
+                WHEN s_avg >= 8.0 THEN 'Excellent'
+                WHEN s_avg >= 6.5 THEN 'Good'
+                WHEN s_avg >= 5.0 THEN 'Average'
+                ELSE 'Weak'
             END
         WHERE student_id = s_id;
     END LOOP;
 
-    -- Đóng cursor
+    -- Close cursor
     CLOSE student_cursor;
 END //
 DELIMITER ;
 ```
 
-### Thủ tục lưu trữ có trả về giá trị
+### Stored Procedure Returning Value
 
 ```sql
 DELIMITER //
@@ -153,7 +153,7 @@ BEGIN
     FROM Enrollments
     WHERE student_id = p_student_id;
 
-    -- Nếu không có điểm (NULL), trả về 0
+    -- If no grade (NULL), return 0
     IF avg_grade IS NULL THEN
         RETURN 0.0;
     ELSE
@@ -162,7 +162,7 @@ BEGIN
 END //
 DELIMITER ;
 
--- Sử dụng function
+-- Use function
 SELECT
     s.student_id,
     CONCAT(s.first_name, ' ', s.last_name) AS full_name,
@@ -170,11 +170,11 @@ SELECT
 FROM Students s;
 ```
 
-## 🧑‍🏫 Bài 2: Trigger và ràng buộc
+## 🧑‍🏫 Lesson 2: Triggers and Constraints
 
 ### Trigger BEFORE INSERT
 
-- Thực hiện trước khi một bản ghi được chèn vào bảng
+- Executed before a record is inserted into the table.
 
 ```sql
 DELIMITER //
@@ -182,17 +182,17 @@ CREATE TRIGGER before_student_insert
 BEFORE INSERT ON Students
 FOR EACH ROW
 BEGIN
-    -- Chuyển email về chữ thường
+    -- Convert email to lowercase
     SET NEW.email = LOWER(NEW.email);
 
-    -- Kiểm tra định dạng email
+    -- Check email format
     IF NEW.email NOT LIKE '%@%.%' THEN
-        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Định dạng email không hợp lệ';
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Invalid email format';
     END IF;
 
-    -- Kiểm tra tuổi (phải từ 16 tuổi trở lên)
+    -- Check age (must be 16 or older)
     IF NEW.date_of_birth > DATE_SUB(CURDATE(), INTERVAL 16 YEAR) THEN
-        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Học sinh phải từ 16 tuổi trở lên';
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Student must be 16 years or older';
     END IF;
 END //
 DELIMITER ;
@@ -200,7 +200,7 @@ DELIMITER ;
 
 ### Trigger AFTER UPDATE
 
-- Thực hiện sau khi một bản ghi được cập nhật
+- Executed after a record is updated.
 
 ```sql
 DELIMITER //
@@ -208,7 +208,7 @@ CREATE TRIGGER after_grade_update
 AFTER UPDATE ON Enrollments
 FOR EACH ROW
 BEGIN
-    -- Nếu điểm thay đổi, ghi log
+    -- If grade changes, log it
     IF OLD.grade <> NEW.grade THEN
         INSERT INTO GradeChangeLog(
             student_id,
@@ -233,7 +233,7 @@ DELIMITER ;
 
 ### Trigger BEFORE DELETE
 
-- Thực hiện trước khi một bản ghi bị xóa
+- Executed before a record is deleted.
 
 ```sql
 DELIMITER //
@@ -241,7 +241,7 @@ CREATE TRIGGER before_course_delete
 BEFORE DELETE ON Courses
 FOR EACH ROW
 BEGIN
-    -- Không cho phép xóa khóa học đã có sinh viên đăng ký
+    -- Do not allow deleting course with enrolled students
     DECLARE student_count INT;
 
     SELECT COUNT(*) INTO student_count
@@ -250,13 +250,13 @@ BEGIN
 
     IF student_count > 0 THEN
         SIGNAL SQLSTATE '45000'
-        SET MESSAGE_TEXT = 'Không thể xóa khóa học đã có sinh viên đăng ký';
+        SET MESSAGE_TEXT = 'Cannot delete course with enrolled students';
     END IF;
 END //
 DELIMITER ;
 ```
 
-### Trigger để duy trì tính toàn vẹn dữ liệu
+### Trigger to Maintain Data Integrity
 
 ```sql
 DELIMITER //
@@ -264,7 +264,7 @@ CREATE TRIGGER after_enrollment_insert
 AFTER INSERT ON Enrollments
 FOR EACH ROW
 BEGIN
-    -- Cập nhật số lượng sinh viên đăng ký vào bảng Courses
+    -- Update enrolled student count in Courses table
     UPDATE Courses
     SET enrolled_students = (
         SELECT COUNT(*)
@@ -275,7 +275,7 @@ BEGIN
 END //
 DELIMITER ;
 
--- Tương tự cho DELETE và UPDATE
+-- Similar for DELETE and UPDATE
 CREATE TRIGGER after_enrollment_delete
 AFTER DELETE ON Enrollments
 FOR EACH ROW
@@ -291,142 +291,142 @@ END //
 DELIMITER ;
 ```
 
-### Quản lý transaction
+### Transaction Management
 
 ```sql
--- Ví dụ về transaction khi chuyển điểm từ sinh viên này sang sinh viên khác
+-- Example of transaction when transferring points from one student to another
 START TRANSACTION;
 
--- Trừ điểm từ sinh viên nguồn
+-- Deduct points from source student
 UPDATE Students
 SET bonus_points = bonus_points - 10
 WHERE student_id = 101;
 
--- Kiểm tra lỗi (ví dụ: điểm âm)
+-- Check for error (e.g., negative points)
 IF (SELECT bonus_points FROM Students WHERE student_id = 101) < 0 THEN
     ROLLBACK;
-    SELECT 'Không đủ điểm để chuyển' AS message;
+    SELECT 'Not enough points to transfer' AS message;
 ELSE
-    -- Cộng điểm cho sinh viên đích
+    -- Add points to target student
     UPDATE Students
     SET bonus_points = bonus_points + 10
     WHERE student_id = 102;
 
     COMMIT;
-    SELECT 'Chuyển điểm thành công' AS message;
+    SELECT 'Points transferred successfully' AS message;
 END IF;
 ```
 
-### Các cấp độ cô lập (Isolation Levels)
+### Isolation Levels
 
 ```sql
--- READ UNCOMMITTED (mức thấp nhất, cho phép đọc dữ liệu chưa commit)
+-- READ UNCOMMITTED (lowest level, allows reading uncommitted data)
 SET SESSION TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;
 
--- READ COMMITTED (chỉ đọc dữ liệu đã được commit)
+-- READ COMMITTED (only read committed data)
 SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED;
 
--- REPEATABLE READ (mức mặc định trong MySQL, đảm bảo đọc lại cùng dữ liệu)
+-- REPEATABLE READ (default level in MySQL, ensures repeatable reads)
 SET SESSION TRANSACTION ISOLATION LEVEL REPEATABLE READ;
 
--- SERIALIZABLE (mức cao nhất, mọi transaction được thực hiện tuần tự)
+-- SERIALIZABLE (highest level, all transactions executed sequentially)
 SET SESSION TRANSACTION ISOLATION LEVEL SERIALIZABLE;
 
--- Ví dụ transaction với mức REPEATABLE READ
+-- Example transaction with REPEATABLE READ level
 SET SESSION TRANSACTION ISOLATION LEVEL REPEATABLE READ;
 START TRANSACTION;
 
--- Đọc dữ liệu
+-- Read data
 SELECT * FROM Students WHERE student_id = 1;
 
--- Thực hiện các thao tác khác...
+-- Perform other operations...
 
--- Đọc lại dữ liệu, đảm bảo kết quả như lần đọc đầu
+-- Read data again, ensuring result is same as first read
 SELECT * FROM Students WHERE student_id = 1;
 
 COMMIT;
 ```
 
-### Xử lý lock và deadlock
+### Handling Locks and Deadlocks
 
 ```sql
--- Thiết lập timeout cho lock
-SET innodb_lock_wait_timeout = 50; -- 50 giây
+-- Set lock wait timeout
+SET innodb_lock_wait_timeout = 50; -- 50 seconds
 
--- Ví dụ transaction với FOR UPDATE (tạo row-level lock)
+-- Example transaction with FOR UPDATE (creates row-level lock)
 START TRANSACTION;
 
--- Khóa hàng để đọc
+-- Lock row for reading
 SELECT * FROM Enrollments WHERE enrollment_id = 101 FOR UPDATE;
 
--- Thực hiện cập nhật
+-- Perform update
 UPDATE Enrollments SET grade = 9.5 WHERE enrollment_id = 101;
 
 COMMIT;
 
--- Xử lý deadlock với timeout
+-- Handling deadlock with timeout
 START TRANSACTION;
 
--- Thử khóa dữ liệu với timeout
-SELECT * FROM Students WHERE student_id = 1 FOR UPDATE NOWAIT; -- Lỗi ngay nếu bị khóa
--- hoặc
-SELECT * FROM Students WHERE student_id = 1 FOR UPDATE WAIT 10; -- Đợi tối đa 10 giây
+-- Try to lock data with timeout
+SELECT * FROM Students WHERE student_id = 1 FOR UPDATE NOWAIT; -- Error immediately if locked
+-- or
+SELECT * FROM Students WHERE student_id = 1 FOR UPDATE WAIT 10; -- Wait max 10 seconds
 
--- Nếu xảy ra deadlock, MySQL sẽ tự động rollback một transaction
--- Ta có thể xử lý trong code của ứng dụng
+-- If deadlock occurs, MySQL will automatically rollback one transaction
+-- We can handle this in application code
 
 COMMIT;
 ```
 
-## 🧑‍🏫 Bài 4: Bảo mật dữ liệu
+## 🧑‍🏫 Lesson 4: Data Security
 
-### Quản lý người dùng và phân quyền
+### User Management and Permissions
 
 ```sql
--- Tạo người dùng với mật khẩu mã hóa
+-- Create user with encrypted password
 CREATE USER 'teacher_user'@'localhost' IDENTIFIED BY 'Strong_P@ssw0rd!';
 
--- Tạo vai trò (MySQL 8.0+)
+-- Create role (MySQL 8.0+)
 CREATE ROLE 'app_read', 'app_write', 'app_admin';
 
--- Gán quyền cho vai trò
+-- Grant permissions to role
 GRANT SELECT ON SchoolManagement.* TO 'app_read';
 GRANT SELECT, INSERT, UPDATE ON SchoolManagement.* TO 'app_write';
 GRANT ALL PRIVILEGES ON SchoolManagement.* TO 'app_admin';
 
--- Gán vai trò cho người dùng
+-- Grant role to user
 GRANT 'app_write' TO 'teacher_user'@'localhost';
 
--- Thiết lập vai trò mặc định
+-- Set default role
 SET DEFAULT ROLE 'app_write' TO 'teacher_user'@'localhost';
 
--- Gán quyền trực tiếp trên các bảng cụ thể
+-- Grant permissions directly on specific tables
 GRANT SELECT ON SchoolManagement.Students TO 'student_user'@'localhost';
 GRANT SELECT, UPDATE (first_name, last_name, email) ON SchoolManagement.Students
 TO 'student_user'@'localhost';
 
--- Thu hồi quyền
+-- Revoke permissions
 REVOKE UPDATE ON SchoolManagement.Students FROM 'student_user'@'localhost';
 ```
 
-### Mã hóa và bảo mật dữ liệu
+### Encryption and Data Security
 
 ```sql
--- Mã hóa dữ liệu nhạy cảm
--- 1. Sử dụng hàm mã hóa tích hợp
+-- Encrypt sensitive data
+-- 1. Use built-in encryption function
 UPDATE Users SET
     password_hash = SHA2(CONCAT(password, salt), 256)
 WHERE user_id = 101;
 
--- 2. Sử dụng AES cho dữ liệu cần giải mã
+-- 2. Use AES for data needing decryption
 SET @key = 'my_secure_key';
 
--- Mã hóa
+-- Encrypt
 UPDATE Students SET
     encrypted_ssn = AES_ENCRYPT(social_security_number, @key)
 WHERE student_id = 1;
 
--- Giải mã
+-- Decrypt
 SELECT
     student_id,
     first_name,
@@ -434,31 +434,31 @@ SELECT
 FROM Students;
 ```
 
-### Phòng chống SQL Injection
+### SQL Injection Prevention
 
 ```sql
--- Cách không an toàn (KHÔNG NÊN DÙNG)
+-- Unsafe way (DO NOT USE)
 -- PHP code: $query = "SELECT * FROM Users WHERE username = '$username' AND password = '$password'";
 
--- Cách an toàn sử dụng Prepared Statements
--- PHP với PDO
+-- Safe way using Prepared Statements
+-- PHP with PDO
 /*
 $stmt = $pdo->prepare("SELECT * FROM Users WHERE username = ? AND password_hash = ?");
 $stmt->execute([$username, hash('sha256', $password . $salt)]);
 */
 
--- Java với JDBC
+-- Java with JDBC
 /*
 PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM Users WHERE username = ? AND password_hash = ?");
 pstmt.setString(1, username);
 pstmt.setString(2, hash("SHA-256", password + salt));
 ResultSet rs = pstmt.executeQuery();
 if (rs.next()) {
-    // Đăng nhập thành công
+    // Login successful
 }
 */
 
--- Hoặc sử dụng stored procedure
+-- Or use stored procedure
 DELIMITER //
 CREATE PROCEDURE sp_AuthenticateUser(
     IN p_username VARCHAR(100),
@@ -467,10 +467,10 @@ CREATE PROCEDURE sp_AuthenticateUser(
 BEGIN
     DECLARE p_salt VARCHAR(32);
 
-    -- Lấy salt của người dùng
+    -- Get user salt
     SELECT salt INTO p_salt FROM Users WHERE username = p_username;
 
-    -- Kiểm tra xác thực
+    -- Check authentication
     SELECT user_id, username, email, role
     FROM Users
     WHERE username = p_username
@@ -478,16 +478,16 @@ BEGIN
 END //
 DELIMITER ;
 
--- Gọi procedure để xác thực
+-- Call procedure to authenticate
 CALL sp_AuthenticateUser('user1', 'password123');
 ```
 
-## 🧑‍🏫 Bài 5: SQL và ứng dụng web
+## 🧑‍🏫 Lesson 5: SQL and Web Applications
 
-### Kết nối cơ sở dữ liệu từ ứng dụng
+### Connecting to Database from Application
 
 ```java
-// Kết nối từ JAVA với JDBC
+// Connecting from JAVA with JDBC
 import java.sql.*;
 
 public class DatabaseConnection {
@@ -497,9 +497,9 @@ public class DatabaseConnection {
 
     public static void main(String[] args) {
         try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD)) {
-            System.out.println("Kết nối thành công!");
+            System.out.println("Connection successful!");
 
-            // Thực hiện truy vấn
+            // Execute query
             try (Statement stmt = conn.createStatement()) {
                 ResultSet rs = stmt.executeQuery("SELECT * FROM Students");
 
@@ -510,14 +510,14 @@ public class DatabaseConnection {
                 }
             }
 
-            // Sử dụng Prepared Statement (an toàn hơn)
+            // Use Prepared Statement (safer)
             String query = "SELECT * FROM Students WHERE student_id = ?";
             try (PreparedStatement pstmt = conn.prepareStatement(query)) {
-                pstmt.setInt(1, 1); // Gán giá trị cho tham số
+                pstmt.setInt(1, 1); // Set value for parameter
                 ResultSet rs = pstmt.executeQuery();
 
                 if (rs.next()) {
-                    System.out.println("Tìm thấy: " + rs.getString("first_name"));
+                    System.out.println("Found: " + rs.getString("first_name"));
                 }
             }
         } catch (SQLException e) {
@@ -528,7 +528,7 @@ public class DatabaseConnection {
 ```
 
 ```php
-// Kết nối từ PHP với PDO
+// Connecting from PHP with PDO
 <?php
 $host = 'localhost';
 $db   = 'SchoolManagement';
@@ -546,7 +546,7 @@ $options = [
 try {
     $pdo = new PDO($dsn, $user, $pass, $options);
 
-    // Truy vấn đơn giản
+    // Simple query
     $stmt = $pdo->query('SELECT student_id, first_name, last_name FROM Students');
     while ($row = $stmt->fetch()) {
         echo $row['student_id'] . ' - ' . $row['first_name'] . ' ' . $row['last_name'] . '<br>';
@@ -558,33 +558,33 @@ try {
     $student = $stmt->fetch();
 
     if ($student) {
-        echo "Tìm thấy: " . $student['first_name'];
+        echo "Found: " . $student['first_name'];
     }
 
 } catch (PDOException $e) {
-    echo "Lỗi kết nối: " . $e->getMessage();
+    echo "Connection error: " . $e->getMessage();
 }
 ?>
 ```
 
-### Tối ưu truy vấn cho ứng dụng web
+### Optimizing Queries for Web Applications
 
 ```sql
--- 1. Sử dụng INDEX cho các cột thường xuyên tìm kiếm
+-- 1. Use INDEX for frequently searched columns
 CREATE INDEX idx_students_email ON Students(email);
 CREATE INDEX idx_enrollments_student ON Enrollments(student_id);
 CREATE INDEX idx_enrollments_course ON Enrollments(course_id);
 
--- 2. Chỉ lấy các cột cần thiết
+-- 2. Select only necessary columns
 SELECT student_id, first_name, last_name FROM Students WHERE gender = 'F';
--- thay vì
+-- instead of
 -- SELECT * FROM Students WHERE gender = 'F';
 
--- 3. Sử dụng LIMIT để phân trang
-SELECT * FROM Students LIMIT 10 OFFSET 20; -- Trang 3, 10 item/trang
+-- 3. Use LIMIT for pagination
+SELECT * FROM Students LIMIT 10 OFFSET 20; -- Page 3, 10 items/page
 
--- 4. Sử dụng JOIN hiệu quả
--- Thay vì nhiều truy vấn riêng lẻ
+-- 4. Use JOIN efficiently
+-- Instead of multiple individual queries
 SELECT
     s.student_id,
     s.first_name,
@@ -596,27 +596,27 @@ JOIN Enrollments e ON s.student_id = e.student_id
 JOIN Courses c ON e.course_id = c.course_id
 WHERE s.student_id = 101;
 
--- 5. Sử dụng EXPLAIN để phân tích truy vấn
+-- 5. Use EXPLAIN to analyze query
 EXPLAIN SELECT * FROM Students WHERE last_name LIKE 'Nguy%';
 ```
 
-### Xử lý vấn đề N+1 và hiệu suất
+### Handling N+1 Problem and Performance
 
 ```java
-// Vấn đề N+1 (không nên dùng)
-List<Student> students = getStudents(); // 1 truy vấn lấy danh sách sinh viên
+// N+1 Problem (should not use)
+List<Student> students = getStudents(); // 1 query to get student list
 for (Student student : students) {
-    List<Course> courses = getCoursesForStudent(student.getId()); // N truy vấn
-    // Xử lý...
+    List<Course> courses = getCoursesForStudent(student.getId()); // N queries
+    // Process...
 }
 
-// Giải pháp: sử dụng JOIN
+// Solution: use JOIN
 // SQL: SELECT s.*, c.* FROM Students s JOIN Enrollments e ON ... JOIN Courses c ON ...
 ```
 
 ```sql
--- Truy vấn tối ưu để giải quyết vấn đề N+1
--- Lấy sinh viên và các khóa học đã đăng ký trong 1 truy vấn
+-- Optimized query to solve N+1 problem
+-- Get students and enrolled courses in 1 query
 SELECT
     s.student_id,
     s.first_name,
@@ -634,24 +634,24 @@ LEFT JOIN Courses c ON e.course_id = c.course_id
 GROUP BY s.student_id, s.first_name, s.last_name;
 ```
 
-## 🧪 BÀI TẬP LỚN CUỐI PHẦN: Quản lý giao dịch mượn sách thư viện
+## 🧪 FINAL PROJECT: Library Book Borrowing Management
 
-### Mô tả bài toán
+### Problem Description
 
-Xây dựng cơ sở dữ liệu quản lý thư viện với các bảng:
+Build a library management database with tables:
 
-- `Books`: thông tin sách
-- `Users`: thông tin người dùng
-- `Borrowings`: giao dịch mượn sách
+- `Books`: book information
+- `Users`: user information
+- `Borrowings`: borrowing transactions
 
-### Yêu cầu
+### Requirements
 
-- Thiết kế cấu trúc dữ liệu đầy đủ với các ràng buộc
-- Tạo các stored procedure để:
-  - Thêm sách mới
-  - Đăng ký người dùng
-  - Xử lý giao dịch mượn sách (kiểm tra số lượng tồn, ghi nhận ngày mượn)
-  - Xử lý trả sách (cập nhật trạng thái, tính phí phạt nếu trễ hạn)
-- Tạo các triggers để:
-  - Tự động cập nhật số lượng sách khi có giao dịch mượn/trả
-  - Kiểm tra điều kiện trước khi cho mượn sách
+- Design full data structure with constraints.
+- Create stored procedures to:
+  - Add new book.
+  - Register user.
+  - Handle book borrowing (check stock, record borrow date).
+  - Handle book return (update status, calculate fine if overdue).
+- Create triggers to:
+  - Automatically update book quantity when borrowing/returning.
+  - Check conditions before allowing book borrowing.

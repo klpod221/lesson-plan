@@ -1,45 +1,45 @@
 ---
 prev:
-  text: '🐘 Nhập Môn PHP'
+  text: '🐘 Introduction to PHP'
   link: '/PHP/Part1'
 next:
-  text: '💾 PHP Nâng Cao'
+  text: '💾 Advanced PHP'
   link: '/PHP/Part3'
 ---
 
-# 📘 PHẦN 2: LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG VỚI PHP
+# 📘 PART 2: OBJECT-ORIENTED PROGRAMMING WITH PHP
 
-## 🎯 Mục tiêu tổng quát
+## 🎯 General Objectives
 
-- Nắm vững các khái niệm lập trình hướng đối tượng trong PHP
-- Hiểu và áp dụng được các khái niệm về kế thừa, đa hình, interface, abstract class
-- Sử dụng được các magic methods, namespace và autoloading
-- Hiểu và tuân thủ các chuẩn PSR trong PHP
-- Xây dựng được ứng dụng theo mô hình hướng đối tượng
+- Master object-oriented programming concepts in PHP.
+- Understand and apply inheritance, polymorphism, interfaces, and abstract classes.
+- Use magic methods, namespaces, and autoloading.
+- Understand and follow PSR standards in PHP.
+- Build applications using the object-oriented model.
 
-## 🧑‍🏫 Bài 6: Lập trình hướng đối tượng trong PHP
+## 🧑‍🏫 Lesson 6: Object-Oriented Programming in PHP
 
-- Giống với Java, PHP cũng hỗ trợ lập trình hướng đối tượng (OOP) từ phiên bản 5 trở lên. Điểm khác biệt là PHP không phải là ngôn ngữ hướng đối tượng hoàn toàn, mà nó hỗ trợ OOP như một phần của ngôn ngữ.
+- Like Java, PHP also supports Object-Oriented Programming (OOP) from version 5 onwards. The difference is that PHP is not a purely object-oriented language, but it supports OOP as a part of the language.
 
-### Tạo Class và Object
+### Creating Classes and Objects
 
 ```php
 <?php
-// Định nghĩa class
+// Define a class
 class Person {
-    // Properties (thuộc tính)
+    // Properties
     public $name;
     public $age;
 
-    // Constructor (phương thức khởi tạo)
+    // Constructor
     public function __construct($name, $age) {
         $this->name = $name;
         $this->age = $age;
     }
 
-    // Method (phương thức)
+    // Method
     public function sayHello() {
-        return "Xin chào, tôi là {$this->name}, {$this->age} tuổi.";
+        return "Hello, I am {$this->name}, {$this->age} years old.";
     }
 
     public function getDetails() {
@@ -47,35 +47,35 @@ class Person {
     }
 }
 
-// Khởi tạo đối tượng từ class
-$person1 = new Person("Nguyễn Văn A", 25);
-$person2 = new Person("Trần Thị B", 30);
+// Initialize object from class
+$person1 = new Person("John Doe", 25);
+$person2 = new Person("Jane Smith", 30);
 
-// Sử dụng các phương thức
+// Use methods
 echo $person1->sayHello() . "<br>";
 echo $person2->sayHello() . "<br>";
 
-// Truy cập thuộc tính
-echo "Chi tiết: " . $person1->getDetails() . "<br>";
+// Access properties
+echo "Details: " . $person1->getDetails() . "<br>";
 
-// Thay đổi thuộc tính
+// Modify properties
 $person1->age = 26;
-echo "Tuổi mới của {$person1->name}: {$person1->age} <br>";
+echo "New age of {$person1->name}: {$person1->age} <br>";
 ?>
 ```
 
-### Access Modifiers (Phạm vi truy cập)
+### Access Modifiers
 
 ```php
 <?php
 class User {
-    // Public: có thể truy cập từ mọi nơi
+    // Public: can be accessed from anywhere
     public $username;
 
-    // Protected: chỉ có thể truy cập từ trong class và các class kế thừa
+    // Protected: can only be accessed within the class and derived classes
     protected $email;
 
-    // Private: chỉ có thể truy cập từ trong class
+    // Private: can only be accessed within the class
     private $password;
 
     public function __construct($username, $email, $password) {
@@ -87,17 +87,17 @@ class User {
     public function displayInfo() {
         echo "Username: {$this->username} <br>";
         echo "Email: {$this->email} <br>";
-        // Password được bảo vệ và không hiển thị
+        // Password is protected and not shown
     }
 
-    // Method để truy cập thuộc tính protected
+    // Method to access protected property
     public function getEmail() {
         return $this->email;
     }
 
-    // Method để truy cập thuộc tính private
+    // Method to access private property
     public function verifyPassword($inputPassword) {
-        // Trong thực tế, nên sử dụng hàm password_verify
+        // In reality, you should use password_verify function
         return $this->password === $inputPassword;
     }
 }
@@ -108,7 +108,7 @@ echo $user->username . "<br>"; // OK - Public property
 // echo $user->password; // Error - Private property
 
 $user->displayInfo(); // OK
-echo "Email: " . $user->getEmail() . "<br>"; // OK - Truy cập qua method
+echo "Email: " . $user->getEmail() . "<br>"; // OK - Accessed via method
 
 if ($user->verifyPassword("secret123")) {
     echo "Password is correct!";
@@ -118,7 +118,7 @@ if ($user->verifyPassword("secret123")) {
 ?>
 ```
 
-### Thuộc tính và phương thức tĩnh (Static)
+### Static Properties and Methods
 
 ```php
 <?php
@@ -140,19 +140,19 @@ class MathHelper {
     }
 }
 
-// Truy cập static property và method mà không cần khởi tạo đối tượng
+// Access static property and method without instantiating object
 echo "Pi = " . MathHelper::$pi . "<br>";
-echo "5 bình phương = " . MathHelper::square(5) . "<br>";
-echo "3 lập phương = " . MathHelper::cube(3) . "<br>";
-echo "Diện tích hình tròn có bán kính 7: " . MathHelper::circleArea(7) . "<br>";
+echo "5 squared = " . MathHelper::square(5) . "<br>";
+echo "3 cubed = " . MathHelper::cube(3) . "<br>";
+echo "Area of circle with radius 7: " . MathHelper::circleArea(7) . "<br>";
 
-// Thay đổi static property
+// Modify static property
 MathHelper::$pi = 3.14;
-echo "Giá trị mới của Pi = " . MathHelper::$pi . "<br>";
+echo "New value of Pi = " . MathHelper::$pi . "<br>";
 ?>
 ```
 
-### Constant trong Class
+### Class Constants
 
 ```php
 <?php
@@ -167,24 +167,24 @@ class Config {
     }
 }
 
-// Truy cập constant mà không cần khởi tạo đối tượng
+// Access constant without instantiating object
 echo "App Name: " . Config::APP_NAME . "<br>";
 echo "Version: " . Config::VERSION . "<br>";
 echo "Debug Mode: " . (Config::DEBUG_MODE ? "On" : "Off") . "<br>";
 
-// Truy cập constant thông qua đối tượng
+// Access constant via object
 $config = new Config();
 echo "App Info: " . $config->getAppInfo() . "<br>";
 ?>
 ```
 
-## 🧑‍🏫 Bài 7: Kế thừa và đa hình
+## 🧑‍🏫 Lesson 7: Inheritance and Polymorphism
 
-### Kế thừa (Inheritance)
+### Inheritance
 
 ```php
 <?php
-// Lớp cơ sở (Base class / Parent class)
+// Base class (Parent class)
 class Animal {
     protected $name;
     protected $age;
@@ -203,16 +203,16 @@ class Animal {
     }
 }
 
-// Lớp con (Child class) kế thừa từ lớp cơ sở
+// Child class inheriting from Base class
 class Dog extends Animal {
     private $breed;
 
     public function __construct($name, $age, $breed) {
-        parent::__construct($name, $age); // Gọi constructor của lớp cha
+        parent::__construct($name, $age); // Call parent constructor
         $this->breed = $breed;
     }
 
-    // Override method của lớp cha
+    // Override parent method
     public function makeSound() {
         return "Woof! Woof!";
     }
@@ -221,13 +221,13 @@ class Dog extends Animal {
         return parent::getInfo() . ", Breed: {$this->breed}";
     }
 
-    // Method mới trong lớp con
+    // New method in child class
     public function fetch() {
         return "{$this->name} is fetching the ball!";
     }
 }
 
-// Lớp con khác kế thừa từ lớp Animal
+// Another child class inheriting from Animal
 class Cat extends Animal {
     private $color;
 
@@ -236,7 +236,7 @@ class Cat extends Animal {
         $this->color = $color;
     }
 
-    // Override method của lớp cha
+    // Override parent method
     public function makeSound() {
         return "Meow! Meow!";
     }
@@ -245,13 +245,13 @@ class Cat extends Animal {
         return parent::getInfo() . ", Color: {$this->color}";
     }
 
-    // Method mới trong lớp con
+    // New method in child class
     public function climb() {
         return "{$this->name} is climbing the tree!";
     }
 }
 
-// Sử dụng các lớp
+// Using the classes
 $animal = new Animal("Generic Animal", 5);
 echo $animal->getInfo() . "<br>";
 echo "Sound: " . $animal->makeSound() . "<br><br>";
@@ -268,19 +268,19 @@ echo $cat->climb() . "<br>";
 ?>
 ```
 
-### Đa hình (Polymorphism)
+### Polymorphism
 
 ```php
 <?php
-// Với các class đã định nghĩa ở trên
+// Using the classes defined above
 
-// Function sử dụng đa hình
+// Function using polymorphism
 function makeAnimalSpeak(Animal $animal) {
     return $animal->makeSound();
 }
 
-// Với việc sử dụng kiểu Animal, hàm này có thể nhận bất kỳ
-// đối tượng nào thuộc lớp Animal hoặc các lớp con của nó
+// By using the Animal type hint, this function can accept any
+// object belonging to the Animal class or its subclasses
 $animal = new Animal("Generic Animal", 5);
 $dog = new Dog("Buddy", 3, "Golden Retriever");
 $cat = new Cat("Whiskers", 2, "Orange");
@@ -289,7 +289,7 @@ echo "Generic animal says: " . makeAnimalSpeak($animal) . "<br>";
 echo "Dog says: " . makeAnimalSpeak($dog) . "<br>";
 echo "Cat says: " . makeAnimalSpeak($cat) . "<br>";
 
-// Ví dụ khác về đa hình với mảng chứa các đối tượng khác nhau
+// Another example of polymorphism with array containing different objects
 $animals = [
     new Animal("Generic Animal", 5),
     new Dog("Buddy", 3, "Golden Retriever"),
@@ -309,17 +309,17 @@ foreach ($animals as $animal) {
 
 ```php
 <?php
-// Final class không thể được kế thừa
+// Final class cannot be inherited
 final class FinalClass {
     public function someMethod() {
         return "This is a method in a final class";
     }
 }
 
-// Lỗi khi cố gắng kế thừa từ final class
+// Error when trying to inherit from final class
 // class ChildClass extends FinalClass {}
 
-// Class với final method
+// Class with final method
 class BaseWithFinal {
     final public function finalMethod() {
         return "This method cannot be overridden";
@@ -331,14 +331,14 @@ class BaseWithFinal {
 }
 
 class ChildOfBaseWithFinal extends BaseWithFinal {
-    // Lỗi khi cố gắng override final method
+    // Error when trying to override final method
     /*
     public function finalMethod() {
         return "Trying to override";
     }
     */
 
-    // OK - có thể override method thông thường
+    // OK - can override normal method
     public function normalMethod() {
         return "Overridden method";
     }
@@ -353,13 +353,13 @@ echo $child->normalMethod() . "<br>";
 ?>
 ```
 
-## 🧑‍🏫 Bài 8: Interface và Abstract Class
+## 🧑‍🏫 Lesson 8: Interfaces and Abstract Classes
 
 ### Abstract Class
 
 ```php
 <?php
-// Abstract class không thể khởi tạo trực tiếp
+// Abstract class cannot be instantiated directly
 abstract class Shape {
     protected $color;
 
@@ -367,17 +367,17 @@ abstract class Shape {
         $this->color = $color;
     }
 
-    // Method thông thường
+    // Normal method
     public function getColor() {
         return $this->color;
     }
 
-    // Abstract method - phải được định nghĩa lại trong các lớp con
+    // Abstract method - must be defined in subclasses
     abstract public function getArea();
     abstract public function getPerimeter();
 }
 
-// Lớp con kế thừa từ abstract class phải định nghĩa tất cả abstract methods
+// Subclass inheriting from abstract class must define all abstract methods
 class Circle extends Shape {
     private $radius;
 
@@ -394,7 +394,7 @@ class Circle extends Shape {
         return 2 * pi() * $this->radius;
     }
 
-    // Method đặc trưng của Circle
+    // Method specific to Circle
     public function getDiameter() {
         return 2 * $this->radius;
     }
@@ -419,7 +419,7 @@ class Rectangle extends Shape {
     }
 }
 
-// $shape = new Shape(); // Lỗi: Không thể khởi tạo abstract class
+// $shape = new Shape(); // Error: Cannot instantiate abstract class
 
 $circle = new Circle(5, 'green');
 echo "Circle - Color: " . $circle->getColor() . "<br>";
@@ -438,16 +438,16 @@ echo "Rectangle - Perimeter: " . $rect->getPerimeter() . "<br>";
 
 ```php
 <?php
-// Interface định nghĩa hợp đồng mà các class phải tuân theo
+// Interface defines a contract that classes must follow
 interface Drawable {
-    public function draw(); // Phương thức không có thân hàm
+    public function draw(); // Method without body
 }
 
 interface Resizable {
     public function resize($percentage);
 }
 
-// Class thực thi nhiều interface
+// Class implementing multiple interfaces
 class Square implements Drawable, Resizable {
     private $side;
 
@@ -455,12 +455,12 @@ class Square implements Drawable, Resizable {
         $this->side = $side;
     }
 
-    // Triển khai phương thức từ interface Drawable
+    // Implement method from Drawable interface
     public function draw() {
         return "Drawing a square with side length: {$this->side}";
     }
 
-    // Triển khai phương thức từ interface Resizable
+    // Implement method from Resizable interface
     public function resize($percentage) {
         $this->side = $this->side * $percentage / 100;
         return "Square resized to side length: {$this->side}";
@@ -489,7 +489,7 @@ class Triangle implements Drawable {
     }
 }
 
-// Sử dụng các class có interface
+// Using classes with interfaces
 $square = new Square(4);
 echo $square->draw() . "<br>";
 echo $square->resize(150) . "<br>";
@@ -499,7 +499,7 @@ $triangle = new Triangle(5, 3);
 echo $triangle->draw() . "<br>";
 echo "Triangle area: " . $triangle->getArea() . "<br>";
 
-// Đa hình với interface
+// Polymorphism with interfaces
 function renderObject(Drawable $object) {
     echo "Rendering: " . $object->draw() . "<br>";
 }
@@ -509,11 +509,11 @@ renderObject($triangle);
 ?>
 ```
 
-### Sự khác biệt giữa Abstract Class và Interface
+### Difference between Abstract Class and Interface
 
 ```php
 <?php
-// Abstract class có thể chứa logic chung và các thuộc tính
+// Abstract class can contain common logic and properties
 abstract class DatabaseConnection {
     protected $connection;
     protected $host;
@@ -528,7 +528,7 @@ abstract class DatabaseConnection {
         $this->database = $database;
     }
 
-    // Method chung cho tất cả các class con
+    // Common method for all subclasses
     public function getConnectionInfo() {
         return "Connected to {$this->database} on {$this->host}";
     }
@@ -539,14 +539,14 @@ abstract class DatabaseConnection {
     abstract public function query($sql);
 }
 
-// Interface chỉ định nghĩa các phương thức mà không có triển khai
+// Interface only defines methods without implementation
 interface Logger {
     public function logInfo($message);
     public function logError($message, $errorCode);
     public function logDebug($message);
 }
 
-// Class kế thừa từ abstract class và thực thi interface
+// Class inheriting from abstract class and implementing interface
 class MySQLConnection extends DatabaseConnection implements Logger {
     public function connect() {
         $this->connection = "MySQL connection established";
@@ -604,7 +604,7 @@ class PostgreSQLConnection extends DatabaseConnection implements Logger {
     }
 }
 
-// Sử dụng các class
+// Using the classes
 $mysql = new MySQLConnection('localhost', 'root', 'password', 'testdb');
 echo $mysql->connect() . "<br>";
 echo $mysql->getConnectionInfo() . "<br>";
@@ -621,52 +621,52 @@ echo $postgres->disconnect() . "<br>";
 ?>
 ```
 
-## 🧑‍🏫 Bài 9: Magic Methods và Namespace
+## 🧑‍🏫 Lesson 9: Magic Methods and Namespaces
 
-### Magic Methods trong PHP
+### Magic Methods in PHP
 
 ```php
 <?php
 class Product {
     private $data = [];
 
-    // __construct đã được đề cập trước đây
+    // __construct was mentioned before
     public function __construct($name, $price) {
         $this->data['name'] = $name;
         $this->data['price'] = $price;
         $this->data['created_at'] = date('Y-m-d H:i:s');
     }
 
-    // __get được gọi khi cố truy cập thuộc tính không tồn tại
+    // __get is called when trying to access inaccessible properties
     public function __get($name) {
         if (array_key_exists($name, $this->data)) {
             return $this->data[$name];
         }
 
-        return null; // Hoặc có thể throw một exception
+        return null; // Or throw an exception
     }
 
-    // __set được gọi khi cố gán giá trị cho thuộc tính không tồn tại
+    // __set is called when trying to assign value to inaccessible properties
     public function __set($name, $value) {
         $this->data[$name] = $value;
     }
 
-    // __isset được gọi khi isset() hoặc empty() được gọi trên thuộc tính
+    // __isset is called when isset() or empty() is called on properties
     public function __isset($name) {
         return isset($this->data[$name]);
     }
 
-    // __unset được gọi khi unset() được gọi trên thuộc tính
+    // __unset is called when unset() is called on properties
     public function __unset($name) {
         unset($this->data[$name]);
     }
 
-    // __toString được gọi khi đối tượng được sử dụng như một chuỗi
+    // __toString is called when object is treated as a string
     public function __toString() {
         return "{$this->data['name']} - \${$this->data['price']}";
     }
 
-    // __call được gọi khi gọi một phương thức không tồn tại
+    // __call is called when calling inaccessible methods
     public function __call($name, $arguments) {
         if (strpos($name, 'get') === 0) {
             $property = lcfirst(substr($name, 3));
@@ -684,18 +684,18 @@ class Product {
         throw new Exception("Method $name does not exist");
     }
 
-    // __callStatic được gọi khi gọi một phương thức tĩnh không tồn tại
+    // __callStatic is called when calling inaccessible static methods
     public static function __callStatic($name, $arguments) {
         echo "Static method $name called with arguments: " . implode(', ', $arguments) . "<br>";
     }
 
-    // __clone được gọi khi đối tượng được sao chép
+    // __clone is called when object is copied
     public function __clone() {
         $this->data['created_at'] = date('Y-m-d H:i:s');
         $this->data['name'] = "Copy of " . $this->data['name'];
     }
 
-    // __debugInfo được gọi bởi var_dump()
+    // __debugInfo is called by var_dump()
     public function __debugInfo() {
         return [
             'name' => $this->data['name'],
@@ -705,29 +705,29 @@ class Product {
     }
 }
 
-// Sử dụng magic methods
+// Using magic methods
 $product = new Product("Laptop", 999.99);
 
-// __get và __set
-echo "Name: " . $product->name . "<br>"; // Sử dụng __get
-$product->description = "High-performance laptop"; // Sử dụng __set
+// __get and __set
+echo "Name: " . $product->name . "<br>"; // Uses __get
+$product->description = "High-performance laptop"; // Uses __set
 echo "Description: " . $product->description . "<br>";
 
 // __toString
-echo "Product: " . $product . "<br>"; // Sử dụng __toString
+echo "Product: " . $product . "<br>"; // Uses __toString
 
 // __call
-echo "Price: " . $product->getPrice() . "<br>"; // Sử dụng __call
-$product->setDiscount(10); // Sử dụng __call
+echo "Price: " . $product->getPrice() . "<br>"; // Uses __call
+$product->setDiscount(10); // Uses __call
 echo "Discount: " . $product->discount . "<br>";
 
-// __isset và __unset
+// __isset and __unset
 echo "Has description? " . (isset($product->description) ? "Yes" : "No") . "<br>";
 unset($product->description);
 echo "Has description after unset? " . (isset($product->description) ? "Yes" : "No") . "<br>";
 
 // __callStatic
-Product::findById(1); // Sử dụng __callStatic
+Product::findById(1); // Uses __callStatic
 
 // __clone
 $product2 = clone $product;
@@ -739,7 +739,7 @@ var_dump($product);
 ?>
 ```
 
-### Namespace trong PHP
+### Namespaces in PHP
 
 ```php
 <?php
@@ -791,26 +791,26 @@ class Logger {
 }
 
 // File: index.php
-// Trong các dự án thực tế, autoload sẽ tự động làm điều này
+// In real projects, autoload will handle this
 require_once 'app/Models/User.php';
 require_once 'app/Helpers/Logger.php';
 require_once 'app/Services/UserService.php';
 
-// Sử dụng các class với namespace
+// Using classes with namespaces
 $user = new \App\Models\User(1, 'john_doe');
 echo $user->getInfo() . "<br>";
 
 $service = new \App\Services\UserService($user);
 echo $service->processUser() . "<br>";
 
-// Sử dụng class từ namespace khác
+// Using class from another namespace
 $logger = new \App\Helpers\Logger();
 $logger->log("Example message");
 
-// Định nghĩa namespace cho đoạn code hiện tại
+// Define namespace for current code block
 namespace MyApp;
 
-// Sử dụng use để import class từ namespace khác
+// Use 'use' to import classes from other namespaces
 use App\Models\User as UserModel;
 use App\Services\UserService;
 use App\Helpers\Logger;
@@ -826,18 +826,18 @@ $logger2->log("Another message");
 ?>
 ```
 
-## 🧑‍🏫 Bài 10: Auto loading và PSR Standards
+## 🧑‍🏫 Lesson 10: Autoloading and PSR Standards
 
-### Autoloading trong PHP
+### Autoloading in PHP
 
 ```php
 <?php
-// Autoloading là quá trình tự động nạp các file class khi cần thiết
-// Thay vì phải require/include từng file thủ công
+// Autoloading is the process of automatically loading class files when needed
+// Instead of manually requiring/including each file
 
-// Cách 1: spl_autoload_register (PHP 5.1.2+)
+// Method 1: spl_autoload_register (PHP 5.1.2+)
 spl_autoload_register(function($className) {
-    // Chuyển đổi tên class thành đường dẫn file
+    // Convert class name to file path
     $path = str_replace('\\', '/', $className) . '.php';
 
     if (file_exists($path)) {
@@ -847,9 +847,9 @@ spl_autoload_register(function($className) {
     return false;
 });
 
-// Cách 2: Nhiều autoloader
+// Method 2: Multiple autoloaders
 spl_autoload_register(function($className) {
-    // Autoloader cho các class trong thư mục Models
+    // Autoloader for classes in Models directory
     $path = 'Models/' . $className . '.php';
     if (file_exists($path)) {
         require_once $path;
@@ -859,7 +859,7 @@ spl_autoload_register(function($className) {
 });
 
 spl_autoload_register(function($className) {
-    // Autoloader cho các class trong thư mục Controllers
+    // Autoloader for classes in Controllers directory
     $path = 'Controllers/' . $className . '.php';
     if (file_exists($path)) {
         require_once $path;
@@ -868,27 +868,27 @@ spl_autoload_register(function($className) {
     return false;
 });
 
-// Cách 3: Autoloader tuân thủ PSR-4
+// Method 3: PSR-4 compliant Autoloader
 spl_autoload_register(function($className) {
-    // Base directory cho autoloader
+    // Base directory for autoloader
     $baseDir = __DIR__ . '/src/';
 
     // Namespace prefix
     $prefix = 'MyApp\\';
 
-    // Nếu tên class không bắt đầu với namespace prefix, bỏ qua
+    // If the class name does not use the namespace prefix, move to next
     $len = strlen($prefix);
     if (strncmp($prefix, $className, $len) !== 0) {
         return false;
     }
 
-    // Lấy tên class tương đối so với namespace
+    // Get the relative class name
     $relativeClass = substr($className, $len);
 
-    // Chuyển namespace thành đường dẫn file
+    // Replace namespace separators with directory separators
     $file = $baseDir . str_replace('\\', '/', $relativeClass) . '.php';
 
-    // Nếu file tồn tại, load nó
+    // If the file exists, require it
     if (file_exists($file)) {
         require $file;
         return true;
@@ -899,28 +899,28 @@ spl_autoload_register(function($className) {
 ?>
 ```
 
-### Sử dụng composer autoloader
+### Using Composer Autoloader
 
-- Trong thực tế, đây là cách được dùng phổ biến nhất
-- Composer là một công cụ quản lý thư viện cho PHP, giúp tự động tải các class và thư viện mà bạn sử dụng trong dự án.
+- In reality, this is the most common method.
+- Composer is a dependency manager for PHP that automatically handles loading of classes and libraries you use in your project.
 
 ### PSR Standards (PHP Standards Recommendations)
 
-PSR là các tiêu chuẩn được đề xuất bởi PHP Framework Interoperability Group (PHP-FIG) để thống nhất cách viết code PHP giữa các framework và thư viện.
+PSR are standards proposed by the PHP Framework Interoperability Group (PHP-FIG) to unify PHP coding styles across frameworks and libraries.
 
 #### PSR-1: Basic Coding Standard
 
-- Files PHẢI sử dụng thẻ <?php hoặc <?= (không dùng <?)
-- Files PHẢI sử dụng mã UTF-8 without BOM cho code PHP
-- Files NÊN hoặc khai báo symbol (classes, functions, constants, etc.) hoặc side effects (như output, thay đổi .ini, etc.), nhưng KHÔNG NÊN làm cả hai
-- Namespaces và classes PHẢI tuân theo PSR-0 hoặc PSR-4
-- Tên class PHẢI sử dụng PascalCase (TênClass)
-- Class constants PHẢI được khai báo dạng chữ hoa và underscore (ALL_CAPS)
-- Tên method PHẢI sử dụng camelCase (tênMethod)
+- Files MUST use `<?php` or `<?=` tags.
+- Files MUST use UTF-8 without BOM for PHP code.
+- Files SHOULD either declare symbols (classes, functions, constants, etc.) or cause side effects (e.g. generate output, change .ini settings, etc.) but SHOULD NOT do both.
+- Namespaces and classes MUST follow an "autoloading" PSR: [PSR-0, PSR-4].
+- Class names MUST be declared in `PascalCase`.
+- Class constants MUST be declared in all upper case with underscore separators (`ALL_CAPS`).
+- Method names MUST be declared in `camelCase`.
 
 ```php
 <?php
-// Ví dụ về PSR-1:
+// Example of PSR-1:
 namespace Vendor\Package;
 
 class ClassName
@@ -937,19 +937,19 @@ class ClassName
 
 ### PSR-2: Coding Style Guide
 
-- Code PHẢI tuân theo PSR-1
-- Code PHẢI sử dụng 4 spaces cho việc thụt lề, không phải tabs
-- Line length KHÔNG NÊN vượt quá 80 ký tự, KHÔNG ĐƯỢC vượt quá 120 ký tự
-- PHẢI có 1 dòng trống sau namespace và PHẢI có 1 dòng trống sau khối use
-- Opening braces cho classes PHẢI trên dòng mới, closing braces PHẢI trên dòng mới tiếp theo
-- Opening braces cho methods PHẢI trên dòng mới, closing braces PHẢI trên dòng mới tiếp theo
-- Visibility PHẢI được khai báo trên tất cả properties và methods
-- abstract và final PHẢI được khai báo trước visibility
-- static PHẢI được khai báo sau visibility
-- Control structures keywords PHẢI có 1 space sau chúng, gọi method và function KHÔNG ĐƯỢC có space
+- Code MUST follow PSR-1.
+- Code MUST use 4 spaces for indentation, not tabs.
+- Line length SHOULD NOT be hard limited to 80 characters; line length MUST NOT exceed 120 characters.
+- There MUST be one blank line after the namespace declaration, and there MUST be one blank line after the block of use declarations.
+- Opening braces for classes MUST go on the next line, and closing braces MUST go on the next line after the body.
+- Opening braces for methods MUST go on the next line, and closing braces MUST go on the next line after the body.
+- Visibility MUST be declared on all properties and methods.
+- `abstract` and `final` MUST be declared before the visibility declaration.
+- `static` MUST be declared after the visibility declaration.
+- Control structure keywords MUST have one space after them; method and function calls MUST NOT.
 
 ```php
-// Ví dụ về PSR-2:
+// Example of PSR-2:
 namespace Vendor\Package;
 
 use FooInterface;
@@ -978,19 +978,19 @@ class Foo extends Bar implements FooInterface
 
 ### PSR-4: Autoloader
 
-- Fully qualified class name PHẢI có cấu trúc: `<NamespaceName>(<SubNamespaceNames>)*<ClassName>`
-- Top-level namespace name là `vendor namespace` (namespace có thể là tên của dự án hoặc tên của tổ chức)
-- Sub-namespace names tương ứng với thư mục trong file system
-- Class name tương ứng với `filename.php`
-- Autoloader PHẢI có thể load bất kỳ file nào khớp với quy tắc trên
+- A fully qualified class name has the following form: `<NamespaceName>(<SubNamespaceNames>)*<ClassName>`
+- The fully qualified class name MUST have a top-level namespace name, also known as a "vendor namespace".
+- Sub-namespace names correspond to sub-directories.
+- The terminating class name corresponds to a file ending in `.php`.
+- Autoloader implementations MUST NOT throw exceptions, MUST NOT raise errors of any level, and SHOULD NOT return a value.
 
-## 🧑‍🏫 Bài 11: Composer và Package Management
+## 🧑‍🏫 Lesson 11: Composer and Package Management
 
-### Giới thiệu về Composer
+### Introduction to Composer
 
-- Composer là một dependency manager cho PHP, giúp quản lý các thư viện và package mà ứng dụng của bạn cần sử dụng cho phép bạn dễ dàng cài đặt, cập nhật và quản lý các thư viện bên ngoài mà ứng dụng của bạn phụ thuộc vào.
+- Composer is a dependency manager for PHP. It allows you to declare the libraries your project depends on and it will manage (install/update) them for you.
 
-### Tạo và sử dụng package
+### Creating and Using a Package
 
 ```php
 <?php
@@ -1062,12 +1062,12 @@ class CalculatorTest extends TestCase
     }
 }
 
-// Câu lệnh test
+// Test command
 // vendor/bin/phpunit tests/
 ?>
 ```
 
-### Sử dụng autoloading với Composer
+### Using Autoloading with Composer
 
 ```php
 <?php
@@ -1087,10 +1087,10 @@ class CalculatorTest extends TestCase
     }
 }
 
-// Sau khi chỉnh sửa autoload, cập nhật lại autoloader
+// After editing autoload, update the autoloader
 // composer dump-autoload
 
-// Sử dụng autoload
+// Use autoload
 // app/Models/User.php
 namespace App\Models;
 
@@ -1108,28 +1108,28 @@ $user = new User();
 ?>
 ```
 
-### Sử dụng một vài packages phổ biến
+### Using Some Popular Packages
 
-#### Cú pháp cài đặt
+#### Installation Syntax
 
 ```bash
 composer require <vendor>/<package>
 
-# cài đặt một phiên bản cụ thể
+# Install specific version
 composer require <vendor>/<package>:<version>
 
-# cài đặt dưới dạng dev dependency
+# Install as dev dependency
 composer require --dev <vendor>/<package>
 
 ```
 
-- Điểm khác biệt giữa `require` và `require --dev` là:
-  - `require`: các package cần thiết cho ứng dụng chạy
-  - `require --dev`: các package chỉ cần thiết cho quá trình phát triển, không cần thiết khi chạy ứng dụng trên môi trường production
-- Ví dụ: PHPUnit là một package dùng để test ứng dụng, chỉ cần thiết trong quá trình phát triển, không cần thiết khi chạy ứng dụng trên môi trường production.
-- Bạn có thể tìm kiếm các package trên [Packagist](https://packagist.org/), đây là kho lưu trữ chính thức của Composer.
+- The difference between `require` and `require --dev`:
+  - `require`: Packages required for the application to run.
+  - `require --dev`: Packages only required for development (e.g., testing tools), not needed in production.
+- Example: PHPUnit is a testing package, needed during development but not in production.
+- You can search for packages on [Packagist](https://packagist.org/), the main Composer repository.
 
-#### Ví dụ sử dụng một số package phổ biến
+#### Example of Using Common Packages
 
 ```php
 <?php
@@ -1206,38 +1206,38 @@ try {
 ?>
 ```
 
-## 🧪 BÀI TẬP LỚN CUỐI PHẦN: Xây dựng hệ thống quản lý thư viện
+## 🧪 FINAL PROJECT: Library Management System
 
-### Mô tả bài toán
+### Project Description
 
-Xây dựng một ứng dụng PHP hướng đối tượng để quản lý thư viện, áp dụng các nguyên tắc OOP và các tiêu chuẩn PSR.
+Build an object-oriented PHP application to manage a library, applying OOP principles and PSR standards.
 
-### Yêu cầu
+### Requirements
 
-1. **Thiết kế các class sau**:
+1. **Design the following classes**:
 
-   - `Book`: lưu trữ thông tin sách (id, title, author, isbn, published_year)
-   - `Member`: lưu trữ thông tin thành viên (id, name, email, joined_date)
-   - `Borrowing`: quản lý việc mượn sách (book_id, member_id, borrow_date, return_date)
-   - `Library`: quản lý toàn bộ hệ thống
+   - `Book`: stores book information (id, title, author, isbn, published_year).
+   - `Member`: stores member information (id, name, email, joined_date).
+   - `Borrowing`: manages book lending (book_id, member_id, borrow_date, return_date).
+   - `Library`: manages the entire system.
 
-2. **Triển khai các tính năng**:
+2. **Implement features**:
 
-   - Thêm/sửa/xóa/tìm kiếm sách
-   - Thêm/sửa/xóa/tìm kiếm thành viên
-   - Quản lý mượn trả sách
-   - Kiểm tra tình trạng sách (có sẵn hay đang được mượn)
-   - Thống kê danh sách sách đang được mượn
-   - Tính toán tiền phạt nếu trả sách trễ
+   - Add/Edit/Delete/Search books.
+   - Add/Edit/Delete/Search members.
+   - Manage borrowing/returning books.
+   - Check book status (available or borrowed).
+   - Report list of currently borrowed books.
+   - Calculate overdue fines.
 
-3. **Áp dụng những kiến thức đã học**:
-   - Tổ chức code theo namespace
-   - Sử dụng abstract class và interface
-   - Triển khai tính kế thừa và đa hình
-   - Sử dụng autoloading
-   - Tuân thủ các tiêu chuẩn PSR-1, PSR-2, và PSR-4
+3. **Apply learned concepts**:
+   - Organize code using namespaces.
+   - Use abstract classes and interfaces.
+   - Implement inheritance and polymorphism.
+   - Use autoloading.
+   - Follow PSR-1, PSR-2, and PSR-4 standards.
 
-### Cấu trúc thư mục đề xuất
+### Suggested Directory Structure
 
 ```text
 library-management/

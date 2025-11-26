@@ -1,31 +1,31 @@
 ---
 prev:
-  text: '🌐 Cấu Trúc Dữ Liệu Nâng Cao'
+  text: '🌐 Advanced Data Structures'
   link: '/DSA/Part2'
 next:
-  text: '🔍 Cấu Trúc Dữ Liệu Chuyên Biệt'
+  text: '🔍 Specialized Data Structures'
   link: '/DSA/Part4'
 ---
 
-# 📘 PHẦN 3: THUẬT TOÁN NÂNG CAO
+# 📘 PART 3: ADVANCED ALGORITHMS
 
-## 🎯 Mục tiêu tổng quát
+## 🎯 General Objectives
 
-- Hiểu sâu và cài đặt được các thuật toán nâng cao.
-- Biết cách áp dụng các kỹ thuật thiết kế thuật toán vào bài toán thực tế.
-- Phân tích được ưu nhược điểm của mỗi thuật toán và lựa chọn thuật toán phù hợp.
-- Nắm vững cách tiếp cận và giải quyết các bài toán phức tạp.
+- Deeply understand and implement advanced algorithms.
+- Know how to apply algorithm design techniques to real-world problems.
+- Analyze the pros and cons of each algorithm and choose the appropriate one.
+- Master the approach and solution to complex problems.
 
-## 🧑‍🏫 Bài 1: Thuật toán đệ quy
+## 🧑‍🏫 Lesson 1: Recursive Algorithms
 
-### Khái niệm về đệ quy
+### Concept of Recursion
 
-- Đệ quy là kỹ thuật một hàm gọi lại chính nó để giải quyết các bài toán nhỏ hơn của cùng dạng.
-- Cấu trúc của đệ quy gồm hai phần:
-  - **Điều kiện cơ sở (Base case)**: Điều kiện dừng đệ quy
-  - **Công thức đệ quy (Recursive case)**: Cách thu nhỏ bài toán
+- Recursion is a technique where a function calls itself to solve smaller instances of the same problem.
+- Structure of recursion consists of two parts:
+  - **Base case**: The condition to stop recursion.
+  - **Recursive case**: The way to reduce the problem.
 
-#### Ví dụ 1: Tính giai thừa
+#### Example 1: Factorial Calculation
 
 ```java
 public static int factorial(int n) {
@@ -38,7 +38,7 @@ public static int factorial(int n) {
 }
 ```
 
-#### Ví dụ 2: Dãy Fibonacci
+#### Example 2: Fibonacci Sequence
 
 ```java
 public static int fibonacci(int n) {
@@ -51,136 +51,136 @@ public static int fibonacci(int n) {
 }
 ```
 
-#### Ví dụ 3: Tháp Hà Nội
+#### Example 3: Tower of Hanoi
 
 ```java
 public static void towerOfHanoi(int n, char source, char auxiliary, char destination) {
     // Base case
     if (n == 1) {
-        System.out.println("Di chuyển đĩa 1 từ " + source + " đến " + destination);
+        System.out.println("Move disk 1 from " + source + " to " + destination);
         return;
     }
 
     // Recursive case
     towerOfHanoi(n - 1, source, destination, auxiliary);
-    System.out.println("Di chuyển đĩa " + n + " từ " + source + " đến " + destination);
+    System.out.println("Move disk " + n + " from " + source + " to " + destination);
     towerOfHanoi(n - 1, auxiliary, source, destination);
 }
 ```
 
-### Đệ quy đuôi (Tail Recursion)
+### Tail Recursion
 
-- Đệ quy đuôi là khi lời gọi đệ quy là thao tác cuối cùng trong hàm.
-- Có thể tối ưu hóa bởi trình biên dịch, tránh tràn ngăn xếp.
+- Tail recursion is when the recursive call is the last operation in the function.
+- Can be optimized by the compiler to avoid stack overflow.
 
 ```java
-// Factorial không phải đệ quy đuôi
+// Factorial without tail recursion
 public static int factorial(int n) {
     if (n == 0) return 1;
-    return n * factorial(n - 1); // Còn phép nhân sau lời gọi đệ quy
+    return n * factorial(n - 1); // Multiplication remains after recursive call
 }
 
-// Factorial với đệ quy đuôi
+// Factorial with tail recursion
 public static int factorialTail(int n, int acc) {
     if (n == 0) return acc;
-    return factorialTail(n - 1, n * acc); // Lời gọi đệ quy là thao tác cuối cùng
+    return factorialTail(n - 1, n * acc); // Recursive call is the last operation
 }
 
-// Hàm wrapper
+// Wrapper function
 public static int factorial(int n) {
     return factorialTail(n, 1);
 }
 ```
 
-### Ưu và nhược điểm của đệ quy
+### Pros and Cons of Recursion
 
-| Ưu điểm | Nhược điểm |
+| Pros | Cons |
 |---------|------------|
-| Mã nguồn ngắn gọn, dễ hiểu | Chi phí lưu trữ stack cao |
-| Tự nhiên cho một số bài toán | Có thể gây tràn stack với đầu vào lớn |
-| Dễ dàng cài đặt một số thuật toán (ví dụ DFS) | Thường chậm hơn giải pháp vòng lặp |
+| Concise code, easy to understand | High stack storage cost |
+| Natural for some problems | Can cause stack overflow with large inputs |
+| Easy to implement some algorithms (e.g., DFS) | Often slower than iterative solutions |
 
-## 🧑‍🏫 Bài 2: Thuật toán sắp xếp nâng cao
+## 🧑‍🏫 Lesson 2: Advanced Sorting Algorithms
 
 ### Quick Sort
 
-- Thuật toán chia để trị, sử dụng chiến lược pivot
-- Độ phức tạp trung bình: O(n log n)
-- Độ phức tạp xấu nhất: O(n²)
+- Divide and conquer algorithm, using pivot strategy.
+- Average complexity: O(n log n)
+- Worst case complexity: O(n²)
 
 ```java
 public static void quickSort(int[] arr, int low, int high) {
     if (low < high) {
         int pivotIndex = partition(arr, low, high);
 
-        // Sắp xếp các phần tử trước và sau pivot
+        // Sort elements before and after pivot
         quickSort(arr, low, pivotIndex - 1);
         quickSort(arr, pivotIndex + 1, high);
     }
 }
 
 private static int partition(int[] arr, int low, int high) {
-    int pivot = arr[high]; // Chọn pivot là phần tử cuối
-    int i = low - 1; // Index của phần tử nhỏ hơn
+    int pivot = arr[high]; // Choose pivot as the last element
+    int i = low - 1; // Index of smaller element
 
     for (int j = low; j < high; j++) {
-        // Nếu phần tử hiện tại nhỏ hơn hoặc bằng pivot
+        // If current element is smaller than or equal to pivot
         if (arr[j] <= pivot) {
             i++;
-            // Swap arr[i] và arr[j]
+            // Swap arr[i] and arr[j]
             int temp = arr[i];
             arr[i] = arr[j];
             arr[j] = temp;
         }
     }
 
-    // Swap arr[i+1] và arr[high] (đặt pivot vào vị trí đúng)
+    // Swap arr[i+1] and arr[high] (place pivot in correct position)
     int temp = arr[i + 1];
     arr[i + 1] = arr[high];
     arr[high] = temp;
 
-    return i + 1; // Trả về vị trí của pivot
+    return i + 1; // Return pivot position
 }
 ```
 
 ### Merge Sort
 
-- Thuật toán chia để trị, chia đôi mảng và gộp lại
-- Độ phức tạp: O(n log n) trong mọi trường hợp
-- Stable sort (giữ nguyên thứ tự các phần tử bằng nhau)
+- Divide and conquer algorithm, divides array in half and merges them.
+- Complexity: O(n log n) in all cases.
+- Stable sort (preserves order of equal elements).
 
 ```java
 public static void mergeSort(int[] arr, int left, int right) {
     if (left < right) {
-        // Tìm điểm giữa
+        // Find middle point
         int mid = left + (right - left) / 2;
 
-        // Sắp xếp nửa đầu
+        // Sort first half
         mergeSort(arr, left, mid);
-        // Sắp xếp nửa sau
+        // Sort second half
         mergeSort(arr, mid + 1, right);
 
-        // Gộp hai nửa đã sắp xếp
+        // Merge the sorted halves
         merge(arr, left, mid, right);
     }
 }
 
 private static void merge(int[] arr, int left, int mid, int right) {
-    // Kích thước của hai mảng con
+    // Sizes of two subarrays
     int n1 = mid - left + 1;
     int n2 = right - mid;
 
-    // Tạo mảng tạm
+    // Create temp arrays
     int[] L = new int[n1];
     int[] R = new int[n2];
 
-    // Sao chép dữ liệu vào mảng tạm
+    // Copy data to temp arrays
     for (int i = 0; i < n1; i++)
         L[i] = arr[left + i];
     for (int j = 0; j < n2; j++)
         R[j] = arr[mid + 1 + j];
 
-    // Gộp hai mảng tạm lại
+    // Merge the temp arrays
     int i = 0, j = 0;
     int k = left;
 
@@ -195,14 +195,14 @@ private static void merge(int[] arr, int left, int mid, int right) {
         k++;
     }
 
-    // Sao chép các phần tử còn lại của L[] nếu có
+    // Copy remaining elements of L[] if any
     while (i < n1) {
         arr[k] = L[i];
         i++;
         k++;
     }
 
-    // Sao chép các phần tử còn lại của R[] nếu có
+    // Copy remaining elements of R[] if any
     while (j < n2) {
         arr[k] = R[j];
         j++;
@@ -213,76 +213,76 @@ private static void merge(int[] arr, int left, int mid, int right) {
 
 ### Heap Sort
 
-- Sử dụng cấu trúc dữ liệu heap (đống)
-- Độ phức tạp: O(n log n) trong mọi trường hợp
-- In-place sorting (không cần thêm bộ nhớ)
+- Uses heap data structure.
+- Complexity: O(n log n) in all cases.
+- In-place sorting (no extra memory needed).
 
 ```java
 public static void heapSort(int[] arr) {
     int n = arr.length;
 
-    // Xây dựng max heap
+    // Build max heap
     for (int i = n / 2 - 1; i >= 0; i--)
         heapify(arr, n, i);
 
-    // Trích xuất từng phần tử từ heap
+    // Extract elements from heap one by one
     for (int i = n - 1; i > 0; i--) {
-        // Di chuyển root (lớn nhất) xuống cuối
+        // Move root (largest) to end
         int temp = arr[0];
         arr[0] = arr[i];
         arr[i] = temp;
 
-        // Gọi heapify trên heap đã giảm kích thước
+        // Call heapify on reduced heap
         heapify(arr, i, 0);
     }
 }
 
-// Heapify một cây con có root là i
+// Heapify a subtree rooted at node i
 private static void heapify(int[] arr, int n, int i) {
-    int largest = i; // Khởi tạo largest là root
+    int largest = i; // Initialize largest as root
     int left = 2 * i + 1;
     int right = 2 * i + 2;
 
-    // Nếu con bên trái lớn hơn root
+    // If left child is larger than root
     if (left < n && arr[left] > arr[largest])
         largest = left;
 
-    // Nếu con bên phải lớn hơn largest hiện tại
+    // If right child is larger than largest so far
     if (right < n && arr[right] > arr[largest])
         largest = right;
 
-    // Nếu largest không phải root
+    // If largest is not root
     if (largest != i) {
         int swap = arr[i];
         arr[i] = arr[largest];
         arr[largest] = swap;
 
-        // Tiếp tục heapify cây con bị ảnh hưởng
+        // Recursively heapify the affected sub-tree
         heapify(arr, n, largest);
     }
 }
 ```
 
-### So sánh các thuật toán sắp xếp nâng cao
+### Comparison of Advanced Sorting Algorithms
 
-| Thuật toán | Thời gian trung bình | Thời gian xấu nhất | Bộ nhớ   | Ổn định | Ghi chú                                             |
+| Algorithm | Average Time | Worst Time | Memory | Stable | Note |
 | ---------- | -------------------- | ------------------ | -------- | ------- | --------------------------------------------------- |
-| Quick Sort | O(n log n)           | O(n²)              | O(log n) | Không   | Nhanh nhất trên thực tế với dữ liệu ngẫu nhiên      |
-| Merge Sort | O(n log n)           | O(n log n)         | O(n)     | Có      | Hiệu quả với danh sách liên kết, đảm bảo O(n log n) |
-| Heap Sort  | O(n log n)           | O(n log n)         | O(1)     | Không   | Không cần bộ nhớ phụ, ít sử dụng trong thực tế      |
+| Quick Sort | O(n log n) | O(n²) | O(log n) | No | Fastest in practice with random data |
+| Merge Sort | O(n log n) | O(n log n) | O(n) | Yes | Efficient for linked lists, guarantees O(n log n) |
+| Heap Sort | O(n log n) | O(n log n) | O(1) | No | No auxiliary memory needed, less used in practice |
 
-## 🧑‍🏫 Bài 3: Các thuật toán Graph
+## 🧑‍🏫 Lesson 3: Graph Algorithms
 
-### Biểu diễn đồ thị
+### Graph Representation
 
-#### Ma trận kề (Adjacency Matrix)
+#### Adjacency Matrix
 
-- Mảng 2 chiều với A\[i\]\[j\] = 1 nếu có cạnh từ i đến j, ngược lại A\[i\]\[j\] = 0
-- Phù hợp cho đồ thị dày đặc (dense graph)
+- 2D array where A\[i\]\[j\] = 1 if there is an edge from i to j, otherwise A\[i\]\[j\] = 0.
+- Suitable for dense graphs.
 
 ```java
 public class AdjacencyMatrix {
-    private int V; // Số đỉnh
+    private int V; // Number of vertices
     private int[][] matrix;
 
     public AdjacencyMatrix(int v) {
@@ -290,13 +290,13 @@ public class AdjacencyMatrix {
         matrix = new int[v][v];
     }
 
-    // Thêm cạnh cho đồ thị vô hướng
+    // Add edge for undirected graph
     public void addEdge(int source, int destination) {
         matrix[source][destination] = 1;
-        matrix[destination][source] = 1; // Bỏ dòng này nếu là đồ thị có hướng
+        matrix[destination][source] = 1; // Remove this line if directed graph
     }
 
-    // In đồ thị
+    // Print graph
     public void printGraph() {
         for (int i = 0; i < V; i++) {
             for (int j = 0; j < V; j++) {
@@ -308,14 +308,14 @@ public class AdjacencyMatrix {
 }
 ```
 
-#### Danh sách kề (Adjacency List)
+#### Adjacency List
 
-- Mảng các danh sách, mỗi phần tử chứa các đỉnh kề
-- Phù hợp cho đồ thị thưa (sparse graph)
+- Array of lists, each element containing adjacent vertices.
+- Suitable for sparse graphs.
 
 ```java
 public class AdjacencyList {
-    private int V; // Số đỉnh
+    private int V; // Number of vertices
     private LinkedList<Integer>[] adjList;
 
     @SuppressWarnings("unchecked")
@@ -327,16 +327,16 @@ public class AdjacencyList {
         }
     }
 
-    // Thêm cạnh cho đồ thị vô hướng
+    // Add edge for undirected graph
     public void addEdge(int source, int destination) {
         adjList[source].add(destination);
-        adjList[destination].add(source); // Bỏ dòng này nếu là đồ thị có hướng
+        adjList[destination].add(source); // Remove this line if directed graph
     }
 
-    // In đồ thị
+    // Print graph
     public void printGraph() {
         for (int i = 0; i < V; i++) {
-            System.out.print("Đỉnh " + i + " kề với: ");
+            System.out.print("Vertex " + i + " is connected to: ");
             for (Integer vertex : adjList[i]) {
                 System.out.print(vertex + " ");
             }
@@ -346,16 +346,16 @@ public class AdjacencyList {
 }
 ```
 
-### Duyệt đồ thị
+### Graph Traversal
 
-#### Duyệt theo chiều sâu (DFS - Depth-First Search)
+#### Depth-First Search (DFS)
 
-- Sử dụng Stack (ngầm định thông qua đệ quy) để duyệt
-- Ưu tiên duyệt sâu trước khi quay lại
+- Uses Stack (implicitly via recursion) to traverse.
+- Prioritizes going deep before backtracking.
 
 ```java
 public class GraphDFS {
-    private int V; // Số đỉnh
+    private int V; // Number of vertices
     private LinkedList<Integer>[] adjList;
 
     @SuppressWarnings("unchecked")
@@ -367,27 +367,27 @@ public class GraphDFS {
         }
     }
 
-    // Thêm cạnh
+    // Add edge
     public void addEdge(int source, int destination) {
         adjList[source].add(destination);
     }
 
-    // DFS từ một đỉnh nguồn
+    // DFS from a source vertex
     public void DFS(int startVertex) {
-        // Đánh dấu tất cả các đỉnh là chưa thăm
+        // Mark all vertices as not visited
         boolean[] visited = new boolean[V];
 
-        // Gọi hàm DFS đệ quy
+        // Call recursive DFS function
         DFSUtil(startVertex, visited);
     }
 
-    // Hàm đệ quy cho DFS
+    // Recursive function for DFS
     private void DFSUtil(int vertex, boolean[] visited) {
-        // Đánh dấu đỉnh hiện tại là đã thăm và in ra
+        // Mark current vertex as visited and print it
         visited[vertex] = true;
         System.out.print(vertex + " ");
 
-        // Duyệt tất cả các đỉnh kề với đỉnh hiện tại
+        // Recur for all the vertices adjacent to this vertex
         for (Integer neighbor : adjList[vertex]) {
             if (!visited[neighbor]) {
                 DFSUtil(neighbor, visited);
@@ -397,14 +397,14 @@ public class GraphDFS {
 }
 ```
 
-#### Duyệt theo chiều rộng (BFS - Breadth-First Search)
+#### Breadth-First Search (BFS)
 
-- Sử dụng Queue để duyệt
-- Ưu tiên duyệt tất cả các đỉnh liền kề trước khi đi sâu hơn
+- Uses Queue to traverse.
+- Prioritizes visiting all adjacent vertices before going deeper.
 
 ```java
 public class GraphBFS {
-    private int V; // Số đỉnh
+    private int V; // Number of vertices
     private LinkedList<Integer>[] adjList;
 
     @SuppressWarnings("unchecked")
@@ -416,30 +416,30 @@ public class GraphBFS {
         }
     }
 
-    // Thêm cạnh
+    // Add edge
     public void addEdge(int source, int destination) {
         adjList[source].add(destination);
     }
 
-    // BFS từ một đỉnh nguồn
+    // BFS from a source vertex
     public void BFS(int startVertex) {
-        // Đánh dấu tất cả các đỉnh là chưa thăm
+        // Mark all vertices as not visited
         boolean[] visited = new boolean[V];
 
-        // Tạo một queue cho BFS
+        // Create a queue for BFS
         LinkedList<Integer> queue = new LinkedList<>();
 
-        // Đánh dấu đỉnh hiện tại là đã thăm và thêm vào queue
+        // Mark the current node as visited and enqueue it
         visited[startVertex] = true;
         queue.add(startVertex);
 
         while (!queue.isEmpty()) {
-            // Lấy một đỉnh từ queue và in ra
+            // Dequeue a vertex from queue and print it
             startVertex = queue.poll();
             System.out.print(startVertex + " ");
 
-            // Lấy tất cả các đỉnh kề của đỉnh vừa lấy
-            // Nếu đỉnh chưa được thăm, đánh dấu và thêm vào queue
+            // Get all adjacent vertices of the dequeued vertex
+            // If a adjacent has not been visited, then mark it visited and enqueue it
             for (Integer neighbor : adjList[startVertex]) {
                 if (!visited[neighbor]) {
                     visited[neighbor] = true;
@@ -451,12 +451,12 @@ public class GraphBFS {
 }
 ```
 
-### Thuật toán tìm đường đi ngắn nhất
+### Shortest Path Algorithms
 
-#### Thuật toán Dijkstra
+#### Dijkstra's Algorithm
 
-- Tìm đường đi ngắn nhất từ một đỉnh đến tất cả các đỉnh còn lại
-- Sử dụng priority queue để chọn đỉnh có khoảng cách nhỏ nhất
+- Finds shortest path from a source vertex to all other vertices.
+- Uses priority queue to select vertex with smallest distance.
 
 ```java
 public class Dijkstra {
@@ -492,11 +492,11 @@ public class Dijkstra {
             int[] distance = new int[vertices];
             boolean[] visited = new boolean[vertices];
 
-            // Khởi tạo khoảng cách với giá trị vô cùng
+            // Initialize distances with infinity
             Arrays.fill(distance, Integer.MAX_VALUE);
             distance[sourceVertex] = 0;
 
-            // Priority Queue để chọn đỉnh có khoảng cách nhỏ nhất
+            // Priority Queue to select vertex with smallest distance
             PriorityQueue<Edge> pq = new PriorityQueue<>(
                 (e1, e2) -> Integer.compare(e1.weight, e2.weight)
             );
@@ -504,17 +504,17 @@ public class Dijkstra {
             pq.add(new Edge(sourceVertex, 0));
 
             while (!pq.isEmpty()) {
-                // Chọn đỉnh có khoảng cách nhỏ nhất
+                // Select vertex with smallest distance
                 Edge current = pq.poll();
                 int u = current.destination;
 
-                // Nếu đỉnh đã thăm, bỏ qua
+                // If vertex already visited, skip
                 if (visited[u])
                     continue;
 
                 visited[u] = true;
 
-                // Cập nhật khoảng cách cho các đỉnh kề
+                // Update distance for adjacent vertices
                 for (Edge e : adjList[u]) {
                     int v = e.destination;
                     int weight = e.weight;
@@ -527,14 +527,14 @@ public class Dijkstra {
                 }
             }
 
-            // In kết quả
+            // Print result
             printDijkstra(distance, sourceVertex);
         }
 
         void printDijkstra(int[] distance, int sourceVertex) {
-            System.out.println("Khoảng cách từ đỉnh " + sourceVertex + " đến các đỉnh khác:");
+            System.out.println("Distance from vertex " + sourceVertex + " to other vertices:");
             for (int i = 0; i < vertices; i++) {
-                System.out.println(sourceVertex + " đến " + i + " = " +
+                System.out.println(sourceVertex + " to " + i + " = " +
                                    (distance[i] == Integer.MAX_VALUE ? "∞" : distance[i]));
             }
         }
@@ -557,11 +557,11 @@ public class Dijkstra {
 }
 ```
 
-#### Thuật toán Bellman-Ford
+#### Bellman-Ford Algorithm
 
-- Tìm đường đi ngắn nhất từ một đỉnh đến tất cả các đỉnh còn lại
-- Xử lý được cạnh có trọng số âm
-- Phát hiện chu trình âm
+- Finds shortest path from a source vertex to all other vertices.
+- Handles negative weight edges.
+- Detects negative cycles.
 
 ```java
 public class BellmanFord {
@@ -594,7 +594,7 @@ public class BellmanFord {
     void bellmanFord(int src) {
         int[] dist = new int[V];
 
-        // Khởi tạo khoảng cách
+        // Initialize distances
         Arrays.fill(dist, Integer.MAX_VALUE);
         dist[src] = 0;
 
@@ -611,54 +611,54 @@ public class BellmanFord {
             }
         }
 
-        // Kiểm tra chu trình âm
+        // Check for negative weight cycles
         for (int j = 0; j < E; j++) {
             int u = edges[j].src;
             int v = edges[j].dest;
             int weight = edges[j].weight;
 
             if (dist[u] != Integer.MAX_VALUE && dist[u] + weight < dist[v]) {
-                System.out.println("Đồ thị chứa chu trình âm");
+                System.out.println("Graph contains negative weight cycle");
                 return;
             }
         }
 
-        // In kết quả
+        // Print result
         printBellmanFord(dist, src);
     }
 
     void printBellmanFord(int[] dist, int src) {
-        System.out.println("Khoảng cách từ đỉnh " + src + " đến các đỉnh khác:");
+        System.out.println("Distance from vertex " + src + " to other vertices:");
         for (int i = 0; i < V; i++) {
-            System.out.println(src + " đến " + i + " = " +
+            System.out.println(src + " to " + i + " = " +
                                (dist[i] == Integer.MAX_VALUE ? "∞" : dist[i]));
         }
     }
 }
 ```
 
-#### Thuật toán Floyd-Warshall
+#### Floyd-Warshall Algorithm
 
-- Tìm đường đi ngắn nhất giữa tất cả các cặp đỉnh
-- Độ phức tạp O(V³)
+- Finds shortest paths between all pairs of vertices.
+- Complexity O(V³).
 
 ```java
 public class FloydWarshall {
     final static int INF = 99999;
-    private int V; // Số đỉnh
+    private int V; // Number of vertices
 
     void floydWarshall(int[][] graph) {
         V = graph.length;
         int[][] dist = new int[V][V];
 
-        // Khởi tạo ma trận khoảng cách
+        // Initialize distance matrix
         for (int i = 0; i < V; i++) {
             for (int j = 0; j < V; j++) {
                 dist[i][j] = graph[i][j];
             }
         }
 
-        // Cập nhật ma trận khoảng cách
+        // Update distance matrix
         for (int k = 0; k < V; k++) {
             for (int i = 0; i < V; i++) {
                 for (int j = 0; j < V; j++) {
@@ -670,12 +670,12 @@ public class FloydWarshall {
             }
         }
 
-        // In kết quả
+        // Print result
         printFloydWarshall(dist);
     }
 
     void printFloydWarshall(int[][] dist) {
-        System.out.println("Ma trận khoảng cách ngắn nhất giữa tất cả các cặp đỉnh:");
+        System.out.println("Shortest distance matrix between all pairs of vertices:");
         for (int i = 0; i < V; i++) {
             for (int j = 0; j < V; j++) {
                 if (dist[i][j] == INF)
@@ -689,31 +689,31 @@ public class FloydWarshall {
 }
 ```
 
-### So sánh các thuật toán tìm đường đi ngắn nhất
+### Comparison of Shortest Path Algorithms
 
-| Thuật toán     | Độ phức tạp | Xử lý cạnh trọng số âm | Phát hiện chu trình âm | Ứng dụng                                               |
+| Algorithm | Complexity | Handles Negative Weights | Detects Negative Cycles | Application |
 | -------------- | ----------- | ---------------------- | ---------------------- | ------------------------------------------------------ |
-| Dijkstra       | O(E log V)  | Không                  | Không                  | GPS, mạng lưới đường, định tuyến mạng                  |
-| Bellman-Ford   | O(V\*E)     | Có                     | Có                     | Định tuyến mạng, forex trading                         |
-| Floyd-Warshall | O(V³)       | Có                     | Có                     | Tất cả các cặp đường đi ngắn nhất, ma trận khoảng cách |
+| Dijkstra | O(E log V) | No | No | GPS, road networks, network routing |
+| Bellman-Ford | O(V\*E) | Yes | Yes | Network routing, forex trading |
+| Floyd-Warshall | O(V³) | Yes | Yes | All-pairs shortest paths, distance matrix |
 
-## 🧑‍🏫 Bài 4: Thuật toán tham lam (Greedy Algorithms)
+## 🧑‍🏫 Lesson 4: Greedy Algorithms
 
-### Khái niệm thuật toán tham lam
+### Concept of Greedy Algorithm
 
-- Thuật toán tham lam là một kỹ thuật giải quyết vấn đề bằng cách luôn chọn lựa tốt nhất tại mỗi bước
-- Mỗi lựa chọn tối ưu cục bộ với hy vọng đạt được lời giải tối ưu toàn cục
-- Không phải lúc nào cũng cho kết quả tối ưu toàn cục
+- Greedy algorithm is a technique to solve problems by always making the best choice at each step.
+- Each choice is locally optimal with the hope of achieving a globally optimal solution.
+- Does not always yield a globally optimal result.
 
-### Ứng dụng của thuật toán tham lam
+### Applications of Greedy Algorithms
 
-#### Bài toán tìm số đồng xu tối thiểu
+#### Coin Change Problem (Minimum Coins)
 
-- Cho một tập hợp các mệnh giá tiền, tìm số lượng đồng xu tối thiểu để tạo ra một số tiền cụ thể
+- Given a set of coin denominations, find the minimum number of coins to make a specific amount.
 
 ```java
 public static int minCoins(int[] coins, int amount) {
-    // Sắp xếp mảng theo thứ tự giảm dần
+    // Sort array in descending order
     Arrays.sort(coins);
     int[] reversedCoins = new int[coins.length];
     for (int i = 0; i < coins.length; i++) {
@@ -724,18 +724,18 @@ public static int minCoins(int[] coins, int amount) {
     int remainingAmount = amount;
 
     for (int coin : reversedCoins) {
-        // Sử dụng đồng xu có giá trị lớn nhất có thể
+        // Use largest possible coin value
         int count = remainingAmount / coin;
         coinCount += count;
         remainingAmount -= count * coin;
 
-        // Nếu đã đủ số tiền, thoát vòng lặp
+        // If amount is reached, break loop
         if (remainingAmount == 0) {
             break;
         }
     }
 
-    // Nếu còn số tiền dư, không có giải pháp
+    // If remaining amount > 0, no solution
     if (remainingAmount > 0) {
         return -1;
     }
@@ -744,15 +744,15 @@ public static int minCoins(int[] coins, int amount) {
 }
 ```
 
-#### Bài toán lập lịch công việc
+#### Job Sequencing Problem
 
-- Sắp xếp các công việc để tối đa hóa lợi ích
+- Schedule jobs to maximize profit.
 
 ```java
 class Job {
-    char id;      // ID của công việc
-    int deadline; // Thời hạn (thời điểm kết thúc muộn nhất)
-    int profit;   // Lợi nhuận nếu hoàn thành công việc
+    char id;      // Job ID
+    int deadline; // Deadline
+    int profit;   // Profit if job is completed
 
     Job(char id, int deadline, int profit) {
         this.id = id;
@@ -762,10 +762,10 @@ class Job {
 }
 
 public static ArrayList<Character> scheduleJobs(Job[] jobs, int n) {
-    // Sắp xếp công việc theo lợi nhuận giảm dần
+    // Sort jobs by profit in descending order
     Arrays.sort(jobs, Comparator.comparingInt((Job job) -> job.profit).reversed());
 
-    // Tìm deadline lớn nhất
+    // Find max deadline
     int maxDeadline = 0;
     for (int i = 0; i < n; i++) {
         if (jobs[i].deadline > maxDeadline) {
@@ -773,20 +773,20 @@ public static ArrayList<Character> scheduleJobs(Job[] jobs, int n) {
         }
     }
 
-    // Tạo mảng để lưu lịch công việc
+    // Create array to store job schedule
     char[] result = new char[maxDeadline];
     boolean[] slot = new boolean[maxDeadline];
 
-    // Khởi tạo tất cả các slot đều trống
+    // Initialize all slots as free
     for (int i = 0; i < maxDeadline; i++) {
         slot[i] = false;
     }
 
-    // Lập lịch từng công việc
+    // Schedule each job
     for (int i = 0; i < n; i++) {
-        // Tìm slot trống gần nhất
+        // Find nearest free slot
         for (int j = Math.min(maxDeadline - 1, jobs[i].deadline - 1); j >= 0; j--) {
-            // Nếu slot trống
+            // If slot is free
             if (!slot[j]) {
                 result[j] = jobs[i].id;
                 slot[j] = true;
@@ -795,7 +795,7 @@ public static ArrayList<Character> scheduleJobs(Job[] jobs, int n) {
         }
     }
 
-    // Tạo danh sách công việc đã lên lịch
+    // Create list of scheduled jobs
     ArrayList<Character> scheduledJobs = new ArrayList<>();
     for (int i = 0; i < maxDeadline; i++) {
         if (slot[i]) {
@@ -807,9 +807,9 @@ public static ArrayList<Character> scheduleJobs(Job[] jobs, int n) {
 }
 ```
 
-### Thuật toán Huffman Coding
+### Huffman Coding Algorithm
 
-- Nén dữ liệu không mất mát bằng cách sử dụng mã có độ dài thay đổi
+- Lossless data compression using variable-length codes.
 
 ```java
 class HuffmanNode {
@@ -819,7 +819,7 @@ class HuffmanNode {
     HuffmanNode right;
 }
 
-// So sánh các nút Huffman dựa trên tần suất
+// Compare Huffman nodes based on frequency
 class MyComparator implements Comparator<HuffmanNode> {
     public int compare(HuffmanNode x, HuffmanNode y) {
         return x.data - y.data;
@@ -827,7 +827,7 @@ class MyComparator implements Comparator<HuffmanNode> {
 }
 
 public class HuffmanCoding {
-    // In mã Huffman
+    // Print Huffman code
     public static void printCode(HuffmanNode root, String s) {
         if (root.left == null && root.right == null && Character.isLetter(root.c)) {
             System.out.println(root.c + ": " + s);
@@ -839,10 +839,10 @@ public class HuffmanCoding {
     }
 
     public static void huffmanCoding(char[] charArray, int[] charFreq, int n) {
-        // Tạo một hàng đợi ưu tiên
+        // Create a priority queue
         PriorityQueue<HuffmanNode> q = new PriorityQueue<>(n, new MyComparator());
 
-        // Tạo nút leaf cho mỗi ký tự và thêm vào hàng đợi ưu tiên
+        // Create leaf node for each character and add to priority queue
         for (int i = 0; i < n; i++) {
             HuffmanNode hn = new HuffmanNode();
             hn.c = charArray[i];
@@ -852,15 +852,15 @@ public class HuffmanCoding {
             q.add(hn);
         }
 
-        // Tạo cây Huffman
+        // Create Huffman tree
         HuffmanNode root = null;
 
         while (q.size() > 1) {
-            // Lấy hai nút có tần suất thấp nhất
+            // Extract two nodes with lowest frequency
             HuffmanNode x = q.poll();
             HuffmanNode y = q.poll();
 
-            // Tạo nút nội bộ mới với hai nút này làm con
+            // Create new internal node with these two nodes as children
             HuffmanNode hn = new HuffmanNode();
             hn.data = x.data + y.data;
             hn.c = '-';
@@ -871,39 +871,39 @@ public class HuffmanCoding {
             q.add(hn);
         }
 
-        // In mã Huffman
+        // Print Huffman code
         printCode(root, "");
     }
 }
 ```
 
-### Đặc điểm của thuật toán tham lam
+### Characteristics of Greedy Algorithms
 
-| Ưu điểm | Nhược điểm |
+| Pros | Cons |
 |---------|------------|
-| - Đơn giản và dễ cài đặt | - Không luôn cho kết quả tối ưu toàn cục |
-| - Chạy nhanh | - Khó chứng minh tính đúng đắn |
-| - Phù hợp cho một số vấn đề tối ưu | - Phụ thuộc vào cấu trúc của bài toán |
+| - Simple and easy to implement | - Not always globally optimal |
+| - Fast execution | - Hard to prove correctness |
+| - Suitable for some optimization problems | - Depends on problem structure |
 
-**Các bài toán phù hợp với thuật toán tham lam:**
+**Problems suitable for Greedy Algorithms:**
 
-- Kruskal và Prim (cây khung nhỏ nhất)
-- Dijkstra (đường đi ngắn nhất)
-- Huffman Coding (nén dữ liệu)
-- Bài toán lập lịch công việc
-- Bài toán đổi tiền với một số hệ thống tiền tệ
+- Kruskal and Prim (Minimum Spanning Tree)
+- Dijkstra (Shortest Path)
+- Huffman Coding (Data Compression)
+- Job Sequencing Problem
+- Coin Change Problem (with certain currency systems)
 
-## 🧑‍🏫 Bài 5: Quy hoạch động (Dynamic Programming)
+## 🧑‍🏫 Lesson 5: Dynamic Programming
 
-### Khái niệm quy hoạch động (DP)
+### Concept of Dynamic Programming (DP)
 
-- Kỹ thuật giải quyết vấn đề bằng cách chia nhỏ thành các bài toán con, lưu trữ kết quả của các bài toán con để tránh tính toán lại
-- Áp dụng cho các bài toán có cấu trúc con tối ưu (optimal substructure) và chồng chéo các bài toán con (overlapping subproblems)
-- Hai cách tiếp cận chính: Top-down (đệ quy có nhớ) và Bottom-up (lặp)
+- Technique to solve problems by breaking them down into subproblems, storing results of subproblems to avoid re-computation.
+- Applies to problems with optimal substructure and overlapping subproblems.
+- Two main approaches: Top-down (Memoization) and Bottom-up (Tabulation).
 
-### Bài toán Fibonacci
+### Fibonacci Problem
 
-#### Fibonacci với đệ quy thông thường
+#### Fibonacci with Regular Recursion
 
 ```java
 public static int fibRecursive(int n) {
@@ -912,7 +912,7 @@ public static int fibRecursive(int n) {
 }
 ```
 
-#### Fibonacci với quy hoạch động (memoization - top-down)
+#### Fibonacci with Dynamic Programming (Memoization - Top-down)
 
 ```java
 public static int fibMemoization(int n) {
@@ -934,7 +934,7 @@ private static int fibMemo(int n, int[] memo) {
 }
 ```
 
-#### Fibonacci với quy hoạch động (tabulation - bottom-up)
+#### Fibonacci with Dynamic Programming (Tabulation - Bottom-up)
 
 ```java
 public static int fibTabulation(int n) {
@@ -952,7 +952,7 @@ public static int fibTabulation(int n) {
 }
 ```
 
-### Bài toán dãy con tăng dài nhất (Longest Increasing Subsequence - LIS)
+### Longest Increasing Subsequence (LIS)
 
 ```java
 public static int longestIncreasingSubsequence(int[] nums) {
@@ -960,7 +960,7 @@ public static int longestIncreasingSubsequence(int[] nums) {
 
     int n = nums.length;
     int[] dp = new int[n];
-    Arrays.fill(dp, 1); // Mỗi phần tử tự nó là một dãy con tăng
+    Arrays.fill(dp, 1); // Each element itself is an increasing subsequence
 
     for (int i = 1; i < n; i++) {
         for (int j = 0; j < i; j++) {
@@ -970,7 +970,7 @@ public static int longestIncreasingSubsequence(int[] nums) {
         }
     }
 
-    // Tìm giá trị lớn nhất trong mảng dp
+    // Find max value in dp array
     int maxLength = 0;
     for (int length : dp) {
         maxLength = Math.max(maxLength, length);
@@ -980,23 +980,23 @@ public static int longestIncreasingSubsequence(int[] nums) {
 }
 ```
 
-### Bài toán balo (Knapsack Problem)
+### Knapsack Problem
 
 ```java
 public static int knapsack(int W, int[] weights, int[] values, int n) {
-    // Bảng DP[i][w] lưu giá trị tối đa khi chọn từ i món đầu với trọng lượng tối đa w
+    // DP[i][w] stores max value when choosing from first i items with max weight w
     int[][] dp = new int[n + 1][W + 1];
 
-    // Xây dựng bảng dp[][] theo bottom-up
+    // Build dp[][] table bottom-up
     for (int i = 0; i <= n; i++) {
         for (int w = 0; w <= W; w++) {
             if (i == 0 || w == 0) {
                 dp[i][w] = 0;
             } else if (weights[i-1] <= w) {
-                // Chọn max giữa việc lấy và không lấy vật i
+                // Choose max between taking and not taking item i
                 dp[i][w] = Math.max(values[i-1] + dp[i-1][w-weights[i-1]], dp[i-1][w]);
             } else {
-                // Nếu không thể lấy vật i do vượt trọng lượng
+                // If cannot take item i due to weight limit
                 dp[i][w] = dp[i-1][w];
             }
         }
@@ -1006,34 +1006,34 @@ public static int knapsack(int W, int[] weights, int[] values, int n) {
 }
 ```
 
-### Bài toán tìm đường đi xa nhất (Longest Path in DAG)
+### Longest Path in DAG
 
 ```java
 public static int longestPath(int[][] graph, int n) {
-    // dp[i] lưu độ dài đường đi dài nhất từ bất kỳ đỉnh nào đến đỉnh i
+    // dp[i] stores length of longest path from any vertex to vertex i
     int[] dp = new int[n];
 
-    // Khởi tạo mảng dp
+    // Initialize dp array
     Arrays.fill(dp, Integer.MIN_VALUE);
 
-    // Đỉnh nguồn có độ dài đường đi là 0
+    // Source vertex has path length 0
     dp[0] = 0;
 
-    // Tìm thứ tự tô pô của đồ thị
+    // Find topological order of graph
     List<Integer> topoOrder = topologicalSort(graph, n);
 
-    // Tính độ dài đường đi dài nhất cho mỗi đỉnh
+    // Calculate longest path length for each vertex
     for (int i : topoOrder) {
         if (dp[i] != Integer.MIN_VALUE) {
             for (int j = 0; j < n; j++) {
-                if (graph[i][j] != 0) { // Có cạnh từ i đến j
+                if (graph[i][j] != 0) { // Edge from i to j
                     dp[j] = Math.max(dp[j], dp[i] + graph[i][j]);
                 }
             }
         }
     }
 
-    // Tìm đường đi dài nhất
+    // Find longest path
     int max = Integer.MIN_VALUE;
     for (int pathLength : dp) {
         max = Math.max(max, pathLength);
@@ -1046,7 +1046,7 @@ private static List<Integer> topologicalSort(int[][] graph, int n) {
     boolean[] visited = new boolean[n];
     Stack<Integer> stack = new Stack<>();
 
-    // DFS để tạo thứ tự tô pô
+    // DFS to create topological order
     for (int i = 0; i < n; i++) {
         if (!visited[i]) {
             topologicalSortUtil(i, visited, stack, graph, n);
@@ -1074,112 +1074,112 @@ private static void topologicalSortUtil(int v, boolean[] visited, Stack<Integer>
 }
 ```
 
-### So sánh quy hoạch động và thuật toán tham lam
+### Comparison of Dynamic Programming and Greedy Algorithms
 
-| Tiêu chí     | Quy hoạch động                               | Thuật toán tham lam                         |
+| Criteria | Dynamic Programming | Greedy Algorithm |
 | ------------ | -------------------------------------------- | ------------------------------------------- |
-| Phương pháp  | Xem xét tất cả các khả năng                  | Chọn lựa tốt nhất tại mỗi bước              |
-| Tối ưu       | Luôn đảm bảo kết quả tối ưu toàn cục         | Không đảm bảo kết quả tối ưu toàn cục       |
-| Phức tạp     | Thường cao hơn (thời gian và không gian)     | Thường đơn giản và nhanh hơn                |
-| Bài toán con | Giải quyết và lưu trữ kết quả bài toán con   | Không quan tâm đến các bài toán con đã giải |
-| Ứng dụng     | Fibonacci, Knapsack, LCS, đường đi ngắn nhất | Dijkstra, Prim, Kruskal, lập lịch công việc |
+| Method | Consider all possibilities | Choose best at each step |
+| Optimality | Always guarantees global optimum | Does not guarantee global optimum |
+| Complexity | Often higher (time and space) | Often simpler and faster |
+| Subproblems | Solve and store subproblem results | Does not care about solved subproblems |
+| Applications | Fibonacci, Knapsack, LCS, Shortest Path | Dijkstra, Prim, Kruskal, Job Scheduling |
 
-### Các bước giải quyết bài toán bằng quy hoạch động
+### Steps to Solve Problems using Dynamic Programming
 
-1. Xác định cấu trúc con tối ưu
-2. Định nghĩa đệ quy về giá trị của lời giải tối ưu
-3. Tính toán giá trị của lời giải tối ưu (bottom-up hoặc top-down)
-4. Xây dựng lời giải tối ưu từ thông tin đã tính toán (nếu cần)
+1. Identify optimal substructure.
+2. Define recursive value of optimal solution.
+3. Compute value of optimal solution (bottom-up or top-down).
+4. Construct optimal solution from computed information (if needed).
 
-## 🧑‍💻 Bài tập lớn cuối phần: Xây dựng ứng dụng tìm đường đi ngắn nhất
+## 🧑‍💻 Final Project: Shortest Path Finder Application
 
-### Mô tả bài toán
+### Problem Description
 
-Viết chương trình cho phép người dùng:
+Write a program that allows users to:
 
-- Tạo một đồ thị có hướng có trọng số (biểu diễn một mạng lưới giao thông)
-- Thêm các đỉnh (thành phố, địa điểm) và cạnh (con đường) vào đồ thị
-- Tìm đường đi ngắn nhất giữa hai địa điểm bất kỳ bằng thuật toán Dijkstra
-- Tìm đường đi ngắn nhất từ một địa điểm đến tất cả các địa điểm khác
-- Kiểm tra xem có thể đi từ địa điểm A đến địa điểm B không
-- Hiển thị kết quả dưới dạng văn bản và đồ họa (tùy chọn)
+- Create a directed weighted graph (representing a traffic network).
+- Add vertices (cities, locations) and edges (roads) to the graph.
+- Find shortest path between any two locations using Dijkstra's algorithm.
+- Find shortest path from one location to all others.
+- Check if it is possible to go from location A to location B.
+- Display results in text and graphics (optional).
 
-### Kết quả chạy chương trình (Ví dụ)
+### Program Output (Example)
 
 ```text
-ỨNG DỤNG TÌM ĐƯỜNG ĐI NGẮN NHẤT
+SHORTEST PATH FINDER APPLICATION
 -----------------------------------
-1. Thêm địa điểm mới
-2. Thêm đường đi
-3. Tìm đường đi ngắn nhất giữa hai địa điểm
-4. Tìm đường đi ngắn nhất từ một địa điểm đến tất cả
-5. Kiểm tra khả năng đi từ địa điểm A đến B
-6. Hiển thị bản đồ
-0. Thoát
+1. Add new location
+2. Add road
+3. Find shortest path between two locations
+4. Find shortest path from one location to all
+5. Check reachability from A to B
+6. Display map
+0. Exit
 
-Chọn chức năng: 1
-Nhập tên địa điểm: Hà Nội
-Đã thêm địa điểm thành công!
+Select function: 1
+Enter location name: Hanoi
+Location added successfully!
 
-Chọn chức năng: 1
-Nhập tên địa điểm: Hải Phòng
-Đã thêm địa điểm thành công!
+Select function: 1
+Enter location name: Haiphong
+Location added successfully!
 
-Chọn chức năng: 1
-Nhập tên địa điểm: Đà Nẵng
-Đã thêm địa điểm thành công!
+Select function: 1
+Enter location name: Danang
+Location added successfully!
 
-Chọn chức năng: 1
-Nhập tên địa điểm: TP. Hồ Chí Minh
-Đã thêm địa điểm thành công!
+Select function: 1
+Enter location name: Ho Chi Minh City
+Location added successfully!
 
-Chọn chức năng: 2
-Nhập địa điểm gốc: Hà Nội
-Nhập địa điểm đích: Hải Phòng
-Nhập khoảng cách (km): 120
-Đã thêm đường đi thành công!
+Select function: 2
+Enter source location: Hanoi
+Enter destination location: Haiphong
+Enter distance (km): 120
+Road added successfully!
 
-Chọn chức năng: 2
-Nhập địa điểm gốc: Hà Nội
-Nhập địa điểm đích: Đà Nẵng
-Nhập khoảng cách (km): 760
-Đã thêm đường đi thành công!
+Select function: 2
+Enter source location: Hanoi
+Enter destination location: Danang
+Enter distance (km): 760
+Road added successfully!
 
-Chọn chức năng: 2
-Nhập địa điểm gốc: Hải Phòng
-Nhập địa điểm đích: Đà Nẵng
-Nhập khoảng cách (km): 830
-Đã thêm đường đi thành công!
+Select function: 2
+Enter source location: Haiphong
+Enter destination location: Danang
+Enter distance (km): 830
+Road added successfully!
 
-Chọn chức năng: 2
-Nhập địa điểm gốc: Đà Nẵng
-Nhập địa điểm đích: TP. Hồ Chí Minh
-Nhập khoảng cách (km): 850
-Đã thêm đường đi thành công!
+Select function: 2
+Enter source location: Danang
+Enter destination location: Ho Chi Minh City
+Enter distance (km): 850
+Road added successfully!
 
-Chọn chức năng: 3
-Nhập địa điểm xuất phát: Hà Nội
-Nhập địa điểm đích: TP. Hồ Chí Minh
+Select function: 3
+Enter start location: Hanoi
+Enter end location: Ho Chi Minh City
 
-Đường đi ngắn nhất từ Hà Nội đến TP. Hồ Chí Minh:
-Hà Nội -> Đà Nẵng -> TP. Hồ Chí Minh
-Tổng khoảng cách: 1610 km
+Shortest path from Hanoi to Ho Chi Minh City:
+Hanoi -> Danang -> Ho Chi Minh City
+Total distance: 1610 km
 
-Chọn chức năng: 4
-Nhập địa điểm xuất phát: Hà Nội
+Select function: 4
+Enter start location: Hanoi
 
-Đường đi ngắn nhất từ Hà Nội đến các địa điểm khác:
-- Đến Hải Phòng: 120 km (Hà Nội -> Hải Phòng)
-- Đến Đà Nẵng: 760 km (Hà Nội -> Đà Nẵng)
-- Đến TP. Hồ Chí Minh: 1610 km (Hà Nội -> Đà Nẵng -> TP. Hồ Chí Minh)
+Shortest path from Hanoi to other locations:
+- To Haiphong: 120 km (Hanoi -> Haiphong)
+- To Danang: 760 km (Hanoi -> Danang)
+- To Ho Chi Minh City: 1610 km (Hanoi -> Danang -> Ho Chi Minh City)
 
-Chọn chức năng: 5
-Nhập địa điểm xuất phát: Hải Phòng
-Nhập địa điểm đích: TP. Hồ Chí Minh
-Có thể đi từ Hải Phòng đến TP. Hồ Chí Minh!
-Đường đi: Hải Phòng -> Đà Nẵng -> TP. Hồ Chí Minh
-Khoảng cách: 1680 km
+Select function: 5
+Enter start location: Haiphong
+Enter end location: Ho Chi Minh City
+Possible to go from Haiphong to Ho Chi Minh City!
+Path: Haiphong -> Danang -> Ho Chi Minh City
+Distance: 1680 km
 
-Chọn chức năng: 0
-Cảm ơn bạn đã sử dụng chương trình!
+Select function: 0
+Thank you for using the program!
 ```

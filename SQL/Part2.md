@@ -1,41 +1,41 @@
 ---
 prev:
-  text: '💾 Nhập Môn SQL'
+  text: '💾 Introduction to SQL'
   link: '/SQL/Part1'
 next:
-  text: '🔄 SQL và Ứng Dụng'
+  text: '🔄 SQL and Applications'
   link: '/SQL/Part3'
 ---
 
-# 📘 PHẦN 2: SQL NÂNG CAO
+# 📘 PART 2: ADVANCED SQL
 
-## 🎯 Mục tiêu tổng quát
+## 🎯 General Objectives
 
-- Hiểu và sử dụng được các kỹ thuật truy vấn phức tạp
-- Tối ưu hiệu suất truy vấn và thiết kế cơ sở dữ liệu
-- Biết cách xử lý dữ liệu lớn và đảm bảo an toàn
+- Understand and use complex query techniques.
+- Optimize query performance and database design.
+- Know how to handle large data and ensure security.
 
 ---
 
-## 🧑‍🏫 Bài 1: Truy vấn nâng cao và Window Functions
+## 🧑‍🏫 Lesson 1: Advanced Queries and Window Functions
 
-### Truy vấn con (Subqueries)
+### Subqueries
 
-Truy vấn con là một câu truy vấn SQL lồng trong một câu truy vấn khác, có thể xuất hiện trong mệnh đề WHERE, FROM, hoặc SELECT.
+A subquery is a SQL query nested inside another query, which can appear in the WHERE, FROM, or SELECT clauses.
 
-#### Ví dụ 1: Truy vấn con trong mệnh đề WHERE
+#### Example 1: Subquery in WHERE clause
 
 ```sql
--- Tìm học sinh có điểm cao hơn điểm trung bình của tất cả học sinh
+-- Find students with scores higher than the average score of all students
 SELECT student_id, fullname, score
 FROM students
 WHERE score > (SELECT AVG(score) FROM students);
 ```
 
-#### Ví dụ 2: Truy vấn con trong mệnh đề FROM
+#### Example 2: Subquery in FROM clause
 
 ```sql
--- Lấy thông tin từ kết quả của một truy vấn khác
+-- Get information from the result of another query
 SELECT dept_name, avg_salary
 FROM (
     SELECT department_id, AVG(salary) as avg_salary
@@ -45,10 +45,10 @@ FROM (
 JOIN departments d ON dept_salaries.department_id = d.id;
 ```
 
-#### Ví dụ 3: Truy vấn con tương quan
+#### Example 3: Correlated Subquery
 
 ```sql
--- Tìm học sinh có điểm cao nhất trong mỗi lớp
+-- Find students with the highest score in each class
 SELECT s.student_id, s.fullname, s.class_id, s.score
 FROM students s
 WHERE s.score = (
@@ -58,14 +58,14 @@ WHERE s.score = (
 );
 ```
 
-### Common Table Expressions (CTE) với WITH
+### Common Table Expressions (CTE) with WITH
 
-CTE tạo ra một bảng tạm thời có thể được tham chiếu nhiều lần trong một truy vấn, giúp code SQL dễ đọc và bảo trì hơn.
+CTE creates a temporary table that can be referenced multiple times in a query, making SQL code easier to read and maintain.
 
-#### Ví dụ 1: CTE cơ bản
+#### Example 1: Basic CTE
 
 ```sql
--- Tìm học sinh có điểm cao hơn điểm trung bình của lớp mình
+-- Find students with scores higher than the average score of their class
 WITH class_avg_scores AS (
     SELECT class_id, AVG(score) AS avg_score
     FROM students
@@ -77,19 +77,19 @@ JOIN class_avg_scores c ON s.class_id = c.class_id
 WHERE s.score > c.avg_score;
 ```
 
-#### Ví dụ 2: CTE đệ quy
+#### Example 2: Recursive CTE
 
 ```sql
--- Hiển thị cấu trúc phân cấp của nhân viên (quản lý - nhân viên)
+-- Display employee hierarchy (manager - employee)
 WITH RECURSIVE employee_hierarchy AS (
-    -- Trường hợp cơ sở: các nhân viên cấp cao nhất (không có quản lý)
+    -- Base case: top-level employees (no manager)
     SELECT id, fullname, manager_id, 1 AS level
     FROM employees
     WHERE manager_id IS NULL
 
     UNION ALL
 
-    -- Trường hợp đệ quy: tìm nhân viên cấp dưới
+    -- Recursive case: find subordinates
     SELECT e.id, e.fullname, e.manager_id, eh.level + 1
     FROM employees e
     JOIN employee_hierarchy eh ON e.manager_id = eh.id
@@ -99,14 +99,14 @@ FROM employee_hierarchy
 ORDER BY level, id;
 ```
 
-### Toán tử tập hợp: UNION, INTERSECT, EXCEPT
+### Set Operations: UNION, INTERSECT, EXCEPT
 
-Các toán tử tập hợp kết hợp kết quả từ nhiều truy vấn SELECT.
+Set operations combine results from multiple SELECT queries.
 
-#### Ví dụ 1: UNION
+#### Example 1: UNION
 
 ```sql
--- Kết hợp danh sách học sinh và giáo viên
+-- Combine list of students and teachers
 SELECT 'Student' AS role, fullname, email
 FROM students
 UNION
@@ -115,42 +115,42 @@ FROM teachers
 ORDER BY role, fullname;
 ```
 
-#### Ví dụ 2: INTERSECT
+#### Example 2: INTERSECT
 
 ```sql
--- Tìm học sinh vừa học môn Toán vừa học môn Văn
--- (MySQL không hỗ trợ INTERSECT trực tiếp, phải dùng JOIN hoặc IN)
--- Cách viết với INTERSECT (PostgreSQL, SQL Server,...)
+-- Find students taking both Math and Literature
+-- (MySQL does not support INTERSECT directly, must use JOIN or IN)
+-- Syntax with INTERSECT (PostgreSQL, SQL Server,...)
 SELECT student_id
 FROM course_registrations
-WHERE course_id = 1  -- Toán
+WHERE course_id = 1  -- Math
 INTERSECT
 SELECT student_id
 FROM course_registrations
-WHERE course_id = 2;  -- Văn
+WHERE course_id = 2;  -- Literature
 
--- Cách viết với MySQL
+-- Syntax with MySQL
 SELECT cr1.student_id
 FROM course_registrations cr1
 JOIN course_registrations cr2 ON cr1.student_id = cr2.student_id
 WHERE cr1.course_id = 1 AND cr2.course_id = 2;
 ```
 
-#### Ví dụ 3: EXCEPT (MINUS)
+#### Example 3: EXCEPT (MINUS)
 
 ```sql
--- Tìm học sinh học môn Toán nhưng không học môn Văn
--- (MySQL không hỗ trợ EXCEPT trực tiếp, phải dùng LEFT JOIN hoặc NOT IN)
--- Cách viết với EXCEPT (PostgreSQL, SQL Server,...)
+-- Find students taking Math but not Literature
+-- (MySQL does not support EXCEPT directly, must use LEFT JOIN or NOT IN)
+-- Syntax with EXCEPT (PostgreSQL, SQL Server,...)
 SELECT student_id
 FROM course_registrations
-WHERE course_id = 1  -- Toán
+WHERE course_id = 1  -- Math
 EXCEPT
 SELECT student_id
 FROM course_registrations
-WHERE course_id = 2;  -- Văn
+WHERE course_id = 2;  -- Literature
 
--- Cách viết với MySQL
+-- Syntax with MySQL
 SELECT DISTINCT cr1.student_id
 FROM course_registrations cr1
 LEFT JOIN course_registrations cr2 ON cr1.student_id = cr2.student_id AND cr2.course_id = 2
@@ -159,12 +159,12 @@ WHERE cr1.course_id = 1 AND cr2.student_id IS NULL;
 
 ### Window Functions
 
-Window functions thực hiện tính toán trên một tập hợp các hàng liên quan đến hàng hiện tại, nhưng không gộp các hàng thành một kết quả duy nhất.
+Window functions perform calculations across a set of table rows that are somehow related to the current row, but do not group rows into a single result.
 
-#### Ví dụ 1: ROW_NUMBER()
+#### Example 1: ROW_NUMBER()
 
 ```sql
--- Đánh số thứ tự cho học sinh theo điểm số từ cao đến thấp
+-- Rank students by score from high to low
 SELECT
     student_id,
     fullname,
@@ -173,10 +173,10 @@ SELECT
 FROM students;
 ```
 
-#### Ví dụ 2: PARTITION BY
+#### Example 2: PARTITION BY
 
 ```sql
--- Đánh số thứ tự học sinh theo điểm số trong từng lớp riêng biệt
+-- Rank students by score within each class separately
 SELECT
     student_id,
     fullname,
@@ -186,10 +186,10 @@ SELECT
 FROM students;
 ```
 
-#### Ví dụ 3: Hàm tổng hợp qua cửa sổ
+#### Example 3: Aggregate Functions over Window
 
 ```sql
--- Tính điểm trung bình của lớp và chênh lệch của mỗi học sinh so với trung bình lớp
+-- Calculate class average and difference of each student from class average
 SELECT
     student_id,
     fullname,
@@ -200,10 +200,10 @@ SELECT
 FROM students;
 ```
 
-#### Ví dụ 4: NTILE() và các hàm khác
+#### Example 4: NTILE() and others
 
 ```sql
--- Chia học sinh thành 4 nhóm (tứ phân vị) theo điểm số
+-- Divide students into 4 groups (quartiles) by score
 SELECT
     student_id,
     fullname,
@@ -214,10 +214,10 @@ SELECT
 FROM students;
 ```
 
-#### Ví dụ 5: RANK() và DENSE_RANK()
+#### Example 5: RANK() and DENSE_RANK()
 
 ```sql
--- So sánh RANK() và DENSE_RANK()
+-- Compare RANK() and DENSE_RANK()
 SELECT
     student_id,
     fullname,
@@ -227,16 +227,16 @@ SELECT
     ROW_NUMBER() OVER (ORDER BY score DESC) AS row_num
 FROM students;
 
--- Giải thích kết quả:
--- RANK(): Có khoảng trống khi có điểm trùng (1, 2, 2, 4, 5)
--- DENSE_RANK(): Không có khoảng trống (1, 2, 2, 3, 4)
--- ROW_NUMBER(): Luôn tăng dần, không trùng (1, 2, 3, 4, 5)
+-- Result explanation:
+-- RANK(): Has gaps when there are ties (1, 2, 2, 4, 5)
+-- DENSE_RANK(): No gaps (1, 2, 2, 3, 4)
+-- ROW_NUMBER(): Always increasing, unique (1, 2, 3, 4, 5)
 ```
 
-#### Ví dụ 6: Running Total (Tổng lũy kế)
+#### Example 6: Running Total
 
 ```sql
--- Tính tổng lũy kế của điểm số theo thời gian
+-- Calculate running total of scores over time
 SELECT
     student_id,
     exam_date,
@@ -255,24 +255,24 @@ FROM exam_results
 ORDER BY student_id, exam_date;
 ```
 
-### Bài tập thực hành bài 1
+### Practice Exercises Lesson 1
 
-1. **Subqueries**: Viết truy vấn tìm các lớp có điểm trung bình cao hơn điểm trung bình chung của toàn trường
-2. **CTE**: Sử dụng CTE để tính xếp hạng học sinh trong từng lớp, sau đó lấy top 3 học sinh mỗi lớp
-3. **Set Operations**: Tìm các sinh viên đăng ký cả 3 môn: Toán, Văn và Anh
+1. **Subqueries**: Write a query to find classes with an average score higher than the overall school average score.
+2. **CTE**: Use CTE to calculate student rankings within each class, then get the top 3 students of each class.
+3. **Set Operations**: Find students registered for all 3 subjects: Math, Literature, and English.
 4. **Window Functions**:
-   - Tính điểm trung bình động (moving average) của 3 bài kiểm tra gần nhất cho mỗi sinh viên
-   - Xếp hạng sinh viên theo điểm, hiển thị cả điểm của người trên và người dưới
+   - Calculate the moving average of the last 3 tests for each student.
+   - Rank students by score, displaying both the score of the person above and below.
 
 ---
 
-## 🧑‍🏫 Bài 2: Functions, Procedures và Triggers
+## 🧑‍🏫 Lesson 2: Functions, Procedures, and Triggers
 
-### Tạo và sử dụng hàm người dùng
+### Creating and Using User-Defined Functions
 
-#### Ví dụ 1: Hàm tính tuổi từ ngày sinh
+#### Example 1: Function to calculate age from birthdate
 
-- DELIMITER được sử dụng để thay đổi ký tự phân cách giữa các câu lệnh SQL, giúp dễ dàng viết nhiều câu lệnh trong một hàm hoặc thủ tục.
+- DELIMITER is used to change the delimiter character between SQL statements, making it easier to write multiple statements in a function or procedure.
 
 ```sql
 DELIMITER //
@@ -286,7 +286,7 @@ BEGIN
 END //
 DELIMITER ;
 
--- Sử dụng hàm
+-- Use the function
 SELECT
     student_id,
     fullname,
@@ -295,7 +295,7 @@ SELECT
 FROM students;
 ```
 
-#### Ví dụ 2: Hàm tính điểm trung bình
+#### Example 2: Function to calculate GPA
 
 ```sql
 DELIMITER //
@@ -312,7 +312,7 @@ BEGIN
 END //
 DELIMITER ;
 
--- Sử dụng hàm
+-- Use the function
 SELECT
     s.student_id,
     s.fullname,
@@ -320,7 +320,7 @@ SELECT
 FROM students s;
 ```
 
-#### Ví dụ 3: Hàm xếp loại học lực
+#### Example 3: Function to classify academic performance
 
 ```sql
 DELIMITER //
@@ -330,22 +330,22 @@ BEGIN
     DECLARE ranking VARCHAR(20);
 
     IF score >= 9.0 THEN
-        SET ranking = 'Xuất sắc';
+        SET ranking = 'Excellent';
     ELSEIF score >= 8.0 THEN
-        SET ranking = 'Giỏi';
+        SET ranking = 'Good';
     ELSEIF score >= 7.0 THEN
-        SET ranking = 'Khá';
+        SET ranking = 'Fair';
     ELSEIF score >= 5.0 THEN
-        SET ranking = 'Trung bình';
+        SET ranking = 'Average';
     ELSE
-        SET ranking = 'Yếu';
+        SET ranking = 'Weak';
     END IF;
 
     RETURN ranking;
 END //
 DELIMITER ;
 
--- Sử dụng hàm
+-- Use the function
 SELECT
     student_id,
     fullname,
@@ -354,11 +354,11 @@ SELECT
 FROM student_scores;
 ```
 
-### Thủ tục lưu trữ (Stored Procedures)
+### Stored Procedures
 
-Thủ tục lưu trữ là tập hợp các câu lệnh SQL được đặt tên và lưu trữ trong cơ sở dữ liệu. Khác với hàm, thủ tục có thể không trả về giá trị và có thể có nhiều tham số đầu vào/đầu ra.
+Stored procedures are named collections of SQL statements stored in the database. Unlike functions, procedures may not return a value and can have multiple input/output parameters.
 
-#### Ví dụ 1: Thủ tục cơ bản để lấy thông tin sinh viên
+#### Example 1: Basic procedure to get student info
 
 ```sql
 DELIMITER //
@@ -370,11 +370,11 @@ BEGIN
 END //
 DELIMITER ;
 
--- Gọi thủ tục
+-- Call the procedure
 CALL get_student_info(101);
 ```
 
-#### Ví dụ 2: Thủ tục với tham số đầu ra
+#### Example 2: Procedure with output parameters
 
 ```sql
 DELIMITER //
@@ -384,24 +384,24 @@ CREATE PROCEDURE get_class_statistics(
     OUT avg_score DECIMAL(4,2)
 )
 BEGIN
-    -- Tính tổng số sinh viên
+    -- Calculate total students
     SELECT COUNT(*) INTO total_students
     FROM students
     WHERE class_id = class_id;
 
-    -- Tính điểm trung bình
+    -- Calculate average score
     SELECT AVG(score) INTO avg_score
     FROM students
     WHERE class_id = class_id;
 END //
 DELIMITER ;
 
--- Gọi thủ tục với tham số đầu ra
+-- Call procedure with output parameters
 CALL get_class_statistics(1, @total, @avg);
-SELECT @total AS 'Tổng sinh viên', @avg AS 'Điểm trung bình';
+SELECT @total AS 'Total Students', @avg AS 'Average Score';
 ```
 
-#### Ví dụ 3: Thủ tục cập nhật dữ liệu
+#### Example 3: Procedure to update data
 
 ```sql
 DELIMITER //
@@ -415,38 +415,38 @@ BEGIN
     DECLARE current_score DECIMAL(4,2);
     DECLARE score_exists INT;
 
-    -- Kiểm tra xem điểm đã tồn tại chưa
+    -- Check if score already exists
     SELECT COUNT(*), IFNULL(score, 0)
     INTO score_exists, current_score
     FROM student_scores
     WHERE student_id = student_id AND subject_id = subject_id;
 
-    -- Cập nhật hoặc thêm mới điểm
+    -- Update or insert new score
     IF score_exists > 0 THEN
         UPDATE student_scores
         SET score = new_score
         WHERE student_id = student_id AND subject_id = subject_id;
 
-        SET result = CONCAT('Cập nhật điểm từ ', current_score, ' thành ', new_score);
+        SET result = CONCAT('Updated score from ', current_score, ' to ', new_score);
     ELSE
         INSERT INTO student_scores (student_id, subject_id, score)
         VALUES (student_id, subject_id, new_score);
 
-        SET result = CONCAT('Thêm mới điểm: ', new_score);
+        SET result = CONCAT('Added new score: ', new_score);
     END IF;
 END //
 DELIMITER ;
 
--- Gọi thủ tục cập nhật
+-- Call update procedure
 CALL update_student_score(101, 1, 8.5, @result);
 SELECT @result;
 ```
 
-### Triggers và sự kiện
+### Triggers and Events
 
-Trigger là đoạn mã SQL tự động thực thi khi một sự kiện cụ thể xảy ra (như INSERT, UPDATE, DELETE). Sự kiện (Event) là các tác vụ SQL được lên lịch để chạy tại một thời điểm cụ thể.
+A Trigger is a block of SQL code that automatically executes when a specific event occurs (like INSERT, UPDATE, DELETE). An Event is a SQL task scheduled to run at a specific time.
 
-#### Ví dụ 1: Trigger kiểm tra điểm trước khi chèn
+#### Example 1: Trigger to check score before insert
 
 ```sql
 DELIMITER //
@@ -454,7 +454,7 @@ CREATE TRIGGER before_score_insert
 BEFORE INSERT ON student_scores
 FOR EACH ROW
 BEGIN
-    -- Đảm bảo điểm nằm trong khoảng hợp lệ
+    -- Ensure score is within valid range
     IF NEW.score < 0 THEN
         SET NEW.score = 0;
     ELSEIF NEW.score > 10 THEN
@@ -464,10 +464,10 @@ END //
 DELIMITER ;
 ```
 
-#### Ví dụ 2: Trigger cập nhật lịch sử thay đổi
+#### Example 2: Trigger to log history of changes
 
 ```sql
--- Tạo bảng lưu lịch sử
+-- Create history table
 CREATE TABLE student_score_history (
     id INT AUTO_INCREMENT PRIMARY KEY,
     student_id INT,
@@ -491,10 +491,10 @@ END //
 DELIMITER ;
 ```
 
-#### Ví dụ 3: Event định kỳ tính toán thống kê
+#### Example 3: Periodic Event to calculate statistics
 
 ```sql
--- Tạo bảng lưu thống kê
+-- Create statistics table
 CREATE TABLE class_statistics (
     id INT AUTO_INCREMENT PRIMARY KEY,
     class_id INT,
@@ -521,37 +521,37 @@ END //
 DELIMITER ;
 ```
 
-### Giao dịch và xử lý lỗi
+### Transactions and Error Handling
 
-Giao dịch (Transaction) đảm bảo tính toàn vẹn của dữ liệu khi thực hiện nhiều thao tác. Xử lý lỗi giúp ứng dụng phản ứng khi có lỗi xảy ra.
+Transactions ensure data integrity when performing multiple operations. Error handling helps the application react when errors occur.
 
-#### Ví dụ 1: Giao dịch cơ bản
+#### Example 1: Basic Transaction
 
 ```sql
--- Chuyển điểm từ sinh viên này sang sinh viên khác
+-- Transfer points from one student to another
 START TRANSACTION;
 
--- Trừ điểm từ sinh viên nguồn
+-- Deduct points from source student
 UPDATE student_scores
 SET score = score - 2
 WHERE student_id = 101 AND subject_id = 1;
 
--- Thêm điểm cho sinh viên đích
+-- Add points to target student
 UPDATE student_scores
 SET score = score + 2
 WHERE student_id = 102 AND subject_id = 1;
 
--- Kiểm tra nếu có điểm âm thì không thực hiện
+-- Check if any score is negative, if so rollback
 IF EXISTS (SELECT 1 FROM student_scores WHERE score < 0) THEN
     ROLLBACK;
-    SELECT 'Giao dịch bị hủy vì điểm trở thành âm';
+    SELECT 'Transaction cancelled because score became negative';
 ELSE
     COMMIT;
-    SELECT 'Giao dịch đã được thực hiện thành công';
+    SELECT 'Transaction completed successfully';
 END IF;
 ```
 
-#### Ví dụ 2: Xử lý lỗi với DECLARE...HANDLER
+#### Example 2: Error Handling with DECLARE...HANDLER
 
 ```sql
 DELIMITER //
@@ -563,37 +563,37 @@ CREATE PROCEDURE transfer_score(
     OUT message VARCHAR(100)
 )
 BEGIN
-    -- Khai báo biến
+    -- Declare variables
     DECLARE source_score DECIMAL(4,2);
     DECLARE exit_handler BOOLEAN DEFAULT FALSE;
 
-    -- Khai báo handler cho lỗi
+    -- Declare handler for errors
     DECLARE CONTINUE HANDLER FOR SQLEXCEPTION
     BEGIN
         SET exit_handler = TRUE;
-        SET message = 'Lỗi SQL xảy ra trong quá trình chuyển điểm';
+        SET message = 'SQL Error occurred during score transfer';
         ROLLBACK;
     END;
 
-    -- Bắt đầu giao dịch
+    -- Start transaction
     START TRANSACTION;
 
-    -- Lấy điểm hiện tại của sinh viên nguồn
+    -- Get current score of source student
     SELECT score INTO source_score
     FROM student_scores
     WHERE student_id = source_student_id AND subject_id = subject_id;
 
-    -- Kiểm tra xem có đủ điểm để chuyển không
+    -- Check if enough points to transfer
     IF source_score IS NULL OR source_score < points THEN
-        SET message = 'Không đủ điểm để chuyển';
+        SET message = 'Not enough points to transfer';
         ROLLBACK;
     ELSE
-        -- Trừ điểm từ sinh viên nguồn
+        -- Deduct points from source student
         UPDATE student_scores
         SET score = score - points
         WHERE student_id = source_student_id AND subject_id = subject_id;
 
-        -- Thêm điểm cho sinh viên đích
+        -- Add points to target student
         IF EXISTS (SELECT 1 FROM student_scores WHERE student_id = target_student_id AND subject_id = subject_id) THEN
             UPDATE student_scores
             SET score = score + points
@@ -603,21 +603,21 @@ BEGIN
             VALUES (target_student_id, subject_id, points);
         END IF;
 
-        -- Nếu không có lỗi, hoàn tất giao dịch
+        -- If no error, commit transaction
         IF exit_handler = FALSE THEN
             COMMIT;
-            SET message = CONCAT('Đã chuyển ', points, ' điểm thành công');
+            SET message = CONCAT('Successfully transferred ', points, ' points');
         END IF;
     END IF;
 END //
 DELIMITER ;
 
--- Gọi thủ tục
+-- Call procedure
 CALL transfer_score(101, 102, 1, 2.5, @message);
 SELECT @message;
 ```
 
-#### Ví dụ 3: Kiểm soát lỗi với SIGNAL
+#### Example 3: Error Control with SIGNAL
 
 ```sql
 DELIMITER //
@@ -627,19 +627,19 @@ CREATE PROCEDURE insert_new_student(
     IN p_class_id INT
 )
 BEGIN
-    -- Kiểm tra email đã tồn tại chưa
+    -- Check if email already exists
     IF EXISTS (SELECT 1 FROM students WHERE email = p_email) THEN
         SIGNAL SQLSTATE '45000'
-            SET MESSAGE_TEXT = 'Email đã tồn tại trong hệ thống';
+            SET MESSAGE_TEXT = 'Email already exists in the system';
     END IF;
 
-    -- Kiểm tra lớp học có tồn tại không
+    -- Check if class exists
     IF NOT EXISTS (SELECT 1 FROM classes WHERE class_id = p_class_id) THEN
         SIGNAL SQLSTATE '45000'
-            SET MESSAGE_TEXT = 'Lớp học không tồn tại';
+            SET MESSAGE_TEXT = 'Class does not exist';
     END IF;
 
-    -- Nếu dữ liệu hợp lệ, thêm sinh viên mới
+    -- If data is valid, insert new student
     INSERT INTO students (fullname, email, class_id)
     VALUES (p_fullname, p_email, p_class_id);
 
@@ -647,73 +647,73 @@ BEGIN
 END //
 DELIMITER ;
 
--- Gọi thủ tục
-CALL insert_new_student('Nguyễn Văn A', 'nguyenvana@example.com', 1);
+-- Call procedure
+CALL insert_new_student('Nguyen Van A', 'nguyenvana@example.com', 1);
 ```
 
-## 🧑‍🏫 Bài 3: Tối ưu hóa truy vấn
+## 🧑‍🏫 Lesson 3: Query Optimization
 
-### Chỉ mục (Indexes) và cách hoạt động
+### Indexes and How They Work
 
-Chỉ mục là cấu trúc dữ liệu giúp tăng tốc độ truy vấn bằng cách tạo ra một bảng tra cứu nhanh cho một hoặc nhiều cột trong cơ sở dữ liệu.
+An index is a data structure that improves the speed of data retrieval operations on a database table by creating a quick lookup table for one or more columns.
 
-#### Ví dụ 1: Tạo chỉ mục cơ bản
+#### Example 1: Creating Basic Indexes
 
 ```sql
--- Tạo chỉ mục cho cột họ tên học sinh để tìm kiếm nhanh
+-- Create index for student fullname column for fast search
 CREATE INDEX idx_student_fullname ON students(fullname);
 
--- Tạo chỉ mục cho cột email (duy nhất)
+-- Create unique index for email column
 CREATE UNIQUE INDEX idx_student_email ON students(email);
 ```
 
-#### Ví dụ 2: Chỉ mục đa cột (Composite Index)
+#### Example 2: Composite Index
 
 ```sql
--- Tạo chỉ mục cho cả lớp học và điểm số để tìm kiếm hiệu quả
+-- Create index for both class and score for efficient search
 CREATE INDEX idx_class_score ON students(class_id, score);
 
--- Tìm kiếm sử dụng chỉ mục đa cột
--- Sử dụng hiệu quả chỉ mục
+-- Search using composite index
+-- Efficiently uses index
 SELECT * FROM students WHERE class_id = 2 AND score > 8;
 
--- Cũng sử dụng hiệu quả chỉ mục
+-- Also efficiently uses index
 SELECT * FROM students WHERE class_id = 2;
 
--- KHÔNG sử dụng hiệu quả chỉ mục (bỏ qua cột đầu tiên trong chỉ mục)
+-- Does NOT efficiently use index (skips first column in index)
 SELECT * FROM students WHERE score > 8;
 ```
 
-#### Ví dụ 3: Loại bỏ chỉ mục
+#### Example 3: Removing Indexes
 
 ```sql
--- Xóa chỉ mục không cần thiết
+-- Drop unnecessary index
 DROP INDEX idx_student_fullname ON students;
 ```
 
-#### Ví dụ 4: Chỉ mục đầy đủ văn bản (Fulltext Index)
+#### Example 4: Fulltext Index
 
 ```sql
--- Tạo fulltext index cho cột mô tả khóa học
+-- Create fulltext index for course description column
 CREATE FULLTEXT INDEX idx_course_description ON courses(description);
 
--- Tìm kiếm văn bản sử dụng fulltext index
+-- Search text using fulltext index
 SELECT * FROM courses
-WHERE MATCH(description) AGAINST('lập trình' IN NATURAL LANGUAGE MODE);
+WHERE MATCH(description) AGAINST('programming' IN NATURAL LANGUAGE MODE);
 ```
 
-### Phân tích kế hoạch thực thi truy vấn
+### Analyzing Query Execution Plans
 
-Để tối ưu hiệu quả, cần hiểu cách MySQL thực thi câu truy vấn. Lệnh EXPLAIN cung cấp thông tin về cách truy vấn được thực hiện.
+To optimize effectively, you need to understand how MySQL executes a query. The EXPLAIN command provides information about how the query is executed.
 
-#### Ví dụ 1: Sử dụng EXPLAIN
+#### Example 1: Using EXPLAIN
 
 ```sql
--- Phân tích cách thực thi truy vấn
+-- Analyze query execution
 EXPLAIN SELECT * FROM students WHERE score > 8.5;
 ```
 
-Kết quả:
+Result:
 
 ```text
 +----+-------------+----------+------+---------------+------+---------+------+------+-------------+
@@ -723,23 +723,23 @@ Kết quả:
 +----+-------------+----------+------+---------------+------+---------+------+------+-------------+
 ```
 
-Phân tích:
+Analysis:
 
-- `type = ALL`: phải quét toàn bộ bảng (full table scan)
-- `possible_keys = NULL`: không có chỉ mục phù hợp để sử dụng
-- `rows = 1000`: ước tính số hàng phải quét qua
+- `type = ALL`: full table scan required
+- `possible_keys = NULL`: no suitable index to use
+- `rows = 1000`: estimated number of rows to scan
 
-#### Ví dụ 2: EXPLAIN với chỉ mục
+#### Example 2: EXPLAIN with Index
 
 ```sql
--- Tạo chỉ mục cho cột score
+-- Create index for score column
 CREATE INDEX idx_score ON students(score);
 
--- Phân tích lại truy vấn
+-- Re-analyze query
 EXPLAIN SELECT * FROM students WHERE score > 8.5;
 ```
 
-Kết quả:
+Result:
 
 ```text
 +----+-------------+----------+-------+---------------+----------+---------+------+------+-----------------------+
@@ -749,17 +749,17 @@ Kết quả:
 +----+-------------+----------+-------+---------------+----------+---------+------+------+-----------------------+
 ```
 
-Phân tích:
+Analysis:
 
-- `type = range`: sử dụng chỉ mục để tìm kiếm trong một phạm vi
-- `possible_keys = idx_score`: chỉ mục có thể sử dụng
-- `key = idx_score`: chỉ mục thực sự được sử dụng
-- `rows = 200`: ước tính số hàng phải quét qua (giảm đáng kể)
+- `type = range`: uses index to search within a range
+- `possible_keys = idx_score`: possible index to use
+- `key = idx_score`: index actually used
+- `rows = 200`: estimated number of rows to scan (significantly reduced)
 
-#### Ví dụ 3: Phân tích JOIN
+#### Example 3: Analyzing JOIN
 
 ```sql
--- Phân tích truy vấn JOIN phức tạp
+-- Analyze complex JOIN query
 EXPLAIN SELECT s.student_id, s.fullname, c.class_name
 FROM students s
 JOIN classes c ON s.class_id = c.class_id
@@ -767,102 +767,102 @@ WHERE s.score > 8.0
 ORDER BY s.fullname;
 ```
 
-### Kỹ thuật tối ưu câu lệnh SQL
+### SQL Statement Optimization Techniques
 
-#### Ví dụ 1: Chỉ chọn những cột cần thiết
+#### Example 1: Select Only Necessary Columns
 
 ```sql
--- KHÔNG tốt: Lấy tất cả các cột
+-- BAD: Select all columns
 SELECT * FROM students JOIN classes ON students.class_id = classes.class_id;
 
--- Tốt hơn: Chỉ lấy những cột cần thiết
+-- BETTER: Select only necessary columns
 SELECT students.student_id, students.fullname, classes.class_name
 FROM students
 JOIN classes ON students.class_id = classes.class_id;
 ```
 
-#### Ví dụ 2: Sử dụng điều kiện lọc hiệu quả
+#### Example 2: Use Efficient Filtering Conditions
 
 ```sql
--- KHÔNG tốt: Điều kiện không sử dụng chỉ mục
+-- BAD: Condition not using index
 SELECT * FROM students WHERE YEAR(date_of_birth) = 2000;
 
--- Tốt hơn: Điều kiện cho phép sử dụng chỉ mục
+-- BETTER: Condition allows using index
 SELECT * FROM students
 WHERE date_of_birth >= '2000-01-01' AND date_of_birth <= '2000-12-31';
 ```
 
-#### Ví dụ 3: Tránh sử dụng hàm trên cột trong điều kiện WHERE
+#### Example 3: Avoid Using Functions on Columns in WHERE Clause
 
 ```sql
--- KHÔNG tốt: Sử dụng hàm trên cột ngăn cản việc sử dụng chỉ mục
+-- BAD: Using function on column prevents index usage
 SELECT * FROM students WHERE LOWER(email) = 'student@example.com';
 
--- Tốt hơn: Không sử dụng hàm trên cột trong WHERE
+-- BETTER: Do not use function on column in WHERE
 SELECT * FROM students WHERE email = 'student@example.com';
 ```
 
-#### Ví dụ 4: Sử dụng LIMIT để giới hạn kết quả
+#### Example 4: Use LIMIT to Restrict Results
 
 ```sql
--- KHÔNG tốt: Lấy tất cả kết quả khi chỉ cần một số ít
+-- BAD: Get all results when only a few are needed
 SELECT * FROM students ORDER BY score DESC;
 
--- Tốt hơn: Giới hạn số kết quả trả về
+-- BETTER: Limit number of returned results
 SELECT * FROM students ORDER BY score DESC LIMIT 10;
 ```
 
-#### Ví dụ 5: Sử dụng EXISTS thay vì IN cho subquery
+#### Example 5: Use EXISTS Instead of IN for Subquery
 
 ```sql
--- KHÔNG tốt khi có nhiều kết quả: Sử dụng IN với subquery
+-- BAD when many results: Use IN with subquery
 SELECT * FROM classes
 WHERE class_id IN (SELECT class_id FROM students WHERE score > 9);
 
--- Tốt hơn: Sử dụng EXISTS
+-- BETTER: Use EXISTS
 SELECT * FROM classes c
 WHERE EXISTS (SELECT 1 FROM students s WHERE s.class_id = c.class_id AND s.score > 9);
 ```
 
-### Theo dõi và đánh giá hiệu suất
+### Monitoring and Evaluating Performance
 
-#### Ví dụ 1: Theo dõi truy vấn chậm
+#### Example 1: Monitoring Slow Queries
 
 ```sql
--- Bật log cho các truy vấn chậm
+-- Enable log for slow queries
 SET GLOBAL slow_query_log = 'ON';
 SET GLOBAL slow_query_log_file = '/var/log/mysql/slow-queries.log';
-SET GLOBAL long_query_time = 1; -- Log các truy vấn chạy > 1 giây
+SET GLOBAL long_query_time = 1; -- Log queries running > 1 second
 ```
 
-#### Ví dụ 2: Xem trạng thái của hệ thống
+#### Example 2: Viewing System Status
 
 ```sql
--- Xem các biến trạng thái
-SHOW STATUS LIKE 'Com_%'; -- Hiển thị số lần mỗi lệnh được thực thi
+-- View status variables
+SHOW STATUS LIKE 'Com_%'; -- Show number of times each command is executed
 
--- Xem trạng thái của InnoDB
+-- View InnoDB status
 SHOW ENGINE INNODB STATUS;
 
--- Xem các truy vấn đang chạy
+-- View running queries
 SHOW PROCESSLIST;
 
--- Kiểm tra các truy vấn tốn thời gian dài
+-- Check long-running queries
 SELECT * FROM information_schema.PROCESSLIST
-WHERE TIME > 60; -- Các truy vấn chạy hơn 60 giây
+WHERE TIME > 60; -- Queries running more than 60 seconds
 ```
 
-#### Ví dụ 3: Phân tích câu lệnh bằng ANALYZE
+#### Example 3: Analyzing Table with ANALYZE
 
 ```sql
--- Phân tích bảng để cập nhật thống kê
+-- Analyze table to update statistics
 ANALYZE TABLE students, classes, student_scores;
 ```
 
-#### Ví dụ 4: Tối ưu hóa câu lệnh SQL
+#### Example 4: Optimizing SQL Statements
 
 ```sql
--- Sử dụng EXPLAIN FORMAT=JSON để có thêm chi tiết về kế hoạch thực thi
+-- Use EXPLAIN FORMAT=JSON for more details on execution plan
 EXPLAIN FORMAT=JSON
 SELECT s.student_id, s.fullname, AVG(ss.score) as avg_score
 FROM students s
@@ -873,51 +873,51 @@ HAVING avg_score > 7.5
 ORDER BY avg_score DESC;
 ```
 
-### Bài tập thực hành bài 3
+### Practice Exercises Lesson 3
 
-1. Tạo một bảng Students với 100,000 bản ghi mẫu
-2. Thực hiện các truy vấn khác nhau và sử dụng EXPLAIN để phân tích
-3. Tạo chỉ mục và đo thời gian truy vấn trước và sau khi tạo chỉ mục
-4. Viết lại các câu truy vấn không hiệu quả để cải thiện hiệu suất
+1. Create a Students table with 100,000 sample records.
+2. Execute different queries and use EXPLAIN to analyze.
+3. Create indexes and measure query time before and after creating indexes.
+4. Rewrite inefficient queries to improve performance.
 
 ---
 
-## 🧑‍🏫 Bài 4: Thiết kế cơ sở dữ liệu
+## 🧑‍🏫 Lesson 4: Database Design
 
-### Chuẩn hóa và phi chuẩn hóa
+### Normalization and Denormalization
 
-Chuẩn hóa là quá trình cấu trúc cơ sở dữ liệu để giảm thiểu sự dư thừa và đảm bảo tính nhất quán của dữ liệu. Phi chuẩn hóa là quá trình ngược lại, thêm dư thừa có chủ đích để tối ưu hiệu suất.
+Normalization is the process of structuring a database to minimize redundancy and ensure data consistency. Denormalization is the reverse process, adding redundancy intentionally to optimize performance.
 
-#### Ví dụ 1: Dữ liệu chưa chuẩn hóa
+#### Example 1: Unnormalized Data
 
-Bảng `student_courses` ban đầu:
+Initial `student_courses` table:
 
 | student_id | student_name | course_id | course_name | teacher_name | score |
 | ---------- | ------------ | --------- | ----------- | ------------ | ----- |
-| 101        | Nguyễn Văn A | C001      | SQL Cơ bản  | Trần Văn X   | 8.5   |
-| 102        | Lê Thị B     | C001      | SQL Cơ bản  | Trần Văn X   | 9.0   |
-| 101        | Nguyễn Văn A | C002      | HTML/CSS    | Phạm Thị Y   | 7.5   |
-| 102        | Lê Thị B     | C002      | HTML/CSS    | Phạm Thị Y   | 8.0   |
+| 101        | Nguyen Van A | C001      | Basic SQL   | Tran Van X   | 8.5   |
+| 102        | Le Thi B     | C001      | Basic SQL   | Tran Van X   | 9.0   |
+| 101        | Nguyen Van A | C002      | HTML/CSS    | Pham Thi Y   | 7.5   |
+| 102        | Le Thi B     | C002      | HTML/CSS    | Pham Thi Y   | 8.0   |
 
-**Vấn đề**:
+**Issues**:
 
-- Lặp lại thông tin sinh viên, khóa học, giáo viên
-- Khó cập nhật (VD: thay đổi tên khóa học phải cập nhật nhiều dòng)
-- Rủi ro dữ liệu không nhất quán
+- Repetition of student, course, teacher information.
+- Difficult to update (e.g., changing course name requires updating multiple rows).
+- Risk of data inconsistency.
 
-#### Ví dụ 2: Chuẩn hóa dạng 1NF
+#### Example 2: Normalization to 1NF
 
-Dữ liệu trong mỗi cột phải là giá trị nguyên tử (không được chia nhỏ hơn).
+Data in each column must be atomic (cannot be further divided).
 
 ```sql
--- Ví dụ bảng vi phạm 1NF
+-- Example table violating 1NF
 CREATE TABLE contacts (
     id INT PRIMARY KEY,
     name VARCHAR(100),
-    phone_numbers VARCHAR(255) -- Lưu nhiều số điện thoại trong một cột "098765432, 012345678"
+    phone_numbers VARCHAR(255) -- Stores multiple phone numbers in one column "098765432, 012345678"
 );
 
--- Sửa thành 1NF: Tách thành 2 bảng
+-- Fix to 1NF: Split into 2 tables
 CREATE TABLE contacts (
     id INT PRIMARY KEY,
     name VARCHAR(100)
@@ -931,22 +931,22 @@ CREATE TABLE contact_phones (
 );
 ```
 
-#### Ví dụ 3: Chuẩn hóa dạng 2NF
+#### Example 3: Normalization to 2NF
 
-Phải đạt 1NF và mọi cột không khóa phải phụ thuộc đầy đủ vào khóa chính (không phụ thuộc vào một phần của khóa chính).
+Must be 1NF and every non-key column must be fully dependent on the primary key (not dependent on part of the primary key).
 
 ```sql
--- Ví dụ bảng vi phạm 2NF
+-- Example table violating 2NF
 CREATE TABLE student_courses (
     student_id INT,
     course_id INT,
-    student_name VARCHAR(100), -- Phụ thuộc vào student_id (một phần của khóa chính)
-    course_name VARCHAR(100), -- Phụ thuộc vào course_id (một phần của khóa chính)
+    student_name VARCHAR(100), -- Depends on student_id (part of primary key)
+    course_name VARCHAR(100), -- Depends on course_id (part of primary key)
     score DECIMAL(4,2),
     PRIMARY KEY (student_id, course_id)
 );
 
--- Sửa thành 2NF: Tách thành 3 bảng
+-- Fix to 2NF: Split into 3 tables
 CREATE TABLE students (
     id INT PRIMARY KEY,
     name VARCHAR(100)
@@ -967,20 +967,20 @@ CREATE TABLE enrollments (
 );
 ```
 
-#### Ví dụ 4: Chuẩn hóa dạng 3NF
+#### Example 4: Normalization to 3NF
 
-Phải đạt 2NF và không có cột không khóa phụ thuộc vào cột không khóa khác (phụ thuộc bắc cầu).
+Must be 2NF and no non-key column depends on another non-key column (transitive dependency).
 
 ```sql
--- Ví dụ bảng vi phạm 3NF
+-- Example table violating 3NF
 CREATE TABLE courses (
     id INT PRIMARY KEY,
     name VARCHAR(100),
     teacher_id INT,
-    teacher_name VARCHAR(100) -- Phụ thuộc vào teacher_id (không phải khóa chính)
+    teacher_name VARCHAR(100) -- Depends on teacher_id (not primary key)
 );
 
--- Sửa thành 3NF: Tách thành 2 bảng
+-- Fix to 3NF: Split into 2 tables
 CREATE TABLE teachers (
     id INT PRIMARY KEY,
     name VARCHAR(100)
@@ -994,29 +994,29 @@ CREATE TABLE courses (
 );
 ```
 
-#### Ví dụ 5: Phi chuẩn hóa có chủ đích
+#### Example 5: Intentional Denormalization
 
 ```sql
--- Lưu trữ dữ liệu tổng hợp để tăng hiệu suất truy vấn
+-- Store aggregated data to increase query performance
 CREATE TABLE classes (
     id INT PRIMARY KEY,
     name VARCHAR(100),
-    student_count INT, -- Dư thừa có tính toán
-    avg_score DECIMAL(4,2) -- Dư thừa có tính toán
+    student_count INT, -- Calculated redundancy
+    avg_score DECIMAL(4,2) -- Calculated redundancy
 );
 
--- Procedure cập nhật dữ liệu tổng hợp
+-- Procedure to update aggregated data
 DELIMITER //
 CREATE PROCEDURE update_class_statistics(IN class_id INT)
 BEGIN
-    -- Cập nhật số lượng sinh viên
+    -- Update student count
     UPDATE classes c
     SET student_count = (
         SELECT COUNT(*) FROM students s WHERE s.class_id = c.id
     )
     WHERE c.id = class_id;
 
-    -- Cập nhật điểm trung bình
+    -- Update average score
     UPDATE classes c
     SET avg_score = (
         SELECT AVG(score)
@@ -1028,11 +1028,11 @@ END //
 DELIMITER ;
 ```
 
-### Mô hình dữ liệu: khái niệm và ứng dụng
+### Data Modeling: Concepts and Applications
 
-#### Ví dụ 1: Mô hình Entity-Relationship (ER)
+#### Example 1: Entity-Relationship (ER) Model
 
-Mô hình ER là một cách biểu diễn các thực thể và mối quan hệ giữa chúng trong cơ sở dữ liệu.
+ER model is a way to represent entities and relationships between them in a database.
 
 ```text
 +----------------+          +----------------+
@@ -1057,7 +1057,7 @@ Mô hình ER là một cách biểu diễn các thực thể và mối quan hệ
 ```
 
 ```sql
--- Triển khai mô hình ER thành các bảng
+-- Implement ER model into tables
 CREATE TABLE students (
     id INT AUTO_INCREMENT PRIMARY KEY,
     fullname VARCHAR(100) NOT NULL,
@@ -1085,10 +1085,10 @@ CREATE TABLE enrollments (
 );
 ```
 
-#### Ví dụ 2: Mối quan hệ một-nhiều (One-to-Many)
+#### Example 2: One-to-Many Relationship
 
 ```sql
--- Một giáo viên phụ trách nhiều khóa học
+-- One teacher manages multiple courses
 CREATE TABLE teachers (
     id INT AUTO_INCREMENT PRIMARY KEY,
     fullname VARCHAR(100) NOT NULL,
@@ -1105,10 +1105,10 @@ CREATE TABLE courses (
 );
 ```
 
-#### Ví dụ 3: Mối quan hệ nhiều-nhiều (Many-to-Many)
+#### Example 3: Many-to-Many Relationship
 
 ```sql
--- Sinh viên có thể đăng ký nhiều khóa học và mỗi khóa học có nhiều sinh viên
+-- Students can register for multiple courses and each course has multiple students
 CREATE TABLE students (
     id INT AUTO_INCREMENT PRIMARY KEY,
     fullname VARCHAR(100) NOT NULL
@@ -1130,10 +1130,10 @@ CREATE TABLE student_courses (
 );
 ```
 
-#### Ví dụ 4: Mối quan hệ một-một (One-to-One)
+#### Example 4: One-to-One Relationship
 
 ```sql
--- Mỗi sinh viên có một hồ sơ chi tiết
+-- Each student has one detailed profile
 CREATE TABLE students (
     id INT AUTO_INCREMENT PRIMARY KEY,
     fullname VARCHAR(100) NOT NULL,
@@ -1150,19 +1150,19 @@ CREATE TABLE student_profiles (
 );
 ```
 
-### Ràng buộc toàn vẹn và quan hệ
+### Integrity Constraints and Relationships
 
-#### Ví dụ 1: Ràng buộc khóa chính (PRIMARY KEY)
+#### Example 1: PRIMARY KEY Constraint
 
 ```sql
 CREATE TABLE students (
-    id INT AUTO_INCREMENT PRIMARY KEY, -- Đảm bảo mỗi sinh viên có một id duy nhất
-    student_code VARCHAR(10) UNIQUE NOT NULL, -- Mã sinh viên cũng phải duy nhất
+    id INT AUTO_INCREMENT PRIMARY KEY, -- Ensures each student has a unique id
+    student_code VARCHAR(10) UNIQUE NOT NULL, -- Student code must also be unique
     fullname VARCHAR(100) NOT NULL
 );
 ```
 
-#### Ví dụ 2: Ràng buộc khóa ngoại (FOREIGN KEY)
+#### Example 2: FOREIGN KEY Constraint
 
 ```sql
 CREATE TABLE enrollments (
@@ -1171,24 +1171,24 @@ CREATE TABLE enrollments (
     course_id INT,
     enrollment_date DATE,
     FOREIGN KEY (student_id) REFERENCES students(id)
-        ON DELETE CASCADE -- Xóa tự động khi sinh viên bị xóa
-        ON UPDATE CASCADE, -- Cập nhật tự động khi id sinh viên thay đổi
+        ON DELETE CASCADE -- Automatically delete when student is deleted
+        ON UPDATE CASCADE, -- Automatically update when student id changes
     FOREIGN KEY (course_id) REFERENCES courses(id)
-        ON DELETE RESTRICT -- Không cho phép xóa khóa học nếu có sinh viên đăng ký
+        ON DELETE RESTRICT -- Do not allow deleting course if students are enrolled
 );
 ```
 
-#### Ví dụ 3: Ràng buộc CHECK
+#### Example 3: CHECK Constraint
 
 ```sql
 CREATE TABLE students (
     id INT AUTO_INCREMENT PRIMARY KEY,
     fullname VARCHAR(100) NOT NULL,
-    age INT CHECK (age >= 18), -- Đảm bảo tuổi >= 18
-    email VARCHAR(100) UNIQUE CHECK (email LIKE '%@%.%') -- Đảm bảo email có định dạng hợp lệ
+    age INT CHECK (age >= 18), -- Ensure age >= 18
+    email VARCHAR(100) UNIQUE CHECK (email LIKE '%@%.%') -- Ensure email has valid format
 );
 
--- Với MySQL < 8.0.16 không hỗ trợ CHECK trực tiếp, có thể dùng TRIGGER
+-- For MySQL < 8.0.16 not supporting CHECK directly, can use TRIGGER
 DELIMITER //
 CREATE TRIGGER check_student_age
 BEFORE INSERT ON students
@@ -1196,63 +1196,63 @@ FOR EACH ROW
 BEGIN
     IF NEW.age < 18 THEN
         SIGNAL SQLSTATE '45000'
-        SET MESSAGE_TEXT = 'Tuổi phải lớn hơn hoặc bằng 18';
+        SET MESSAGE_TEXT = 'Age must be greater than or equal to 18';
     END IF;
 END //
 DELIMITER ;
 ```
 
-#### Ví dụ 4: Ràng buộc DEFAULT
+#### Example 4: DEFAULT Constraint
 
 ```sql
 CREATE TABLE enrollments (
     id INT AUTO_INCREMENT PRIMARY KEY,
     student_id INT,
     course_id INT,
-    enrollment_date DATE DEFAULT (CURRENT_DATE), -- Tự động set ngày hiện tại
-    status VARCHAR(20) DEFAULT 'Active', -- Trạng thái mặc định
+    enrollment_date DATE DEFAULT (CURRENT_DATE), -- Automatically set current date
+    status VARCHAR(20) DEFAULT 'Active', -- Default status
     FOREIGN KEY (student_id) REFERENCES students(id),
     FOREIGN KEY (course_id) REFERENCES courses(id)
 );
 ```
 
-#### Ví dụ 5: Ràng buộc NOT NULL
+#### Example 5: NOT NULL Constraint
 
 ```sql
 CREATE TABLE teachers (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    fullname VARCHAR(100) NOT NULL, -- Không được để trống
-    email VARCHAR(100) NOT NULL UNIQUE, -- Không được để trống và phải duy nhất
+    fullname VARCHAR(100) NOT NULL, -- Cannot be empty
+    email VARCHAR(100) NOT NULL UNIQUE, -- Cannot be empty and must be unique
     department VARCHAR(50)
 );
 ```
 
-### Thiết kế hướng hiệu suất
+### Performance-Oriented Design
 
-#### Ví dụ 1: Chọn kiểu dữ liệu phù hợp
+#### Example 1: Choosing Appropriate Data Types
 
 ```sql
--- Không hiệu quả
+-- Inefficient
 CREATE TABLE products (
-    id VARCHAR(255) PRIMARY KEY, -- Dùng VARCHAR cho id
-    name VARCHAR(255), -- Dùng VARCHAR quá lớn cho tên sản phẩm
-    price VARCHAR(50), -- Lưu số tiền dưới dạng chuỗi
-    description TEXT -- Dùng TEXT cho mọi mô tả
+    id VARCHAR(255) PRIMARY KEY, -- Using VARCHAR for id
+    name VARCHAR(255), -- Using VARCHAR too large for product name
+    price VARCHAR(50), -- Storing money as string
+    description TEXT -- Using TEXT for all descriptions
 );
 
--- Hiệu quả hơn
+-- More Efficient
 CREATE TABLE products (
-    id INT AUTO_INCREMENT PRIMARY KEY, -- Dùng INT tiết kiệm hơn cho ID
-    name VARCHAR(100), -- Giới hạn kích thước hợp lý
-    price DECIMAL(10,2), -- Dùng DECIMAL cho giá tiền
-    description VARCHAR(1000) -- Giới hạn kích thước cho mô tả ngắn
+    id INT AUTO_INCREMENT PRIMARY KEY, -- Using INT saves more space for ID
+    name VARCHAR(100), -- Reasonable size limit
+    price DECIMAL(10,2), -- Using DECIMAL for money
+    description VARCHAR(1000) -- Size limit for short description
 );
 ```
 
-#### Ví dụ 2: Phân vùng bảng (Table Partitioning)
+#### Example 2: Table Partitioning
 
 ```sql
--- Phân vùng dữ liệu theo năm để cải thiện hiệu suất truy vấn
+-- Partition data by year to improve query performance
 CREATE TABLE orders (
     id INT AUTO_INCREMENT,
     customer_id INT,
@@ -1267,31 +1267,31 @@ PARTITION BY RANGE (YEAR(order_date)) (
     PARTITION pOthers VALUES LESS THAN MAXVALUE
 );
 
--- Truy vấn hiệu quả chỉ quét một phân vùng
+-- Efficient query only scans one partition
 SELECT * FROM orders WHERE order_date BETWEEN '2022-01-01' AND '2022-12-31';
 ```
 
-#### Ví dụ 3: Đánh chỉ mục hiệu quả
+#### Example 3: Efficient Indexing
 
-- Đánh chỉ mục cho các cột thường xuyên được sử dụng trong điều kiện WHERE hoặc JOIN
+- Index columns frequently used in WHERE or JOIN conditions
 
 ```sql
--- Tạo chỉ mục đơn cho các cột thường dùng trong WHERE
+-- Create single index for columns often used in WHERE
 CREATE INDEX idx_student_email ON students(email);
 
--- Tạo chỉ mục kết hợp cho các cột thường được sử dụng cùng nhau
+-- Create composite index for columns often used together
 CREATE INDEX idx_course_dept_semester ON courses(department_id, semester);
 
--- Tạo chỉ mục bao gồm (covering index) để tránh tìm kiếm dữ liệu
+-- Create covering index to avoid data lookup
 CREATE INDEX idx_student_list ON students(class_id, fullname, email);
--- Cho phép truy vấn sau đây chỉ sử dụng chỉ mục mà không cần truy cập vào bảng:
+-- Allows the following query to use only index without accessing table:
 -- SELECT fullname, email FROM students WHERE class_id = 5;
 ```
 
-#### Ví dụ 4: Sử dụng các bảng tổng hợp (Materialized Views)
+#### Example 4: Using Materialized Views (Aggregated Tables)
 
 ```sql
--- Tạo bảng tổng hợp thông tin thống kê
+-- Create table for aggregated statistics
 CREATE TABLE class_statistics (
     class_id INT PRIMARY KEY,
     total_students INT,
@@ -1301,14 +1301,14 @@ CREATE TABLE class_statistics (
     last_updated TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Procedure cập nhật bảng tổng hợp
+-- Procedure to update aggregated table
 DELIMITER //
 CREATE PROCEDURE refresh_class_statistics()
 BEGIN
-    -- Xóa dữ liệu cũ
+    -- Clear old data
     TRUNCATE TABLE class_statistics;
 
-    -- Chèn dữ liệu mới
+    -- Insert new data
     INSERT INTO class_statistics (class_id, total_students, avg_score, highest_score, lowest_score)
     SELECT
         class_id,
@@ -1319,33 +1319,33 @@ BEGIN
     FROM students
     GROUP BY class_id;
 
-    -- Cập nhật thời gian
+    -- Update time
     UPDATE class_statistics SET last_updated = CURRENT_TIMESTAMP;
 END //
 DELIMITER ;
 
--- Lên lịch cập nhật mỗi ngày
+-- Schedule daily update
 CREATE EVENT refresh_class_statistics
 ON SCHEDULE EVERY 1 DAY
 DO
 CALL refresh_class_statistics();
 ```
 
-#### Ví dụ 5: Thiết kế schema hợp lý
+#### Example 5: Proper Schema Design
 
 ```sql
--- Thiết kế schema phân cấp
+-- Hierarchical schema design
 CREATE DATABASE school_management;
 
 USE school_management;
 
--- Bảng các phòng ban
+-- Departments table
 CREATE TABLE departments (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL
 );
 
--- Bảng nhân viên (đặt trong schema chính)
+-- Staff table (placed in main schema)
 CREATE TABLE staff (
     id INT AUTO_INCREMENT PRIMARY KEY,
     fullname VARCHAR(100) NOT NULL,
@@ -1353,28 +1353,28 @@ CREATE TABLE staff (
     FOREIGN KEY (department_id) REFERENCES departments(id)
 );
 
--- Tạo schema riêng cho dữ liệu học tập
+-- Create separate schema for academic data
 CREATE DATABASE school_management_academic;
 
 USE school_management_academic;
 
--- Bảng học sinh
+-- Students table
 CREATE TABLE students (
     id INT AUTO_INCREMENT PRIMARY KEY,
     fullname VARCHAR(100) NOT NULL
 );
 
--- Thiết lập quyền truy cập
+-- Set access permissions
 GRANT SELECT, INSERT, UPDATE ON school_management.staff TO 'admin_user'@'localhost';
 GRANT SELECT ON school_management_academic.students TO 'teacher_user'@'localhost';
 ```
 
-### Bài tập thực hành: Thiết kế cơ sở dữ liệu
+### Practice Exercises: Database Design
 
-1. Cho dữ liệu bán hàng chưa được chuẩn hóa, hãy phân tích và thiết kế lại theo các dạng chuẩn 1NF, 2NF và 3NF
+1. Given unnormalized sales data, analyze and redesign according to 1NF, 2NF, and 3NF standards.
 
    ```sql
-    -- Bảng chưa chuẩn hóa
+    -- Unnormalized table
     CREATE TABLE sales (
         order_id INT,
         customer_name VARCHAR(100),
@@ -1385,178 +1385,178 @@ GRANT SELECT ON school_management_academic.students TO 'teacher_user'@'localhost
     );
    ```
 
-    - **Yêu cầu**: Tách thành các bảng riêng biệt cho khách hàng, sản phẩm và đơn hàng. Đảm bảo không có dữ liệu dư thừa và tất cả các bảng đều đạt chuẩn 3NF.
+    - **Requirement**: Split into separate tables for customers, products, and orders. Ensure no redundant data and all tables meet 3NF.
 
-2. Thiết kế mô hình ER cho hệ thống quản lý thư viện, bao gồm sách, độc giả, mượn trả sách; Chuyển đổi mô hình ER thành các bảng SQL với đầy đủ ràng buộc; Xác định các chỉ mục cần thiết để cải thiện hiệu suất truy vấn
+2. Design an ER model for a library management system, including books, readers, borrowing/returning; Convert ER model to SQL tables with full constraints; Identify necessary indexes to improve query performance.
 
 ---
 
-## 🧑‍🏫 Bài 5: Bảo mật và quản trị
+## 🧑‍🏫 Lesson 5: Security and Administration
 
-1. Quản lý người dùng và phân quyền
+1. User Management and Permissions
 
-   - **Tạo người dùng**:
+   - **Create User**:
 
      ```sql
      CREATE USER 'student_user'@'localhost' IDENTIFIED BY 'secure_password';
      ```
 
-   - **Cấp quyền cụ thể**:
+   - **Grant Specific Permissions**:
 
      ```sql
-     -- Cấp quyền SELECT cho một bảng cụ thể
+     -- Grant SELECT on a specific table
      GRANT SELECT ON school_management.students TO 'student_user'@'localhost';
 
-     -- Cấp nhiều loại quyền
+     -- Grant multiple permissions
      GRANT SELECT, INSERT, UPDATE ON school_management.* TO 'teacher_user'@'localhost';
 
-     -- Cấp tất cả quyền (chỉ nên cấp cho admin)
+     -- Grant all privileges (only for admin)
      GRANT ALL PRIVILEGES ON school_management.* TO 'admin_user'@'localhost';
      ```
 
-   - **Thu hồi quyền**:
+   - **Revoke Permissions**:
 
      ```sql
      REVOKE INSERT, UPDATE ON school_management.students FROM 'student_user'@'localhost';
      ```
 
-   - **Xem quyền của người dùng**:
+   - **View User Permissions**:
 
      ```sql
      SHOW GRANTS FOR 'student_user'@'localhost';
      ```
 
-2. Backup và phục hồi dữ liệu
+2. Backup and Recovery
 
-   - **Backup cơ sở dữ liệu**:
+   - **Backup Database**:
 
    ```bash
-   # Sử dụng mysqldump để tạo backup
+   # Use mysqldump to create backup
    mysqldump -u root -p school_management > school_backup.sql
 
-   # Backup chỉ cấu trúc bảng (không có dữ liệu)
+   # Backup only table structure (no data)
    mysqldump -u root -p --no-data school_management > schema_backup.sql
 
-   # Backup chỉ một số bảng cụ thể
+   # Backup specific tables
    mysqldump -u root -p school_management students courses > tables_backup.sql
    ```
 
-   - **Phục hồi dữ liệu**:
+   - **Restore Data**:
 
    ```bash
-   # Phục hồi từ file backup
+   # Restore from backup file
    mysql -u root -p school_management < school_backup.sql
 
-   # Thực hiện từ trong MySQL client
+   # Execute from within MySQL client
    SOURCE /path/to/school_backup.sql;
    ```
 
-   - **Lập lịch backup tự động** (Linux crontab):
+   - **Schedule Automatic Backup** (Linux crontab):
 
    ```bash
-   # Backup hàng ngày lúc 01:00 sáng
+   # Daily backup at 01:00 AM
    0 1 * * * mysqldump -u root -p'password' school_management > /backup/school_$(date +\%Y\%m\%d).sql
    ```
 
-3. Bảo mật và phòng chống SQL Injection
+3. Security and SQL Injection Prevention
 
-   - **Vấn đề SQL Injection**:
+   - **SQL Injection Issue**:
 
    ```sql
-   -- Ví dụ nguy hiểm (KHÔNG NÊN LÀM):
+   -- Dangerous example (DO NOT DO THIS):
    $username = $_POST['username'];
    $query = "SELECT * FROM users WHERE username = '$username'";
-   // Nếu người dùng nhập: admin' --
-   // Câu truy vấn trở thành: SELECT * FROM users WHERE username = 'admin' --'
+   -- If user enters: admin' --
+   -- Query becomes: SELECT * FROM users WHERE username = 'admin' --'
    ```
 
-   - **Cách phòng tránh SQL Injection**:
+   - **How to Prevent SQL Injection**:
 
-   1. **Sử dụng Prepared Statements**:
+   1. **Use Prepared Statements**:
 
       ```php
-      // PHP với PDO
+      // PHP with PDO
       $stmt = $pdo->prepare("SELECT * FROM users WHERE username = ?");
       $stmt->execute([$username]);
 
-      // JAVA với JDBC
+      // JAVA with JDBC
       PreparedStatement stmt = conn.prepareStatement("SELECT * FROM users WHERE username = ?");
       stmt->setString(1, username);
       ```
 
-   2. **Kiểm tra và làm sạch dữ liệu đầu vào**:
+   2. **Validate and Sanitize Input**:
 
       ```php
       $username = mysqli_real_escape_string($conn, $_POST['username']);
       ```
 
-   3. **Sử dụng ORM (Object-Relational Mapping)**:
+   3. **Use ORM (Object-Relational Mapping)**:
 
       ```java
-      // Sử dụng Hibernate trong JAVA
+      // Use Hibernate in JAVA
       User user = session.createQuery("from User where username = :username")
           .setParameter("username", username)
           .uniqueResult();
       ```
 
-### Giám sát và điều chỉnh hệ thống
+### Monitoring and Tuning System
 
-- **Theo dõi truy vấn chậm**:
+- **Monitor Slow Queries**:
 
   ```sql
-  -- Bật log slow queries trong MySQL
+  -- Enable slow query log in MySQL
   SET GLOBAL slow_query_log = 'ON';
   SET GLOBAL slow_query_log_file = '/var/log/mysql/slow-queries.log';
-  SET GLOBAL long_query_time = 2; -- Log các truy vấn chạy > 2 giây
+  SET GLOBAL long_query_time = 2; -- Log queries running > 2 seconds
   ```
 
-- **Xem trạng thái hệ thống**:
+- **View System Status**:
 
   ```sql
-  -- Xem các biến trạng thái của hệ thống
+  -- View system status variables
   SHOW STATUS;
 
-  -- Xem các biến cấu hình
+  -- View configuration variables
   SHOW VARIABLES;
 
-  -- Xem các kết nối đang hoạt động
+  -- View active connections
   SHOW PROCESSLIST;
   ```
 
-- **Tối ưu cấu hình MySQL**:
+- **Optimize MySQL Configuration**:
 
   ```ini
-  # Ví dụ cấu hình trong file my.cnf
+  # Example configuration in my.cnf
   [mysqld]
-  # Bộ nhớ cache cho InnoDB
+  # Buffer pool size for InnoDB
   innodb_buffer_pool_size = 1G
 
-  # Cache truy vấn
+  # Query cache
   query_cache_size = 64M
 
-  # Kích thước tệp log
+  # Log file size
   max_binlog_size = 100M
   ```
 
 ---
 
-## 🧪 BÀI TẬP LỚN CUỐI PHẦN: Quản lý sinh viên và lớp học
+## 🧪 FINAL PROJECT: Student and Class Management
 
-### Mô tả bài toán
+### Problem Description
 
-Mở rộng cơ sở dữ liệu quản lý sinh viên:
+Expand the student management database:
 
-- Tạo thêm bảng `classes` để lưu thông tin về các lớp học
-- Tạo mối quan hệ một-nhiều giữa `classes` và `students`
-- Thêm bảng `subjects` để lưu thông tin môn học
+- Create `classes` table to store class information.
+- Create one-to-many relationship between `classes` and `students`.
+- Add `subjects` table to store subject information.
 
-### Yêu cầu
+### Requirements
 
-- Thiết kế các bảng với khóa chính và khóa ngoại phù hợp
-- Viết các truy vấn để:
-  - Tìm kiếm sinh viên theo tên hoặc mã
-  - Liệt kê sinh viên theo lớp
-  - Tính điểm trung bình của từng lớp
-  - Sắp xếp sinh viên theo điểm trung bình
-  - Tìm sinh viên có điểm cao nhất trong mỗi lớp
-- Truy vấn dữ liệu từ nhiều bảng bằng các loại JOIN
+- Design tables with appropriate primary and foreign keys.
+- Write queries to:
+  - Search students by name or code.
+  - List students by class.
+  - Calculate average score of each class.
+  - Sort students by average score.
+  - Find students with the highest score in each class.
+- Query data from multiple tables using various JOIN types.

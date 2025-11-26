@@ -1,28 +1,28 @@
 ---
 prev:
-  text: '🏗️ Framework & Ứng Dụng'
+  text: '🏗️ Frameworks & Applications'
   link: '/PHP/Part4'
 next:
-  text: '🌐 Triển Khai Chuyên Nghiệp'
+  text: '🌐 Professional Deployment'
   link: '/PHP/Part6'
 ---
 
-# 📘 PHẦN 5: XU HƯỚNG HIỆN ĐẠI VÀ CÔNG NGHỆ MỚI TRONG PHP
+# 📘 PART 5: MODERN TRENDS AND NEW TECHNOLOGIES IN PHP
 
-## 🎯 Mục tiêu tổng quát
+## 🎯 General Objectives
 
-- Nắm vững việc triển khai ứng dụng PHP trong container với Docker
-- Hiểu và áp dụng kiến trúc Microservices trong dự án PHP
-- Biết cách xây dựng Progressive Web Apps với API PHP
-- Làm chủ GraphQL để phát triển API hiện đại
-- Tối ưu hiệu năng ứng dụng với các tính năng mới của PHP 8+
+- Master deploying PHP applications in containers with Docker.
+- Understand and apply Microservices architecture in PHP projects.
+- Know how to build Progressive Web Apps with PHP APIs.
+- Master GraphQL for modern API development.
+- Optimize application performance with new features of PHP 8+.
 
-## 🧑‍🏫 Bài 21: PHP và Containers (Docker)
+## 🧑‍🏫 Lesson 21: PHP and Containers (Docker)
 
-### Giới thiệu về Docker và containers
+### Introduction to Docker and Containers
 
 ```bash
-# Cài đặt Docker trên Ubuntu
+# Install Docker on Ubuntu
 sudo apt update
 sudo apt install apt-transport-https ca-certificates curl software-properties-common
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
@@ -30,21 +30,21 @@ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubun
 sudo apt update
 sudo apt install docker-ce docker-compose
 
-# Kiểm tra cài đặt
+# Verify installation
 docker --version
 docker-compose --version
 
-# Chạy container đầu tiên
+# Run first container
 docker run hello-world
 ```
 
-### Dockerfile cơ bản cho PHP
+### Basic Dockerfile for PHP
 
 ```dockerfile
 # Dockerfile
 FROM php:8.1-fpm
 
-# Cài đặt các dependencies hệ thống
+# Install system dependencies
 RUN apt-get update && apt-get install -y \
     git \
     curl \
@@ -55,32 +55,32 @@ RUN apt-get update && apt-get install -y \
     unzip \
     libzip-dev
 
-# Cài đặt các PHP extensions
+# Install PHP extensions
 RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd zip
 
-# Cài đặt Composer
+# Install Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-# Thiết lập thư mục làm việc
+# Set working directory
 WORKDIR /var/www
 
-# Sao chép source code vào container
+# Copy source code to container
 COPY . /var/www
 
-# Cài đặt các dependencies từ Composer
+# Install Composer dependencies
 RUN composer install --optimize-autoloader --no-dev
 
-# Thiết lập quyền cho storage và cache
+# Set permissions for storage and cache
 RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache
 
-# Mở cổng để kết nối
+# Expose port
 EXPOSE 9000
 
-# Khởi động PHP-FPM
+# Start PHP-FPM
 CMD ["php-fpm"]
 ```
 
-### Docker Compose cho stack LEMP (Linux, Nginx, MySQL, PHP)
+### Docker Compose for LEMP Stack (Linux, Nginx, MySQL, PHP)
 
 ```yaml
 # docker-compose.yml
@@ -154,7 +154,7 @@ volumes:
     driver: local
 ```
 
-### Cấu hình Nginx trong Docker
+### Configure Nginx in Docker
 
 ```nginx
 # docker/nginx/conf.d/default.conf
@@ -193,35 +193,35 @@ server {
 }
 ```
 
-### Triển khai và quản lý container PHP
+### Deploy and Manage PHP Containers
 
 ```bash
-# Khởi động stack
+# Start stack
 docker-compose up -d
 
-# Kiểm tra các container đang chạy
+# Check running containers
 docker-compose ps
 
-# Truy cập vào container PHP
+# Access PHP container
 docker-compose exec php bash
 
-# Chạy các lệnh trong container PHP
+# Run commands in PHP container
 docker-compose exec php php artisan migrate
 
-# Xem logs của container
+# View container logs
 docker-compose logs -f nginx
 
-# Dừng và xóa các containers
+# Stop and remove containers
 docker-compose down
 
-# Dừng, xóa containers và cả volumes
+# Stop, remove containers and volumes
 docker-compose down -v
 ```
 
-### Thực hành tốt nhất với Docker và PHP
+### Docker and PHP Best Practices
 
 ```bash
-# 1. Sử dụng multi-stage builds để giảm kích thước image
+# 1. Use multi-stage builds to reduce image size
 # Dockerfile.optimized
 FROM composer:2.0 as build
 WORKDIR /app
@@ -234,16 +234,16 @@ COPY --from=build /app /var/www
 EXPOSE 9000
 CMD ["php-fpm"]
 
-# 2. Sử dụng Docker layers cache hiệu quả
-# Sắp xếp các lệnh từ ít thay đổi đến nhiều thay đổi
+# 2. Use Docker layers cache efficiently
+# Order commands from least changing to most changing
 COPY composer.json composer.lock ./
 RUN composer install --no-scripts
 COPY . .
 
-# 3. Sử dụng Docker Volumes cho dữ liệu cần lưu trữ
+# 3. Use Docker Volumes for persistent data
 docker run -v $(pwd):/var/www my-php-app
 
-# 4. Tối ưu hóa healthchecks
+# 4. Optimize healthchecks
 # docker-compose.yml
 services:
   php:
@@ -255,29 +255,29 @@ services:
       retries: 3
 ```
 
-## 🧑‍🏫 Bài 22: Microservices với PHP
+## 🧑‍🏫 Lesson 22: Microservices with PHP
 
-### Giới thiệu về kiến trúc Microservices
+### Introduction to Microservices Architecture
 
-Microservices là một phương pháp phát triển phần mềm, một biến thể của kiến trúc hướng dịch vụ (SOA).
+Microservices is a software development method, a variant of the Service-Oriented Architecture (SOA).
 
-- Đặc điểm:
+- Characteristics:
 
-  - Chia ứng dụng thành các services nhỏ, độc lập
-  - Mỗi service chịu trách nhiệm cho một chức năng cụ thể
-  - Các services giao tiếp qua API, message queues
-  - Dễ dàng scale riêng từng service
-  - Có thể sử dụng công nghệ khác nhau cho các service
+  - Divides the application into small, independent services.
+  - Each service is responsible for a specific function.
+  - Services communicate via API, message queues.
+  - Easy to scale services individually.
+  - Can use different technologies for different services.
 
-- So sánh với Monolithic:
+- Comparison with Monolithic:
 
-  - Monolithic: Toàn bộ ứng dụng là một đơn vị, khó scale, khó maintain khi lớn
-  - Microservice: Chia nhỏ, dễ maintain, dễ scale, nhưng phức tạp hơn trong quản lý
+  - Monolithic: Entire application is a single unit, hard to scale, hard to maintain when large.
+  - Microservice: Split up, easy to maintain, easy to scale, but more complex to manage.
 
 ```php
 <?php
-// Ví dụ đơn giản về service trong kiến trúc microservice
-// UserService: Quản lý người dùng
+// Simple example of services in microservice architecture
+// UserService: User Management
 namespace App\Services\User;
 
 use App\Models\User;
@@ -286,20 +286,20 @@ class UserService
 {
     public function getUser($id)
     {
-        // Lấy thông tin người dùng
+        // Get user info
         return User::findOrFail($id);
     }
 
     public function createUser(array $data)
     {
-        // Tạo người dùng mới
+        // Create new user
         return User::create($data);
     }
 
-    // Các chức năng khác liên quan đến user...
+    // Other user-related functions...
 }
 
-// OrderService: Quản lý đơn hàng
+// OrderService: Order Management
 namespace App\Services\Order;
 
 use App\Models\Order;
@@ -308,23 +308,23 @@ class OrderService
 {
     public function createOrder($userId, array $items)
     {
-        // Tạo đơn hàng
+        // Create order
         $order = new Order();
         $order->user_id = $userId;
         $order->save();
 
-        // Thêm các items vào đơn hàng
+        // Add items to order
         $order->items()->createMany($items);
 
         return $order;
     }
 
-    // Các chức năng khác liên quan đến order...
+    // Other order-related functions...
 }
 ?>
 ```
 
-### Xây dựng RESTful microservices với PHP
+### Building RESTful Microservices with PHP
 
 ```php
 <?php
@@ -397,11 +397,11 @@ if (preg_match('/\/api\/users\/(\d+)/', $path, $matches) && $method === 'GET') {
 }
 ```
 
-### Giao tiếp giữa các microservices
+### Communication Between Microservices
 
 ```php
 <?php
-// OrderService.php - Service giao tiếp với UserService
+// OrderService.php - Service communicating with UserService
 
 namespace App\Services;
 
@@ -421,25 +421,25 @@ class OrderService
 
     public function createOrder($userId, array $items)
     {
-        // Đầu tiên, kiểm tra xem user có tồn tại không
+        // First, check if user exists
         $user = $this->getUserById($userId);
 
         if (!$user) {
             throw new \Exception("User not found");
         }
 
-        // Tạo order trong database
+        // Create order in database
         $order = new \App\Models\Order();
         $order->user_id = $userId;
         $order->total = array_sum(array_column($items, 'price'));
         $order->save();
 
-        // Thêm các items
+        // Add items
         foreach ($items as $item) {
             $order->items()->create($item);
         }
 
-        // Gửi thông báo đến NotificationService
+        // Send notification to NotificationService
         $this->sendOrderNotification($user, $order);
 
         return $order;
@@ -480,7 +480,7 @@ class OrderService
 }
 ```
 
-### Service Discovery và API Gateway
+### Service Discovery and API Gateway
 
 ```php
 <?php
@@ -562,14 +562,14 @@ if (preg_match('|^/api/([^/]+)(/.*)$|', $path, $matches)) {
 }
 ```
 
-### Event-driven architecture và Queues
+### Event-driven architecture and Queues
 
 ```php
 <?php
-// Sử dụng RabbitMQ để giao tiếp giữa các services
+// Using RabbitMQ to communicate between services
 
 // 1. Publisher (OrderService)
-// Khi một đơn hàng được tạo, publish một message vào queue
+// When an order is created, publish a message to the queue
 
 require_once __DIR__ . '/vendor/autoload.php';
 use PhpAmqpLib\Connection\AMQPStreamConnection;
@@ -722,34 +722,34 @@ $consumer->consume();
 // This script will run continuously, processing messages as they arrive
 ```
 
-## 🧑‍🏫 Bài 23: Progressive Web Apps và PHP
+## 🧑‍🏫 Lesson 23: Progressive Web Apps and PHP
 
-### Giới thiệu về Progressive Web Apps (PWA)
+### Introduction to Progressive Web Apps (PWA)
 
-- Progressive Web Apps là các ứng dụng web có thể:
-  - Chạy offline hoặc khi kết nối chậm
-  - Được cài đặt lên màn hình home của thiết bị
-  - Gửi push notifications
-  - Tải nhanh và hoạt động mượt mà
-  - An toàn (HTTPS)
+- Progressive Web Apps are web applications that can:
+  - Run offline or on slow connections.
+  - Be installed on the device home screen.
+  - Send push notifications.
+  - Load fast and perform smoothly.
+  - Be secure (HTTPS).
 
-Các thành phần chính của PWA:
+Key components of PWA:
 
-1. **Service Workers** - cho phép cache và làm việc offline
-2. **Web App Manifest** - cung cấp metadata để cài đặt PWA
-3. **HTTPS** - bảo mật
-4. **Responsive Design** - hoạt động trên mọi thiết bị
-5. **Push Notifications** - thu hút người dùng quay lại
+1. **Service Workers** - allow caching and offline work.
+2. **Web App Manifest** - provides metadata for PWA installation.
+3. **HTTPS** - security.
+4. **Responsive Design** - works on all devices.
+5. **Push Notifications** - engage users to return.
 
-PHP đóng vai trò làm backend API cho PWA
+PHP acts as the backend API for PWA.
 
 ```php
 <?php
-// Tập trung vào phần PHP cho PWA - không có code PHP đặc biệt nào
-// PHP cung cấp API endpoints mà PWA sẽ gọi để lấy dữ liệu
+// Focus on PHP part for PWA - no special PHP code
+// PHP provides API endpoints that PWA will call to get data
 header('Content-Type: application/json');
 
-// Cho phép CORS cho PWA
+// Allow CORS for PWA
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With");
@@ -759,7 +759,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     exit(0);
 }
 
-// API endpoint để PWA có thể fetch dữ liệu
+// API endpoint for PWA to fetch data
 if ($_SERVER['REQUEST_METHOD'] === 'GET' && $_SERVER['REQUEST_URI'] === '/api/products') {
     $products = [
         ['id' => 1, 'name' => 'Product 1', 'price' => 19.99],
@@ -775,14 +775,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && $_SERVER['REQUEST_URI'] === '/api/pr
     exit;
 }
 
-// Endpoint khác...
+// Other endpoints...
 ?>
 ```
 
-### Web App Manifest và Service Workers
+### Web App Manifest and Service Workers
 
 ```html
-<!-- Đây là file index.html phục vụ bởi PHP -->
+<!-- This is index.html served by PHP -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -926,7 +926,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && $_SERVER['REQUEST_URI'] === '/api/pr
 </html>
 ```
 
-### Manifest và Service Worker files
+### Manifest and Service Worker files
 
 ```json
 // manifest.json
@@ -1092,7 +1092,7 @@ self.addEventListener("notificationclick", (event) => {
 });
 ```
 
-### PHP để handle Push Notifications
+### PHP to Handle Push Notifications
 
 ```php
 <?php
@@ -1249,36 +1249,36 @@ echo json_encode(['success' => false, 'message' => 'Endpoint not found']);
 </html>
 ```
 
-## 🧑‍🏫 Bài 24: GraphQL API trong PHP
+## 🧑‍🏫 Lesson 24: GraphQL API in PHP
 
-### Giới thiệu về GraphQL
+### Introduction to GraphQL
 
-- GraphQL là một ngôn ngữ truy vấn dành cho API và một runtime để thực hiện các truy vấn đó.
+- GraphQL is a query language for APIs and a runtime for fulfilling those queries.
 
-  - Ưu điểm so với REST:
-  - Lấy chính xác dữ liệu cần thiết (không over-fetching)
-  - Lấy nhiều tài nguyên liên quan trong một request (không under-fetching)
-  - Mạnh mẽ với type system rõ ràng
-  - API tiến hóa mà không cần versioning
-  - Introspection - API tự mô tả
+  - Advantages over REST:
+  - Get exactly the data needed (no over-fetching).
+  - Get multiple related resources in a single request (no under-fetching).
+  - Strong typing system.
+  - API evolution without versioning.
+  - Introspection - Self-describing API.
 
-- Các khái niệm cơ bản:
-  - Schema: Định nghĩa dữ liệu có sẵn để truy vấn
-  - Types: Định nghĩa cấu trúc dữ liệu (như model)
-  - Queries: Lấy dữ liệu (tương tự GET trong REST)
-  - Mutations: Thay đổi dữ liệu (tương tự POST, PUT, DELETE trong REST)
-  - Resolvers: Hàm xử lý để trả về dữ liệu
+- Basic Concepts:
+  - Schema: Defines available data to query.
+  - Types: Defines data structures (like models).
+  - Queries: Fetch data (similar to GET in REST).
+  - Mutations: Modify data (similar to POST, PUT, DELETE in REST).
+  - Resolvers: Functions to return data.
 
-Để triển khai GraphQL trong PHP, chúng ta cần một thư viện như webonyx/graphql-php
+To implement GraphQL in PHP, we need a library like webonyx/graphql-php.
 
-- Thư viện này cung cấp các công cụ để định nghĩa schema, types, queries và mutations.
-- Cài đặt thư viện:
+- This library provides tools to define schema, types, queries, and mutations.
+- Install the library:
 
 ```bash
 composer require webonyx/graphql-php
 ```
 
-### Xây dựng GraphQL server đơn giản
+### Building a Simple GraphQL Server
 
 ```php
 <?php
@@ -1291,7 +1291,7 @@ use GraphQL\Type\Schema;
 use GraphQL\GraphQL;
 use GraphQL\Error\FormattedError;
 
-// Kết nối database (trong thực tế sẽ dùng repository pattern)
+// Database Connection (in reality, use repository pattern)
 try {
     $pdo = new PDO('mysql:host=localhost;dbname=graphql_demo', 'root', 'password');
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -1409,11 +1409,11 @@ header('Content-Type: application/json');
 echo json_encode($output);
 ```
 
-### GraphQL với Laravel
+### GraphQL with Laravel
 
 ```php
 <?php
-// Sử dụng package rebing/graphql-laravel
+// Use package rebing/graphql-laravel
 // composer require rebing/graphql-laravel
 
 // config/graphql.php
@@ -1632,7 +1632,7 @@ query {
 }
 ```
 
-### Authentication và Authorization trong GraphQL
+### Authentication and Authorization in GraphQL
 
 ```php
 <?php
@@ -1741,11 +1741,11 @@ class AdminStatsQuery extends Query
 }
 ```
 
-### N+1 Problem và Batch Loading
+### N+1 Problem and Batch Loading
 
 ```php
 <?php
-// Xử lý vấn đề N+1 với Dataloader trong PHP
+// Handling N+1 problem with Dataloader in PHP
 // composer require overblog/dataloader-php
 
 use Overblog\DataLoader\DataLoader;
@@ -1814,33 +1814,33 @@ class UserDirective extends BaseDirective implements FieldResolver
 }
 ```
 
-## 🧑‍🏫 Bài 25: JIT trong PHP 8 và Beyond
+## 🧑‍🏫 Lesson 25: JIT in PHP 8 and Beyond
 
-### Giới thiệu về JIT (Just-In-Time) Compiler trong PHP 8
+### Introduction to JIT (Just-In-Time) Compiler in PHP 8
 
-- JIT (Just-In-Time) Compilation trong PHP 8 là gì?
+- JIT (Just-In-Time) Compilation in PHP 8:
 
-  - PHP truyền thống: interprets (thông dịch) code khi chạy
-  - JIT: biên dịch code PHP thành mã máy khi chạy
-  - Mục đích: tăng tốc độ thực thi, đặc biệt với code tính toán nhiều
+  - Traditional PHP: interprets code at runtime.
+  - JIT: compiles PHP code into machine code at runtime.
+  - Purpose: increase execution speed, especially with computationally intensive code.
 
-Các mode JIT trong PHP 8:
+JIT Modes in PHP 8:
 
-- disabled: Tắt JIT
-- function: Biên dịch toàn bộ hàm
-- tracing: Biên dịch các đường dẫn thực thi (trace) bên trong hàm
+- disabled: JIT off.
+- function: Compiles entire function.
+- tracing: Compiles execution paths (trace) within function.
 
-- Cách bật JIT trong php.ini
+- How to enable JIT in php.ini
 
 ```ini
 zend_extension=opcache
 opcache.enable=1
 opcache.enable_cli=1
-opcache.jit_buffer_size=100M  ; Kích thước bộ nhớ JIT
-opcache.jit=1255              ; Mode JIT (tracing)
+opcache.jit_buffer_size=100M  ; JIT memory size
+opcache.jit=1255              ; JIT mode (tracing)
 ```
 
-- Kiểm tra JIT có được bật hay không
+- Check if JIT is enabled
 
 ```php
 <?php
@@ -1848,12 +1848,12 @@ opcache.jit=1255              ; Mode JIT (tracing)
 var_dump(opcache_get_status()['jit']);
 ```
 
-### Hiệu suất với JIT
+### Performance with JIT
 
 ```php
 <?php
-// Ví dụ benchmark hiệu suất JIT
-// Hàm tính toán số lớn - được hưởng lợi từ JIT
+// JIT performance benchmark example
+// Large number calculation function - benefits from JIT
 function calculate_sum_of_squares($n) {
     $sum = 0;
     for ($i = 0; $i < $n; $i++) {
@@ -1862,7 +1862,7 @@ function calculate_sum_of_squares($n) {
     return $sum;
 }
 
-// Đo thời gian thực thi
+// Measure execution time
 function benchmark($function, $iterations, ...$args) {
     $start = microtime(true);
 
@@ -1874,26 +1874,26 @@ function benchmark($function, $iterations, ...$args) {
     return $end - $start;
 }
 
-// Chạy benchmark
+// Run benchmark
 $iterations = 1000;
 $time = benchmark('calculate_sum_of_squares', $iterations, 1000000);
 echo "Time taken for {$iterations} iterations: {$time} seconds\n";
 echo "Average time per call: " . ($time / $iterations) . " seconds\n";
 
-// Thực hiện benchmark với các mode JIT khác nhau
+// Perform benchmark with different JIT modes
 // JIT disabled: opcache.jit=0
 // JIT function: opcache.jit=1255
 // JIT tracing: opcache.jit=1205
 ?>
 ```
 
-### Tận dụng tối đa JIT
+### Maximizing JIT
 
-- Tối ưu hóa code để JIT hoạt động hiệu quả hơn
+- Optimize code for JIT to work more effectively.
 
 ```php
 <?php
-// Sử dụng các kiểu dữ liệu đơn giản
+// Use simple data types
 function calculate_sum_of_squares_optimized(int $n): int {
     $sum = 0;
     for ($i = 0; $i < $n; $i++) {
@@ -1901,15 +1901,15 @@ function calculate_sum_of_squares_optimized(int $n): int {
     }
     return $sum;
 }
-// Sử dụng các hàm native PHP
+// Use native PHP functions
 function calculate_sum_of_squares_native(int $n): int {
     return array_sum(array_map(fn($i) => $i * $i, range(0, $n - 1)));
 }
-// Sử dụng các thuật toán tối ưu hơn
+// Use more optimized algorithms
 function calculate_sum_of_squares_optimized_v2(int $n): int {
-    return ($n * ($n - 1) * (2 * $n - 1)) / 6; // Công thức tổng bình phương
+    return ($n * ($n - 1) * (2 * $n - 1)) / 6; // Sum of squares formula
 }
-// Đo thời gian thực thi
+// Measure execution time
 function benchmark_optimized($function, $iterations, ...$args) {
     $start = microtime(true);
 
@@ -1920,53 +1920,53 @@ function benchmark_optimized($function, $iterations, ...$args) {
     $end = microtime(true);
     return $end - $start;
 }
-// Chạy benchmark
+// Run benchmark
 $iterations = 1000;
 $time = benchmark_optimized('calculate_sum_of_squares_optimized', $iterations, 1000000);
 echo "Time taken for {$iterations} iterations: {$time} seconds\n";
 echo "Average time per call: " . ($time / $iterations) . " seconds\n";
-// Chạy benchmark với các hàm native PHP
+// Run benchmark with native PHP functions
 $time = benchmark_optimized('calculate_sum_of_squares_native', $iterations, 1000000);
 echo "Time taken for {$iterations} iterations (native): {$time} seconds\n";
 echo "Average time per call (native): " . ($time / $iterations) . " seconds\n";
-// Chạy benchmark với các thuật toán tối ưu hơn
+// Run benchmark with more optimized algorithms
 $time = benchmark_optimized('calculate_sum_of_squares_optimized_v2', $iterations, 1000000);
 echo "Time taken for {$iterations} iterations (optimized v2): {$time} seconds\n";
 echo "Average time per call (optimized v2): " . ($time / $iterations) . " seconds\n";
 ?>
 ```
 
-## 🧪 BÀI TẬP LỚN CUỐI PHẦN: Xây dựng hệ thống Microservice với PHP và Docker
+## 🧪 FINAL PROJECT: Build Microservice System with PHP and Docker
 
-### Yêu cầu
+### Requirements
 
-1. Xây dựng hệ thống gồm 3 microservices:
+1. Build a system with 3 microservices:
 
-   - User Service: Quản lý người dùng (đăng ký, đăng nhập, thông tin cá nhân)
-   - Order Service: Quản lý đơn hàng (tạo đơn, thanh toán, lịch sử)
-   - Product Service: Quản lý sản phẩm (danh sách, chi tiết, tìm kiếm)
-   - Mỗi service phải có:
-     - Cơ sở dữ liệu riêng (MySQL)
-     - API RESTful hoặc GraphQL
-     - Được containerized với Docker
-     - Logging và monitoring
+   - User Service: User management (registration, login, personal info).
+   - Order Service: Order management (create order, payment, history).
+   - Product Service: Product management (list, details, search).
+   - Each service must have:
+     - Separate database (MySQL).
+     - RESTful API or GraphQL.
+     - Containerized with Docker.
+     - Logging and monitoring.
 
 2. API Gateway:
 
-   - Tạo gateway để điều hướng request đến đúng service
-   - Xử lý authentication/authorization tập trung
+   - Create gateway to route requests to the correct service.
+   - Handle centralized authentication/authorization.
 
-3. Giao tiếp giữa các services:
+3. Communication between services:
 
-   - Sử dụng RabbitMQ hoặc Redis để giao tiếp bất đồng bộ
-   - Triển khai event-driven architecture
+   - Use RabbitMQ or Redis for asynchronous communication.
+   - Implement event-driven architecture.
 
 4. Frontend:
 
-   - Xây dựng một SPA đơn giản sử dụng API từ các services
-   - Áp dụng các nguyên tắc Progressive Web App
+   - Build a simple SPA using API from services.
+   - Apply Progressive Web App principles.
 
-### Cấu trúc dự án
+### Project Structure
 
 ```text
 e-commerce-microservices/

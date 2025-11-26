@@ -3,60 +3,60 @@ prev:
   text: '🐳 Docker: Orchestration'
   link: '/DEVOPS/Docker2'
 next:
-  text: '📋 Tổng Kết & Định Hướng'
+  text: '📋 Summary & Roadmap'
   link: '/CONCLUSION'
 ---
 
-# 📘 KUBERNETES: HỆ THỐNG ĐIỀU PHỐI CONTAINER
+# 📘 KUBERNETES: CONTAINER ORCHESTRATION SYSTEM
 
-## 🎯 Mục tiêu tổng quát
+## 🎯 General Objectives
 
-- Hiểu được nguyên lý hoạt động và kiến trúc của Kubernetes
-- Thành thạo việc cài đặt và cấu hình Kubernetes
-- Biết cách triển khai và quản lý ứng dụng container trên Kubernetes
-- Hiểu được các thành phần cơ bản của Kubernetes
-- Triển khai ứng dụng có tính sẵn sàng cao và khả năng mở rộng
+- Understand the operating principles and architecture of Kubernetes.
+- Master Kubernetes installation and configuration.
+- Know how to deploy and manage containerized applications on Kubernetes.
+- Understand the basic components of Kubernetes.
+- Deploy highly available and scalable applications.
 
-## 🧑‍🏫 Bài 1: Giới thiệu về Kubernetes
+## 🧑‍🏫 Lesson 1: Introduction to Kubernetes
 
-### Kubernetes là gì?
+### What is Kubernetes?
 
-- Kubernetes (K8s) là một nền tảng mã nguồn mở để tự động hóa việc triển khai, mở rộng và quản lý ứng dụng container
-- Được phát triển bởi Google, dựa trên kinh nghiệm của họ với hệ thống Borg
-- Hiện nay được duy trì bởi Cloud Native Computing Foundation (CNCF)
+- Kubernetes (K8s) is an open-source platform for automating the deployment, scaling, and management of containerized applications.
+- Developed by Google, based on their experience with the Borg system.
+- Currently maintained by the Cloud Native Computing Foundation (CNCF).
 
-### Lịch sử phát triển
+### Development History
 
-- 2014: Google công bố Kubernetes như một dự án mã nguồn mở
-- 2015: Kubernetes v1.0 được phát hành, CNCF được thành lập
-- 2016-nay: Kubernetes trở thành tiêu chuẩn chính cho điều phối container
+- 2014: Google announced Kubernetes as an open-source project.
+- 2015: Kubernetes v1.0 was released, CNCF was founded.
+- 2016-present: Kubernetes has become the de-facto standard for container orchestration.
 
-### Lợi ích của Kubernetes
+### Benefits of Kubernetes
 
-1. **Tự động hóa triển khai**: Triển khai ứng dụng một cách đáng tin cậy và nhất quán
-2. **Self-healing**: Tự động khởi động lại containers khi chúng bị lỗi
-3. **Mở rộng tự động**: Tự động mở rộng/thu hẹp số lượng container dựa trên tải
-4. **Cân bằng tải**: Phân phối lưu lượng mạng để đảm bảo triển khai ổn định
-5. **Service discovery**: Containers có thể tìm nhau thông qua DNS nội bộ
+1. **Automated Deployment**: Deploy applications reliably and consistently.
+2. **Self-healing**: Automatically restarts containers that fail.
+3. **Automatic Scaling**: Automatically scales the number of containers up or down based on load.
+4. **Load Balancing**: Distributes network traffic to ensure stable deployments.
+5. **Service Discovery**: Containers can find each other via internal DNS.
 
-### Các giải pháp thay thế cho Kubernetes
+### Alternatives to Kubernetes
 
-- Docker Swarm: Đơn giản hơn, tích hợp chặt chẽ với Docker
-- Apache Mesos: Tập trung vào việc chạy workloads đa dạng (không chỉ containers)
-- Amazon ECS: Dịch vụ quản lý container của AWS
-- Nomad: Từ HashiCorp, đơn giản và nhẹ hơn
+- Docker Swarm: Simpler, tightly integrated with Docker.
+- Apache Mesos: Focuses on running diverse workloads (not just containers).
+- Amazon ECS: AWS's container management service.
+- Nomad: From HashiCorp, simpler and lighter.
 
-### Use cases phổ biến
+### Common Use Cases
 
-- Microservices: Quản lý ứng dụng phức tạp với nhiều thành phần nhỏ
-- CI/CD: Triển khai liên tục với zero-downtime
-- DevOps: Hỗ trợ quy trình DevOps tự động
-- Big Data: Xử lý dữ liệu lớn với khả năng mở rộng
-- Hybrid Cloud: Chạy workloads trên nhiều môi trường cloud khác nhau
+- Microservices: Managing complex applications with many small components.
+- CI/CD: Continuous deployment with zero-downtime.
+- DevOps: Supporting automated DevOps workflows.
+- Big Data: Processing large data with scalability.
+- Hybrid Cloud: Running workloads across various cloud environments.
 
-## 🧑‍🏫 Bài 2: Kiến trúc Kubernetes
+## 🧑‍🏫 Lesson 2: Kubernetes Architecture
 
-### Tổng quan kiến trúc
+### Architecture Overview
 
 ```text
 +-------------------------------------------------------+
@@ -90,86 +90,86 @@ next:
 
 1. **API Server (kube-apiserver)**:
 
-   - Điểm cuối HTTP API để tương tác với Kubernetes
-   - Cổng chính để kiểm soát cluster
-   - Xác thực và phân quyền tất cả các requests
+   - HTTP API endpoint for interacting with Kubernetes.
+   - The main gateway for controlling the cluster.
+   - Authenticates and authorizes all requests.
 
 2. **Scheduler (kube-scheduler)**:
 
-   - Quan sát các pods mới chưa được gán node
-   - Lựa chọn node phù hợp để chạy pod
-   - Cân nhắc tài nguyên, ràng buộc, affinity, anti-affinity...
+   - Watches for newly created pods with no assigned node.
+   - Selects a suitable node for them to run on.
+   - Considers resources, constraints, affinity, anti-affinity, etc.
 
 3. **Controller Manager (kube-controller-manager)**:
 
-   - Chạy các quy trình controller
-   - Điều khiển trạng thái của cluster
-   - Chứa nhiều loại controllers: Node Controller, Replication Controller, Endpoint Controller,...
+   - Runs controller processes.
+   - Controls the state of the cluster.
+   - Contains various controllers: Node Controller, Replication Controller, Endpoint Controller, etc.
 
 4. **etcd**:
-   - Cơ sở dữ liệu phân tán key-value
-   - Lưu trữ tất cả dữ liệu của cluster
-   - Đảm bảo tính nhất quán và sẵn sàng cao
+   - Distributed key-value store.
+   - Stores all cluster data.
+   - Ensures consistency and high availability.
 
 ### Node Components
 
 1. **Kubelet**:
 
-   - Agent chạy trên mỗi node
-   - Đảm bảo containers chạy trong pod
-   - Báo cáo tình trạng node lên control plane
+   - An agent that runs on each node.
+   - Ensures containers are running in a pod.
+   - Reports node status to the control plane.
 
 2. **Kube-proxy**:
 
-   - Duy trì network rules trên node
-   - Cho phép giao tiếp mạng đến pods từ trong hoặc ngoài cluster
-   - Thực hiện chức năng load balancing cho services
+   - Maintains network rules on nodes.
+   - Allows network communication to pods from inside or outside the cluster.
+   - Performs load balancing for services.
 
 3. **Container Runtime**:
-   - Phần mềm chịu trách nhiệm chạy containers
-   - Ví dụ: Docker, containerd, CRI-O
+   - Software responsible for running containers.
+   - Examples: Docker, containerd, CRI-O.
 
-### Các Add-ons quan trọng
+### Important Add-ons
 
-- **CoreDNS**: Cung cấp DNS cho cluster
-- **Dashboard**: Giao diện UI cho quản trị Kubernetes
-- **Ingress Controller**: Quản lý traffic từ bên ngoài vào services
-- **CNI (Container Network Interface)**: Plugin quản lý mạng giữa các pods
+- **CoreDNS**: Provides DNS for the cluster.
+- **Dashboard**: UI for Kubernetes management.
+- **Ingress Controller**: Manages external traffic to services.
+- **CNI (Container Network Interface)**: Plugin for networking between pods.
 
-### Mô hình hoạt động
+### Operation Model
 
-- Khi có yêu cầu (ví dụ: triển khai ứng dụng), client gửi request đến API Server
-- API Server xác thực và xử lý request, lưu trạng thái vào etcd
-- Controllers phát hiện thay đổi trạng thái và thực hiện các hành động
-- Scheduler quyết định pod sẽ chạy trên node nào
-- Kubelet trên node nhận thông tin và tạo pod
-- Kube-proxy cấu hình mạng cho pod
+- When a request is made (e.g., deploy an app), the client sends a request to the API Server.
+- API Server authenticates and processes the request, saves the state to etcd.
+- Controllers detect state changes and perform actions.
+- Scheduler decides which node the pod will run on.
+- Kubelet on the node receives the info and creates the pod.
+- Kube-proxy configures networking for the pod.
 
-## 🧑‍🏫 Bài 3: Cài đặt và Cấu hình Kubernetes
+## 🧑‍🏫 Lesson 3: Installing and Configuring Kubernetes
 
-### Các phương pháp cài đặt Kubernetes
+### Installation Methods
 
-1. **Minikube**: Cho môi trường phát triển, chạy Kubernetes cục bộ
-2. **kubeadm**: Công cụ chính thức để cài đặt và cấu hình Kubernetes
-3. **kind (Kubernetes IN Docker)**: Chạy Kubernetes trên Docker containers
-4. **Dịch vụ quản lý**: EKS (AWS), GKE (Google), AKS (Azure)
+1. **Minikube**: For development environments, runs Kubernetes locally.
+2. **kubeadm**: Official tool for bootstrapping Kubernetes clusters.
+3. **kind (Kubernetes IN Docker)**: Runs Kubernetes clusters using Docker containers nodes.
+4. **Managed Services**: EKS (AWS), GKE (Google), AKS (Azure).
 
-### Cài đặt Minikube cho môi trường phát triển
+### Installing Minikube for Development
 
 ```bash
-# Cài đặt Minikube trên Linux
+# Install Minikube on Linux
 curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
 chmod +x minikube
 sudo mv minikube /usr/local/bin/
 
-# Khởi động cluster
+# Start the cluster
 minikube start
 
-# Kiểm tra trạng thái
+# Check status
 minikube status
 ```
 
-### Cài đặt kubectl - công cụ CLI để tương tác với Kubernetes
+### Installing kubectl - CLI tool for Kubernetes
 
 ```bash
 # Linux
@@ -177,15 +177,15 @@ curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stabl
 chmod +x kubectl
 sudo mv kubectl /usr/local/bin/
 
-# Kiểm tra phiên bản
+# Check version
 kubectl version --client
 ```
 
-### Cài đặt cluster với kubeadm
+### Installing a cluster with kubeadm
 
 ```bash
-# 1. Cài đặt container runtime (ví dụ: Docker)
-# 2. Cài đặt kubeadm, kubelet và kubectl
+# 1. Install container runtime (e.g., Docker)
+# 2. Install kubeadm, kubelet, and kubectl
 apt-get update
 apt-get install -y apt-transport-https ca-certificates curl
 curl -fsSL https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
@@ -193,104 +193,104 @@ add-apt-repository "deb http://apt.kubernetes.io/ kubernetes-xenial main"
 apt-get update
 apt-get install -y kubelet kubeadm kubectl
 
-# 3. Khởi tạo control plane
+# 3. Initialize control plane
 kubeadm init --pod-network-cidr=10.244.0.0/16
 
-# 4. Cấu hình kubectl cho user
+# 4. Configure kubectl for user
 mkdir -p $HOME/.kube
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
-# 5. Cài đặt network plugin (ví dụ: Calico)
+# 5. Install network plugin (e.g., Calico)
 kubectl apply -f https://docs.projectcalico.org/manifests/calico.yaml
 
 # 6. Join worker nodes
-# Sử dụng lệnh từ output của kubeadm init
+# Use the command output from kubeadm init
 kubeadm join <control-plane-ip>:<port> --token <token> --discovery-token-ca-cert-hash <hash>
 ```
 
-### Xác nhận cài đặt Kubernetes
+### Verifying Installation
 
 ```bash
-# Kiểm tra trạng thái các nodes
+# Check node status
 kubectl get nodes
 
-# Kiểm tra các pods trong namespace kube-system
+# Check pods in kube-system namespace
 kubectl get pods -n kube-system
 
-# Kiểm tra phiên bản server và client
+# Check server and client version
 kubectl version
 ```
 
-### Cấu hình Kubernetes
+### Configuring Kubernetes
 
-1. **Contexts và Clusters**:
+1. **Contexts and Clusters**:
 
    ```bash
-   # Liệt kê contexts
+   # List contexts
    kubectl config get-contexts
 
-   # Chuyển đổi context
+   # Switch context
    kubectl config use-context my-cluster
 
-   # Xem cấu hình hiện tại
+   # View current config
    kubectl config view
    ```
 
-2. **Các file cấu hình quan trọng**:
+2. **Important Config Files**:
 
-   - `/etc/kubernetes/`: Chứa cấu hình của cluster
-   - `~/.kube/config`: Cấu hình của kubectl
-   - `/etc/systemd/system/kubelet.service.d/`: Cấu hình kubelet
+   - `/etc/kubernetes/`: Contains cluster configuration.
+   - `~/.kube/config`: kubectl configuration.
+   - `/etc/systemd/system/kubelet.service.d/`: Kubelet configuration.
 
-3. **Roles và RBAC (Điều khiển truy cập dựa trên vai trò)**:
+3. **Roles and RBAC (Role-Based Access Control)**:
 
    ```bash
-   # Tạo Role
+   # Create Role
    kubectl create role pod-reader --verb=get,list,watch --resource=pods
 
-   # Tạo RoleBinding
+   # Create RoleBinding
    kubectl create rolebinding read-pods --role=pod-reader --user=jane
 
-   # Kiểm tra quyền
+   # Check permissions
    kubectl auth can-i list pods --as jane
    ```
 
-4. **Namespace**:
+4. **Namespaces**:
 
 ```bash
-# Tạo namespace
+# Create namespace
 kubectl create namespace my-namespace
 
-# Liệt kê namespaces
+# List namespaces
 kubectl get namespaces
 
-# Thực hiện lệnh trong namespace cụ thể
+# Execute command in specific namespace
 kubectl get pods -n my-namespace
 ```
 
-## 🧑‍🏫 Bài 4: Kubernetes Objects và Workloads
+## 🧑‍🏫 Lesson 4: Kubernetes Objects and Workloads
 
-### Kubernetes Objects là gì?
+### What are Kubernetes Objects?
 
-- Các thực thể bền vững trong hệ thống Kubernetes
-- Đại diện cho trạng thái của cluster
-- Được mô tả bằng files YAML hoặc JSON
+- Persistent entities in the Kubernetes system.
+- Represent the state of the cluster.
+- Described using YAML or JSON files.
 
-### Các Objects phổ biến
+### Common Objects
 
-1. **Pods**: Đơn vị nhỏ nhất có thể deploy trong Kubernetes
-2. **ReplicaSets**: Đảm bảo số lượng Pods mong muốn
-3. **Deployments**: Quản lý ReplicaSets, hỗ trợ cập nhật và rollback
-4. **Services**: Định nghĩa cách truy cập vào Pods
-5. **ConfigMaps** và Secrets: Cấu hình và dữ liệu nhạy cảm
-6. **Volumes**: Lưu trữ dữ liệu cho Pods
-7. **Namespaces**: Phân chia cluster thành nhiều môi trường ảo
+1. **Pods**: The smallest deployable units in Kubernetes.
+2. **ReplicaSets**: Maintain a stable set of replica Pods.
+3. **Deployments**: Manage ReplicaSets, support updates and rollbacks.
+4. **Services**: Define how to access Pods.
+5. **ConfigMaps** and Secrets: Configuration and sensitive data.
+6. **Volumes**: Storage for Pods.
+7. **Namespaces**: Divide cluster resources between multiple users.
 
 ### Pod
 
-- Nhóm các containers chia sẻ storage và network
-- Mô hình "sidecar" phổ biến: container chính + container phụ trợ
+- A group of one or more containers sharing storage and network.
+- Common "sidecar" pattern: main container + helper container.
 
 ```yaml
 # pod.yaml
@@ -319,9 +319,9 @@ spec:
 
 ### Deployment
 
-- Mức cao hơn Pod và ReplicaSet
-- Quản lý việc deploy và update ứng dụng
-- Hỗ trợ rollout và rollback
+- Higher level than Pod and ReplicaSet.
+- Manages deployment and updates of applications.
+- Supports rollouts and rollbacks.
 
 ```yaml
 # deployment.yaml
@@ -350,8 +350,8 @@ spec:
 
 ### Service
 
-- Cung cấp một endpoint ổn định để truy cập Pods
-- Cân bằng tải giữa nhiều Pods
+- Provides a stable endpoint to access Pods.
+- Load balances between multiple Pods.
 
 ```yaml
 # service.yaml
@@ -370,8 +370,8 @@ spec:
 
 ### DaemonSet
 
-- Đảm bảo tất cả (hoặc một số) Nodes chạy một bản sao của Pod
-- Thường dùng cho logging, monitoring, storage
+- Ensures that all (or some) Nodes run a copy of a Pod.
+- Typically used for logging, monitoring, storage daemons.
 
 ```yaml
 # daemonset.yaml
@@ -397,9 +397,9 @@ spec:
 
 ### StatefulSet
 
-- Quản lý các Pods có định danh duy nhất
-- Duy trì thứ tự và tính duy nhất của Pods
-- Thích hợp cho databases và ứng dụng stateful
+- Manages stateful applications.
+- Maintains a sticky identity for each of their Pods.
+- Suitable for databases and stateful applications.
 
 ```yaml
 # statefulset.yaml
@@ -436,10 +436,10 @@ spec:
             storage: 1Gi
 ```
 
-### Job và CronJob
+### Job and CronJob
 
-- Job: Chạy Pod đến khi hoàn thành
-- CronJob: Job chạy theo lịch trình
+- Job: Runs a Pod until completion.
+- CronJob: Creates Jobs on a repeating schedule.
 
 ```yaml
 # cronjob.yaml
@@ -448,7 +448,7 @@ kind: CronJob
 metadata:
   name: backup-database
 spec:
-  schedule: "0 1 * * *" # Mỗi ngày lúc 1 giờ sáng
+  schedule: "0 1 * * *" # Every day at 1 AM
   jobTemplate:
     spec:
       template:
@@ -460,13 +460,13 @@ spec:
           restartPolicy: OnFailure
 ```
 
-### Quản lý Kubernetes Objects
+### Managing Kubernetes Objects
 
 ```bash
-# Tạo từ file YAML
+# Create from YAML file
 kubectl apply -f deployment.yaml
 
-# Cập nhật image
+# Update image
 kubectl set image deployment/nginx-deployment nginx=nginx:1.20
 
 # Rollback
@@ -475,42 +475,37 @@ kubectl rollout undo deployment/nginx-deployment
 # Scale
 kubectl scale deployment/nginx-deployment --replicas=5
 
-# Xóa
+# Delete
 kubectl delete deployment nginx-deployment
 ```
 
-## 🧑‍🏫 Bài 5: Networking trong Kubernetes
+## 🧑‍🏫 Lesson 5: Networking in Kubernetes
 
-### Mô hình networking của Kubernetes
+### Kubernetes Networking Model
 
-- Flat network: Pods giao tiếp với nhau không cần NAT
-- Mỗi Pod có IP duy nhất
-- Containers trong Pod chia sẻ IP
+- Flat network: Pods communicate with each other without NAT.
+- Each Pod has a unique IP.
+- Containers in a Pod share the same IP.
 
-### Các thành phần networking
+### Networking Components
 
-1. **Pod Network**: Giao tiếp giữa các pods
-2. **Service Network**: Truy cập đến các pods
-3. **Cluster DNS**: Service discovery
-4. **Ingress**: Routing HTTP/HTTPS từ bên ngoài vào cluster
+1. **Pod Network**: Communication between pods.
+2. **Service Network**: Access to pods via services.
+3. **Cluster DNS**: Service discovery.
+4. **Ingress**: Routing HTTP/HTTPS traffic from outside to the cluster.
 
 ### Network Plugins (CNI)
 
-- Calico: Hiệu suất cao, hỗ trợ network policy
-- Flannel: Đơn giản, dễ cài đặt
-- Weave Net: Dễ sử dụng, mã hóa
-- Cilium: Dựa trên eBPF, hiệu năng cao
+- Calico: High performance, supports network policy.
+- Flannel: Simple, easy to setup.
+- Weave Net: Easy to use, encrypted.
+- Cilium: Based on eBPF, high performance.
 
-### Service ()
+### Service Types
 
-- Cung cấp địa chỉ IP và DNS cố định
-- Load balancing giữa các pods
-
-### Các loại Services
-
-1. **ClusterIP**: (mặc định)
-   - IP nội bộ trong cluster
-   - Chỉ truy cập được từ bên trong cluster
+1. **ClusterIP**: (default)
+   - Internal IP within the cluster.
+   - Only accessible from within the cluster.
 
    ```yaml
    apiVersion: v1
@@ -527,8 +522,8 @@ kubectl delete deployment nginx-deployment
    ```
 
 2. **NodePort**:
-   - Mở port cố định trên tất cả các nodes
-   - Truy cập từ bên ngoài qua `<NodeIP>:<NodePort>`
+   - Opens a specific port on all nodes.
+   - Accessible externally via `<NodeIP>:<NodePort>`.
 
      ```yaml
      apiVersion: v1
@@ -546,8 +541,8 @@ kubectl delete deployment nginx-deployment
      ```
 
 3. **LoadBalancer**:
-   - Sử dụng load balancer của cloud provider
-   - Cung cấp IP công khai
+   - Uses the cloud provider's load balancer.
+   - Provides a public IP.
 
    ```yaml
    apiVersion: v1
@@ -564,7 +559,7 @@ kubectl delete deployment nginx-deployment
    ```
 
 4. **ExternalName**:
-   - CNAME record tới service bên ngoài
+   - Maps the service to a DNS name.
 
 ```yaml
 apiVersion: v1
@@ -578,9 +573,9 @@ spec:
 
 ### Ingress
 
-- Layer 7 (HTTP) load balancer
-- Định tuyến traffic dựa trên URL path hoặc hostname
-- Cần Ingress Controller (nginx, traefik, ...)
+- Layer 7 (HTTP) load balancer.
+- Routes traffic based on URL path or hostname.
+- Requires an Ingress Controller (nginx, traefik, ...).
 
 ```yaml
 apiVersion: networking.k8s.io/v1
@@ -610,8 +605,8 @@ spec:
 
 ### Network Policies
 
-- Kiểm soát traffic giữa Pods
-- Tương tự như firewall rules
+- Control traffic flow between Pods.
+- Similar to firewall rules.
 
 ```yaml
 apiVersion: networking.k8s.io/v1
@@ -637,39 +632,39 @@ spec:
 ### Debugging Network Issues
 
 ```bash
-# Kiểm tra service
+# Check service
 kubectl get svc my-service
 
 # Debug DNS
 kubectl run -i --tty --rm debug --image=busybox -- sh
-# Trong container debug
+# Inside debug container
 nslookup my-service
 
-# Kiểm tra endpoints
+# Check endpoints
 kubectl get endpoints my-service
 
-# Xem network policies
+# View network policies
 kubectl get networkpolicies
 ```
 
-## 🧑‍🏫 Bài 6: Storage và Persistence
+## 🧑‍🏫 Lesson 6: Storage and Persistence
 
-### Persistent Storage trong Kubernetes
+### Persistent Storage in Kubernetes
 
-- Dữ liệu tồn tại độc lập với vòng đời của Pod
-- Kubernetes abstraction để quản lý storage
+- Data persists independently of the Pod lifecycle.
+- Kubernetes abstraction for managing storage.
 
 ### Volumes
 
-- Storage gắn vào Pod
-- Tồn tại trong suốt vòng đời của Pod
+- Storage attached to a Pod.
+- Exists as long as the Pod exists.
 
-### Các loại Volumes phổ biến
+### Common Volume Types
 
-1. **emptyDir**: Thư mục tạm thời, bị xóa khi Pod bị xóa
-2. **hostPath**: Sử dụng path trên Node
-3. **PersistentVolume (PV)**: Storage độc lập với Pod
-4. **ConfigMap/Secret as Volume**: Mount cấu hình/bí mật
+1. **emptyDir**: Temporary directory, deleted when Pod is removed.
+2. **hostPath**: Uses a path on the Node.
+3. **PersistentVolume (PV)**: Storage independent of the Pod.
+4. **ConfigMap/Secret as Volume**: Mount configuration/secrets.
 
 #### emptyDir
 
@@ -713,9 +708,9 @@ spec:
 
 ### Persistent Storage Architecture
 
-1. **PersistentVolume (PV)**: Tài nguyên storage thực tế
-2. **PersistentVolumeClaim (PVC)**: Yêu cầu sử dụng storage
-3. **StorageClass**: Định nghĩa loại storage và provisioner
+1. **PersistentVolume (PV)**: Actual storage resource.
+2. **PersistentVolumeClaim (PVC)**: Request for storage.
+3. **StorageClass**: Defines storage type and provisioner.
 
 #### PersistentVolume (PV)
 
@@ -752,7 +747,7 @@ spec:
   storageClassName: standard
 ```
 
-#### Sử dụng PVC trong Pod
+#### Using PVC in a Pod
 
 ```yaml
 apiVersion: v1
@@ -774,8 +769,8 @@ spec:
 
 #### StorageClass
 
-- Cung cấp storage động theo yêu cầu
-- Tích hợp với cloud providers
+- Provides dynamic storage provisioning.
+- Integrates with cloud providers.
 
 ```yaml
 apiVersion: storage.k8s.io/v1
@@ -792,8 +787,8 @@ allowVolumeExpansion: true
 
 #### Volume Snapshots
 
-- Sao lưu dữ liệu từ PVC
-- Khôi phục từ snapshot
+- Back up data from PVC.
+- Restore from snapshot.
 
 ```yaml
 apiVersion: snapshot.storage.k8s.io/v1
@@ -806,7 +801,7 @@ spec:
     persistentVolumeClaimName: db-storage-claim
 ```
 
-#### StatefulSet với Storage
+#### StatefulSet with Storage
 
 ```yaml
 apiVersion: apps/v1
@@ -843,20 +838,20 @@ spec:
 
 ### Best Practices
 
-1. Sử dụng PVs và PVCs thay vì volumes trực tiếp
-2. Định nghĩa StorageClass phù hợp cho từng loại workload
-3. Cấu hình backup và disaster recovery
-4. Sử dụng StatefulSets với volumeClaimTemplates cho ứng dụng stateful
-5. Giám sát dung lượng và hiệu suất storage
+1. Use PVs and PVCs instead of direct volumes.
+2. Define appropriate StorageClass for each workload type.
+3. Configure backup and disaster recovery.
+4. Use StatefulSets with volumeClaimTemplates for stateful apps.
+5. Monitor storage capacity and performance.
 
-## 🧑‍🏫 Bài 7: ConfigMaps và Secrets
+## 🧑‍🏫 Lesson 7: ConfigMaps and Secrets
 
 ### ConfigMaps
 
-- Lưu trữ dữ liệu cấu hình dạng key-value
-- Tách cấu hình ra khỏi image container
+- Stores configuration data as key-value pairs.
+- Decouples configuration artifacts from image content.
 
-### Tạo ConfigMap
+### Create ConfigMap
 
 ```yaml
 apiVersion: v1
@@ -878,9 +873,9 @@ data:
     }
 ```
 
-### Sử dụng ConfigMap
+### Using ConfigMap
 
-1. **Biến môi trường**:
+1. **Environment variables**:
 
    ```yaml
    apiVersion: v1
@@ -904,7 +899,7 @@ data:
                  key: database.port
    ```
 
-2. **envFrom - tất cả keys làm biến môi trường**:
+2. **envFrom - all keys as environment variables**:
 
    ```yaml
    apiVersion: v1
@@ -942,11 +937,11 @@ data:
 
 ### Secrets
 
-- Lưu trữ dữ liệu nhạy cảm (passwords, tokens, keys)
-- Tương tự ConfigMap nhưng an toàn hơn
-- Mã hóa Base64 (không phải mã hóa mạnh)
+- Stores sensitive information (passwords, tokens, keys).
+- Similar to ConfigMap but safer.
+- Base64 encoded (not strong encryption).
 
-### Tạo Secret
+### Create Secret
 
 ```yaml
 apiVersion: v1
@@ -955,24 +950,24 @@ metadata:
   name: db-credentials
 type: Opaque
 data:
-  # Giá trị phải ở dạng base64
+  # Values must be base64 encoded
   username: YWRtaW4= # admin
   password: c2VjcmV0 # secret
 ```
 
-### Tạo Secret từ command line
+### Create Secret from command line
 
 ```bash
-# Tạo từ file
+# From file
 kubectl create secret generic ssl-cert --from-file=cert.pem --from-file=key.pem
 
-# Tạo từ literal
+# From literal
 kubectl create secret generic api-keys --from-literal=api_key=123456 --from-literal=secret_key=abcdef
 ```
 
-### Sử dụng Secret
+### Using Secret
 
-1. **Biến môi trường**:
+1. **Environment variables**:
 
    ```yaml
    apiVersion: v1
@@ -1019,10 +1014,10 @@ kubectl create secret generic api-keys --from-literal=api_key=123456 --from-lite
 
 ### Secret Types
 
-- Opaque: Default, dữ liệu tùy ý
-- kubernetes.io/service-account-token: Service account token
-- kubernetes.io/dockerconfigjson: Docker registry auth
-- kubernetes.io/tls: TLS certificates
+- Opaque: Default, arbitrary data.
+- kubernetes.io/service-account-token: Service account token.
+- kubernetes.io/dockerconfigjson: Docker registry auth.
+- kubernetes.io/tls: TLS certificates.
 
 ### Docker Registry Secret
 
@@ -1036,7 +1031,7 @@ data:
   .dockerconfigjson: <base64-encoded-docker-config>
 ```
 
-### Sử dụng Docker Registry Secret
+### Using Docker Registry Secret
 
 ```yaml
 apiVersion: v1
@@ -1051,29 +1046,29 @@ spec:
     - name: docker-registry-cred
 ```
 
-### Best Practices (Bí quyết bảo mật Secrets)
+### Best Practices (Secrets Security)
 
-1. Không lưu trữ Secrets trong git repositories
-2. Hạn chế access đến Secrets bằng RBAC
-3. Sử dụng solutions bên ngoài như Vault cho quản lý bí mật
-4. Thiết lập network policies cho Pods với Secrets
-5. Encrypt etcd để bảo vệ Secrets khi lưu trữ
+1. Do not store Secrets in git repositories.
+2. Restrict access to Secrets using RBAC.
+3. Use external solutions like Vault for secret management.
+4. Set network policies for Pods using Secrets.
+5. Encrypt etcd to protect stored Secrets.
 
-## 🧑‍🏫 Bài 8: Helm - Package Manager cho Kubernetes
+## 🧑‍🏫 Lesson 8: Helm - Package Manager for Kubernetes
 
-### Helm là gì?
+### What is Helm?
 
-- Package manager cho Kubernetes
-- Giúp định nghĩa, cài đặt và nâng cấp ứng dụng phức tạp
-- Tương tự npm, pip hoặc apt nhưng cho Kubernetes
+- Package manager for Kubernetes.
+- Helps define, install, and upgrade complex Kubernetes applications.
+- Similar to npm, pip, or apt but for Kubernetes.
 
-### Khái niệm cơ bản của Helm
+### Basic Helm Concepts
 
-1. **Chart**: Package của Helm, chứa tất cả tài nguyên Kubernetes
-2. **Repository**: Nơi lưu trữ và chia sẻ charts
-3. **Release**: Instance của chart đã được deploy
+1. **Chart**: A Helm package, contains all resource definitions.
+2. **Repository**: Place where charts are collected and shared.
+3. **Release**: An instance of a chart running in a Kubernetes cluster.
 
-### Cài đặt Helm
+### Installing Helm
 
 ```bash
 # Linux
@@ -1086,19 +1081,19 @@ brew install helm
 choco install kubernetes-helm
 ```
 
-### Cấu trúc của một Helm Chart
+### Structure of a Helm Chart
 
 ```text
 mychart/
-  Chart.yaml          # Thông tin về chart
-  values.yaml         # Giá trị mặc định cho templates
-  templates/          # Thư mục chứa templates
+  Chart.yaml          # Information about the chart
+  values.yaml         # Default configuration values
+  templates/          # Directory of templates
     deployment.yaml
     service.yaml
     ingress.yaml
     _helpers.tpl      # Partial templates
-  charts/             # Charts phụ thuộc
-  templates/NOTES.txt # Notes hiển thị sau khi cài đặt
+  charts/             # Chart dependencies
+  templates/NOTES.txt # Notes displayed after installation
 ```
 
 #### Chart.yaml
@@ -1167,48 +1162,48 @@ spec:
 ### Helm Commands
 
 ```bash
-# Tìm kiếm charts
+# Search charts
 helm search hub wordpress
 
-# Thêm repository
+# Add repository
 helm repo add bitnami https://charts.bitnami.com/bitnami
 helm repo update
 
-# Cài đặt chart
+# Install chart
 helm install my-release bitnami/wordpress
 
-# Xem các releases đã cài đặt
+# List releases
 helm list
 
-# Kiểm tra trạng thái
+# Check status
 helm status my-release
 
-# Nâng cấp release
+# Upgrade release
 helm upgrade my-release bitnami/wordpress --values=custom-values.yaml
 
 # Rollback
 helm rollback my-release 1
 
-# Gỡ cài đặt
+# Uninstall
 helm uninstall my-release
 ```
 
-#### Tạo Helm Chart mới
+#### Create new Helm Chart
 
 ```bash
-# Tạo chart mới
+# Create new chart
 helm create mychart
 
-# Kiểm tra cấu trúc chart
+# Lint chart
 helm lint mychart
 
-# Đóng gói chart
+# Package chart
 helm package mychart
 
-# Cài đặt chart local
+# Install local chart
 helm install my-app ./mychart
 
-# Cài đặt với custom values
+# Install with custom values
 helm install my-app ./mychart -f my-values.yaml
 ```
 
@@ -1262,42 +1257,42 @@ spec:
       restartPolicy: Never
 ```
 
-### Best Practices (Bí quyết sử dụng Helm)
+### Best Practices (Helm Tips)
 
-1. Sử dụng Helm repo để quản lý charts
-2. Phân chia values.yaml theo các thành phần logic
-3. Đặt thực nghiệm với templates trong values.yaml
-4. Sử dụng helpers để tái sử dụng code
-5. Thêm NOTES.txt để hướng dẫn người dùng
+1. Use Helm repo to manage charts.
+2. Split values.yaml into logical components.
+3. Experiment with templates in values.yaml.
+4. Use helpers to reuse code.
+5. Add NOTES.txt to guide users.
 
-## 🧪 BÀI TẬP LỚN CUỐI PHẦN: Xây dựng và triển khai ứng dụng microservices trên Kubernetes
+## 🧪 FINAL PROJECT: Building and Deploying a Microservices App on Kubernetes
 
-### Mô tả bài toán
+### Project Description
 
-Xây dựng hệ thống microservices hoàn chỉnh và triển khai trên Kubernetes cluster, với các thành phần:
+Build a complete microservices system and deploy it on a Kubernetes cluster, with the following components:
 
-- Frontend SPA (Single Page Application)
-- API Gateway
-- 2-3 Microservices backend
-- Database (SQL hoặc NoSQL)
-- Hệ thống xác thực/phân quyền
+- Frontend SPA (Single Page Application).
+- API Gateway.
+- 2-3 Backend Microservices.
+- Database (SQL or NoSQL).
+- Authentication/Authorization system.
 
-### Yêu cầu
+### Requirements
 
-1. Xây dựng Docker images cho từng microservice
-2. Tạo các Kubernetes manifests cho tất cả các components
-3. Cấu hình Services, Ingress để quản lý traffic
-4. Thiết lập PersistentVolumes cho database
-5. Cấu hình ConfigMaps và Secrets
-6. Triển khai Prometheus và Grafana để monitoring
-7. Cấu hình Horizontal Pod Autoscaler
-8. Tạo Helm chart cho toàn bộ ứng dụng
-9. Viết scripts cho CI/CD pipeline
+1. Build Docker images for each microservice.
+2. Create Kubernetes manifests for all components.
+3. Configure Services, Ingress to manage traffic.
+4. Setup PersistentVolumes for database.
+5. Configure ConfigMaps and Secrets.
+6. Deploy Prometheus and Grafana for monitoring.
+7. Configure Horizontal Pod Autoscaler.
+8. Create Helm chart for the entire application.
+9. Write scripts for CI/CD pipeline.
 
-### Kết quả đạt được
+### Expected Outcome
 
-- Ứng dụng chạy ổn định trên Kubernetes
-- Tài liệu triển khai chi tiết và kiến trúc hệ thống
-- Khả năng mở rộng tự động theo tải
-- Monitoring và alerting đầy đủ
-- CI/CD pipeline cho việc cập nhật ứng dụng
+- Application runs stably on Kubernetes.
+- Detailed deployment documentation and system architecture.
+- Automatic scaling capability based on load.
+- Complete monitoring and alerting.
+- CI/CD pipeline for application updates.

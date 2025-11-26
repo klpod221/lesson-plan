@@ -1,47 +1,47 @@
 ---
 prev:
-  text: '🧠 Thuật Toán Nâng Cao'
+  text: '🧠 Advanced Algorithms'
   link: '/DSA/Part3'
 next:
-  text: '⚡ Thuật Toán Ứng Dụng'
+  text: '⚡ Applied Algorithms'
   link: '/DSA/Part5'
 ---
 
-# 📘 PHẦN 4: CÁC CẤU TRÚC DỮ LIỆU CHUYÊN BIỆT
+# 📘 PART 4: SPECIALIZED DATA STRUCTURES
 
-## 🎯 Mục tiêu tổng quát
+## 🎯 General Objectives
 
-- Hiểu và cài đặt được các cấu trúc dữ liệu nâng cao như cây cân bằng, cây B/B+, Heap, Trie, Segment Tree.
-- Phân tích được ưu nhược điểm của từng cấu trúc và biết lựa chọn cấu trúc phù hợp với bài toán.
-- Áp dụng các cấu trúc dữ liệu chuyên biệt vào các bài toán thực tế.
-- Tối ưu hóa giải pháp sử dụng các cấu trúc dữ liệu đặc thù.
+- Understand and implement advanced data structures such as Balanced Trees, B/B+ Trees, Heaps, Tries, Segment Trees.
+- Analyze the pros and cons of each structure and know how to choose the appropriate one for a problem.
+- Apply specialized data structures to real-world problems.
+- Optimize solutions using specific data structures.
 
-## 🧑‍🏫 Bài 1: Cây cân bằng (AVL, Red-Black Trees)
+## 🧑‍🏫 Lesson 1: Balanced Trees (AVL, Red-Black Trees)
 
-### Cây AVL
+### AVL Tree
 
-Cây AVL là cây nhị phân tìm kiếm tự cân bằng, đảm bảo chiều cao của hai cây con lệch nhau không quá 1 đơn vị.
+AVL Tree is a self-balancing binary search tree, ensuring that the height difference between the left and right subtrees is no more than 1 unit.
 
-#### Các tính chất của cây AVL
+#### Properties of AVL Tree
 
-- Mỗi nút có hệ số cân bằng (balance factor) = chiều cao cây con trái - chiều cao cây con phải
-- Hệ số cân bằng của mỗi nút phải là -1, 0, hoặc +1
-- Các thao tác tìm kiếm, chèn, xóa đều có độ phức tạp O(log n)
+- Each node has a balance factor = height of left subtree - height of right subtree.
+- The balance factor of each node must be -1, 0, or +1.
+- Search, insert, and delete operations all have O(log n) complexity.
 
-#### Các thao tác tái cân bằng
+#### Rebalancing Operations
 
-1. Xoay phải (Right rotation):
+1. **Right Rotation:**
 
    ```java
    private Node rightRotate(Node y) {
        Node x = y.left;
        Node T2 = x.right;
 
-       // Thực hiện xoay
+       // Perform rotation
        x.right = y;
        y.left = T2;
 
-       // Cập nhật chiều cao
+       // Update heights
        y.height = Math.max(height(y.left), height(y.right)) + 1;
        x.height = Math.max(height(x.left), height(x.right)) + 1;
 
@@ -49,18 +49,18 @@ Cây AVL là cây nhị phân tìm kiếm tự cân bằng, đảm bảo chiều
    }
    ```
 
-2. **Xoay trái (Left rotation):**
+2. **Left Rotation:**
 
    ```java
    private Node leftRotate(Node x) {
        Node y = x.right;
        Node T2 = y.left;
 
-       // Thực hiện xoay
+       // Perform rotation
        y.left = x;
        x.right = T2;
 
-       // Cập nhật chiều cao
+       // Update heights
        x.height = Math.max(height(x.left), height(x.right)) + 1;
        y.height = Math.max(height(y.left), height(y.right)) + 1;
 
@@ -68,7 +68,7 @@ Cây AVL là cây nhị phân tìm kiếm tự cân bằng, đảm bảo chiều
    }
    ```
 
-#### Cài đặt cây AVL đầy đủ
+#### Full AVL Tree Implementation
 
 ```java
 public class AVLTree {
@@ -78,33 +78,33 @@ public class AVLTree {
 
         Node(int key) {
             this.key = key;
-            this.height = 1; // Nút lá mới có chiều cao là 1
+            this.height = 1; // New leaf node has height 1
         }
     }
 
     private Node root;
 
-    // Lấy chiều cao của nút
+    // Get height of node
     private int height(Node node) {
         if (node == null)
             return 0;
         return node.height;
     }
 
-    // Lấy hệ số cân bằng của nút
+    // Get balance factor of node
     private int getBalance(Node node) {
         if (node == null)
             return 0;
         return height(node.left) - height(node.right);
     }
 
-    // Chèn một khóa mới vào cây
+    // Insert a new key into the tree
     public void insert(int key) {
         root = insert(root, key);
     }
 
     private Node insert(Node node, int key) {
-        // 1. Thực hiện chèn BST thông thường
+        // 1. Perform normal BST insertion
         if (node == null)
             return new Node(key);
 
@@ -112,16 +112,16 @@ public class AVLTree {
             node.left = insert(node.left, key);
         else if (key > node.key)
             node.right = insert(node.right, key);
-        else // Không cho phép trùng khóa
+        else // Duplicate keys not allowed
             return node;
 
-        // 2. Cập nhật chiều cao của nút hiện tại
+        // 2. Update height of this ancestor node
         node.height = 1 + Math.max(height(node.left), height(node.right));
 
-        // 3. Lấy hệ số cân bằng để kiểm tra xem nút này có mất cân bằng không
+        // 3. Get the balance factor to check whether this node became unbalanced
         int balance = getBalance(node);
 
-        // 4. Nếu mất cân bằng, có 4 trường hợp
+        // 4. If unbalanced, then there are 4 cases
 
         // Left Left Case
         if (balance > 1 && key < node.left.key)
@@ -146,13 +146,13 @@ public class AVLTree {
         return node;
     }
 
-    // Xóa một khóa khỏi cây
+    // Delete a key from the tree
     public void delete(int key) {
         root = delete(root, key);
     }
 
     private Node delete(Node root, int key) {
-        // 1. Thực hiện xóa BST thông thường
+        // 1. Perform standard BST delete
         if (root == null)
             return root;
 
@@ -161,44 +161,44 @@ public class AVLTree {
         else if (key > root.key)
             root.right = delete(root.right, key);
         else {
-            // Nút có 0 hoặc 1 con
+            // Node with only one child or no child
             if (root.left == null || root.right == null) {
                 Node temp = (root.left != null) ? root.left : root.right;
 
-                // Không có con
+                // No child case
                 if (temp == null) {
                     temp = root;
                     root = null;
                 }
-                // Một con
+                // One child case
                 else {
                     root = temp;
                 }
             }
-            // Nút có 2 con
+            // Node with two children
             else {
-                // Tìm nút kế tiếp theo thứ tự (nhỏ nhất trong cây con phải)
+                // Get the inorder successor (smallest in the right subtree)
                 Node temp = minValueNode(root.right);
 
-                // Sao chép giá trị kế tiếp vào nút hiện tại
+                // Copy the inorder successor's content to this node
                 root.key = temp.key;
 
-                // Xóa nút kế tiếp
+                // Delete the inorder successor
                 root.right = delete(root.right, temp.key);
             }
         }
 
-        // Nếu cây chỉ có một nút thì return
+        // If the tree had only one node then return
         if (root == null)
             return root;
 
-        // 2. Cập nhật chiều cao
+        // 2. Update height of the current node
         root.height = 1 + Math.max(height(root.left), height(root.right));
 
-        // 3. Kiểm tra hệ số cân bằng
+        // 3. Get the balance factor
         int balance = getBalance(root);
 
-        // 4. Nếu mất cân bằng, tái cân bằng
+        // 4. If unbalanced, then there are 4 cases
 
         // Left Left Case
         if (balance > 1 && getBalance(root.left) >= 0)
@@ -226,14 +226,14 @@ public class AVLTree {
     private Node minValueNode(Node node) {
         Node current = node;
 
-        // Tìm nút trái nhất (nhỏ nhất)
+        // Find the leftmost leaf
         while (current.left != null)
             current = current.left;
 
         return current;
     }
 
-    // Duyệt cây theo thứ tự
+    // Inorder traversal
     public void inorder() {
         inorder(root);
         System.out.println();
@@ -249,19 +249,19 @@ public class AVLTree {
 }
 ```
 
-### Cây Red-Black
+### Red-Black Tree
 
-Cây Red-Black là một loại cây nhị phân tìm kiếm tự cân bằng với các tính chất đặc biệt để đảm bảo cân bằng.
+Red-Black Tree is a type of self-balancing binary search tree with special properties to ensure balance.
 
-#### Tính chất của cây Red-Black
+#### Properties of Red-Black Tree
 
-1. Mỗi nút có màu đỏ hoặc đen
-2. Nút gốc luôn có màu đen
-3. Các nút lá NULL đều có màu đen
-4. Nút đỏ không thể có con đỏ (không có 2 nút đỏ liên tiếp)
-5. Mọi đường đi từ nút bất kỳ đến các nút lá đều có cùng số lượng nút đen
+1. Each node is either red or black.
+2. The root is always black.
+3. All leaves (NULL) are black.
+4. If a node is red, then both its children are black (no two consecutive red nodes).
+5. Every path from a node to any of its descendant NULL nodes contains the same number of black nodes.
 
-#### Cài đặt cây Red-Black
+#### Red-Black Tree Implementation
 
 ```java
 public class RedBlackTree {
@@ -271,24 +271,24 @@ public class RedBlackTree {
     private class Node {
         int key;
         Node left, right;
-        boolean color; // true là RED, false là BLACK
+        boolean color; // true is RED, false is BLACK
 
         Node(int key) {
             this.key = key;
-            this.color = RED; // Nút mới luôn là RED
+            this.color = RED; // New node is always RED
         }
     }
 
     private Node root;
 
-    // Kiểm tra màu của nút
+    // Check color of node
     private boolean isRed(Node node) {
         if (node == null)
             return false; // NULL nodes are BLACK
         return node.color == RED;
     }
 
-    // Xoay trái
+    // Rotate left
     private Node rotateLeft(Node h) {
         Node x = h.right;
         h.right = x.left;
@@ -298,7 +298,7 @@ public class RedBlackTree {
         return x;
     }
 
-    // Xoay phải
+    // Rotate right
     private Node rotateRight(Node h) {
         Node x = h.left;
         h.left = x.right;
@@ -308,17 +308,17 @@ public class RedBlackTree {
         return x;
     }
 
-    // Đảo màu của nút và hai con
+    // Flip colors of node and its two children
     private void flipColors(Node h) {
         h.color = !h.color;
         h.left.color = !h.left.color;
         h.right.color = !h.right.color;
     }
 
-    // Chèn một khóa vào cây
+    // Insert a key into the tree
     public void insert(int key) {
         root = insert(root, key);
-        root.color = BLACK; // Đảm bảo gốc luôn đen
+        root.color = BLACK; // Ensure root is always black
     }
 
     private Node insert(Node h, int key) {
@@ -330,26 +330,26 @@ public class RedBlackTree {
         else if (key > h.key)
             h.right = insert(h.right, key);
         else
-            h.key = key; // Cập nhật nếu trùng khóa
+            h.key = key; // Update if key exists
 
-        // Cân bằng cây
+        // Balance the tree
 
-        // Nếu nút phải đỏ và nút trái đen: xoay trái
+        // If right child is red and left child is black: rotate left
         if (isRed(h.right) && !isRed(h.left))
             h = rotateLeft(h);
 
-        // Nếu nút trái đỏ và con trái của nó cũng đỏ: xoay phải
+        // If left child is red and its left child is also red: rotate right
         if (isRed(h.left) && isRed(h.left.left))
             h = rotateRight(h);
 
-        // Nếu cả nút trái và nút phải đều đỏ: đảo màu
+        // If both left and right children are red: flip colors
         if (isRed(h.left) && isRed(h.right))
             flipColors(h);
 
         return h;
     }
 
-    // Duyệt cây theo thứ tự
+    // Inorder traversal
     public void inorder() {
         inorder(root);
         System.out.println();
@@ -365,64 +365,64 @@ public class RedBlackTree {
 }
 ```
 
-### So sánh cây AVL và cây Red-Black
+### Comparison of AVL and Red-Black Trees
 
-| Tiêu chí      | Cây AVL                                | Cây Red-Black         |
+| Criteria | AVL Tree | Red-Black Tree |
 | ------------- | -------------------------------------- | --------------------- |
-| Cân bằng      | Nghiêm ngặt (hệ số cân bằng <= 1)      | Ít nghiêm ngặt hơn    |
-| Chiều cao     | ~ 1.44 log(n)                          | ~ 2 log(n)            |
-| Thao tác chèn | Tối đa 2 xoay                          | Tối đa 2 xoay         |
-| Thao tác xóa  | Tối đa log(n) xoay                     | Tối đa 3 xoay         |
-| Bộ nhớ        | 1 bit hệ số cân bằng/chiều cao mỗi nút | 1 bit màu mỗi nút     |
-| Tìm kiếm      | Nhanh hơn do cân bằng tốt              | Chậm hơn một chút     |
-| Ứng dụng      | Tra cứu thường xuyên                   | Chèn/xóa thường xuyên |
+| Balance | Strict (balance factor <= 1) | Less strict |
+| Height | ~ 1.44 log(n) | ~ 2 log(n) |
+| Insertion | Max 2 rotations | Max 2 rotations |
+| Deletion | Max log(n) rotations | Max 3 rotations |
+| Memory | 1 bit balance factor/height per node | 1 bit color per node |
+| Search | Faster due to better balance | Slightly slower |
+| Application | Frequent lookups | Frequent insertions/deletions |
 
-## 🧑‍🏫 Bài 2: Cây B và B+
+## 🧑‍🏫 Lesson 2: B-Trees and B+ Trees
 
-### Cây B
+### B-Tree
 
-Cây B là một cấu trúc cây tự cân bằng, mỗi nút có thể chứa nhiều khóa và có nhiều con. Cây B thường được sử dụng trong các hệ thống tập tin và cơ sở dữ liệu.
+B-Tree is a self-balancing tree structure where each node can contain multiple keys and have multiple children. B-Trees are commonly used in file systems and databases.
 
-#### Tính chất của cây B bậc M
+#### Properties of B-Tree of Order M
 
-1. Mọi nút trừ nút gốc đều chứa từ ⌈M/2⌉-1 đến M-1 khóa
-2. Nút gốc chứa từ 1 đến M-1 khóa
-3. Nút có k khóa sẽ có k+1 con
-4. Tất cả các nút lá đều nằm ở cùng một mức
+1. Every node except the root contains between ⌈M/2⌉-1 and M-1 keys.
+2. The root contains between 1 and M-1 keys.
+3. A node with k keys will have k+1 children.
+4. All leaf nodes are at the same level.
 
-#### Cấu trúc nút trong cây B
+#### Node Structure in B-Tree
 
 ```java
 class BTreeNode {
-    int[] keys;        // Mảng các khóa
-    int t;             // Bậc tối thiểu (số khóa tối thiểu là t-1)
-    BTreeNode[] children; // Mảng các con
-    int n;             // Số khóa hiện tại
-    boolean leaf;      // true nếu là nút lá
+    int[] keys;        // Array of keys
+    int t;             // Minimum degree (minimum keys is t-1)
+    BTreeNode[] children; // Array of children
+    int n;             // Current number of keys
+    boolean leaf;      // true if leaf node
 
     public BTreeNode(int t, boolean leaf) {
         this.t = t;
         this.leaf = leaf;
-        this.keys = new int[2*t - 1]; // Mỗi nút có thể chứa tối đa 2t-1 khóa
-        this.children = new BTreeNode[2*t]; // Mỗi nút có tối đa 2t con
-        this.n = 0; // Khởi tạo với 0 khóa
+        this.keys = new int[2*t - 1]; // Each node can contain max 2t-1 keys
+        this.children = new BTreeNode[2*t]; // Each node has max 2t children
+        this.n = 0; // Initialize with 0 keys
     }
 }
 ```
 
-#### Cài đặt cây B
+#### B-Tree Implementation
 
 ```java
 public class BTree {
     private BTreeNode root;
-    private int t; // Bậc tối thiểu
+    private int t; // Minimum degree
 
     public BTree(int t) {
         this.root = null;
         this.t = t;
     }
 
-    // Tìm kiếm một khóa trong cây
+    // Search for a key in the tree
     public BTreeNode search(int key) {
         if (root == null)
             return null;
@@ -430,44 +430,44 @@ public class BTree {
     }
 
     private BTreeNode search(BTreeNode node, int key) {
-        // Tìm vị trí của khóa trong nút hiện tại
+        // Find position of key in current node
         int i = 0;
         while (i < node.n && key > node.keys[i])
             i++;
 
-        // Nếu tìm thấy khóa
+        // If key found
         if (i < node.n && key == node.keys[i])
             return node;
 
-        // Nếu là nút lá và không tìm thấy
+        // If leaf node and not found
         if (node.leaf)
             return null;
 
-        // Tiếp tục tìm kiếm ở nút con
+        // Continue searching in child node
         return search(node.children[i], key);
     }
 
-    // Chèn một khóa vào cây
+    // Insert a key into the tree
     public void insert(int key) {
-        // Nếu cây rỗng
+        // If tree is empty
         if (root == null) {
             root = new BTreeNode(t, true);
             root.keys[0] = key;
             root.n = 1;
         } else {
-            // Nếu gốc đầy, cây sẽ tăng chiều cao
+            // If root is full, tree height increases
             if (root.n == 2*t - 1) {
                 BTreeNode s = new BTreeNode(t, false);
                 s.children[0] = root;
-                // Tách gốc cũ và di chuyển một khóa lên
+                // Split old root and move one key up
                 splitChild(s, 0);
-                // Gốc mới có 2 con, quyết định con nào sẽ chứa khóa mới
+                // New root has 2 children, decide which one will hold new key
                 int i = 0;
                 if (s.keys[0] < key)
                     i++;
                 insertNonFull(s.children[i], key);
 
-                // Đổi gốc
+                // Change root
                 root = s;
             } else {
                 insertNonFull(root, key);
@@ -475,33 +475,33 @@ public class BTree {
         }
     }
 
-    // Chèn khóa vào nút chưa đầy
+    // Insert key into non-full node
     private void insertNonFull(BTreeNode node, int key) {
-        // Khởi tạo vị trí của khóa cuối cùng
+        // Initialize index of rightmost key
         int i = node.n - 1;
 
-        // Nếu là nút lá
+        // If leaf node
         if (node.leaf) {
-            // Tìm vị trí của khóa mới và dịch chuyển các khóa lớn hơn
+            // Find location of new key and move greater keys
             while (i >= 0 && key < node.keys[i]) {
                 node.keys[i+1] = node.keys[i];
                 i--;
             }
 
-            // Chèn khóa mới
+            // Insert new key
             node.keys[i+1] = key;
             node.n++;
-        } else { // Nếu không phải nút lá
-            // Tìm nút con sẽ chứa khóa mới
+        } else { // If not leaf node
+            // Find child which is going to have the new key
             while (i >= 0 && key < node.keys[i])
                 i--;
 
             i++;
-            // Nếu nút con đầy, tách nó
+            // If child is full, split it
             if (node.children[i].n == 2*t - 1) {
                 splitChild(node, i);
 
-                // Sau khi tách, khóa giữa được đẩy lên và nút con được chia đôi
+                // After split, the middle key of child goes up and child is split into two
                 if (key > node.keys[i])
                     i++;
             }
@@ -509,45 +509,45 @@ public class BTree {
         }
     }
 
-    // Tách nút con thứ i của node
+    // Split child i of node
     private void splitChild(BTreeNode node, int i) {
-        BTreeNode y = node.children[i]; // Nút con cần tách
-        BTreeNode z = new BTreeNode(t, y.leaf); // Nút mới
+        BTreeNode y = node.children[i]; // Child to split
+        BTreeNode z = new BTreeNode(t, y.leaf); // New node
 
         z.n = t - 1;
 
-        // Sao chép nửa sau của y vào z
+        // Copy last t-1 keys of y to z
         for (int j = 0; j < t-1; j++)
             z.keys[j] = y.keys[j+t];
 
-        // Sao chép các con tương ứng nếu không phải nút lá
+        // Copy corresponding children if not leaf
         if (!y.leaf) {
             for (int j = 0; j < t; j++)
                 z.children[j] = y.children[j+t];
         }
 
-        // Giảm số khóa trong y
+        // Reduce number of keys in y
         y.n = t - 1;
 
-        // Dịch chuyển các con của node để chứa z
+        // Shift children of node to accommodate z
         for (int j = node.n; j > i; j--)
             node.children[j+1] = node.children[j];
 
-        // Liên kết nút con mới
+        // Link new child
         node.children[i+1] = z;
 
-        // Dịch chuyển các khóa của node để chèn khóa từ y
+        // Shift keys of node to insert key from y
         for (int j = node.n-1; j >= i; j--)
             node.keys[j+1] = node.keys[j];
 
-        // Sao chép khóa giữa từ y vào node
+        // Copy middle key from y to node
         node.keys[i] = y.keys[t-1];
 
-        // Tăng số khóa trong node
+        // Increment count of keys in node
         node.n++;
     }
 
-    // In cây
+    // Traverse tree
     public void traverse() {
         if (root != null)
             traverse(root);
@@ -557,37 +557,37 @@ public class BTree {
     private void traverse(BTreeNode node) {
         int i;
         for (i = 0; i < node.n; i++) {
-            // In cây con trước khóa thứ i
+            // Traverse subtree before key i
             if (!node.leaf)
                 traverse(node.children[i]);
             System.out.print(node.keys[i] + " ");
         }
 
-        // In cây con cuối cùng
+        // Traverse last subtree
         if (!node.leaf)
             traverse(node.children[i]);
     }
 }
 ```
 
-### Cây B+
+### B+ Tree
 
-Cây B+ là một biến thể của cây B, nhưng có một số khác biệt quan trọng:
+B+ Tree is a variation of B-Tree, but with some important differences:
 
-1. Tất cả khóa đều được lưu trữ ở các nút lá, được liên kết tạo thành một danh sách liên kết
-2. Các khóa trong nút nội bộ chỉ là bản sao của khóa ở nút lá
-3. Nút lá chứa tất cả các khóa và con trỏ đến dữ liệu thực
+1. All keys are stored in leaf nodes, which are linked to form a linked list.
+2. Keys in internal nodes are only copies of keys in leaf nodes.
+3. Leaf nodes contain all keys and pointers to actual data.
 
-#### Cấu trúc nút trong cây B+
+#### Node Structure in B+ Tree
 
 ```java
 class BPlusTreeNode {
-    boolean isLeaf; // true nếu là nút lá
-    int[] keys; // Mảng các khóa
-    int t; // Bậc tối thiểu
-    BPlusTreeNode[] children; // Mảng các con (nút nội)
-    BPlusTreeNode next; // Con trỏ tới nút lá kế tiếp (chỉ cho nút lá)
-    int n; // Số khóa hiện tại
+    boolean isLeaf; // true if leaf node
+    int[] keys; // Array of keys
+    int t; // Minimum degree
+    BPlusTreeNode[] children; // Array of children (internal nodes)
+    BPlusTreeNode next; // Pointer to next leaf node (only for leaf nodes)
+    int n; // Current number of keys
 
     public BPlusTreeNode(int t, boolean isLeaf) {
         this.t = t;
@@ -600,13 +600,13 @@ class BPlusTreeNode {
 }
 ```
 
-#### Cài đặt cây B+ (phiên bản đơn giản)
+#### B+ Tree Implementation (Simplified)
 
 ```java
 public class BPlusTree {
     private BPlusTreeNode root;
-    private int t; // Bậc tối thiểu
-    private static final int DEFAULT_T = 3; // Bậc mặc định
+    private int t; // Minimum degree
+    private static final int DEFAULT_T = 3; // Default degree
 
     public BPlusTree() {
         this(DEFAULT_T);
@@ -617,14 +617,14 @@ public class BPlusTree {
         root = new BPlusTreeNode(t, true);
     }
 
-    // Tìm kiếm một khóa trong cây
+    // Search for a key in the tree
     public boolean search(int key) {
         if (root == null)
             return false;
 
         BPlusTreeNode node = findLeafNode(root, key);
 
-        // Tìm khóa trong nút lá
+        // Find key in leaf node
         for (int i = 0; i < node.n; i++) {
             if (node.keys[i] == key)
                 return true;
@@ -633,7 +633,7 @@ public class BPlusTree {
         return false;
     }
 
-    // Tìm nút lá có thể chứa khóa
+    // Find leaf node that could contain the key
     private BPlusTreeNode findLeafNode(BPlusTreeNode node, int key) {
         if (node.isLeaf)
             return node;
@@ -645,52 +645,52 @@ public class BPlusTree {
         return findLeafNode(node.children[i], key);
     }
 
-    // Chèn một khóa vào cây
+    // Insert a key into the tree
     public void insert(int key) {
-        // Nếu gốc đầy, cần tách gốc
+        // If root is full, need to split root
         if (root.n == 2 * t - 1) {
             BPlusTreeNode newRoot = new BPlusTreeNode(t, false);
             newRoot.children[0] = root;
 
-            // Tách gốc cũ
+            // Split old root
             splitChild(newRoot, 0);
 
-            // Cập nhật gốc mới
+            // Update new root
             root = newRoot;
         }
 
         insertNonFull(root, key);
     }
 
-    // Chèn khóa vào nút không đầy
+    // Insert key into non-full node
     private void insertNonFull(BPlusTreeNode node, int key) {
         int i = node.n - 1;
 
-        // Nếu là nút lá
+        // If leaf node
         if (node.isLeaf) {
-            // Tìm vị trí để chèn và dịch các khóa lớn hơn
+            // Find position to insert and shift greater keys
             while (i >= 0 && key < node.keys[i]) {
                 node.keys[i + 1] = node.keys[i];
                 i--;
             }
 
 
-            // Chèn khóa mới
+            // Insert new key
             node.keys[i + 1] = key;
             node.n++;
         } else {
-            // Nếu không phải nút lá, tìm nút con để chèn
+            // If not leaf node, find child to insert
             while (i >= 0 && key < node.keys[i])
                 i--;
 
             i++;
 
-            // Nếu nút con đầy, tách nó trước
+            // If child is full, split it first
             if (node.children[i].n == 2 * t - 1) {
                 splitChild(node, i);
 
-                // Sau khi tách, khóa ở giữa được đẩy lên
-                // Xác định lại nút con cần chèn
+                // After split, middle key is pushed up
+                // Re-determine child to insert
                 if (key > node.keys[i])
                     i++;
             }
@@ -699,51 +699,51 @@ public class BPlusTree {
         }
     }
 
-    // Tách nút con thứ i của node
+    // Split child i of parent
     private void splitChild(BPlusTreeNode parent, int i) {
         BPlusTreeNode child = parent.children[i];
         BPlusTreeNode newChild = new BPlusTreeNode(t, child.isLeaf);
 
-        // Sao chép nửa sau của khóa từ child sang newChild
+        // Copy second half of keys from child to newChild
         for (int j = 0; j < t - 1; j++)
             newChild.keys[j] = child.keys[j + t];
 
-        // Sao chép nửa sau của con từ child sang newChild nếu không phải nút lá
+        // Copy second half of children from child to newChild if not leaf
         if (!child.isLeaf) {
             for (int j = 0; j < t; j++)
                 newChild.children[j] = child.children[j + t];
         }
 
-        // Cập nhật số khóa
+        // Update number of keys
         newChild.n = t - 1;
         child.n = t;
 
-        // Dịch chuyển con của parent để chèn newChild
+        // Shift children of parent to insert newChild
         for (int j = parent.n; j > i; j--)
             parent.children[j + 1] = parent.children[j];
 
         parent.children[i + 1] = newChild;
 
-        // Dịch chuyển khóa của parent
+        // Shift keys of parent
         for (int j = parent.n - 1; j >= i; j--)
             parent.keys[j + 1] = parent.keys[j];
 
-        // Khóa ở giữa của child được đẩy lên parent
+        // Middle key of child is pushed up to parent
         parent.keys[i] = child.keys[t - 1];
 
         parent.n++;
 
-        // Thiết lập liên kết giữa các nút lá
+        // Set link between leaf nodes
         if (child.isLeaf) {
             newChild.next = child.next;
             child.next = newChild;
 
-            // Trong cây B+, chúng ta giữ lại khóa trong nút lá
-            child.keys[t - 1] = child.keys[t - 1]; // Giữ lại khóa ở nút lá
+            // In B+ Tree, we keep the key in leaf node
+            child.keys[t - 1] = child.keys[t - 1]; // Keep key in leaf
         }
     }
 
-    // Duyệt cây theo thứ tự
+    // Traverse tree
     public void traverse() {
         if (root != null) {
             traverseInternal(root);
@@ -765,7 +765,7 @@ public class BPlusTree {
         }
     }
 
-    // Duyệt qua các nút lá (theo thứ tự)
+    // Traverse through leaf nodes (in order)
     public void traverseLeaves() {
         BPlusTreeNode current = findLeftmostLeaf(root);
 
@@ -778,7 +778,7 @@ public class BPlusTree {
         System.out.println();
     }
 
-    // Tìm nút lá trái nhất
+    // Find leftmost leaf node
     private BPlusTreeNode findLeftmostLeaf(BPlusTreeNode node) {
         if (node == null)
             return null;
@@ -789,7 +789,7 @@ public class BPlusTree {
         return findLeftmostLeaf(node.children[0]);
     }
 
-    // Tìm khoảng giá trị [start, end]
+    // Range search [start, end]
     public List<Integer> rangeSearch(int start, int end) {
         List<Integer> result = new ArrayList<>();
 
@@ -798,7 +798,7 @@ public class BPlusTree {
 
         BPlusTreeNode startLeaf = findLeafNode(root, start);
 
-        // Duyệt qua các nút lá và thu thập các khóa trong khoảng
+        // Traverse leaf nodes and collect keys in range
         BPlusTreeNode current = startLeaf;
         boolean found = false;
 
@@ -808,7 +808,7 @@ public class BPlusTree {
                     result.add(current.keys[i]);
                     found = true;
                 } else if (found && current.keys[i] > end) {
-                    // Đã vượt quá khoảng, dừng tìm kiếm
+                    // Exceeded range, stop searching
                     return result;
                 }
             }
@@ -820,25 +820,25 @@ public class BPlusTree {
 }
 ```
 
-## 🧑‍🏫 Bài 3: Heap và Priority Queue
+## 🧑‍🏫 Lesson 3: Heap and Priority Queue
 
-### Cấu trúc Heap
+### Heap Structure
 
-Heap là một cấu trúc dữ liệu dạng cây thỏa mãn tính chất heap: nút cha luôn lớn hơn hoặc bằng (Max Heap) hoặc nhỏ hơn hoặc bằng (Min Heap) các nút con.
+Heap is a tree-based data structure that satisfies the heap property: parent node is always greater than or equal to (Max Heap) or less than or equal to (Min Heap) its children.
 
-- Tính chất của Heap:
-  - Heap là cây nhị phân hoàn chỉnh: tất cả các mức đều được lấp đầy trừ mức cuối cùng, và các nút ở mức cuối cùng luôn được đặt từ trái sang phải.
-  - Các nút cha luôn lớn hơn hoặc bằng các nút con (trong Max-Heap).
-  - Các nút cha luôn nhỏ hơn hoặc bằng các nút con (trong Min-Heap).
-  - Chiều cao của heap với n phần tử luôn là O(log n).
+- Heap Properties:
+  - Heap is a complete binary tree: all levels are filled except possibly the last level, and the last level is filled from left to right.
+  - Parent nodes are always greater than or equal to children (in Max-Heap).
+  - Parent nodes are always less than or equal to children (in Min-Heap).
+  - Height of heap with n elements is always O(log n).
 
-### Cài đặt Heap
+### Heap Implementation
 
-Heap thường được cài đặt bằng mảng. Với node ở vị trí `i`:
+Heap is usually implemented using an array. For a node at position `i`:
 
-- Con trái ở vị trí `2*i + 1`
-- Con phải ở vị trí `2*i + 2`
-- Cha ở vị trí `(i-1)/2`
+- Left child at `2*i + 1`
+- Right child at `2*i + 2`
+- Parent at `(i-1)/2`
 
 #### Max Heap
 
@@ -872,26 +872,26 @@ public class MaxHeap {
         heap[j] = temp;
     }
 
-    // Chèn một phần tử mới vào heap
+    // Insert a new element into heap
     public void insert(int key) {
         if (size == capacity) {
-            System.out.println("Heap đã đầy");
+            System.out.println("Heap is full");
             return;
         }
 
-        // Chèn vào cuối rồi sàng lên
+        // Insert at end then sift up
         size++;
         int i = size - 1;
         heap[i] = key;
 
-        // Sàng lên để duy trì tính chất của heap
+        // Sift up to maintain heap property
         while (i != 0 && heap[parent(i)] < heap[i]) {
             swap(i, parent(i));
             i = parent(i);
         }
     }
 
-    // Sàng xuống từ vị trí i
+    // Sift down from position i
     private void heapify(int i) {
         int left = leftChild(i);
         int right = rightChild(i);
@@ -909,10 +909,10 @@ public class MaxHeap {
         }
     }
 
-    // Lấy giá trị lớn nhất
+    // Extract max value
     public int extractMax() {
         if (size <= 0)
-            throw new RuntimeException("Heap rỗng");
+            throw new RuntimeException("Heap is empty");
 
         if (size == 1) {
             size--;
@@ -927,10 +927,10 @@ public class MaxHeap {
         return root;
     }
 
-    // Tăng giá trị của phần tử
+    // Increase value of element
     public void increaseKey(int i, int newValue) {
         if (newValue < heap[i])
-            throw new RuntimeException("Giá trị mới nhỏ hơn giá trị hiện tại");
+            throw new RuntimeException("New value is smaller than current value");
 
         heap[i] = newValue;
         while (i != 0 && heap[parent(i)] < heap[i]) {
@@ -939,7 +939,7 @@ public class MaxHeap {
         }
     }
 
-    // Xóa phần tử tại vị trí i
+    // Delete element at position i
     public void delete(int i) {
         increaseKey(i, Integer.MAX_VALUE);
         extractMax();
@@ -986,26 +986,26 @@ public class MinHeap {
         heap[j] = temp;
     }
 
-    // Chèn một phần tử mới vào heap
+    // Insert a new element into heap
     public void insert(int key) {
         if (size == capacity) {
-            System.out.println("Heap đã đầy");
+            System.out.println("Heap is full");
             return;
         }
 
-        // Chèn vào cuối rồi sàng lên
+        // Insert at end then sift up
         size++;
         int i = size - 1;
         heap[i] = key;
 
-        // Sàng lên để duy trì tính chất của heap
+        // Sift up to maintain heap property
         while (i != 0 && heap[parent(i)] > heap[i]) {
             swap(i, parent(i));
             i = parent(i);
         }
     }
 
-    // Sàng xuống từ vị trí i
+    // Sift down from position i
     private void heapify(int i) {
         int left = leftChild(i);
         int right = rightChild(i);
@@ -1023,10 +1023,10 @@ public class MinHeap {
         }
     }
 
-    // Lấy giá trị nhỏ nhất
+    // Extract min value
     public int extractMin() {
         if (size <= 0)
-            throw new RuntimeException("Heap rỗng");
+            throw new RuntimeException("Heap is empty");
 
         if (size == 1) {
             size--;
@@ -1041,10 +1041,10 @@ public class MinHeap {
         return root;
     }
 
-    // Giảm giá trị của phần tử
+    // Decrease value of element
     public void decreaseKey(int i, int newValue) {
         if (newValue > heap[i])
-            throw new RuntimeException("Giá trị mới lớn hơn giá trị hiện tại");
+            throw new RuntimeException("New value is larger than current value");
 
         heap[i] = newValue;
         while (i != 0 && heap[parent(i)] > heap[i]) {
@@ -1053,7 +1053,7 @@ public class MinHeap {
         }
     }
 
-    // Xóa phần tử tại vị trí i
+    // Delete element at position i
     public void delete(int i) {
         decreaseKey(i, Integer.MIN_VALUE);
         extractMin();
@@ -1070,12 +1070,12 @@ public class MinHeap {
 
 ### Priority Queue
 
-Priority Queue (Hàng đợi ưu tiên) là một cấu trúc dữ liệu cho phép:
+Priority Queue is a data structure that allows:
 
-- Chèn phần tử với độ ưu tiên
-- Lấy ra phần tử có độ ưu tiên cao nhất
+- Inserting element with priority
+- Removing element with highest priority
 
-#### Cài đặt Priority Queue sử dụng Heap
+#### Priority Queue Implementation using Heap
 
 ```java
 public class PriorityQueue<T extends Comparable<T>> {
@@ -1118,29 +1118,29 @@ public class PriorityQueue<T extends Comparable<T>> {
         heap[j] = temp;
     }
 
-    // Kiểm tra xem hàng đợi có rỗng không
+    // Check if queue is empty
     public boolean isEmpty() {
         return size == 0;
     }
 
-    // Kiểm tra xem hàng đợi có đầy không
+    // Check if queue is full
     public boolean isFull() {
         return size == capacity;
     }
 
-    // Chèn một phần tử vào hàng đợi với độ ưu tiên
+    // Enqueue element with priority
     public void enqueue(T data, int priority) {
         if (isFull()) {
-            System.out.println("Hàng đợi đã đầy");
+            System.out.println("Queue is full");
             return;
         }
 
-        // Tạo nút mới và chèn vào cuối
+        // Create new node and insert at end
         Node newNode = new Node(data, priority);
         heap[size] = newNode;
         size++;
 
-        // Sàng lên để duy trì tính chất của heap
+        // Sift up to maintain heap property
         int i = size - 1;
         while (i > 0 && heap[parent(i)].priority < heap[i].priority) {
             swap(i, parent(i));
@@ -1148,10 +1148,10 @@ public class PriorityQueue<T extends Comparable<T>> {
         }
     }
 
-    // Lấy phần tử có độ ưu tiên cao nhất
+    // Dequeue element with highest priority
     public T dequeue() {
         if (isEmpty()) {
-            throw new RuntimeException("Hàng đợi rỗng");
+            throw new RuntimeException("Queue is empty");
         }
 
         Node root = heap[0];
@@ -1163,15 +1163,15 @@ public class PriorityQueue<T extends Comparable<T>> {
         return root.data;
     }
 
-    // Xem phần tử có độ ưu tiên cao nhất mà không xóa
+    // Peek element with highest priority
     public T peek() {
         if (isEmpty()) {
-            throw new RuntimeException("Hàng đợi rỗng");
+            throw new RuntimeException("Queue is empty");
         }
         return heap[0].data;
     }
 
-    // Sàng xuống từ vị trí i
+    // Sift down from position i
     private void heapify(int i) {
         int left = leftChild(i);
         int right = rightChild(i);
@@ -1193,89 +1193,89 @@ public class PriorityQueue<T extends Comparable<T>> {
 
 ### Heap Sort
 
-Heap Sort là một thuật toán sắp xếp hiệu quả dựa trên cấu trúc heap.
+Heap Sort is an efficient sorting algorithm based on heap structure.
 
 ```java
 public class HeapSort {
     public void sort(int[] arr) {
         int n = arr.length;
 
-        // Xây dựng heap (sắp xếp lại mảng)
+        // Build heap (rearrange array)
         for (int i = n/2 - 1; i >= 0; i--) {
             heapify(arr, n, i);
         }
 
-        // Trích xuất từng phần tử từ heap
+        // Extract elements from heap one by one
         for (int i = n-1; i >= 0; i--) {
-            // Di chuyển root hiện tại đến cuối
+            // Move current root to end
             int temp = arr[0];
             arr[0] = arr[i];
             arr[i] = temp;
 
-            // Gọi heapify trên heap đã giảm kích thước
+            // Call max heapify on the reduced heap
             heapify(arr, i, 0);
         }
     }
 
-    // Để sàng xuống một subtree có root tại node i
+    // To heapify a subtree rooted with node i which is an index in arr[]. n is size of heap
     void heapify(int[] arr, int n, int i) {
-        int largest = i; // Khởi tạo largest là root
+        int largest = i; // Initialize largest as root
         int left = 2*i + 1;
         int right = 2*i + 2;
 
-        // Nếu con trái lớn hơn root
+        // If left child is larger than root
         if (left < n && arr[left] > arr[largest])
             largest = left;
 
-        // Nếu con phải lớn hơn largest hiện tại
+        // If right child is larger than largest so far
         if (right < n && arr[right] > arr[largest])
             largest = right;
 
-        // Nếu largest không phải root
+        // If largest is not root
         if (largest != i) {
             int swap = arr[i];
             arr[i] = arr[largest];
             arr[largest] = swap;
 
-            // Tiếp tục heapify subtree bị ảnh hưởng
+            // Recursively heapify the affected sub-tree
             heapify(arr, n, largest);
         }
     }
 }
 ```
 
-### 5. Ứng dụng của Heap và Priority Queue
+### 5. Applications of Heap and Priority Queue
 
-1. **Giải thuật Dijkstra**: Tìm đường đi ngắn nhất trong đồ thị.
-2. **Giải thuật Prim**: Tìm cây khung nhỏ nhất trong đồ thị.
-3. **Hệ thống quản lý tác vụ**: Xử lý tác vụ theo độ ưu tiên.
-4. **Thuật toán nén Huffman**: Xây dựng cây Huffman sử dụng min-heap.
-5. **Heap Sort**: Thuật toán sắp xếp với độ phức tạp O(n log n).
-6. **Tìm k phần tử lớn nhất/nhỏ nhất**: Sử dụng min-heap hoặc max-heap.
+1. **Dijkstra's Algorithm**: Finding shortest paths in graphs.
+2. **Prim's Algorithm**: Finding minimum spanning tree in graphs.
+3. **Task Management System**: Processing tasks based on priority.
+4. **Huffman Coding**: Building Huffman tree using min-heap.
+5. **Heap Sort**: Sorting algorithm with O(n log n) complexity.
+6. **Finding k largest/smallest elements**: Using min-heap or max-heap.
 
-### 6. Bài tập
+### 6. Exercises
 
-#### Bài tập 1: Cài đặt thuật toán tìm k phần tử lớn nhất trong một mảng sử dụng min-heap
+#### Exercise 1: Find k largest elements in an array using min-heap
 
 ```java
 public static int[] findKLargest(int[] nums, int k) {
-    // Tạo min-heap với kích thước k
+    // Create min-heap of size k
     PriorityQueue<Integer> minHeap = new PriorityQueue<>(k);
 
-    // Thêm k phần tử đầu tiên vào heap
+    // Add first k elements to heap
     for (int i = 0; i < k; i++) {
         minHeap.add(nums[i]);
     }
 
-    // So sánh và thay thế các phần tử còn lại
+    // Compare and replace remaining elements
     for (int i = k; i < nums.length; i++) {
         if (nums[i] > minHeap.peek()) {
-            minHeap.poll(); // Loại bỏ phần tử nhỏ nhất
-            minHeap.add(nums[i]); // Thêm phần tử mới
+            minHeap.poll(); // Remove smallest element
+            minHeap.add(nums[i]); // Add new element
         }
     }
 
-    // Chuyển kết quả từ heap sang mảng
+    // Convert result from heap to array
     int[] result = new int[k];
     for (int i = k-1; i >= 0; i--) {
         result[i] = minHeap.poll();
@@ -1285,7 +1285,7 @@ public static int[] findKLargest(int[] nums, int k) {
 }
 ```
 
-#### Bài tập 2: Sử dụng priority queue để lập lịch CPU (xử lý các tiến trình theo độ ưu tiên)
+#### Exercise 2: CPU Scheduling using Priority Queue
 
 ```java
 class Process {
@@ -1302,23 +1302,23 @@ class Process {
 
 public class CPUScheduler {
     public static void schedule(Process[] processes) {
-        // Tạo priority queue dựa trên độ ưu tiên của tiến trình
+        // Create priority queue based on process priority
         PriorityQueue<Process> queue = new PriorityQueue<>(
             (p1, p2) -> p2.priority - p1.priority
         );
 
-        // Thêm tất cả tiến trình vào queue
+        // Add all processes to queue
         for (Process process : processes) {
             queue.add(process);
         }
 
-        // Xử lý các tiến trình theo thứ tự độ ưu tiên
-        System.out.println("Lịch CPU:");
+        // Process tasks in order of priority
+        System.out.println("CPU Schedule:");
         while (!queue.isEmpty()) {
             Process process = queue.poll();
-            System.out.println("Xử lý tiến trình: " + process.name +
-                              " (Độ ưu tiên: " + process.priority +
-                              ", Thời gian xử lý: " + process.burstTime + ")");
+            System.out.println("Processing: " + process.name +
+                              " (Priority: " + process.priority +
+                              ", Burst Time: " + process.burstTime + ")");
         }
     }
 
@@ -1335,49 +1335,49 @@ public class CPUScheduler {
 }
 ```
 
-### 7. Phân tích hiệu năng
+### 7. Performance Analysis
 
-| Thao tác             | Thời gian trung bình | Thời gian xấu nhất |
+| Operation | Average Time | Worst Time |
 | -------------------- | -------------------- | ------------------ |
-| Chèn                 | O(1)                 | O(log n)           |
-| Xóa tối đa/tối thiểu | O(log n)             | O(log n)           |
-| Xây dựng heap        | O(n)                 | O(n)               |
-| Tăng/giảm khóa       | O(log n)             | O(log n)           |
-| Tìm tối đa/tối thiểu | O(1)                 | O(1)               |
-| Xóa                  | O(log n)             | O(log n)           |
+| Insert | O(1) | O(log n) |
+| Delete Max/Min | O(log n) | O(log n) |
+| Build Heap | O(n) | O(n) |
+| Increase/Decrease Key | O(log n) | O(log n) |
+| Find Max/Min | O(1) | O(1) |
+| Delete | O(log n) | O(log n) |
 
-Heap là cấu trúc dữ liệu tuyệt vời cho các bài toán cần truy xuất phần tử lớn nhất/nhỏ nhất nhanh chóng và cần thay đổi tập dữ liệu thường xuyên.
+Heap is an excellent data structure for problems requiring fast access to the largest/smallest element and frequent updates to the dataset.
 
-## 🧑‍🏫 Bài 4: Trie và ứng dụng
+## 🧑‍🏫 Lesson 4: Trie and Applications
 
-### Cấu trúc dữ liệu Trie
+### Trie Data Structure
 
-Trie (hay cây tiền tố) là một cấu trúc dữ liệu dạng cây được dùng để lưu trữ và tìm kiếm các chuỗi ký tự một cách hiệu quả.
+Trie (or Prefix Tree) is a tree-based data structure used to store and search for strings efficiently.
 
-#### Đặc điểm của Trie
+#### Characteristics of Trie
 
-- Mỗi nút trong trie có thể lưu trữ nhiều con trỏ đến các nút con (thường là 26 con trỏ cho các chữ cái tiếng Anh)
-- Đường đi từ gốc đến một nút biểu diễn một tiền tố (prefix)
-- Các nút lá hoặc nút được đánh dấu đặc biệt biểu diễn một từ/chuỗi hoàn chỉnh
-- Tất cả các nút con của một nút đều có tiền tố chung
+- Each node in the trie can store multiple pointers to child nodes (usually 26 pointers for English letters).
+- The path from the root to a node represents a prefix.
+- Leaf nodes or specially marked nodes represent a complete word/string.
+- All children of a node share a common prefix.
 
-#### Cấu trúc nút của Trie
+#### Trie Node Structure
 
 ```java
 class TrieNode {
-    boolean isEndOfWord; // Đánh dấu kết thúc của một từ
-    TrieNode[] children; // Các nút con, thường là 26 cho 'a' đến 'z'
+    boolean isEndOfWord; // Marks the end of a word
+    TrieNode[] children; // Child nodes, usually 26 for 'a' to 'z'
 
     public TrieNode() {
         isEndOfWord = false;
-        children = new TrieNode[26]; // Cho 26 chữ cái tiếng Anh
+        children = new TrieNode[26]; // For 26 English letters
         for (int i = 0; i < 26; i++)
             children[i] = null;
     }
 }
 ```
 
-### Cài đặt cơ bản của Trie
+### Basic Trie Implementation
 
 ```java
 public class Trie {
@@ -1387,7 +1387,7 @@ public class Trie {
         root = new TrieNode();
     }
 
-    // Chèn một từ vào trie
+    // Insert a word into trie
     public void insert(String word) {
         TrieNode current = root;
 
@@ -1399,11 +1399,11 @@ public class Trie {
             current = current.children[index];
         }
 
-        // Đánh dấu nút cuối cùng là kết thúc của từ
+        // Mark the last node as end of word
         current.isEndOfWord = true;
     }
 
-    // Tìm kiếm một từ trong trie
+    // Search for a word in trie
     public boolean search(String word) {
         TrieNode current = root;
 
@@ -1418,7 +1418,7 @@ public class Trie {
         return current.isEndOfWord;
     }
 
-    // Kiểm tra xem có từ nào bắt đầu bằng tiền tố prefix không
+    // Check if there is any word starting with prefix
     public boolean startsWith(String prefix) {
         TrieNode current = root;
 
@@ -1433,22 +1433,22 @@ public class Trie {
         return true;
     }
 
-    // Xóa một từ khỏi trie
+    // Delete a word from trie
     public void delete(String word) {
         delete(root, word, 0);
     }
 
     private boolean delete(TrieNode current, String word, int index) {
         if (index == word.length()) {
-            // Nếu từ không tồn tại
+            // If word does not exist
             if (!current.isEndOfWord) {
                 return false;
             }
 
-            // Đánh dấu từ đã bị xóa
+            // Mark word as deleted
             current.isEndOfWord = false;
 
-            // Trả về true nếu nút không có con nào
+            // Return true if node has no children
             return hasNoChildren(current);
         }
 
@@ -1456,17 +1456,17 @@ public class Trie {
         TrieNode child = current.children[charIndex];
 
         if (child == null) {
-            return false; // Từ không tồn tại
+            return false; // Word does not exist
         }
 
         boolean shouldDeleteChild = delete(child, word, index + 1);
 
-        // Nếu cần xóa nút con và nút con không phải kết thúc của từ khác
+        // If child needs to be deleted and child is not end of another word
         if (shouldDeleteChild) {
             current.children[charIndex] = null;
 
-            // Trả về true nếu nút hiện tại không có từ nào kết thúc tại đó
-            // và không có con nào
+            // Return true if current node has no word ending there
+            // and has no children
             return !current.isEndOfWord && hasNoChildren(current);
         }
 
@@ -1483,38 +1483,38 @@ public class Trie {
 }
 ```
 
-### Ứng dụng của Trie
+### Applications of Trie
 
-#### Tự động hoàn thành (Autocomplete)
+#### Autocomplete
 
 ```java
-// Cài đặt tính năng tự động hoàn thành
+// Implement autocomplete feature
 public List<String> autocomplete(String prefix) {
     List<String> result = new ArrayList<>();
     TrieNode current = root;
 
-    // Duyệt đến nút cuối của tiền tố
+    // Traverse to the end node of prefix
     for (int i = 0; i < prefix.length(); i++) {
         int index = prefix.charAt(i) - 'a';
         if (current.children[index] == null)
-            return result; // Không có từ nào bắt đầu bằng tiền tố này
+            return result; // No word starts with this prefix
 
         current = current.children[index];
     }
 
-    // Tìm tất cả các từ bắt đầu bằng tiền tố
+    // Find all words starting with prefix
     findAllWords(current, prefix, result);
 
     return result;
 }
 
 private void findAllWords(TrieNode node, String prefix, List<String> result) {
-    // Nếu nút hiện tại là kết thúc của một từ, thêm từ vào kết quả
+    // If current node is end of a word, add word to result
     if (node.isEndOfWord) {
         result.add(prefix);
     }
 
-    // Duyệt qua tất cả các con
+    // Traverse all children
     for (int i = 0; i < 26; i++) {
         if (node.children[i] != null) {
             char ch = (char) (i + 'a');
@@ -1524,10 +1524,10 @@ private void findAllWords(TrieNode node, String prefix, List<String> result) {
 }
 ```
 
-#### Kiểm tra tiền tố (Prefix checking)
+#### Prefix Checking
 
 ```java
-// Kiểm tra xem một từ có phải là tiền tố của bất kỳ từ nào trong từ điển
+// Check if a word is a prefix of any word in dictionary
 public boolean isPrefix(String word) {
     TrieNode current = root;
 
@@ -1543,7 +1543,7 @@ public boolean isPrefix(String word) {
 }
 ```
 
-#### Tìm kiếm từ trong ma trận (Word Search)
+#### Word Search
 
 ```java
 public boolean exist(char[][] board, String word) {
@@ -1565,32 +1565,32 @@ public boolean exist(char[][] board, String word) {
 }
 
 private boolean search(char[][] board, String word, int i, int j, int index, boolean[][] visited) {
-    // Nếu đã tìm thấy tất cả các ký tự
+    // If all characters found
     if (index == word.length())
         return true;
 
-    // Kiểm tra biên và ký tự
+    // Check boundaries and character
     if (i < 0 || i >= board.length || j < 0 || j >= board[0].length ||
         board[i][j] != word.charAt(index) || visited[i][j])
         return false;
 
-    // Đánh dấu ô đã thăm
+    // Mark cell as visited
     visited[i][j] = true;
 
-    // Kiểm tra 4 hướng
+    // Check 4 directions
     boolean result = search(board, word, i+1, j, index+1, visited) ||
                      search(board, word, i-1, j, index+1, visited) ||
                      search(board, word, i, j+1, index+1, visited) ||
                      search(board, word, i, j-1, index+1, visited);
 
-    // Bỏ đánh dấu
+    // Unmark
     visited[i][j] = false;
 
     return result;
 }
 ```
 
-#### Từ điển (Dictionary)
+#### Dictionary
 
 ```java
 public class Dictionary {
@@ -1618,7 +1618,7 @@ public class Dictionary {
 }
 ```
 
-### Trie với bảng băm (Hash Trie)
+### Hash Trie
 
 ```java
 class HashTrieNode {
@@ -1684,7 +1684,7 @@ public class HashTrie {
 }
 ```
 
-### Trie nén (Compressed Trie)
+### Compressed Trie
 
 ```java
 class CompressedTrieNode {
@@ -1711,7 +1711,7 @@ public class CompressedTrie {
     }
 
     private void insert(CompressedTrieNode node, String word) {
-        // Nếu từ rỗng, đánh dấu nút hiện tại là kết thúc từ
+        // If word is empty, mark current node as end of word
         if (word.isEmpty()) {
             node.isEndOfWord = true;
             return;
@@ -1720,7 +1720,7 @@ public class CompressedTrie {
         char firstChar = word.charAt(0);
         CompressedTrieNode child = node.children.get(firstChar);
 
-        // Nếu không có nút con bắt đầu bằng ký tự này
+        // If no child starts with this character
         if (child == null) {
             child = new CompressedTrieNode(word);
             node.children.put(firstChar, child);
@@ -1728,46 +1728,46 @@ public class CompressedTrie {
             return;
         }
 
-        // Tìm điểm khác nhau đầu tiên giữa từ mới và tiền tố của nút con
+        // Find first difference between new word and child prefix
         int i = 0;
         String childPrefix = child.prefix;
         while (i < word.length() && i < childPrefix.length() && word.charAt(i) == childPrefix.charAt(i)) {
             i++;
         }
 
-        // Nếu từ mới là tiền tố của nút con
+        // If new word is a prefix of child
         if (i == word.length()) {
-            // Tách nút con
+            // Split child
             CompressedTrieNode newChild = new CompressedTrieNode(childPrefix.substring(i));
             newChild.children = child.children;
             newChild.isEndOfWord = child.isEndOfWord;
 
-            // Cập nhật nút con cũ
+            // Update old child
             child.prefix = word;
             child.children = new HashMap<>();
             child.children.put(childPrefix.charAt(i), newChild);
             child.isEndOfWord = true;
         }
-        // Nếu nút con là tiền tố của từ mới
+        // If child is a prefix of new word
         else if (i == childPrefix.length()) {
             insert(child, word.substring(i));
         }
-        // Nếu từ mới và nút con có tiền tố chung
+        // If new word and child share a common prefix
         else {
-            // Tạo nút tiền tố chung
+            // Create common prefix node
             CompressedTrieNode commonPrefixNode = new CompressedTrieNode(word.substring(0, i));
             node.children.put(firstChar, commonPrefixNode);
 
-            // Tạo nút cho phần còn lại của từ mới
+            // Create node for rest of new word
             CompressedTrieNode newWordNode = new CompressedTrieNode(word.substring(i));
             newWordNode.isEndOfWord = true;
 
-            // Tạo nút cho phần còn lại của tiền tố nút con
+            // Create node for rest of child prefix
             CompressedTrieNode remainingPrefixNode = new CompressedTrieNode(childPrefix.substring(i));
             remainingPrefixNode.children = child.children;
             remainingPrefixNode.isEndOfWord = child.isEndOfWord;
 
-            // Liên kết các nút
+            // Link nodes
             commonPrefixNode.children.put(word.charAt(i), newWordNode);
             commonPrefixNode.children.put(childPrefix.charAt(i), remainingPrefixNode);
         }
@@ -1789,57 +1789,57 @@ public class CompressedTrie {
 
         String childPrefix = child.prefix;
 
-        // Nếu từ không bắt đầu bằng tiền tố của nút con
+        // If word does not start with child prefix
         if (!word.startsWith(childPrefix))
             return false;
 
-        // Nếu từ là tiền tố của nút con
+        // If word equals child prefix
         if (word.equals(childPrefix))
             return child.isEndOfWord;
 
-        // Kiểm tra phần còn lại của từ
+        // Check rest of the word
         return search(child, word.substring(childPrefix.length()));
     }
 }
 ```
 
-### Phân tích hiệu năng của Trie
+### Trie Performance Analysis
 
-| Thao tác           | Thời gian | Không gian |
+| Operation | Time | Space |
 | ------------------ | --------- | ---------- |
-| Chèn               | O(m)      | O(m)       |
-| Tìm kiếm           | O(m)      | O(1)       |
-| Xóa                | O(m)      | O(1)       |
-| Tiền tố            | O(p)      | O(1)       |
-| Hoàn thành tự động | O(n)      | O(n)       |
+| Insert | O(m) | O(m) |
+| Search | O(m) | O(1) |
+| Delete | O(m) | O(1) |
+| Prefix | O(p) | O(1) |
+| Autocomplete | O(n) | O(n) |
 
-Trong đó:
+Where:
 
-- m là độ dài từ cần chèn/tìm kiếm/xóa
-- p là độ dài tiền tố
-- n là số từ trong Trie
+- m is length of word to insert/search/delete
+- p is length of prefix
+- n is number of words in Trie
 
-### So sánh với các cấu trúc dữ liệu khác
+### Comparison with Other Data Structures
 
-| Cấu trúc dữ liệu   | Ưu điểm                     | Nhược điểm                        |
+| Data Structure | Pros | Cons |
 | ------------------ | --------------------------- | --------------------------------- |
-| Trie               | - Tìm kiếm nhanh O(m)       | - Tốn nhiều bộ nhớ                |
-|                    | - Tìm tiền tố hiệu quả      | - Cài đặt phức tạp hơn            |
-|                    | - Hỗ trợ tự động hoàn thành |                                   |
-| Hash Table         | - Tìm kiếm nhanh O(1)       | - Không hỗ trợ tìm tiền tố        |
-|                    | - Ít tốn bộ nhớ hơn         | - Không hỗ trợ tự động hoàn thành |
-| Binary Search Tree | - Cân bằng tốt về bộ nhớ    | - Tìm kiếm chậm hơn O(log n)      |
-|                    | - Dễ cài đặt                | - Không hiệu quả cho tìm tiền tố  |
+| Trie | - Fast search O(m) | - High memory usage |
+| | - Efficient prefix search | - Complex implementation |
+| | - Supports autocomplete | |
+| Hash Table | - Fast search O(1) | - No prefix search support |
+| | - Less memory usage | - No autocomplete support |
+| Binary Search Tree | - Memory efficient | - Slower search O(log n) |
+| | - Easy to implement | - Not efficient for prefix search |
 
-### Bài tập
+### Exercises
 
-#### Bài tập 1: Đếm số từ có tiền tố chung
+#### Exercise 1: Count words with common prefix
 
 ```java
 public int countWordsWithPrefix(String prefix) {
     TrieNode current = root;
 
-    // Duyệt đến nút cuối của tiền tố
+    // Traverse to end node of prefix
     for (int i = 0; i < prefix.length(); i++) {
         int index = prefix.charAt(i) - 'a';
         if (current.children[index] == null)
@@ -1848,7 +1848,7 @@ public int countWordsWithPrefix(String prefix) {
         current = current.children[index];
     }
 
-    // Đếm tất cả các từ bắt đầu từ nút này
+    // Count all words starting from this node
     return countWords(current);
 }
 
@@ -1867,7 +1867,7 @@ private int countWords(TrieNode node) {
 }
 ```
 
-#### Bài tập 2: Tìm từ dài nhất có tất cả tiền tố trong từ điển
+#### Exercise 2: Find longest word with all prefixes in dictionary
 
 ```java
 public String findLongestWordWithAllPrefixes() {
@@ -1882,7 +1882,7 @@ private String findLongestWord(TrieNode node, String prefix) {
             char ch = (char) (i + 'a');
             String word = findLongestWord(node.children[i], prefix + ch);
 
-            // Chỉ xem xét từ có tất cả tiền tố trong từ điển
+            // Only consider word if all prefixes exist
             if (word.length() > maxWord.length() &&
                 allPrefixesExist(word))
                 maxWord = word;
@@ -1901,14 +1901,14 @@ private boolean allPrefixesExist(String word) {
 }
 ```
 
-#### Bài tập 3: Xây dựng trò chơi tìm từ (Word Boggle)
+#### Exercise 3: Build Word Boggle Game
 
 ```java
 public List<String> findWords(char[][] board, String[] words) {
     List<String> result = new ArrayList<>();
     Trie trie = new Trie();
 
-    // Thêm tất cả các từ vào trie
+    // Add all words to trie
     for (String word : words)
         trie.insert(word);
 
@@ -1917,7 +1917,7 @@ public List<String> findWords(char[][] board, String[] words) {
     boolean[][] visited = new boolean[m][n];
     Set<String> foundWords = new HashSet<>();
 
-    // Duyệt qua tất cả các ô trên bảng
+    // Traverse all cells on board
     for (int i = 0; i < m; i++) {
         for (int j = 0; j < n; j++) {
             findWordsUtil(board, i, j, trie.root, "", visited, foundWords);
@@ -1930,29 +1930,29 @@ public List<String> findWords(char[][] board, String[] words) {
 
 private void findWordsUtil(char[][] board, int i, int j, TrieNode node,
                           String prefix, boolean[][] visited, Set<String> result) {
-    // Kiểm tra biên
+    // Check boundaries
     if (i < 0 || i >= board.length || j < 0 || j >= board[0].length || visited[i][j])
         return;
 
     char ch = board[i][j];
     int index = ch - 'a';
 
-    // Nếu không có nút con cho ký tự này
+    // If no child node for this character
     if (node.children[index] == null)
         return;
 
-    // Cập nhật tiền tố và nút
+    // Update prefix and node
     prefix += ch;
     node = node.children[index];
 
-    // Nếu đây là một từ hoàn chỉnh, thêm vào kết quả
+    // If this is a complete word, add to result
     if (node.isEndOfWord)
         result.add(prefix);
 
-    // Đánh dấu ô hiện tại đã thăm
+    // Mark current cell as visited
     visited[i][j] = true;
 
-    // Duyệt 8 hướng
+    // Traverse 8 directions
     int[] dx = {-1, -1, -1, 0, 0, 1, 1, 1};
     int[] dy = {-1, 0, 1, -1, 1, -1, 0, 1};
 
@@ -1960,45 +1960,45 @@ private void findWordsUtil(char[][] board, int i, int j, TrieNode node,
         findWordsUtil(board, i + dx[k], j + dy[k], node, prefix, visited, result);
     }
 
-    // Bỏ đánh dấu ô hiện tại
+    // Unmark current cell
     visited[i][j] = false;
 }
 ```
 
-## 🧑‍🏫 Bài 5: Segment Tree và Fenwick Tree
+## 🧑‍🏫 Lesson 5: Segment Tree and Fenwick Tree
 
 ### Segment Tree
 
-Segment Tree (Cây phân đoạn) là một cấu trúc dữ liệu được sử dụng để giải quyết các bài toán truy vấn khoảng và cập nhật các phần tử trong mảng một cách hiệu quả.
+Segment Tree is a data structure used to solve range query problems and update elements in an array efficiently.
 
-#### Tính chất của Segment Tree
+#### Properties of Segment Tree
 
-- Nút gốc đại diện cho toàn bộ mảng
-- Mỗi nút lá đại diện cho một phần tử đơn lẻ
-- Mỗi nút nội bộ có hai nút con, đại diện cho hai nửa đoạn của nút cha
+- Root node represents the entire array.
+- Each leaf node represents a single element.
+- Each internal node has two children, representing two halves of the parent's segment.
 
-#### Cài đặt Segment Tree
+#### Segment Tree Implementation
 
 ```java
 public class SegmentTree {
     int[] tree;
-    int n; // Kích thước mảng ban đầu
+    int n; // Initial array size
 
-    // Xây dựng segment tree từ mảng đầu vào
+    // Build segment tree from input array
     public SegmentTree(int[] arr) {
         n = arr.length;
-        // Chiều cao của cây = ceil(log2(n))
+        // Height of tree = ceil(log2(n))
         int height = (int) Math.ceil(Math.log(n) / Math.log(2));
-        // Số nút tối đa = 2*2^h - 1
+        // Max nodes = 2*2^h - 1
         int maxSize = 2 * (int) Math.pow(2, height) - 1;
 
         tree = new int[maxSize];
         buildSegmentTree(arr, 0, n - 1, 0);
     }
 
-    // Hàm xây dựng segment tree
+    // Function to build segment tree
     private int buildSegmentTree(int[] arr, int start, int end, int index) {
-        // Nếu là nút lá (start == end)
+        // If leaf node (start == end)
         if (start == end) {
             tree[index] = arr[start];
             return tree[index];
@@ -2006,20 +2006,20 @@ public class SegmentTree {
 
         int mid = start + (end - start) / 2;
 
-        // Xây dựng cây con trái và phải
+        // Build left and right subtrees
         int leftSum = buildSegmentTree(arr, start, mid, 2 * index + 1);
         int rightSum = buildSegmentTree(arr, mid + 1, end, 2 * index + 2);
 
-        // Tổng của đoạn hiện tại là tổng của hai đoạn con
+        // Sum of current segment is sum of two child segments
         tree[index] = leftSum + rightSum;
 
         return tree[index];
     }
 
-    // Truy vấn tổng trong đoạn [qStart, qEnd]
+    // Query sum in range [qStart, qEnd]
     public int getSum(int qStart, int qEnd) {
         if (qStart < 0 || qEnd >= n || qStart > qEnd) {
-            System.out.println("Truy vấn không hợp lệ");
+            System.out.println("Invalid query");
             return -1;
         }
 
@@ -2027,15 +2027,15 @@ public class SegmentTree {
     }
 
     private int getSumUtil(int start, int end, int qStart, int qEnd, int index) {
-        // Nếu đoạn hiện tại nằm hoàn toàn trong đoạn truy vấn
+        // If current segment is completely inside query range
         if (qStart <= start && qEnd >= end)
             return tree[index];
 
-        // Nếu đoạn hiện tại nằm hoàn toàn ngoài đoạn truy vấn
+        // If current segment is completely outside query range
         if (end < qStart || start > qEnd)
             return 0;
 
-        // Nếu đoạn hiện tại và đoạn truy vấn giao nhau
+        // If current segment overlaps with query range
         int mid = start + (end - start) / 2;
 
         int leftSum = getSumUtil(start, mid, qStart, qEnd, 2 * index + 1);
@@ -2044,29 +2044,29 @@ public class SegmentTree {
         return leftSum + rightSum;
     }
 
-    // Cập nhật giá trị của phần tử
+    // Update value of element
     public void update(int pos, int newValue) {
         if (pos < 0 || pos >= n) {
-            System.out.println("Vị trí không hợp lệ");
+            System.out.println("Invalid position");
             return;
         }
 
-        // Tính toán sự chênh lệch
+        // Calculate difference
         int diff = newValue - getSum(pos, pos);
 
-        // Cập nhật segment tree
+        // Update segment tree
         updateUtil(0, n - 1, pos, diff, 0);
     }
 
     private void updateUtil(int start, int end, int pos, int diff, int index) {
-        // Nếu vị trí cần cập nhật không nằm trong đoạn hiện tại
+        // If position to update is not in current segment
         if (pos < start || pos > end)
             return;
 
-        // Cập nhật giá trị của nút hiện tại
+        // Update value of current node
         tree[index] += diff;
 
-        // Nếu không phải nút lá, cập nhật các nút con
+        // If not leaf node, update children
         if (start != end) {
             int mid = start + (end - start) / 2;
 
@@ -2075,10 +2075,10 @@ public class SegmentTree {
         }
     }
 
-    // Cập nhật giá trị trong đoạn [uStart, uEnd]
+    // Update value in range [uStart, uEnd]
     public void updateRange(int uStart, int uEnd, int diff) {
         if (uStart < 0 || uEnd >= n || uStart > uEnd) {
-            System.out.println("Truy vấn không hợp lệ");
+            System.out.println("Invalid query");
             return;
         }
 
@@ -2086,30 +2086,30 @@ public class SegmentTree {
     }
 
     private void updateRangeUtil(int start, int end, int uStart, int uEnd, int diff, int index) {
-        // Nếu đoạn hiện tại nằm ngoài đoạn cập nhật
+        // If current segment is outside update range
         if (end < uStart || start > uEnd)
             return;
 
-        // Nếu nút lá
+        // If leaf node
         if (start == end) {
             tree[index] += diff;
             return;
         }
 
-        // Cập nhật cây con
+        // Update subtree
         int mid = start + (end - start) / 2;
 
         updateRangeUtil(start, mid, uStart, uEnd, diff, 2 * index + 1);
         updateRangeUtil(mid + 1, end, uStart, uEnd, diff, 2 * index + 2);
 
-        // Cập nhật nút cha sau khi cập nhật các nút con
+        // Update parent node after updating children
         tree[index] = tree[2 * index + 1] + tree[2 * index + 2];
     }
 
-    // Tìm giá trị nhỏ nhất trong đoạn [qStart, qEnd]
+    // Find minimum value in range [qStart, qEnd]
     public int getMin(int qStart, int qEnd) {
         if (qStart < 0 || qEnd >= n || qStart > qEnd) {
-            System.out.println("Truy vấn không hợp lệ");
+            System.out.println("Invalid query");
             return Integer.MAX_VALUE;
         }
 
@@ -2117,15 +2117,15 @@ public class SegmentTree {
     }
 
     private int getMinUtil(int start, int end, int qStart, int qEnd, int index) {
-        // Nếu đoạn hiện tại nằm hoàn toàn trong đoạn truy vấn
+        // If current segment is completely inside query range
         if (qStart <= start && qEnd >= end)
             return tree[index];
 
-        // Nếu đoạn hiện tại nằm hoàn toàn ngoài đoạn truy vấn
+        // If current segment is completely outside query range
         if (end < qStart || start > qEnd)
             return Integer.MAX_VALUE;
 
-        // Nếu đoạn hiện tại và đoạn truy vấn giao nhau
+        // If current segment overlaps with query range
         int mid = start + (end - start) / 2;
 
         int leftMin = getMinUtil(start, mid, qStart, qEnd, 2 * index + 1);
@@ -2136,9 +2136,9 @@ public class SegmentTree {
 }
 ```
 
-### Lazy Propagation trong Segment Tree
+### Lazy Propagation in Segment Tree
 
-Lazy Propagation là một kỹ thuật tối ưu cho Segment Tree khi có nhiều thao tác cập nhật trên đoạn.
+Lazy Propagation is an optimization technique for Segment Tree when there are multiple range updates.
 
 ```java
 public class LazySegmentTree {
@@ -2152,7 +2152,7 @@ public class LazySegmentTree {
         int maxSize = 2 * (int) Math.pow(2, height) - 1;
 
         tree = new int[maxSize];
-        lazy = new int[maxSize]; // Mảng lazy để trì hoãn cập nhật
+        lazy = new int[maxSize]; // Lazy array to postpone updates
 
         buildSegmentTree(arr, 0, n - 1, 0);
     }
@@ -2172,7 +2172,7 @@ public class LazySegmentTree {
         return tree[index];
     }
 
-    // Truy vấn tổng với lazy propagation
+    // Query sum with lazy propagation
     public int getSum(int qStart, int qEnd) {
         if (qStart < 0 || qEnd >= n || qStart > qEnd) {
             return -1;
@@ -2182,27 +2182,27 @@ public class LazySegmentTree {
     }
 
     private int getSumUtil(int start, int end, int qStart, int qEnd, int index) {
-        // Lan truyền lazy cập nhật trước khi truy vấn
+        // Propagate lazy update before query
         if (lazy[index] != 0) {
-            tree[index] += (end - start + 1) * lazy[index]; // Cập nhật nút hiện tại
+            tree[index] += (end - start + 1) * lazy[index]; // Update current node
 
-            if (start != end) { // Nếu không phải nút lá
-                lazy[2 * index + 1] += lazy[index]; // Lan truyền xuống con trái
-                lazy[2 * index + 2] += lazy[index]; // Lan truyền xuống con phải
+            if (start != end) { // If not leaf node
+                lazy[2 * index + 1] += lazy[index]; // Propagate to left child
+                lazy[2 * index + 2] += lazy[index]; // Propagate to right child
             }
 
-            lazy[index] = 0; // Đã lan truyền xong
+            lazy[index] = 0; // Propagation done
         }
 
-        // Nếu đoạn hiện tại nằm hoàn toàn ngoài đoạn truy vấn
+        // If current segment is completely outside query range
         if (end < qStart || start > qEnd)
             return 0;
 
-        // Nếu đoạn hiện tại nằm hoàn toàn trong đoạn truy vấn
+        // If current segment is completely inside query range
         if (qStart <= start && qEnd >= end)
             return tree[index];
 
-        // Nếu đoạn hiện tại và đoạn truy vấn giao nhau
+        // If current segment overlaps with query range
         int mid = start + (end - start) / 2;
 
         int leftSum = getSumUtil(start, mid, qStart, qEnd, 2 * index + 1);
@@ -2211,10 +2211,10 @@ public class LazySegmentTree {
         return leftSum + rightSum;
     }
 
-    // Cập nhật đoạn với lazy propagation
+    // Update range with lazy propagation
     public void updateRange(int uStart, int uEnd, int diff) {
         if (uStart < 0 || uEnd >= n || uStart > uEnd) {
-            System.out.println("Truy vấn không hợp lệ");
+            System.out.println("Invalid query");
             return;
         }
 
@@ -2222,7 +2222,7 @@ public class LazySegmentTree {
     }
 
     private void updateRangeUtil(int start, int end, int uStart, int uEnd, int diff, int index) {
-        // Lan truyền lazy cập nhật trước khi cập nhật
+        // Propagate lazy update before update
         if (lazy[index] != 0) {
             tree[index] += (end - start + 1) * lazy[index];
 
@@ -2234,11 +2234,11 @@ public class LazySegmentTree {
             lazy[index] = 0;
         }
 
-        // Nếu đoạn hiện tại nằm ngoài đoạn cập nhật
+        // If current segment is outside update range
         if (end < uStart || start > uEnd)
             return;
 
-        // Nếu đoạn hiện tại nằm hoàn toàn trong đoạn cập nhật
+        // If current segment is completely inside update range
         if (uStart <= start && uEnd >= end) {
             tree[index] += (end - start + 1) * diff;
 
@@ -2250,7 +2250,7 @@ public class LazySegmentTree {
             return;
         }
 
-        // Nếu đoạn hiện tại và đoạn cập nhật giao nhau
+        // If current segment overlaps with update range
         int mid = start + (end - start) / 2;
 
         updateRangeUtil(start, mid, uStart, uEnd, diff, 2 * index + 1);
@@ -2263,15 +2263,15 @@ public class LazySegmentTree {
 
 ### Fenwick Tree (Binary Indexed Tree)
 
-Fenwick Tree hoặc Binary Indexed Tree là một cấu trúc dữ liệu hiệu quả cho các thao tác cập nhật và truy vấn tổng tiền tố.
+Fenwick Tree or Binary Indexed Tree is an efficient data structure for prefix sum updates and queries.
 
-#### Tính chất của Fenwick Tree
+#### Properties of Fenwick Tree
 
-- Sử dụng bit cuối cùng (LSB - Least Significant Bit) của chỉ số để xác định phạm vi phụ trách của mỗi nút
-- Thao tác cập nhật và truy vấn có độ phức tạp O(log n)
-- Chiếm ít bộ nhớ hơn Segment Tree
+- Uses Least Significant Bit (LSB) of index to determine the range covered by each node.
+- Update and query operations have O(log n) complexity.
+- Uses less memory than Segment Tree.
 
-#### Cài đặt Fenwick Tree
+#### Fenwick Tree Implementation
 
 ```java
 public class FenwickTree {
@@ -2280,10 +2280,10 @@ public class FenwickTree {
 
     public FenwickTree(int n) {
         this.n = n;
-        bit = new int[n + 1]; // Chỉ số bắt đầu từ 1
+        bit = new int[n + 1]; // Index starts from 1
     }
 
-    // Xây dựng BIT từ mảng đầu vào
+    // Build BIT from input array
     public FenwickTree(int[] arr) {
         this.n = arr.length;
         bit = new int[n + 1];
@@ -2293,40 +2293,40 @@ public class FenwickTree {
         }
     }
 
-    // Cập nhật giá trị: thêm val vào index
+    // Update value: add val to index
     public void update(int index, int val) {
-        index++; // Chuyển sang chỉ số 1-based
+        index++; // Convert to 1-based index
 
         while (index <= n) {
             bit[index] += val;
-            index += index & -index; // Cộng với bit cuối cùng là 1
+            index += index & -index; // Add last set bit
         }
     }
 
-    // Truy vấn tổng tiền tố: tính tổng từ arr[0] đến arr[index]
+    // Query prefix sum: calculate sum from arr[0] to arr[index]
     public int getSum(int index) {
         int sum = 0;
-        index++; // Chuyển sang chỉ số 1-based
+        index++; // Convert to 1-based index
 
         while (index > 0) {
             sum += bit[index];
-            index -= index & -index; // Trừ đi bit cuối cùng là 1
+            index -= index & -index; // Subtract last set bit
         }
 
         return sum;
     }
 
-    // Truy vấn tổng trong đoạn [left, right]
+    // Query sum in range [left, right]
     public int getSumRange(int left, int right) {
         return getSum(right) - getSum(left - 1);
     }
 
-    // Lấy giá trị tại vị trí index
+    // Get value at index
     public int getValue(int index) {
         return getSumRange(index, index);
     }
 
-    // Tìm chỉ số đầu tiên sao cho tổng tiền tố >= sum
+    // Find first index such that prefix sum >= sum
     public int findIndex(int sum) {
         int index = 0;
         int bitMask = Integer.highestOneBit(n);
@@ -2351,24 +2351,24 @@ public class FenwickTree {
 }
 ```
 
-### Fenwick Tree 2D
+### 2D Fenwick Tree
 
-Mở rộng Fenwick Tree để hỗ trợ truy vấn và cập nhật trên ma trận 2D:
+Extend Fenwick Tree to support queries and updates on 2D matrix:
 
 ```java
 public class FenwickTree2D {
     private int[][] bit;
-    private int n, m; // Kích thước ma trận
+    private int n, m; // Matrix dimensions
 
     public FenwickTree2D(int n, int m) {
         this.n = n;
         this.m = m;
-        bit = new int[n + 1][m + 1]; // Chỉ số bắt đầu từ 1
+        bit = new int[n + 1][m + 1]; // Index starts from 1
     }
 
-    // Cập nhật giá trị tại vị trí (x, y)
+    // Update value at position (x, y)
     public void update(int x, int y, int val) {
-        x++; y++; // Chuyển sang chỉ số 1-based
+        x++; y++; // Convert to 1-based index
 
         for (int i = x; i <= n; i += i & -i) {
             for (int j = y; j <= m; j += j & -j) {
@@ -2377,9 +2377,9 @@ public class FenwickTree2D {
         }
     }
 
-    // Truy vấn tổng từ (0,0) đến (x,y)
+    // Query sum from (0,0) to (x,y)
     public int getSum(int x, int y) {
-        x++; y++; // Chuyển sang chỉ số 1-based
+        x++; y++; // Convert to 1-based index
         int sum = 0;
 
         for (int i = x; i > 0; i -= i & -i) {
@@ -2391,58 +2391,58 @@ public class FenwickTree2D {
         return sum;
     }
 
-    // Truy vấn tổng trong hình chữ nhật [(x1,y1), (x2,y2)]
+    // Query sum in rectangle [(x1,y1), (x2,y2)]
     public int getSumRange(int x1, int y1, int x2, int y2) {
         return getSum(x2, y2) - getSum(x2, y1 - 1) - getSum(x1 - 1, y2) + getSum(x1 - 1, y1 - 1);
     }
 }
 ```
 
-### So sánh Segment Tree và Fenwick Tree
+### Comparison of Segment Tree and Fenwick Tree
 
-| Tiêu chí             | Segment Tree              | Fenwick Tree          |
+| Criteria | Segment Tree | Fenwick Tree |
 | -------------------- | ------------------------- | --------------------- |
-| Độ phức tạp truy vấn | O(log n)                  | O(log n)              |
-| Độ phức tạp cập nhật | O(log n)                  | O(log n)              |
-| Không gian bộ nhớ    | O(n) (2n-1 nút)           | O(n) (n nút)          |
-| Triển khai           | Phức tạp hơn              | Đơn giản hơn          |
-| Hỗ trợ truy vấn      | Min, Max, Sum, GCD, ...   | Chủ yếu là Sum        |
-| Hỗ trợ cập nhật đoạn | Có (với lazy propagation) | Không trực tiếp       |
-| Ứng dụng             | Đa dạng các loại truy vấn | Truy vấn tổng tiền tố |
+| Query Complexity | O(log n) | O(log n) |
+| Update Complexity | O(log n) | O(log n) |
+| Memory Space | O(n) (2n-1 nodes) | O(n) (n nodes) |
+| Implementation | More complex | Simpler |
+| Supported Queries | Min, Max, Sum, GCD, ... | Mainly Sum |
+| Range Update | Yes (with lazy propagation) | Not directly |
+| Application | Diverse types of queries | Prefix sum queries |
 
-### Ứng dụng của Segment Tree và Fenwick Tree
+### Applications of Segment Tree and Fenwick Tree
 
-1. **Truy vấn tổng đoạn (Range Sum Query)**: Tính tổng của các phần tử trong một đoạn.
-2. **Truy vấn giá trị nhỏ nhất/lớn nhất đoạn (Range Min/Max Query)**.
-3. **Truy vấn GCD/LCM đoạn**: Tìm ước chung lớn nhất hoặc bội chung nhỏ nhất của các phần tử trong đoạn.
-4. **Truy vấn đếm (Range Count Query)**: Đếm số phần tử thỏa mãn một điều kiện trong đoạn.
-5. **Cấu trúc dữ liệu trong cơ sở dữ liệu**: Để tối ưu các truy vấn tổng hợp dữ liệu.
-6. **Các bài toán hình học tính toán**: Như đếm số điểm nằm trong một hình chữ nhật.
+1. **Range Sum Query**: Calculate sum of elements in a range.
+2. **Range Min/Max Query**.
+3. **Range GCD/LCM Query**: Find GCD or LCM of elements in a range.
+4. **Range Count Query**: Count elements satisfying a condition in a range.
+5. **Data Structures in Databases**: To optimize data aggregation queries.
+6. **Computational Geometry Problems**: Such as counting points in a rectangle.
 
-### Bài luyện tập
+### Practice Exercises
 
-#### Bài tập 1: Truy vấn tổng đoạn và cập nhật phần tử
+#### Exercise 1: Range Sum Query and Element Update
 
 ```java
 public static void main(String[] args) {
     int[] arr = {1, 3, 5, 7, 9, 11};
     SegmentTree segTree = new SegmentTree(arr);
 
-    // Truy vấn tổng đoạn [1, 3]
-    System.out.println("Tổng đoạn [1, 3]: " + segTree.getSum(1, 3)); // Kết quả: 15
+    // Query sum range [1, 3]
+    System.out.println("Sum range [1, 3]: " + segTree.getSum(1, 3)); // Result: 15
 
-    // Cập nhật phần tử arr[1] thành 10
+    // Update element arr[1] to 10
     segTree.update(1, 10);
 
-    // Truy vấn lại tổng đoạn [1, 3]
-    System.out.println("Tổng đoạn [1, 3] sau cập nhật: " + segTree.getSum(1, 3)); // Kết quả: 22
+    // Query sum range [1, 3] again
+    System.out.println("Sum range [1, 3] after update: " + segTree.getSum(1, 3)); // Result: 22
 }
 ```
 
-#### Bài tập 2: Truy vấn giá trị nhỏ nhất đoạn
+#### Exercise 2: Range Minimum Query
 
 ```java
-// Segment Tree cho truy vấn nhỏ nhất
+// Segment Tree for Minimum Query
 class MinSegmentTree {
     int[] tree;
     int n;
@@ -2494,24 +2494,24 @@ class MinSegmentTree {
     }
 }
 
-// Sử dụng:
+// Usage:
 int[] arr = {5, 2, 8, 1, 9, 3};
 MinSegmentTree minTree = new MinSegmentTree(arr);
-System.out.println("Giá trị nhỏ nhất trong đoạn [1, 4]: " + minTree.getMin(1, 4)); // Kết quả: 1
+System.out.println("Minimum value in range [1, 4]: " + minTree.getMin(1, 4)); // Result: 1
 ```
 
-#### Bài tập 3: Đếm số phần tử lớn hơn hoặc bằng k trong đoạn [l, r]
+#### Exercise 3: Count elements greater than or equal to k in range [l, r]
 
 ```java
-// Xây dựng Segment Tree đặc biệt
+// Build special Segment Tree
 class CountSegmentTree {
     class Node {
-        int count; // Số phần tử trong đoạn
-        int[] frequency; // Tần suất của các giá trị (giả sử giá trị từ 0-100)
+        int count; // Number of elements in range
+        int[] frequency; // Frequency of values (assuming values 0-100)
 
         public Node() {
             count = 0;
-            frequency = new int[101]; // Giả sử giá trị từ 0-100
+            frequency = new int[101]; // Assuming values 0-100
         }
     }
 
@@ -2544,13 +2544,13 @@ class CountSegmentTree {
 
         tree[index].count = tree[2 * index + 1].count + tree[2 * index + 2].count;
 
-        // Cộng tần suất từ các nút con
+        // Add frequencies from child nodes
         for (int i = 0; i <= 100; i++) {
             tree[index].frequency[i] = tree[2 * index + 1].frequency[i] + tree[2 * index + 2].frequency[i];
         }
     }
 
-    // Đếm số phần tử >= k trong đoạn [qStart, qEnd]
+    // Count elements >= k in range [qStart, qEnd]
     public int countGreaterOrEqual(int qStart, int qEnd, int k) {
         if (qStart < 0 || qEnd >= n || qStart > qEnd)
             return 0;
@@ -2578,31 +2578,32 @@ class CountSegmentTree {
 }
 ```
 
-## 🧑‍💻 Bài tập lớn: Xây dựng hệ thống tìm kiếm văn bản đơn giản
+## 🧑‍💻 Final Project: Simple Text Search Engine
 
-### Mô tả bài toán
+### Problem Description
 
-Xây dựng một hệ thống tìm kiếm văn bản đơn giản có thể:
+Build a simple text search engine that can:
 
-1. Lập chỉ mục cho một tập văn bản (indexing)
-2. Tìm kiếm các tài liệu chứa từ khóa (keyword search)
-3. Tìm kiếm các tài liệu chứa nhiều từ khóa theo độ phù hợp (ranking)
-4. Gợi ý từ khóa khi người dùng nhập (autocomplete)
+1. Index a set of documents (indexing).
+2. Search for documents containing keywords (keyword search).
+3. Search for documents containing multiple keywords by relevance (ranking).
+4. Suggest keywords as user types (autocomplete).
 
-### Các thành phần cần triển khai
+### Components to Implement
 
-1. **Document Manager**: Quản lý và lưu trữ các tài liệu
-2. **Tokenizer**: Phân tách văn bản thành các từ
-3. **Inverted Index**: Cấu trúc dữ liệu lưu trữ ánh xạ từ từ khóa đến các tài liệu
-4. **Trie**: Hỗ trợ chức năng gợi ý từ khóa
-5. **Search Engine**: Xử lý truy vấn và xếp hạng kết quả
+1. **Document Manager**: Manage and store documents.
+2. **Tokenizer**: Split text into words.
+3. **Inverted Index**: Data structure mapping keywords to documents.
+4. **Trie**: Support keyword suggestion.
+5. **Search Engine**: Process queries and rank results.
 
-### Các tính năng mở rộng có thể thêm vào
+### Optional Features
 
-1. **Stemming**: Chuyển đổi các từ về dạng gốc (ví dụ: "running" -> "run")
-2. **Phrase Search**: Tìm kiếm cụm từ chính xác, không chỉ là các từ riêng lẻ
-3. **Boolean Search**: Hỗ trợ các toán tử logic như AND, OR, NOT
-4. **Fuzzy Search**: Tìm kiếm các từ gần giống với từ khóa
-5. **Highlighting**: Đánh dấu các từ khóa trong kết quả tìm kiếm
-6. **Pagination**: Phân trang kết quả tìm kiếm
-7. **Filtering**: Lọc kết quả theo các tiêu chí khác nhau
+1. **Stemming**: Convert words to root form (e.g., "running" -> "run").
+2. **Phrase Search**: Search for exact phrases, not just individual words.
+3. **Boolean Search**: Support logic operators like AND, OR, NOT.
+4. **Fuzzy Search**: Search for words similar to keyword.
+5. **Highlighting**: Highlight keywords in search results.
+6. **Pagination**: Paginate search results.
+7. **Filtering**: Filter results by various criteria.
+

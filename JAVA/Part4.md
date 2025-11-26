@@ -1,39 +1,39 @@
 ---
 prev:
-  text: '🧩 Lập Trình Hướng Đối Tượng'
+  text: '🧩 Object-Oriented Programming'
   link: '/JAVA/Part3'
 next:
-  text: '🧵 Luồng, Đa Luồng và JDBC'
-  link: '/JAVA/Part5'
+  text: '💾 Module 4: Introduction to SQL'
+  link: '/SQL/Part1'
 ---
 
-# 📘 PHẦN 4: XỬ LÝ NGOẠI LỆ, FILE I/O VÀ COLLECTIONS
+# 📘 PART 4: EXCEPTION HANDLING, FILE I/O AND COLLECTIONS
 
-## 🎯 Mục tiêu tổng quát
+## 🎯 General Objectives
 
-- Hiểu và xử lý lỗi bằng cách sử dụng cơ chế ngoại lệ trong JAVA.
-- Đọc ghi dữ liệu vào file văn bản.
-- Làm việc với các cấu trúc dữ liệu động trong JAVA: List, Set, Map.
+- Understand and handle errors using the exception mechanism in Java.
+- Read and write data to text files.
+- Work with dynamic data structures in Java: List, Set, Map.
 
-## 🧑‍🏫 Bài 1: Xử lý ngoại lệ (Exception Handling)
+## 🧑‍🏫 Lesson 1: Exception Handling
 
-### Khái niệm ngoại lệ (Exception) và cơ chế xử lý
+### Exception Concept and Handling Mechanism
 
-- Ngoại lệ là một sự kiện không mong muốn xảy ra trong quá trình thực thi chương trình, làm gián đoạn luồng thực thi bình thường.
-- Cơ chế xử lý ngoại lệ giúp chương trình không bị dừng lại mà có thể xử lý lỗi một cách linh hoạt.
-- Các loại ngoại lệ trong JAVA:
-  - Checked Exception: Ngoại lệ đã được kiểm tra tại thời điểm biên dịch (ví dụ: IOException).
-  - Unchecked Exception: Ngoại lệ không được kiểm tra tại thời điểm biên dịch (ví dụ: NullPointerException, ArithmeticException).
-  - Error: Lỗi nghiêm trọng không thể xử lý (ví dụ: OutOfMemoryError).
+- An exception is an unwanted event that occurs during program execution, disrupting the normal flow of instructions.
+- The exception handling mechanism helps the program not to stop abruptly but handle errors flexibly.
+- Types of exceptions in Java:
+  - Checked Exception: Exceptions checked at compile time (e.g., IOException).
+  - Unchecked Exception: Exceptions not checked at compile time (e.g., NullPointerException, ArithmeticException).
+  - Error: Serious errors that cannot be handled (e.g., OutOfMemoryError).
 
    ```java
-   // Cấu trúc try-catch cơ bản
+   // Basic try-catch structure
    try {
-       // Khối code có thể gây ra ngoại lệ
+       // Code block that may cause exception
        int result = 10 / 0; // ArithmeticException
    } catch (ArithmeticException e) {
-       // Xử lý ngoại lệ
-       System.out.println("Lỗi chia cho 0: " + e.getMessage());
+       // Handle exception
+       System.out.println("Error dividing by zero: " + e.getMessage());
    }
    ```
 
@@ -41,87 +41,87 @@ next:
 
    ```java
    try {
-       // Khối code có thể gây ra ngoại lệ
+       // Code block that may cause exception
        int[] numbers = {1, 2, 3};
        System.out.println(numbers[5]); // ArrayIndexOutOfBoundsException
    } catch (ArrayIndexOutOfBoundsException e) {
-       // Xử lý ngoại lệ
-       System.out.println("Lỗi truy cập phần tử không tồn tại trong mảng: " + e.getMessage());
+       // Handle exception
+       System.out.println("Error accessing non-existent element in array: " + e.getMessage());
    } finally {
-       // Khối code luôn được thực thi, dù có ngoại lệ hay không
-       System.out.println("Khối finally luôn được thực thi");
+       // Code block always executed, regardless of exception
+       System.out.println("Finally block is always executed");
    }
    ```
 
-### Đa catch và thứ tự catch
+### Multiple Catch and Catch Order
 
    ```java
    try {
-       // Khối code có thể gây ra nhiều loại ngoại lệ
+       // Code block that may cause multiple types of exceptions
        String str = null;
        System.out.println(str.length()); // NullPointerException
    } catch (NullPointerException e) {
-       System.out.println("Lỗi null pointer: " + e.getMessage());
+       System.out.println("Null pointer error: " + e.getMessage());
    } catch (Exception e) {
-       // Catch tổng quát - luôn đặt sau các catch cụ thể
-       System.out.println("Lỗi chung: " + e.getMessage());
+       // General catch - always placed after specific catches
+       System.out.println("General error: " + e.getMessage());
    }
    ```
 
-### Throw và Throws
+### Throw and Throws
 
    ```java
-   // Throws - khai báo method có thể ném ra ngoại lệ
+   // Throws - declare method that can throw exception
    public static void checkAge(int age) throws IllegalArgumentException {
        if (age < 18) {
-           // Throw - ném ra ngoại lệ
-           throw new IllegalArgumentException("Tuổi phải từ 18 trở lên");
+           // Throw - throw an exception
+           throw new IllegalArgumentException("Age must be 18 or older");
        }
-       System.out.println("Tuổi hợp lệ");
+       System.out.println("Valid age");
    }
 
-   // Sử dụng
+   // Usage
    public static void main(String[] args) {
        try {
            checkAge(15);
        } catch (IllegalArgumentException e) {
-           System.out.println("Lỗi: " + e.getMessage());
+           System.out.println("Error: " + e.getMessage());
        }
    }
    ```
 
-### Tạo Exception tùy chỉnh
+### Creating Custom Exceptions
 
    ```java
-   // Định nghĩa exception tùy chỉnh
+   // Define custom exception
    class InvalidScoreException extends Exception {
        public InvalidScoreException(String message) {
            super(message);
        }
    }
 
-   // Sử dụng exception tùy chỉnh
+   // Use custom exception
    public class CustomExceptionExample {
        public static void validateScore(double score) throws InvalidScoreException {
            if (score < 0 || score > 10) {
-               throw new InvalidScoreException("Điểm phải nằm trong khoảng 0-10");
+               throw new InvalidScoreException("Score must be between 0-10");
            }
-           System.out.println("Điểm hợp lệ: " + score);
+           System.out.println("Valid score: " + score);
        }
 
        public static void main(String[] args) {
            try {
                validateScore(15);
            } catch (InvalidScoreException e) {
-               System.out.println("Lỗi điểm: " + e.getMessage());
+               System.out.println("Score error: " + e.getMessage());
            }
        }
    }
    ```
 
-## 🧑‍🏫 Bài 2: Đọc ghi file văn bản
+## 🧑‍🏫 Lesson 2: File I/O (Text Files)
 
-### Đọc file với FileReader và BufferedReader
+### Reading Files with FileReader and BufferedReader
 
    ```java
    import java.io.BufferedReader;
@@ -130,26 +130,26 @@ next:
 
    public class FileReadExample {
        public static void main(String[] args) {
-           // Đường dẫn đến file cần đọc
+           // Path to file to read
            String filePath = "data.txt";
 
            try (FileReader fr = new FileReader(filePath);
                 BufferedReader br = new BufferedReader(fr)) {
 
                String line;
-               // Đọc từng dòng trong file
+               // Read each line in file
                while ((line = br.readLine()) != null) {
                    System.out.println(line);
                }
 
            } catch (IOException e) {
-               System.out.println("Lỗi khi đọc file: " + e.getMessage());
+               System.out.println("Error reading file: " + e.getMessage());
            }
        }
    }
    ```
 
-### Ghi file với FileWriter và BufferedWriter
+### Writing Files with FileWriter and BufferedWriter
 
    ```java
    import java.io.BufferedWriter;
@@ -160,28 +160,28 @@ next:
        public static void main(String[] args) {
            String filePath = "output.txt";
 
-           // Ghi đè lên file (false) hoặc nối tiếp vào file (true)
+           // Overwrite file (false) or append to file (true)
            boolean append = false;
 
            try (FileWriter fw = new FileWriter(filePath, append);
                 BufferedWriter bw = new BufferedWriter(fw)) {
 
-               bw.write("Dòng 1: Học JAVA cơ bản");
-               bw.newLine(); // Xuống dòng
-               bw.write("Dòng 2: Học đọc ghi file trong JAVA");
+               bw.write("Line 1: Learning Basic Java");
+               bw.newLine(); // New line
+               bw.write("Line 2: Learning file I/O in Java");
                bw.newLine();
-               bw.write("Dòng 3: Kết thúc bài học");
+               bw.write("Line 3: End of lesson");
 
-               System.out.println("Ghi file thành công!");
+               System.out.println("File written successfully!");
 
            } catch (IOException e) {
-               System.out.println("Lỗi khi ghi file: " + e.getMessage());
+               System.out.println("Error writing file: " + e.getMessage());
            }
        }
    }
    ```
 
-### Kiểm tra và thao tác với File
+### Checking and Manipulating Files
 
    ```java
    import java.io.File;
@@ -189,41 +189,41 @@ next:
 
    public class FileOperationsExample {
        public static void main(String[] args) {
-           // Tạo đối tượng File
+           // Create File object
            File file = new File("test.txt");
 
-           // Kiểm tra file có tồn tại không
+           // Check if file exists
            if (file.exists()) {
-               System.out.println("File đã tồn tại");
-               System.out.println("Tên file: " + file.getName());
-               System.out.println("Đường dẫn tuyệt đối: " + file.getAbsolutePath());
-               System.out.println("Kích thước: " + file.length() + " bytes");
-               System.out.println("Có thể đọc: " + file.canRead());
-               System.out.println("Có thể ghi: " + file.canWrite());
+               System.out.println("File exists");
+               System.out.println("File name: " + file.getName());
+               System.out.println("Absolute path: " + file.getAbsolutePath());
+               System.out.println("Size: " + file.length() + " bytes");
+               System.out.println("Readable: " + file.canRead());
+               System.out.println("Writable: " + file.canWrite());
            } else {
-               System.out.println("File chưa tồn tại, đang tạo file mới...");
+               System.out.println("File does not exist, creating new file...");
                try {
                    if (file.createNewFile()) {
-                       System.out.println("Đã tạo file thành công");
+                       System.out.println("File created successfully");
                    } else {
-                       System.out.println("Không thể tạo file");
+                       System.out.println("Cannot create file");
                    }
                } catch (IOException e) {
-                   System.out.println("Lỗi: " + e.getMessage());
+                   System.out.println("Error: " + e.getMessage());
                }
            }
 
-           // Xóa file
+           // Delete file
            // if (file.delete()) {
-           //     System.out.println("Đã xóa file");
+           //     System.out.println("File deleted");
            // } else {
-           //     System.out.println("Không thể xóa file");
+           //     System.out.println("Cannot delete file");
            // }
        }
    }
    ```
 
-### Đọc ghi file với try-with-resources
+### Reading/Writing Files with try-with-resources
 
    ```java
    import java.io.*;
@@ -233,34 +233,34 @@ next:
            String inputFile = "input.txt";
            String outputFile = "output.txt";
 
-           // Try-with-resources tự động đóng tài nguyên
+           // Try-with-resources automatically closes resources
            try (BufferedReader reader = new BufferedReader(new FileReader(inputFile));
                 BufferedWriter writer = new BufferedWriter(new FileWriter(outputFile))) {
 
                String line;
                while ((line = reader.readLine()) != null) {
-                   // Chuyển thành chữ hoa và ghi vào file output
+                   // Convert to uppercase and write to output file
                    writer.write(line.toUpperCase());
                    writer.newLine();
                }
 
-               System.out.println("Đã sao chép và chuyển đổi file thành công");
+               System.out.println("File copied and converted successfully");
 
            } catch (IOException e) {
-               System.out.println("Lỗi xử lý file: " + e.getMessage());
+               System.out.println("File processing error: " + e.getMessage());
            }
        }
    }
    ```
 
-### Ví dụ thực tế - Đọc dữ liệu CSV
+### Real-world Example - Reading CSV Data
 
    ```java
    import java.io.BufferedReader;
    import java.io.FileReader;
    import java.io.IOException;
-   import java.util.ArrayList; // Bạn sẽ học về ArrayList trong phần Collections
-   import java.util.List; // Bạn sẽ học về List trong phần Collections
+   import java.util.ArrayList; // You will learn about ArrayList in Collections section
+   import java.util.List; // You will learn about List in Collections section
 
    class Student {
        private String id;
@@ -287,13 +287,13 @@ next:
            List<Student> students = new ArrayList<>();
 
            try (BufferedReader br = new BufferedReader(new FileReader(csvFile))) {
-               // Bỏ qua dòng tiêu đề
+               // Skip header line
                br.readLine();
 
                while ((line = br.readLine()) != null) {
                    String[] data = line.split(csvSplitBy);
 
-                   // Tạo đối tượng Student từ dữ liệu CSV
+                   // Create Student object from CSV data
                    Student student = new Student(
                        data[0],
                        data[1],
@@ -303,59 +303,59 @@ next:
                    students.add(student);
                }
 
-               // In danh sách học sinh
+               // Print student list
                for (Student student : students) {
                    System.out.println(student);
                }
 
            } catch (IOException e) {
-               System.out.println("Lỗi đọc file CSV: " + e.getMessage());
+               System.out.println("Error reading CSV file: " + e.getMessage());
            }
        }
    }
    ```
 
-## 🧑‍🏫 Bài 3: Giới thiệu Collections Framework
+## 🧑‍🏫 Lesson 3: Introduction to Collections Framework
 
-### Tổng quan về Collections Framework
+### Overview of Collections Framework
 
-- Collections Framework là một kiến trúc được thiết kế để lưu trữ và thao tác với nhóm các đối tượng trong Java.
-- Nó cung cấp các cấu trúc dữ liệu như List, Set, Map và các thuật toán để thao tác với chúng.
-- Collections Framework giải quyết nhu cầu tổ chức và xử lý dữ liệu theo cách linh hoạt và hiệu quả.
+- Collections Framework is an architecture designed to store and manipulate groups of objects in Java.
+- It provides data structures like List, Set, Map and algorithms to manipulate them.
+- Collections Framework addresses the need to organize and process data flexibly and efficiently.
 
-**Các thành phần chính của Collections Framework:**
+**Main components of Collections Framework:**
 
-1. **Interfaces (Giao diện):**
-   - `Collection`: Giao diện cơ sở cho hầu hết các collections, định nghĩa các phương thức như add(), remove(), contains()
-   - `List`: Danh sách có thứ tự, cho phép phần tử trùng lặp (ArrayList, LinkedList)
-   - `Set`: Tập hợp không chứa phần tử trùng lặp (HashSet, TreeSet)
-   - `Queue`: Hàng đợi, các phần tử được xử lý theo thứ tự FIFO (First-In-First-Out)
-   - `Map`: Lưu trữ dữ liệu dạng key-value, key không được trùng lặp (HashMap, TreeMap)
+1. **Interfaces:**
+   - `Collection`: Base interface for most collections, defining methods like add(), remove(), contains()
+   - `List`: Ordered list, allows duplicate elements (ArrayList, LinkedList)
+   - `Set`: Collection containing no duplicate elements (HashSet, TreeSet)
+   - `Queue`: Queue, elements processed in FIFO (First-In-First-Out) order
+   - `Map`: Stores data as key-value pairs, keys cannot be duplicate (HashMap, TreeMap)
 
-2. **Implementations (Các lớp thực thi):**
-   - Các lớp triển khai các giao diện trên, mỗi lớp có đặc điểm và ứng dụng riêng
-   - Ví dụ: ArrayList (mảng động), LinkedList (danh sách liên kết), HashSet, TreeSet, HashMap, TreeMap
+2. **Implementations:**
+   - Classes implementing the above interfaces, each with its own characteristics and applications
+   - Example: ArrayList (dynamic array), LinkedList (linked list), HashSet, TreeSet, HashMap, TreeMap
 
-3. **Algorithms (Thuật toán):**
-   - Các phương thức tĩnh của lớp `Collections` cung cấp các thuật toán như sắp xếp, tìm kiếm, xáo trộn...
-   - Ví dụ: Collections.sort(), Collections.binarySearch(), Collections.shuffle()
+3. **Algorithms:**
+   - Static methods of `Collections` class provide algorithms like sorting, searching, shuffling...
+   - Example: Collections.sort(), Collections.binarySearch(), Collections.shuffle()
 
-**Lợi ích của Collections Framework:**
+**Benefits of Collections Framework:**
 
-- **Tái sử dụng**: Không cần tự viết các cấu trúc dữ liệu phức tạp
-- **Hiệu suất**: Các triển khai đã được tối ưu hóa
-- **Tính linh hoạt**: Dễ dàng chuyển đổi giữa các cấu trúc dữ liệu
-- **Chuẩn hóa**: API nhất quán giữa các cấu trúc dữ liệu khác nhau
-- **Tích hợp**: Hoạt động tốt với các thành phần khác của Java như Stream API
+- **Reusability**: No need to write complex data structures yourself
+- **Performance**: Implementations are optimized
+- **Flexibility**: Easy to switch between data structures
+- **Standardization**: Consistent API across different data structures
+- **Integration**: Works well with other Java components like Stream API
 
-**Lựa chọn cấu trúc dữ liệu phù hợp:**
+**Choosing the right data structure:**
 
-- **ArrayList**: Khi cần truy cập ngẫu nhiên nhanh và ít thao tác thêm/xóa ở giữa danh sách
-- **LinkedList**: Khi cần thêm/xóa nhiều ở đầu/cuối/giữa danh sách
-- **HashSet**: Khi cần tìm kiếm nhanh và không quan tâm đến thứ tự
-- **TreeSet**: Khi cần duy trì thứ tự sắp xếp của phần tử
-- **HashMap**: Khi cần tìm kiếm nhanh dựa trên key và không quan tâm đến thứ tự của key
-- **TreeMap**: Khi cần duy trì thứ tự sắp xếp của key
+- **ArrayList**: When fast random access is needed and few insertions/deletions in the middle
+- **LinkedList**: When frequent insertions/deletions at beginning/end/middle are needed
+- **HashSet**: When fast search is needed and order doesn't matter
+- **TreeSet**: When sorted order of elements needs to be maintained
+- **HashMap**: When fast search based on key is needed and key order doesn't matter
+- **TreeMap**: When sorted order of keys needs to be maintained
 
 ### Collection vs Map
 
@@ -364,30 +364,30 @@ next:
 
    public class CollectionVsMap {
        public static void main(String[] args) {
-           // Collection là interface dành cho các nhóm đối tượng
+           // Collection is interface for groups of objects
            System.out.println("=== Collection Examples ===");
 
-           // List - Collection với thứ tự, cho phép trùng lặp
+           // List - Collection with order, allows duplicates
            List<String> names = new ArrayList<>();
            names.add("Alice");
            names.add("Bob");
            names.add("Charlie");
-           names.add("Alice"); // Cho phép trùng lặp
+           names.add("Alice"); // Allows duplicates
 
            System.out.println("List: " + names);
-           System.out.println("Phần tử ở vị trí 1: " + names.get(1));
+           System.out.println("Element at position 1: " + names.get(1));
 
-           // Set - Collection không thứ tự, không trùng lặp
+           // Set - Collection without order, no duplicates
            Set<String> uniqueNames = new HashSet<>();
            uniqueNames.add("Alice");
            uniqueNames.add("Bob");
            uniqueNames.add("Charlie");
-           uniqueNames.add("Alice"); // Không thêm vào
+           uniqueNames.add("Alice"); // Not added
 
            System.out.println("\nSet: " + uniqueNames);
-           // uniqueNames.get(0); // Lỗi: Set không có phương thức get(index)
+           // uniqueNames.get(0); // Error: Set has no get(index) method
 
-           // Map là interface dành cho cặp key-value
+           // Map is interface for key-value pairs
            System.out.println("\n=== Map Examples ===");
 
            Map<String, Integer> ages = new HashMap<>();
@@ -396,18 +396,18 @@ next:
            ages.put("Charlie", 22);
 
            System.out.println("Map: " + ages);
-           System.out.println("Tuổi của Bob: " + ages.get("Bob"));
+           System.out.println("Bob's age: " + ages.get("Bob"));
 
-           // Duyệt Map
-           System.out.println("\nDuyệt Map:");
+           // Iterate Map
+           System.out.println("\nIterating Map:");
            for (Map.Entry<String, Integer> entry : ages.entrySet()) {
-               System.out.println(entry.getKey() + " có tuổi là " + entry.getValue());
+               System.out.println(entry.getKey() + " is " + entry.getValue() + " years old");
            }
        }
    }
    ```
 
-### Các thao tác cơ bản với Collections
+### Basic Operations with Collections
 
    ```java
    import java.util.*;
@@ -416,63 +416,63 @@ next:
        public static void main(String[] args) {
            List<String> languages = new ArrayList<>();
 
-           // Thêm phần tử
+           // Add elements
            languages.add("JAVA");
            languages.add("Python");
            languages.add("C#");
            languages.add("JavaScript");
 
-           System.out.println("Danh sách ban đầu: " + languages);
+           System.out.println("Initial list: " + languages);
 
-           // Kích thước
-           System.out.println("Số phần tử: " + languages.size());
+           // Size
+           System.out.println("Number of elements: " + languages.size());
 
-           // Kiểm tra tồn tại
-           System.out.println("Có chứa 'JAVA'? " + languages.contains("JAVA"));
-           System.out.println("Có chứa 'Ruby'? " + languages.contains("Ruby"));
+           // Check existence
+           System.out.println("Contains 'JAVA'? " + languages.contains("JAVA"));
+           System.out.println("Contains 'Ruby'? " + languages.contains("Ruby"));
 
-           // Lấy phần tử theo index
-           System.out.println("Phần tử thứ 2: " + languages.get(1));
+           // Get element by index
+           System.out.println("2nd element: " + languages.get(1));
 
-           // Xóa phần tử
+           // Remove element
            languages.remove("C#");
-           System.out.println("Sau khi xóa 'C#': " + languages);
+           System.out.println("After removing 'C#': " + languages);
 
-           // Xóa theo index
+           // Remove by index
            languages.remove(0);
-           System.out.println("Sau khi xóa phần tử đầu tiên: " + languages);
+           System.out.println("After removing first element: " + languages);
 
-           // Duyệt tập hợp
-           System.out.println("\nDuyệt bằng for-each:");
+           // Iterate collection
+           System.out.println("\nIterate using for-each:");
            for (String lang : languages) {
                System.out.println("- " + lang);
            }
 
-           // Duyệt bằng Iterator
-           System.out.println("\nDuyệt bằng Iterator:");
+           // Iterate using Iterator
+           System.out.println("\nIterate using Iterator:");
            Iterator<String> iterator = languages.iterator();
            while (iterator.hasNext()) {
                System.out.println("+ " + iterator.next());
            }
 
-           // Sắp xếp
+           // Sort
            Collections.sort(languages);
-           System.out.println("\nSau khi sắp xếp: " + languages);
+           System.out.println("\nAfter sorting: " + languages);
 
-           // Xóa tất cả
+           // Clear all
            languages.clear();
-           System.out.println("Sau khi xóa tất cả: " + languages);
-           System.out.println("Danh sách rỗng? " + languages.isEmpty());
+           System.out.println("After clearing all: " + languages);
+           System.out.println("Is list empty? " + languages.isEmpty());
        }
    }
    ```
 
-## 🧑‍🏫 Bài 4: List, Set và Map
+## 🧑‍🏫 Lesson 4: List, Set and Map
 
-### ArrayList và LinkedList
+### ArrayList and LinkedList
 
-- `ArrayList`: danh sách động, truy cập nhanh theo chỉ số.
-- `LinkedList`: danh sách liên kết, thêm/xóa nhanh ở đầu/cuối.
+- `ArrayList`: dynamic array, fast access by index.
+- `LinkedList`: linked list, fast insertion/deletion at head/tail.
 
    ```java
    import java.util.ArrayList;
@@ -481,7 +481,7 @@ next:
 
    public class ListExample {
        public static void main(String[] args) {
-           // ArrayList - truy cập ngẫu nhiên nhanh
+           // ArrayList - fast random access
            List<String> arrayList = new ArrayList<>();
            arrayList.add("Apple");
            arrayList.add("Banana");
@@ -489,15 +489,15 @@ next:
 
            System.out.println("ArrayList: " + arrayList);
 
-           // Thêm phần tử vào vị trí cụ thể
+           // Add element at specific position
            arrayList.add(1, "Mango");
-           System.out.println("Sau khi thêm 'Mango' vào vị trí 1: " + arrayList);
+           System.out.println("After adding 'Mango' at pos 1: " + arrayList);
 
-           // Cập nhật phần tử
+           // Update element
            arrayList.set(0, "Green Apple");
-           System.out.println("Sau khi cập nhật: " + arrayList);
+           System.out.println("After update: " + arrayList);
 
-           // LinkedList - thêm/xóa đầu và cuối nhanh
+           // LinkedList - fast add/remove at head/tail
            List<String> linkedList = new LinkedList<>();
            linkedList.add("Dog");
            linkedList.add("Cat");
@@ -505,24 +505,24 @@ next:
 
            System.out.println("\nLinkedList: " + linkedList);
 
-           // Thêm đầu và cuối (phương thức riêng của LinkedList)
+           // Add first and last (LinkedList specific methods)
            ((LinkedList<String>) linkedList).addFirst("Lion");
            ((LinkedList<String>) linkedList).addLast("Tiger");
 
-           System.out.println("Sau khi thêm đầu và cuối: " + linkedList);
+           System.out.println("After adding first and last: " + linkedList);
 
-           // So sánh hiệu năng (khái niệm)
-           System.out.println("\nSo sánh ArrayList và LinkedList:");
-           System.out.println("- ArrayList tốt cho: truy cập ngẫu nhiên, duyệt danh sách");
-           System.out.println("- LinkedList tốt cho: thêm/xóa nhiều ở đầu hoặc cuối danh sách");
+           // Performance comparison (concept)
+           System.out.println("\nComparing ArrayList and LinkedList:");
+           System.out.println("- ArrayList good for: random access, iterating list");
+           System.out.println("- LinkedList good for: frequent add/remove at head or tail");
        }
    }
    ```
 
-### HashSet và TreeSet
+### HashSet and TreeSet
 
-- `HashSet`: không có thứ tự, không cho phép phần tử trùng lặp.
-- `TreeSet`: tự động sắp xếp theo thứ tự tự nhiên hoặc theo Comparator.
+- `HashSet`: unordered, no duplicate elements.
+- `TreeSet`: automatically sorted by natural order or Comparator.
 
    ```java
    import java.util.HashSet;
@@ -531,47 +531,47 @@ next:
 
    public class SetExample {
        public static void main(String[] args) {
-           // HashSet - không có thứ tự, nhanh nhất
+           // HashSet - unordered, fastest
            Set<String> hashSet = new HashSet<>();
            hashSet.add("Banana");
            hashSet.add("Apple");
            hashSet.add("Orange");
-           hashSet.add("Apple"); // Không thêm vào (trùng lặp)
+           hashSet.add("Apple"); // Not added (duplicate)
 
-           System.out.println("HashSet (không có thứ tự): " + hashSet);
+           System.out.println("HashSet (unordered): " + hashSet);
 
-           // Kiểm tra phần tử tồn tại
-           System.out.println("Có chứa 'Apple'? " + hashSet.contains("Apple"));
+           // Check element existence
+           System.out.println("Contains 'Apple'? " + hashSet.contains("Apple"));
 
-           // Xóa phần tử
+           // Remove element
            hashSet.remove("Banana");
-           System.out.println("Sau khi xóa 'Banana': " + hashSet);
+           System.out.println("After removing 'Banana': " + hashSet);
 
-           // TreeSet - sắp xếp tự động
+           // TreeSet - automatically sorted
            Set<String> treeSet = new TreeSet<>();
            treeSet.add("Zebra");
            treeSet.add("Dog");
            treeSet.add("Cat");
            treeSet.add("Apple");
 
-           System.out.println("\nTreeSet (tự động sắp xếp): " + treeSet);
+           System.out.println("\nTreeSet (automatically sorted): " + treeSet);
 
-           // Thêm phần tử trùng
-           treeSet.add("Cat"); // Không thay đổi
-           System.out.println("Sau khi thêm 'Cat' lần nữa: " + treeSet);
+           // Add duplicate
+           treeSet.add("Cat"); // No change
+           System.out.println("After adding 'Cat' again: " + treeSet);
 
-           // So sánh hiệu năng (khái niệm)
-           System.out.println("\nSo sánh HashSet và TreeSet:");
-           System.out.println("- HashSet tốt cho: thao tác thêm/xóa/tìm kiếm nhanh");
-           System.out.println("- TreeSet tốt cho: khi cần duy trì thứ tự sắp xếp");
+           // Performance comparison (concept)
+           System.out.println("\nComparing HashSet and TreeSet:");
+           System.out.println("- HashSet good for: fast add/remove/search operations");
+           System.out.println("- TreeSet good for: when sorted order needs to be maintained");
        }
    }
    ```
 
-### HashMap và TreeMap
+### HashMap and TreeMap
 
-- `HashMap`: không có thứ tự, cho phép key null, nhanh nhất.
-- `TreeMap`: tự động sắp xếp theo key, không cho phép key null.
+- `HashMap`: unordered, allows null keys, fastest.
+- `TreeMap`: automatically sorted by key, does not allow null keys.
 
    ```java
    import java.util.HashMap;
@@ -580,132 +580,132 @@ next:
 
    public class MapExample {
        public static void main(String[] args) {
-           // HashMap - không có thứ tự, nhanh nhất
+           // HashMap - unordered, fastest
            Map<String, Integer> hashMap = new HashMap<>();
            hashMap.put("John", 25);
            hashMap.put("Alice", 22);
            hashMap.put("Bob", 30);
 
-           System.out.println("HashMap (không có thứ tự): " + hashMap);
+           System.out.println("HashMap (unordered): " + hashMap);
 
-           // Truy cập giá trị
-           System.out.println("Tuổi của Alice: " + hashMap.get("Alice"));
+           // Access value
+           System.out.println("Alice's age: " + hashMap.get("Alice"));
 
-           // Kiểm tra key tồn tại
-           System.out.println("Có chứa 'Bob'? " + hashMap.containsKey("Bob"));
+           // Check key existence
+           System.out.println("Contains 'Bob'? " + hashMap.containsKey("Bob"));
 
-           // Kiểm tra value tồn tại
-           System.out.println("Có chứa tuổi 40? " + hashMap.containsValue(40));
+           // Check value existence
+           System.out.println("Contains age 40? " + hashMap.containsValue(40));
 
-           // Cập nhật giá trị
-           hashMap.put("John", 26); // Ghi đè giá trị cũ
-           System.out.println("Sau khi cập nhật tuổi của John: " + hashMap);
+           // Update value
+           hashMap.put("John", 26); // Overwrite old value
+           System.out.println("After updating John's age: " + hashMap);
 
-           // TreeMap - sắp xếp theo key
+           // TreeMap - sorted by key
            Map<String, String> treeMap = new TreeMap<>();
            treeMap.put("US", "United States");
            treeMap.put("VN", "Vietnam");
            treeMap.put("FR", "France");
            treeMap.put("JP", "Japan");
 
-           System.out.println("\nTreeMap (sắp xếp theo key): " + treeMap);
+           System.out.println("\nTreeMap (sorted by key): " + treeMap);
 
-           // Duyệt Map - Cách 1: dùng entrySet
-           System.out.println("\nDuyệt Map bằng entrySet:");
+           // Iterate Map - Method 1: using entrySet
+           System.out.println("\nIterating Map using entrySet:");
            for (Map.Entry<String, String> entry : treeMap.entrySet()) {
                System.out.println(entry.getKey() + " -> " + entry.getValue());
            }
 
-           // Duyệt Map - Cách 2: dùng keySet
-           System.out.println("\nDuyệt Map bằng keySet:");
+           // Iterate Map - Method 2: using keySet
+           System.out.println("\nIterating Map using keySet:");
            for (String key : treeMap.keySet()) {
                System.out.println(key + " --> " + treeMap.get(key));
            }
 
-           // Xóa phần tử
+           // Remove element
            treeMap.remove("FR");
-           System.out.println("\nSau khi xóa 'FR': " + treeMap);
+           System.out.println("\nAfter removing 'FR': " + treeMap);
        }
    }
    ```
 
-### Ví dụ thực tế - Quản lý danh bạ
+### Real-world Example - Contact Manager
 
    ```java
    import java.util.*;
 
    public class ContactManager {
        public static void main(String[] args) {
-           // Sử dụng TreeMap để lưu danh bạ sắp xếp theo tên
+           // Use TreeMap to store contacts sorted by name
            Map<String, String> contacts = new TreeMap<>();
 
-           // Thêm liên hệ
+           // Add contacts
            contacts.put("John Doe", "0987654321");
            contacts.put("Alice Smith", "0123456789");
            contacts.put("Bob Johnson", "0369852147");
            contacts.put("Cindy Williams", "0741258963");
 
-           // Hiển thị tất cả liên hệ
-           System.out.println("=== DANH BẠ ===");
+           // Display all contacts
+           System.out.println("=== CONTACTS ===");
            displayContacts(contacts);
 
-           // Tìm kiếm số điện thoại
+           // Search phone number
            String name = "Alice Smith";
            String phone = findContact(contacts, name);
            if (phone != null) {
-               System.out.println("\nSố điện thoại của " + name + ": " + phone);
+               System.out.println("\nPhone number of " + name + ": " + phone);
            } else {
-               System.out.println("\nKhông tìm thấy " + name + " trong danh bạ");
+               System.out.println("\n" + name + " not found in contacts");
            }
 
-           // Cập nhật liên hệ
+           // Update contact
            updateContact(contacts, "Bob Johnson", "0999888777");
-           System.out.println("\n=== DANH BẠ SAU KHI CẬP NHẬT ===");
+           System.out.println("\n=== CONTACTS AFTER UPDATE ===");
            displayContacts(contacts);
 
-           // Xóa liên hệ
+           // Remove contact
            removeContact(contacts, "Cindy Williams");
-           System.out.println("\n=== DANH BẠ SAU KHI XÓA ===");
+           System.out.println("\n=== CONTACTS AFTER DELETION ===");
            displayContacts(contacts);
        }
 
-       // Hiển thị tất cả liên hệ
+       // Display all contacts
        public static void displayContacts(Map<String, String> contacts) {
            for (Map.Entry<String, String> entry : contacts.entrySet()) {
                System.out.println(entry.getKey() + ": " + entry.getValue());
            }
        }
 
-       // Tìm liên hệ
+       // Find contact
        public static String findContact(Map<String, String> contacts, String name) {
            return contacts.get(name);
        }
 
-       // Cập nhật liên hệ
+       // Update contact
        public static void updateContact(Map<String, String> contacts, String name, String newPhone) {
            if (contacts.containsKey(name)) {
                contacts.put(name, newPhone);
-               System.out.println("Đã cập nhật số điện thoại cho " + name);
+               System.out.println("Updated phone number for " + name);
            } else {
-               System.out.println("Không tìm thấy " + name + " trong danh bạ");
+               System.out.println(name + " not found in contacts");
            }
        }
 
-       // Xóa liên hệ
+       // Remove contact
        public static void removeContact(Map<String, String> contacts, String name) {
            if (contacts.containsKey(name)) {
                contacts.remove(name);
-               System.out.println("Đã xóa " + name + " khỏi danh bạ");
+               System.out.println("Removed " + name + " from contacts");
            } else {
-               System.out.println("Không tìm thấy " + name + " trong danh bạ");
+               System.out.println(name + " not found in contacts");
            }
        }
    }
    ```
 
-## 🧑‍🏫 Bài 5: Kết hợp File và Collections
+## 🧑‍🏫 Lesson 5: Combining File and Collections
 
-### Đọc file và lưu vào List
+### Reading File into List
 
    ```java
    import java.io.BufferedReader;
@@ -725,20 +725,20 @@ next:
                    names.add(line.trim());
                }
 
-               System.out.println("Đã đọc " + names.size() + " tên từ file");
-               System.out.println("Danh sách tên:");
+               System.out.println("Read " + names.size() + " names from file");
+               System.out.println("List of names:");
                for (String name : names) {
                    System.out.println("- " + name);
                }
 
            } catch (IOException e) {
-               System.out.println("Lỗi khi đọc file: " + e.getMessage());
+               System.out.println("Error reading file: " + e.getMessage());
            }
        }
    }
    ```
 
-### Ghi List ra file
+### Writing List to File
 
    ```java
    import java.io.BufferedWriter;
@@ -750,11 +750,11 @@ next:
    public class WriteCollectionToFile {
        public static void main(String[] args) {
            List<String> cities = new ArrayList<>();
-           cities.add("Hà Nội");
-           cities.add("Hồ Chí Minh");
-           cities.add("Đà Nẵng");
-           cities.add("Huế");
-           cities.add("Cần Thơ");
+           cities.add("Hanoi");
+           cities.add("Ho Chi Minh City");
+           cities.add("Da Nang");
+           cities.add("Hue");
+           cities.add("Can Tho");
 
            String outputFile = "cities.txt";
 
@@ -764,16 +764,16 @@ next:
                    writer.newLine();
                }
 
-               System.out.println("Đã ghi " + cities.size() + " thành phố vào file " + outputFile);
+               System.out.println("Written " + cities.size() + " cities to file " + outputFile);
 
            } catch (IOException e) {
-               System.out.println("Lỗi khi ghi file: " + e.getMessage());
+               System.out.println("Error writing file: " + e.getMessage());
            }
        }
    }
    ```
 
-### Đọc file CSV vào List đối tượng
+### Reading CSV File into Object List
 
    ```java
    import java.io.BufferedReader;
@@ -800,7 +800,7 @@ next:
            return "Product{id='" + id + "', name='" + name + "', price=" + price + ", quantity=" + quantity + "}";
        }
 
-       // Phương thức để chuyển đối tượng thành dòng CSV
+       // Method to convert object to CSV line
        public String toCSV() {
            return id + "," + name + "," + price + "," + quantity;
        }
@@ -814,7 +814,7 @@ next:
            List<Product> products = new ArrayList<>();
 
            try (BufferedReader br = new BufferedReader(new FileReader(csvFile))) {
-               // Bỏ qua dòng tiêu đề
+               // Skip header line
                br.readLine();
 
                while ((line = br.readLine()) != null) {
@@ -830,19 +830,19 @@ next:
                    products.add(product);
                }
 
-               System.out.println("Đã đọc " + products.size() + " sản phẩm");
+               System.out.println("Read " + products.size() + " products");
                for (Product product : products) {
                    System.out.println(product);
                }
 
            } catch (IOException e) {
-               System.out.println("Lỗi đọc file: " + e.getMessage());
+               System.out.println("Error reading file: " + e.getMessage());
            }
        }
    }
    ```
 
-### Ghi Map ra file
+### Writing Map to File
 
    ```java
    import java.io.BufferedWriter;
@@ -872,16 +872,16 @@ next:
                    writer.newLine();
                }
 
-               System.out.println("Đã ghi tỷ giá tiền tệ vào file " + outputFile);
+               System.out.println("Written currency rates to file " + outputFile);
 
            } catch (IOException e) {
-               System.out.println("Lỗi khi ghi file: " + e.getMessage());
+               System.out.println("Error writing file: " + e.getMessage());
            }
        }
    }
    ```
 
-### Ví dụ thực tế - Hệ thống quản lý sách đơn giản
+### Real-world Example - Simple Book Management System
 
    ```java
    import java.io.*;
@@ -913,7 +913,7 @@ next:
            return "Book{isbn='" + isbn + "', title='" + title + "', author='" + author + "', year=" + year + "}";
        }
 
-       // Chuyển đối tượng thành dòng CSV
+       // Convert object to CSV line
        public String toCSV() {
            return isbn + "," + title + "," + author + "," + year;
        }
@@ -933,13 +933,13 @@ next:
        private void showMenu() {
            int choice;
            do {
-               System.out.println("\n==== QUẢN LÝ SÁCH ====");
-               System.out.println("1. Hiển thị tất cả sách");
-               System.out.println("2. Thêm sách mới");
-               System.out.println("3. Tìm sách theo ISBN");
-               System.out.println("4. Tìm sách theo tác giả");
-               System.out.println("5. Lưu và thoát");
-               System.out.print("Nhập lựa chọn của bạn: ");
+               System.out.println("\n==== BOOK MANAGEMENT ====");
+               System.out.println("1. Display all books");
+               System.out.println("2. Add new book");
+               System.out.println("3. Find book by ISBN");
+               System.out.println("4. Find books by author");
+               System.out.println("5. Save and exit");
+               System.out.print("Enter your choice: ");
 
                choice = scanner.nextInt();
                scanner.nextLine(); // Consume newline
@@ -959,10 +959,10 @@ next:
                        break;
                    case 5:
                        saveBooksToFile();
-                       System.out.println("Tạm biệt!");
+                       System.out.println("Goodbye!");
                        break;
                    default:
-                       System.out.println("Lựa chọn không hợp lệ. Vui lòng thử lại.");
+                       System.out.println("Invalid choice. Please try again.");
                }
 
            } while (choice != 5);
@@ -971,13 +971,13 @@ next:
        private void loadBooksFromFile() {
            File file = new File(FILE_PATH);
            if (!file.exists()) {
-               System.out.println("File không tồn tại. Tạo danh sách mới.");
+               System.out.println("File does not exist. Creating new list.");
                return;
            }
 
            try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
                String line;
-               // Bỏ qua dòng tiêu đề nếu có
+               // Skip header if exists
                reader.readLine();
 
                while ((line = reader.readLine()) != null) {
@@ -993,40 +993,40 @@ next:
                    }
                }
 
-               System.out.println("Đã nạp " + books.size() + " sách từ file.");
+               System.out.println("Loaded " + books.size() + " books from file.");
 
            } catch (IOException e) {
-               System.out.println("Lỗi khi đọc file: " + e.getMessage());
+               System.out.println("Error reading file: " + e.getMessage());
            }
        }
 
        private void saveBooksToFile() {
            try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_PATH))) {
-               // Ghi dòng tiêu đề
+               // Write header
                writer.write("ISBN,Title,Author,Year");
                writer.newLine();
 
-               // Ghi dữ liệu sách
+               // Write book data
                for (Book book : books) {
                    writer.write(book.toCSV());
                    writer.newLine();
                }
 
-               System.out.println("Đã lưu " + books.size() + " sách vào file " + FILE_PATH);
+               System.out.println("Saved " + books.size() + " books to file " + FILE_PATH);
 
            } catch (IOException e) {
-               System.out.println("Lỗi khi ghi file: " + e.getMessage());
+               System.out.println("Error writing file: " + e.getMessage());
            }
        }
 
        private void displayAllBooks() {
            if (books.isEmpty()) {
-               System.out.println("Không có sách nào trong thư viện.");
+               System.out.println("No books in library.");
                return;
            }
 
-           System.out.println("\n==== DANH SÁCH SÁCH ====");
-           System.out.println("ISBN\t\tTiêu đề\t\tTác giả\t\tNăm xuất bản");
+           System.out.println("\n==== BOOK LIST ====");
+           System.out.println("ISBN\t\tTitle\t\tAuthor\t\tYear");
            System.out.println("---------------------------------------------------");
 
            for (Book book : books) {
@@ -1036,52 +1036,52 @@ next:
        }
 
        private void addNewBook() {
-           System.out.println("\n==== THÊM SÁCH MỚI ====");
+           System.out.println("\n==== ADD NEW BOOK ====");
 
-           System.out.print("Nhập ISBN: ");
+           System.out.print("Enter ISBN: ");
            String isbn = scanner.nextLine();
 
-           // Kiểm tra ISBN đã tồn tại chưa
+           // Check if ISBN exists
            for (Book book : books) {
                if (book.getIsbn().equals(isbn)) {
-                   System.out.println("ISBN đã tồn tại. Vui lòng thử lại.");
+                   System.out.println("ISBN already exists. Please try again.");
                    return;
                }
            }
 
-           System.out.print("Nhập tiêu đề: ");
+           System.out.print("Enter Title: ");
            String title = scanner.nextLine();
 
-           System.out.print("Nhập tác giả: ");
+           System.out.print("Enter Author: ");
            String author = scanner.nextLine();
 
-           System.out.print("Nhập năm xuất bản: ");
+           System.out.print("Enter Year: ");
            int year = scanner.nextInt();
            scanner.nextLine(); // Consume newline
 
            Book newBook = new Book(isbn, title, author, year);
            books.add(newBook);
 
-           System.out.println("Đã thêm sách thành công!");
+           System.out.println("Book added successfully!");
        }
 
        private void findBookByISBN() {
-           System.out.print("Nhập ISBN cần tìm: ");
+           System.out.print("Enter ISBN to find: ");
            String isbn = scanner.nextLine();
 
            for (Book book : books) {
                if (book.getIsbn().equals(isbn)) {
-                   System.out.println("\nTìm thấy sách:");
+                   System.out.println("\nBook found:");
                    System.out.println(book);
                    return;
                }
            }
 
-           System.out.println("Không tìm thấy sách với ISBN: " + isbn);
+           System.out.println("Book not found with ISBN: " + isbn);
        }
 
        private void findBooksByAuthor() {
-           System.out.print("Nhập tên tác giả cần tìm: ");
+           System.out.print("Enter author name to find: ");
            String authorName = scanner.nextLine().toLowerCase();
 
            List<Book> result = new ArrayList<>();
@@ -1093,9 +1093,9 @@ next:
            }
 
            if (result.isEmpty()) {
-               System.out.println("Không tìm thấy sách của tác giả: " + authorName);
+               System.out.println("No books found for author: " + authorName);
            } else {
-               System.out.println("\nTìm thấy " + result.size() + " sách của tác giả " + authorName + ":");
+               System.out.println("\nFound " + result.size() + " books by author " + authorName + ":");
                for (Book book : result) {
                    System.out.println(book);
                }
@@ -1104,25 +1104,25 @@ next:
    }
    ```
 
-## 🧪 BÀI TẬP LỚN CUỐI PHẦN: Hệ thống quản lý khóa học
+## 🧪 FINAL PROJECT: Course Management System
 
-### Mô tả bài toán
+### Problem Description
 
-Viết chương trình quản lý danh sách khóa học:
+Write a program to manage a list of courses:
 
-- Mỗi khóa học có mã, tên, giảng viên, và số lượng sinh viên đăng ký.
-- Cho phép người dùng:
-  - Thêm, sửa, xóa khóa học.
-  - Lưu và tải danh sách từ file.
-  - Tìm kiếm khóa học theo mã hoặc tên.
-  - In danh sách khóa học theo tên giảng viên.
+- Each course has a code, name, instructor, and number of enrolled students.
+- Allow users to:
+  - Add, edit, delete courses.
+  - Save and load list from file.
+  - Search course by code or name.
+  - Print course list by instructor name.
 
-### Yêu cầu
+### Requirements
 
-- Sử dụng `ArrayList` hoặc `HashMap` để lưu danh sách khóa học.
-- Lưu trữ dữ liệu vào file (có thể là csv) và nạp lại khi khởi động chương trình.
-- Xử lý các trường hợp lỗi như trùng mã khóa học, file không tồn tại,...
+- Use `ArrayList` or `HashMap` to store course list.
+- Store data in a file (can be csv) and reload when program starts.
+- Handle error cases like duplicate course code, file not found,...
 
-Sau khi hoàn thành phần này, bạn đã nắm vững các khái niệm nền tảng của JAVA - từ cú pháp, cấu trúc điều khiển, lập trình hướng đối tượng đến Collections Framework. Các ví dụ thực tế trong bài học cũng đã giúp bạn có cơ hội áp dụng lý thuyết vào những tình huống cụ thể.
+After completing this part, you have mastered the foundational concepts of JAVA - from syntax, control structures, object-oriented programming to Collections Framework. The real-world examples in the lessons have also helped you apply theory to specific situations.
 
-Đến đây, chúng ta sẽ tạm gác lại hành trình với JAVA để bước vào thế giới của SQL - ngôn ngữ truy vấn cơ sở dữ liệu được sử dụng rộng rãi nhất hiện nay. Việc này không chỉ mở rộng kiến thức cho bạn mà còn giúp bạn hiểu sâu hơn về cách thức ứng dụng tương tác với cơ sở dữ liệu - một kỹ năng thiết yếu trong hầu hết các dự án phát triển phần mềm thực tế.
+Here, we will temporarily pause the journey with JAVA to enter the world of SQL - the most widely used database query language today. This will not only expand your knowledge but also help you understand deeper how applications interact with databases - an essential skill in most real-world software development projects.

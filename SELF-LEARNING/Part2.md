@@ -1,216 +1,216 @@
 ---
 prev:
-  text: '🔍 Tìm Kiếm Thông Tin'
+  text: '🔍 Information Search'
   link: '/SELF-LEARNING/Part1'
 next:
-  text: '🧠 Kỹ Thuật Tự Học'
+  text: '🧠 Self-Learning Techniques'
   link: '/SELF-LEARNING/Part3'
 ---
 
-# 📘 PHẦN 2: XỬ LÝ TÀI LIỆU CHUYÊN NGÀNH
+# 📘 PART 2: PROCESSING TECHNICAL DOCUMENTS
 
-## 🎯 Mục tiêu tổng quát
+## 🎯 General Objectives
 
-- Nắm vững cách tiếp cận và xử lý tài liệu kỹ thuật hiệu quả
-- Phát triển kỹ năng đọc và hiểu các paper nghiên cứu công nghệ
-- Thành thạo việc sử dụng tài liệu API và mã nguồn mở
-- Học cách tạo tài liệu chuyên nghiệp để chia sẻ kiến thức
+- Master how to approach and process technical documents effectively
+- Develop skills to read and understand technology research papers
+- Proficient in using API documentation and open source code
+- Learn how to create professional documentation for knowledge sharing
 
-## 🧑‍🏫 Bài 1: Đọc và hiểu tài liệu kỹ thuật
+## 🧑‍🏫 Lesson 1: Reading and Understanding Technical Documents
 
-### Cấu trúc của tài liệu kỹ thuật
+### Structure of Technical Documents
 
-- **Sách kỹ thuật và sách giáo khoa**
+- **Technical books and textbooks**
 
-  - Cấu trúc thường thấy: Lời nói đầu, Mục lục, Chương, Tài liệu tham khảo, Chỉ mục
-  - Cách tiếp cận: Đọc mục lục trước, xác định chương cần thiết, đọc tóm tắt chương
+  - Common structure: Preface, Table of Contents, Chapters, References, Index
+  - Approach: Read table of contents first, identify needed chapters, read chapter summaries
 
-- **Tài liệu trực tuyến**
+- **Online documentation**
 
-  - Wiki, document sites, blog kỹ thuật
-  - Cách điều hướng: Sử dụng tìm kiếm, theo dõi liên kết, sử dụng breadcrumb
+  - Wikis, document sites, technical blogs
+  - Navigation: Use search, follow links, use breadcrumbs
 
-- **Documentation code (tài liệu mã nguồn)**
+- **Code documentation**
   - Inline comments, docstrings, README files, wikis
-  - Code examples, unit tests như một dạng tài liệu
+  - Code examples, unit tests as a form of documentation
 
-### Chiến lược đọc hiệu quả
+### Effective Reading Strategies
 
-1. **Đọc theo nhiều lớp (Layered Reading)**
+1. **Layered Reading**
 
-   - Lớp 1: Đọc lướt để nắm bắt ý chính (5-10% thời gian)
-   - Lớp 2: Đọc có chọn lọc các phần liên quan (30-40% thời gian)
-   - Lớp 3: Đọc sâu với chi tiết cụ thể (50-60% thời gian)
+   - Layer 1: Skim to grasp main ideas (5-10% of time)
+   - Layer 2: Selectively read relevant sections (30-40% of time)
+   - Layer 3: Deep reading with specific details (50-60% of time)
 
-2. **Đọc SQ3R cho tài liệu kỹ thuật**
+2. **SQ3R for Technical Documents**
 
-   - **S**urvey (Khảo sát): Xem qua headings, diagrams
-   - **Q**uestion (Đặt câu hỏi): Chuyển headings thành câu hỏi
-   - **R**ead (Đọc): Đọc tìm câu trả lời
-   - **R**ecite (Nhắc lại): Tóm tắt nội dung bằng lời riêng
-   - **R**eview (Xem lại): Tổng kết và kết nối các phần
+   - **S**urvey: Look over headings, diagrams
+   - **Q**uestion: Turn headings into questions
+   - **R**ead: Read to find answers
+   - **R**ecite: Summarize content in own words
+   - **R**eview: Consolidate and connect sections
 
-3. **Đọc với mục đích rõ ràng**
-   - Đọc để tìm giải pháp cho vấn đề cụ thể
-   - Đọc để học kiến thức mới
-   - Đọc để tổng hợp thông tin từ nhiều nguồn
+3. **Reading with clear purpose**
+   - Read to find solutions to specific problems
+   - Read to learn new knowledge
+   - Read to synthesize information from multiple sources
 
-### Hiểu thuật ngữ chuyên ngành
+### Understanding Technical Terminology
 
-1. **Xây dựng từ điển thuật ngữ cá nhân**
+1. **Build personal terminology dictionary**
 
-   - Ghi chép và cập nhật thuật ngữ mới
-   - Tìm hiểu nguồn gốc và bối cảnh của thuật ngữ
-   - Tìm ví dụ minh họa cho mỗi thuật ngữ
+   - Record and update new terminology
+   - Research origin and context of terminology
+   - Find illustrative examples for each term
 
-2. **Tận dụng glossary và tài liệu tham khảo**
+2. **Utilize glossary and reference materials**
 
-   - Xem phần glossary trong tài liệu
-   - Sử dụng thư viện thuật ngữ trực tuyến
-   - Tham khảo sách chuyên ngành
+   - Check glossary section in documentation
+   - Use online terminology libraries
+   - Reference specialized books
 
-3. **Hiểu mối quan hệ giữa các thuật ngữ**
-   - Tạo mindmap kết nối các thuật ngữ liên quan
-   - Phân loại thuật ngữ theo lĩnh vực, công nghệ
-   - Thiết lập quan hệ "cha-con" giữa các khái niệm
+3. **Understand relationships between terms**
+   - Create mindmaps connecting related terms
+   - Categorize terminology by field, technology
+   - Establish "parent-child" relationships between concepts
 
-### Giải mã hình ảnh kỹ thuật và biểu đồ
+### Decoding Technical Images and Diagrams
 
-1. **Các loại biểu đồ phổ biến trong IT**
+1. **Common diagram types in IT**
 
-   - Flow charts (lưu đồ): Mô tả quy trình, thuật toán
-   - UML diagrams: Mô tả kiến trúc, class, sequence
-   - Entity-Relationship diagrams: Mô tả cấu trúc database
-   - Network diagrams: Mô tả hệ thống mạng, kết nối
+   - Flow charts: Describe processes, algorithms
+   - UML diagrams: Describe architecture, class, sequence
+   - Entity-Relationship diagrams: Describe database structure
+   - Network diagrams: Describe network systems, connections
 
-2. **Cách tiếp cận biểu đồ phức tạp**
-   - Bắt đầu với việc xác định mục đích của biểu đồ
-   - Xác định các thành phần chính và mối liên hệ
-   - Theo dõi luồng dữ liệu/thông tin/quá trình
-   - Đặt câu hỏi về từng phần chưa hiểu
+2. **Approaching complex diagrams**
+   - Start by identifying diagram purpose
+   - Identify main components and relationships
+   - Follow data/information/process flow
+   - Ask questions about unclear parts
 
-## 🧑‍🏫 Bài 2: Xử lý paper nghiên cứu và bài báo học thuật
+## 🧑‍🏫 Lesson 2: Processing Research Papers and Academic Articles
 
-### Cấu trúc của một paper nghiên cứu
+### Structure of a Research Paper
 
-1. **Các thành phần chính**
+1. **Main components**
 
-   - Abstract (Tóm tắt): Tổng quan về nghiên cứu và kết quả
-   - Introduction (Giới thiệu): Bối cảnh và vấn đề nghiên cứu
-   - Related Work (Nghiên cứu liên quan): Tổng quan nghiên cứu trước đây
-   - Methodology (Phương pháp): Cách tiến hành nghiên cứu
-   - Results (Kết quả): Dữ liệu và phân tích thu được
-   - Discussion (Thảo luận): Ý nghĩa và hạn chế của kết quả
-   - Conclusion (Kết luận): Tóm tắt đóng góp và hướng tương lai
-   - References (Tài liệu tham khảo): Nguồn tham chiếu
+   - Abstract: Overview of research and results
+   - Introduction: Context and research problem
+   - Related Work: Overview of previous research
+   - Methodology: How research was conducted
+   - Results: Data and analysis obtained
+   - Discussion: Meaning and limitations of results
+   - Conclusion: Summary of contributions and future directions
+   - References: Cited sources
 
-2. **Thứ tự đọc hiệu quả**
-   - Đọc Abstract để xác định liên quan
-   - Xem qua Conclusion để biết kết quả chính
-   - Đọc Introduction để hiểu bối cảnh và mục tiêu
-   - Đọc Discussion và Results để nắm kết quả chi tiết
-   - Xem Methodology nếu quan tâm đến cách triển khai
+2. **Effective reading order**
+   - Read Abstract to determine relevance
+   - Look over Conclusion to know main results
+   - Read Introduction to understand context and objectives
+   - Read Discussion and Results for detailed results
+   - Look at Methodology if interested in implementation
 
-### Kỹ thuật xử lý paper khó
+### Techniques for Processing Difficult Papers
 
-1. **Chiến lược 3-pass**
+1. **3-pass strategy**
 
-   - Pass 1 (5-10 phút): Đọc tiêu đề, abstract, introduction, headings, conclusion
-   - Pass 2 (1 giờ): Đọc chi tiết nhưng bỏ qua chi tiết như chứng minh toán học
-   - Pass 3 (4-5 giờ): Đọc kỹ, tái tạo lại paper trong đầu, xác định điểm mạnh yếu
+   - Pass 1 (5-10 minutes): Read title, abstract, introduction, headings, conclusion
+   - Pass 2 (1 hour): Read in detail but skip details like mathematical proofs
+   - Pass 3 (4-5 hours): Read thoroughly, recreate paper mentally, identify strengths and weaknesses
 
-2. **Kỹ thuật phân tích phản biện**
+2. **Critical analysis technique**
 
-   - Xác định assumptions (giả định) của tác giả
-   - Đánh giá methodology có phù hợp với mục tiêu?
-   - Kiểm tra kết quả có hỗ trợ kết luận không?
-   - So sánh với các nghiên cứu tương tự
+   - Identify author's assumptions
+   - Evaluate if methodology fits objectives
+   - Check if results support conclusions
+   - Compare with similar studies
 
-3. **Trích xuất thông tin quan trọng**
-   - Tạo mind map hoặc outline cho paper
-   - Ghi chú các thuật toán, công thức, kỹ thuật chính
-   - Liệt kê các đóng góp và hạn chế của nghiên cứu
-   - Xác định hướng phát triển tiềm năng
+3. **Extract important information**
+   - Create mind map or outline for paper
+   - Note main algorithms, formulas, techniques
+   - List research contributions and limitations
+   - Identify potential development directions
 
-### Theo dõi nghiên cứu trong lĩnh vực
+### Following Research in the Field
 
-1. **Nguồn paper và bài báo**
+1. **Paper and article sources**
 
-   - ArXiv.org - Kho lưu trữ preprints
-   - Google Scholar - Công cụ tìm kiếm học thuật
-   - IEEE Xplore, ACM Digital Library - Thư viện chuyên ngành
-   - ResearchGate, Academia.edu - Mạng xã hội học thuật
+   - ArXiv.org - Preprints archive
+   - Google Scholar - Academic search engine
+   - IEEE Xplore, ACM Digital Library - Professional libraries
+   - ResearchGate, Academia.edu - Academic social networks
 
-2. **Công cụ theo dõi nghiên cứu**
+2. **Research tracking tools**
 
-   - Google Scholar Alerts - Nhận thông báo paper mới
-   - Semantic Scholar - Tìm kiếm với AI highlight
-   - Mendeley, Zotero - Quản lý tài liệu tham khảo
-   - Twitter/X học thuật - Theo dõi nhà nghiên cứu
+   - Google Scholar Alerts - Receive new paper notifications
+   - Semantic Scholar - AI-powered search with highlights
+   - Mendeley, Zotero - Reference management
+   - Academic Twitter/X - Follow researchers
 
-3. **Xác định paper quan trọng**
-   - Số lượng trích dẫn cao
-   - Công bố ở hội nghị/tạp chí uy tín (ICML, NeurIPS, CVPR, ACL, etc.)
-   - Paper survey hoặc tổng quan (review papers)
-   - Được đề cập nhiều trong cộng đồng
+3. **Identify important papers**
+   - High citation count
+   - Published at prestigious conferences/journals (ICML, NeurIPS, CVPR, ACL, etc.)
+   - Survey or review papers
+   - Frequently mentioned in community
 
-## 🧑‍🏫 Bài 3: Tài liệu mã nguồn mở và API Documentation
+## 🧑‍🏫 Lesson 3: Open Source Documentation and API Documentation
 
-### Làm việc với API Documentation
+### Working with API Documentation
 
-1. **Cấu trúc của API Documentation**
+1. **Structure of API Documentation**
 
    - Getting Started guide
-   - API Reference (chi tiết về endpoint/function)
+   - API Reference (details about endpoint/function)
    - Code examples
-   - FAQ và troubleshooting
-   - Authentication và security
+   - FAQ and troubleshooting
+   - Authentication and security
 
-2. **Chiến lược tiếp cận API mới**
+2. **Strategy for approaching new API**
 
-   - Đọc overview để hiểu mục đích và khả năng của API
-   - Xem quick start/hello world để hiểu flow cơ bản
-   - Xác định các endpoint/function cần sử dụng
-   - Tham khảo mẫu code cho use case tương tự
-   - Thử nghiệm với API playground hoặc Postman
+   - Read overview to understand API purpose and capabilities
+   - Check quick start/hello world to understand basic flow
+   - Identify endpoints/functions to use
+   - Reference sample code for similar use cases
+   - Experiment with API playground or Postman
 
-3. **Đọc hiểu API reference**
-   - Hiểu cấu trúc request và response
-   - Xác định required vs optional parameters
-   - Chú ý các giới hạn (rate limits, quotas, etc.)
-   - Kiểm tra error codes và cách xử lý
-   - Theo dõi versioning và deprecated features
+3. **Reading and understanding API reference**
+   - Understand request and response structure
+   - Identify required vs optional parameters
+   - Pay attention to limits (rate limits, quotas, etc.)
+   - Check error codes and handling
+   - Follow versioning and deprecated features
 
-### Nghiên cứu mã nguồn mở
+### Researching Open Source Code
 
-1. **Cấu trúc của dự án mã nguồn mở**
+1. **Structure of open source projects**
 
-   - README.md - Thông tin tổng quan và hướng dẫn cài đặt
-   - LICENSE - Quy định sử dụng mã nguồn
-   - CONTRIBUTING.md - Hướng dẫn đóng góp
-   - Wiki - Tài liệu chi tiết
-   - Issue tracker - Theo dõi lỗi và yêu cầu tính năng
-   - Pull requests - Các đóng góp đang chờ xem xét
+   - README.md - Overview and installation guide
+   - LICENSE - Code usage regulations
+   - CONTRIBUTING.md - Contribution guide
+   - Wiki - Detailed documentation
+   - Issue tracker - Track bugs and feature requests
+   - Pull requests - Pending contributions under review
 
-2. **Chiến lược hiểu mã nguồn lớn**
+2. **Strategy for understanding large codebases**
 
-   - Bắt đầu với README và tài liệu
-   - Xây dựng và chạy mã nguồn trước khi nghiên cứu
-   - Xem qua cấu trúc thư mục và tổ chức dự án
-   - Xác định entry point và luồng thực thi chính
-   - Sử dụng công cụ phân tích mã nguồn (SourceTrail, CodeQuery)
-   - Đọc unit tests để hiểu cách sử dụng từng thành phần
+   - Start with README and documentation
+   - Build and run code before studying
+   - Look over directory structure and project organization
+   - Identify entry point and main execution flow
+   - Use code analysis tools (SourceTrail, CodeQuery)
+   - Read unit tests to understand component usage
 
-3. **Kỹ thuật nghiên cứu mã nguồn**
-   - Đọc code theo hướng top-down (từ cấu trúc tổng quan đến chi tiết)
-   - Sử dụng debugger để theo dõi luồng thực thi
-   - Viết code sử dụng thư viện để hiểu API
-   - Thử sửa lỗi nhỏ hoặc triển khai tính năng đơn giản
-   - Đặt câu hỏi trong kênh chat của dự án (Discord, Slack, IRC)
+3. **Code research techniques**
+   - Read code top-down (from overall structure to details)
+   - Use debugger to follow execution flow
+   - Write code using library to understand API
+   - Try fixing small bugs or implementing simple features
+   - Ask questions in project chat channels (Discord, Slack, IRC)
 
-### Đọc hiểu và sử dụng documentation tools
+### Reading and Using Documentation Tools
 
-1. **Công cụ tạo tài liệu phổ biến**
+1. **Popular documentation generation tools**
 
    - Javadoc (JAVA)
    - Doxygen (C/C++, JAVA, Python)
@@ -218,141 +218,141 @@ next:
    - Swagger/OpenAPI (RESTful APIs)
    - Sphinx (Python)
 
-2. **Cách đọc hiểu tài liệu từ code**
+2. **How to read documentation from code**
 
-   - Đọc docstrings và comments trong code
-   - Hiểu signature của method/function
-   - Xem ví dụ sử dụng trong unit tests
-   - Kiểm tra exception handling để hiểu edge cases
+   - Read docstrings and comments in code
+   - Understand method/function signature
+   - See usage examples in unit tests
+   - Check exception handling to understand edge cases
 
-3. **Làm việc khi thiếu tài liệu**
-   - Đọc unit tests như một dạng tài liệu
-   - Sử dụng công cụ phân tích tĩnh code
-   - Dùng IDE để khám phá code structure
-   - Hỏi cộng đồng qua Stack Overflow, Reddit, Discord
+3. **Working when documentation is lacking**
+   - Read unit tests as a form of documentation
+   - Use static code analysis tools
+   - Use IDE to explore code structure
+   - Ask community via Stack Overflow, Reddit, Discord
 
-## 🧑‍🏫 Bài 4: Tạo tài liệu và chia sẻ kiến thức
+## 🧑‍🏫 Lesson 4: Creating Documentation and Sharing Knowledge
 
-### Nguyên tắc viết tài liệu kỹ thuật hiệu quả
+### Principles of Effective Technical Writing
 
-1. **Cấu trúc tài liệu**
+1. **Document structure**
 
-   - Tổ chức theo hình kim tự tháp ngược (quan trọng nhất lên đầu)
-   - Phân cấp nội dung rõ ràng (headings, subheadings)
-   - Sử dụng mục lục và liên kết nội bộ
-   - Kết hợp text, code, và hình ảnh hợp lý
+   - Organize in inverted pyramid (most important first)
+   - Clear content hierarchy (headings, subheadings)
+   - Use table of contents and internal links
+   - Balance text, code, and images appropriately
 
-2. **Viết hướng đến người dùng**
+2. **Writing for users**
 
-   - Xác định rõ đối tượng đọc (beginner vs advanced)
-   - Sử dụng ngôn ngữ phù hợp với audience
-   - Giải thích thuật ngữ chuyên môn khi cần
-   - Viết theo perspective của người đọc
+   - Clearly identify target audience (beginner vs advanced)
+   - Use language appropriate for audience
+   - Explain technical terms when needed
+   - Write from reader's perspective
 
-3. **Nguyên tắc rõ ràng và súc tích**
-   - Một đoạn văn = một ý tưởng
-   - Câu ngắn, đơn giản, trực tiếp
-   - Sử dụng voice chủ động
-   - Tránh jargon không cần thiết
-   - Sử dụng bullet points và numbered lists
+3. **Principles of clarity and conciseness**
+   - One paragraph = one idea
+   - Short, simple, direct sentences
+   - Use active voice
+   - Avoid unnecessary jargon
+   - Use bullet points and numbered lists
 
-### Tạo tài liệu mã nguồn
+### Creating Source Code Documentation
 
-1. **Documentation trong code**
+1. **Documentation in code**
 
-   - Viết docstrings/comment mô tả chức năng, tham số, giá trị trả về
-   - Giải thích logic phức tạp và decisions
-   - Đề cập edge cases và cách xử lý
-   - Cập nhật comment khi code thay đổi
+   - Write docstrings/comments describing function, parameters, return values
+   - Explain complex logic and decisions
+   - Mention edge cases and handling
+   - Update comments when code changes
 
-2. **Viết README hiệu quả**
+2. **Writing effective README**
 
-   - Mô tả ngắn gọn về project
-   - Hướng dẫn cài đặt và cấu hình
-   - Quick start guide với ví dụ cơ bản
-   - Liên kết đến tài liệu chi tiết
-   - Thông tin về contributing và license
+   - Brief description of project
+   - Installation and configuration guide
+   - Quick start guide with basic examples
+   - Links to detailed documentation
+   - Information about contributing and license
 
-3. **Tạo wiki và tài liệu hướng dẫn**
-   - Tổ chức thông tin theo use cases
-   - Cung cấp tutorials từng bước
-   - Thêm troubleshooting guides
-   - Bao gồm FAQ cho câu hỏi thường gặp
-   - Cập nhật tài liệu khi code thay đổi
+3. **Creating wikis and guides**
+   - Organize information by use cases
+   - Provide step-by-step tutorials
+   - Add troubleshooting guides
+   - Include FAQ for common questions
+   - Update documentation when code changes
 
-### Chia sẻ kiến thức với cộng đồng
+### Sharing Knowledge with Community
 
-1. **Viết bài blog kỹ thuật**
+1. **Writing technical blog posts**
 
-   - Chọn chủ đề cụ thể và hữu ích
-   - Cấu trúc bài viết rõ ràng
-   - Sử dụng ví dụ thực tế
-   - Bao gồm code mẫu có thể chạy được
-   - Cung cấp resources để đọc thêm
+   - Choose specific and useful topics
+   - Clear article structure
+   - Use real-world examples
+   - Include runnable code samples
+   - Provide resources for further reading
 
-2. **Tạo video hướng dẫn**
+2. **Creating video tutorials**
 
-   - Chuẩn bị kịch bản trước khi quay
-   - Focus vào một chủ đề cụ thể
-   - Giữ video ngắn và súc tích
-   - Hiển thị code rõ ràng, dễ đọc
-   - Cung cấp source code và resources
+   - Prepare script before recording
+   - Focus on one specific topic
+   - Keep videos short and concise
+   - Display code clearly and readably
+   - Provide source code and resources
 
-3. **Tham gia mentoring và hỏi đáp**
-   - Trả lời câu hỏi trên Stack Overflow
-   - Đóng góp vào các dự án mã nguồn mở
-   - Tham gia các cộng đồng Discord/Slack
-   - Tổ chức workshop hoặc meetup
-   - Chia sẻ kinh nghiệm với đồng nghiệp
+3. **Participating in mentoring and Q&A**
+   - Answer questions on Stack Overflow
+   - Contribute to open source projects
+   - Join Discord/Slack communities
+   - Organize workshops or meetups
+   - Share experiences with colleagues
 
-### Công cụ hỗ trợ tạo tài liệu
+### Tools Supporting Documentation Creation
 
-1. **Công cụ viết tài liệu**
+1. **Documentation writing tools**
 
    - Markdown editors (VS Code, Typora)
    - Documentation platforms (ReadTheDocs, Docusaurus)
    - Wikis (MediaWiki, Confluence)
    - Collaborative tools (HackMD, Google Docs)
 
-2. **Công cụ tạo sơ đồ và hình ảnh**
+2. **Diagram and image creation tools**
 
-   - Lucidchart, Draw.io - Tạo flow charts, UML diagrams
-   - Excalidraw - Vẽ sơ đồ phong cách hand-drawn
-   - Mermaid - Tạo diagram từ code
-   - Canva - Thiết kế hình ảnh minh họa
+   - Lucidchart, Draw.io - Create flow charts, UML diagrams
+   - Excalidraw - Hand-drawn style diagrams
+   - Mermaid - Create diagrams from code
+   - Canva - Design illustrative images
 
-3. **Tự động hóa tạo tài liệu**
-   - Auto-doc generators từ comments
-   - GitHub Actions để build và deploy docs
-   - CI/CD pipelines cho documentation
+3. **Automating documentation creation**
+   - Auto-doc generators from comments
+   - GitHub Actions to build and deploy docs
+   - CI/CD pipelines for documentation
    - API documentation generators
 
-## 🧪 BÀI TẬP THỰC HÀNH
+## 🧪 PRACTICAL EXERCISES
 
-1. **Phân tích tài liệu API**
+1. **Analyze API documentation**
 
-   - Chọn một API public phổ biến (Twitter, GitHub, Spotify,...)
-   - Đọc tài liệu và xây dựng mindmap về cấu trúc API
-   - Thực hiện ít nhất 3 endpoint khác nhau
-   - Viết lại hướng dẫn ngắn cho người mới bắt đầu
+   - Choose a popular public API (Twitter, GitHub, Spotify,...)
+   - Read documentation and build mindmap of API structure
+   - Execute at least 3 different endpoints
+   - Rewrite short guide for beginners
 
-2. **Nghiên cứu mã nguồn mở**
+2. **Research open source code**
 
-   - Fork một dự án mã nguồn mở nhỏ trên GitHub
-   - Đọc code và vẽ sơ đồ cấu trúc dự án
-   - Thêm hoặc cải thiện docstrings cho ít nhất 5 functions/methods
-   - Tạo pull request đóng góp tài liệu cho dự án gốc
+   - Fork a small open source project on GitHub
+   - Read code and draw project structure diagram
+   - Add or improve docstrings for at least 5 functions/methods
+   - Create pull request contributing documentation to original project
 
-3. **Tạo tài liệu kỹ thuật cho dự án cá nhân**
+3. **Create technical documentation for personal project**
 
-   - Chọn một dự án cá nhân đã làm
-   - Tạo README.md toàn diện theo các tiêu chuẩn đã học
-   - Viết tài liệu API cho các hàm/module chính
-   - Thêm hướng dẫn cài đặt và sử dụng từng bước
-   - Tạo wiki với ít nhất 3 trang hướng dẫn chuyên sâu
+   - Choose a personal project you've done
+   - Create comprehensive README.md according to standards learned
+   - Write API documentation for main functions/modules
+   - Add step-by-step installation and usage guide
+   - Create wiki with at least 3 in-depth tutorial pages
 
-4. **Chia sẻ kiến thức với cộng đồng**
-   - Viết một bài blog kỹ thuật về chủ đề bạn quan tâm
-   - Đăng bài trên platform như Dev.to, Medium, hoặc blog cá nhân
-   - Chia sẻ bài viết với cộng đồng và thu thập phản hồi
-   - Cải thiện bài viết dựa trên các góp ý
+4. **Share knowledge with community**
+   - Write one technical blog post about topic you just learned
+   - Post content on appropriate platform like Dev.to, Medium, or personal blog
+   - Share article with community and collect feedback
+   - Improve article based on suggestions

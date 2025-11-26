@@ -3,95 +3,95 @@ prev:
   text: '🔄 JavaScript'
   link: '/WEB/Part3'
 next:
-  text: '🐘 Module 7: Nhập Môn PHP'
+  text: '🐘 Module 7: Introduction to PHP'
   link: '/PHP/Part1'
 ---
 
-# 📘 PHẦN 4: FRAMEWORK & CÔNG CỤ PHÁT TRIỂN WEB HIỆN ĐẠI
+# 📘 PART 4: FRAMEWORKS & MODERN WEB DEVELOPMENT TOOLS
 
-## 🎯 Mục tiêu tổng quát
+## 🎯 General Objectives
 
-- Hiểu được vai trò và lợi ích của các framework trong phát triển web
-- Làm quen với các công cụ phát triển web hiện đại
-- Biết cách tổ chức và triển khai dự án web chuyên nghiệp
+- Understand the role and benefits of frameworks in web development.
+- Get familiar with modern web development tools.
+- Learn how to organize and deploy professional web projects.
 
-## 🧑‍🏫 Bài 1: Giới thiệu về Frontend Framework
+## 🧑‍🏫 Lesson 1: Introduction to Frontend Frameworks
 
-### Framework là gì và tại sao cần framework?
+### What is a Framework and Why Do We Need It?
 
-- Framework là một bộ khung làm việc cung cấp cấu trúc và công cụ để xây dựng ứng dụng
-- Giúp tăng tốc độ phát triển, đảm bảo code có cấu trúc tốt
-- Cung cấp giải pháp cho các vấn đề phổ biến trong lập trình web
-- Hỗ trợ quản lý các ứng dụng phức tạp và lớn
+- A framework is a structure that provides a foundation and tools for building applications.
+- Helps speed up development, ensures well-structured code.
+- Provides solutions for common web programming problems.
+- Supports managing complex and large applications.
 
-### Các frontend framework phổ biến
+### Popular Frontend Frameworks
 
-1. **React** - Thư viện JavaScript để xây dựng giao diện người dùng
+1. **React** - JavaScript library for building user interfaces.
 
-   - Phát triển bởi Facebook
-   - Sử dụng Virtual DOM để tối ưu hiệu suất
-   - Dựa trên component-based architecture
-   - Hệ sinh thái phong phú với nhiều thư viện hỗ trợ
+   - Developed by Facebook.
+   - Uses Virtual DOM to optimize performance.
+   - Based on component-based architecture.
+   - Rich ecosystem with many supporting libraries.
 
-2. **Next.js** - Framework cho React
+2. **Next.js** - Framework for React.
 
-   - Hỗ trợ server-side rendering (SSR) và static site generation (SSG)
-   - Tích hợp dễ dàng với API routes
-   - Tối ưu hóa SEO và hiệu suất tải trang
-   - Hỗ trợ routing và code splitting tự động
+   - Supports server-side rendering (SSR) and static site generation (SSG).
+   - Easy integration with API routes.
+   - Optimized for SEO and page load performance.
+   - Supports automatic routing and code splitting.
 
-3. **Vue.js** - Framework JavaScript tiến bộ
+3. **Vue.js** - Progressive JavaScript Framework.
 
-   - Dễ học và tích hợp
-   - Hỗ trợ tốt cả ứng dụng một trang (SPA) và tích hợp từng phần
-   - Có template system dễ hiểu
-   - Performance tốt và kích thước nhỏ
+   - Easy to learn and integrate.
+   - Good support for both single-page applications (SPA) and incremental integration.
+   - Understandable template system.
+   - Good performance and small size.
 
-4. **Angular** - Platform và framework toàn diện
+4. **Angular** - Comprehensive platform and framework.
 
-   - Phát triển bởi Google
-   - TypeScript-based, cung cấp type checking
-   - Full-featured framework với routing, form handling, HTTP client,...
-   - Hai-way data binding
+   - Developed by Google.
+   - TypeScript-based, providing type checking.
+   - Full-featured framework with routing, form handling, HTTP client, etc.
+   - Two-way data binding.
 
-5. **Svelte** - Framework hiện đại
+5. **Svelte** - Modern framework.
 
-   - Thay vì Virtual DOM, biên dịch code thành JavaScript tối ưu
-   - Ít boilerplate code, dễ đọc
-   - Performance cao và bundle size nhỏ
+   - Instead of Virtual DOM, it compiles code into optimized JavaScript.
+   - Less boilerplate code, easy to read.
+   - High performance and small bundle size.
 
-6. **Bootstrap & Tailwind CSS** - CSS frameworks
-   - Bootstrap: Cung cấp nhiều component UI đã được thiết kế sẵn
-   - Tailwind CSS: Utility-first CSS framework, linh hoạt cao
+6. **Bootstrap & Tailwind CSS** - CSS frameworks.
+   - Bootstrap: Provides many pre-designed UI components.
+   - Tailwind CSS: Utility-first CSS framework, highly flexible.
 
-**So sánh các framework:**
+**Framework Comparison:**
 
-| Framework | Học        | Hiệu suất | Cộng đồng  | Tài liệu | Trọng lượng |
-| --------- | ---------- | --------- | ---------- | -------- | ----------- |
-| React     | Trung bình | Cao       | Rất lớn    | Tốt      | Nhẹ         |
-| Next.js   | Dễ         | Rất cao   | Lớn        | Tốt      | Nhẹ         |
-| Vue.js    | Dễ         | Cao       | Lớn        | Rất tốt  | Rất nhẹ     |
-| Angular   | Khó        | Tốt       | Lớn        | Tốt      | Nặng        |
-| Svelte    | Dễ         | Rất cao   | Trung bình | Tốt      | Rất nhẹ     |
+| Framework | Learning Curve | Performance | Community | Documentation | Size |
+| --------- | -------------- | ----------- | --------- | ------------- | ---- |
+| React     | Medium         | High        | Very Large| Good          | Light|
+| Next.js   | Easy           | Very High   | Large     | Good          | Light|
+| Vue.js    | Easy           | High        | Large     | Very Good     | Very Light|
+| Angular   | Hard           | Good        | Large     | Good          | Heavy|
+| Svelte    | Easy           | Very High   | Medium    | Good          | Very Light|
 
-## 🧑‍🏫 Bài 2: Giới thiệu về React.js
+## 🧑‍🏫 Lesson 2: Introduction to React.js
 
-### React là gì?
+### What is React?
 
-- Thư viện JavaScript để xây dựng giao diện người dùng
-- Tập trung vào việc xây dựng UI dựa trên component
-- Sử dụng Virtual DOM để tối ưu hiệu suất render
-- Bạn nên tham khảo tài liệu chính thức tại [reactjs.org](https://reactjs.org/) để được cập nhật thông tin mới nhất và hướng dẫn chi tiết hơn
+- A JavaScript library for building user interfaces.
+- Focuses on building UI based on components.
+- Uses Virtual DOM to optimize rendering performance.
+- You should refer to the official documentation at [reactjs.org](https://reactjs.org/) for the latest information and more detailed instructions.
 
-### Cài đặt và khởi tạo dự án React
+### Installing and Initializing a React Project
 
 ```bash
-# Sử dụng Create React App
+# Using Create React App
 npx create-react-app my-app
 cd my-app
 npm start
 
-# Sử dụng Vite (nhanh hơn)
+# Using Vite (faster)
 npm create vite@latest my-app -- --template react
 cd my-app
 npm install
@@ -101,17 +101,17 @@ npm run dev
 ### JSX - JavaScript XML
 
 ```jsx
-// JSX là cú pháp mở rộng của JavaScript để mô tả UI
+// JSX is a syntax extension to JavaScript for describing UI
 const element = <h1>Hello, world!</h1>;
 
-// JSX với biểu thức
+// JSX with expressions
 const name = "John";
 const element = <h1>Hello, {name}!</h1>;
 
-// JSX với thuộc tính
+// JSX with attributes
 const element = <img src={user.avatarUrl} alt="Avatar" />;
 
-// JSX với nhiều phần tử (cần có phần tử gốc bao bọc)
+// JSX with multiple elements (must have a wrapper root element)
 const element = (
   <div>
     <h1>Hello!</h1>
@@ -119,7 +119,7 @@ const element = (
   </div>
 );
 
-// Hoặc sử dụng React Fragment
+// Or using React Fragment
 const element = (
   <>
     <h1>Hello!</h1>
@@ -131,7 +131,7 @@ const element = (
 ### Components
 
 ```jsx
-// Function component (khuyến nghị)
+// Function component (recommended)
 function Welcome(props) {
   return <h1>Hello, {props.name}</h1>;
 }
@@ -146,14 +146,14 @@ class Welcome extends React.Component {
   }
 }
 
-// Sử dụng component
+// Using component
 const element = <Welcome name="Sara" />;
 ```
 
-### Props và State
+### Props and State
 
 ```jsx
-// Props - dữ liệu truyền từ component cha xuống con
+// Props - data passed from parent to child component
 function Welcome(props) {
   return <h1>Hello, {props.name}</h1>;
 }
@@ -174,11 +174,11 @@ Welcome.defaultProps = {
   age: 0,
 };
 
-// State - dữ liệu nội bộ của component, có thể thay đổi
+// State - internal data of component, can change
 import { useState } from "react";
 
 function Counter() {
-  // Khởi tạo state với useState hook
+  // Initialize state with useState hook
   const [count, setCount] = useState(0);
 
   return (
@@ -190,7 +190,7 @@ function Counter() {
 }
 ```
 
-### Vòng đời component với useEffect
+### Component Lifecycle with useEffect
 
 ```jsx
 import { useState, useEffect } from "react";
@@ -198,23 +198,23 @@ import { useState, useEffect } from "react";
 function Example() {
   const [count, setCount] = useState(0);
 
-  // Tương tự componentDidMount và componentDidUpdate
+  // Similar to componentDidMount and componentDidUpdate
   useEffect(() => {
-    // Cập nhật document title khi count thay đổi
+    // Update document title when count changes
     document.title = `You clicked ${count} times`;
 
-    // Return một function cleanup (tương tự componentWillUnmount)
+    // Return a cleanup function (similar to componentWillUnmount)
     return () => {
       document.title = "React App";
     };
-  }, [count]); // Chỉ chạy lại khi count thay đổi
+  }, [count]); // Only re-run if count changes
 
-  // useEffect không có dependencies array sẽ chạy sau mỗi lần render
+  // useEffect without dependencies array runs after every render
   useEffect(() => {
     console.log("Component rendered");
   });
 
-  // useEffect với empty dependencies array chỉ chạy sau lần render đầu tiên
+  // useEffect with empty dependencies array runs only after first render
   useEffect(() => {
     console.log("Component mounted");
     return () => {
@@ -231,7 +231,7 @@ function Example() {
 }
 ```
 
-### Xử lý sự kiện
+### Event Handling
 
 ```jsx
 function Button() {
@@ -244,7 +244,7 @@ function Button() {
   return <button onClick={handleClick}>Click me</button>;
 }
 
-// Truyền tham số cho event handler
+// Passing parameters to event handler
 function Products() {
   const handleProductClick = (productId, e) => {
     console.log(`Product ${productId} clicked`);
@@ -259,7 +259,7 @@ function Products() {
 }
 ```
 
-### Danh sách và key
+### Lists and Keys
 
 ```jsx
 function NumberList({ numbers }) {
@@ -270,7 +270,7 @@ function NumberList({ numbers }) {
   return <ul>{listItems}</ul>;
 }
 
-// Với object array
+// With object array
 function UserList({ users }) {
   return (
     <ul>
@@ -286,19 +286,19 @@ function UserList({ users }) {
 
 ```jsx
 function Greeting({ isLoggedIn }) {
-  // Dùng điều kiện if
+  // Using if condition
   if (isLoggedIn) {
     return <h1>Welcome back!</h1>;
   }
   return <h1>Please sign in.</h1>;
 }
 
-// Dùng toán tử ba ngôi
+// Using ternary operator
 function Greeting({ isLoggedIn }) {
   return <h1>{isLoggedIn ? "Welcome back!" : "Please sign in"}</h1>;
 }
 
-// Dùng toán tử && (short-circuit)
+// Using && operator (short-circuit)
 function Mailbox({ unreadMessages }) {
   return (
     <div>
@@ -311,7 +311,7 @@ function Mailbox({ unreadMessages }) {
 }
 ```
 
-### Form và input
+### Forms and Inputs
 
 ```jsx
 import { useState } from "react";
@@ -353,23 +353,23 @@ function SimpleForm() {
 }
 ```
 
-## 🧑‍🏫 Bài 3: State Management trong React
+## 🧑‍🏫 Lesson 3: State Management in React
 
-### State Management là gì?
+### What is State Management?
 
-- Quản lý trạng thái của ứng dụng, đặc biệt là khi ứng dụng lớn và phức tạp
-- Giúp chia sẻ dữ liệu giữa các component mà không cần truyền props qua nhiều cấp
-- Cung cấp cách tiếp cận có tổ chức để quản lý trạng thái toàn cục
+- Managing the state of an application, especially when the app is large and complex.
+- Helps share data between components without passing props through many levels.
+- Provides an organized approach to managing global state.
 
 ### Context API
 
 ```jsx
-// 1. Tạo context
+// 1. Create context
 import { createContext, useState, useContext } from "react";
 
 const ThemeContext = createContext();
 
-// 2. Tạo provider
+// 2. Create provider
 function ThemeProvider({ children }) {
   const [theme, setTheme] = useState("light");
 
@@ -377,7 +377,7 @@ function ThemeProvider({ children }) {
     setTheme(theme === "light" ? "dark" : "light");
   };
 
-  // Value truyền xuống cho consumer
+  // Value passed down to consumer
   const value = { theme, toggleTheme };
 
   return (
@@ -385,7 +385,7 @@ function ThemeProvider({ children }) {
   );
 }
 
-// 3. Sử dụng custom hook để truy cập context
+// 3. Use custom hook to access context
 function useTheme() {
   const context = useContext(ThemeContext);
   if (context === undefined) {
@@ -394,7 +394,7 @@ function useTheme() {
   return context;
 }
 
-// 4. Sử dụng trong component
+// 4. Use in component
 function ThemedButton() {
   const { theme, toggleTheme } = useTheme();
 
@@ -411,7 +411,7 @@ function ThemedButton() {
   );
 }
 
-// 5. Bọc ứng dụng trong provider
+// 5. Wrap app in provider
 function App() {
   return (
     <ThemeProvider>
@@ -424,13 +424,13 @@ function App() {
 
 ### Redux - State Management Library
 
-- Redux là một thư viện quản lý trạng thái phổ biến cho JavaScript
-- Cung cấp một store toàn cục để lưu trữ trạng thái của ứng dụng
-- Dựa trên ba nguyên tắc chính:
-  1. Tất cả trạng thái ứng dụng được lưu trữ trong một store duy nhất
-  2. Trạng thái chỉ có thể thay đổi thông qua actions
-  3. Các state changes được thực hiện bằng cách sử dụng pure functions gọi là reducers
-- Redux rất mạnh mẽ nhưng có thể phức tạp cho các ứng dụng nhỏ
+- Redux is a popular state management library for JavaScript.
+- Provides a global store to hold the application state.
+- Based on three main principles:
+  1. Single source of truth (store).
+  2. State is read-only (changes only via actions).
+  3. Changes are made with pure functions (reducers).
+- Redux is powerful but can be complex for small applications.
 
 ```bash
 npm install redux react-redux
@@ -496,7 +496,7 @@ function App() {
   );
 }
 
-// Component sử dụng Redux
+// Component using Redux
 function TodoApp() {
   const todos = useSelector((state) => state.todos);
   const dispatch = useDispatch();
@@ -513,12 +513,12 @@ function TodoApp() {
 }
 ```
 
-### Redux Toolkit - Cách tiếp cận hiện đại
+### Redux Toolkit - Modern Approach
 
-- Redux Toolkit là bộ công cụ chính thức để phát triển ứng dụng Redux
-- Cung cấp các API đơn giản hơn để tạo store, reducer và actions
-- Tích hợp sẵn các middleware như Redux Thunk cho xử lý bất đồng bộ
-- Giúp giảm boilerplate code và dễ dàng hơn trong việc thiết lập Redux
+- Redux Toolkit is the official toolset for efficient Redux development.
+- Provides simpler APIs to create store, reducer, and actions.
+- Integrated middleware like Redux Thunk for async logic.
+- Helps reduce boilerplate code and easier Redux setup.
 
 ```bash
 npm install @reduxjs/toolkit react-redux
@@ -527,7 +527,7 @@ npm install @reduxjs/toolkit react-redux
 ```jsx
 import { createSlice, configureStore } from "@reduxjs/toolkit";
 
-// Slice (kết hợp action creators và reducer)
+// Slice (combines action creators and reducer)
 const todosSlice = createSlice({
   name: "todos",
   initialState: [],
@@ -551,14 +551,14 @@ const todosSlice = createSlice({
 // Export actions
 export const { addTodo, toggleTodo } = todosSlice.actions;
 
-// Tạo store
+// Create store
 const store = configureStore({
   reducer: {
     todos: todosSlice.reducer,
   },
 });
 
-// Sử dụng trong component
+// Use in component
 function TodoApp() {
   const todos = useSelector((state) => state.todos);
   const dispatch = useDispatch();
@@ -569,7 +569,7 @@ function TodoApp() {
 }
 ```
 
-## 🧑‍🏫 Bài 4: Routing trong React
+## 🧑‍🏫 Lesson 4: Routing in React
 
 ### React Router
 
@@ -613,20 +613,20 @@ function App() {
   );
 }
 
-// Component với params
+// Component with params
 function UserDetail() {
-  // Lấy params từ URL
+  // Get params from URL
   const { id } = useParams();
   return <h2>User ID: {id}</h2>;
 }
 
-// Chuyển hướng lập trình
+// Programmatic navigation
 function Profile() {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    // Xử lý logout...
-    navigate("/login"); // Chuyển hướng đến trang login
+    // Handle logout...
+    navigate("/login"); // Redirect to login page
   };
 
   return (
@@ -660,7 +660,7 @@ function App() {
   );
 }
 
-// Layout component với Outlet
+// Layout component with Outlet
 import { Outlet } from "react-router-dom";
 
 function Layout() {
@@ -671,7 +671,7 @@ function Layout() {
       </header>
 
       <main>
-        <Outlet /> {/* Nội dung của route con sẽ hiển thị ở đây */}
+        <Outlet /> {/* Child route content will render here */}
       </main>
 
       <footer>{/* footer content */}</footer>
@@ -685,19 +685,19 @@ function Layout() {
 ```jsx
 import { Navigate } from "react-router-dom";
 
-// Custom component để bảo vệ route
+// Custom component to protect routes
 function ProtectedRoute({ children }) {
-  const { user } = useAuth(); // Custom hook để kiểm tra authentication
+  const { user } = useAuth(); // Custom hook to check authentication
 
   if (!user) {
-    // Chuyển hướng đến login nếu chưa đăng nhập
+    // Redirect to login if not authenticated
     return <Navigate to="/login" replace />;
   }
 
   return children;
 }
 
-// Sử dụng trong routes
+// Use in routes
 function App() {
   return (
     <Router>
@@ -726,60 +726,60 @@ function App() {
 }
 ```
 
-## 🧑‍🏫 Bài 5: Giới thiệu về Node.js và NPM
+## 🧑‍🏫 Lesson 5: Introduction to Node.js and NPM
 
-### Node.js là gì?
+### What is Node.js?
 
-- Môi trường runtime JavaScript ở phía máy chủ
-- Xây dựng trên V8 JavaScript engine của Google Chrome
-- Cho phép chạy JavaScript ngoài trình duyệt
-- Thiết kế hướng sự kiện, không đồng bộ (asynchronous)
-- Phù hợp cho ứng dụng thời gian thực và API
+- JavaScript runtime environment on the server-side.
+- Built on Google Chrome's V8 JavaScript engine.
+- Allows running JavaScript outside the browser.
+- Event-driven, asynchronous design.
+- Suitable for real-time applications and APIs.
 
 ### NPM (Node Package Manager)
 
-- Hệ thống quản lý package lớn nhất thế giới cho JavaScript
-- Công cụ để cài đặt và quản lý thư viện từ bên thứ ba
-- Quản lý dependencies của dự án
+- The world's largest software registry.
+- Tool to install and manage third-party libraries.
+- Manages project dependencies.
 
-### Cài đặt Node.js và NPM
+### Installing Node.js and NPM
 
-- Tải từ [nodejs.org](https://nodejs.org/)
-- Kiểm tra cài đặt:
+- Download from [nodejs.org](https://nodejs.org/).
+- Verify installation:
 
 ```bash
 node -v
 npm -v
 ```
 
-### Sử dụng NPM cơ bản
+### Basic NPM Usage
 
 ```bash
-# Khởi tạo dự án mới (tạo package.json)
+# Initialize new project (create package.json)
 npm init
 
-# Khởi tạo nhanh với các giá trị mặc định
+# Quick init with defaults
 npm init -y
 
-# Cài đặt package
+# Install package
 npm install package-name
 
-# Cài đặt package và thêm vào dependencies
+# Install package and save to dependencies
 npm install package-name --save
 
-# Cài đặt package và thêm vào devDependencies
+# Install package and save to devDependencies
 npm install package-name --save-dev
 
-# Cài đặt package toàn cục
+# Install package globally
 npm install -g package-name
 
-# Cài đặt tất cả dependencies đã khai báo trong package.json
+# Install all dependencies from package.json
 npm install
 
-# Gỡ cài đặt package
+# Uninstall package
 npm uninstall package-name
 
-# Cập nhật packages
+# Update packages
 npm update
 ```
 
@@ -812,38 +812,38 @@ npm update
 }
 ```
 
-### Chạy scripts
+### Running Scripts
 
 ```bash
-# Chạy script được định nghĩa trong package.json
+# Run script defined in package.json
 npm run script-name
 
-# Chạy script start
+# Run start script
 npm start
 
-# Chạy script test
+# Run test script
 npm test
 ```
 
-## 🧑‍🏫 Bài 6: Công cụ build và bundler
+## 🧑‍🏫 Lesson 6: Build Tools and Bundlers
 
-### Bundlers là gì?
+### What are Bundlers?
 
-- Công cụ đóng gói tất cả code JavaScript, CSS và assets thành các bundle
-- Cho phép chia code thành các module nhỏ, dễ quản lý
-- Tối ưu hóa kích thước bundle và hiệu suất tải trang
+- Tools that bundle all JavaScript, CSS, and assets into bundles.
+- Allows splitting code into smaller, manageable modules.
+- Optimizes bundle size and page load performance.
 
 ### Webpack
 
-- Bundler phổ biến nhất cho JavaScript
-- Tính năng:
-  - Code splitting (chia nhỏ bundle)
-  - Lazy loading (tải code theo nhu cầu)
-  - Hỗ trợ nhiều loại assets qua loaders
-  - Tối ưu hóa bundle với plugins
+- Most popular bundler for JavaScript.
+- Features:
+  - Code splitting.
+  - Lazy loading.
+  - Supports various assets via loaders.
+  - Bundle optimization with plugins.
 
 ```js
-// webpack.config.js cơ bản
+// Basic webpack.config.js
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
@@ -889,15 +889,15 @@ module.exports = {
 
 ### Vite
 
-- Build tool hiện đại, nhanh cho modern web
-- Sử dụng ES modules để dev server khởi động nhanh
-- Sử dụng Rollup khi build production
+- Modern build tool, fast for modern web.
+- Uses ES modules for fast dev server startup.
+- Uses Rollup for production build.
 
 ```bash
-# Tạo dự án mới với Vite
+# Create new project with Vite
 npm create vite@latest my-app -- --template react
 
-# Khởi động dev server
+# Start dev server
 npm run dev
 
 # Build production
@@ -906,9 +906,9 @@ npm run build
 
 ### Babel
 
-- JavaScript compiler
-- Biến đổi code JavaScript hiện đại thành phiên bản tương thích với các trình duyệt cũ
-- Hỗ trợ JSX, TypeScript và các tính năng ES next
+- JavaScript compiler.
+- Transforms modern JavaScript code into a backward-compatible version for older browsers.
+- Supports JSX, TypeScript, and ES next features.
 
 ```js
 // babel.config.js
@@ -918,10 +918,10 @@ module.exports = {
 };
 ```
 
-### ESLint và Prettier
+### ESLint and Prettier
 
-- ESLint: Công cụ để tìm và sửa lỗi trong JavaScript
-- Prettier: Code formatter, đảm bảo code style nhất quán
+- ESLint: Tool for finding and fixing problems in JavaScript.
+- Prettier: Code formatter, ensuring consistent code style.
 
 ```js
 // .eslintrc.js
@@ -960,21 +960,21 @@ module.exports = {
 }
 ```
 
-## 🧑‍🏫 Bài 7: Backend APIs với Express.js
+## 🧑‍🏫 Lesson 7: Backend APIs with Express.js
 
-### Express.js là gì?
+### What is Express.js?
 
-- Framework web nhẹ, linh hoạt cho Node.js
-- Cung cấp các tính năng mạnh mẽ để xây dựng web và API
-- Middleware system để xử lý requests và responses
+- Lightweight, flexible web framework for Node.js.
+- Provides robust features for building web and API applications.
+- Middleware system for handling requests and responses.
 
-### Cài đặt và thiết lập Express
+### Installation and Setup
 
 ```bash
 npm install express nodemon
 ```
 
-> nodemon là công cụ giúp tự động khởi động lại server khi có thay đổi trong code
+> nodemon is a tool that helps automatically restart the server when code changes.
 
 ```json
 // package.json
@@ -1004,23 +1004,23 @@ const express = require("express");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Middleware để parse JSON requests
+// Middleware to parse JSON requests
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Route đơn giản
+// Simple route
 app.get("/", (req, res) => {
   res.send("Hello World!");
 });
 
-// Khởi động server
+// Start server
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
 ```
 
 ```bash
-# Chạy ứng dụng trong chế độ phát triển
+# Run app in dev mode
 npm run dev
 ```
 
@@ -1029,31 +1029,31 @@ npm run dev
 ```js
 // Basic routes
 app.get("/users", (req, res) => {
-  // Xử lý GET request cho /users
+  // Handle GET request for /users
   res.json({ users: ["User1", "User2", "User3"] });
 });
 
 app.post("/users", (req, res) => {
-  // Xử lý POST request cho /users
-  console.log(req.body); // Dữ liệu từ client
+  // Handle POST request for /users
+  console.log(req.body); // Data from client
   res.status(201).send("User created");
 });
 
 app.put("/users/:id", (req, res) => {
-  // Lấy params từ URL
+  // Get params from URL
   const userId = req.params.id;
-  // Xử lý PUT request cho /users/:id
+  // Handle PUT request for /users/:id
   res.send(`Updating user ${userId}`);
 });
 
 app.delete("/users/:id", (req, res) => {
-  // Xử lý DELETE request
+  // Handle DELETE request
   res.send(`Deleting user ${req.params.id}`);
 });
 
-// Route với query parameters
+// Route with query parameters
 app.get("/products", (req, res) => {
-  // Truy cập query params: /products?category=electronics&sort=price
+  // Access query params: /products?category=electronics&sort=price
   const category = req.query.category;
   const sort = req.query.sort;
   res.send(`Products in ${category}, sorted by ${sort}`);
@@ -1070,7 +1070,7 @@ userRoutes.get("/:id", (req, res) => {
   res.send(`Get user ${req.params.id}`);
 });
 
-// Mount router trên /api/users path
+// Mount router on /api/users path
 app.use("/api/users", userRoutes);
 ```
 
@@ -1080,13 +1080,13 @@ app.use("/api/users", userRoutes);
 // Custom middleware
 function logger(req, res, next) {
   console.log(`${req.method} ${req.url} - ${new Date()}`);
-  next(); // Chuyển request đến middleware tiếp theo
+  next(); // Pass request to next middleware
 }
 
-// Middleware áp dụng cho tất cả routes
+// Apply middleware to all routes
 app.use(logger);
 
-// Middleware áp dụng cho một route cụ thể
+// Apply middleware to a specific route
 app.get("/admin", authenticateAdmin, (req, res) => {
   res.send("Admin Dashboard");
 });
@@ -1121,9 +1121,9 @@ app.use((err, req, res, next) => {
 });
 ```
 
-### Kết nối với Database (MongoDB)
+### Connecting to Database (MongoDB)
 
-- Bạn có thể truy cập [MongoDB](https://www.mongodb.com/) để tạo tài khoản và tạo database trên cloud hoặc cài đặt MongoDB trên máy tính của bạn.
+- You can visit [MongoDB](https://www.mongodb.com/) to create an account and create a cloud database or install MongoDB locally.
 
 ```bash
 npm install mongoose
@@ -1132,7 +1132,7 @@ npm install mongoose
 ```js
 const mongoose = require("mongoose");
 
-// Kết nối MongoDB
+// Connect MongoDB
 mongoose
   .connect("mongodb://localhost/mydatabase", {
     useNewUrlParser: true,
@@ -1145,7 +1145,7 @@ mongoose
     console.error("Could not connect to MongoDB", err);
   });
 
-// Định nghĩa Schema
+// Define Schema
 const userSchema = new mongoose.Schema({
   name: String,
   email: { type: String, unique: true },
@@ -1153,7 +1153,7 @@ const userSchema = new mongoose.Schema({
   createdAt: { type: Date, default: Date.now },
 });
 
-// Tạo Model
+// Create Model
 const User = mongoose.model("User", userSchema);
 
 // CRUD operations
@@ -1174,7 +1174,7 @@ async function deleteUser(id) {
   return await User.findByIdAndDelete(id);
 }
 
-// API routes với database
+// API routes with database
 app.post("/api/users", async (req, res) => {
   try {
     const user = await createUser(req.body);
@@ -1195,97 +1195,97 @@ app.get("/api/users/:id", async (req, res) => {
 });
 ```
 
-## 🧑‍🏫 Bài 8: REST API và RESTful Services
+## 🧑‍🏫 Lesson 8: REST API and RESTful Services
 
-### REST (Representational State Transfer) là gì?
+### What is REST (Representational State Transfer)?
 
-- Kiến trúc phần mềm cho web services
-- Sử dụng HTTP methods để thao tác với resources
-- Stateless: server không lưu trạng thái của client
-- Uniform interface: giao diện nhất quán giữa các components
+- Architectural style for web services.
+- Uses HTTP methods to manipulate resources.
+- Stateless: server does not store client state.
+- Uniform interface: consistent interface between components.
 
-### Các nguyên tắc của REST
+### REST Principles
 
-1. **Client-Server**: Tách biệt client và server
-2. **Stateless**: Mỗi request phải chứa đủ thông tin, server không lưu session
-3. **Cacheable**: Responses có thể được cache
-4. **Uniform Interface**: Interface đơn giản, nhất quán
-5. **Layered System**: Kiến trúc phân lớp, client không biết server kết nối trực tiếp hay qua trung gian
-6. **Code on Demand**: Server có thể mở rộng chức năng của client bằng cách gửi code (tùy chọn)
+1. **Client-Server**: Separation of client and server.
+2. **Stateless**: Each request must contain sufficient info, server doesn't save session.
+3. **Cacheable**: Responses can be cached.
+4. **Uniform Interface**: Simple, consistent interface.
+5. **Layered System**: Layered architecture, client doesn't know if connected directly or via intermediary.
+6. **Code on Demand**: Server can extend client functionality by sending code (optional).
 
-### HTTP Methods trong REST
+### HTTP Methods in REST
 
-| Method | CRUD           | Mô tả                             |
+| Method | CRUD | Description |
 | ------ | -------------- | --------------------------------- |
-| GET    | Read           | Lấy resource từ server            |
-| POST   | Create         | Tạo resource mới                  |
-| PUT    | Update/Replace | Cập nhật toàn bộ resource hiện có |
-| PATCH  | Update/Modify  | Cập nhật một phần resource        |
-| DELETE | Delete         | Xóa resource                      |
+| GET | Read | Retrieve resource from server |
+| POST | Create | Create new resource |
+| PUT | Update/Replace | Update entire existing resource |
+| PATCH | Update/Modify | Update part of resource |
+| DELETE | Delete | Delete resource |
 
 ### RESTful API Conventions
 
 ```text
-# Lấy danh sách users
+# Get list of users
 GET /api/users
 
-# Lấy thông tin một user cụ thể
+# Get specific user info
 GET /api/users/:id
 
-# Tạo user mới
+# Create new user
 POST /api/users
 
-# Cập nhật toàn bộ thông tin user
+# Update entire user info
 PUT /api/users/:id
 
-# Cập nhật một phần thông tin user
+# Update partial user info
 PATCH /api/users/:id
 
-# Xóa user
+# Delete user
 DELETE /api/users/:id
 
-# Lấy các bài posts của user
+# Get posts of user
 GET /api/users/:id/posts
 
-# Lấy các comments của post
+# Get comments of post
 GET /api/posts/:id/comments
 ```
 
-### Status Codes trong REST API
+### Status Codes in REST API
 
-- Bạn có thể tham khảo toàn bộ HTTP status codes tại [đây](https://devtools.klpod221.com/web/http-status)
+- You can refer to full HTTP status codes [here](https://devtools.klpod221.com/web/http-status)
 
 ```text
 
 - **2xx Success**
 
-  - 200 OK: Request thành công
-  - 201 Created: Resource được tạo thành công
-  - 204 No Content: Request thành công nhưng không có nội dung trả về
+  - 200 OK: Request successful
+  - 201 Created: Resource created successfully
+  - 204 No Content: Request successful but no content returned
 
 - **3xx Redirection**
 
-  - 301 Moved Permanently: Resource đã chuyển sang URL khác
-  - 304 Not Modified: Resource không thay đổi từ lần request gần nhất
+  - 301 Moved Permanently: Resource moved to new URL
+  - 304 Not Modified: Resource unchanged since last request
 
 - **4xx Client Error**
 
-  - 400 Bad Request: Lỗi cú pháp, request không hợp lệ
-  - 401 Unauthorized: Client cần xác thực
-  - 403 Forbidden: Client không có quyền truy cập
-  - 404 Not Found: Resource không tồn tại
-  - 422 Unprocessable Entity: Request đúng cú pháp nhưng không thể xử lý
+  - 400 Bad Request: Syntax error, invalid request
+  - 401 Unauthorized: Client needs authentication
+  - 403 Forbidden: Client does not have access rights
+  - 404 Not Found: Resource not found
+  - 422 Unprocessable Entity: Request well-formed but cannot be processed
 
 - **5xx Server Error**
-  - 500 Internal Server Error: Lỗi trong quá trình xử lý request
-  - 502 Bad Gateway: Server nhận response không hợp lệ từ upstream server
-  - 503 Service Unavailable: Server tạm thời không khả dụng
+  - 500 Internal Server Error: Error during request processing
+  - 502 Bad Gateway: Server received invalid response from upstream server
+  - 503 Service Unavailable: Server temporarily unavailable
 ```
 
-### API Documentation với Swagger/OpenAPI
+### API Documentation with Swagger/OpenAPI
 
 ```javascript
-// Sử dụng swagger-jsdoc và swagger-ui-express để tạo docs
+// Using swagger-jsdoc and swagger-ui-express to create docs
 const express = require("express");
 const swaggerJsdoc = require("swagger-jsdoc");
 const swaggerUi = require("swagger-ui-express");
@@ -1312,7 +1312,7 @@ const options = {
 const specs = swaggerJsdoc(options);
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(specs));
 
-// Route với Swagger annotation
+// Route with Swagger annotation
 /**
  * @swagger
  * /users:
@@ -1447,8 +1447,8 @@ app.get("/api/profile", protect, (req, res) => {
 
 ### CORS (Cross-Origin Resource Sharing)
 
-- CORS là một cơ chế bảo mật cho phép hoặc từ chối các yêu cầu từ các nguồn khác nhau
-- Giúp bảo vệ ứng dụng web khỏi các cuộc tấn công Cross-Site Request Forgery (CSRF)
+- CORS is a security mechanism that allows or denies requests from different origins.
+- Helps protect web applications from Cross-Site Request Forgery (CSRF) attacks.
 
 ```javascript
 const cors = require("cors");
@@ -1477,8 +1477,8 @@ app.use(
 
 ### Rate Limiting
 
-- Giới hạn số lượng yêu cầu từ một địa chỉ IP trong một khoảng thời gian nhất định
-- Giúp bảo vệ ứng dụng khỏi các cuộc tấn công DDoS và brute-force
+- Limit the number of requests from an IP address within a certain time frame.
+- Helps protect the application from DDoS and brute-force attacks.
 
 ```javascript
 const rateLimit = require("express-rate-limit");
@@ -1509,46 +1509,46 @@ const loginLimiter = rateLimit({
 app.use("/api/login", loginLimiter);
 ```
 
-## 🧑‍🏫 Bài 9: Deployment và CI/CD cơ bản
+## 🧑‍🏫 Lesson 9: Deployment and Basic CI/CD
 
-### Các nền tảng hosting phổ biến
+### Popular Hosting Platforms
 
-1. **Vercel** - Tốt nhất cho Next.js và các SPA
+1. **Vercel** - Best for Next.js and SPAs.
 
-   - Zero-config deployment
-   - Preview deployments cho mỗi pull request
-   - CDN toàn cầu
+   - Zero-config deployment.
+   - Preview deployments for each pull request.
+   - Global CDN.
 
-2. **Netlify** - Tốt cho static sites và Jamstack
+2. **Netlify** - Good for static sites and Jamstack.
 
-   - Tích hợp CI/CD
-   - Serverless functions
-   - Form handling
+   - Integrated CI/CD.
+   - Serverless functions.
+   - Form handling.
 
-3. **Heroku** - PaaS đơn giản, hỗ trợ nhiều ngôn ngữ
+3. **Heroku** - Simple PaaS, supports many languages.
 
-   - Dễ sử dụng
-   - Add-ons cho databases và services
-   - Free tier cho thử nghiệm (đã ngừng)
+   - Easy to use.
+   - Add-ons for databases and services.
+   - Free tier for testing (discontinued).
 
-4. **AWS (Amazon Web Services)** - Đầy đủ tính năng, phức tạp hơn
+4. **AWS (Amazon Web Services)** - Full-featured, more complex.
 
-   - Nhiều dịch vụ: EC2, S3, Lambda, Amplify...
-   - Tính năng mở rộng và linh hoạt cao
-   - Theo mô hình trả phí theo sử dụng
+   - Many services: EC2, S3, Lambda, Amplify...
+   - High scalability and flexibility.
+   - Pay-as-you-go model.
 
-5. **Firebase** - Nền tảng phát triển của Google
-   - Realtime Database
-   - Authentication
-   - Hosting
-   - Functions (serverless)
+5. **Firebase** - Google's development platform.
+   - Realtime Database.
+   - Authentication.
+   - Hosting.
+   - Functions (serverless).
 
-### Triển khai lên Vercel
+### Deploying to Vercel
 
-- Tham khảo tài liệu [Vercel](https://vercel.com/docs)
+- Refer to [Vercel](https://vercel.com/docs) documentation.
 
 ```bash
-# Cài đặt Vercel CLI
+# Install Vercel CLI
 npm install -g vercel
 
 # Login
@@ -1557,29 +1557,29 @@ vercel login
 # Deploy
 vercel
 
-# Deploy với cấu hình production
+# Deploy with production config
 vercel --prod
 ```
 
-### Triển khai lên Netlify
+### Deploying to Netlify
 
-- Tham khảo tài liệu [Netlify](https://docs.netlify.com/)
+- Refer to [Netlify](https://docs.netlify.com/) documentation.
 
 ```bash
-# Cài đặt Netlify CLI
+# Install Netlify CLI
 npm install -g netlify-cli
 
 # Login
 netlify login
 
-# Khởi tạo site mới
+# Init new site
 netlify init
 
 # Deploy production build
 netlify deploy --prod
 ```
 
-### Cấu hình Continuous Integration/Continuous Deployment (CI/CD)
+### Configuring Continuous Integration/Continuous Deployment (CI/CD)
 
 #### GitHub Actions
 
@@ -1629,12 +1629,12 @@ jobs:
 
 ### Netlify CI/CD
 
-1. Liên kết repository GitHub/GitLab/Bitbucket với Netlify
-2. Cấu hình build command (vd: `npm run build`)
-3. Cấu hình publish directory (vd: `build` hoặc `dist`)
-4. Tự động deploy khi push lên branch main
+1. Link GitHub/GitLab/Bitbucket repository with Netlify.
+2. Configure build command (e.g., `npm run build`).
+3. Configure publish directory (e.g., `build` or `dist`).
+4. Automatically deploy when pushing to main branch.
 
-### Docker cơ bản cho deployment
+### Basic Docker for Deployment
 
 ```dockerfile
 # Dockerfile
@@ -1661,42 +1661,42 @@ docker build -t my-app .
 docker run -p 3000:3000 my-app
 ```
 
-## 🧪 BÀI TẬP LỚN CUỐI PHẦN: Xây dựng Ứng dụng Full-Stack với React và Express
+## 🧪 FINAL PROJECT: Building a Full-Stack App with React and Express
 
-### Đề bài
+### Assignment
 
-Xây dựng một ứng dụng Blog đơn giản với React ở frontend và Express ở backend.
+Build a simple Blog application with React on the frontend and Express on the backend.
 
-### Yêu cầu
+### Requirements
 
 1. **Backend (Express.js):**
 
-   - API endpoints cho CRUD operations (Create, Read, Update, Delete) với bài viết
-   - Authentication với JWT (JSON Web Tokens)
-   - Lưu trữ dữ liệu (có thể sử dụng MongoDB hoặc SQLite)
-   - Middleware xử lý lỗi và validation
+   - API endpoints for CRUD operations (Create, Read, Update, Delete) for posts.
+   - Authentication with JWT (JSON Web Tokens).
+   - Data storage (can use MongoDB or SQLite).
+   - Middleware for error handling and validation.
 
 2. **Frontend (React):**
 
-   - Sử dụng React Router cho navigation
-   - State management (Context API hoặc Redux)
-   - Form handling với validation
-   - Authentication UI (đăng nhập, đăng ký)
-   - Responsive design
+   - Use React Router for navigation.
+   - State management (Context API or Redux).
+   - Form handling with validation.
+   - Authentication UI (login, register).
+   - Responsive design.
 
-3. **Tính năng ứng dụng:**
+3. **App Features:**
 
-   - Người dùng có thể đăng ký và đăng nhập
-   - Người dùng đã xác thực có thể tạo, sửa, xóa bài viết
-   - Tất cả người dùng có thể xem danh sách bài viết và chi tiết bài viết
-   - Tìm kiếm và lọc bài viết
+   - Users can register and login.
+   - Authenticated users can create, edit, delete posts.
+   - All users can view list of posts and post details.
+   - Search and filter posts.
 
 4. **Deployment:**
-   - Backend: Vercel, Heroku hoặc Render
-   - Frontend: Vercel hoặc Netlify
-   - Cấu hình API calls giữa frontend và backend
+   - Backend: Vercel, Heroku, or Render.
+   - Frontend: Vercel or Netlify.
+   - Configure API calls between frontend and backend.
 
-### Gợi ý cấu trúc dự án
+### Suggested Project Structure
 
 ```text
 blog-app/
@@ -1724,11 +1724,11 @@ blog-app/
 └── README.md
 ```
 
-### Đánh giá
+### Evaluation
 
-- Tính năng đầy đủ và hoạt động chính xác
-- Code cấu trúc, sạch, có comments
-- Xử lý lỗi và validation đầy đủ
-- UI/UX thân thiện người dùng
-- Responsive trên nhiều thiết bị
-- Deployment thành công
+- Features are complete and work correctly.
+- Code is structured, clean, and commented.
+- Full error handling and validation.
+- User-friendly UI/UX.
+- Responsive on multiple devices.
+- Successful deployment.

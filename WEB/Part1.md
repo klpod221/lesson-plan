@@ -1,103 +1,103 @@
 ---
 prev:
-  text: '⚡ Thuật Toán Ứng Dụng'
+  text: '⚡ Applied Algorithms'
   link: '/DSA/Part5'
 next:
-  text: '🎨 CSS - Định Dạng Trang Web'
+  text: '🎨 CSS - Web Styling'
   link: '/WEB/Part2'
 ---
 
-# 📘 PHẦN 1: NHẬP MÔN HTML
+# 📘 PART 1: INTRODUCTION TO HTML
 
-## 🎯 Mục tiêu tổng quát
+## 🎯 General Objectives
 
-- Hiểu về cấu trúc của một trang web HTML
-- Biết cách sử dụng các thẻ HTML cơ bản
-- Tạo được trang web tĩnh đầu tiên
+- Understand the structure of an HTML webpage.
+- Know how to use basic HTML tags.
+- Create your first static webpage.
 
-## 🧑‍🏫 Bài 1: Giới thiệu HTML
+## 🧑‍🏫 Lesson 1: Introduction to HTML
 
-### HTML là gì?
+### What is HTML?
 
-- HTML là viết tắt của HyperText Markup Language
-- Là ngôn ngữ đánh dấu tiêu chuẩn để tạo các trang web
-- HTML mô tả cấu trúc của một trang web bằng các thẻ (tags)
-- Các trình duyệt không hiển thị các thẻ HTML nhưng sử dụng chúng để render nội dung trang web
+- HTML stands for HyperText Markup Language.
+- It is the standard markup language for creating web pages.
+- HTML describes the structure of a web page using tags.
+- Browsers do not display the HTML tags but use them to render the content of the page.
 
-### Cấu trúc cơ bản của trang HTML
+### Basic Structure of an HTML Page
 
 ```html
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Tiêu đề trang</title>
+    <title>Page Title</title>
   </head>
   <body>
-    <h1>Đây là tiêu đề</h1>
-    <p>Đây là đoạn văn bản.</p>
+    <h1>This is a heading</h1>
+    <p>This is a paragraph.</p>
   </body>
 </html>
 ```
 
-Hãy thử tạo một file `index.html` với nội dung trên và mở nó trong trình duyệt hoặc sử dụng extension [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) trong Visual Studio Code để xem kết quả.
+Try creating an `index.html` file with the content above and open it in a browser or use the [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) extension in Visual Studio Code to see the result.
 
-### Giải thích
+### Explanation
 
-- `<!DOCTYPE html>`: Khai báo loại tài liệu HTML5
-- `<html>`: Thẻ gốc của một trang HTML
-- `<head>`: Chứa các meta thông tin, CSS, JavaScript
-- `<title>`: Xác định tiêu đề của trang web
-- `<body>`: Chứa nội dung hiển thị của trang web
-- `<h1>`: Tiêu đề cấp 1
-- `<p>`: Đoạn văn bản
+- `<!DOCTYPE html>`: Declares the document type as HTML5.
+- `<html>`: The root element of an HTML page.
+- `<head>`: Contains meta-information, CSS, JavaScript.
+- `<title>`: Specifies the title of the webpage (shown in the browser tab).
+- `<body>`: Contains the visible content of the webpage.
+- `<h1>`: Heading level 1.
+- `<p>`: A paragraph.
 
-## 🧑‍🏫 Bài 2: Các thẻ HTML cơ bản
+## 🧑‍🏫 Lesson 2: Basic HTML Tags
 
-### Thẻ tiêu đề
+### Heading Tags
 
 ```html
-<h1>Tiêu đề cấp 1</h1>
-<h2>Tiêu đề cấp 2</h2>
-<h3>Tiêu đề cấp 3</h3>
-<h4>Tiêu đề cấp 4</h4>
-<h5>Tiêu đề cấp 5</h5>
-<h6>Tiêu đề cấp 6</h6>
+<h1>Heading Level 1</h1>
+<h2>Heading Level 2</h2>
+<h3>Heading Level 3</h3>
+<h4>Heading Level 4</h4>
+<h5>Heading Level 5</h5>
+<h6>Heading Level 6</h6>
 ```
 
-### Thẻ định dạng văn bản
+### Text Formatting Tags
 
 ```html
-<p>Đây là một đoạn văn bản.</p>
-<b>Văn bản in đậm</b>
-<i>Văn bản in nghiêng</i>
-<u>Văn bản gạch chân</u>
-<strong>Văn bản nhấn mạnh</strong>
-<em>Văn bản nhấn mạnh (thường hiển thị nghiêng)</em>
-<mark>Văn bản được đánh dấu</mark>
-<small>Văn bản nhỏ hơn</small>
-<del>Văn bản bị gạch ngang</del>
-<sub>Văn bản chỉ số dưới</sub>
-<sup>Văn bản chỉ số trên</sup>
+<p>This is a paragraph.</p>
+<b>Bold text</b>
+<i>Italic text</i>
+<u>Underlined text</u>
+<strong>Strong text (usually rendered as bold)</strong>
+<em>Emphasized text (usually rendered as italic)</em>
+<mark>Marked/Highlighted text</mark>
+<small>Smaller text</small>
+<del>Deleted/Strikethrough text</del>
+<sub>Subscript text</sub>
+<sup>Superscript text</sup>
 ```
 
-### Thẻ list (danh sách)
+### List Tags
 
 ```html
-<!-- Danh sách có thứ tự -->
+<!-- Ordered List -->
 <ol>
-  <li>Mục thứ nhất</li>
-  <li>Mục thứ hai</li>
-  <li>Mục thứ ba</li>
+  <li>First item</li>
+  <li>Second item</li>
+  <li>Third item</li>
 </ol>
 
-<!-- Danh sách không thứ tự -->
+<!-- Unordered List -->
 <ul>
-  <li>Mục đầu tiên</li>
-  <li>Mục thứ hai</li>
-  <li>Mục thứ ba</li>
+  <li>First item</li>
+  <li>Second item</li>
+  <li>Third item</li>
 </ul>
 
-<!-- Danh sách mô tả -->
+<!-- Description List -->
 <dl>
   <dt>HTML</dt>
   <dd>HyperText Markup Language</dd>
@@ -106,52 +106,52 @@ Hãy thử tạo một file `index.html` với nội dung trên và mở nó tro
 </dl>
 ```
 
-### Thẻ liên kết và hình ảnh
+### Link and Image Tags
 
 ```html
-<!-- Liên kết -->
-<a href="https://www.google.com">Truy cập Google</a>
-<a href="trang2.html">Đi đến trang 2</a>
-<a href="#section1">Đi đến mục 1 trong trang</a>
+<!-- Link -->
+<a href="https://www.google.com">Go to Google</a>
+<a href="page2.html">Go to page 2</a>
+<a href="#section1">Go to section 1 on this page</a>
 
-<!-- Hình ảnh -->
-<img src="image.jpg" alt="Mô tả hình ảnh" width="300" height="200" />
+<!-- Image -->
+<img src="image.jpg" alt="Image description" width="300" height="200" />
 ```
 
-## 🧑‍🏫 Bài 3: Bảng và Form trong HTML
+## 🧑‍🏫 Lesson 3: Tables and Forms in HTML
 
-### Bảng (Tables)
+### Tables
 
 ```html
 <table border="1">
   <thead>
     <tr>
-      <th>STT</th>
-      <th>Tên</th>
-      <th>Tuổi</th>
+      <th>No.</th>
+      <th>Name</th>
+      <th>Age</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>1</td>
-      <td>Nguyễn Văn A</td>
+      <td>John Doe</td>
       <td>20</td>
     </tr>
     <tr>
       <td>2</td>
-      <td>Trần Thị B</td>
+      <td>Jane Smith</td>
       <td>22</td>
     </tr>
   </tbody>
 </table>
 ```
 
-### Form (Biểu mẫu)
+### Forms
 
 ```html
 <form action="/submit-form" method="post">
   <div>
-    <label for="name">Họ tên:</label>
+    <label for="name">Full Name:</label>
     <input type="text" id="name" name="name" required />
   </div>
 
@@ -161,176 +161,176 @@ Hãy thử tạo một file `index.html` với nội dung trên và mở nó tro
   </div>
 
   <div>
-    <label for="password">Mật khẩu:</label>
+    <label for="password">Password:</label>
     <input type="password" id="password" name="password" required />
   </div>
 
   <div>
-    <label>Giới tính:</label>
+    <label>Gender:</label>
     <input type="radio" id="male" name="gender" value="male" />
-    <label for="male">Nam</label>
+    <label for="male">Male</label>
     <input type="radio" id="female" name="gender" value="female" />
-    <label for="female">Nữ</label>
+    <label for="female">Female</label>
   </div>
 
   <div>
-    <label>Sở thích:</label>
+    <label>Hobbies:</label>
     <input type="checkbox" id="reading" name="hobby" value="reading" />
-    <label for="reading">Đọc sách</label>
+    <label for="reading">Reading</label>
     <input type="checkbox" id="sports" name="hobby" value="sports" />
-    <label for="sports">Thể thao</label>
+    <label for="sports">Sports</label>
   </div>
 
   <div>
-    <label for="country">Quốc gia:</label>
+    <label for="country">Country:</label>
     <select id="country" name="country">
-      <option value="">Chọn quốc gia</option>
-      <option value="vn">Việt Nam</option>
-      <option value="us">Hoa Kỳ</option>
-      <option value="uk">Anh</option>
+      <option value="">Select country</option>
+      <option value="vn">Vietnam</option>
+      <option value="us">USA</option>
+      <option value="uk">UK</option>
     </select>
   </div>
 
   <div>
-    <label for="message">Tin nhắn:</label>
+    <label for="message">Message:</label>
     <textarea id="message" name="message" rows="4" cols="30"></textarea>
   </div>
 
   <div>
-    <button type="submit">Gửi</button>
-    <button type="reset">Xóa</button>
+    <button type="submit">Submit</button>
+    <button type="reset">Reset</button>
   </div>
 </form>
 ```
 
-## 🧑‍🏫 Bài 4: Các thẻ HTML5 ngữ nghĩa (Semantic Elements)
+## 🧑‍🏫 Lesson 4: HTML5 Semantic Elements
 
-### Định nghĩa
+### Definition
 
-HTML5 giới thiệu các thẻ ngữ nghĩa giúp tổ chức và mô tả rõ ràng hơn cấu trúc trang web:
+HTML5 introduced semantic tags to help organize and describe the structure of a webpage more clearly:
 
 ```html
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Trang web với HTML5 Semantic</title>
+    <title>Webpage with HTML5 Semantic</title>
   </head>
   <body>
     <header>
-      <h1>Tên Website</h1>
+      <h1>Website Name</h1>
       <nav>
         <ul>
-          <li><a href="#home">Trang chủ</a></li>
-          <li><a href="#about">Giới thiệu</a></li>
-          <li><a href="#services">Dịch vụ</a></li>
-          <li><a href="#contact">Liên hệ</a></li>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
     </header>
 
     <main>
       <section id="home">
-        <h2>Trang chủ</h2>
-        <p>Nội dung trang chủ...</p>
+        <h2>Home</h2>
+        <p>Home content...</p>
       </section>
 
       <section id="about">
-        <h2>Giới thiệu</h2>
-        <p>Nội dung giới thiệu...</p>
+        <h2>About</h2>
+        <p>About content...</p>
       </section>
 
       <section id="services">
-        <h2>Dịch vụ</h2>
+        <h2>Services</h2>
         <article>
-          <h3>Dịch vụ 1</h3>
-          <p>Mô tả dịch vụ 1...</p>
+          <h3>Service 1</h3>
+          <p>Description of service 1...</p>
         </article>
         <article>
-          <h3>Dịch vụ 2</h3>
-          <p>Mô tả dịch vụ 2...</p>
+          <h3>Service 2</h3>
+          <p>Description of service 2...</p>
         </article>
       </section>
 
       <section id="contact">
-        <h2>Liên hệ</h2>
+        <h2>Contact</h2>
         <form>
           <!-- Form elements -->
         </form>
       </section>
 
       <aside>
-        <h3>Nội dung phụ</h3>
-        <p>Thông tin bổ sung...</p>
+        <h3>Side Content</h3>
+        <p>Additional info...</p>
       </aside>
     </main>
 
     <footer>
-      <p>&copy; 2023 Tên Website. All rights reserved.</p>
+      <p>&copy; 2023 Website Name. All rights reserved.</p>
     </footer>
   </body>
 </html>
 ```
 
-### Các thẻ ngữ nghĩa trong HTML5
+### Semantic Tags in HTML5
 
-- `<header>`: Định nghĩa phần đầu của trang web hoặc một section
-- `<nav>`: Định nghĩa khu vực chứa các liên kết điều hướng
-- `<main>`: Xác định nội dung chính của trang
-- `<section>`: Định nghĩa một phần trong tài liệu
-- `<article>`: Xác định một nội dung độc lập, tự chứa
-- `<aside>`: Định nghĩa nội dung bên cạnh nội dung chính (như sidebar)
-- `<footer>`: Định nghĩa phần chân của trang web hoặc một section
-- `<figure>`: Chỉ định nội dung tự chứa như hình minh họa, biểu đồ, ảnh, v.v.
-- `<figcaption>`: Định nghĩa chú thích cho thẻ figure
-- `<time>`: Định nghĩa ngày/giờ
+- `<header>`: Defines the header section of a webpage or a section.
+- `<nav>`: Defines a set of navigation links.
+- `<main>`: Specifies the main content of the document.
+- `<section>`: Defines a section in a document.
+- `<article>`: Specifies independent, self-contained content.
+- `<aside>`: Defines content aside from the page content (like a sidebar).
+- `<footer>`: Defines a footer for a document or section.
+- `<figure>`: Specifies self-contained content, like illustrations, diagrams, photos, code listings, etc.
+- `<figcaption>`: Defines a caption for a `<figure>` element.
+- `<time>`: Defines a specific time (or datetime).
 
-## 🧑‍🏫 Bài 5: Sử dụng Developer Tools trên trình duyệt
+## 🧑‍🏫 Lesson 5: Using Developer Tools in the Browser
 
-### Giới thiệu về Developer Tools
+### Introduction to Developer Tools
 
-Developer Tools (DevTools) là một bộ công cụ tích hợp trong các trình duyệt web hiện đại như Chrome, Firefox, Edge, Safari, giúp lập trình viên kiểm tra, gỡ lỗi và tối ưu hóa mã nguồn của trang web.
+Developer Tools (DevTools) is a set of web developer tools built directly into modern browsers like Chrome, Firefox, Edge, and Safari. They allow developers to inspect, debug, and optimize the source code of a webpage.
 
-### Cách mở Developer Tools
+### How to Open Developer Tools
 
-- Trên Chrome: Nhấn `F12` hoặc `Ctrl + Shift + I` (Windows/Linux) hoặc `Cmd + Option + I` (Mac)
-- Trên Firefox: Nhấn `F12` hoặc `Ctrl + Shift + I` (Windows/Linux) hoặc `Cmd + Option + I` (Mac)
-- Trên Edge: Nhấn `F12` hoặc `Ctrl + Shift + I` (Windows/Linux) hoặc `Cmd + Option + I` (Mac)
-- Trên Safari: Nhấn `Cmd + Option + I` (Mac)
+- Chrome: Press `F12` or `Ctrl + Shift + I` (Windows/Linux) or `Cmd + Option + I` (Mac).
+- Firefox: Press `F12` or `Ctrl + Shift + I` (Windows/Linux) or `Cmd + Option + I` (Mac).
+- Edge: Press `F12` or `Ctrl + Shift + I` (Windows/Linux) or `Cmd + Option + I` (Mac).
+- Safari: Press `Cmd + Option + I` (Mac).
 
-### Các thành phần chính của Developer Tools
+### Main Components of Developer Tools
 
-- **Elements**: Kiểm tra và chỉnh sửa HTML và CSS của trang web
-- **Console**: Hiển thị các thông báo, lỗi và cho phép thực thi mã JavaScript
-- **Network**: Kiểm tra các yêu cầu mạng và hiệu suất tải trang
-- **Sources**: Xem và gỡ lỗi mã nguồn JavaScript
-- **Performance**: Phân tích hiệu suất và tối ưu hóa trang web
-- **Memory**: Kiểm tra và quản lý bộ nhớ
-- **Application**: Quản lý dữ liệu ứng dụng như cookies, local storage, session storage
-- **Security**: Kiểm tra các vấn đề bảo mật của trang web
+- **Elements**: Inspect and edit HTML and CSS.
+- **Console**: View messages, errors, and execute JavaScript.
+- **Network**: Inspect network requests and load performance.
+- **Sources**: View and debug JavaScript source code.
+- **Performance**: Analyze performance and optimize the site.
+- **Memory**: Inspect and manage memory usage.
+- **Application**: Manage application data like cookies, local storage, session storage.
+- **Security**: Inspect security issues.
 
-### Kiểm tra và chỉnh sửa HTML
+### Inspecting and Editing HTML
 
-- Sử dụng tab **Elements** để xem cấu trúc HTML của trang web
-- Nhấp chuột phải vào một phần tử và chọn "Edit as HTML" để chỉnh sửa trực tiếp
-- Thay đổi sẽ được áp dụng ngay lập tức trên trang web
+- Use the **Elements** tab to view the HTML structure.
+- Right-click an element and select "Edit as HTML" to edit directly.
+- Changes are applied immediately in the browser viewport.
 
-### Lợi ích của Developer Tools
+### Benefits of Developer Tools
 
-- Giúp kiểm tra và gỡ lỗi mã nguồn nhanh chóng
-- Tối ưu hóa hiệu suất trang web
-- Kiểm tra và chỉnh sửa HTML, CSS, JavaScript trực tiếp
-- Phân tích và quản lý các yêu cầu mạng
-- Kiểm tra các vấn đề bảo mật
+- Quickly inspect and debug code.
+- Optimize website performance.
+- Test and edit HTML, CSS, JavaScript in real-time.
+- Analyze and manage network requests.
+- Check for security issues.
 
-## 🧑‍🏫 Bài 6: Emmet - Công cụ hỗ trợ viết HTML nhanh
+## 🧑‍🏫 Lesson 6: Emmet - Tool for Writing HTML Faster
 
-### Giới thiệu về Emmet
+### Introduction to Emmet
 
-Emmet là một plugin giúp lập trình viên viết code HTML và CSS nhanh hơn bằng cách sử dụng các cú pháp rút gọn, tương tự như CSS selector (bạn sẽ học trong phần CSS). Emmet giúp bạn tiết kiệm thời gian và công sức khi viết mã.
+Emmet is a plugin that helps developers write HTML and CSS code faster by using abbreviations, similar to CSS selectors (you will learn about selectors in the CSS section). Emmet helps save time and effort when coding.
 
-Bạn có thể đến trang chủ của Emmet để xem ví dụ bằng hình ảnh: [Emmet](https://emmet.io/).
+You can visit the Emmet homepage to see visual examples: [Emmet](https://emmet.io/).
 
-### Cú pháp cơ bản của Emmet
+### Basic Emmet Syntax
 
 ```text
 element
@@ -343,21 +343,21 @@ element[attribute=value]
 element{text content}
 ```
 
-### Ví dụ sử dụng Emmet
+### Emmet Examples
 
-| Cú pháp Emmet    | Kết quả HTML                                                                     |
+| Emmet Abbreviation | HTML Result |
 | ---------------- | -------------------------------------------------------------------------------- |
-| `div`            | `<div></div>`                                                                    |
-| `div>ul>li`      | `<div><ul><li></li></ul></div>`                                                  |
-| `div+p+bq`       | `<div></div><p></p><blockquote></blockquote>`                                    |
-| `ul>li*5`        | `<ul><li></li><li></li><li></li><li></li><li></li></ul>`                         |
-| `div.container`  | `<div class="container"></div>`                                                  |
-| `div#header`     | `<div id="header"></div>`                                                        |
-| `a[href=#]`      | `<a href="#"></a>`                                                               |
-| `p{Hello World}` | `<p>Hello World</p>`                                                             |
-| `ul>li.item$*3`  | `<ul><li class="item1"></li><li class="item2"></li><li class="item3"></li></ul>` |
+| `div` | `<div></div>` |
+| `div>ul>li` | `<div><ul><li></li></ul></div>` |
+| `div+p+bq` | `<div></div><p></p><blockquote></blockquote>` |
+| `ul>li*5` | `<ul><li></li><li></li><li></li><li></li><li></li></ul>` |
+| `div.container` | `<div class="container"></div>` |
+| `div#header` | `<div id="header"></div>` |
+| `a[href=#]` | `<a href="#"></a>` |
+| `p{Hello World}` | `<p>Hello World</p>` |
+| `ul>li.item$*3` | `<ul><li class="item1"></li><li class="item2"></li><li class="item3"></li></ul>` |
 
-### Emmet cho form
+### Emmet for Forms
 
 ```text
 form:get
@@ -367,7 +367,7 @@ input:password
 input:submit
 ```
 
-Kết quả:
+Result:
 
 ```html
 <!-- form:get -->
@@ -386,43 +386,43 @@ Kết quả:
 <input type="submit" value="" />
 ```
 
-### Lợi ích của Emmet
+### Benefits of Emmet
 
-- Tiết kiệm thời gian khi viết HTML và CSS
-- Giảm số lượng phím bấm cần thiết
-- Giảm lỗi cú pháp
-- Được tích hợp sẵn trong nhiều IDE và text editor phổ biến như VS Code, Sublime Text, Atom, WebStorm...
+- Saves time when writing HTML and CSS.
+- Reduces necessary keystrokes.
+- Reduces syntax errors.
+- Built-in to many popular IDEs and text editors like VS Code, Sublime Text, Atom, WebStorm...
 
-### Các trình soạn thảo hỗ trợ Emmet
+### Editors supporting Emmet
 
 - Visual Studio Code
 - Sublime Text
 - Atom
 - WebStorm
 - Notepad++
-- và nhiều IDE khác...
+- And many other IDEs...
 
-## 🧪 BÀI TẬP LỚN CUỐI PHẦN: Xây dựng trang Portfolio (Hồ sơ cá nhân)
+## 🧪 FINAL PROJECT: Building a Portfolio Page
 
-### Mô tả bài toán
+### Project Description
 
-Tạo một trang web giới thiệu bản thân với đầy đủ các phần sau:
+Create a personal introduction website with the following sections:
 
-- Header: Tên và ảnh đại diện
-- Phần giới thiệu: Thông tin cá nhân, học vấn
-- Phần kỹ năng: Liệt kê các kỹ năng cùng với mức độ thành thạo
-- Phần dự án: Giới thiệu các dự án đã làm
-- Phần liên hệ: Form để người khác có thể gửi tin nhắn
-- Footer: Thông tin bản quyền, liên kết mạng xã hội
+- Header: Name and profile picture.
+- Introduction: Personal information, education.
+- Skills: List of skills with proficiency levels.
+- Projects: Introduction to projects you have worked on.
+- Contact: Form for others to send messages.
+- Footer: Copyright information, social media links.
 
-### Yêu cầu
+### Requirements
 
-- Sử dụng HTML5 semantic elements
-- Tạo bảng hiển thị thông tin học vấn
-- Tạo form liên hệ với các trường cần thiết
-- Thêm hình ảnh và liên kết
+- Use HTML5 semantic elements.
+- Create a table to display education information.
+- Create a contact form with necessary fields.
+- Add images and links.
 
-### Mockup trang web tham khảo
+### Website Mockup Reference
 
 ```text
 +---------------------------------------------------------+

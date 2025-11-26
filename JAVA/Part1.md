@@ -1,28 +1,28 @@
 ---
 prev:
-  text: '📈 Phát Triển Bản Thân'
+  text: '📈 Personal Development'
   link: '/SELF-LEARNING/Part4'
 next:
-  text: '📊 Mảng, Chuỗi và Hàm'
+  text: '📊 Arrays, Strings and Functions'
   link: '/JAVA/Part2'
 ---
 
-# 📘 PHẦN 1: NHẬP MÔN JAVA
+# 📘 PART 1: INTRODUCTION TO JAVA
 
-## 🎯 Mục tiêu tổng quát
+## 🎯 General Objectives
 
-- Làm quen với cú pháp và cách tổ chức chương trình JAVA.
-- Biết cách khai báo biến, sử dụng kiểu dữ liệu, câu lệnh điều kiện và vòng lặp.
+- Get familiar with Java syntax and program organization.
+- Learn how to declare variables, use data types, conditional statements, and loops.
 
-## 🧑‍🏫 Bài 1: Cấu trúc chương trình JAVA
+## 🧑‍🏫 Lesson 1: Java Program Structure
 
-### Tổ chức project JAVA cơ bản
+### Basic Java project organization
 
-- File có đuôi `.java` chứa mã nguồn JAVA
-- Mỗi file `.java` chứa ít nhất một class
-- Tên file phải trùng với tên class chứa phương thức `main`
+- Files with `.java` extension contain Java source code
+- Each `.java` file contains at least one class
+- File name must match the class name containing the `main` method
 
-### Phương thức main
+### The main method
 
 ```java
 // file HelloWorld.java
@@ -33,43 +33,43 @@ public class HelloWorld {
 }
 ```
 
-### Giải thích
+### Explanation
 
-- `public class HelloWorld`: Định nghĩa một class có tên HelloWorld
-- `public static void main(String[] args)`: Phương thức main - điểm bắt đầu của chương trình
-- `System.out.println()`: Lệnh in ra màn hình
+- `public class HelloWorld`: Defines a class named HelloWorld
+- `public static void main(String[] args)`: The main method - the entry point of the program
+- `System.out.println()`: Statement to print to console
 
-### Quy ước đặt tên
+### Naming conventions
 
-- Class: Viết hoa chữ cái đầu mỗi từ (PascalCase) - `HelloWorld`, `StudentManager`
-- Biến và phương thức: Chữ cái đầu viết thường, từ tiếp theo viết hoa (camelCase) - `studentName`, `calculateTotal`
-- Hằng số: Viết hoa tất cả, các từ cách nhau bởi dấu gạch dưới - `MAX_SIZE`, `PI_VALUE`
+- Class: Capitalize the first letter of each word (PascalCase) - `HelloWorld`, `StudentManager`
+- Variables and methods: First letter lowercase, subsequent words capitalized (camelCase) - `studentName`, `calculateTotal`
+- Constants: All uppercase, words separated by underscores - `MAX_SIZE`, `PI_VALUE`
 
-### Chạy chương trình
+### Running the program
 
-- Sử dụng lệnh `javac` để biên dịch mã nguồn thành bytecode
-- Sử dụng lệnh `java` để chạy chương trình
+- Use `javac` command to compile source code into bytecode
+- Use `java` command to run the program
 
 ```bash
-javac HelloWorld.java  # Biên dịch
-java HelloWorld        # Chạy chương trình
+javac HelloWorld.java  # Compile
+java HelloWorld        # Run the program
 ```
 
-- Kết quả sẽ là:
+- The result will be:
 
 ```text
 Hello, World!
 ```
 
-### Biên dịch và chạy chương trình từ VS Code
+### Compiling and running programs from VS Code
 
-- Nếu bạn đã cài đặt [JAVA Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack), bạn có thể mở file `.java` và nhấn `Ctrl + F5` để biên dịch và chạy chương trình.
-- Kết quả sẽ hiển thị trong terminal tích hợp của VS Code.
-- Bạn có thể tham khảo thêm về [debugging JAVA trong VS Code](https://code.visualstudio.com/docs/java/java-debugging) để biết cách debug chương trình JAVA.
+- If you have installed the [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack), you can open a `.java` file and press `Ctrl + F5` to compile and run the program.
+- The result will be displayed in the VS Code integrated terminal.
+- You can refer to [debugging Java in VS Code](https://code.visualstudio.com/docs/java/java-debugging) to learn how to debug Java programs.
 
-### Nhập liệu từ bàn phím
+### Reading input from keyboard
 
-- Java cung cấp lớp `Scanner` từ package `java.util` để đọc dữ liệu đầu vào:
+- Java provides the `Scanner` class from the `java.util` package to read input data:
 
 ```java
 import java.util.Scanner;
@@ -78,79 +78,79 @@ public class InputExample {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Nhập tên: ");
+        System.out.print("Enter name: ");
         String name = scanner.nextLine();
 
-        System.out.print("Nhập tuổi: ");
+        System.out.print("Enter age: ");
         int age = scanner.nextInt();
 
-        System.out.println("Tên bạn là: " + name);
-        System.out.println("Tuổi bạn là: " + age);
+        System.out.println("Your name is: " + name);
+        System.out.println("Your age is: " + age);
 
-        scanner.close(); // Đóng Scanner để giải phóng tài nguyên
+        scanner.close(); // Close Scanner to release resources
     }
 }
 ```
 
-Kết quả:
+Result:
 
 ```text
-Nhập tên: Nguyen Van A
-Nhập tuổi: 25
-Tên bạn là: Nguyen Van A
-Tuổi bạn là: 25
+Enter name: Nguyen Van A
+Enter age: 25
+Your name is: Nguyen Van A
+Your age is: 25
 ```
 
-#### Các phương thức nhập liệu cơ bản
+#### Basic input methods
 
-| Phương thức | Kiểu dữ liệu | Mô tả |
-|-------------|--------------|-------|
-| `nextInt()` | `int` | Đọc số nguyên |
-| `nextDouble()` | `double` | Đọc số thực |
-| `nextBoolean()` | `boolean` | Đọc giá trị logic (true/false) |
-| `next()` | `String` | Đọc một từ (đến khoảng trắng) |
-| `nextLine()` | `String` | Đọc một dòng hoàn chỉnh |
+| Method | Data Type | Description |
+|--------|-----------|-------------|
+| `nextInt()` | `int` | Read integer |
+| `nextDouble()` | `double` | Read floating-point number |
+| `nextBoolean()` | `boolean` | Read boolean value (true/false) |
+| `next()` | `String` | Read one word (until whitespace) |
+| `nextLine()` | `String` | Read a complete line |
 
-#### Vấn đề phổ biến và giải pháp
+#### Common issues and solutions
 
-1. **Vấn đề buffer line feed**:
+1. **Buffer line feed issue**:
 
-   Khi sử dụng `nextInt()`, `nextDouble()` hoặc các phương thức tương tự, ký tự xuống dòng (`\n`) vẫn còn trong buffer đầu vào. Nếu sau đó gọi `nextLine()`, nó sẽ đọc ký tự xuống dòng này thay vì đọc đầu vào mới.
+   When using `nextInt()`, `nextDouble()` or similar methods, the newline character (`\n`) remains in the input buffer. If you then call `nextLine()`, it will read this newline character instead of new input.
 
    ```java
-   int number = scanner.nextInt();     // Nhập số
-   scanner.nextLine();                 // Đọc ký tự xuống dòng còn lại
-   String text = scanner.nextLine();    // Nhập văn bản mới
+   int number = scanner.nextInt();     // Enter number
+   scanner.nextLine();                 // Read remaining newline character
+   String text = scanner.nextLine();    // Enter new text
    ```
 
-2. **Đọc nhiều giá trị trên một dòng**:
+2. **Reading multiple values on one line**:
 
    ```java
-   // Phương pháp 1: Nhập chuỗi và phân tách
-   String input = scanner.nextLine();          // Ví dụ: "10 20 30"
-   String[] values = input.split(" ");         // Tách chuỗi thành mảng
+   // Method 1: Input string and split
+   String input = scanner.nextLine();          // Example: "10 20 30"
+   String[] values = input.split(" ");         // Split string into array
    int a = Integer.parseInt(values[0]);        // 10
    int b = Integer.parseInt(values[1]);        // 20
    
-   // Phương pháp 2: Sử dụng next() liên tiếp
-   int x = scanner.nextInt();                  // Đọc số đầu tiên
-   int y = scanner.nextInt();                  // Đọc số tiếp theo
+   // Method 2: Use next() consecutively
+   int x = scanner.nextInt();                  // Read first number
+   int y = scanner.nextInt();                  // Read next number
    ```
 
-3. **Xử lý ngoại lệ**:
+3. **Exception handling**:
 
-   Khi người dùng nhập không đúng định dạng, cần xử lý để tránh chương trình bị crash:
+   When user input doesn't match the expected format, handle it to prevent program crashes:
 
    ```java
    try {
        int number = scanner.nextInt();
    } catch (InputMismatchException e) {
-       System.out.println("Vui lòng nhập số nguyên!");
-       scanner.nextLine(); // Xóa đầu vào không hợp lệ
+       System.out.println("Please enter an integer!");
+       scanner.nextLine(); // Clear invalid input
    }
    ```
 
-4. **Phương pháp nhập liệu an toàn**:
+4. **Safe input method**:
 
    ```java
    Scanner scanner = new Scanner(System.in);
@@ -158,219 +158,219 @@ Tuổi bạn là: 25
    boolean validInput = false;
    
    while (!validInput) {
-       System.out.print("Nhập số nguyên: ");
+       System.out.print("Enter an integer: ");
        try {
            number = Integer.parseInt(scanner.nextLine());
            validInput = true;
        } catch (NumberFormatException e) {
-           System.out.println("Lỗi: Vui lòng nhập một số nguyên hợp lệ!");
+           System.out.println("Error: Please enter a valid integer!");
        }
    }
    ```
 
-**Lưu ý quan trọng**: Luôn đóng Scanner bằng phương thức `close()` khi không còn sử dụng để tránh rò rỉ tài nguyên.
+**Important note**: Always close Scanner using the `close()` method when no longer needed to avoid resource leaks.
 
-### Hiển thị dữ liệu ra màn hình
+### Displaying data to screen
 
-Java cung cấp nhiều cách để hiển thị dữ liệu ra màn hình console:
+Java provides multiple ways to display data to the console:
 
-#### Các phương thức hiển thị cơ bản
+#### Basic display methods
 
 ```java
-// In và xuống dòng
-System.out.println("Hello World");    // In "Hello World" và xuống dòng mới
+// Print with newline
+System.out.println("Hello World");    // Print "Hello World" and add newline
 
-// In không xuống dòng
-System.out.print("Hello ");           // In "Hello " và không xuống dòng
-System.out.print("World");            // In "World" tiếp tục sau "Hello "
+// Print without newline
+System.out.print("Hello ");           // Print "Hello " without newline
+System.out.print("World");            // Print "World" continues after "Hello "
 
-// In theo định dạng (giống printf trong C)
-System.out.printf("Xin chào %s, bạn %d tuổi", "Nam", 25);
+// Formatted print (similar to printf in C)
+System.out.printf("Hello %s, you are %d years old", "Nam", 25);
 ```
 
-#### Hiển thị với các kiểu dữ liệu khác nhau
+#### Displaying different data types
 
 ```java
 int age = 25;
 double height = 1.75;
 String name = "Nguyen Van A";
 
-// Nối chuỗi với dấu +
-System.out.println("Tên: " + name + ", Tuổi: " + age + ", Chiều cao: " + height + "m");
+// String concatenation with +
+System.out.println("Name: " + name + ", Age: " + age + ", Height: " + height + "m");
 
-// Sử dụng String.format
-String info = String.format("Tên: %s, Tuổi: %d, Chiều cao: %.2fm", name, age, height);
+// Using String.format
+String info = String.format("Name: %s, Age: %d, Height: %.2fm", name, age, height);
 System.out.println(info);
 
-// Sử dụng printf
-System.out.printf("Tên: %s, Tuổi: %d, Chiều cao: %.2fm\n", name, age, height);
+// Using printf
+System.out.printf("Name: %s, Age: %d, Height: %.2fm\n", name, age, height);
 ```
 
-#### Các định dạng đặc biệt
+#### Special format specifiers
 
-| Định dạng | Mô tả | Ví dụ |
-|----------|-------|--------|
-| `%d` | Số nguyên | `%d` → `123` |
-| `%f` | Số thực | `%f` → `123.456000` |
-| `%.2f` | Số thực (giới hạn chữ số thập phân) | `%.2f` → `123.46` |
-| `%s` | Chuỗi | `%s` → `Hello` |
-| `%c` | Ký tự | `%c` → `A` |
+| Format | Description | Example |
+|--------|-------------|---------|
+| `%d` | Integer | `%d` → `123` |
+| `%f` | Float | `%f` → `123.456000` |
+| `%.2f` | Float (limit decimal places) | `%.2f` → `123.46` |
+| `%s` | String | `%s` → `Hello` |
+| `%c` | Character | `%c` → `A` |
 | `%b` | Boolean | `%b` → `true` |
-| `%n` | Xuống dòng | `%n` → newline |
-| `%%` | Dấu phần trăm | `%%` → `%` |
+| `%n` | Newline | `%n` → newline |
+| `%%` | Percent sign | `%%` → `%` |
 
-#### Ví dụ định dạng nâng cao
+#### Advanced formatting examples
 
 ```java
-// Định dạng số
-System.out.printf("Số nguyên: %d\n", 1234);             // 1234
-System.out.printf("Số nguyên (căn lề phải 8 ký tự): %8d\n", 1234);  // "    1234"
-System.out.printf("Số nguyên (căn lề trái 8 ký tự): %-8d\n", 1234); // "1234    "
-System.out.printf("Số nguyên (thêm số 0): %08d\n", 1234);  // "00001234"
+// Number formatting
+System.out.printf("Integer: %d\n", 1234);             // 1234
+System.out.printf("Integer (right-aligned 8 chars): %8d\n", 1234);  // "    1234"
+System.out.printf("Integer (left-aligned 8 chars): %-8d\n", 1234); // "1234    "
+System.out.printf("Integer (padded with zeros): %08d\n", 1234);  // "00001234"
 
-// Định dạng số thực
-System.out.printf("Số thực: %f\n", 12.34);              // 12.340000
-System.out.printf("Số thực (làm tròn 2 chữ số): %.2f\n", 12.34567); // 12.35
-System.out.printf("Tiền tệ: %,.2f đ\n", 1234567.89);    // 1,234,567.89 đ
+// Float formatting
+System.out.printf("Float: %f\n", 12.34);              // 12.340000
+System.out.printf("Float (rounded to 2 decimals): %.2f\n", 12.34567); // 12.35
+System.out.printf("Currency: %,.2f đ\n", 1234567.89);    // 1,234,567.89 đ
 
-// Định dạng chuỗi
-System.out.printf("Chuỗi: %s\n", "Hello");              // Hello
-System.out.printf("Chuỗi (viết hoa): %S\n", "Hello");   // HELLO
-System.out.printf("Chuỗi (căn lề phải 10 ký tự): %10s\n", "Hello"); // "     Hello"
-System.out.printf("Chuỗi (căn lề trái 10 ký tự): %-10s\n", "Hello"); // "Hello     "
+// String formatting
+System.out.printf("String: %s\n", "Hello");              // Hello
+System.out.printf("String (uppercase): %S\n", "Hello");   // HELLO
+System.out.printf("String (right-aligned 10 chars): %10s\n", "Hello"); // "     Hello"
+System.out.printf("String (left-aligned 10 chars): %-10s\n", "Hello"); // "Hello     "
 ```
 
-#### Phương thức Format
+#### Format Method
 
-Java cũng cung cấp class `Formatter` để định dạng chuỗi:
+Java also provides the `Formatter` class for string formatting:
 
 ```java
-String formatted = String.format("Chào %s, bạn đã đạt %.1f điểm", "Nam", 8.5);
-System.out.println(formatted);  // Chào Nam, bạn đã đạt 8.5 điểm
+String formatted = String.format("Hello %s, you scored %.1f points", "Nam", 8.5);
+System.out.println(formatted);  // Hello Nam, you scored 8.5 points
 
-// Định dạng ngày tháng
+// Date formatting
 import java.util.Date;
-System.out.printf("Hôm nay là: %tD\n", new Date());  // MM/dd/yy format
+System.out.printf("Today is: %tD\n", new Date());  // MM/dd/yy format
 ```
 
-**Lưu ý**: Từ Java 15 trở đi, bạn có thể sử dụng text blocks (chuỗi nhiều dòng) với cú pháp `"""..."""`:
+**Note**: From Java 15 onwards, you can use text blocks (multi-line strings) with the `"""..."""` syntax:
 
 ```java
-// Từ Java 15+
+// From Java 15+
 String html = """
               <html>
                   <body>
-                      <h1>Xin chào!</h1>
+                      <h1>Hello!</h1>
                   </body>
               </html>
               """;
 System.out.println(html);
 ```
 
-## 🧑‍🏫 Bài 2: Biến và kiểu dữ liệu
+## 🧑‍🏫 Lesson 2: Variables and Data Types
 
-### Khái niệm biến trong JAVA
+### Variable concept in Java
 
-- Biến là vùng nhớ để lưu trữ dữ liệu
-- Mỗi biến có tên, kiểu dữ liệu và giá trị
+- Variables are memory locations to store data
+- Each variable has a name, data type, and value
 
-### Kiểu dữ liệu nguyên thủy
-
-```java
-int age = 25;                // Số nguyên
-double salary = 5000.50;     // Số thực
-char grade = 'A';            // Ký tự
-boolean isActive = true;     // Giá trị logic
-```
-
-### Kiểu dữ liệu tham chiếu
+### Primitive data types
 
 ```java
-String name = "Nguyen Van A";  // Chuỗi ký tự
-int[] numbers = {1, 2, 3, 4};  // Mảng số nguyên
+int age = 25;                // Integer
+double salary = 5000.50;     // Floating-point
+char grade = 'A';            // Character
+boolean isActive = true;     // Boolean value
 ```
 
-### Cách lưu trữ dữ liệu trong bộ nhớ
+### Reference data types
 
-Đối với kiểu nguyên thủy, giá trị được lưu trực tiếp trong biến.
-Đối với kiểu tham chiếu, biến lưu địa chỉ trỏ đến dữ liệu thực.
+```java
+String name = "Nguyen Van A";  // String
+int[] numbers = {1, 2, 3, 4};  // Integer array
+```
+
+### Data storage in memory
+
+For primitive types, the value is stored directly in the variable.
+For reference types, the variable stores an address pointing to the actual data.
 
 ```text
 ┌─────────────┐
-│  Biến: age  │
+│  Variable: age  │
 ├─────────────┤
-│     25      │  ◄── Giá trị được lưu trong ô nhớ
+│     25      │  ◄── Value is stored in memory cell
 └─────────────┘
 
 ┌───────────────┐
-│ Biến: salary  │
+│ Variable: salary  │
 ├───────────────┤
 │    5000.50    │
 └───────────────┘
 
 ┌───────────────┐
-│ Biến: name    │
+│ Variable: name    │
 ├───────────────┤
-│  0x12AB34CD   │  ◄── Địa chỉ (tham chiếu) đến vùng nhớ khác
+│  0x12AB34CD   │  ◄── Address (reference) to another memory region
 └───────────────┘
     │
     ▼
 ┌───────────────────────┐
-│  "Nguyen Van A"       │  ◄── Dữ liệu thực tế nằm ở vùng nhớ khác
+│  "Nguyen Van A"       │  ◄── Actual data is located in another memory region
 └───────────────────────┘
 ```
 
-### Khai báo và khởi tạo biến
+### Variable declaration and initialization
 
 ```java
-// Khai báo và khởi tạo sau
+// Declare and initialize later
 int count;
 count = 10;
 
-// Khai báo và khởi tạo cùng lúc
+// Declare and initialize together
 double price = 19.99;
 
-// Khai báo nhiều biến cùng kiểu
+// Declare multiple variables of the same type
 int x = 1, y = 2, z = 3;
 ```
 
-### Ép kiểu
+### Type casting
 
 ```java
-// Ép kiểu ngầm định (mở rộng) - không mất dữ liệu
+// Implicit casting (widening) - no data loss
 int num = 10;
 double numDouble = num;  // 10.0
 
-// Ép kiểu tường minh (thu hẹp) - có thể mất dữ liệu
+// Explicit casting (narrowing) - may lose data
 double pi = 3.14;
 int wholePi = (int) pi;  // 3
 ```
 
-## 🧑‍🏫 Bài 3: Toán tử và biểu thức
+## 🧑‍🏫 Lesson 3: Operators and Expressions
 
-- Toán tử số học: `+`, `-`, `*`, `/`, `%`
-- Toán tử so sánh: `==`, `!=`, `>`, `<`, `>=`, `<=`
-- Toán tử logic: `&&`, `||`, `!`
+- Arithmetic operators: `+`, `-`, `*`, `/`, `%`
+- Comparison operators: `==`, `!=`, `>`, `<`, `>=`, `<=`
+- Logical operators: `&&`, `||`, `!`
 
-### Toán tử số học
+### Arithmetic operators
 
 ```java
 int a = 10, b = 3;
 int sum = a + b;        // 13
 int difference = a - b; // 7
 int product = a * b;    // 30
-int quotient = a / b;   // 3 (phần nguyên)
-int remainder = a % b;  // 1 (phần dư)
+int quotient = a / b;   // 3 (integer division)
+int remainder = a % b;  // 1 (remainder)
 
-// Toán tử tăng/giảm
+// Increment/decrement operators
 int i = 5;
-i++;                   // i = 6 (tăng sau)
-++i;                   // i = 7 (tăng trước)
-i--;                   // i = 6 (giảm sau)
---i;                   // i = 5 (giảm trước)
+i++;                   // i = 6 (post-increment)
+++i;                   // i = 7 (pre-increment)
+i--;                   // i = 6 (post-decrement)
+--i;                   // i = 5 (pre-decrement)
 ```
 
-### Toán tử gán
+### Assignment operators
 
 ```java
 int x = 10;
@@ -381,7 +381,7 @@ x /= 4;  // x = x / 4 = 6
 x %= 4;  // x = x % 4 = 2
 ```
 
-### Toán tử so sánh
+### Comparison operators
 
 ```java
 int p = 10, q = 20;
@@ -393,7 +393,7 @@ boolean isGreaterOrEqual = (p >= q); // false
 boolean isLessOrEqual = (p <= q);    // true
 ```
 
-### Toán tử logic
+### Logical operators
 
 ```java
 boolean condition1 = true;
@@ -404,63 +404,63 @@ boolean orResult = condition1 || condition2;   // true
 boolean notResult = !condition1;               // false
 ```
 
-### Thứ tự ưu tiên toán tử
+### Operator precedence
 
-- Giống như toán học, các toán tử có thứ tự ưu tiên khác nhau:
-  - Trong ngoặc trước ngoài ngoặc sau
-  - Nhân chia trước cộng trừ sau
+- Like in mathematics, operators have different precedence levels:
+  - Inside parentheses before outside
+  - Multiplication and division before addition and subtraction
 
-1. Toán tử tăng giảm (`++`, `--`), phủ định (`!`)
-2. Toán tử nhân, chia, lấy dư (`*`, `/`, `%`)
-3. Toán tử cộng, trừ (`+`, `-`)
-4. Toán tử so sánh (`<`, `>`, `<=`, `>=`)
-5. Toán tử bằng và khác (`==`, `!=`)
-6. Toán tử logic AND (`&&`)
-7. Toán tử logic OR (`||`)
-8. Toán tử gán (`=`, `+=`, `-=`, `*=`, `/=`, `%=`)
+1. Increment/decrement (`++`, `--`), negation (`!`)
+2. Multiplication, division, modulus (`*`, `/`, `%`)
+3. Addition, subtraction (`+`, `-`)
+4. Comparison operators (`<`, `>`, `<=`, `>=`)
+5. Equality operators (`==`, `!=`)
+6. Logical AND (`&&`)
+7. Logical OR (`||`)
+8. Assignment operators (`=`, `+=`, `-=`, `*=`, `/=`, `%=`)
 
-### Ví dụ thứ tự ưu tiên
+### Precedence examples
 
 ```java
-int result = 5 + 3 * 2;  // 5 + 6 = 11 (nhân trước, cộng sau)
-int result2 = (5 + 3) * 2;  // 8 * 2 = 16 (dấu ngoặc ưu tiên cao nhất)
+int result = 5 + 3 * 2;  // 5 + 6 = 11 (multiply first, then add)
+int result2 = (5 + 3) * 2;  // 8 * 2 = 16 (parentheses have highest precedence)
 ```
 
-## 🧑‍🏫 Bài 4: Câu lệnh điều kiện
+## 🧑‍🏫 Lesson 4: Conditional Statements
 
-### Câu lệnh if
+### If statement
 
 ```java
 int age = 18;
 
-// Câu lệnh if đơn
+// Simple if statement
 if (age >= 18) {
-    System.out.println("Bạn đã đủ tuổi bầu cử");
+    System.out.println("You are eligible to vote");
 }
 
-// Câu lệnh if-else
+// If-else statement
 if (age >= 18) {
-    System.out.println("Bạn đã đủ tuổi bầu cử");
+    System.out.println("You are eligible to vote");
 } else {
-    System.out.println("Bạn chưa đủ tuổi bầu cử");
+    System.out.println("You are not eligible to vote");
 }
 
-// Câu lệnh if-else if-else
+// If-else if-else statement
 int score = 75;
 if (score >= 90) {
-    System.out.println("Xuất sắc");
+    System.out.println("Excellent");
 } else if (score >= 80) {
-    System.out.println("Giỏi");
+    System.out.println("Very Good");
 } else if (score >= 70) {
-    System.out.println("Khá");
+    System.out.println("Good");
 } else if (score >= 60) {
-    System.out.println("Trung bình");
+    System.out.println("Average");
 } else {
-    System.out.println("Yếu");
+    System.out.println("Poor");
 }
 ```
 
-### Câu lệnh switch-case
+### Switch-case statement
 
 ```java
 int day = 3;
@@ -468,238 +468,238 @@ String dayName;
 
 switch (day) {
     case 1:
-        dayName = "Chủ nhật";
+        dayName = "Sunday";
         break;
     case 2:
-        dayName = "Thứ hai";
+        dayName = "Monday";
         break;
     case 3:
-        dayName = "Thứ ba";
+        dayName = "Tuesday";
         break;
     case 4:
-        dayName = "Thứ tư";
+        dayName = "Wednesday";
         break;
     case 5:
-        dayName = "Thứ năm";
+        dayName = "Thursday";
         break;
     case 6:
-        dayName = "Thứ sáu";
+        dayName = "Friday";
         break;
     case 7:
-        dayName = "Thứ bảy";
+        dayName = "Saturday";
         break;
     default:
-        dayName = "Ngày không hợp lệ";
+        dayName = "Invalid day";
 }
-System.out.println("Hôm nay là " + dayName);  // Hôm nay là Thứ ba
+System.out.println("Today is " + dayName);  // Today is Tuesday
 ```
 
-### Switch với JAVA 12+ (cú pháp mới)
+### Switch with Java 12+ (new syntax)
 
 ```java
 int day = 3;
 String dayType = switch (day) {
-    case 1, 7 -> "Cuối tuần";
-    case 2, 3, 4, 5, 6 -> "Ngày làm việc";
-    default -> "Ngày không hợp lệ";
+    case 1, 7 -> "Weekend";
+    case 2, 3, 4, 5, 6 -> "Weekday";
+    default -> "Invalid day";
 };
 ```
 
-### Biểu thức điều kiện phức hợp
+### Complex conditional expressions
 
 ```java
 int age = 25;
 boolean hasID = true;
 boolean isResident = true;
 
-// Sử dụng AND (&&)
+// Using AND (&&)
 if (age >= 18 && hasID) {
-    System.out.println("Bạn có thể bỏ phiếu");
+    System.out.println("You can vote");
 }
 
-// Sử dụng OR (||)
+// Using OR (||)
 if (isResident || age >= 65) {
-    System.out.println("Bạn được giảm giá vé");
+    System.out.println("You get a ticket discount");
 }
 
-// Kết hợp nhiều điều kiện
+// Combining multiple conditions
 if ((age >= 18 && hasID) || (isResident && age >= 65)) {
-    System.out.println("Bạn có đặc quyền");
+    System.out.println("You have special privileges");
 }
 ```
 
-### Toán tử ba ngôi
+### Ternary operator
 
 ```java
 int age = 20;
-String status = (age >= 18) ? "Đã trưởng thành" : "Chưa trưởng thành";
-System.out.println(status);  // Đã trưởng thành
+String status = (age >= 18) ? "Adult" : "Minor";
+System.out.println(status);  // Adult
 ```
 
-## 🧑‍🏫 Bài 5: Câu lệnh lặp
+## 🧑‍🏫 Lesson 5: Loop Statements
 
-### Vòng lặp for
+### For loop
 
 ```java
-// In các số từ 1 đến 5
+// Print numbers from 1 to 5
 for (int i = 1; i <= 5; i++) {
     System.out.println(i);
 }
 
-// Tính tổng các số từ 1 đến 10
+// Calculate sum of numbers from 1 to 10
 int sum = 0;
 for (int i = 1; i <= 10; i++) {
     sum += i;
 }
-System.out.println("Tổng: " + sum);  // Tổng: 55
+System.out.println("Sum: " + sum);  // Sum: 55
 
-// Vòng lặp for cải tiến (for-each) - duyệt mảng/collection
+// Enhanced for loop (for-each) - iterate array/collection
 int[] numbers = {1, 2, 3, 4, 5};
 for (int num : numbers) {
     System.out.println(num);
 }
 ```
 
-- Diễn giải từng bước sử dụng vòng lặp for để tính tổng các số từ 1 đến 10:
-- Giá trị ban đầu: sum = 0, i = 1
-- Điều kiện lặp: i <= 10
-  - Lần lặp 1: i = 1, sum = 0 + 1 = 1, i++
-  - Lần lặp 2: i = 2, sum = 1 + 2 = 3, i++
-  - Lần lặp 3: i = 3, sum = 3 + 3 = 6, i++
-  - Lần lặp 4: i = 4, sum = 6 + 4 = 10, i++
-  - Lần lặp 5: i = 5, sum = 10 + 5 = 15, i++
-  - Lần lặp 6: i = 6, sum = 15 + 6 = 21, i++
-  - Lần lặp 7: i = 7, sum = 21 + 7 = 28, i++
-  - Lần lặp 8: i = 8, sum = 28 + 8 = 36, i++
-  - Lần lặp 9: i = 9, sum = 36 + 9 = 45, i++
-  - Lần lặp 10: i = 10, sum = 45 + 10 = 55, i++
-  - Lần lặp 11: i = 11, điều kiện không thỏa mãn, thoát vòng lặp
-- Kết quả cuối cùng: Tổng = 55
+- Step-by-step explanation using for loop to calculate sum from 1 to 10:
+- Initial values: sum = 0, i = 1
+- Loop condition: i <= 10
+  - Iteration 1: i = 1, sum = 0 + 1 = 1, i++
+  - Iteration 2: i = 2, sum = 1 + 2 = 3, i++
+  - Iteration 3: i = 3, sum = 3 + 3 = 6, i++
+  - Iteration 4: i = 4, sum = 6 + 4 = 10, i++
+  - Iteration 5: i = 5, sum = 10 + 5 = 15, i++
+  - Iteration 6: i = 6, sum = 15 + 6 = 21, i++
+  - Iteration 7: i = 7, sum = 21 + 7 = 28, i++
+  - Iteration 8: i = 8, sum = 28 + 8 = 36, i++
+  - Iteration 9: i = 9, sum = 36 + 9 = 45, i++
+  - Iteration 10: i = 10, sum = 45 + 10 = 55, i++
+  - Iteration 11: i = 11, condition not met, exit loop
+- Final result: Sum = 55
 
-### Vòng lặp while
+### While loop
 
 ```java
-// In các số từ 1 đến 5
+// Print numbers from 1 to 5
 int i = 1;
 while (i <= 5) {
     System.out.println(i);
     i++;
 }
 
-// Tìm số đầu tiên chia hết cho cả 3 và 5
+// Find first number divisible by both 3 and 5
 int num = 1;
-// Kiểm tra điều kiện trước rồi mới thực hiện
+// Check condition first, then execute
 while (num <= 100) {
     if (num % 3 == 0 && num % 5 == 0) {
-        System.out.println("Số đầu tiên chia hết cho cả 3 và 5: " + num);
+        System.out.println("First number divisible by both 3 and 5: " + num);
         break;
     }
     num++;
 }
 ```
 
-### Vòng lặp do-while
+### Do-while loop
 
 ```java
-// In các số từ 1 đến 5
+// Print numbers from 1 to 5
 int i = 1;
 do {
     System.out.println(i);
     i++;
 } while (i <= 5);
 
-// Mô phỏng menu lựa chọn
+// Simulate menu selection
 int choice;
-// Thực hiện ít nhất một lần rồi mới kiểm tra điều kiện
+// Execute at least once, then check condition
 do {
     System.out.println("\nMenu:");
-    System.out.println("1. Xem danh sách");
-    System.out.println("2. Thêm mới");
-    System.out.println("3. Xóa");
-    System.out.println("0. Thoát");
+    System.out.println("1. View list");
+    System.out.println("2. Add new");
+    System.out.println("3. Delete");
+    System.out.println("0. Exit");
 
-    choice = 1; // Giả sử người dùng chọn 1
+    choice = 1; // Assume user selects 1
 
     switch (choice) {
         case 1:
-            System.out.println("Đang hiển thị danh sách...");
+            System.out.println("Displaying list...");
             break;
         case 2:
-            System.out.println("Đang thêm mới...");
+            System.out.println("Adding new...");
             break;
         case 3:
-            System.out.println("Đang xóa...");
+            System.out.println("Deleting...");
             break;
         case 0:
-            System.out.println("Đang thoát...");
+            System.out.println("Exiting...");
             break;
         default:
-            System.out.println("Lựa chọn không hợp lệ!");
+            System.out.println("Invalid choice!");
     }
 } while (choice != 0);
 ```
 
-### Từ khóa break và continue
+### Break and continue keywords
 
 ```java
-// Sử dụng break để thoát khỏi vòng lặp
+// Using break to exit loop
 for (int i = 1; i <= 10; i++) {
     if (i == 5) {
-        break;  // Thoát khỏi vòng lặp khi i = 5
+        break;  // Exit loop when i = 5
     }
-    System.out.println(i);  // In: 1, 2, 3, 4
+    System.out.println(i);  // Print: 1, 2, 3, 4
 }
 
-// Sử dụng continue để bỏ qua lần lặp hiện tại
+// Using continue to skip current iteration
 for (int i = 1; i <= 5; i++) {
     if (i == 3) {
-        continue;  // Bỏ qua lần lặp khi i = 3
+        continue;  // Skip iteration when i = 3
     }
-    System.out.println(i);  // In: 1, 2, 4, 5
+    System.out.println(i);  // Print: 1, 2, 4, 5
 }
 
-// Vòng lặp lồng nhau với nhãn (label)
+// Nested loops with label
 outerLoop: for (int i = 1; i <= 3; i++) {
     for (int j = 1; j <= 3; j++) {
         if (i * j > 5) {
-            break outerLoop;  // Thoát khỏi cả vòng lặp ngoài
+            break outerLoop;  // Exit outer loop
         }
         System.out.println(i + " * " + j + " = " + (i * j));
     }
 }
 ```
 
-## 🧪 Bài tập lớn cuối phần: Quản lý điểm sinh viên
+## 🧪 Final Project: Student Grade Management
 
-### Mô tả bài toán
+### Problem Description
 
-Viết chương trình cho phép người dùng:
+Write a program that allows users to:
 
-- Nhập tên sinh viên và điểm của 3 môn học (Toán, Lý, Hóa)
-- Tính điểm trung bình
-- Xếp loại học lực theo các tiêu chí:
-  - TB >= 8.0 → Giỏi
-  - 6.5 <= TB < 8.0 → Khá
-  - 5.0 <= TB < 6.5 → Trung bình
-  - < 5.0 → Yếu
-- In ra bảng thông tin sinh viên và kết quả xếp loại
+- Enter student name and scores for 3 subjects (Math, Physics, Chemistry)
+- Calculate average score
+- Classify academic performance according to criteria:
+  - AVG >= 8.0 → Excellent
+  - 6.5 <= AVG < 8.0 → Very Good
+  - 5.0 <= AVG < 6.5 → Average
+  - < 5.0 → Poor
+- Print student information table and classification result
 
-### Kết quả chạy chương trình (Ví dụ)
+### Program Output (Example)
 
 ```text
-CHƯƠNG TRÌNH QUẢN LÝ ĐIỂM SINH VIÊN
+STUDENT GRADE MANAGEMENT PROGRAM
 -----------------------------------
-Nhập tên sinh viên: Nguyễn Văn A
-Nhập điểm Toán: 8.5
-Nhập điểm Lý: 7.5
-Nhập điểm Hóa: 9.0
+Enter student name: Nguyen Van A
+Enter Math score: 8.5
+Enter Physics score: 7.5
+Enter Chemistry score: 9.0
 
-KẾT QUẢ XẾP LOẠI
+CLASSIFICATION RESULT
 -----------------------------------
-Sinh viên: Nguyễn Văn A
-Điểm Toán: 8.5
-Điểm Lý: 7.5
-Điểm Hóa: 9.0
-Điểm trung bình: 8.33
-Xếp loại: Giỏi
+Student: Nguyen Van A
+Math score: 8.5
+Physics score: 7.5
+Chemistry score: 9.0
+Average score: 8.33
+Classification: Excellent
 ```

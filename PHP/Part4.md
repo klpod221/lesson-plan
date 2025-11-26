@@ -1,31 +1,31 @@
 ---
 prev:
-  text: '💾 PHP Nâng Cao'
+  text: '💾 Advanced PHP'
   link: '/PHP/Part3'
 next:
-  text: '🚀 Xu Hướng Hiện Đại'
+  text: '🚀 Modern Trends'
   link: '/PHP/Part5'
 ---
-# 📘 PHẦN 4: FRAMEWORK VÀ PHÁT TRIỂN ỨNG DỤNG WEB HIỆN ĐẠI
+# 📘 PART 4: FRAMEWORKS AND MODERN WEB APPLICATION DEVELOPMENT
 
-## 🎯 Mục tiêu tổng quát
+## 🎯 General Objectives
 
-- Hiểu và áp dụng mô hình MVC trong phát triển ứng dụng
-- Nắm vững các khái niệm cơ bản của Laravel Framework
-- Sử dụng thành thạo Composer để quản lý thư viện và dependencies
-- Biết cách viết test và áp dụng TDD (Test-Driven Development)
-- Triển khai ứng dụng PHP lên môi trường production an toàn
+- Understand and apply the MVC model in application development.
+- Master the basic concepts of the Laravel Framework.
+- Proficiently use Composer to manage libraries and dependencies.
+- Know how to write tests and apply TDD (Test-Driven Development).
+- Deploy PHP applications to a production environment securely.
 
-## 🧑‍🏫 Bài 17: Giới thiệu về MVC và Framework
+## 🧑‍🏫 Lesson 17: Introduction to MVC and Frameworks
 
-### Mô hình MVC (Model-View-Controller)
+### MVC Model (Model-View-Controller)
 
-- MVC là mô hình kiến trúc phần mềm chia ứng dụng thành 3 thành phần chính:
-  - Model: Xử lý dữ liệu và logic nghiệp vụ
-  - View: Hiển thị dữ liệu và giao diện người dùng
-  - Controller: Điều khiển luồng xử lý, kết nối Model và View
+- MVC is a software architectural pattern that divides an application into 3 main components:
+  - Model: Handles data and business logic.
+  - View: Displays data and user interface.
+  - Controller: Controls the flow of execution, connects Model and View.
 
-### Cấu trúc mô hình MVC
+### MVC Structure
 
 ```text
 ┌─────────────────────────────────────┐
@@ -41,8 +41,8 @@ next:
                     ▼
 ┌─────────────────────────────────────┐
 │             ROUTER                  │
-│      Phân tích URL và chuyển        │
-│        request đến Controller       │
+│      Parses URL and forwards        │
+│        request to Controller        │
 └───────────────────┬─────────────────┘
                     │
                     ▼
@@ -50,10 +50,10 @@ next:
 │          CONTROLLER                 │
 │                                     │
 │  ┌─────────────────────────────┐    │
-│  │  Điều phối luồng xử lý      │    │
-│  │  Nhận input từ Request      │    │
-│  │  Tương tác với Model        │    │
-│  │  Trả về View                │    │
+│  │  Coordinates execution flow │    │
+│  │  Receives input from Request│    │
+│  │  Interacts with Model       │    │
+│  │  Returns View               │    │
 │  └─────────────────────────────┘    │
 └───────┬─────────────────────┬───────┘
         │                     │
@@ -62,11 +62,11 @@ next:
 │    MODEL      │     │    VIEW       │
 │               │     │               │
 │  ┌─────────┐  │     │  ┌─────────┐  │
-│  │ Quản lý │  │     │  │ Hiển thị│  │
-│  │ dữ liệu │  │     │  │ dữ liệu │  │
-│  │ và logic│◄─┼─────┼─►│ cho user│  │
-│  │ nghiệp  │  │     │  │         │  │
-│  │ vụ      │  │     │  │         │  │
+│  │ Manages │  │     │  │ Displays│  │
+│  │ data    │  │     │  │ data    │  │
+│  │ and     │◄─┼─────┼─►│ for user│  │
+│  │ business│  │     │  │         │  │
+│  │ logic   │  │     │  │         │  │
 │  └─────────┘  │     │  └─────────┘  │
 │               │     │               │
 └───────┬───────┘     └───────┬───────┘
@@ -90,78 +90,78 @@ next:
 └─────────────────────────────────────┘
 ```
 
-#### Luồng xử lý trong MVC
+#### Processing Flow in MVC
 
-1. **Client gửi request**: Người dùng tương tác với giao diện (click button, submit form...)
-2. **Router phân tích URL**: Xác định controller và action cần xử lý
-3. **Controller nhận request**:
-   - Xử lý dữ liệu đầu vào
-   - Gọi đến Model để thực hiện logic nghiệp vụ
-4. **Model xử lý dữ liệu**:
-   - Tương tác với Database
-   - Thực hiện các quy tắc nghiệp vụ
-   - Trả kết quả cho Controller
-5. **Controller chọn View**:
-   - Truyền dữ liệu từ Model vào View
-6. **View render giao diện**:
-   - Hiển thị dữ liệu
-   - Tạo HTML/JSON response
-7. **Response trả về Client**:
-   - Người dùng nhận được kết quả
+1. **Client sends request**: User interacts with the interface (clicks button, submits form...).
+2. **Router parses URL**: Determines the controller and action needed to handle the request.
+3. **Controller receives request**:
+   - Processes input data.
+   - Calls Model to execute business logic.
+4. **Model processes data**:
+   - Interacts with Database.
+   - Applies business rules.
+   - Returns results to Controller.
+5. **Controller selects View**:
+   - Passes data from Model to View.
+6. **View renders interface**:
+   - Displays data.
+   - Generates HTML/JSON response.
+7. **Response returned to Client**:
+   - User receives the result.
 
-#### Vai trò của các thành phần
+#### Roles of Components
 
-- **Model**: Đại diện cho dữ liệu và logic nghiệp vụ
+- **Model**: Represents data and business logic.
 
-  - Truy vấn database
-  - Xử lý, tính toán dữ liệu
-  - Áp dụng quy tắc nghiệp vụ
-  - Độc lập với giao diện người dùng
+  - Queries database.
+  - Processes, calculates data.
+  - Applies business rules.
+  - Independent of user interface.
 
-- **View**: Hiển thị dữ liệu và giao diện người dùng
+- **View**: Displays data and user interface.
 
-  - Template HTML/XML/JSON
-  - Hiển thị dữ liệu từ Model
-  - Không chứa logic nghiệp vụ
-  - Có thể chứa logic hiển thị
+  - HTML/XML/JSON templates.
+  - Displays data from Model.
+  - Does not contain business logic.
+  - May contain presentation logic.
 
-- **Controller**: Điều phối luồng xử lý
-  - Nhận và xử lý request
-  - Tương tác với Model để lấy/xử lý dữ liệu
-  - Chọn View thích hợp
-  - Truyền dữ liệu từ Model vào View
+- **Controller**: Coordinates execution flow.
+  - Receives and processes requests.
+  - Interacts with Model to get/process data.
+  - Selects appropriate View.
+  - Passes data from Model to View.
 
-### Ví dụ MVC đơn giản
+### Simple MVC Example
 
-#### Cấu trúc thư mục
+#### Directory Structure
 
 ```text
 my-mvc-app/
 ├── config/
-│   └── database.php         # Cấu hình kết nối database
+│   └── database.php         # Database connection configuration
 ├── controllers/
-│   └── UserController.php   # Controller xử lý các action liên quan đến user
+│   └── UserController.php   # Controller handling user-related actions
 ├── models/
-│   └── User.php             # Model tương tác với bảng users
+│   └── User.php             # Model interacting with users table
 ├── views/
 │   └── users/
-│       ├── index.php        # Hiển thị danh sách người dùng
-│       ├── show.php         # Hiển thị chi tiết một người dùng
-│       ├── create.php       # Form tạo người dùng mới
-│       └── edit.php         # Form chỉnh sửa người dùng
+│       ├── index.php        # Display list of users
+│       ├── show.php         # Display user details
+│       ├── create.php       # Create new user form
+│       └── edit.php         # Edit user form
 ├── public/
-│   ├── index.php            # Entry point của ứng dụng
+│   ├── index.php            # Application entry point
 │   ├── css/
 │   │   └── style.css
 │   └── js/
 │       └── app.js
 └── core/
-    ├── Router.php          # Xử lý route
-    ├── Database.php        # Kết nối database
-    └── App.php             # Khởi tạo ứng dụng
+    ├── Router.php          # Route handling
+    ├── Database.php        # Database connection
+    └── App.php             # Application initialization
 ```
 
-#### Nội dung các file
+#### File Contents
 
 1. **public/index.php** - Entry point:
 
@@ -184,12 +184,12 @@ my-mvc-app/
        }
    });
 
-   // Khởi tạo ứng dụng
+   // Initialize application
    $app = new App();
    $app->run();
    ```
 
-2. **core/App.php** - Khởi tạo ứng dụng:
+2. **core/App.php** - Application initialization:
 
    ```php
    <?php
@@ -201,7 +201,7 @@ my-mvc-app/
        public function __construct() {
            $url = $this->parseUrl();
 
-           // Xác định controller
+           // Determine controller
            if (isset($url[0]) && file_exists('../controllers/' . $url[0] . 'Controller.php')) {
                $this->controller = $url[0] . 'Controller';
                unset($url[0]);
@@ -210,7 +210,7 @@ my-mvc-app/
            require_once '../controllers/' . $this->controller . '.php';
            $this->controller = new $this->controller;
 
-           // Xác định action
+           // Determine action
            if (isset($url[1])) {
                if (method_exists($this->controller, $url[1])) {
                    $this->action = $url[1];
@@ -218,7 +218,7 @@ my-mvc-app/
                }
            }
 
-           // Lấy params
+           // Get params
            $this->params = $url ? array_values($url) : [];
        }
 
@@ -234,7 +234,7 @@ my-mvc-app/
    }
    ```
 
-3. **core/Database.php** - Kết nối database:
+3. **core/Database.php** - Database connection:
 
    ```php
    <?php
@@ -248,7 +248,7 @@ my-mvc-app/
        private $statement;
 
        public function __construct() {
-           // Tạo kết nối PDO
+           // Create PDO connection
            try {
                $this->conn = new PDO('mysql:host=' . $this->host . ';dbname=' . $this->dbname,
                                    $this->user, $this->pass);
@@ -364,24 +364,24 @@ my-mvc-app/
            $this->userModel = new User();
        }
 
-       // Hiển thị tất cả người dùng
+       // Display all users
        public function index() {
            $users = $this->userModel->getAllUsers();
            require_once '../views/users/index.php';
        }
 
-       // Hiển thị chi tiết người dùng
+       // Display user details
        public function show($id) {
            $user = $this->userModel->getUserById($id);
            require_once '../views/users/show.php';
        }
 
-       // Hiển thị form tạo người dùng
+       // Display create user form
        public function create() {
            require_once '../views/users/create.php';
        }
 
-       // Xử lý lưu người dùng mới
+       // Handle saving new user
        public function store() {
            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                $data = [
@@ -398,13 +398,13 @@ my-mvc-app/
            }
        }
 
-       // Hiển thị form chỉnh sửa
+       // Display edit form
        public function edit($id) {
            $user = $this->userModel->getUserById($id);
            require_once '../views/users/edit.php';
        }
 
-       // Xử lý cập nhật
+       // Handle update
        public function update() {
            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                $data = [
@@ -421,7 +421,7 @@ my-mvc-app/
            }
        }
 
-       // Xử lý xóa
+       // Handle delete
        public function delete($id) {
            if ($this->userModel->deleteUser($id)) {
                header('Location: /users');
@@ -432,7 +432,7 @@ my-mvc-app/
    }
    ```
 
-6. **views/users/index.php** - View hiển thị danh sách:
+6. **views/users/index.php** - View displaying list:
 
    ```php
    <!DOCTYPE html>
@@ -478,7 +478,7 @@ my-mvc-app/
    </html>
    ```
 
-7. **views/users/create.php** - View tạo người dùng:
+7. **views/users/create.php** - View create user:
 
    ```php
    <!DOCTYPE html>
@@ -514,7 +514,7 @@ my-mvc-app/
    </html>
    ```
 
-8. **.htaccess** trong thư mục public - Rewrite URLs:
+8. **.htaccess** in public directory - Rewrite URLs:
 
    ```apache
    <IfModule mod_rewrite.c>
@@ -527,47 +527,47 @@ my-mvc-app/
    </IfModule>
    ```
 
-Trên đây là một ví dụ đơn giản về cấu trúc MVC với các thành phần chính:
+Above is a simple example of MVC structure with main components:
 
-- **Model**: Quản lý dữ liệu và logic nghiệp vụ (User.php)
-- **View**: Hiển thị giao diện người dùng (các file trong thư mục views/)
-- **Controller**: Điều phối luồng xử lý (UserController.php)
-- **Router/App**: Phân tích URL và chuyển về controller phù hợp
+- **Model**: Manages data and business logic (User.php)
+- **View**: Displays user interface (files in views/ directory)
+- **Controller**: Coordinates execution flow (UserController.php)
+- **Router/App**: Parses URL and forwards to appropriate controller
 
-Ứng dụng này cho phép thực hiện đầy đủ các thao tác CRUD (Create, Read, Update, Delete) với entity User theo mô hình MVC.
+This application allows performing full CRUD operations (Create, Read, Update, Delete) with User entity following MVC model.
 
-### Giới thiệu về Framework PHP phổ biến
+### Introduction to Popular PHP Frameworks
 
 1. Laravel - <https://laravel.com/>
 
-   - Full-stack framework phổ biến nhất hiện nay
-   - Cú pháp rõ ràng, dễ đọc
-   - Hệ sinh thái phong phú
+   - Most popular full-stack framework today
+   - Clear, readable syntax
+   - Rich ecosystem
 
 2. Symfony - <https://symfony.com/>
 
-   - Framework mạnh mẽ với nhiều component có thể tái sử dụng
-   - Được sử dụng bởi nhiều framework và CMS khác
+   - Powerful framework with many reusable components
+   - Used by many other frameworks and CMSs
 
 3. CodeIgniter - <https://codeigniter.com/>
 
-   - Nhẹ, nhanh, footprint nhỏ
-   - Dễ học cho người mới bắt đầu
+   - Light, fast, small footprint
+   - Easy to learn for beginners
 
 4. Slim - <https://www.slimframework.com/>
 
-   - Micro-framework tập trung vào routing và middleware
-   - Lý tưởng cho API nhỏ và ứng dụng đơn giản
+   - Micro-framework focusing on routing and middleware
+   - Ideal for small APIs and simple applications
 
 5. Yii - <https://www.yiiframework.com/>
 
-   - Framework hiệu suất cao
-   - Tích hợp AJAX và jQuery
+   - High-performance framework
+   - Integrates AJAX and jQuery
 
 6. CakePHP - <https://cakephp.org/>
 
    - Convention over Configuration
-   - Scaffolding và code generation
+   - Scaffolding and code generation
 
 7. Zend/Laminas - <https://getlaminas.org/>
 
@@ -575,41 +575,41 @@ Trên đây là một ví dụ đơn giản về cấu trúc MVC với các thà
    - Modular architecture
 
 8. Phalcon - <https://phalcon.io/>
-   - Framework hiệu suất cao được viết bằng C
-   - Được cài đặt như một extension PHP
+   - High-performance framework written in C
+   - Installed as a PHP extension
 
-## 🧑‍🏫 Bài 18: Laravel Framework
+## 🧑‍🏫 Lesson 18: Laravel Framework
 
-- Ở giáo trình này, chúng ta sẽ tìm hiểu về Laravel - một trong những framework PHP phổ biến nhất hiện nay. Và bởi vì Laravel rất lớn và phong phú, nên chúng ta sẽ chỉ tập trung vào các khái niệm cơ bản và những gì cần thiết để bắt đầu phát triển ứng dụng với Laravel.
+- In this curriculum, we will explore Laravel - one of the most popular PHP frameworks today. Because Laravel is very large and extensive, we will only focus on basic concepts and what is needed to start developing applications with Laravel.
 
-- Đây cũng là một framework có phần documentation mà bản thân tôi đánh giá là tốt nhất trong tất cả những framework mà tôi đã từng sử dụng. Vì vậy, tôi khuyên các bạn nên nghiên cứu tài liệu chính thức của Laravel tại <https://laravel.com/docs> và sử dụng phần lộ trình này của tôi như một tài liệu tham khảo.
+- This is also a framework with documentation that I personally rate as the best among all frameworks I have used. Therefore, I recommend you to study the official Laravel documentation at <https://laravel.com/docs> and use this roadmap as a reference.
 
-### Cài đặt và Cấu hình Laravel
+### Installation and Configuration of Laravel
 
 ```bash
-# Tạo project Laravel mới
+# Create new Laravel project
 composer create-project laravel/laravel my-laravel-app
 
-# Hoặc sử dụng Laravel Installer
+# Or use Laravel Installer
 composer global require laravel/installer
 laravel new my-laravel-app
 
-# Chạy development server
+# Run development server
 cd my-laravel-app
 php artisan serve
 ```
 
-### Cấu trúc thư mục Laravel
+### Laravel Directory Structure
 
 ```text
 my-laravel-app/
-├── app/                     # Chứa code cốt lõi của ứng dụng
-│   ├── Console/              # Chứa các lệnh Artisan custom
-│   ├── Exceptions/          # Xử lý exceptions
+├── app/                     # Contains core application code
+│   ├── Console/              # Contains custom Artisan commands
+│   ├── Exceptions/          # Handles exceptions
 │   ├── Http/                # Controllers, Middleware, Requests
-│   ├── Models/              # Các model Eloquent
+│   ├── Models/              # Eloquent models
 │   └── Providers/           # Service providers
-├── bootstrap/              # Khởi động framework
+├── bootstrap/              # Framework bootstrap
 ├── config/                 # Configuration files
 ├── database/               # Database migrations, factories, seeds
 ├── lang/                   # Localization files
@@ -618,7 +618,7 @@ my-laravel-app/
 │   ├── js/                  # JavaScript files
 │   ├── sass/                # SASS files
 │   └── views/               # Templates
-├── routes/                 # Định nghĩa các routes
+├── routes/                 # Define routes
 │   ├── api.php              # API routes
 │   ├── channels.php         # Broadcasting channels
 │   ├── console.php          # Console routes
@@ -631,7 +631,7 @@ my-laravel-app/
 └── composer.json           # Composer dependencies
 ```
 
-### Routing và Controller trong Laravel
+### Routing and Controller in Laravel
 
 ```php
 <?php
@@ -662,10 +662,10 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
 // Named routes
 Route::get('/user/profile', [ProfileController::class, 'show'])->name('profile');
 
-// Sử dụng named route trong view hoặc code
+// Use named route in view or code
 // <a href="{{ route('profile') }}">Profile</a>
 
-// Tự động tạo tất cả các routes CRUD
+// Automatically create all CRUD routes
 Route::resource('photos', PhotoController::class);
 
 // API routes (routes/api.php)
@@ -674,7 +674,7 @@ Route::post('/users', [UserApiController::class, 'store']);
 ?>
 ```
 
-### Controller trong Laravel
+### Controller in Laravel
 
 ```php
 <?php
@@ -688,7 +688,7 @@ use App\Http\Requests\StoreUserRequest;
 class UserController extends Controller
 {
     /**
-     * Hiển thị danh sách người dùng
+     * Display a listing of users
      */
     public function index()
     {
@@ -697,7 +697,7 @@ class UserController extends Controller
     }
 
     /**
-     * Hiển thị form tạo người dùng mới
+     * Show the form for creating a new user
      */
     public function create()
     {
@@ -705,13 +705,13 @@ class UserController extends Controller
     }
 
     /**
-     * Lưu người dùng mới vào database
+     * Store a newly created user in storage
      */
     public function store(StoreUserRequest $request)
     {
-        // Form validation được xử lý trong StoreUserRequest
+        // Form validation is handled in StoreUserRequest
 
-        // Tạo user mới
+        // Create new user
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
@@ -723,7 +723,7 @@ class UserController extends Controller
     }
 
     /**
-     * Hiển thị thông tin của một người dùng
+     * Display the specified user
      */
     public function show($id)
     {
@@ -732,7 +732,7 @@ class UserController extends Controller
     }
 
     /**
-     * Hiển thị form sửa thông tin người dùng
+     * Show the form for editing the specified user
      */
     public function edit($id)
     {
@@ -741,7 +741,7 @@ class UserController extends Controller
     }
 
     /**
-     * Cập nhật thông tin người dùng
+     * Update the specified user in storage
      */
     public function update(Request $request, $id)
     {
@@ -759,7 +759,7 @@ class UserController extends Controller
     }
 
     /**
-     * Xóa người dùng
+     * Remove the specified user from storage
      */
     public function destroy($id)
     {
@@ -773,7 +773,7 @@ class UserController extends Controller
 ?>
 ```
 
-### Model và Eloquent ORM
+### Model and Eloquent ORM
 
 ```php
 <?php
@@ -924,9 +924,9 @@ class User extends Model
 @endpush
 ```
 
-### Migrations và Database
+### Migrations and Database
 
-- Thay vì tạo bảng bằng SQL, Laravel sử dụng migrations để quản lý schema của database.
+- Instead of creating tables using SQL, Laravel uses migrations to manage database schema.
 
 ```php
 <?php
@@ -966,13 +966,13 @@ class CreateUsersTable extends Migration
     }
 }
 
-// Tạo migration mới bằng Artisan
+// Create new migration using Artisan
 // php artisan make:migration create_posts_table
 
-// Chạy migrations
+// Run migrations
 // php artisan migrate
 
-// Các lệnh migrate khác
+// Other migrate commands
 // php artisan migrate:rollback
 // php artisan migrate:reset
 // php artisan migrate:refresh
@@ -980,9 +980,9 @@ class CreateUsersTable extends Migration
 ?>
 ```
 
-## 🧑‍🏫 Bài 19: Testing trong PHP
+## 🧑‍🏫 Lesson 19: Testing in PHP
 
-### Unit Testing với PHPUnit
+### Unit Testing with PHPUnit
 
 ```php
 <?php
@@ -1102,16 +1102,16 @@ class CalculatorTest extends TestCase
 </phpunit>
 */
 
-// Chạy tests
+// Run tests
 // vendor/bin/phpunit
 ?>
 ```
 
-### Feature Testing trong Laravel
+### Feature Testing in Laravel
 
 ```php
 <?php
-// Trong Laravel, tạo Feature Test
+// In Laravel, create Feature Test
 // php artisan make:test UserTest
 
 // tests/Feature/UserTest.php
@@ -1191,7 +1191,7 @@ class UserTest extends TestCase
 ?>
 ```
 
-### Mock Objects và Testing với Dependencies
+### Mock Objects and Testing with Dependencies
 
 ```php
 <?php
@@ -1317,84 +1317,84 @@ class UserServiceTest extends TestCase
 ?>
 ```
 
-### Code Coverage và Best Practices
+### Code Coverage and Best Practices
 
 #### Code Coverage
 
-- Code coverage là một chỉ số cho biết phần trăm mã nguồn đã được kiểm tra bởi các bài test. PHPUnit hỗ trợ tính năng này.
+- Code coverage is a metric that shows the percentage of source code that is tested by your tests. PHPUnit supports this feature.
 
 ```bash
-# Chạy PHPUnit với code coverage report (HTML)
+# Run PHPUnit with code coverage report (HTML)
 vendor/bin/phpunit --coverage-html coverage
 
-# Chạy tests với specific test file
+# Run tests with specific test file
 vendor/bin/phpunit tests/UserServiceTest.php
 
-# Chạy tests với specific test method
+# Run tests with specific test method
 vendor/bin/phpunit --filter testRegisterWithValidData tests/UserServiceTest.php
 ```
 
-#### Best Practices cho Testing
+#### Best Practices for Testing
 
-1. Tuân theo mô hình AAA
+1. Follow AAA pattern
 
-   - **Arrange**: Thiết lập môi trường kiểm thử
-   - **Act**: Thực thi đoạn mã cần kiểm thử
-   - **Assert**: Kiểm tra kết quả có đúng như mong đợi
+   - **Arrange**: Set up test environment.
+   - **Act**: Execute code to test.
+   - **Assert**: Verify result matches expectation.
 
-2. Mỗi phương thức kiểm thử chỉ nên kiểm tra một chức năng duy nhất
+2. Each test method should test only one functionality.
 
-3. Sử dụng quy tắc đặt tên rõ ràng
+3. Use clear naming conventions
 
    - `testShouldDoSomethingWhenSomething`
    - `testMethodNameWhenStateUnderTest`
 
-4. Sử dụng Data Provider để kiểm thử cùng logic với nhiều input khác nhau
+4. Use Data Provider to test same logic with multiple inputs.
 
-5. Giữ cho các test độc lập – không để các test phụ thuộc vào nhau
+5. Keep tests independent – don't let tests depend on each other.
 
-6. Tránh sử dụng mock quá mức – nếu bạn mock mọi thứ thì bạn không đang kiểm thử gì cả
+6. Avoid over-mocking – if you mock everything, you are not testing anything.
 
-7. Kiểm thử các trường hợp biên và tình huống lỗi, không chỉ kiểm thử đường đi lý tưởng (happy path)
+7. Test edge cases and error conditions, not just the happy path.
 
-8. Viết cả Unit Test và Integration Test
+8. Write both Unit Tests and Integration Tests.
 
-9. Sử dụng `setUp()` và `tearDown()` để khởi tạo và dọn dẹp dữ liệu dùng chung cho các test
+9. Use `setUp()` and `tearDown()` to initialize and clean up shared data for tests.
 
-10. Sử dụng phương thức assert phù hợp
+10. Use appropriate assertion methods
 
-    - `assertEquals`: kiểm tra bằng giá trị
-    - `assertSame`: kiểm tra bằng giá trị và kiểu (`===`)
-    - `assertTrue` / `assertFalse`
-    - `assertNull`
-    - `assertArrayHasKey`
-    - `assertCount`
-    - `assertInstanceOf`
-    - v.v.
+    - `assertEquals`: check value equality.
+    - `assertSame`: check value and type equality (`===`).
+    - `assertTrue` / `assertFalse`.
+    - `assertNull`.
+    - `assertArrayHasKey`.
+    - `assertCount`.
+    - `assertInstanceOf`.
+    - etc.
 
-11. Đối với Laravel, sử dụng factory để tạo dữ liệu kiểm thử
+11. For Laravel, use factories to create test data.
 
-12. Sử dụng test double một cách hợp lý
+12. Use test doubles appropriately
 
-    - **Mocks**: Kiểm tra phương thức có được gọi đúng không
-    - **Stubs**: Cung cấp giá trị trả về định sẵn
-    - **Spies**: Ghi nhận phương thức đã được gọi
-    - **Dummies**: Tham số bắt buộc nhưng không sử dụng
-    - **Fakes**: Thay thế implementation thật bằng bản đơn giản hơn
+    - **Mocks**: Verify method calls.
+    - **Stubs**: Provide canned answers to calls.
+    - **Spies**: Record method calls.
+    - **Dummies**: Required parameters but not used.
+    - **Fakes**: Replace real implementation with simpler one.
 
-## 🧑‍🏫 Bài 20: Tối ưu Laravel cho Product
+## 🧑‍🏫 Lesson 20: Optimizing Laravel for Production
 
-### Laravel cache và tối ưu hóa autoloader
+### Laravel cache and autoloader optimization
 
 ```bash
 composer install --optimize-autoloader --no-dev
 php artisan config:cache # Cache config files
 php artisan route:cache # Cache routes
 php artisan view:cache # Cache views
-php artisan optimize # Optimize the framework để tăng tốc độ
+php artisan optimize # Optimize the framework for speed
 ```
 
-### Tối ưu hóa cấu hình PHP
+### PHP Configuration Optimization
 
 ```php
 <?php
@@ -1418,7 +1418,7 @@ ini_set('opcache.jit_buffer_size', '64M');
 
 ### Laravel Performance Tips
 
-1. Sử dụng eager loading để tránh N+1 problem
+1. Use eager loading to avoid N+1 problem
 
    ```php
    <?php
@@ -1441,7 +1441,7 @@ ini_set('opcache.jit_buffer_size', '64M');
    $table->index(['status', 'created_at']);
    ```
 
-3. Cache những query nặng
+3. Cache heavy queries
 
    ```php
    <?php
@@ -1461,7 +1461,7 @@ ini_set('opcache.jit_buffer_size', '64M');
    });
    ```
 
-4. Sử dụng Memcache hoặc Redis cho cache
+4. Use Memcache or Redis for cache
 
    ```php
    <?php
@@ -1486,7 +1486,7 @@ ini_set('opcache.jit_buffer_size', '64M');
    $value = Cache::get('key');
    ```
 
-5. Sử dụng phân trang (pagination) thay vì lấy tất cả dữ liệu
+5. Use pagination instead of fetching all data
 
    ```php
    <?php
@@ -1500,7 +1500,7 @@ ini_set('opcache.jit_buffer_size', '64M');
    $users = App\Models\User::paginate(15, ['*'], 'page', 2);
    ```
 
-6. Sử dụng queue cho các tác vụ nặng (như gửi email, xử lý ảnh) (xem thêm ở documentation của Laravel)
+6. Use queues for heavy tasks (like sending emails, processing images) (see more in Laravel documentation)
 
    ```php
    <?php
@@ -1509,7 +1509,7 @@ ini_set('opcache.jit_buffer_size', '64M');
    SendEmailJob::dispatch($user);
    ```
 
-7. Sử dụng database chunking để xử lý dữ liệu lớn
+7. Use database chunking to process large datasets
 
    ```php
    <?php
@@ -1521,7 +1521,7 @@ ini_set('opcache.jit_buffer_size', '64M');
    });
    ```
 
-### Monitoring và Logging
+### Monitoring and Logging
 
 ```php
 <?php
@@ -1603,9 +1603,9 @@ try {
 ?>
 ```
 
-### Security trong Production
+### Security in Production
 
-1. Escape dữ liệu đầu ra để phòng chống XSS
+1. Escape output data to prevent XSS
 
    ```php
    <?php
@@ -1615,7 +1615,7 @@ try {
    ?>
    ```
 
-2. Sử dụng Prepared Statements / Truy vấn tham số hóa để làm việc với database
+2. Use Prepared Statements / Parameterized Queries for database operations
 
    ```php
    <?php
@@ -1626,7 +1626,7 @@ try {
    ?>
    ```
 
-3. Thiết lập các HTTP header bảo mật
+3. Set security HTTP headers
 
    ```php
    <?php
@@ -1638,7 +1638,7 @@ try {
    ?>
    ```
 
-4. Bảo mật session
+4. Session security
 
    ```php
    <?php
@@ -1654,7 +1654,7 @@ try {
    ?>
    ```
 
-5. Sử dụng CSRF protection
+5. Use CSRF protection
 
    ```php
    <?php
@@ -1667,7 +1667,7 @@ try {
    ?>
    ```
 
-6. Validate tất cả dữ liệu đầu vào
+6. Validate all input data
 
    ```php
    <?php
@@ -1680,14 +1680,14 @@ try {
    ?>
    ```
 
-7. Cập nhật các dependencies thường xuyên
+7. Update dependencies regularly
 
    ```bash
    # Update dependencies
    composer update
    ```
 
-8. Lưu trữ dữ liệu nhạy cảm một cách an toàn
+8. Store sensitive data securely
 
    ```text
     // Store sensitive data securely
@@ -1698,7 +1698,7 @@ try {
     ?>
    ```
 
-9. Rate limiting cho các API
+9. Rate limiting for APIs
 
    ```php
    <?php
@@ -1709,7 +1709,7 @@ try {
    ?>
    ```
 
-10. Cấu hình hiển thị lỗi trong môi trường production
+10. Configure error display in production environment
 
     ```php
     <?php
@@ -1721,53 +1721,53 @@ try {
     ?>
     ```
 
-## 🧪 BÀI TẬP LỚN CUỐI PHẦN: Xây dựng ứng dụng web bằng Laravel
+## 🧪 FINAL PROJECT: Building a Web Application with Laravel
 
-### Mô tả bài toán
+### Project Description
 
-Xây dựng một ứng dụng quản lý dự án (Project Management) với Laravel, áp dụng các kiến thức đã học về framework, kiến trúc MVC, testing và best practices.
+Build a Project Management application with Laravel, applying learned concepts about frameworks, MVC architecture, testing, and best practices.
 
-### Yêu cầu
+### Requirements
 
-1. Chức năng người dùng:
+1. User features:
 
-   - Đăng ký, đăng nhập, quên mật khẩu
-   - Quyền hạn: Admin, Project Manager, Developer
-   - Hồ sơ người dùng, thay đổi mật khẩu
+   - Registration, login, password recovery.
+   - Roles: Admin, Project Manager, Developer.
+   - User profile, password change.
 
-2. Chức năng quản lý dự án:
+2. Project management features:
 
-   - CRUD cho dự án (Projects)
-   - Phân công người dùng vào dự án
-   - Thêm công việc (Tasks) vào dự án
-   - Theo dõi trạng thái dự án
+   - CRUD for Projects.
+   - Assign users to projects.
+   - Add tasks to projects.
+   - Track project status.
 
-3. Chức năng quản lý công việc:
+3. Task management features:
 
-   - CRUD cho công việc (Tasks)
-   - Phân công người thực hiện
-   - Cập nhật trạng thái công việc
-   - Bình luận trên công việc
-   - Đính kèm file
+   - CRUD for Tasks.
+   - Assign executors.
+   - Update task status.
+   - Comment on tasks.
+   - File attachments.
 
-4. Dashboard và báo cáo:
+4. Dashboard and reporting:
 
-   - Thống kê dự án, công việc theo trạng thái
-   - Biểu đồ tiến độ dự án
-   - Xuất báo cáo (PDF/Excel)
+   - Project and task statistics by status.
+   - Project progress charts.
+   - Export reports (PDF/Excel).
 
-5. Yêu cầu kỹ thuật:
-   - Sử dụng Laravel 9+
-   - Eloquent ORM cho tương tác database
-   - Migration và seeding cho database
-   - Authenication và Authorization với Laravel
-   - Blade templates và Laravel Mix cho frontend
-   - Unit & Feature Testing
-   - RESTful API cho một số chức năng
-   - Sử dụng Laravel Queue cho tác vụ gửi email
-   - Triển khai trên máy chủ web thực
+5. Technical requirements:
+   - Use Laravel 9+.
+   - Eloquent ORM for database interaction.
+   - Migrations and seeding for database.
+   - Authentication and Authorization with Laravel.
+   - Blade templates and Laravel Mix for frontend.
+   - Unit & Feature Testing.
+   - RESTful API for some features.
+   - Use Laravel Queue for email sending tasks.
+   - Deploy on a real web server.
 
-### Cấu trúc dự án đề xuất
+### Suggested Project Structure
 
 ```text
 project-management/

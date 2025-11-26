@@ -1,65 +1,65 @@
-# 📘 PHẦN 1: NỀN TẢNG REACT
+# 📘 PART 1: REACT FUNDAMENTALS
 
-## 🎯 Mục tiêu tổng quát
+## 🎯 General Objectives
 
-- Hiểu được khái niệm cơ bản về React, tại sao nó ra đời và vai trò của nó trong phát triển web hiện đại.
-- Nắm vững cú pháp JSX để mô tả giao diện người dùng.
-- Biết cách tạo và sử dụng các Components để xây dựng giao diện theo hướng module hóa.
-- Hiểu và sử dụng `props` để truyền dữ liệu từ component cha xuống component con.
+- Understand basic React concepts, why it was created and its role in modern web development.
+- Master JSX syntax for describing user interfaces.
+- Know how to create and use Components to build modular interfaces.
+- Understand and use `props` to pass data from parent component to child component.
 
-## 🧑‍🏫 Bài 1: Giới thiệu React và Môi trường
+## 🧑‍🏫 Lesson 1: React Introduction and Environment
 
-### React là gì?
+### What is React?
 
-- React là một thư viện JavaScript mã nguồn mở, dùng để xây dựng giao diện người dùng (UI).
-- Được phát triển bởi Facebook.
-- React hoạt động dựa trên khái niệm **Components** - các khối xây dựng độc lập và tái sử dụng.
-- React sử dụng **Virtual DOM** để tối ưu hóa việc cập nhật và render giao diện, giúp ứng dụng nhanh và hiệu quả.
+- React is an open-source JavaScript library for building user interfaces (UI).
+- Developed by Facebook.
+- React operates based on the concept of **Components** - independent and reusable building blocks.
+- React uses the **Virtual DOM** to optimize UI updates and rendering, making applications fast and efficient.
 
-Sơ đồ hoạt động cơ bản:
+Basic operation diagram:
 
 ```text
-[ Dữ liệu (State/Props) ] ----> [ React Component ] ----> [ Giao diện (UI) ]
+[ Data (State/Props) ] ----> [ React Component ] ----> [ UI (Interface) ]
 ```
 
-### Thiết lập môi trường (Vite)
+### Environment Setup (Vite)
 
-Chúng ta sẽ sử dụng Vite, một công cụ build hiện đại, để tạo dự án React một cách nhanh chóng.
+We will use Vite, a modern build tool, to quickly create a React project.
 
-Mở terminal và chạy lệnh sau:
+Open the terminal and run the following command:
 
 ```bash
-# Sử dụng npm
+# Using npm
 npm create vite@latest simple-store -- --template react
 
-# Hoặc sử dụng yarn
+# Or using yarn
 # yarn create vite simple-store --template react
 
-# Di chuyển vào thư mục dự án
+# Navigate to project directory
 cd simple-store
 
-# Cài đặt các dependencies
+# Install dependencies
 npm install
 
-# Chạy server phát triển
+# Run development server
 npm run dev
 ```
 
-Truy cập vào địa chỉ `http://localhost:5173` (hoặc cổng khác được hiển thị trong terminal) để xem ứng dụng của bạn.
+Access `http://localhost:5173` (or other port displayed in terminal) to view your application.
 
-## 🧑‍🏫 Bài 2: JSX - JavaScript XML
+## 🧑‍🏫 Lesson 2: JSX - JavaScript XML
 
-### Cú pháp JSX
+### JSX Syntax
 
-JSX là một phần mở rộng cú pháp cho JavaScript, cho phép viết code trông giống HTML ngay trong file JavaScript.
+JSX is a syntax extension for JavaScript that allows you to write HTML-like code directly in JavaScript files.
 
 ```jsx
 // src/App.jsx
 
-// Thay vì viết:
+// Instead of writing:
 // return React.createElement('h1', {className: 'greeting'}, 'Hello, world!');
 
-// Chúng ta viết với JSX:
+// We write with JSX:
 function App() {
   return <h1>Hello, world!</h1>;
 }
@@ -67,15 +67,15 @@ function App() {
 export default App;
 ```
 
-**Lưu ý:**
+**Notes:**
 
-- `class` trong HTML được viết thành `className` trong JSX.
-- Mọi thẻ phải được đóng (`<br>` phải thành `<br />`).
-- Component chỉ có thể trả về một phần tử gốc duy nhất. Sử dụng Fragment (`<>...</>`) nếu cần.
+- `class` in HTML is written as `className` in JSX.
+- All tags must be closed (`<br>` must become `<br />`).
+- Component can only return a single root element. Use Fragment (`<>...</>`) if needed.
 
-### Nhúng biểu thức JavaScript vào JSX
+### Embedding JavaScript Expressions in JSX
 
-Bạn có thể nhúng bất kỳ biểu thức JavaScript nào vào trong JSX bằng cách đặt nó trong cặp dấu ngoặc nhọn `{}`.
+You can embed any JavaScript expression in JSX by placing it in curly braces `{}`.
 
 ```jsx
 // src/App.jsx
@@ -89,10 +89,10 @@ function App() {
 
   return (
     <>
-      <h1>Xin chào, {name}!</h1>
-      <p>Sản phẩm: {product.title}</p>
-      <p>Giá: {product.price.toLocaleString()} VNĐ</p>
-      <p>Năm hiện tại: {new Date().getFullYear()}</p>
+      <h1>Hello, {name}!</h1>
+      <p>Product: {product.title}</p>
+      <p>Price: {product.price.toLocaleString()} VND</p>
+      <p>Current Year: {new Date().getFullYear()}</p>
     </>
   );
 }
@@ -100,11 +100,11 @@ function App() {
 export default App;
 ```
 
-## 🧑‍🏫 Bài 3: Components và Props
+## 🧑‍🏫 Lesson 3: Components and Props
 
 ### Function Components
 
-Component là những hàm JavaScript độc lập, nhận đầu vào là `props` và trả về các phần tử React mô tả những gì sẽ hiển thị trên màn hình.
+Components are independent JavaScript functions that accept `props` as input and return React elements describing what should appear on screen.
 
 ```jsx
 // src/components/Greeting.jsx
@@ -117,24 +117,24 @@ export default Greeting;
 
 ### Props (Properties)
 
-Props (viết tắt của properties) là cách để truyền dữ liệu từ component cha xuống component con. Props là đối tượng chỉ đọc.
+Props (short for properties) is the way to pass data from parent component to child component. Props are read-only objects.
 
-Sơ đồ truyền Props:
+Props flow diagram:
 
 ```text
-[ App Component (dữ liệu) ] ----(props)----> [ ProductCard Component ]
+[ App Component (data) ] ----(props)----> [ ProductCard Component ]
 ```
 
-**Ví dụ:**
+**Example:**
 
 ```jsx
 // src/components/ProductCard.jsx
 function ProductCard(props) {
-  // props là một object: { name: "iPhone 15", price: 22000000 }
+  // props is an object: { name: "iPhone 15", price: 22000000 }
   return (
     <div className="product-card">
       <h3>{props.name}</h3>
-      <p>Giá: {props.price.toLocaleString()} VNĐ</p>
+      <p>Price: {props.price.toLocaleString()} VND</p>
     </div>
   );
 }
@@ -146,7 +146,7 @@ import ProductCard from './components/ProductCard';
 function App() {
   return (
     <div>
-      <h1>Sản phẩm nổi bật</h1>
+      <h1>Featured Products</h1>
       <ProductCard name="iPhone 15 Pro" price={30000000} />
       <ProductCard name="Macbook Air M2" price={28000000} />
     </div>
@@ -155,9 +155,9 @@ function App() {
 export default App;
 ```
 
-### Tổ chức Components
+### Organizing Components
 
-Tạo một cây component để quản lý giao diện.
+Create a component tree to manage the interface.
 
 ```text
 App
@@ -168,29 +168,29 @@ App
     └── ...
 ```
 
-## 🧪 BÀI TẬP LỚN CUỐI PHẦN: Xây dựng giao diện tĩnh cho trang "SimpleStore"
+## 🧪 FINAL PROJECT: Build static interface for "SimpleStore" page
 
-### Mô tả bài toán
+### Problem Description
 
-Tạo một trang web hiển thị danh sách các sản phẩm. Dữ liệu sản phẩm sẽ được lưu trữ tạm thời trong một mảng JavaScript. Giao diện hoàn toàn tĩnh, chưa có tương tác.
+Create a web page displaying a list of products. Product data will be temporarily stored in a JavaScript array. The interface is completely static with no interaction.
 
-### Yêu cầu
+### Requirements
 
-1. **Cấu trúc thư mục:**
-    - Tạo thư mục `src/components`.
-    - Bên trong, tạo các file component: `Header.jsx`, `ProductList.jsx`, `ProductCard.jsx`.
-2. **Dữ liệu:**
-    - Trong file `src/App.jsx`, tạo một mảng dữ liệu `products` chứa thông tin của ít nhất 4 sản phẩm. Mỗi sản phẩm là một object có `id`, `name`, `price`, và `imageUrl`.
+1. **Directory Structure:**
+    - Create `src/components` directory.
+    - Inside, create component files: `Header.jsx`, `ProductList.jsx`, `ProductCard.jsx`.
+2. **Data:**
+    - In `src/App.jsx`, create a `products` array containing information for at least 4 products. Each product is an object with `id`, `name`, `price`, and `imageUrl`.
 3. **Component `ProductCard.jsx`:**
-    - Nhận `name`, `price`, `imageUrl` qua `props`.
-    - Hiển thị thông tin sản phẩm trong một thẻ `div` có style đơn giản.
+    - Receive `name`, `price`, `imageUrl` via `props`.
+    - Display product information in a `div` tag with simple styling.
 4. **Component `ProductList.jsx`:**
-    - Nhận mảng `products` qua `props`.
-    - Sử dụng hàm `.map()` để lặp qua mảng `products` và render ra một danh sách các `ProductCard`.
+    - Receive `products` array via `props`.
+    - Use `.map()` function to iterate through `products` array and render a list of `ProductCard`s.
 5. **Component `Header.jsx`:**
-    - Hiển thị tiêu đề của trang web, ví dụ: "Welcome to SimpleStore".
+    - Display page title, for example: "Welcome to SimpleStore".
 6. **Component `App.jsx`:**
-    - Là component gốc, import và sắp xếp `Header` và `ProductList`.
-    - Truyền mảng `products` vào cho `ProductList`.
+    - Is the root component, import and arrange `Header` and `ProductList`.
+    - Pass `products` array to `ProductList`.
 
-**Mục tiêu:** Kết thúc phần này, bạn sẽ có một trang web hiển thị danh sách sản phẩm, được xây dựng hoàn toàn bằng các component React và dữ liệu tĩnh.
+**Goal:** At the end of this part, you will have a product list page built entirely with React components and static data.

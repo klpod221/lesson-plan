@@ -1,55 +1,55 @@
-# 📘 PHẦN 2: TRẠNG THÁI (STATE) VÀ TÍNH TƯƠNG TÁC
+# 📘 PART 2: STATE AND INTERACTIVITY
 
-## 🎯 Mục tiêu tổng quát
+## 🎯 General Objectives
 
-- Hiểu khái niệm `state` và vai trò của nó trong việc tạo ra các component động.
-- Sử dụng Hook `useState` để quản lý trạng thái của component.
-- Xử lý các sự kiện người dùng như click, nhập liệu.
-- Sử dụng render có điều kiện để hiển thị hoặc ẩn các phần tử UI.
-- Nắm vững cách render danh sách dữ liệu và tầm quan trọng của `key`.
+- Understand the `state` concept and its role in creating dynamic components.
+- Use the `useState` Hook to manage component state.
+- Handle user events like clicks and input.
+- Use conditional rendering to show or hide UI elements.
+- Master rendering lists and the importance of `key`.
 
-## 🧑‍🏫 Bài 1: State và Hook `useState`
+## 🧑‍🏫 Lesson 1: State and `useState` Hook
 
-### State là gì?
+### What is State?
 
-- **State** là dữ liệu riêng tư của một component, có thể thay đổi theo thời gian (thường là do tương tác của người dùng).
-- Khi **state** thay đổi, React sẽ tự động **render lại (re-render)** component đó để cập nhật giao diện.
-- **Props** là để truyền dữ liệu từ cha xuống con, còn **State** là để quản lý dữ liệu nội tại của component.
+- **State** is a component's private data that can change over time (usually due to user interaction).
+- When **state** changes, React will automatically **re-render** that component to update the interface.
+- **Props** are for passing data from parent to child, while **State** is for managing a component's internal data.
 
-Sơ đồ hoạt động của State:
+State operation diagram:
 
 ```text
-[ Tương tác người dùng (ví dụ: click) ]
+[ User interaction (e.g., click) ]
     |
     V
-[ Gọi hàm setState() ]
+[ Call setState() function ]
     |
     V
-[ State thay đổi ]
+[ State changes ]
     |
     V
-[ React render lại Component ]
+[ React re-renders Component ]
     |
     V
-[ Giao diện được cập nhật ]
+[ Interface is updated ]
 ```
 
-### Giới thiệu Hook `useState`
+### Introducing `useState` Hook
 
-`useState` là một **Hook** cho phép bạn thêm state vào function component.
+`useState` is a **Hook** that allows you to add state to function components.
 
 ```jsx
 import { useState } from 'react';
 
 function Counter() {
-  // Khai báo một biến state tên là `count`
-  // `setCount` là hàm để cập nhật giá trị cho `count`
-  const [count, setCount] = useState(0); // 0 là giá trị khởi tạo
+  // Declare a state variable named `count`
+  // `setCount` is a function to update the value of `count`
+  const [count, setCount] = useState(0); // 0 is the initial value
 
   return (
     <div>
-      <p>Bạn đã click {count} lần</p>
-      {/* Sẽ học ở bài sau */}
+      <p>You clicked {count} times</p>
+      {/* Will learn in next lesson */}
       <button onClick={() => setCount(count + 1)}>
         Click me
       </button>
@@ -58,47 +58,47 @@ function Counter() {
 }
 ```
 
-### Cập nhật State
+### Updating State
 
-- **Không bao giờ** thay đổi state trực tiếp: `count = count + 1;` (SAI)
-- **Luôn luôn** sử dụng hàm setter do `useState` cung cấp: `setCount(count + 1);` (ĐÚNG)
-- Khi cập nhật state dựa trên giá trị cũ, nên dùng dạng callback để đảm bảo tính chính xác:
+- **Never** change state directly: `count = count + 1;` (WRONG)
+- **Always** use the setter function provided by `useState`: `setCount(count + 1);` (CORRECT)
+- When updating state based on old value, use callback form to ensure accuracy:
 
   ```jsx
   setCount(prevCount => prevCount + 1);
   ```
 
-## 🧑‍🏫 Bài 2: Xử lý sự kiện (Handling Events)
+## 🧑‍🏫 Lesson 2: Handling Events
 
-### Sự kiện trong React
+### Events in React
 
-- Tên sự kiện trong React được viết theo kiểu `camelCase`, ví dụ: `onClick`, `onChange`.
-- Bạn truyền một hàm vào trình xử lý sự kiện, thay vì một chuỗi.
+- Event names in React are written in `camelCase`, for example: `onClick`, `onChange`.
+- You pass a function to the event handler, instead of a string.
 
 ```jsx
 function AlertButton() {
   function handleClick() {
-    alert('Bạn đã click vào nút!');
+    alert('You clicked the button!');
   }
 
   return (
     <button onClick={handleClick}>
-      Bấm vào đây
+      Click here
     </button>
   );
 }
 ```
 
-### Truyền hàm xử lý sự kiện qua Props
+### Passing Event Handlers via Props
 
-Bạn có thể truyền các hàm xử lý sự kiện từ component cha xuống component con.
+You can pass event handlers from parent  component to child component.
 
-Sơ đồ luồng sự kiện:
+Event flow diagram:
 
 ```text
-[ Parent Component (định nghĩa hàm onAction) ] --(props: onAction)--> [ Child Component (Button) ]
-                ^                                                                |
-                |----------------(Khi click, gọi props.onAction())---------------|
+[ Parent Component (defines onAction function) ] --(props: onAction)--> [ Child Component (Button) ]
+                ^                                                               |
+                |----------------(When clicked, calls props.onAction())---------|
 ```
 
 ```jsx
@@ -116,57 +116,57 @@ import Button from './Button';
 
 function App() {
   function handlePlayClick() {
-    alert('Đang phát video!');
+    alert('Playing video!');
   }
   function handleUploadClick() {
-    alert('Đang tải lên!');
+    alert('Uploading!');
   }
   return (
     <div>
-      <Button onCustomClick={handlePlayClick}>Phát video</Button>
-      <Button onCustomClick={handleUploadClick}>Tải lên</Button>
+      <Button onCustomClick={handlePlayClick}>Play Video</Button>
+      <Button onCustomClick={handleUploadClick}>Upload</Button>
     </div>
   );
 }
 ```
 
-## 🧑‍🏫 Bài 3: Render có điều kiện và List
+## 🧑‍🏫 Lesson 3: Conditional Rendering and Lists
 
-### Render có điều kiện (Conditional Rendering)
+### Conditional Rendering
 
-Bạn có thể dùng các biểu thức điều kiện của JavaScript để quyết định phần UI nào sẽ được render.
+You can use JavaScript conditional expressions to decide which UI part will be rendered.
 
 ```jsx
 function UserGreeting({ isLoggedIn }) {
-  // Cách 1: Dùng if/else
+  // Method 1: Using if/else
   if (isLoggedIn) {
-    return <h1>Chào mừng trở lại!</h1>;
+    return <h1>Welcome back!</h1>;
   }
-  return <h1>Vui lòng đăng nhập.</h1>;
+  return <h1>Please log in.</h1>;
 
-  // Cách 2: Dùng toán tử ba ngôi (thường dùng trong JSX)
+  // Method 2: Using ternary operator (commonly used in JSX)
   return (
     <div>
-      {isLoggedIn ? <p>Bạn đã đăng nhập</p> : <p>Bạn chưa đăng nhập</p>}
+      {isLoggedIn ? <p>You are logged in</p> : <p>You are not logged in</p>}
     </div>
   );
 
-  // Cách 3: Dùng toán tử && (chỉ render nếu điều kiện đúng)
+  // Method 3: Using && operator (render only if condition is true)
   return (
     <div>
-      {isLoggedIn && <p>Giỏ hàng của bạn</p>}
+      {isLoggedIn && <p>Your cart</p>}
     </div>
   );
 }
 ```
 
-### Render danh sách và thuộc tính `key`
+### Rendering Lists and the `key` Attribute
 
-Sử dụng hàm `.map()` để biến một mảng dữ liệu thành một mảng các phần tử React.
+Use the `.map()` function to transform a data array into an array of React elements.
 
-- **`key`** là một thuộc tính đặc biệt bạn cần cung cấp khi tạo danh sách các phần tử.
-- `key` giúp React xác định phần tử nào đã thay đổi, được thêm vào hoặc bị xóa đi.
-- `key` phải là một chuỗi hoặc số **duy nhất** trong danh sách anh em của nó. Thường dùng `id` của dữ liệu.
+- **`key`** is a special attribute you need to provide when creating a list of elements.
+- `key` helps React identify which elements have changed, been added, or removed.
+- `key` must be a **unique** string or number within its sibling list. Usually use the data's `id`.
 
 ```jsx
 function ProductList({ products }) {
@@ -180,13 +180,13 @@ function ProductList({ products }) {
 }
 ```
 
-**Lưu ý:** Không nên dùng index của mảng làm `key` nếu danh sách có thể thay đổi thứ tự, thêm, xóa.
+**Note:** Don't use array index as `key` if the list can change order, add, or remove items.
 
-## 🧑‍🏫 Bài 4: Xử lý Form cơ bản
+## 🧑‍🏫 Lesson 4: Basic Form Handling
 
 ### Controlled Components
 
-Trong HTML, các thẻ form như `<input>`, `<textarea>` tự quản lý state của chúng. Trong React, chúng ta có thể làm cho component React trở thành "nguồn chân lý duy nhất" bằng cách sử dụng state. Một thẻ input có giá trị được kiểm soát bởi React được gọi là "controlled component".
+In HTML, form tags like `<input>`, `<textarea>` manage their own state. In React, we can make the React component the "single source of truth" by using state. An input element whose value is controlled by React is called a "controlled component".
 
 ```jsx
 import { useState } from 'react';
@@ -199,46 +199,46 @@ function NameForm() {
   }
 
   function handleSubmit(event) {
-    event.preventDefault(); // Ngăn trình duyệt reload
-    alert('Tên đã được gửi: ' .concat(name));
+    event.preventDefault(); // Prevent browser reload
+    alert('Name submitted: '.concat(name));
   }
 
   return (
     <form onSubmit={handleSubmit}>
       <label>
-        Tên:
+        Name:
         <input type="text" value={name} onChange={handleChange} />
       </label>
-      <input type="submit" value="Gửi" />
+      <input type="submit" value="Submit" />
     </form>
   );
 }
 ```
 
-## 🧪 BÀI TẬP LỚN CUỐI PHẦN: Thêm giỏ hàng và tương tác cho "SimpleStore"
+## 🧪 FINAL PROJECT: Add cart and interaction to "SimpleStore"
 
-### Mô tả bài toán
+### Problem Description
 
-Nâng cấp trang "SimpleStore" đã tạo ở Phần 1. Thêm chức năng cho phép người dùng "Thêm vào giỏ hàng" và xem tổng số lượng sản phẩm trong giỏ.
+Upgrade the "SimpleStore" page created in Part 1. Add functionality allowing users to "Add to cart" and view the total number of products in cart.
 
-### Yêu cầu
+### Requirements
 
 1. **Component `Header.jsx`:**
-    - Sử dụng `useState` để quản lý số lượng sản phẩm trong giỏ hàng (`cartCount`).
-    - Hiển thị `cartCount` ở góc trên bên phải của header. Ví dụ: `Giỏ hàng (0)`.
+    - Use `useState` to manage number of products in cart (`cartCount`).
+    - Display `cartCount` in top right corner of header. Example: `Cart (0)`.
 2. **Component `App.jsx`:**
-    - Quản lý state của giỏ hàng, có thể là một mảng các sản phẩm trong giỏ: `const [cart, setCart] = useState([]);`
-    - Viết một hàm `handleAddToCart(product)` để xử lý việc thêm sản phẩm vào giỏ hàng. Hàm này sẽ được truyền xuống `ProductList` và `ProductCard`.
-        - Logic bên trong: `setCart(prevCart => [...prevCart, product]);`
+    - Manage cart state, can be an array of products in cart: `const [cart, setCart] = useState([]);`
+    - Write a `handleAddToCart(product)` function to handle adding product to cart. This function will be passed down to `ProductList` and `ProductCard`.
+        - Logic inside: `setCart(prevCart => [...prevCart, product]);`
 3. **Component `ProductCard.jsx`:**
-    - Nhận hàm `onAddToCart` từ `props`.
-    - Thêm một nút "Thêm vào giỏ hàng".
-    - Khi click vào nút này, gọi hàm `onAddToCart` và truyền thông tin sản phẩm của card đó vào.
-4. **Kết nối các component:**
-    - `App` component sẽ truyền hàm `handleAddToCart` xuống `ProductList`.
-    - `ProductList` sẽ truyền tiếp hàm đó xuống từng `ProductCard`.
-    - Khi một sản phẩm được thêm vào giỏ hàng (state `cart` trong `App` thay đổi), `App` sẽ tính toán tổng số lượng và truyền xuống `Header` để cập nhật hiển thị.
-        - Sơ đồ: `App (state: cart) --(props: cart.length)--> Header`
-        - Sơ đồ: `App (hàm: handleAddToCart) --props--> ProductList --props--> ProductCard`
+    - Receive `onAddToCart` function from `props`.
+    - Add an "Add to Cart" button.
+    - When clicking this button, call `onAddToCart` function and pass that card's product information.
+4. **Connecting components:**
+    - `App` component will pass `handleAddToCart` function down to `ProductList`.
+    - `ProductList` will pass that function further down to each `ProductCard`.
+    - When a product is added to cart (state `cart` in `App` changes), `App` will calculate total quantity and pass down to `Header` to update display.
+        - Diagram: `App (state: cart) --(props: cart.length)--> Header`
+        - Diagram: `App (function: handleAddToCart) --props--> ProductList --props--> ProductCard`
 
-**Mục tiêu:** Kết thúc phần này, ứng dụng của bạn sẽ có tính tương tác. Người dùng có thể click vào nút và thấy giao diện (số lượng trong giỏ hàng) được cập nhật ngay lập tức.
+**Goal:** At the end of this part, your application will be interactive. Users can click buttons and see the interface (cart quantity) updated immediately.

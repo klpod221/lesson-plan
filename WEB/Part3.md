@@ -1,42 +1,42 @@
 ---
 prev:
-  text: '🎨 CSS - Định Dạng Trang Web'
+  text: '🎨 CSS - Web Styling'
   link: '/WEB/Part2'
 next:
-  text: '⚙️ Framework & Công Cụ'
+  text: '⚙️ Frameworks & Tools'
   link: '/WEB/Part4'
 ---
 
-# 📘 PHẦN 3: JAVASCRIPT - LẬP TRÌNH CHO WEB
+# 📘 PART 3: JAVASCRIPT - WEB PROGRAMMING
 
-## 🎯 Mục tiêu tổng quát
+## 🎯 General Objectives
 
-- Hiểu về JavaScript và vai trò của nó trong phát triển web
-- Thành thạo cú pháp và các cấu trúc cơ bản của JavaScript
-- Biết cách thao tác với DOM để tạo trang web động
-- Xử lý event, gọi API và xử lý dữ liệu
+- Understand JavaScript and its role in web development.
+- Master the syntax and basic structures of JavaScript.
+- Know how to manipulate the DOM to create dynamic web pages.
+- Handle events, call APIs, and process data.
 
-## 🧑‍🏫 Bài 1: Giới thiệu JavaScript
+## 🧑‍🏫 Lesson 1: Introduction to JavaScript
 
-### JavaScript là gì?
+### What is JavaScript?
 
-- Là ngôn ngữ lập trình kịch bản phía client-side
-- Được nhúng vào trang HTML để tạo tính tương tác cho trang web
-- Có thể thay đổi nội dung HTML, thuộc tính, CSS, phản ứng với event
-- Hiện nay cũng được sử dụng ở server-side (Node.js) và mobile app (React Native)
+- It is a client-side scripting language.
+- It is embedded into HTML pages to create interactivity.
+- It can change HTML content, attributes, CSS, and react to events.
+- Currently, it is also used server-side (Node.js) and in mobile apps (React Native).
 
-### Cách thêm JavaScript vào HTML
+### How to Add JavaScript to HTML
 
-1. **Inline JavaScript**: Sử dụng thuộc tính `onclick`, `onload`, ... (không khuyến nghị)
+1. **Inline JavaScript**: Using attributes like `onclick`, `onload`, ... (not recommended).
 
    ```html
-   <button onclick="alert('Hello!')">Nhấn vào đây</button>
+   <button onclick="alert('Hello!')">Click here</button>
    ```
 
-2. **Internal JavaScript**: Sử dụng thẻ `<script>` trong trang HTML
+2. **Internal JavaScript**: Using the `<script>` tag inside the HTML page.
 
    ```html
-   <button onclick="sayHello()">Nhấn vào đây</button>
+   <button onclick="sayHello()">Click here</button>
    <script>
      function sayHello() {
        alert("Hello World!");
@@ -44,110 +44,109 @@ next:
    </script>
    ```
 
-3. **External JavaScript**: Tạo file JS riêng và liên kết vào HTML
+3. **External JavaScript**: Creating a separate JS file and linking it to HTML.
 
    ```html
    <script src="script.js"></script>
    ```
 
-### Vị trí đặt JavaScript
+### Where to Place JavaScript
 
 ```html
 <!DOCTYPE html>
 <html>
   <head>
-    <!-- JavaScript trong head -->
+    <!-- JavaScript in head -->
     <script src="head-script.js"></script>
   </head>
   <body>
-    <!-- Nội dung trang -->
+    <!-- Page content -->
 
-    <!-- JavaScript ở cuối body (khuyến nghị) -->
+    <!-- JavaScript at end of body (recommended) -->
     <script src="body-script.js"></script>
   </body>
 </html>
 ```
 
-| Vị trí đặt             | Ưu điểm                                                                 | Nhược điểm                                      |
+| Placement | Pros | Cons |
 | ---------------------- | ----------------------------------------------------------------------- | ----------------------------------------------- |
-| JavaScript trong head  | Tải trước khi hiển thị nội dung, có thể sử dụng ngay lập tức            | Có thể làm chậm tải trang, không tương tác ngay |
-| JavaScript ở cuối body | Tải sau khi hiển thị nội dung, không làm chậm tải trang, tương tác ngay | Không thể sử dụng trước khi DOM sẵn sàng        |
+| JavaScript in head | Loads before content displays, can be used immediately | Can block page rendering, no immediate interaction |
+| JavaScript at end of body | Loads after content displays, doesn't block rendering, immediate interaction | Cannot be used before DOM is ready |
 
-- **Khuyến nghị**: Đặt JavaScript ở cuối body để không làm chậm tải trang và đảm bảo DOM đã sẵn sàng trước khi thực thi mã.
-- **Lưu ý**:
-
-  - Nếu cần sử dụng JavaScript trong head, có thể sử dụng event `DOMContentLoaded` để đảm bảo DOM đã sẵn sàng.
-  - Nếu sử dụng `async` hoặc `defer` trong thẻ `<script>`, mã JavaScript sẽ được tải không đồng bộ và không làm chậm tải trang.
+- **Recommendation**: Place JavaScript at the end of the body to avoid slowing down page loading and ensure the DOM is ready before code execution.
+- **Note**:
+  - If you need to use JavaScript in the head, you can use the `DOMContentLoaded` event to ensure the DOM is ready.
+  - If using `async` or `defer` in the `<script>` tag, the JavaScript code will be loaded asynchronously and won't block page loading.
 
     ```html
-    <!-- Tải không đồng bộ, thực thi ngay khi tải xong -->
+    <!-- Loads asynchronously, executes immediately when done -->
     <script src="script.js" async></script>
     ```
 
     ```html
-    <!-- Tải đồng bộ, thực thi sau khi DOM đã sẵn sàng -->
+    <!-- Loads synchronously, executes after DOM is ready -->
     <script src="script.js" defer></script>
     ```
 
-### Output trong JavaScript
+### Output in JavaScript
 
 ```javascript
-// Hiển thị thông báo popup
+// Display popup alert
 alert("Hello World!");
 
-// Ghi ra console
+// Write to console
 console.log("Hello World!");
 
-// Ghi ra trang HTML
+// Write to HTML page
 document.write("<p>Hello World!</p>");
 
-// Điền vào một phần tử HTML
+// Fill into an HTML element
 document.getElementById("demo").innerHTML = "Hello World!";
 ```
 
-### Chạy code JavaScript mà không cần trình duyệt (thông qua Node.js)
+### Running JavaScript without a Browser (via Node.js)
 
-- **Node.js** là một môi trường chạy JavaScript bên ngoài trình duyệt, cho phép chạy mã JavaScript trên server hoặc máy tính cá nhân (bạn sẽ học Node.js chi tiết hơn trong phần sau).
-- Cài đặt Node.js từ trang chính thức: [nodejs.org](https://nodejs.org/)
-- Sau khi cài đặt, có thể chạy mã JavaScript từ dòng lệnh bằng cách sử dụng lệnh `node`:
+- **Node.js** is a JavaScript runtime environment outside the browser, allowing you to run JavaScript on a server or personal computer (you will learn Node.js in more detail later).
+- Install Node.js from the official site: [nodejs.org](https://nodejs.org/)
+- After installation, you can run JavaScript code from the command line using the `node` command:
 
 ```bash
 node script.js
 ```
 
-- Bạn có thể sử dụng VSCode để debug mã JavaScript theo cách sau [tham khảo](https://code.visualstudio.com/docs/nodejs/working-with-javascript):
+- You can use VSCode to debug JavaScript code as follows [reference](https://code.visualstudio.com/docs/nodejs/working-with-javascript):
 
-  - Mở file JavaScript trong VSCode.
-  - Nhấn `F5` hoặc vào menu `Run > Start Debugging`.
-  - Chọn môi trường `Node.js`.
-  - Đặt breakpoint và theo dõi biến trong quá trình thực thi.
+  - Open the JavaScript file in VSCode.
+  - Press `F5` or go to the menu `Run > Start Debugging`.
+  - Select the `Node.js` environment.
+  - Set breakpoints and monitor variables during execution.
 
-- **Lưu ý**:
-  - Node.js không hỗ trợ DOM, vì vậy không thể sử dụng các phương thức như `document.getElementById()` hay `alert()`.
-  - Có thể sử dụng các module như `fs` để thao tác với file hệ thống, hoặc `http` để tạo server HTTP.
+- **Note**:
+  - Node.js does not support the DOM, so you cannot use methods like `document.getElementById()` or `alert()`.
+  - You can use modules like `fs` to manipulate the file system, or `http` to create an HTTP server.
 
-## 🧑‍🏫 Bài 2: Cú pháp và biến trong JavaScript
+## 🧑‍🏫 Lesson 2: Syntax and Variables in JavaScript
 
-### Khai báo biến
+### Variable Declaration
 
 ```javascript
-// Khai báo biến với var (phạm vi function-scoped)
+// Declare variable with var (function-scoped)
 var name = "John";
 
-// Khai báo biến với let (phạm vi block-scoped, ES6)
+// Declare variable with let (block-scoped, ES6)
 let age = 30;
 
-// Khai báo hằng với const (không thể thay đổi giá trị, ES6)
+// Declare constant with const (cannot change value, ES6)
 const PI = 3.14159;
 
-// Khai báo nhiều biến
+// Declare multiple variables
 let firstName = "John",
   lastName = "Doe",
   fullName = firstName + " " + lastName;
 ```
 
-- Nên sử dụng `let` và `const` thay vì `var` để tránh các vấn đề về phạm vi biến.
-- `const` được sử dụng cho các biến không thay đổi giá trị, nhưng nếu là object hoặc array, có thể thay đổi nội dung bên trong.
+- Prefer `let` and `const` over `var` to avoid variable scope issues.
+- `const` is used for variables whose values do not change, but if it is an object or array, the internal content can be modified.
 
 ```javascript
 const person = {
@@ -155,11 +154,11 @@ const person = {
   age: 30,
 };
 
-person.age = 31; // Được phép
-person = {}; // Lỗi: Assignment to constant variable
+person.age = 31; // Allowed
+person = {}; // Error: Assignment to constant variable
 ```
 
-### Kiểu dữ liệu
+### Data Types
 
 ```javascript
 // Number
@@ -174,7 +173,7 @@ let quote = 'JavaScript is "fun"';
 let isActive = true;
 let isComplete = false;
 
-// Null và Undefined
+// Null and Undefined
 let empty = null;
 let notDefined; // undefined
 
@@ -188,43 +187,43 @@ let person = {
 // Array
 let colors = ["Red", "Green", "Blue"];
 
-// Kiểm tra kiểu dữ liệu
+// Check data type
 console.log(typeof count); // "number"
 console.log(typeof text); // "string"
 console.log(typeof isActive); // "boolean"
 console.log(typeof person); // "object"
-console.log(typeof colors); // "object" (array là một loại object)
+console.log(typeof colors); // "object" (array is a type of object)
 ```
 
-### Dấu phẩy động (floating point)
+### Floating Point
 
-- JavaScript sử dụng dấu phẩy động để biểu diễn số thực, tương đương với chuẩn IEEE 754. Điều này có thể dẫn đến một số vấn đề về độ chính xác khi thực hiện các phép toán với số thực. Hãy cùng xem ví dụ sau:
+- JavaScript uses floating-point numbers to represent real numbers, equivalent to the IEEE 754 standard. This can lead to some precision issues when performing arithmetic with real numbers. Let's look at the following example:
 
 ```javascript
-// Số thực
+// Real numbers
 let a = 0.1;
 let b = 0.2;
 let sum = a + b; // 0.30000000000000004
 console.log(sum); // 0.30000000000000004
 
-// So sánh số thực
+// Comparing real numbers
 console.log(sum === 0.3); // false
 ```
 
-- Điều này cũng xảy ra với các ngôn ngữ lập trình khác sử dụng dấu phẩy động như Python, Java, C++, ... Vậy tại sao lại như vậy?
-  - JavaScript lưu trữ số thực dưới dạng nhị phân, và một số số thực không thể được biểu diễn chính xác trong hệ nhị phân.
-  - Để tránh vấn đề này, có thể sử dụng phương pháp làm tròn hoặc thư viện bên ngoài như `decimal.js` để xử lý các phép toán với số thực.
+- This also happens with other programming languages that use floating-point numbers like Python, Java, C++, etc. So why is that?
+  - JavaScript stores real numbers in binary format, and some real numbers cannot be represented exactly in binary.
+  - To avoid this problem, you can use rounding methods or external libraries like `decimal.js` to handle floating-point arithmetic.
 
 ```javascript
-// Làm tròn số
+// Rounding number
 let roundedSum = Math.round((a + b) * 100) / 100; // 0.3
 console.log(roundedSum); // 0.3
 ```
 
-### Phép toán và biểu thức
+### Operators and Expressions
 
 ```javascript
-// Phép toán số học
+// Arithmetic operators
 let x = 10,
   y = 5;
 let sum = x + y; // 15
@@ -234,7 +233,7 @@ let quotient = x / y; // 2
 let remainder = x % y; // 0
 let power = x ** y; // 100000 (ES6)
 
-// Phép toán gán
+// Assignment operators
 let a = 10;
 a += 5; // a = a + 5 = 15
 a -= 3; // a = a - 3 = 12
@@ -242,14 +241,14 @@ a *= 2; // a = a * 2 = 24
 a /= 4; // a = a / 4 = 6
 a %= 4; // a = a % 4 = 2
 
-// Phép toán tăng/giảm
+// Increment/Decrement operators
 let i = 5;
-i++; // i = 6 (tăng sau)
-++i; // i = 7 (tăng trước)
-i--; // i = 6 (giảm sau)
---i; // i = 5 (giảm trước)
+i++; // i = 6 (post-increment)
+++i; // i = 7 (pre-increment)
+i--; // i = 6 (post-decrement)
+--i; // i = 5 (pre-decrement)
 
-// Phép toán chuỗi
+// String operators
 let greeting = "Hello";
 let name = "World";
 let message = greeting + " " + name; // "Hello World"
@@ -261,7 +260,7 @@ Line 2
 Line 3`;
 ```
 
-### Scope (phạm vi) biến
+### Variable Scope
 
 ```javascript
 // Global scope
@@ -276,58 +275,58 @@ function exampleFunction() {
     let blockVar = "I am block-scoped";
     var notReallyBlockVar = "I am still function-scoped";
 
-    console.log(globalVar); // Truy cập được
-    console.log(functionVar); // Truy cập được
-    console.log(blockVar); // Truy cập được
-    console.log(notReallyBlockVar); // Truy cập được
+    console.log(globalVar); // Accessible
+    console.log(functionVar); // Accessible
+    console.log(blockVar); // Accessible
+    console.log(notReallyBlockVar); // Accessible
   }
 
-  console.log(globalVar); // Truy cập được
-  console.log(functionVar); // Truy cập được
-  // console.log(blockVar);      // Lỗi: blockVar is not defined
-  console.log(notReallyBlockVar); // Truy cập được
+  console.log(globalVar); // Accessible
+  console.log(functionVar); // Accessible
+  // console.log(blockVar);      // Error: blockVar is not defined
+  console.log(notReallyBlockVar); // Accessible
 }
 
-console.log(globalVar); // Truy cập được
-// console.log(functionVar);     // Lỗi: functionVar is not defined
-// console.log(blockVar);        // Lỗi: blockVar is not defined
-// console.log(notReallyBlockVar); // Lỗi: notReallyBlockVar is not defined
+console.log(globalVar); // Accessible
+// console.log(functionVar);     // Error: functionVar is not defined
+// console.log(blockVar);        // Error: blockVar is not defined
+// console.log(notReallyBlockVar); // Error: notReallyBlockVar is not defined
 ```
 
-## 🧑‍🏫 Bài 3: Cấu trúc điều khiển
+## 🧑‍🏫 Lesson 3: Control Structures
 
-### Câu lệnh điều kiện
+### Conditional Statements
 
 ```javascript
 // if
 let age = 18;
 if (age >= 18) {
-  console.log("Bạn đã đủ tuổi bầu cử");
+  console.log("You are eligible to vote");
 }
 
 // if-else
 if (age >= 18) {
-  console.log("Bạn đã đủ tuổi bầu cử");
+  console.log("You are eligible to vote");
 } else {
-  console.log("Bạn chưa đủ tuổi bầu cử");
+  console.log("You are not eligible to vote");
 }
 
 // if-else if-else
 let score = 75;
 if (score >= 90) {
-  console.log("Xuất sắc");
+  console.log("Excellent");
 } else if (score >= 80) {
-  console.log("Giỏi");
+  console.log("Good");
 } else if (score >= 70) {
-  console.log("Khá");
+  console.log("Fair");
 } else if (score >= 60) {
-  console.log("Trung bình");
+  console.log("Average");
 } else {
-  console.log("Yếu");
+  console.log("Poor");
 }
 
-// Toán tử ba ngôi
-let status = age >= 18 ? "Trưởng thành" : "Chưa trưởng thành";
+// Ternary operator
+let status = age >= 18 ? "Adult" : "Minor";
 
 // Switch case
 let day = 3;
@@ -335,33 +334,33 @@ let dayName;
 
 switch (day) {
   case 1:
-    dayName = "Chủ nhật";
+    dayName = "Sunday";
     break;
   case 2:
-    dayName = "Thứ hai";
+    dayName = "Monday";
     break;
   case 3:
-    dayName = "Thứ ba";
+    dayName = "Tuesday";
     break;
   case 4:
-    dayName = "Thứ tư";
+    dayName = "Wednesday";
     break;
   case 5:
-    dayName = "Thứ năm";
+    dayName = "Thursday";
     break;
   case 6:
-    dayName = "Thứ sáu";
+    dayName = "Friday";
     break;
   case 7:
-    dayName = "Thứ bảy";
+    dayName = "Saturday";
     break;
   default:
-    dayName = "Ngày không hợp lệ";
+    dayName = "Invalid day";
 }
-console.log(dayName); // "Thứ ba"
+console.log(dayName); // "Tuesday"
 ```
 
-### Vòng lặp
+### Loops
 
 ```javascript
 // for
@@ -369,13 +368,13 @@ for (let i = 0; i < 5; i++) {
   console.log(i); // 0, 1, 2, 3, 4
 }
 
-// for...in (duyệt thuộc tính của object)
+// for...in (iterate object properties)
 const person = { name: "John", age: 30, job: "Developer" };
 for (let key in person) {
   console.log(`${key}: ${person[key]}`);
 }
 
-// for...of (duyệt các phần tử của mảng/collection, ES6)
+// for...of (iterate array/collection elements, ES6)
 const colors = ["red", "green", "blue"];
 for (let color of colors) {
   console.log(color);
@@ -395,28 +394,28 @@ do {
   j++;
 } while (j < 5);
 
-// break và continue
+// break and continue
 for (let i = 0; i < 10; i++) {
   if (i === 5) {
-    break; // Thoát khỏi vòng lặp khi i = 5
+    break; // Exit loop when i = 5
   }
   console.log(i); // 0, 1, 2, 3, 4
 }
 
 for (let i = 0; i < 10; i++) {
   if (i === 5) {
-    continue; // Bỏ qua lần lặp khi i = 5
+    continue; // Skip iteration when i = 5
   }
   console.log(i); // 0, 1, 2, 3, 4, 6, 7, 8, 9
 }
 ```
 
-## 🧑‍🏫 Bài 4: Hàm trong JavaScript
+## 🧑‍🏫 Lesson 4: Functions in JavaScript
 
-### Định nghĩa hàm
+### Function Definition
 
 ```javascript
-// Khai báo hàm
+// Function declaration
 function greet(name) {
   return `Hello, ${name}!`;
 }
@@ -431,20 +430,20 @@ const welcome = (name) => {
   return `Welcome, ${name}!`;
 };
 
-// Arrow function rút gọn
+// Concise Arrow function
 const shortWelcome = (name) => `Welcome, ${name}!`;
 
-// Gọi hàm
+// Function calls
 console.log(greet("John")); // "Hello, John!"
 console.log(sayHello("Jane")); // "Hello, Jane!"
 console.log(welcome("Bob")); // "Welcome, Bob!"
 console.log(shortWelcome("Alice")); // "Welcome, Alice!"
 ```
 
-- Điểm khác biệt giữa function declaration, function expression và arrow function:
-  - **Function declaration**: Có thể gọi trước khi khai báo (hoisting).
-  - **Function expression**: Không thể gọi trước khi khai báo.
-  - **Arrow function**: Không có `this`, không có `arguments`, không thể sử dụng làm constructor.
+- Differences between function declaration, function expression, and arrow function:
+  - **Function declaration**: Can be called before declaration (hoisting).
+  - **Function expression**: Cannot be called before declaration.
+  - **Arrow function**: Does not have its own `this`, `arguments`, cannot be used as a constructor.
 
 ```javascript
 // Hoisting
@@ -452,13 +451,13 @@ console.log(hoistedFunction()); // "Hoisted!"
 function hoistedFunction() {
   return "Hoisted!";
 }
-// console.log(notHoistedFunction()); // Lỗi: notHoistedFunction is not a function
+// console.log(notHoistedFunction()); // Error: notHoistedFunction is not a function
 const notHoistedFunction = function () {
   return "Not hoisted!";
 };
-// Arrow function không có this
+// Arrow function no 'this'
 const arrowFunction = () => {
-  console.log(this); // undefined trong strict mode, window trong non-strict mode
+  console.log(this); // undefined in strict mode, window in non-strict mode
 };
 const obj = {
   name: "John",
@@ -475,10 +474,10 @@ obj.greet(); // "John"
 obj.arrowGreet(); // undefined
 ```
 
-### Tham số hàm
+### Function Parameters
 
 ```javascript
-// Tham số mặc định (ES6)
+// Default parameters (ES6)
 function greet(name = "Guest") {
   return `Hello, ${name}!`;
 }
@@ -492,7 +491,7 @@ function sum(...numbers) {
 console.log(sum(1, 2)); // 3
 console.log(sum(1, 2, 3, 4, 5)); // 15
 
-// Arguments object (cách cũ)
+// Arguments object (old way)
 function oldSum() {
   let total = 0;
   for (let i = 0; i < arguments.length; i++) {
@@ -502,7 +501,7 @@ function oldSum() {
 }
 ```
 
-### Phạm vi và closure
+### Scope and Closure
 
 ```javascript
 // Lexical scope
@@ -513,15 +512,15 @@ function outer() {
 
   function inner() {
     let innerVar = "inner";
-    console.log(globalVar); // Truy cập biến global
-    console.log(outerVar); // Truy cập biến outer
-    console.log(innerVar); // Truy cập biến inner
+    console.log(globalVar); // Access global variable
+    console.log(outerVar); // Access outer variable
+    console.log(innerVar); // Access inner variable
   }
 
   inner();
 }
 
-// Closure - hàm nhớ môi trường khi nó được tạo ra
+// Closure - function remembers the environment in which it was created
 function createCounter() {
   let count = 0;
 
@@ -540,7 +539,7 @@ console.log(counter()); // 3
 ### Higher-order functions
 
 ```javascript
-// Hàm nhận hàm khác làm tham số
+// Function taking another function as parameter
 function doOperation(a, b, operationFn) {
   return operationFn(a, b);
 }
@@ -556,7 +555,7 @@ function multiply(a, b) {
 console.log(doOperation(5, 3, add)); // 8
 console.log(doOperation(5, 3, multiply)); // 15
 
-// Hàm trả về hàm khác
+// Function returning another function
 function createMultiplier(factor) {
   return function (number) {
     return number * factor;
@@ -570,12 +569,12 @@ console.log(double(5)); // 10
 console.log(triple(5)); // 15
 ```
 
-## 🧑‍🏫 Bài 5: Object và Array
+## 🧑‍🏫 Lesson 5: Objects and Arrays
 
 ### Object
 
 ```javascript
-// Tạo object với object literal
+// Create object with object literal
 const person = {
   firstName: "John",
   lastName: "Doe",
@@ -591,27 +590,27 @@ const person = {
   },
 };
 
-// Truy cập thuộc tính
+// Access properties
 console.log(person.firstName); // "John"
 console.log(person["lastName"]); // "Doe"
 console.log(person.address.city); // "New York"
 console.log(person.fullName()); // "John Doe"
 
-// Thêm/sửa thuộc tính
+// Add/Edit properties
 person.email = "john.doe@example.com";
 person.age = 31;
 
-// Xóa thuộc tính
+// Delete property
 delete person.age;
 
-// Kiểm tra thuộc tính tồn tại
+// Check if property exists
 console.log("email" in person); // true
 console.log(person.hasOwnProperty("age")); // false
 
 // Object methods
 console.log(Object.keys(person)); // ["firstName", "lastName", "hobbies", "address", "fullName", "email"]
-console.log(Object.values(person)); // [Array với các giá trị]
-console.log(Object.entries(person)); // [Array với các cặp key-value]
+console.log(Object.values(person)); // [Array of values]
+console.log(Object.entries(person)); // [Array of key-value pairs]
 
 // Object destructuring (ES6)
 const {
@@ -626,61 +625,61 @@ console.log(city); // "New York"
 ### Array
 
 ```javascript
-// Tạo array
+// Create array
 const fruits = ["Apple", "Banana", "Orange"];
 const mixed = [1, "hello", true, { name: "John" }, [1, 2, 3]];
 const newArray = new Array(1, 2, 3);
 
-// Truy cập phần tử
+// Access elements
 console.log(fruits[0]); // "Apple"
 console.log(mixed[3].name); // "John"
 
-// Thay đổi phần tử
+// Modify element
 fruits[1] = "Grape";
 
 // Array properties
 console.log(fruits.length); // 3
 
 // Array methods
-fruits.push("Mango"); // Thêm vào cuối
-const last = fruits.pop(); // Xóa và trả về phần tử cuối
-const first = fruits.shift(); // Xóa và trả về phần tử đầu
-fruits.unshift("Strawberry"); // Thêm vào đầu
+fruits.push("Mango"); // Add to end
+const last = fruits.pop(); // Remove and return last element
+const first = fruits.shift(); // Remove and return first element
+fruits.unshift("Strawberry"); // Add to beginning
 
-const newFruits = fruits.concat(["Kiwi", "Pineapple"]); // Nối mảng
-const sliced = fruits.slice(1, 3); // Trích xuất từ index 1 đến 2
-fruits.splice(1, 1, "Peach", "Lemon"); // Xóa 1 phần tử từ index 1, thêm 2 phần tử mới
+const newFruits = fruits.concat(["Kiwi", "Pineapple"]); // Concatenate arrays
+const sliced = fruits.slice(1, 3); // Extract from index 1 to 2
+fruits.splice(1, 1, "Peach", "Lemon"); // Remove 1 element at index 1, add 2 new elements
 
-// Tìm kiếm
-console.log(fruits.indexOf("Apple")); // Tìm index đầu tiên, trả về -1 nếu không tìm thấy
+// Search
+console.log(fruits.indexOf("Apple")); // Find first index, return -1 if not found
 console.log(fruits.includes("Mango")); // true/false
 
-// Sắp xếp
-fruits.sort(); // Sắp xếp theo alphabet
-fruits.reverse(); // Đảo ngược mảng
+// Sort
+fruits.sort(); // Sort alphabetically
+fruits.reverse(); // Reverse array
 
-// Duyệt mảng với các higher-order functions
+// Iterate array with higher-order functions
 const numbers = [1, 2, 3, 4, 5];
 
-// forEach: thực hiện hành động trên từng phần tử
+// forEach: execute action on each element
 numbers.forEach((num) => console.log(num * 2));
 
-// map: tạo mảng mới từ mảng ban đầu
+// map: create new array from original
 const doubled = numbers.map((num) => num * 2);
 
-// filter: lọc phần tử theo điều kiện
+// filter: filter elements by condition
 const evenNumbers = numbers.filter((num) => num % 2 === 0);
 
-// reduce: tính toán giá trị tích lũy
+// reduce: calculate accumulated value
 const sum = numbers.reduce((total, num) => total + num, 0);
 
-// find: tìm phần tử đầu tiên thỏa mãn điều kiện
+// find: find first element satisfying condition
 const foundNumber = numbers.find((num) => num > 3);
 
-// every: kiểm tra tất cả phần tử thỏa mãn điều kiện
+// every: check if all elements satisfy condition
 const allPositive = numbers.every((num) => num > 0);
 
-// some: kiểm tra có ít nhất một phần tử thỏa mãn điều kiện
+// some: check if at least one element satisfies condition
 const hasEven = numbers.some((num) => num % 2 === 0);
 
 // Array destructuring (ES6)
@@ -690,15 +689,15 @@ console.log(second); // 2
 console.log(rest); // [3, 4, 5]
 ```
 
-## 🧑‍🏫 Bài 6: DOM - Document Object Model
+## 🧑‍🏫 Lesson 6: DOM - Document Object Model
 
-### DOM là gì?
+### What is the DOM?
 
-- DOM (Document Object Model) là một API cho HTML và XML
-- Biểu diễn trang web dưới dạng cấu trúc cây các node
-- Cho phép JavaScript truy cập và thay đổi nội dung, cấu trúc và style của trang web
+- DOM (Document Object Model) is an API for HTML and XML.
+- Represents the web page as a tree structure of nodes.
+- Allows JavaScript to access and manipulate content, structure, and style of the webpage.
 
-### Truy cập phần tử DOM
+### Accessing DOM Elements
 
 ```html
 <!DOCTYPE html>
@@ -719,123 +718,123 @@ console.log(rest); // [3, 4, 5]
 ```
 
 ```javascript
-// Truy cập theo ID
+// Access by ID
 const header = document.getElementById("header");
 
-// Truy cập theo class name (trả về HTMLCollection)
+// Access by class name (returns HTMLCollection)
 const containers = document.getElementsByClassName("container");
 
-// Truy cập theo tag name (trả về HTMLCollection)
+// Access by tag name (returns HTMLCollection)
 const paragraphs = document.getElementsByTagName("p");
 
-// Truy cập bằng CSS selector (trả về phần tử đầu tiên)
+// Access by CSS selector (returns first element)
 const firstButton = document.querySelector("button");
 
-// Truy cập bằng CSS selector (trả về NodeList)
+// Access by CSS selector (returns NodeList)
 const allButtons = document.querySelectorAll("button.primary");
 
-// Truy cập node con
-const children = header.children; // HTMLCollection con trực tiếp
-const childNodes = header.childNodes; // NodeList (bao gồm cả text nodes)
-const firstChild = header.firstChild; // Node đầu tiên (có thể là text node)
-const firstElement = header.firstElementChild; // Element đầu tiên
+// Access child nodes
+const children = header.children; // Direct element children (HTMLCollection)
+const childNodes = header.childNodes; // NodeList (includes text nodes)
+const firstChild = header.firstChild; // First node (can be text node)
+const firstElement = header.firstElementChild; // First Element
 
-// Truy cập node cha
+// Access parent node
 const parent = header.parentNode;
 const parentElement = header.parentElement;
 
-// Truy cập node anh em
+// Access sibling nodes
 const nextSibling = header.nextSibling;
 const nextElement = header.nextElementSibling;
 const prevSibling = header.previousSibling;
 const prevElement = header.previousElementSibling;
 ```
 
-### Thay đổi nội dung DOM
+### Modifying DOM Content
 
 ```javascript
-// Thay đổi nội dung
-element.textContent = "Nội dung mới"; // Chỉ thay đổi text
-element.innerHTML = "<strong>Nội dung</strong> HTML mới"; // Parse và thay đổi HTML
+// Change content
+element.textContent = "New Content"; // Changes text only
+element.innerHTML = "<strong>New</strong> HTML Content"; // Parses and changes HTML
 
-// Thay đổi thuộc tính
+// Change attributes
 element.setAttribute("id", "newId");
-element.id = "newId"; // Trực tiếp qua thuộc tính
+element.id = "newId"; // Direct property access
 const attrValue = element.getAttribute("data-value");
 element.removeAttribute("title");
 
-// Thay đổi style
+// Change style
 element.style.color = "red";
 element.style.backgroundColor = "lightblue";
 element.style.fontSize = "16px";
 
-// Thêm/xóa class
+// Add/Remove class
 element.classList.add("active");
 element.classList.remove("hidden");
-element.classList.toggle("selected"); // Thêm nếu chưa có, xóa nếu đã có
-element.classList.contains("active"); // Kiểm tra class tồn tại
+element.classList.toggle("selected"); // Adds if missing, removes if present
+element.classList.contains("active"); // Check if class exists
 ```
 
-### Tạo và thêm/xóa phần tử
+### Creating and Adding/Removing Elements
 
 ```javascript
-// Tạo phần tử mới
+// Create new element
 const newDiv = document.createElement("div");
-const textNode = document.createTextNode("Nội dung mới");
+const textNode = document.createTextNode("New Content");
 
-// Thêm nội dung vào phần tử
-newDiv.textContent = "Thêm nội dung";
+// Add content to element
+newDiv.textContent = "Add Content";
 newDiv.appendChild(textNode);
 
-// Thêm vào DOM
-parentElement.appendChild(newDiv); // Thêm vào cuối
-parentElement.insertBefore(newDiv, referenceElement); // Thêm trước phần tử tham chiếu
+// Add to DOM
+parentElement.appendChild(newDiv); // Add to end
+parentElement.insertBefore(newDiv, referenceElement); // Add before reference element
 
-// Phương thức chèn mới (ES6)
-parentElement.append(newDiv, textNode); // Thêm nhiều node vào cuối
-parentElement.prepend(newDiv); // Thêm vào đầu
-referenceElement.before(newDiv); // Thêm trước phần tử
-referenceElement.after(newDiv); // Thêm sau phần tử
-element.replaceWith(newDiv); // Thay thế phần tử
+// New insertion methods (ES6)
+parentElement.append(newDiv, textNode); // Add multiple nodes to end
+parentElement.prepend(newDiv); // Add to start
+referenceElement.before(newDiv); // Add before element
+referenceElement.after(newDiv); // Add after element
+element.replaceWith(newDiv); // Replace element
 
-// Xóa phần tử
-parentElement.removeChild(childElement); // Cách cũ
-element.remove(); // Cách mới (ES6)
+// Remove element
+parentElement.removeChild(childElement); // Old way
+element.remove(); // New way (ES6)
 
-// Clone phần tử
-const clone = element.cloneNode(true); // true: clone toàn bộ subtree, false: chỉ clone node
+// Clone element
+const clone = element.cloneNode(true); // true: clone entire subtree, false: clone node only
 ```
 
-## 🧑‍🏫 Bài 7: Event và xử lý event
+## 🧑‍🏫 Lesson 7: Events and Event Handling
 
-### Event là gì?
+### What is an Event?
 
-- Event (sự kiện) là một hành động hoặc sự kiện xảy ra trong trình duyệt, như click chuột, nhấn phím, tải trang, ...
-- JavaScript cho phép chúng ta xử lý các event này để tạo ra tính tương tác cho trang web.
-- Các event có thể được kích hoạt bởi người dùng (như click, nhập liệu) hoặc bởi trình duyệt (như tải trang, thay đổi kích thước cửa sổ).
+- An Event is an action or occurrence that happens in the browser, such as a mouse click, key press, page load, etc.
+- JavaScript allows us to handle these events to create interactivity.
+- Events can be triggered by the user (like clicks, input) or by the browser (like load, resize).
 
-### Đăng ký event
+### Registering Events
 
 ```javascript
-// Phương thức 1: Thuộc tính HTML (không khuyến khích)
+// Method 1: HTML Attribute (not recommended)
 <button onclick="handleClick()">Click me</button>;
 
-// Phương thức 2: DOM property
+// Method 2: DOM property
 button.onclick = function () {
   console.log("Button clicked");
 };
 
-// Phương thức 3: addEventListener (khuyến nghị)
+// Method 3: addEventListener (recommended)
 button.addEventListener("click", function (event) {
   console.log("Button clicked", event);
 });
 
-// Sử dụng arrow function
+// Using arrow function
 button.addEventListener("click", (event) => {
   console.log("Button clicked", event);
 });
 
-// Xóa event listener
+// Removing event listener
 function handleClick(event) {
   console.log("Button clicked");
 }
@@ -843,77 +842,77 @@ button.addEventListener("click", handleClick);
 button.removeEventListener("click", handleClick);
 ```
 
-### Các loại event phổ biến
+### Common Event Types
 
 ```javascript
 // Mouse events
-element.addEventListener("click", handler); // Click chuột
+element.addEventListener("click", handler); // Mouse click
 element.addEventListener("dblclick", handler); // Double-click
-element.addEventListener("mousedown", handler); // Nhấn chuột xuống
-element.addEventListener("mouseup", handler); // Thả chuột
-element.addEventListener("mousemove", handler); // Di chuyển chuột
-element.addEventListener("mouseover", handler); // Chuột di chuyển vào element
-element.addEventListener("mouseout", handler); // Chuột di chuyển ra khỏi element
+element.addEventListener("mousedown", handler); // Mouse button pressed
+element.addEventListener("mouseup", handler); // Mouse button released
+element.addEventListener("mousemove", handler); // Mouse moved
+element.addEventListener("mouseover", handler); // Mouse moved onto element
+element.addEventListener("mouseout", handler); // Mouse moved out of element
 
 // Keyboard events
-element.addEventListener("keydown", handler); // Phím được nhấn
-element.addEventListener("keyup", handler); // Phím được thả
-element.addEventListener("keypress", handler); // Phím được nhấn (chỉ ký tự)
+element.addEventListener("keydown", handler); // Key pressed
+element.addEventListener("keyup", handler); // Key released
+element.addEventListener("keypress", handler); // Key pressed (character keys only)
 
 // Form events
-form.addEventListener("submit", handler); // Form được submit
-input.addEventListener("change", handler); // Giá trị thay đổi và mất focus
-input.addEventListener("input", handler); // Giá trị thay đổi (realtime)
-input.addEventListener("focus", handler); // Element được focus
-input.addEventListener("blur", handler); // Element mất focus
+form.addEventListener("submit", handler); // Form submitted
+input.addEventListener("change", handler); // Value changed and lost focus
+input.addEventListener("input", handler); // Value changed (realtime)
+input.addEventListener("focus", handler); // Element focused
+input.addEventListener("blur", handler); // Element lost focus
 
 // Document/Window events
-window.addEventListener("load", handler); // Trang và tài nguyên được tải xong
-document.addEventListener("DOMContentLoaded", handler); // DOM đã sẵn sàng
-window.addEventListener("resize", handler); // Kích thước cửa sổ thay đổi
-window.addEventListener("scroll", handler); // Cuộn trang
+window.addEventListener("load", handler); // Page and resources loaded
+document.addEventListener("DOMContentLoaded", handler); // DOM ready
+window.addEventListener("resize", handler); // Window resized
+window.addEventListener("scroll", handler); // Page scrolled
 ```
 
-### Event object
+### Event Object
 
 ```javascript
 element.addEventListener("click", function (event) {
-  // Thông tin chung
-  console.log(event.type); // Loại event (e.g., "click")
-  console.log(event.target); // Phần tử gốc kích hoạt event
-  console.log(event.currentTarget); // Phần tử đang xử lý event
-  console.log(event.timeStamp); // Thời gian xảy ra event
+  // General info
+  console.log(event.type); // Event type (e.g., "click")
+  console.log(event.target); // Element that triggered event
+  console.log(event.currentTarget); // Element handling the event
+  console.log(event.timeStamp); // Time event occurred
 
   // Mouse event
-  console.log(event.clientX, event.clientY); // Vị trí chuột (viewport)
-  console.log(event.pageX, event.pageY); // Vị trí chuột (document)
-  console.log(event.button); // Nút chuột (0: trái, 1: giữa, 2: phải)
+  console.log(event.clientX, event.clientY); // Mouse pos (viewport)
+  console.log(event.pageX, event.pageY); // Mouse pos (document)
+  console.log(event.button); // Mouse button (0: left, 1: middle, 2: right)
 
   // Keyboard event
-  console.log(event.key); // Phím đã nhấn
-  console.log(event.keyCode); // Mã ASCII của phím (deprecated)
-  console.log(event.code); // Mã vật lý của phím (e.g., "KeyA")
-  console.log(event.ctrlKey); // Xác định Ctrl key được nhấn
-  console.log(event.shiftKey); // Xác định Shift key được nhấn
-  console.log(event.altKey); // Xác định Alt key được nhấn
+  console.log(event.key); // Key pressed
+  console.log(event.keyCode); // ASCII code (deprecated)
+  console.log(event.code); // Physical key code (e.g., "KeyA")
+  console.log(event.ctrlKey); // Ctrl key pressed?
+  console.log(event.shiftKey); // Shift key pressed?
+  console.log(event.altKey); // Alt key pressed?
 
-  // Dừng hành vi mặc định
+  // Stop default behavior
   event.preventDefault();
 
-  // Ngăn event lan truyền (bubbling)
+  // Stop event propagation (bubbling)
   event.stopPropagation();
 });
 ```
 
-### Event propagation
+### Event Propagation
 
 ```javascript
-// Bubbling (mặc định): event lan từ target lên ancestor
-// Capturing: event lan từ ancestor xuống target
+// Bubbling (default): event propagates from target up to ancestors
+// Capturing: event propagates from ancestors down to target
 
-// useCapture parameter (boolean thứ 3)
+// useCapture parameter (3rd boolean argument)
 parent.addEventListener("click", parentHandler, true); // Capturing phase
-child.addEventListener("click", childHandler, false); // Bubbling phase (mặc định)
+child.addEventListener("click", childHandler, false); // Bubbling phase (default)
 
 function handleEvent(event) {
   console.log(`${event.currentTarget.tagName} was clicked`);
@@ -922,10 +921,10 @@ function handleEvent(event) {
 }
 ```
 
-### Event delegation
+### Event Delegation
 
 ```javascript
-// Sử dụng event lan truyền để xử lý nhiều phần tử con với một handler
+// Using event propagation to handle multiple child elements with one handler
 document
   .getElementById("parent-list")
   .addEventListener("click", function (event) {
@@ -935,21 +934,21 @@ document
   });
 ```
 
-## 🧑‍🏫 Bài 8: Asynchronous JavaScript
+## 🧑‍🏫 Lesson 8: Asynchronous JavaScript
 
-### Giới thiệu về Asynchronous JavaScript
+### Introduction to Asynchronous JavaScript
 
-- Asynchronous JavaScript là một phần quan trọng trong lập trình JavaScript, cho phép thực hiện các tác vụ không đồng bộ mà không làm chậm lại luồng chính của ứng dụng. Điều này rất hữu ích khi làm việc với API, tải dữ liệu từ server hoặc thực hiện các tác vụ tốn thời gian.
-- Có nhiều cách để xử lý bất đồng bộ trong JavaScript, bao gồm:
+- Asynchronous JavaScript is a crucial part of JavaScript programming, allowing asynchronous tasks to run without blocking the main application thread. This is very useful when working with APIs, loading data from servers, or performing time-consuming tasks.
+- There are several ways to handle asynchrony in JavaScript, including:
   - Callbacks
   - Promises
   - Async/Await
-- Các phương thức này giúp quản lý các tác vụ bất đồng bộ một cách dễ dàng hơn và tránh tình trạng "callback hell".
-- Khi làm việc với bất đồng bộ, bạn cần chú ý đến các vấn đề như:
-  - Xử lý lỗi (error handling)
-  - Thứ tự thực thi (execution order)
-  - Quản lý trạng thái (state management)
-  - Tối ưu hóa hiệu suất (performance optimization)
+- These methods help manage asynchronous tasks more easily and avoid "callback hell".
+- When working asynchronously, you need to pay attention to issues like:
+  - Error handling
+  - Execution order
+  - State management
+  - Performance optimization
 
 ### Callback
 
@@ -958,7 +957,7 @@ document
 function fetchData(callback) {
   setTimeout(() => {
     const data = { name: "John", age: 30 };
-    callback(null, data); // null là error (không có lỗi)
+    callback(null, data); // null is error (no error)
   }, 1000);
 }
 
@@ -995,7 +994,7 @@ fetchUserData((error, user) => {
 ### Promises
 
 ```javascript
-// Tạo Promise
+// Create Promise
 function fetchData() {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
@@ -1009,11 +1008,11 @@ function fetchData() {
   });
 }
 
-// Sử dụng Promise
+// Use Promise
 fetchData()
   .then((data) => {
     console.log("Data:", data);
-    return processData(data); // Return promise khác để chain
+    return processData(data); // Return another promise to chain
   })
   .then((processedData) => {
     console.log("Processed:", processedData);
@@ -1025,7 +1024,7 @@ fetchData()
     console.log("Operation completed");
   });
 
-// Promise.all - chờ tất cả promises hoàn thành
+// Promise.all - wait for all promises to complete
 Promise.all([fetchUsers(), fetchPosts(), fetchComments()])
   .then(([users, posts, comments]) => {
     console.log(users, posts, comments);
@@ -1034,7 +1033,7 @@ Promise.all([fetchUsers(), fetchPosts(), fetchComments()])
     console.error(error);
   });
 
-// Promise.race - chờ promise đầu tiên hoàn thành
+// Promise.race - wait for the first promise to complete
 Promise.race([fetchData1(), fetchData2()])
   .then((result) => {
     console.log("First result:", result);
@@ -1043,7 +1042,7 @@ Promise.race([fetchData1(), fetchData2()])
     console.error("First error:", error);
   });
 
-// Promise.allSettled - chờ tất cả promises hoàn thành (ES2020)
+// Promise.allSettled - wait for all promises to settle (ES2020)
 Promise.allSettled([fetchData1(), fetchData2()]).then((results) => {
   results.forEach((result) => {
     if (result.status === "fulfilled") {
@@ -1058,10 +1057,10 @@ Promise.allSettled([fetchData1(), fetchData2()]).then((results) => {
 ### Async/Await (ES8)
 
 ```javascript
-// Async function luôn trả về promise
+// Async function always returns a promise
 async function fetchUserData() {
   try {
-    // Await tạm dừng thực thi cho đến khi promise hoàn thành
+    // Await pauses execution until promise is resolved
     const user = await fetchUser();
     const posts = await fetchPosts(user.id);
     const comments = await fetchComments(posts[0].id);
@@ -1069,21 +1068,21 @@ async function fetchUserData() {
     return { user, posts, comments };
   } catch (error) {
     console.error("Error:", error);
-    throw error; // Rethrow để xử lý bên ngoài nếu cần
+    throw error; // Rethrow to handle outside if needed
   } finally {
     console.log("Operation completed");
   }
 }
 
-// Gọi async function
+// Call async function
 fetchUserData()
   .then((data) => console.log("All data:", data))
   .catch((error) => console.error("Error in main:", error));
 
-// Chạy nhiều promises song song
+// Run multiple promises in parallel
 async function fetchAllData() {
   try {
-    // Chạy các promises đồng thời
+    // Run promises concurrently
     const [users, products, orders] = await Promise.all([
       fetchUsers(),
       fetchProducts(),
@@ -1100,13 +1099,13 @@ async function fetchAllData() {
 ### Fetch API
 
 ```javascript
-// Fetch API - giao diện hiện đại để gọi API
+// Fetch API - modern interface for API calls
 fetch("https://api.example.com/data")
   .then((response) => {
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
-    return response.json(); // Parse response body thành JSON
+    return response.json(); // Parse response body to JSON
   })
   .then((data) => {
     console.log("Data:", data);
@@ -1115,7 +1114,7 @@ fetch("https://api.example.com/data")
     console.error("Error:", error);
   });
 
-// POST request với Fetch
+// POST request with Fetch
 fetch("https://api.example.com/users", {
   method: "POST",
   headers: {
@@ -1130,7 +1129,7 @@ fetch("https://api.example.com/users", {
   .then((data) => console.log("Success:", data))
   .catch((error) => console.error("Error:", error));
 
-// Async/await với fetch
+// Async/await with fetch
 async function fetchUsers() {
   try {
     const response = await fetch("https://api.example.com/users");
@@ -1146,45 +1145,45 @@ async function fetchUsers() {
 }
 ```
 
-## 🧑‍🏫 Bài 9: Local Storage và Session Storage
+## 🧑‍🏫 Lesson 9: Local Storage and Session Storage
 
 ### Web Storage API
 
 ```javascript
-// LocalStorage - dữ liệu được lưu trữ không giới hạn thời gian
-// Lưu dữ liệu
+// LocalStorage - data is stored with no expiration time
+// Save data
 localStorage.setItem("username", "john_doe");
 localStorage.setItem(
   "preferences",
   JSON.stringify({ theme: "dark", fontSize: 14 })
 );
 
-// Đọc dữ liệu
+// Read data
 const username = localStorage.getItem("username");
 const preferences = JSON.parse(localStorage.getItem("preferences"));
 
-// Xóa một item
+// Remove an item
 localStorage.removeItem("username");
 
-// Xóa tất cả
+// Clear all
 localStorage.clear();
 
-// SessionStorage - dữ liệu chỉ được lưu trong phiên làm việc hiện tại
+// SessionStorage - data is stored only for the current session
 sessionStorage.setItem("temp_data", "some value");
 const tempData = sessionStorage.getItem("temp_data");
 sessionStorage.removeItem("temp_data");
 sessionStorage.clear();
 
-// Lắng nghe event thay đổi storage (trên các tab/window khác)
+// Listen for storage changes (on other tabs/windows)
 window.addEventListener("storage", (event) => {
   console.log("Storage changed:", event.key, event.newValue, event.oldValue);
 });
 ```
 
-### Trường hợp sử dụng
+### Use Cases
 
 ```javascript
-// Lưu trạng thái ứng dụng
+// Save app state
 function saveAppState() {
   const state = {
     darkMode: true,
@@ -1194,19 +1193,19 @@ function saveAppState() {
   localStorage.setItem("appState", JSON.stringify(state));
 }
 
-// Lưu giỏ hàng
+// Save shopping cart
 function addToCart(product) {
-  // Lấy giỏ hàng hiện tại hoặc tạo mới
+  // Get current cart or create new
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-  // Thêm sản phẩm vào giỏ hàng
+  // Add product to cart
   cart.push(product);
 
-  // Lưu giỏ hàng
+  // Save cart
   localStorage.setItem("cart", JSON.stringify(cart));
 }
 
-// Theo dõi đăng nhập
+// Track login
 function login(user) {
   sessionStorage.setItem("currentUser", JSON.stringify(user));
   localStorage.setItem("lastLogin", new Date().toISOString());
@@ -1222,36 +1221,36 @@ function logout() {
 }
 ```
 
-## 🧪 BÀI TẬP LỚN CUỐI PHẦN: Xây dựng ứng dụng Quản lý nhiệm vụ (Todo List)
+## 🧪 FINAL PROJECT: Building a Task Management App (Todo List)
 
-### Mô tả bài toán
+### Project Description
 
-Xây dựng một ứng dụng Todo List hoàn chỉnh với các chức năng:
+Build a complete Todo List application with the following features:
 
-1. Thêm nhiệm vụ mới
-2. Chỉnh sửa nhiệm vụ
-3. Đánh dấu nhiệm vụ đã hoàn thành
-4. Xóa nhiệm vụ
-5. Lọc nhiệm vụ (tất cả, đã hoàn thành, chưa hoàn thành)
-6. Lưu trữ dữ liệu sử dụng Local Storage
-7. Giao diện người dùng thân thiện (sử dụng HTML/CSS đã học)
+1. Add new task
+2. Edit task
+3. Mark task as completed
+4. Delete task
+5. Filter tasks (all, completed, active)
+6. Data persistence using Local Storage
+7. User-friendly interface (using HTML/CSS learned)
 
-### Yêu cầu
+### Requirements
 
-- Sử dụng JavaScript thuần, không dùng thư viện
-- Áp dụng kiến thức DOM, Events, Local Storage
-- Thực hiện validation cho form nhập nhiệm vụ
-- Sử dụng ES6+ features (arrow functions, destructuring, etc.)
-- Triển khai theo mô hình MVC hoặc module pattern
+- Use pure JavaScript, no libraries.
+- Apply DOM, Events, Local Storage knowledge.
+- Implement validation for task input.
+- Use ES6+ features (arrow functions, destructuring, etc.).
+- Implement using MVC pattern or module pattern.
 
-### Tính năng nâng cao (không bắt buộc)
+### Advanced Features (Optional)
 
-- Thêm chức năng phân loại nhiệm vụ theo danh mục
-- Thêm chức năng drag-and-drop để sắp xếp
-- Hiển thị thống kê (số lượng đã hoàn thành/chưa hoàn thành)
-- Thêm deadline và thông báo
+- Add task categorization.
+- Add drag-and-drop for reordering.
+- Show statistics (count of completed/active tasks).
+- Add deadlines and notifications.
 
-### Mockup ứng dụng tham khảo
+### Application Mockup
 
 ```text
 +-----------------------------------------------+

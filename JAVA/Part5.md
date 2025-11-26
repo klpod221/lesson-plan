@@ -1,128 +1,128 @@
 ---
 prev:
-  text: '📁 File I/O và Collections'
-  link: '/JAVA/Part4'
+  text: '🏆 SQL Final Project'
+  link: '/SQL/FINAL'
 next:
-  text: '🏆 Bài Tập Lớn Java'
+  text: '🏆 Java Final Project'
   link: '/JAVA/FINAL'
 ---
 
-# 📘 PHẦN 5: LUỒNG, ĐA LUỒNG VÀ JDBC
+# 📘 PART 5: THREADS, MULTITHREADING AND JDBC
 
-## 🎯 Mục tiêu tổng quát
+## 🎯 General Objectives
 
-- Hiểu cách xử lý nhập/xuất dữ liệu bằng luồng (Streams).
-- Làm quen với lập trình đa luồng (Multithreading).
-- Kết nối và thao tác dữ liệu với cơ sở dữ liệu sử dụng JDBC.
+- Understand how to handle data input/output using Streams.
+- Get familiar with Multithreading programming.
+- Connect and manipulate data with databases using JDBC.
 
-## 🧑‍🏫 Bài 1: JAVA I/O Streams
+## 🧑‍🏫 Lesson 1: JAVA I/O Streams
 
-### Khái niệm luồng (Streams) trong Java
+### Concept of Streams in Java
 
-Luồng là một chuỗi dữ liệu liên tục, được đọc từ nguồn (source) hoặc ghi vào đích (destination). Trong Java, luồng được quản lý thông qua các lớp trong gói `java.io`.
+- A Stream is a continuous sequence of data, read from a source or written to a destination. In Java, streams are managed through classes in the `java.io` package.
 
-#### Phân loại cơ bản
+#### Basic Classification
 
-1. **Luồng byte (Byte Streams)**: Xử lý dữ liệu dạng byte (8-bit).
-   - Lớp cơ sở: `InputStream` và `OutputStream`
-   - Thích hợp cho dữ liệu nhị phân như hình ảnh, âm thanh, video
+1. **Byte Streams**: Handle 8-bit byte data.
+   - Base classes: `InputStream` and `OutputStream`
+   - Suitable for binary data like images, audio, video
 
-2. **Luồng ký tự (Character Streams)**: Xử lý dữ liệu dạng ký tự (Unicode).
-   - Lớp cơ sở: `Reader` và `Writer`
-   - Thích hợp cho văn bản, tập tin cấu hình
+2. **Character Streams**: Handle character data (Unicode).
+   - Base classes: `Reader` and `Writer`
+   - Suitable for text, configuration files
 
-### Các lớp thường sử dụng
+### Commonly Used Classes
 
-#### Luồng byte
+#### Byte Streams
 
-- `FileInputStream`/`FileOutputStream`: Đọc/ghi dữ liệu từ/vào tập tin
-- `BufferedInputStream`/`BufferedOutputStream`: Tối ưu hiệu suất bằng buffer
-- `DataInputStream`/`DataOutputStream`: Đọc/ghi các kiểu dữ liệu nguyên thủy
-- `ObjectInputStream`/`ObjectOutputStream`: Đọc/ghi đối tượng (Serialization)
+- `FileInputStream`/`FileOutputStream`: Read/write data from/to files
+- `BufferedInputStream`/`BufferedOutputStream`: Optimize performance using buffers
+- `DataInputStream`/`DataOutputStream`: Read/write primitive data types
+- `ObjectInputStream`/`ObjectOutputStream`: Read/write objects (Serialization)
 
-#### Luồng ký tự
+#### Character Streams
 
-- `FileReader`/`FileWriter`: Đọc/ghi văn bản từ/vào tập tin
-- `BufferedReader`/`BufferedWriter`: Tối ưu hiệu suất cho luồng ký tự
-- `InputStreamReader`/`OutputStreamWriter`: Chuyển đổi giữa byte và ký tự
-- `PrintWriter`: Xuất dữ liệu dạng định dạng
+- `FileReader`/`FileWriter`: Read/write text from/to files
+- `BufferedReader`/`BufferedWriter`: Optimize performance for character streams
+- `InputStreamReader`/`OutputStreamWriter`: Convert between bytes and characters
+- `PrintWriter`: Output formatted data
 
-### Đọc file với InputStream và Reader
+### Reading Files with InputStream and Reader
 
-#### Đọc file nhị phân với FileInputStream
+#### Reading Binary Files with FileInputStream
 
 ```java
 public static void readBinaryFile(String filePath) {
     try (FileInputStream fis = new FileInputStream(filePath)) {
         int data;
-        System.out.println("Đọc dữ liệu nhị phân từ file: " + filePath);
+        System.out.println("Reading binary data from file: " + filePath);
         
-        // Đọc từng byte cho đến khi hết file (-1)
+        // Read each byte until end of file (-1)
         while ((data = fis.read()) != -1) {
             System.out.print(data + " ");
         }
     } catch (FileNotFoundException e) {
-        System.err.println("Không tìm thấy file: " + e.getMessage());
+        System.err.println("File not found: " + e.getMessage());
     } catch (IOException e) {
-        System.err.println("Lỗi khi đọc file: " + e.getMessage());
+        System.err.println("Error reading file: " + e.getMessage());
     }
 }
 ```
 
-#### Đọc file văn bản với BufferedReader
+#### Reading Text Files with BufferedReader
 
 ```java
 public static void readTextFile(String filePath) {
     try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
         String line;
-        System.out.println("Đọc văn bản từ file: " + filePath);
+        System.out.println("Reading text from file: " + filePath);
         
-        // Đọc từng dòng cho đến khi hết file (null)
+        // Read each line until end of file (null)
         while ((line = reader.readLine()) != null) {
             System.out.println(line);
         }
     } catch (FileNotFoundException e) {
-        System.err.println("Không tìm thấy file: " + e.getMessage());
+        System.err.println("File not found: " + e.getMessage());
     } catch (IOException e) {
-        System.err.println("Lỗi khi đọc file: " + e.getMessage());
+        System.err.println("Error reading file: " + e.getMessage());
     }
 }
 ```
 
-### Ghi file với OutputStream và Writer
+### Writing Files with OutputStream and Writer
 
-#### Ghi file nhị phân với FileOutputStream
+#### Writing Binary Files with FileOutputStream
 
 ```java
 public static void writeBinaryFile(String filePath, byte[] data) {
     try (FileOutputStream fos = new FileOutputStream(filePath)) {
         fos.write(data);
-        System.out.println("Đã ghi " + data.length + " byte vào file: " + filePath);
+        System.out.println("Written " + data.length + " bytes to file: " + filePath);
     } catch (FileNotFoundException e) {
-        System.err.println("Không thể tạo file: " + e.getMessage());
+        System.err.println("Cannot create file: " + e.getMessage());
     } catch (IOException e) {
-        System.err.println("Lỗi khi ghi file: " + e.getMessage());
+        System.err.println("Error writing file: " + e.getMessage());
     }
 }
 ```
 
-#### Ghi file văn bản với BufferedWriter
+#### Writing Text Files with BufferedWriter
 
 ```java
 public static void writeTextFile(String filePath, List<String> lines) {
     try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
         for (String line : lines) {
             writer.write(line);
-            writer.newLine(); // Thêm ký tự xuống dòng
+            writer.newLine(); // Add newline character
         }
-        System.out.println("Đã ghi " + lines.size() + " dòng vào file: " + filePath);
+        System.out.println("Written " + lines.size() + " lines to file: " + filePath);
     } catch (IOException e) {
-        System.err.println("Lỗi khi ghi file: " + e.getMessage());
+        System.err.println("Error writing file: " + e.getMessage());
     }
 }
 ```
 
-### Ứng dụng thực tế: Sao chép file với buffer
+### Real-world Application: Copying Files with Buffer
 
 ```java
 public static void copyFile(String sourceFile, String destinationFile) {
@@ -131,52 +131,52 @@ public static void copyFile(String sourceFile, String destinationFile) {
          FileOutputStream fos = new FileOutputStream(destinationFile);
          BufferedOutputStream bos = new BufferedOutputStream(fos)) {
         
-        byte[] buffer = new byte[4096]; // Buffer 4KB
+        byte[] buffer = new byte[4096]; // 4KB Buffer
         int bytesRead;
         
-        // Đọc và ghi theo từng khối buffer
+        // Read and write in buffer chunks
         while ((bytesRead = bis.read(buffer)) != -1) {
             bos.write(buffer, 0, bytesRead);
         }
         
-        System.out.println("Sao chép file thành công!");
-        System.out.println("Từ: " + sourceFile);
-        System.out.println("Đến: " + destinationFile);
+        System.out.println("File copied successfully!");
+        System.out.println("From: " + sourceFile);
+        System.out.println("To: " + destinationFile);
         
     } catch (IOException e) {
-        System.err.println("Lỗi khi sao chép file: " + e.getMessage());
+        System.err.println("Error copying file: " + e.getMessage());
     }
 }
 ```
 
-### Serialization và Deserialization
+### Serialization and Deserialization
 
-Serialization là quá trình chuyển đổi một đối tượng thành dãy byte để lưu trữ hoặc truyền đi:
+Serialization is the process of converting an object into a byte stream for storage or transmission:
 
 ```java
-// Lớp Student phải implements Serializable
+// Student class must implement Serializable
 public static void serializeObject(String filePath, Student student) {
     try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(filePath))) {
         oos.writeObject(student);
-        System.out.println("Đã lưu đối tượng Student vào file: " + filePath);
+        System.out.println("Saved Student object to file: " + filePath);
     } catch (IOException e) {
-        System.err.println("Lỗi khi lưu đối tượng: " + e.getMessage());
+        System.err.println("Error saving object: " + e.getMessage());
     }
 }
 
 public static Student deserializeObject(String filePath) {
     try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(filePath))) {
         Student student = (Student) ois.readObject();
-        System.out.println("Đã đọc đối tượng Student từ file: " + filePath);
+        System.out.println("Read Student object from file: " + filePath);
         return student;
     } catch (IOException | ClassNotFoundException e) {
-        System.err.println("Lỗi khi đọc đối tượng: " + e.getMessage());
+        System.err.println("Error reading object: " + e.getMessage());
         return null;
     }
 }
 ```
 
-### Xử lý với các loại encoding khác nhau
+### Handling Different Encodings
 
 ```java
 public static void readFileWithEncoding(String filePath, String encoding) {
@@ -184,20 +184,20 @@ public static void readFileWithEncoding(String filePath, String encoding) {
             new InputStreamReader(new FileInputStream(filePath), encoding))) {
         
         String line;
-        System.out.println("Đọc file với encoding " + encoding + ":");
+        System.out.println("Reading file with encoding " + encoding + ":");
         
         while ((line = reader.readLine()) != null) {
             System.out.println(line);
         }
     } catch (UnsupportedEncodingException e) {
-        System.err.println("Encoding không được hỗ trợ: " + encoding);
+        System.err.println("Encoding not supported: " + encoding);
     } catch (IOException e) {
-        System.err.println("Lỗi khi đọc file: " + e.getMessage());
+        System.err.println("Error reading file: " + e.getMessage());
     }
 }
 ```
 
-### Thực hành: Tạo ứng dụng ghi nhật ký (Logger)
+### Practice: Creating a Logger Application
 
 ```java
 public class SimpleLogger {
@@ -206,14 +206,14 @@ public class SimpleLogger {
     
     static {
         try {
-            // Tạo writer cho file log, chế độ append (true)
+            // Create writer for log file, append mode (true)
             writer = new PrintWriter(new BufferedWriter(new FileWriter(LOG_FILE, true)));
             
-            // Thêm header khi khởi động
+            // Add header on startup
             writer.println("=== Log started at: " + new Date() + " ===");
             writer.flush();
         } catch (IOException e) {
-            System.err.println("Không thể khởi tạo logger: " + e.getMessage());
+            System.err.println("Cannot initialize logger: " + e.getMessage());
         }
     }
     
@@ -232,235 +232,235 @@ public class SimpleLogger {
 }
 ```
 
-## 🧑‍🏫 Bài 2: Đa luồng trong JAVA
+## 🧑‍🏫 Lesson 2: Multithreading in JAVA
 
-### Khái niệm Thread và lợi ích của đa luồng
+### Thread Concept and Benefits of Multithreading
 
-**Thread (luồng)** là đơn vị nhỏ nhất của quá trình xử lý có thể được lập lịch bởi hệ điều hành. Một chương trình Java chạy trong một quá trình (process) riêng, nhưng có thể có nhiều luồng thực thi đồng thời trong quá trình đó.
+**Thread** is the smallest unit of processing that can be scheduled by the operating system. A Java program runs in a separate process, but can have multiple threads executing concurrently within that process.
 
-#### Lợi ích của đa luồng
+#### Benefits of Multithreading
 
-1. **Tận dụng tài nguyên CPU**: Trên hệ thống đa nhân, nhiều luồng có thể chạy song song
-2. **Tăng hiệu suất**: Thực hiện đồng thời nhiều tác vụ
-3. **Cải thiện tính phản hồi**: Giữ giao diện người dùng phản hồi nhanh trong khi thực hiện các tác vụ nặng ở nền
-4. **Tối ưu hóa thời gian chờ**: Trong khi một luồng đang chờ I/O, các luồng khác có thể tiếp tục thực thi
+1. **CPU Resource Utilization**: On multi-core systems, multiple threads can run in parallel.
+2. **Increased Performance**: Perform multiple tasks simultaneously.
+3. **Improved Responsiveness**: Keep user interface responsive while performing heavy tasks in background.
+4. **Optimized Wait Time**: While one thread waits for I/O, other threads can continue execution.
 
-### Tạo Thread trong Java
+### Creating Threads in Java
 
-Có hai cách chính để tạo thread trong Java:
+There are two main ways to create threads in Java:
 
-#### 1. Kế thừa lớp Thread
+#### 1. Extending Thread Class
 
 ```java
 class MyThread extends Thread {
     @Override
     public void run() {
-        // Mã lệnh sẽ được thực thi trong luồng mới
+        // Code to be executed in new thread
         for (int i = 1; i <= 5; i++) {
-            System.out.println("Thread [" + getName() + "]: Số " + i);
+            System.out.println("Thread [" + getName() + "]: Number " + i);
             try {
-                // Tạm dừng luồng trong 1 giây
+                // Pause thread for 1 second
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
-                System.out.println("Thread bị gián đoạn");
+                System.out.println("Thread interrupted");
                 return;
             }
         }
-        System.out.println("Thread [" + getName() + "] kết thúc.");
+        System.out.println("Thread [" + getName() + "] finished.");
     }
 }
 
-// Sử dụng
+// Usage
 public static void main(String[] args) {
     MyThread thread1 = new MyThread();
     thread1.setName("MyThread-1");
-    thread1.start();  // Bắt đầu luồng mới, gọi phương thức run()
+    thread1.start();  // Start new thread, calls run() method
     
-    // Tạo và bắt đầu một luồng khác
+    // Create and start another thread
     MyThread thread2 = new MyThread();
     thread2.setName("MyThread-2");
     thread2.start();
     
-    System.out.println("Main thread tiếp tục thực thi...");
+    System.out.println("Main thread continues execution...");
 }
 ```
 
-#### 2. Triển khai giao diện Runnable
+#### 2. Implementing Runnable Interface
 
 ```java
 class MyRunnable implements Runnable {
     @Override
     public void run() {
-        // Mã lệnh sẽ được thực thi trong luồng mới
+        // Code to be executed in new thread
         String threadName = Thread.currentThread().getName();
         for (int i = 1; i <= 5; i++) {
-            System.out.println("Thread [" + threadName + "]: Số " + i);
+            System.out.println("Thread [" + threadName + "]: Number " + i);
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
-                System.out.println("Thread bị gián đoạn");
+                System.out.println("Thread interrupted");
                 return;
             }
         }
-        System.out.println("Thread [" + threadName + "] kết thúc.");
+        System.out.println("Thread [" + threadName + "] finished.");
     }
 }
 
-// Sử dụng
+// Usage
 public static void main(String[] args) {
-    // Tạo đối tượng Runnable
+    // Create Runnable object
     MyRunnable myRunnable = new MyRunnable();
     
-    // Tạo thread với Runnable
+    // Create thread with Runnable
     Thread thread1 = new Thread(myRunnable, "Thread-A");
     Thread thread2 = new Thread(myRunnable, "Thread-B");
     
-    // Bắt đầu các thread
+    // Start threads
     thread1.start();
     thread2.start();
     
-    System.out.println("Main thread tiếp tục thực thi...");
+    System.out.println("Main thread continues execution...");
 }
 ```
 
-#### 3. Sử dụng biểu thức lambda (Java 8+)
+#### 3. Using Lambda Expressions (Java 8+)
 
 ```java
 public static void main(String[] args) {
-    // Tạo thread với biểu thức lambda
+    // Create thread with lambda expression
     Thread thread = new Thread(() -> {
         String name = Thread.currentThread().getName();
         for (int i = 1; i <= 5; i++) {
-            System.out.println("Thread [" + name + "]: Số " + i);
+            System.out.println("Thread [" + name + "]: Number " + i);
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
-                System.out.println("Thread bị gián đoạn");
+                System.out.println("Thread interrupted");
                 return;
             }
         }
-        System.out.println("Thread [" + name + "] kết thúc.");
+        System.out.println("Thread [" + name + "] finished.");
     }, "Lambda-Thread");
     
     thread.start();
-    System.out.println("Main thread tiếp tục thực thi...");
+    System.out.println("Main thread continues execution...");
 }
 ```
 
-### Quản lý luồng
+### Thread Management
 
-#### Bắt đầu luồng (start)
+#### Starting a Thread (start)
 
-Khi gọi `thread.start()`, JVM sẽ cấp phát tài nguyên, lên lịch và gọi phương thức `run()`. Luồng mới sẽ chạy song song với các luồng khác.
+When `thread.start()` is called, the JVM allocates resources, schedules, and calls the `run()` method. The new thread runs in parallel with other threads.
 
 ```java
-Thread thread = new Thread(() -> System.out.println("Luồng mới đang chạy"));
-thread.start(); // Bắt đầu luồng mới
+Thread thread = new Thread(() -> System.out.println("New thread running"));
+thread.start(); // Start new thread
 ```
 
-#### Chờ luồng kết thúc (join)
+#### Waiting for Thread Completion (join)
 
-Phương thức `join()` khiến luồng hiện tại đợi cho đến khi một luồng khác hoàn thành.
+The `join()` method causes the current thread to wait until another thread completes.
 
 ```java
 Thread worker = new Thread(() -> {
-    System.out.println("Worker bắt đầu...");
+    System.out.println("Worker started...");
     try {
-        Thread.sleep(2000); // Giả lập công việc kéo dài 2 giây
+        Thread.sleep(2000); // Simulate work taking 2 seconds
     } catch (InterruptedException e) {
         e.printStackTrace();
     }
-    System.out.println("Worker hoàn thành!");
+    System.out.println("Worker finished!");
 });
 
 worker.start();
-System.out.println("Main thread đang đợi worker...");
+System.out.println("Main thread waiting for worker...");
 
 try {
-    worker.join(); // Main thread sẽ đợi ở đây cho đến khi worker kết thúc
+    worker.join(); // Main thread waits here until worker finishes
 } catch (InterruptedException e) {
     e.printStackTrace();
 }
 
-System.out.println("Main thread tiếp tục sau khi worker hoàn thành");
+System.out.println("Main thread continues after worker finished");
 ```
 
-#### Tạm dừng luồng (sleep)
+#### Pausing a Thread (sleep)
 
-Phương thức `Thread.sleep(milliseconds)` tạm dừng luồng hiện tại trong khoảng thời gian xác định.
+The `Thread.sleep(milliseconds)` method pauses the current thread for a specified duration.
 
 ```java
 try {
-    System.out.println("Bắt đầu tạm dừng...");
-    Thread.sleep(3000); // Tạm dừng 3 giây
-    System.out.println("Tiếp tục sau khi tạm dừng!");
+    System.out.println("Starting pause...");
+    Thread.sleep(3000); // Pause 3 seconds
+    System.out.println("Continuing after pause!");
 } catch (InterruptedException e) {
-    System.out.println("Bị gián đoạn trong khi sleep!");
+    System.out.println("Interrupted during sleep!");
 }
 ```
 
-#### Ngắt một luồng (interrupt)
+#### Interrupting a Thread (interrupt)
 
-Phương thức `interrupt()` đánh dấu một luồng là "bị ngắt" và thường được sử dụng để yêu cầu luồng kết thúc sớm.
+The `interrupt()` method marks a thread as "interrupted" and is often used to request a thread to terminate early.
 
 ```java
 Thread workerThread = new Thread(() -> {
     try {
-        System.out.println("Worker thread bắt đầu...");
+        System.out.println("Worker thread started...");
         while (!Thread.currentThread().isInterrupted()) {
-            System.out.println("Đang xử lý...");
+            System.out.println("Processing...");
             Thread.sleep(500);
         }
     } catch (InterruptedException e) {
-        // Thread.sleep() sẽ ném InterruptedException khi thread bị interrupt
-        System.out.println("Worker thread bị ngắt trong khi sleep");
-        return; // Thoát khỏi phương thức run()
+        // Thread.sleep() throws InterruptedException when thread is interrupted
+        System.out.println("Worker thread interrupted during sleep");
+        return; // Exit run() method
     }
-    System.out.println("Worker thread kết thúc bình thường");
+    System.out.println("Worker thread finished normally");
 });
 
 workerThread.start();
 
-// Để thread chạy trong 2 giây
+// Let thread run for 2 seconds
 try {
     Thread.sleep(2000);
 } catch (InterruptedException e) {
     e.printStackTrace();
 }
 
-// Ngắt thread
-System.out.println("Main thread yêu cầu worker dừng lại...");
+// Interrupt thread
+System.out.println("Main thread requesting worker to stop...");
 workerThread.interrupt();
 ```
 
-#### Ưu tiên luồng (priority)
+#### Thread Priority
 
-Có thể thiết lập độ ưu tiên cho các luồng (1-10, mặc định là 5):
+You can set priority for threads (1-10, default is 5):
 
 ```java
 Thread highPriorityThread = new Thread(() -> {
-    // mã lệnh...
+    // code...
 });
 highPriorityThread.setPriority(Thread.MAX_PRIORITY); // 10
 
 Thread lowPriorityThread = new Thread(() -> {
-    // mã lệnh...
+    // code...
 });
 lowPriorityThread.setPriority(Thread.MIN_PRIORITY); // 1
 ```
 
-### Đồng bộ hóa (Synchronization)
+### Synchronization
 
-Khi nhiều luồng cùng truy cập vào một tài nguyên chung, có thể xảy ra tình trạng không nhất quán dữ liệu (race condition). Đồng bộ hóa giúp đảm bảo tính toàn vẹn của dữ liệu.
+When multiple threads access a shared resource, data inconsistency (race condition) can occur. Synchronization ensures data integrity.
 
-#### Vấn đề race condition
+#### Race Condition Problem
 
 ```java
 class Counter {
     private int count = 0;
     
     public void increment() {
-        count++;  // Không an toàn trong đa luồng!
+        count++;  // Not thread-safe!
     }
     
     public int getCount() {
@@ -468,7 +468,7 @@ class Counter {
     }
 }
 
-// Sử dụng với đa luồng
+// Usage with multithreading
 Counter counter = new Counter();
 Runnable task = () -> {
     for (int i = 0; i < 10000; i++) {
@@ -482,7 +482,7 @@ Thread t2 = new Thread(task);
 t1.start();
 t2.start();
 
-// Đợi cả hai luồng kết thúc
+// Wait for both threads to finish
 try {
     t1.join();
     t2.join();
@@ -490,17 +490,17 @@ try {
     e.printStackTrace();
 }
 
-// Kết quả có thể nhỏ hơn 20000 do race condition
-System.out.println("Giá trị cuối cùng: " + counter.getCount());
+// Result might be less than 20000 due to race condition
+System.out.println("Final value: " + counter.getCount());
 ```
 
-#### Đồng bộ hóa bằng từ khóa synchronized
+#### Synchronization using synchronized keyword
 
 ```java
 class SynchronizedCounter {
     private int count = 0;
     
-    // Phương thức đồng bộ - chỉ một luồng có thể vào tại một thời điểm
+    // Synchronized method - only one thread can enter at a time
     public synchronized void increment() {
         count++;
     }
@@ -510,13 +510,13 @@ class SynchronizedCounter {
     }
 }
 
-// Hoặc sử dụng khối đồng bộ
+// Or using synchronized block
 class SynchronizedCounter2 {
     private int count = 0;
-    private final Object lock = new Object(); // Đối tượng khóa
+    private final Object lock = new Object(); // Lock object
     
     public void increment() {
-        // Chỉ đồng bộ hóa đoạn mã quan trọng
+        // Only synchronize critical section
         synchronized(lock) {
             count++;
         }
@@ -530,7 +530,7 @@ class SynchronizedCounter2 {
 }
 ```
 
-#### Ví dụ thực tế: Đồng bộ hóa truy cập tập tin
+#### Real-world Example: File Access Synchronization
 
 ```java
 class FileLogger {
@@ -550,18 +550,18 @@ class FileLogger {
                     new java.io.FileWriter(fileName, true))) {
                 writer.println(logEntry);
             } catch (java.io.IOException e) {
-                System.err.println("Lỗi khi ghi log: " + e.getMessage());
+                System.err.println("Error writing log: " + e.getMessage());
             }
         }
     }
 }
 
-// Sử dụng
+// Usage
 FileLogger logger = new FileLogger("application.log");
 
 Runnable logTask = () -> {
     for (int i = 1; i <= 5; i++) {
-        logger.logMessage("Bản ghi #" + i);
+        logger.logMessage("Record #" + i);
         try {
             Thread.sleep(200);
         } catch (InterruptedException e) {
@@ -570,45 +570,45 @@ Runnable logTask = () -> {
     }
 };
 
-// Tạo nhiều luồng cùng ghi log
+// Create multiple threads logging together
 new Thread(logTask, "Logger-A").start();
 new Thread(logTask, "Logger-B").start();
 new Thread(logTask, "Logger-C").start();
 ```
 
-### Các vấn đề trong lập trình đa luồng
+### Issues in Multithreading
 
-#### Deadlock (Bế tắc)
+#### Deadlock
 
-Deadlock xảy ra khi hai hoặc nhiều luồng chờ đợi lẫn nhau vô thời hạn.
+Deadlock occurs when two or more threads wait for each other indefinitely.
 
 ```java
 public static void demonstrateDeadlock() {
     final Object resource1 = new Object();
     final Object resource2 = new Object();
     
-    // Thread 1: Lấy resource1, sau đó cố gắng lấy resource2
+    // Thread 1: Acquires resource1, then tries to acquire resource2
     Thread t1 = new Thread(() -> {
         synchronized (resource1) {
-            System.out.println("Thread 1: Đã lấy resource1");
+            System.out.println("Thread 1: Acquired resource1");
             try { Thread.sleep(100); } catch (InterruptedException e) {}
             
-            System.out.println("Thread 1: Đang cố lấy resource2");
+            System.out.println("Thread 1: Trying to acquire resource2");
             synchronized (resource2) {
-                System.out.println("Thread 1: Đã lấy resource2");
+                System.out.println("Thread 1: Acquired resource2");
             }
         }
     });
     
-    // Thread 2: Lấy resource2, sau đó cố gắng lấy resource1
+    // Thread 2: Acquires resource2, then tries to acquire resource1
     Thread t2 = new Thread(() -> {
         synchronized (resource2) {
-            System.out.println("Thread 2: Đã lấy resource2");
+            System.out.println("Thread 2: Acquired resource2");
             try { Thread.sleep(100); } catch (InterruptedException e) {}
             
-            System.out.println("Thread 2: Đang cố lấy resource1");
+            System.out.println("Thread 2: Trying to acquire resource1");
             synchronized (resource1) {
-                System.out.println("Thread 2: Đã lấy resource1");
+                System.out.println("Thread 2: Acquired resource1");
             }
         }
     });
@@ -618,34 +618,34 @@ public static void demonstrateDeadlock() {
 }
 ```
 
-#### Tránh Deadlock
+#### Avoiding Deadlock
 
-Một cách để tránh deadlock là luôn lấy tài nguyên theo thứ tự nhất định:
+One way to avoid deadlock is to always acquire resources in a specific order:
 
 ```java
 public static void avoidDeadlock() {
     final Object resource1 = new Object();
     final Object resource2 = new Object();
     
-    // Cả hai thread đều lấy resource1 trước, rồi mới lấy resource2
+    // Both threads acquire resource1 first, then resource2
     Thread t1 = new Thread(() -> {
         synchronized (resource1) {
-            System.out.println("Thread 1: Đã lấy resource1");
+            System.out.println("Thread 1: Acquired resource1");
             try { Thread.sleep(100); } catch (InterruptedException e) {}
             
             synchronized (resource2) {
-                System.out.println("Thread 1: Đã lấy resource2");
+                System.out.println("Thread 1: Acquired resource2");
             }
         }
     });
     
     Thread t2 = new Thread(() -> {
         synchronized (resource1) {
-            System.out.println("Thread 2: Đã lấy resource1");
+            System.out.println("Thread 2: Acquired resource1");
             try { Thread.sleep(100); } catch (InterruptedException e) {}
             
             synchronized (resource2) {
-                System.out.println("Thread 2: Đã lấy resource2");
+                System.out.println("Thread 2: Acquired resource2");
             }
         }
     });
@@ -655,7 +655,7 @@ public static void avoidDeadlock() {
 }
 ```
 
-### Ví dụ thực tế: Mô phỏng nhà hàng
+### Real-world Example: Restaurant Simulation
 
 ```java
 class Restaurant {
@@ -663,14 +663,14 @@ class Restaurant {
     private int pendingOrders = 0;
     private final int MAX_PENDING_ORDERS = 5;
     
-    // Chef (đầu bếp) làm món ăn
+    // Chef cooks meals
     class Chef implements Runnable {
         @Override
         public void run() {
             while (true) {
                 cookMeal();
                 try {
-                    // Thời gian để nấu một món ăn
+                    // Time to cook a meal
                     Thread.sleep((int)(Math.random() * 1000) + 500);
                 } catch (InterruptedException e) {
                     return;
@@ -682,28 +682,28 @@ class Restaurant {
             synchronized (kitchenLock) {
                 if (pendingOrders == 0) {
                     try {
-                        System.out.println("Đầu bếp: Không có đơn hàng, đang chờ...");
-                        kitchenLock.wait(); // Đợi đến khi có đơn hàng mới
+                        System.out.println("Chef: No orders, waiting...");
+                        kitchenLock.wait(); // Wait for new order
                     } catch (InterruptedException e) {
                         return;
                     }
                 }
                 
                 pendingOrders--;
-                System.out.println("Đầu bếp: Đã làm xong một món, còn lại " + pendingOrders + " đơn hàng");
-                kitchenLock.notifyAll(); // Thông báo cho Waiter biết đã có món ăn sẵn sàng
+                System.out.println("Chef: Finished a meal, remaining orders: " + pendingOrders);
+                kitchenLock.notifyAll(); // Notify Waiter that meal is ready (conceptually)
             }
         }
     }
     
-    // Waiter (phục vụ) nhận đơn hàng
+    // Waiter takes orders
     class Waiter implements Runnable {
         @Override
         public void run() {
             while (true) {
                 takeOrder();
                 try {
-                    // Thời gian để lấy một đơn hàng
+                    // Time to take an order
                     Thread.sleep((int)(Math.random() * 2000) + 1000);
                 } catch (InterruptedException e) {
                     return;
@@ -715,16 +715,16 @@ class Restaurant {
             synchronized (kitchenLock) {
                 if (pendingOrders >= MAX_PENDING_ORDERS) {
                     try {
-                        System.out.println("Phục vụ: Bếp quá tải, đang chờ...");
-                        kitchenLock.wait(); // Đợi đến khi bếp bớt tải
+                        System.out.println("Waiter: Kitchen overloaded, waiting...");
+                        kitchenLock.wait(); // Wait until kitchen is less busy
                     } catch (InterruptedException e) {
                         return;
                     }
                 }
                 
                 pendingOrders++;
-                System.out.println("Phục vụ: Đã nhận đơn hàng mới, hiện có " + pendingOrders + " đơn chờ");
-                kitchenLock.notify(); // Thông báo cho Chef biết có đơn hàng mới
+                System.out.println("Waiter: Taken new order, current pending: " + pendingOrders);
+                kitchenLock.notify(); // Notify Chef about new order
             }
         }
     }
@@ -736,22 +736,22 @@ class Restaurant {
         chefThread.start();
         waiterThread.start();
         
-        // Chạy mô phỏng trong 10 giây
+        // Run simulation for 10 seconds
         try {
             Thread.sleep(10000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
         
-        // Kết thúc các thread
+        // End threads
         chefThread.interrupt();
         waiterThread.interrupt();
-        System.out.println("Mô phỏng nhà hàng kết thúc!");
+        System.out.println("Restaurant simulation finished!");
     }
 }
 ```
 
-### Thực hành: Tạo chương trình tải file song song
+### Practice: Parallel File Downloader
 
 ```java
 import java.io.*;
@@ -770,47 +770,47 @@ public class ParallelDownloader {
             "https://example.com/file4.mp4"
         };
         
-        // Tạo thư mục đích
+        // Create destination directory
         File downloadDir = new File("downloads");
         if (!downloadDir.exists()) {
             downloadDir.mkdir();
         }
         
-        System.out.println("Bắt đầu tải song song " + urls.length + " file...");
+        System.out.println("Starting parallel download of " + urls.length + " files...");
         long startTime = System.currentTimeMillis();
         
-        // Tạo ExecutorService với thread pool
+        // Create ExecutorService with thread pool
         ExecutorService executor = Executors.newFixedThreadPool(3);
         
-        // Tạo danh sách các tác vụ tải file
+        // Create list of download tasks
         List<Future<DownloadResult>> results = new ArrayList<>();
         
         for (String url : urls) {
-            // Tạo tác vụ tải cho mỗi URL
+            // Create download task for each URL
             Callable<DownloadResult> downloadTask = new DownloadTask(url, downloadDir);
             
-            // Gửi tác vụ đến executor và lưu Future để theo dõi
+            // Submit task to executor and save Future to track
             Future<DownloadResult> future = executor.submit(downloadTask);
             results.add(future);
         }
         
-        // Thu thập kết quả
+        // Collect results
         for (Future<DownloadResult> future : results) {
             try {
-                DownloadResult result = future.get(); // Đợi cho đến khi tác vụ hoàn thành
-                System.out.println("Đã tải: " + result.getFileName() + 
-                                   " (" + result.getFileSize() + " bytes) trong " + 
+                DownloadResult result = future.get(); // Wait for task to complete
+                System.out.println("Downloaded: " + result.getFileName() + 
+                                   " (" + result.getFileSize() + " bytes) in " + 
                                    result.getElapsedTime() + "ms");
             } catch (InterruptedException | ExecutionException e) {
-                System.err.println("Lỗi khi tải file: " + e.getMessage());
+                System.err.println("Error downloading file: " + e.getMessage());
             }
         }
         
-        // Đóng executor
+        // Shutdown executor
         executor.shutdown();
         
         long endTime = System.currentTimeMillis();
-        System.out.println("Hoàn tất! Tổng thời gian: " + (endTime - startTime) + "ms");
+        System.out.println("Completed! Total time: " + (endTime - startTime) + "ms");
     }
     
     static class DownloadTask implements Callable<DownloadResult> {
@@ -831,7 +831,7 @@ public class ParallelDownloader {
             File outputFile = new File(downloadDir, fileName);
             
             System.out.println("Thread [" + Thread.currentThread().getName() + 
-                             "] đang tải: " + fileName);
+                             "] downloading: " + fileName);
             
             long fileSize = 0;
             try (BufferedInputStream in = new BufferedInputStream(url.openStream());
@@ -844,7 +844,7 @@ public class ParallelDownloader {
                     fos.write(buffer, 0, bytesRead);
                     fileSize += bytesRead;
                     
-                    // Mô phỏng mạng chậm
+                    // Simulate slow network
                     Thread.sleep(10);
                 }
             }
@@ -880,21 +880,21 @@ public class ParallelDownloader {
 }
 ```
 
-## 🧑‍🏫 Bài 3: Lập trình đồng thời (Concurrency)
+## 🧑‍🏫 Lesson 3: Concurrency
 
-Lập trình đồng thời (Concurrency) là kỹ thuật cho phép nhiều tác vụ được thực hiện đồng thời, giúp tăng hiệu suất và tối ưu hóa việc sử dụng tài nguyên. Java cung cấp nhiều API mạnh mẽ để xây dựng các ứng dụng đồng thời hiệu quả và an toàn.
+Concurrency is a technique that allows multiple tasks to be executed simultaneously, increasing performance and optimizing resource usage. Java provides powerful APIs to build efficient and safe concurrent applications.
 
-### Concurrency API trong Java
+### Concurrency API in Java
 
-Java SE 5 giới thiệu gói `java.util.concurrent` với các lớp và giao diện giúp quản lý thread một cách hiệu quả hơn, an toàn hơn so với cách truyền thống.
+Java SE 5 introduced the `java.util.concurrent` package with classes and interfaces to manage threads more efficiently and safely than traditional methods.
 
-#### ExecutorService và Thread Pool
+#### ExecutorService and Thread Pool
 
-`ExecutorService` là một service giúp quản lý các thread và tác vụ. `ThreadPool` là một nhóm các thread được tạo trước và sẵn sàng thực hiện công việc, giúp:
+`ExecutorService` is a service that helps manage threads and tasks. `ThreadPool` is a group of pre-created threads ready to perform work, helping to:
 
-- Tái sử dụng thread, giảm chi phí khởi tạo
-- Quản lý số lượng thread đồng thời
-- Cải thiện hiệu suất với số lượng thread phù hợp
+- Reuse threads, reducing initialization overhead
+- Manage the number of concurrent threads
+- Improve performance with appropriate thread count
 
 ```java
 import java.util.concurrent.ExecutorService;
@@ -902,68 +902,68 @@ import java.util.concurrent.Executors;
 
 public class ExecutorServiceExample {
     public static void main(String[] args) {
-        // Tạo thread pool với kích thước cố định là 5 thread
+        // Create thread pool with fixed size of 5 threads
         ExecutorService executor = Executors.newFixedThreadPool(5);
         
-        // Gửi 10 tác vụ cho executor
+        // Submit 10 tasks to executor
         for (int i = 1; i <= 10; i++) {
             final int taskId = i;
             executor.execute(() -> {
-                System.out.println("Đang thực hiện tác vụ " + taskId + 
-                                   " bởi thread " + Thread.currentThread().getName());
+                System.out.println("Executing task " + taskId + 
+                                   " by thread " + Thread.currentThread().getName());
                 try {
-                    // Giả lập công việc mất thời gian
+                    // Simulate time-consuming work
                     Thread.sleep((long)(Math.random() * 1000));
                 } catch (InterruptedException e) {
                     Thread.currentThread().interrupt();
                 }
-                System.out.println("Tác vụ " + taskId + " hoàn thành");
+                System.out.println("Task " + taskId + " completed");
             });
         }
         
-        // Đóng executor sau khi hoàn thành
+        // Shutdown executor after completion
         executor.shutdown();
         
-        // Đợi cho đến khi tất cả tác vụ hoàn thành
+        // Wait until all tasks are finished
         while (!executor.isTerminated()) {
-            // Chờ
+            // Wait
         }
         
-        System.out.println("Tất cả tác vụ đã hoàn thành");
+        System.out.println("All tasks completed");
     }
 }
 ```
 
-#### Các loại Executor phổ biến
+#### Common Executor Types
 
-1. **Fixed Thread Pool**: Số lượng thread cố định
+1. **Fixed Thread Pool**: Fixed number of threads
 
    ```java
    ExecutorService fixedPool = Executors.newFixedThreadPool(5);
    ```
 
-2. **Cached Thread Pool**: Tự động tạo thread mới khi cần, tái sử dụng các thread rảnh
+2. **Cached Thread Pool**: Automatically creates new threads as needed, reuses idle threads
 
    ```java
    ExecutorService cachedPool = Executors.newCachedThreadPool();
    ```
 
-3. **Single Thread Executor**: Chỉ sử dụng 1 thread duy nhất
+3. **Single Thread Executor**: Uses only 1 single thread
 
    ```java
    ExecutorService singleThreadExecutor = Executors.newSingleThreadExecutor();
    ```
 
-4. **Scheduled Thread Pool**: Cho phép lên lịch thực thi các tác vụ
+4. **Scheduled Thread Pool**: Allows scheduling tasks execution
 
    ```java
    ScheduledExecutorService scheduledPool = Executors.newScheduledThreadPool(3);
    ```
 
-### Callable và Future
+### Callable and Future
 
-`Callable` tương tự như `Runnable` nhưng có thể trả về kết quả và ném ra ngoại lệ.
-`Future` là một đối tượng đại diện cho kết quả không đồng bộ, cho phép kiểm tra trạng thái và lấy kết quả khi hoàn thành.
+`Callable` is similar to `Runnable` but can return a result and throw exceptions.
+`Future` is an object representing an asynchronous result, allowing to check status and retrieve result when completed.
 
 ```java
 import java.util.concurrent.*;
@@ -973,16 +973,16 @@ public class CallableFutureExample {
     public static void main(String[] args) {
         ExecutorService executor = Executors.newFixedThreadPool(3);
         
-        // Danh sách các Future để lưu kết quả
+        // List of Futures to store results
         List<Future<Integer>> resultList = new ArrayList<>();
         
-        // Tạo và gửi 5 tác vụ Callable
+        // Create and submit 5 Callable tasks
         for (int i = 1; i <= 5; i++) {
             final int taskId = i;
             Callable<Integer> task = () -> {
-                System.out.println("Đang tính toán tác vụ " + taskId);
-                Thread.sleep(1000); // Giả lập xử lý
-                // Giả sử tính tổng các số từ 1 đến taskId
+                System.out.println("Calculating task " + taskId);
+                Thread.sleep(1000); // Simulate processing
+                // Suppose calculating sum from 1 to taskId
                 int sum = 0;
                 for (int j = 1; j <= taskId; j++) {
                     sum += j;
@@ -990,17 +990,17 @@ public class CallableFutureExample {
                 return sum;
             };
             
-            // Gửi tác vụ và lưu Future
+            // Submit task and save Future
             Future<Integer> future = executor.submit(task);
             resultList.add(future);
         }
         
-        // Xử lý kết quả
+        // Process results
         for (int i = 0; i < resultList.size(); i++) {
             try {
-                // get() sẽ chờ cho đến khi tác vụ hoàn thành
+                // get() will wait until task completes
                 Integer result = resultList.get(i).get();
-                System.out.println("Tác vụ " + (i + 1) + " có kết quả: " + result);
+                System.out.println("Task " + (i + 1) + " result: " + result);
             } catch (InterruptedException | ExecutionException e) {
                 e.printStackTrace();
             }
@@ -1011,9 +1011,9 @@ public class CallableFutureExample {
 }
 ```
 
-### CompletableFuture trong Java 8+
+### CompletableFuture in Java 8+
 
-`CompletableFuture` là một lớp mới trong Java 8, mở rộng từ `Future` với nhiều phương thức hữu ích cho lập trình không đồng bộ:
+`CompletableFuture` is a new class in Java 8, extending `Future` with many useful methods for asynchronous programming:
 
 ```java
 import java.util.concurrent.CompletableFuture;
@@ -1021,54 +1021,54 @@ import java.util.concurrent.TimeUnit;
 
 public class CompletableFutureExample {
     public static void main(String[] args) {
-        // Tạo CompletableFuture không đồng bộ
+        // Create asynchronous CompletableFuture
         CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> {
             try {
-                System.out.println("Đang xử lý tác vụ...");
+                System.out.println("Processing task...");
                 TimeUnit.SECONDS.sleep(2);
-                return "Kết quả từ tác vụ không đồng bộ";
+                return "Result from async task";
             } catch (InterruptedException e) {
-                return "Tác vụ bị gián đoạn";
+                return "Task interrupted";
             }
         });
         
-        // Thêm callback để xử lý kết quả khi hoàn thành
+        // Add callback to handle result when completed
         future.thenAccept(result -> {
-            System.out.println("Đã nhận kết quả: " + result);
+            System.out.println("Received result: " + result);
         });
         
-        // Thêm xử lý khi có lỗi
+        // Add error handling
         future.exceptionally(ex -> {
-            System.out.println("Lỗi xảy ra: " + ex.getMessage());
-            return "Giá trị mặc định do lỗi";
+            System.out.println("Error occurred: " + ex.getMessage());
+            return "Default value due to error";
         });
         
-        // Kết hợp hai tác vụ không đồng bộ
+        // Combine two async tasks
         CompletableFuture<String> future1 = CompletableFuture.supplyAsync(() -> {
             try {
                 TimeUnit.SECONDS.sleep(1);
-                return "Dữ liệu từ nguồn 1";
+                return "Data from source 1";
             } catch (InterruptedException e) {
-                return "Lỗi từ nguồn 1";
+                return "Error from source 1";
             }
         });
         
         CompletableFuture<String> future2 = CompletableFuture.supplyAsync(() -> {
             try {
                 TimeUnit.SECONDS.sleep(2);
-                return "Dữ liệu từ nguồn 2";
+                return "Data from source 2";
             } catch (InterruptedException e) {
-                return "Lỗi từ nguồn 2";
+                return "Error from source 2";
             }
         });
         
-        // Kết hợp kết quả từ cả hai nguồn
+        // Combine results from both sources
         CompletableFuture<String> combinedFuture = future1.thenCombine(future2, 
             (result1, result2) -> result1 + " + " + result2);
         
         combinedFuture.thenAccept(System.out::println);
         
-        // Đảm bảo chương trình không kết thúc trước khi tác vụ hoàn thành
+        // Ensure program doesn't exit before tasks complete
         try {
             TimeUnit.SECONDS.sleep(5);
         } catch (InterruptedException e) {
@@ -1078,9 +1078,9 @@ public class CompletableFutureExample {
 }
 ```
 
-### Đồng bộ hóa nâng cao với Lock Interface
+### Advanced Synchronization with Lock Interface
 
-Java cung cấp giao diện `Lock` trong gói `java.util.concurrent.locks` như một giải pháp nâng cao cho từ khóa `synchronized`:
+Java provides the `Lock` interface in `java.util.concurrent.locks` package as an advanced solution for `synchronized` keyword:
 
 ```java
 import java.util.concurrent.locks.Lock;
@@ -1095,19 +1095,19 @@ public class BankAccount {
     }
     
     public void deposit(double amount) {
-        lock.lock();  // Khóa tài nguyên
+        lock.lock();  // Lock resource
         try {
             if (amount > 0) {
                 double newBalance = balance + amount;
-                // Giả lập độ trễ để dễ thấy vấn đề race condition
+                // Simulate delay to expose race condition
                 Thread.sleep(100);
                 balance = newBalance;
-                System.out.println("Đã nạp: " + amount + ", Số dư mới: " + balance);
+                System.out.println("Deposited: " + amount + ", New balance: " + balance);
             }
         } catch (InterruptedException e) {
             e.printStackTrace();
         } finally {
-            lock.unlock();  // Luôn đảm bảo unlock trong finally
+            lock.unlock();  // Always ensure unlock in finally
         }
     }
     
@@ -1118,7 +1118,7 @@ public class BankAccount {
                 double newBalance = balance - amount;
                 Thread.sleep(100);
                 balance = newBalance;
-                System.out.println("Đã rút: " + amount + ", Số dư mới: " + balance);
+                System.out.println("Withdrew: " + amount + ", New balance: " + balance);
                 return true;
             }
             return false;
@@ -1139,12 +1139,12 @@ public class BankAccount {
         }
     }
     
-    // Sử dụng tryLock để tránh deadlock
+    // Use tryLock to avoid deadlock
     public boolean transfer(BankAccount target, double amount) {
-        // Cố gắng khóa tài khoản nguồn
+        // Try to lock source account
         if (lock.tryLock()) {
             try {
-                // Cố gắng khóa tài khoản đích
+                // Try to lock target account
                 if (target.lock.tryLock()) {
                     try {
                         if (amount <= balance) {
@@ -1161,43 +1161,43 @@ public class BankAccount {
                 lock.unlock();
             }
         }
-        // Nếu không thể khóa cả hai tài khoản
-        System.out.println("Không thể chuyển khoản lúc này, vui lòng thử lại sau");
+        // If cannot lock both accounts
+        System.out.println("Cannot transfer at this time, please try again later");
         return false;
     }
 }
 ```
 
-### Semaphore và Latch
+### Semaphore and Latch
 
-`Semaphore` kiểm soát số lượng thread có thể truy cập vào một tài nguyên đồng thời:
+`Semaphore` controls the number of threads that can access a resource simultaneously:
 
 ```java
 import java.util.concurrent.Semaphore;
 
 public class SemaphoreExample {
     public static void main(String[] args) {
-        // Giả lập một nhóm connection pool với 3 connections
+        // Simulate a connection pool with 3 connections
         Semaphore connectionPool = new Semaphore(3);
         
-        // Tạo 10 thread cùng truy cập connection pool
+        // Create 10 threads accessing connection pool
         for (int i = 1; i <= 10; i++) {
             final int clientId = i;
             new Thread(() -> {
                 try {
-                    System.out.println("Client " + clientId + " đang chờ kết nối...");
-                    connectionPool.acquire(); // Lấy 1 permit (connection)
-                    System.out.println("Client " + clientId + " đã lấy được kết nối!");
+                    System.out.println("Client " + clientId + " waiting for connection...");
+                    connectionPool.acquire(); // Acquire 1 permit (connection)
+                    System.out.println("Client " + clientId + " acquired connection!");
                     
-                    // Giả lập thời gian sử dụng connection
+                    // Simulate connection usage time
                     Thread.sleep((long)(Math.random() * 2000) + 1000);
                     
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 } finally {
-                    // Giải phóng connection khi hoàn thành
+                    // Release connection when done
                     connectionPool.release();
-                    System.out.println("Client " + clientId + " đã giải phóng kết nối!");
+                    System.out.println("Client " + clientId + " released connection!");
                 }
             }).start();
         }
@@ -1205,29 +1205,29 @@ public class SemaphoreExample {
 }
 ```
 
-`CountDownLatch` là một công cụ đồng bộ hóa cho phép một hoặc nhiều thread chờ đợi cho đến khi một tập hợp các hoạt động hoàn thành:
+`CountDownLatch` is a synchronization aid that allows one or more threads to wait until a set of operations being performed in other threads completes:
 
 ```java
 import java.util.concurrent.CountDownLatch;
 
 public class CountDownLatchExample {
     public static void main(String[] args) throws InterruptedException {
-        // Tạo latch với số đếm là 3
+        // Create latch with count of 3
         CountDownLatch latch = new CountDownLatch(3);
         
-        System.out.println("Ứng dụng đang khởi động...");
+        System.out.println("Application starting...");
         
-        // Khởi chạy 3 service
+        // Start 3 services
         for (int i = 1; i <= 3; i++) {
             final int serviceId = i;
             new Thread(() -> {
                 try {
-                    System.out.println("Service " + serviceId + " đang khởi động...");
-                    // Giả lập thời gian khởi động
+                    System.out.println("Service " + serviceId + " starting...");
+                    // Simulate startup time
                     Thread.sleep((long)(Math.random() * 2000) + 1000);
-                    System.out.println("Service " + serviceId + " đã sẵn sàng!");
+                    System.out.println("Service " + serviceId + " ready!");
                     
-                    // Đánh dấu service này đã hoàn thành
+                    // Mark this service as completed
                     latch.countDown();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
@@ -1235,56 +1235,56 @@ public class CountDownLatchExample {
             }).start();
         }
         
-        // Đợi cho đến khi tất cả 3 service đều sẵn sàng
+        // Wait until all 3 services are ready
         latch.await();
         
-        System.out.println("Tất cả service đã sẵn sàng! Ứng dụng bắt đầu xử lý request...");
+        System.out.println("All services ready! Application starting to process requests...");
     }
 }
 ```
 
-### Biến nguyên tử (Atomic Variables)
+### Atomic Variables
 
-Các biến nguyên tử trong gói `java.util.concurrent.atomic` cung cấp các hoạt động nguyên tử mà không cần khóa:
+Atomic variables in `java.util.concurrent.atomic` package provide atomic operations without locking:
 
 ```java
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class AtomicVariableExample {
-    // Biến đếm truyền thống (không an toàn với đa luồng)
+    // Traditional counter (not thread-safe)
     private static int normalCounter = 0;
     
-    // Biến đếm nguyên tử (thread-safe)
+    // Atomic counter (thread-safe)
     private static AtomicInteger atomicCounter = new AtomicInteger(0);
     
     public static void main(String[] args) throws InterruptedException {
-        // Tạo nhiều thread cùng tăng bộ đếm
+        // Create multiple threads incrementing counter
         Thread[] threads = new Thread[10];
         
         for (int i = 0; i < threads.length; i++) {
             threads[i] = new Thread(() -> {
                 for (int j = 0; j < 1000; j++) {
-                    normalCounter++;         // Không an toàn, có thể bị mất mát
-                    atomicCounter.incrementAndGet();  // An toàn, nguyên tử
+                    normalCounter++;         // Not safe, data loss possible
+                    atomicCounter.incrementAndGet();  // Safe, atomic
                 }
             });
             threads[i].start();
         }
         
-        // Đợi tất cả thread hoàn thành
+        // Wait for all threads to complete
         for (Thread thread : threads) {
             thread.join();
         }
         
-        System.out.println("Giá trị bộ đếm thông thường: " + normalCounter);
-        System.out.println("Giá trị bộ đếm nguyên tử: " + atomicCounter.get());
+        System.out.println("Normal counter value: " + normalCounter);
+        System.out.println("Atomic counter value: " + atomicCounter.get());
     }
 }
 ```
 
-### ConcurrentHashMap và CopyOnWriteArrayList
+### ConcurrentHashMap and CopyOnWriteArrayList
 
-Các Collection đồng thời được thiết kế đặc biệt để làm việc hiệu quả trong môi trường đa luồng:
+Concurrent Collections are designed specifically to work efficiently in multithreaded environments:
 
 ```java
 import java.util.*;
@@ -1292,38 +1292,38 @@ import java.util.concurrent.*;
 
 public class ConcurrentCollectionsExample {
     public static void main(String[] args) {
-        // HashMap thông thường (không thread-safe)
+        // Normal HashMap (not thread-safe)
         Map<String, Integer> normalMap = new HashMap<>();
         
         // ConcurrentHashMap (thread-safe)
         Map<String, Integer> concurrentMap = new ConcurrentHashMap<>();
         
-        // ArrayList thông thường (không thread-safe)
+        // Normal ArrayList (not thread-safe)
         List<String> normalList = new ArrayList<>();
         
         // CopyOnWriteArrayList (thread-safe)
         List<String> concurrentList = new CopyOnWriteArrayList<>();
         
-        // Tạo và chạy nhiều thread cùng truy cập vào collections
+        // Create and run multiple threads accessing collections
         Runnable task = () -> {
-            // Thêm phần tử vào danh sách
+            // Add element to list
             String threadName = Thread.currentThread().getName();
             concurrentList.add(threadName);
             
-            // Cập nhật giá trị trong map
+            // Update value in map
             concurrentMap.put(threadName, concurrentList.size());
             
-            // Đọc tất cả các phần tử từ danh sách
+            // Read all elements from list
             for (String item : concurrentList) {
-                // Thao tác đọc không bị chặn
-                System.out.println(threadName + " đọc: " + item);
+                // Read operation is not blocked
+                System.out.println(threadName + " read: " + item);
             }
             
-            // Truy xuất và cập nhật giá trị trong map
+            // Retrieve and update value in map
             concurrentMap.computeIfPresent(threadName, (key, oldValue) -> oldValue + 1);
         };
         
-        // Khởi chạy 10 thread
+        // Start 10 threads
         List<Thread> threads = new ArrayList<>();
         for (int i = 1; i <= 10; i++) {
             Thread t = new Thread(task, "Thread-" + i);
@@ -1331,7 +1331,7 @@ public class ConcurrentCollectionsExample {
             t.start();
         }
         
-        // Đợi tất cả thread hoàn thành
+        // Wait for all threads to complete
         for (Thread t : threads) {
             try {
                 t.join();
@@ -1340,15 +1340,15 @@ public class ConcurrentCollectionsExample {
             }
         }
         
-        // Hiển thị kết quả
-        System.out.println("\nKết quả cuối cùng:");
+        // Display results
+        System.out.println("\nFinal Result:");
         System.out.println("ConcurrentList size: " + concurrentList.size());
         System.out.println("ConcurrentMap entries: " + concurrentMap);
     }
 }
 ```
 
-### Ví dụ thực tế: Xử lý dữ liệu song song
+### Real-world Example: Parallel Data Processing
 
 ```java
 import java.util.*;
@@ -1357,7 +1357,7 @@ import java.util.stream.Collectors;
 
 public class ParallelDataProcessingExample {
     
-    // Giả lập dữ liệu cần xử lý
+    // Simulate data to process
     private static List<String> generateData(int size) {
         List<String> data = new ArrayList<>(size);
         for (int i = 0; i < size; i++) {
@@ -1366,10 +1366,10 @@ public class ParallelDataProcessingExample {
         return data;
     }
     
-    // Giả lập hàm xử lý mất thời gian
+    // Simulate time-consuming processing function
     private static String processItem(String item) {
         try {
-            // Giả lập xử lý tốn thời gian
+            // Simulate processing time
             Thread.sleep(100);
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
@@ -1378,58 +1378,58 @@ public class ParallelDataProcessingExample {
     }
     
     public static void main(String[] args) throws InterruptedException, ExecutionException {
-        // Tạo dữ liệu mẫu
+        // Create sample data
         List<String> rawData = generateData(100);
         
-        System.out.println("Bắt đầu xử lý " + rawData.size() + " phần tử");
+        System.out.println("Starting processing of " + rawData.size() + " items");
         
-        // 1. Xử lý tuần tự
+        // 1. Sequential processing
         long startTime = System.currentTimeMillis();
         List<String> sequentialResult = processSequentially(rawData);
         long sequentialTime = System.currentTimeMillis() - startTime;
         
-        System.out.println("Xử lý tuần tự hoàn thành trong " + sequentialTime + " ms");
+        System.out.println("Sequential processing completed in " + sequentialTime + " ms");
         
-        // 2. Xử lý với ExecutorService
+        // 2. Processing with ExecutorService
         startTime = System.currentTimeMillis();
         List<String> executorResult = processWithExecutor(rawData);
         long executorTime = System.currentTimeMillis() - startTime;
         
-        System.out.println("Xử lý với ExecutorService hoàn thành trong " + executorTime + " ms");
+        System.out.println("Processing with ExecutorService completed in " + executorTime + " ms");
         
-        // 3. Xử lý với CompletableFuture
+        // 3. Processing with CompletableFuture
         startTime = System.currentTimeMillis();
         List<String> completableFutureResult = processWithCompletableFuture(rawData);
         long completableFutureTime = System.currentTimeMillis() - startTime;
         
-        System.out.println("Xử lý với CompletableFuture hoàn thành trong " + 
+        System.out.println("Processing with CompletableFuture completed in " + 
                          completableFutureTime + " ms");
         
-        // 4. Xử lý với Parallel Streams (Java 8+)
+        // 4. Processing with Parallel Streams (Java 8+)
         startTime = System.currentTimeMillis();
         List<String> parallelStreamResult = processWithParallelStream(rawData);
         long parallelStreamTime = System.currentTimeMillis() - startTime;
         
-        System.out.println("Xử lý với Parallel Streams hoàn thành trong " + 
+        System.out.println("Processing with Parallel Streams completed in " + 
                          parallelStreamTime + " ms");
         
-        // So sánh kết quả
+        // Compare results
         boolean allResultsMatch = sequentialResult.equals(executorResult) && 
                                executorResult.equals(completableFutureResult) &&
                                completableFutureResult.equals(parallelStreamResult);
         
-        System.out.println("Tất cả kết quả giống nhau: " + allResultsMatch);
-        System.out.println("\nTốc độ cải thiện:");
+        System.out.println("All results match: " + allResultsMatch);
+        System.out.println("\nSpeed improvement:");
         double executorSpeedup = (double) sequentialTime / executorTime;
         double completableFutureSpeedup = (double) sequentialTime / completableFutureTime;
         double parallelStreamSpeedup = (double) sequentialTime / parallelStreamTime;
         
-        System.out.printf("- ExecutorService: %.2fx nhanh hơn\n", executorSpeedup);
-        System.out.printf("- CompletableFuture: %.2fx nhanh hơn\n", completableFutureSpeedup);
-        System.out.printf("- Parallel Streams: %.2fx nhanh hơn\n", parallelStreamSpeedup);
+        System.out.printf("- ExecutorService: %.2fx faster\n", executorSpeedup);
+        System.out.printf("- CompletableFuture: %.2fx faster\n", completableFutureSpeedup);
+        System.out.printf("- Parallel Streams: %.2fx faster\n", parallelStreamSpeedup);
     }
     
-    // 1. Xử lý tuần tự
+    // 1. Sequential processing
     private static List<String> processSequentially(List<String> data) {
         List<String> results = new ArrayList<>(data.size());
         for (String item : data) {
@@ -1438,7 +1438,7 @@ public class ParallelDataProcessingExample {
         return results;
     }
     
-    // 2. Xử lý với ExecutorService
+    // 2. Processing with ExecutorService
     private static List<String> processWithExecutor(List<String> data) 
             throws InterruptedException, ExecutionException {
         
@@ -1461,7 +1461,7 @@ public class ParallelDataProcessingExample {
         return results;
     }
     
-    // 3. Xử lý với CompletableFuture
+    // 3. Processing with CompletableFuture
     private static List<String> processWithCompletableFuture(List<String> data) {
         List<CompletableFuture<String>> futures = data.stream()
             .map(item -> CompletableFuture.supplyAsync(() -> processItem(item)))
@@ -1472,7 +1472,7 @@ public class ParallelDataProcessingExample {
             .collect(Collectors.toList());
     }
     
-    // 4. Xử lý với Parallel Streams
+    // 4. Processing with Parallel Streams
     private static List<String> processWithParallelStream(List<String> data) {
         return data.parallelStream()
             .map(ParallelDataProcessingExample::processItem)
@@ -1481,46 +1481,46 @@ public class ParallelDataProcessingExample {
 }
 ```
 
-### Phương pháp hay nhất (Best Practices)
+### Best Practices
 
-1. **Sử dụng ThreadPool thay vì tạo thread trực tiếp**
-   - Để quản lý hiệu quả và tối ưu hóa việc sử dụng thread trong ứng dụng
+1. **Use ThreadPool instead of creating threads directly**
+   - To efficiently manage and optimize thread usage in the application.
 
-2. **Luôn giải phóng tài nguyên**
-   - Luôn gọi `shutdown()` trên `ExecutorService` khi không còn cần
-   - Sử dụng try-with-resources hoặc finally để đảm bảo unlock các khóa
+2. **Always release resources**
+   - Always call `shutdown()` on `ExecutorService` when no longer needed.
+   - Use try-with-resources or finally to ensure locks are unlocked.
 
-3. **Tránh deadlock**
-   - Luôn lấy khóa theo cùng một thứ tự
-   - Sử dụng tryLock() với timeout để tránh chờ vô hạn
-   - Đừng giữ khóa khi thực hiện các hoạt động chặn hoặc kéo dài
+3. **Avoid deadlock**
+   - Always acquire locks in the same order.
+   - Use tryLock() with timeout to avoid indefinite waiting.
+   - Don't hold locks while performing blocking or long-running operations.
 
-4. **Giảm thiểu trạng thái chia sẻ**
-   - Thiết kế để giảm thiểu dữ liệu chia sẻ
-   - Sử dụng biến local thread khi có thể
-   - Sử dụng `ThreadLocal` khi cần trạng thái riêng cho thread
+4. **Minimize shared state**
+   - Design to minimize shared data.
+   - Use local thread variables when possible.
+   - Use `ThreadLocal` when separate state is needed for threads.
 
-5. **Xử lý ngoại lệ**
-   - Không bỏ qua ngoại lệ trong các thread
-   - Ghi lại hoặc truyền ngoại lệ lên cấp cao hơn
-   - Kiểm tra InterruptedException và phục hồi trạng thái ngắt
+5. **Exception Handling**
+   - Do not ignore exceptions in threads.
+   - Log or propagate exceptions to higher levels.
+   - Check InterruptedException and restore interrupted status.
 
-6. **Hiểu rõ về tính nhất quán của bộ nhớ (Memory Consistency)**
-   - Sử dụng biến volatile cho các flag đơn giản
-   - Sử dụng synchronized hoặc Lock cho trạng thái phức tạp
-   - Ưu tiên các lớp Atomic và Collection đồng thời
+6. **Understand Memory Consistency**
+   - Use volatile variables for simple flags.
+   - Use synchronized or Lock for complex state.
+   - Prefer Atomic classes and Concurrent Collections.
 
-7. **Cân nhắc chi phí đồng bộ hóa**
-   - Đồng bộ hóa thật sự cần thiết chỉ khi có nhiều thread ghi dữ liệu
-   - Các hoạt động chỉ đọc không cần đồng bộ hóa phức tạp
-   - Sử dụng cấu trúc như ReadWriteLock khi phù hợp
+7. **Consider Synchronization Cost**
+   - Synchronization is only truly necessary when multiple threads write data.
+   - Read-only operations do not need complex synchronization.
+   - Use structures like ReadWriteLock when appropriate.
 
-8. **Kiểm thử đa luồng**
-   - Áp dụng công cụ phân tích tĩnh
-   - Viết kiểm thử đa luồng với các tình huống tranh chấp
-   - Thực hiện kiểm thử áp lực để tìm vấn đề về hiệu suất
+8. **Multithreading Testing**
+   - Apply static analysis tools.
+   - Write multithreaded tests with contention scenarios.
+   - Perform stress testing to find performance issues.
 
-### Bài tập thực hành: Xây dựng hệ thống Index tài liệu song song
+### Practice Exercise: Building Parallel Document Indexer
 
 ```java
 import java.io.*;
@@ -1531,10 +1531,10 @@ import java.util.stream.*;
 
 public class ParallelDocumentIndexer {
     
-    // Lưu trữ chỉ mục: từ khóa -> danh sách tài liệu
+    // Store index: keyword -> list of documents
     private final ConcurrentMap<String, Set<String>> index = new ConcurrentHashMap<>();
     
-    // Thư mục chứa tài liệu cần index
+    // Directory containing documents to index
     private final Path documentsDir;
     
     public ParallelDocumentIndexer(String documentsPath) {
@@ -1542,56 +1542,60 @@ public class ParallelDocumentIndexer {
     }
     
     public void buildIndex() throws IOException, InterruptedException {
-        System.out.println("Bắt đầu tạo chỉ mục từ thư mục: " + documentsDir);
+        System.out.println("Starting indexing from directory: " + documentsDir);
         
-        // Lấy danh sách tất cả các file .txt
+        // Get list of all .txt files
         List<Path> textFiles = Files.walk(documentsDir)
                                 .filter(p -> p.toString().endsWith(".txt"))
                                 .collect(Collectors.toList());
         
-        System.out.println("Tìm thấy " + textFiles.size() + " tài liệu");
+        System.out.println("Found " + textFiles.size() + " documents");
         
         ExecutorService executor = Executors.newWorkStealingPool();
         
-        // Tạo futures để theo dõi tiến trình
+        // Create futures to track progress
         List<Future<?>> futures = new ArrayList<>();
         
         for (Path file : textFiles) {
-            // Gửi tác vụ index cho mỗi file
+            // Submit index task for each file
             futures.add(executor.submit(() -> {
                 try {
                     indexFile(file);
                 } catch (IOException e) {
-                    System.err.println("Lỗi khi index file " + file + ": " + e.getMessage());
+                    System.err.println("Error indexing file " + file + ": " + e.getMessage());
                 }
             }));
         }
         
-        // Đợi tất cả tác vụ hoàn thành
+        // Wait for all tasks to complete
         for (Future<?> future : futures) {
-            future.get();
+            try {
+                future.get();
+            } catch (ExecutionException e) {
+                e.printStackTrace();
+            }
         }
         
         executor.shutdown();
-        System.out.println("Hoàn thành! Đã index " + index.size() + " từ khóa.");
+        System.out.println("Completed! Indexed " + index.size() + " keywords.");
     }
     
     private void indexFile(Path file) throws IOException {
-        System.out.println("Đang index file: " + file.getFileName());
+        System.out.println("Indexing file: " + file.getFileName());
         
         String fileContent = Files.readString(file);
         String fileName = file.getFileName().toString();
         
-        // Tách nội dung thành các từ và xử lý
+        // Split content into words and process
         String[] words = fileContent.toLowerCase()
-                       .replaceAll("[^a-zàáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ\\s]", " ")
+                       .replaceAll("[^a-z0-9\\s]", " ")
                        .split("\\s+");
         
-        // Thêm từng từ vào index
+        // Add each word to index
         Arrays.stream(words)
-            .filter(word -> word.length() > 2) // Bỏ qua từ quá ngắn
+            .filter(word -> word.length() > 2) // Ignore short words
             .forEach(word -> {
-                // putIfAbsent đảm bảo atomic, sau đó chúng ta cập nhật set
+                // putIfAbsent ensures atomic, then we update the set
                 index.computeIfAbsent(word, k -> ConcurrentHashMap.newKeySet())
                      .add(fileName);
             });
@@ -1600,19 +1604,19 @@ public class ParallelDocumentIndexer {
     public Set<String> search(String keyword) {
         String normalizedKeyword = keyword.toLowerCase().trim();
         Set<String> result = index.getOrDefault(normalizedKeyword, Collections.emptySet());
-        return new HashSet<>(result); // Trả về bản sao để tránh sửa đổi trực tiếp
+        return new HashSet<>(result); // Return copy to avoid direct modification
     }
     
     public void searchMultipleKeywords(String[] keywords) {
-        System.out.println("\nKết quả tìm kiếm:");
+        System.out.println("\nSearch Results:");
         
         Arrays.stream(keywords)
             .map(String::toLowerCase)
             .forEach(keyword -> {
                 Set<String> documents = search(keyword);
                 
-                System.out.println("\"" + keyword + "\" xuất hiện trong " + 
-                                  documents.size() + " tài liệu:");
+                System.out.println("\"" + keyword + "\" appears in " + 
+                                  documents.size() + " documents:");
                 
                 documents.forEach(doc -> System.out.println("  - " + doc));
             });
@@ -1620,145 +1624,146 @@ public class ParallelDocumentIndexer {
     
     public static void main(String[] args) {
         try {
-            // Đường dẫn đến thư mục chứa tài liệu cần index
+            // Path to directory containing documents to index
             String documentsPath = "documents";
             
-            // Tạo thư mục nếu chưa tồn tại
+            // Create directory if not exists
             Files.createDirectories(Paths.get(documentsPath));
             
-            // Tạo vài file văn bản mẫu để thử nghiệm
+            // Create some sample text files for testing
             createSampleDocuments(documentsPath);
             
-            // Khởi tạo và chạy indexer
+            // Initialize and run indexer
             ParallelDocumentIndexer indexer = new ParallelDocumentIndexer(documentsPath);
             indexer.buildIndex();
             
-            // Tìm kiếm một số từ khóa
-            String[] searchTerms = {"java", "lập trình", "đồng thời", "concurrency", "thread"};
+            // Search for some keywords
+            String[] searchTerms = {"java", "programming", "concurrent", "concurrency", "thread"};
             indexer.searchMultipleKeywords(searchTerms);
             
         } catch (IOException | InterruptedException e) {
-            System.err.println("Lỗi: " + e.getMessage());
+            System.err.println("Error: " + e.getMessage());
             e.printStackTrace();
         }
     }
     
-    // Tạo tài liệu mẫu để thử nghiệm
+    // Create sample documents for testing
     private static void createSampleDocuments(String documentsPath) throws IOException {
         Map<String, String> sampleDocs = new HashMap<>();
         
         sampleDocs.put("java_basics.txt", 
-            "Java là một ngôn ngữ lập trình hướng đối tượng phổ biến. " +
-            "Nó được thiết kế để có số lượng triển khai phụ thuộc ít nhất có thể. " +
-            "Các ứng dụng Java thường được biên dịch thành bytecode.");
+            "Java is a popular object-oriented programming language. " +
+            "It is designed to have as few implementation dependencies as possible. " +
+            "Java applications are typically compiled to bytecode.");
             
         sampleDocs.put("concurrency_intro.txt",
-            "Lập trình đồng thời (concurrency) trong Java cho phép thực thi nhiều luồng (thread) cùng một lúc. " +
-            "Điều này giúp tận dụng tối đa các tài nguyên của máy tính đa nhân hiện đại.");
+            "Concurrency in Java allows executing multiple threads simultaneously. " +
+            "This helps maximize resources of modern multi-core computers.");
             
         sampleDocs.put("threading_models.txt",
-            "Java hỗ trợ đa luồng (multithreading) thông qua lớp Thread và giao diện Runnable. " +
-            "Từ Java 5, API đồng thời (java.util.concurrent) đã được giới thiệu với nhiều tính năng mạnh mẽ.");
+            "Java supports multithreading through Thread class and Runnable interface. " +
+            "Since Java 5, concurrency API (java.util.concurrent) was introduced with many powerful features.");
             
         sampleDocs.put("memory_model.txt",
-            "Mô hình bộ nhớ Java đặc tả cách các thread tương tác thông qua bộ nhớ. " +
-            "Nó định nghĩa các quy tắc để đảm bảo các giá trị được đọc nhất quán giữa các thread khác nhau.");
+            "Java memory model specifies how threads interact through memory. " +
+            "It defines rules to ensure values are read consistently across different threads.");
             
         sampleDocs.put("performance_tips.txt",
-            "Khi lập trình đa luồng trong Java, cần tránh các race condition và deadlock. " +
-            "Sử dụng thread pool thay vì tạo thread trực tiếp sẽ giúp cải thiện hiệu suất ứng dụng.");
+            "When programming multithreading in Java, need to avoid race conditions and deadlocks. " +
+            "Using thread pool instead of creating threads directly will help improve application performance.");
         
-        // Ghi các file mẫu
+        // Write sample files
         for (Map.Entry<String, String> entry : sampleDocs.entrySet()) {
             Path filePath = Paths.get(documentsPath, entry.getKey());
             Files.writeString(filePath, entry.getValue());
-            System.out.println("Đã tạo file mẫu: " + filePath);
+            System.out.println("Created sample file: " + filePath);
         }
     }
 }
 ```
 
-Với những kiến thức về lập trình đồng thời trong Java, bạn có thể xây dựng các ứng dụng hiệu quả, tận dụng tốt nguồn tài nguyên phần cứng và đạt hiệu suất cao hơn so với lập trình tuần tự truyền thống.
+With knowledge of concurrent programming in Java, you can build efficient applications, make good use of hardware resources, and achieve higher performance compared to traditional sequential programming.
 
-## 🧑‍🏫 Bài 4: Kết nối cơ sở dữ liệu với JDBC
 
-### Tải Driver và tạo kết nối
+## 🧑‍🏫 Lesson 4: Database Connection with JDBC
+
+### Loading Driver and Creating Connection
 
 ```java
-// Tải driver (chỉ cần làm một lần)
+// Load driver (only need to do once)
 try {
     Class.forName("com.mysql.cj.jdbc.Driver");
-    // Hoặc với SQLite: Class.forName("org.sqlite.JDBC");
+    // Or with SQLite: Class.forName("org.sqlite.JDBC");
 } catch (ClassNotFoundException e) {
-    System.out.println("Không tìm thấy Driver JDBC");
+    System.out.println("JDBC Driver not found");
     e.printStackTrace();
 }
 
-// Tạo kết nối
+// Create connection
 String url = "jdbc:mysql://localhost:3306/mydatabase";
 String username = "root";
 String password = "password";
 
 try (Connection connection = DriverManager.getConnection(url, username, password)) {
-    System.out.println("Kết nối thành công đến cơ sở dữ liệu!");
-    // Thao tác với database
+    System.out.println("Connected to database successfully!");
+    // Database operations
 } catch (SQLException e) {
-    System.out.println("Kết nối thất bại!");
+    System.out.println("Connection failed!");
     e.printStackTrace();
 }
 ```
 
-### Sử dụng Statement để thực thi truy vấn
+### Using Statement to Execute Queries
 
 ```java
 public static void executeSimpleQuery(Connection conn) throws SQLException {
-    // Tạo Statement
+    // Create Statement
     try (Statement stmt = conn.createStatement()) {
-        // Thực thi truy vấn SQL
+        // Execute SQL query
         String sql = "SELECT id, name, email FROM users";
         ResultSet rs = stmt.executeQuery(sql);
 
-        // Xử lý kết quả
+        // Process results
         while (rs.next()) {
             int id = rs.getInt("id");
             String name = rs.getString("name");
             String email = rs.getString("email");
 
-            System.out.println("ID: " + id + ", Tên: " + name + ", Email: " + email);
+            System.out.println("ID: " + id + ", Name: " + name + ", Email: " + email);
         }
     }
 }
 ```
 
-### Sử dụng PreparedStatement để thực thi truy vấn an toàn
+### Using PreparedStatement for Safe Queries
 
 ```java
 public static void findUserById(Connection conn, int userId) throws SQLException {
     String sql = "SELECT id, name, email FROM users WHERE id = ?";
 
-    // Tạo PreparedStatement
+    // Create PreparedStatement
     try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
-        // Đặt tham số
+        // Set parameter
         pstmt.setInt(1, userId);
 
-        // Thực thi truy vấn
+        // Execute query
         ResultSet rs = pstmt.executeQuery();
 
-        // Xử lý kết quả
+        // Process results
         if (rs.next()) {
             String name = rs.getString("name");
             String email = rs.getString("email");
 
-            System.out.println("Tìm thấy người dùng:");
-            System.out.println("ID: " + userId + ", Tên: " + name + ", Email: " + email);
+            System.out.println("User found:");
+            System.out.println("ID: " + userId + ", Name: " + name + ", Email: " + email);
         } else {
-            System.out.println("Không tìm thấy người dùng với ID: " + userId);
+            System.out.println("User not found with ID: " + userId);
         }
     }
 }
 ```
 
-### Sử dụng try-with-resources với JDBC
+### Using try-with-resources with JDBC
 
 ```java
 public static void safeDatabaseOperation() {
@@ -1766,7 +1771,7 @@ public static void safeDatabaseOperation() {
     String username = "root";
     String password = "password";
 
-    // try-with-resources sẽ tự động đóng Connection, Statement và ResultSet
+    // try-with-resources automatically closes Connection, Statement and ResultSet
     try (
         Connection conn = DriverManager.getConnection(url, username, password);
         Statement stmt = conn.createStatement();
@@ -1774,16 +1779,16 @@ public static void safeDatabaseOperation() {
     ) {
         if (rs.next()) {
             int count = rs.getInt("user_count");
-            System.out.println("Tổng số người dùng: " + count);
+            System.out.println("Total users: " + count);
         }
     } catch (SQLException e) {
-        System.out.println("Lỗi khi thao tác với cơ sở dữ liệu:");
+        System.out.println("Database operation error:");
         e.printStackTrace();
     }
 }
 ```
 
-### Ví dụ thực tế - Kết nối và truy vấn cơ sở dữ liệu
+### Real-world Example - Connection and Query
 
 ```java
 import java.sql.*;
@@ -1795,16 +1800,16 @@ public class JDBCExample {
         String password = "password";
 
         try (Connection conn = DriverManager.getConnection(url, username, password)) {
-            System.out.println("Kết nối thành công đến cơ sở dữ liệu!");
+            System.out.println("Connected to database successfully!");
 
-            // Tìm tất cả sách xuất bản sau năm 2020
+            // Find all books published after 2020
             findBooksByYear(conn, 2020);
 
-            // Tìm sách theo tác giả
-            findBooksByAuthor(conn, "Nguyễn Nhật Ánh");
+            // Find books by author
+            findBooksByAuthor(conn, "J.K. Rowling");
 
         } catch (SQLException e) {
-            System.out.println("Lỗi kết nối: " + e.getMessage());
+            System.out.println("Connection error: " + e.getMessage());
             e.printStackTrace();
         }
     }
@@ -1816,9 +1821,9 @@ public class JDBCExample {
             pstmt.setInt(1, year);
             ResultSet rs = pstmt.executeQuery();
 
-            System.out.println("\nSách xuất bản sau năm " + year + ":");
+            System.out.println("\nBooks published after " + year + ":");
             while (rs.next()) {
-                System.out.printf("ID: %d, Tiêu đề: %s, Tác giả: %s, Năm: %d\n",
+                System.out.printf("ID: %d, Title: %s, Author: %s, Year: %d\n",
                     rs.getInt("id"),
                     rs.getString("title"),
                     rs.getString("author"),
@@ -1831,31 +1836,31 @@ public class JDBCExample {
         String sql = "SELECT id, title, published_year FROM books WHERE author LIKE ?";
 
         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setString(1, "%" + authorName + "%");  // Tìm kiếm mờ
+            pstmt.setString(1, "%" + authorName + "%");  // Fuzzy search
             ResultSet rs = pstmt.executeQuery();
 
-            System.out.println("\nSách của tác giả có tên '" + authorName + "':");
+            System.out.println("\nBooks by author '" + authorName + "':");
             boolean found = false;
 
             while (rs.next()) {
                 found = true;
-                System.out.printf("ID: %d, Tiêu đề: %s, Năm xuất bản: %d\n",
+                System.out.printf("ID: %d, Title: %s, Published Year: %d\n",
                     rs.getInt("id"),
                     rs.getString("title"),
                     rs.getInt("published_year"));
             }
 
             if (!found) {
-                System.out.println("Không tìm thấy sách nào của tác giả này.");
+                System.out.println("No books found for this author.");
             }
         }
     }
 }
 ```
 
-## 🧑‍🏫 Bài 5: Thao tác CRUD với JDBC
+## 🧑‍🏫 Lesson 5: CRUD Operations with JDBC
 
-### Tạo bảng trong cơ sở dữ liệu
+### Creating Table in Database
 
 ```java
 public static void createTable(Connection conn) throws SQLException {
@@ -1869,12 +1874,12 @@ public static void createTable(Connection conn) throws SQLException {
 
     try (Statement stmt = conn.createStatement()) {
         stmt.execute(sql);
-        System.out.println("Bảng 'students' đã được tạo hoặc đã tồn tại");
+        System.out.println("Table 'students' created or already exists");
     }
 }
 ```
 
-### Thêm dữ liệu (Create)
+### Adding Data (Create)
 
 ```java
 public static void addStudent(Connection conn, String name, String email, int age, double gpa)
@@ -1889,13 +1894,13 @@ public static void addStudent(Connection conn, String name, String email, int ag
 
         int rowsInserted = pstmt.executeUpdate();
         if (rowsInserted > 0) {
-            System.out.println("Đã thêm thành công sinh viên: " + name);
+            System.out.println("Successfully added student: " + name);
         }
     }
 }
 ```
 
-### Truy vấn dữ liệu (Read)
+### Querying Data (Read)
 
 ```java
 public static void getAllStudents(Connection conn) throws SQLException {
@@ -1905,13 +1910,13 @@ public static void getAllStudents(Connection conn) throws SQLException {
         ResultSet rs = stmt.executeQuery(sql)) {
 
         if (!rs.isBeforeFirst()) {
-            System.out.println("Không có sinh viên nào trong cơ sở dữ liệu");
+            System.out.println("No students in database");
             return;
         }
 
-        System.out.println("\n----- DANH SÁCH SINH VIÊN -----");
+        System.out.println("\n----- STUDENT LIST -----");
         System.out.printf("%-5s %-20s %-25s %-5s %-5s\n",
-                        "ID", "Họ tên", "Email", "Tuổi", "GPA");
+                        "ID", "Name", "Email", "Age", "GPA");
         System.out.println("-----------------------------------------------------------");
 
         while (rs.next()) {
@@ -1934,9 +1939,9 @@ public static void findStudentByName(Connection conn, String searchName) throws 
         try (ResultSet rs = pstmt.executeQuery()) {
             boolean found = false;
 
-            System.out.println("\n----- TÌM KIẾM SINH VIÊN -----");
+            System.out.println("\n----- SEARCH STUDENT -----");
             System.out.printf("%-5s %-20s %-25s %-5s %-5s\n",
-                            "ID", "Họ tên", "Email", "Tuổi", "GPA");
+                            "ID", "Name", "Email", "Age", "GPA");
             System.out.println("-----------------------------------------------------------");
 
             while (rs.next()) {
@@ -1950,14 +1955,14 @@ public static void findStudentByName(Connection conn, String searchName) throws 
             }
 
             if (!found) {
-                System.out.println("Không tìm thấy sinh viên nào có tên \"" + searchName + "\"");
+                System.out.println("No student found with name \"" + searchName + "\"");
             }
         }
     }
 }
 ```
 
-### Cập nhật dữ liệu (Update)
+### Updating Data (Update)
 
 ```java
 public static void updateStudentGPA(Connection conn, int studentId, double newGPA)
@@ -1970,19 +1975,19 @@ public static void updateStudentGPA(Connection conn, int studentId, double newGP
 
         int rowsUpdated = pstmt.executeUpdate();
         if (rowsUpdated > 0) {
-            System.out.println("Đã cập nhật GPA của sinh viên có ID = " + studentId);
+            System.out.println("Updated GPA for student ID = " + studentId);
         } else {
-            System.out.println("Không tìm thấy sinh viên có ID = " + studentId);
+            System.out.println("Student not found with ID = " + studentId);
         }
     }
 }
 ```
 
-### Xóa dữ liệu (Delete)
+### Deleting Data (Delete)
 
 ```java
 public static void deleteStudent(Connection conn, int studentId) throws SQLException {
-    // Trước tiên, kiểm tra xem sinh viên có tồn tại không
+    // First, check if student exists
     String checkSql = "SELECT name FROM students WHERE id = ?";
     try (PreparedStatement checkStmt = conn.prepareStatement(checkSql)) {
         checkStmt.setInt(1, studentId);
@@ -1991,30 +1996,30 @@ public static void deleteStudent(Connection conn, int studentId) throws SQLExcep
             if (rs.next()) {
                 String studentName = rs.getString("name");
 
-                // Sinh viên tồn tại, tiến hành xóa
+                // Student exists, proceed to delete
                 String deleteSql = "DELETE FROM students WHERE id = ?";
                 try (PreparedStatement deleteStmt = conn.prepareStatement(deleteSql)) {
                     deleteStmt.setInt(1, studentId);
 
                     int rowsDeleted = deleteStmt.executeUpdate();
-                    System.out.println("Đã xóa sinh viên: " + studentName);
+                    System.out.println("Deleted student: " + studentName);
                 }
             } else {
-                System.out.println("Không tìm thấy sinh viên có ID = " + studentId);
+                System.out.println("Student not found with ID = " + studentId);
             }
         }
     }
 }
 ```
 
-### Ví dụ thực tế - Quản lý sinh viên CRUD hoàn chỉnh
+### Real-world Example - Complete CRUD Student Management
 
 ```java
 import java.sql.*;
 import java.util.Scanner;
 
 public class StudentManagementSystem {
-    // Thông tin kết nối CSDL
+    // Database connection info
     private static final String URL = "jdbc:mysql://localhost:3306/school_db";
     private static final String USERNAME = "root";
     private static final String PASSWORD = "password";
@@ -2023,19 +2028,19 @@ public class StudentManagementSystem {
 
     public static void main(String[] args) {
         try {
-            // Tải driver
+            // Load driver
             Class.forName("com.mysql.cj.jdbc.Driver");
 
-            // Tạo kết nối
+            // Create connection
             try (Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD)) {
-                // Tạo bảng nếu chưa tồn tại
+                // Create table if not exists
                 createTable(conn);
 
                 boolean running = true;
                 while (running) {
                     displayMenu();
                     int choice = scanner.nextInt();
-                    scanner.nextLine(); // Đọc newline
+                    scanner.nextLine(); // Read newline
 
                     switch (choice) {
                         case 1:
@@ -2055,47 +2060,47 @@ public class StudentManagementSystem {
                             break;
                         case 0:
                             running = false;
-                            System.out.println("Cảm ơn bạn đã sử dụng chương trình!");
+                            System.out.println("Thank you for using the program!");
                             break;
                         default:
-                            System.out.println("Lựa chọn không hợp lệ!");
+                            System.out.println("Invalid choice!");
                     }
                 }
             }
         } catch (ClassNotFoundException e) {
-            System.out.println("Không tìm thấy Driver JDBC: " + e.getMessage());
+            System.out.println("JDBC Driver not found: " + e.getMessage());
         } catch (SQLException e) {
-            System.out.println("Lỗi SQL: " + e.getMessage());
+            System.out.println("SQL Error: " + e.getMessage());
             e.printStackTrace();
         }
     }
 
     private static void displayMenu() {
-        System.out.println("\n----- HỆ THỐNG QUẢN LÝ SINH VIÊN -----");
-        System.out.println("1. Thêm sinh viên mới");
-        System.out.println("2. Xem tất cả sinh viên");
-        System.out.println("3. Tìm kiếm sinh viên theo tên");
-        System.out.println("4. Cập nhật GPA của sinh viên");
-        System.out.println("5. Xóa sinh viên");
-        System.out.println("0. Thoát");
-        System.out.print("Chọn chức năng: ");
+        System.out.println("\n----- STUDENT MANAGEMENT SYSTEM -----");
+        System.out.println("1. Add new student");
+        System.out.println("2. View all students");
+        System.out.println("3. Search student by name");
+        System.out.println("4. Update student GPA");
+        System.out.println("5. Delete student");
+        System.out.println("0. Exit");
+        System.out.print("Select function: ");
     }
 
     private static void addNewStudent(Connection conn) throws SQLException {
-        System.out.println("\n----- THÊM SINH VIÊN MỚI -----");
+        System.out.println("\n----- ADD NEW STUDENT -----");
 
-        System.out.print("Nhập tên sinh viên: ");
+        System.out.print("Enter student name: ");
         String name = scanner.nextLine();
 
-        System.out.print("Nhập email: ");
+        System.out.print("Enter email: ");
         String email = scanner.nextLine();
 
-        System.out.print("Nhập tuổi: ");
+        System.out.print("Enter age: ");
         int age = scanner.nextInt();
 
-        System.out.print("Nhập GPA: ");
+        System.out.print("Enter GPA: ");
         double gpa = scanner.nextDouble();
-        scanner.nextLine(); // Đọc newline
+        scanner.nextLine(); // Read newline
 
         addStudent(conn, name, email, age, gpa);
     }
@@ -2105,53 +2110,53 @@ public class StudentManagementSystem {
     }
 
     private static void searchStudent(Connection conn) throws SQLException {
-        System.out.print("\nNhập tên sinh viên cần tìm: ");
+        System.out.print("\nEnter student name to search: ");
         String searchName = scanner.nextLine();
 
         findStudentByName(conn, searchName);
     }
 
     private static void updateStudent(Connection conn) throws SQLException {
-        System.out.print("\nNhập ID của sinh viên cần cập nhật: ");
+        System.out.print("\nEnter student ID to update: ");
         int id = scanner.nextInt();
 
-        System.out.print("Nhập GPA mới: ");
+        System.out.print("Enter new GPA: ");
         double newGPA = scanner.nextDouble();
-        scanner.nextLine(); // Đọc newline
+        scanner.nextLine(); // Read newline
 
         updateStudentGPA(conn, id, newGPA);
     }
 
     private static void deleteStudentRecord(Connection conn) throws SQLException {
-        System.out.print("\nNhập ID của sinh viên cần xóa: ");
+        System.out.print("\nEnter student ID to delete: ");
         int id = scanner.nextInt();
-        scanner.nextLine(); // Đọc newline
+        scanner.nextLine(); // Read newline
 
-        System.out.print("Bạn có chắc muốn xóa sinh viên này? (y/n): ");
+        System.out.print("Are you sure you want to delete this student? (y/n): ");
         String confirm = scanner.nextLine();
 
         if (confirm.equalsIgnoreCase("y")) {
             deleteStudent(conn, id);
         } else {
-            System.out.println("Đã hủy thao tác xóa");
+            System.out.println("Delete operation cancelled");
         }
     }
 
-    // Phương thức CRUD khác đã được định nghĩa ở trên...
+    // Other CRUD methods defined above...
 }
 ```
 
-### Xử lý lỗi và Transaction
+### Error Handling and Transactions
 
 ```java
 public static void registerStudentWithCourses(Connection conn, String studentName,
                                             String email, int[] courseIds) throws SQLException {
-    // Vô hiệu hóa auto-commit để sử dụng transaction
+    // Disable auto-commit to use transaction
     boolean autoCommit = conn.getAutoCommit();
     conn.setAutoCommit(false);
 
     try {
-        // 1. Thêm sinh viên mới
+        // 1. Add new student
         String insertStudentSql = "INSERT INTO students (name, email) VALUES (?, ?)";
         int studentId;
 
@@ -2161,17 +2166,17 @@ public static void registerStudentWithCourses(Connection conn, String studentNam
             pstmt.setString(2, email);
             pstmt.executeUpdate();
 
-            // Lấy ID của sinh viên vừa thêm
+            // Get ID of newly added student
             try (ResultSet rs = pstmt.getGeneratedKeys()) {
                 if (rs.next()) {
                     studentId = rs.getInt(1);
                 } else {
-                    throw new SQLException("Không thể lấy ID của sinh viên vừa thêm");
+                    throw new SQLException("Cannot get ID of newly added student");
                 }
             }
         }
 
-        // 2. Đăng ký sinh viên vào các khóa học
+        // 2. Register student for courses
         String registerCourseSql = "INSERT INTO student_courses (student_id, course_id) VALUES (?, ?)";
 
         try (PreparedStatement pstmt = conn.prepareStatement(registerCourseSql)) {
@@ -2182,30 +2187,30 @@ public static void registerStudentWithCourses(Connection conn, String studentNam
             }
         }
 
-        // Nếu mọi thứ OK, commit transaction
+        // If everything OK, commit transaction
         conn.commit();
-        System.out.println("Đã đăng ký sinh viên " + studentName + " với " +
-                            courseIds.length + " khóa học");
+        System.out.println("Registered student " + studentName + " with " +
+                            courseIds.length + " courses");
 
     } catch (SQLException e) {
-        // Nếu có lỗi, rollback
+        // If error, rollback
         try {
-            System.out.println("Transaction bị lỗi, đang rollback...");
+            System.out.println("Transaction failed, rolling back...");
             conn.rollback();
         } catch (SQLException ex) {
-            System.out.println("Lỗi khi rollback: " + ex.getMessage());
+            System.out.println("Error rolling back: " + ex.getMessage());
         }
         throw e;
     } finally {
-        // Khôi phục trạng thái auto-commit
+        // Restore auto-commit state
         conn.setAutoCommit(autoCommit);
     }
 }
 ```
 
-## 🧑‍🏫 Bài 6: Thực hành viết ứng dụng với JDBC
+## 🧑‍🏫 Lesson 6: Practice - Building Application with JDBC
 
-### Thiết kế cơ sở dữ liệu đơn giản
+### Simple Database Design
 
 ```sql
 CREATE TABLE students (
@@ -2236,7 +2241,7 @@ CREATE TABLE enrollments (
 );
 ```
 
-### Lớp kết nối cơ sở dữ liệu
+### Database Connection Class
 
 ```java
 public class DatabaseConnection {
@@ -2252,7 +2257,7 @@ public class DatabaseConnection {
                 Class.forName("com.mysql.cj.jdbc.Driver");
                 connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
             } catch (ClassNotFoundException e) {
-                throw new SQLException("JDBC Driver không tìm thấy", e);
+                throw new SQLException("JDBC Driver not found", e);
             }
         }
         return connection;
@@ -2263,14 +2268,14 @@ public class DatabaseConnection {
             try {
                 connection.close();
             } catch (SQLException e) {
-                System.out.println("Lỗi khi đóng kết nối: " + e.getMessage());
+                System.out.println("Error closing connection: " + e.getMessage());
             }
         }
     }
 }
 ```
 
-### Lớp DAO (Data Access Object) cho Student
+### Student DAO (Data Access Object) Class
 
 ```java
 public class StudentDAO {
@@ -2280,7 +2285,7 @@ public class StudentDAO {
         this.conn = DatabaseConnection.getConnection();
     }
 
-    // Thêm sinh viên mới
+    // Add new student
     public boolean addStudent(Student student) throws SQLException {
         String sql = "INSERT INTO students (student_id, name, birth_date, email, phone) " +
                     "VALUES (?, ?, ?, ?, ?)";
@@ -2297,7 +2302,7 @@ public class StudentDAO {
         }
     }
 
-    // Lấy tất cả sinh viên
+    // Get all students
     public List<Student> getAllStudents() throws SQLException {
         List<Student> students = new ArrayList<>();
         String sql = "SELECT id, student_id, name, birth_date, email, phone FROM students";
@@ -2321,7 +2326,7 @@ public class StudentDAO {
         return students;
     }
 
-    // Tìm sinh viên theo mã
+    // Find student by ID
     public Student findByStudentId(String studentId) throws SQLException {
         String sql = "SELECT id, student_id, name, birth_date, email, phone " +
                     "FROM students WHERE student_id = ?";
@@ -2344,10 +2349,10 @@ public class StudentDAO {
             }
         }
 
-        return null; // Không tìm thấy
+        return null; // Not found
     }
 
-    // Cập nhật thông tin sinh viên
+    // Update student info
     public boolean updateStudent(Student student) throws SQLException {
         String sql = "UPDATE students SET name = ?, birth_date = ?, email = ?, phone = ? " +
                     "WHERE student_id = ?";
@@ -2364,7 +2369,7 @@ public class StudentDAO {
         }
     }
 
-    // Xóa sinh viên
+    // Delete student
     public boolean deleteStudent(String studentId) throws SQLException {
         String sql = "DELETE FROM students WHERE student_id = ?";
 
@@ -2378,24 +2383,24 @@ public class StudentDAO {
 }
 ```
 
-### Lớp Student
+### Student Class
 
 ```java
 import java.util.Date;
 
 public class Student {
     private int id;
-    private String studentId;  // Mã sinh viên
+    private String studentId;  // Student ID code
     private String name;
     private Date birthDate;
     private String email;
     private String phone;
 
-    // Constructor mặc định
+    // Default constructor
     public Student() {
     }
 
-    // Constructor với tham số
+    // Parameterized constructor
     public Student(String studentId, String name, Date birthDate, String email, String phone) {
         this.studentId = studentId;
         this.name = name;
@@ -2404,7 +2409,7 @@ public class Student {
         this.phone = phone;
     }
 
-    // Getters và Setters
+    // Getters and Setters
     public int getId() {
         return id;
     }
@@ -2461,7 +2466,7 @@ public class Student {
 }
 ```
 
-### Ứng dụng hoàn chỉnh với đa luồng
+### Complete Application with Multithreading
 
 ```java
 import java.sql.SQLException;
@@ -2479,14 +2484,14 @@ public class StudentManagementApp {
 
     public static void main(String[] args) {
         try {
-            // Khởi tạo DAO
+            // Initialize DAO
             studentDAO = new StudentDAO();
 
             boolean running = true;
             while (running) {
                 displayMenu();
                 int choice = scanner.nextInt();
-                scanner.nextLine(); // Đọc newline
+                scanner.nextLine(); // Read newline
 
                 switch (choice) {
                     case 1:
@@ -2511,14 +2516,14 @@ public class StudentManagementApp {
                         running = false;
                         executor.shutdown();
                         DatabaseConnection.closeConnection();
-                        System.out.println("Cảm ơn bạn đã sử dụng chương trình!");
+                        System.out.println("Thank you for using the program!");
                         break;
                     default:
-                        System.out.println("Lựa chọn không hợp lệ!");
+                        System.out.println("Invalid choice!");
                 }
             }
         } catch (SQLException e) {
-            System.out.println("Lỗi kết nối cơ sở dữ liệu: " + e.getMessage());
+            System.out.println("Database connection error: " + e.getMessage());
         } finally {
             if (executor != null && !executor.isShutdown()) {
                 executor.shutdown();
@@ -2527,72 +2532,72 @@ public class StudentManagementApp {
     }
 
     private static void displayMenu() {
-        System.out.println("\n=== HỆ THỐNG QUẢN LÝ SINH VIÊN ===");
-        System.out.println("1. Thêm sinh viên mới");
-        System.out.println("2. Xem tất cả sinh viên");
-        System.out.println("3. Tìm sinh viên theo mã");
-        System.out.println("4. Cập nhật thông tin sinh viên");
-        System.out.println("5. Xóa sinh viên");
-        System.out.println("6. Sao lưu dữ liệu vào file");
-        System.out.println("0. Thoát");
-        System.out.print("Chọn chức năng: ");
+        System.out.println("\n=== STUDENT MANAGEMENT SYSTEM ===");
+        System.out.println("1. Add new student");
+        System.out.println("2. View all students");
+        System.out.println("3. Find student by ID");
+        System.out.println("4. Update student info");
+        System.out.println("5. Delete student");
+        System.out.println("6. Backup data to file");
+        System.out.println("0. Exit");
+        System.out.print("Select function: ");
     }
 
     private static void addNewStudent() {
-        System.out.println("\n=== THÊM SINH VIÊN MỚI ===");
+        System.out.println("\n=== ADD NEW STUDENT ===");
 
         try {
-            System.out.print("Nhập mã sinh viên: ");
+            System.out.print("Enter student ID: ");
             String studentId = scanner.nextLine();
 
-            System.out.print("Nhập tên sinh viên: ");
+            System.out.print("Enter name: ");
             String name = scanner.nextLine();
 
-            System.out.print("Nhập ngày sinh (dd/MM/yyyy): ");
+            System.out.print("Enter birth date (dd/MM/yyyy): ");
             String birthDateStr = scanner.nextLine();
             Date birthDate = dateFormat.parse(birthDateStr);
 
-            System.out.print("Nhập email: ");
+            System.out.print("Enter email: ");
             String email = scanner.nextLine();
 
-            System.out.print("Nhập số điện thoại: ");
+            System.out.print("Enter phone number: ");
             String phone = scanner.nextLine();
 
             Student student = new Student(studentId, name, birthDate, email, phone);
 
-            // Thực hiện thêm sinh viên trong thread riêng
+            // Execute adding student in separate thread
             executor.submit(() -> {
                 try {
                     boolean success = studentDAO.addStudent(student);
                     if (success) {
-                        System.out.println("Đã thêm sinh viên thành công!");
+                        System.out.println("Student added successfully!");
                     } else {
-                        System.out.println("Thêm sinh viên thất bại!");
+                        System.out.println("Failed to add student!");
                     }
                 } catch (SQLException e) {
-                    System.out.println("Lỗi: " + e.getMessage());
+                    System.out.println("Error: " + e.getMessage());
                 }
             });
 
         } catch (ParseException e) {
-            System.out.println("Định dạng ngày không hợp lệ. Vui lòng nhập theo định dạng dd/MM/yyyy");
+            System.out.println("Invalid date format. Please use dd/MM/yyyy");
         }
     }
 
     private static void displayAllStudents() {
-        System.out.println("\n=== DANH SÁCH SINH VIÊN ===");
+        System.out.println("\n=== STUDENT LIST ===");
 
         executor.submit(() -> {
             try {
                 List<Student> students = studentDAO.getAllStudents();
 
                 if (students.isEmpty()) {
-                    System.out.println("Không có sinh viên nào trong cơ sở dữ liệu");
+                    System.out.println("No students in database");
                     return;
                 }
 
                 System.out.printf("%-10s %-30s %-15s %-25s %-15s\n",
-                               "Mã SV", "Họ và tên", "Ngày sinh", "Email", "Số điện thoại");
+                               "ID", "Full Name", "Birth Date", "Email", "Phone");
                 System.out.println("--------------------------------------------------------------------------------------------------------");
 
                 for (Student student : students) {
@@ -2604,13 +2609,13 @@ public class StudentManagementApp {
                                    student.getPhone());
                 }
             } catch (SQLException e) {
-                System.out.println("Lỗi khi lấy danh sách sinh viên: " + e.getMessage());
+                System.out.println("Error retrieving student list: " + e.getMessage());
             }
         });
     }
 
     private static void findStudentById() {
-        System.out.print("\nNhập mã sinh viên cần tìm: ");
+        System.out.print("\nEnter student ID to find: ");
         String studentId = scanner.nextLine();
 
         executor.submit(() -> {
@@ -2618,23 +2623,23 @@ public class StudentManagementApp {
                 Student student = studentDAO.findByStudentId(studentId);
 
                 if (student != null) {
-                    System.out.println("\n=== THÔNG TIN SINH VIÊN ===");
-                    System.out.println("Mã sinh viên: " + student.getStudentId());
-                    System.out.println("Họ và tên: " + student.getName());
-                    System.out.println("Ngày sinh: " + dateFormat.format(student.getBirthDate()));
+                    System.out.println("\n=== STUDENT INFO ===");
+                    System.out.println("Student ID: " + student.getStudentId());
+                    System.out.println("Full Name: " + student.getName());
+                    System.out.println("Birth Date: " + dateFormat.format(student.getBirthDate()));
                     System.out.println("Email: " + student.getEmail());
-                    System.out.println("Số điện thoại: " + student.getPhone());
+                    System.out.println("Phone: " + student.getPhone());
                 } else {
-                    System.out.println("Không tìm thấy sinh viên có mã " + studentId);
+                    System.out.println("Student not found with ID " + studentId);
                 }
             } catch (SQLException e) {
-                System.out.println("Lỗi khi tìm sinh viên: " + e.getMessage());
+                System.out.println("Error finding student: " + e.getMessage());
             }
         });
     }
 
     private static void updateStudentInfo() {
-        System.out.print("\nNhập mã sinh viên cần cập nhật: ");
+        System.out.print("\nEnter student ID to update: ");
         String studentId = scanner.nextLine();
 
         executor.submit(() -> {
@@ -2642,33 +2647,33 @@ public class StudentManagementApp {
                 Student student = studentDAO.findByStudentId(studentId);
 
                 if (student != null) {
-                    System.out.println("\n=== CẬP NHẬT THÔNG TIN SINH VIÊN ===");
-                    System.out.println("Sinh viên hiện tại: " + student.getName());
+                    System.out.println("\n=== UPDATE STUDENT INFO ===");
+                    System.out.println("Current student: " + student.getName());
 
-                    System.out.print("Nhập tên mới (Enter để giữ nguyên): ");
+                    System.out.print("Enter new name (Enter to keep): ");
                     String name = scanner.nextLine();
                     if (!name.isEmpty()) {
                         student.setName(name);
                     }
 
-                    System.out.print("Nhập ngày sinh mới (dd/MM/yyyy) (Enter để giữ nguyên): ");
+                    System.out.print("Enter new birth date (dd/MM/yyyy) (Enter to keep): ");
                     String birthDateStr = scanner.nextLine();
                     if (!birthDateStr.isEmpty()) {
                         try {
                             Date birthDate = dateFormat.parse(birthDateStr);
                             student.setBirthDate(birthDate);
                         } catch (ParseException e) {
-                            System.out.println("Định dạng ngày không hợp lệ, giữ nguyên ngày sinh cũ");
+                            System.out.println("Invalid date format, keeping old birth date");
                         }
                     }
 
-                    System.out.print("Nhập email mới (Enter để giữ nguyên): ");
+                    System.out.print("Enter new email (Enter to keep): ");
                     String email = scanner.nextLine();
                     if (!email.isEmpty()) {
                         student.setEmail(email);
                     }
 
-                    System.out.print("Nhập số điện thoại mới (Enter để giữ nguyên): ");
+                    System.out.print("Enter new phone (Enter to keep): ");
                     String phone = scanner.nextLine();
                     if (!phone.isEmpty()) {
                         student.setPhone(phone);
@@ -2676,24 +2681,24 @@ public class StudentManagementApp {
 
                     boolean success = studentDAO.updateStudent(student);
                     if (success) {
-                        System.out.println("Cập nhật thông tin sinh viên thành công!");
+                        System.out.println("Student info updated successfully!");
                     } else {
-                        System.out.println("Cập nhật thông tin sinh viên thất bại!");
+                        System.out.println("Failed to update student info!");
                     }
                 } else {
-                    System.out.println("Không tìm thấy sinh viên có mã " + studentId);
+                    System.out.println("Student not found with ID " + studentId);
                 }
             } catch (SQLException e) {
-                System.out.println("Lỗi khi cập nhật thông tin sinh viên: " + e.getMessage());
+                System.out.println("Error updating student info: " + e.getMessage());
             }
         });
     }
 
     private static void deleteStudentRecord() {
-        System.out.print("\nNhập mã sinh viên cần xóa: ");
+        System.out.print("\nEnter student ID to delete: ");
         String studentId = scanner.nextLine();
 
-        System.out.print("Bạn có chắc muốn xóa sinh viên này? (y/n): ");
+        System.out.print("Are you sure you want to delete this student? (y/n): ");
         String confirm = scanner.nextLine();
 
         if (confirm.equalsIgnoreCase("y")) {
@@ -2701,32 +2706,32 @@ public class StudentManagementApp {
                 try {
                     boolean success = studentDAO.deleteStudent(studentId);
                     if (success) {
-                        System.out.println("Đã xóa sinh viên thành công!");
+                        System.out.println("Student deleted successfully!");
                     } else {
-                        System.out.println("Không tìm thấy sinh viên có mã " + studentId);
+                        System.out.println("Student not found with ID " + studentId);
                     }
                 } catch (SQLException e) {
-                    System.out.println("Lỗi khi xóa sinh viên: " + e.getMessage());
+                    System.out.println("Error deleting student: " + e.getMessage());
                 }
             });
         } else {
-            System.out.println("Đã hủy thao tác xóa");
+            System.out.println("Delete operation cancelled");
         }
     }
 
     private static void backupDataToFile() {
-        System.out.println("\n=== SAO LƯU DỮ LIỆU ===");
-        System.out.print("Nhập đường dẫn file để lưu: ");
+        System.out.println("\n=== BACKUP DATA ===");
+        System.out.print("Enter file path to save: ");
         String filePath = scanner.nextLine();
 
         executor.submit(() -> {
             try {
                 List<Student> students = studentDAO.getAllStudents();
 
-                // Tạo một thread khác để ghi file
+                // Create another thread to write file
                 Runnable backupTask = () -> {
                     try (java.io.PrintWriter writer = new java.io.PrintWriter(new java.io.FileWriter(filePath))) {
-                        writer.println("Mã SV,Họ và tên,Ngày sinh,Email,Số điện thoại");
+                        writer.println("Student ID,Full Name,Birth Date,Email,Phone");
 
                         for (Student student : students) {
                             writer.printf("%s,%s,%s,%s,%s\n",
@@ -2737,39 +2742,41 @@ public class StudentManagementApp {
                                        student.getPhone());
                         }
 
-                        System.out.println("Đã sao lưu dữ liệu thành công vào file: " + filePath);
+                        System.out.println("Data backed up successfully to file: " + filePath);
                     } catch (java.io.IOException e) {
-                        System.out.println("Lỗi khi ghi file: " + e.getMessage());
+                        System.out.println("Error writing file: " + e.getMessage());
                     }
                 };
 
-                // Sử dụng executor để thực hiện công việc sao lưu
+                // Use executor to perform backup task
                 executor.submit(backupTask);
 
             } catch (SQLException e) {
-                System.out.println("Lỗi khi lấy dữ liệu để sao lưu: " + e.getMessage());
+                System.out.println("Error retrieving data for backup: " + e.getMessage());
             }
         });
     }
 }
 ```
 
-## 🧪 BÀI TẬP LỚN CUỐI PHẦN: Hệ thống quản lý sinh viên với cơ sở dữ liệu
+## 🧪 FINAL PROJECT: Student Management System with Database
 
-### Mô tả bài tập
+### Project Description
 
-Xây dựng ứng dụng JAVA với các chức năng:
+Build a JAVA application with the following functions:
 
-- Kết nối đến cơ sở dữ liệu (MySQL hoặc SQLite).
-- Cho phép:
-  - Thêm sinh viên (mã, tên, ngày sinh, email).
-  - Xem danh sách sinh viên.
-  - Sửa, xóa sinh viên.
-  - Tìm sinh viên theo tên hoặc mã.
-- Giao diện dòng lệnh, menu tùy chọn.
+- Connect to a database (MySQL or SQLite).
+- Allow:
+  - Add student (ID, name, birth date, email).
+  - View student list.
+  - Edit, delete student.
+  - Find student by name or ID.
+- Command line interface, menu options.
 
-### Yêu cầu
+### Requirements
 
-- Sử dụng JDBC để thao tác dữ liệu.
-- Xử lý đa luồng khi đọc/ghi dữ liệu từ/đến file backup song song với thao tác người dùng.
-- Đảm bảo dữ liệu không bị xung đột khi có nhiều thao tác đồng thời.
+- Use JDBC to manipulate data.
+- Handle multithreading when reading/writing backup files in parallel with user operations.
+- Ensure data is not conflicted when there are multiple concurrent operations.
+
+Here, we will temporarily pause the journey with JAVA to enter the world of SQL - the most widely used database query language today. This will not only expand your knowledge but also help you understand deeper how applications interact with databases - an essential skill in most real-world software development projects.

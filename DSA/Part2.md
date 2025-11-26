@@ -1,28 +1,28 @@
 ---
 prev:
-  text: '🧮 Nhập Môn DSA'
+  text: '🧮 Introduction to DSA'
   link: '/DSA/Part1'
 next:
-  text: '🧠 Thuật Toán Nâng Cao'
+  text: '🧠 Advanced Algorithms'
   link: '/DSA/Part3'
 ---
 
-# 📘 PHẦN 2: CẤU TRÚC DỮ LIỆU NÂNG CAO
+# 📘 PART 2: ADVANCED DATA STRUCTURES
 
-## 🎯 Mục tiêu tổng quát
+## 🎯 General Objectives
 
-- Nắm vững các cấu trúc dữ liệu nâng cao như Stack, Queue, cây nhị phân, bảng băm.
-- Hiểu cách cài đặt và ứng dụng của từng cấu trúc dữ liệu.
-- Biết cách lựa chọn cấu trúc dữ liệu phù hợp cho từng bài toán.
+- Master advanced data structures such as Stack, Queue, Binary Tree, Hash Table.
+- Understand how to implement and apply each data structure.
+- Know how to choose the appropriate data structure for each problem.
 
-## 🧑‍🏫 Bài 1: Ngăn xếp (Stack)
+## 🧑‍🏫 Lesson 1: Stack
 
-### Khái niệm về Stack
+### Concept of Stack
 
-- Stack là cấu trúc dữ liệu dạng LIFO (Last In First Out) - Vào sau, ra trước
-- Các thao tác cơ bản: push (thêm vào đỉnh), pop (lấy từ đỉnh), peek (xem đỉnh)
+- Stack is a LIFO (Last In First Out) data structure.
+- Basic operations: push (add to top), pop (remove from top), peek (view top).
 
-### Cài đặt Stack sử dụng mảng
+### Stack Implementation using Array
 
 ```java
 public class ArrayStack {
@@ -30,53 +30,53 @@ public class ArrayStack {
     private int[] stackArray;
     private int top;
 
-    // Khởi tạo stack
+    // Initialize stack
     public ArrayStack(int size) {
         maxSize = size;
         stackArray = new int[maxSize];
-        top = -1; // Stack trống
+        top = -1; // Stack is empty
     }
 
-    // Thêm phần tử vào đỉnh stack
+    // Add element to top of stack
     public void push(int value) {
         if (top == maxSize - 1) {
-            System.out.println("Stack đầy!");
+            System.out.println("Stack is full!");
             return;
         }
         stackArray[++top] = value;
     }
 
-    // Lấy phần tử khỏi đỉnh stack
+    // Remove element from top of stack
     public int pop() {
         if (top == -1) {
-            System.out.println("Stack trống!");
+            System.out.println("Stack is empty!");
             return -1;
         }
         return stackArray[top--];
     }
 
-    // Xem phần tử ở đỉnh mà không xóa
+    // View element at top without removing
     public int peek() {
         if (top == -1) {
-            System.out.println("Stack trống!");
+            System.out.println("Stack is empty!");
             return -1;
         }
         return stackArray[top];
     }
 
-    // Kiểm tra stack có trống không
+    // Check if stack is empty
     public boolean isEmpty() {
         return (top == -1);
     }
 
-    // Kiểm tra stack có đầy không
+    // Check if stack is full
     public boolean isFull() {
         return (top == maxSize - 1);
     }
 }
 ```
 
-### Cài đặt Stack sử dụng danh sách liên kết
+### Stack Implementation using Linked List
 
 ```java
 public class LinkedStack {
@@ -96,17 +96,17 @@ public class LinkedStack {
         top = null;
     }
 
-    // Thêm vào đỉnh stack
+    // Add to top of stack
     public void push(int value) {
         Node newNode = new Node(value);
         newNode.next = top;
         top = newNode;
     }
 
-    // Lấy từ đỉnh stack
+    // Remove from top of stack
     public int pop() {
         if (isEmpty()) {
-            System.out.println("Stack trống!");
+            System.out.println("Stack is empty!");
             return -1;
         }
 
@@ -115,25 +115,25 @@ public class LinkedStack {
         return value;
     }
 
-    // Xem đỉnh stack
+    // View top of stack
     public int peek() {
         if (isEmpty()) {
-            System.out.println("Stack trống!");
+            System.out.println("Stack is empty!");
             return -1;
         }
         return top.data;
     }
 
-    // Kiểm tra stack có trống không
+    // Check if stack is empty
     public boolean isEmpty() {
         return top == null;
     }
 }
 ```
 
-### Ứng dụng của Stack
+### Applications of Stack
 
-#### Kiểm tra chuỗi dấu ngoặc
+#### Checking Balanced Parentheses
 
 ```java
 public boolean isBalanced(String expression) {
@@ -161,18 +161,18 @@ public boolean isBalanced(String expression) {
 }
 ```
 
-#### Đảo ngược chuỗi
+#### Reversing a String
 
 ```java
 public String reverse(String str) {
     LinkedStack stack = new LinkedStack();
 
-    // Đẩy tất cả ký tự vào stack
+    // Push all characters to stack
     for (char c : str.toCharArray()) {
         stack.push(c);
     }
 
-    // Lấy từng ký tự khỏi stack để tạo chuỗi đảo ngược
+    // Pop each character from stack to create reversed string
     StringBuilder reversed = new StringBuilder();
     while (!stack.isEmpty()) {
         reversed.append((char)stack.pop());
@@ -182,7 +182,7 @@ public String reverse(String str) {
 }
 ```
 
-#### Chuyển đổi biểu thức trung tố sang hậu tố
+#### Converting Infix to Postfix Expression
 
 ```java
 public String infixToPostfix(String infix) {
@@ -190,22 +190,22 @@ public String infixToPostfix(String infix) {
     java.util.Stack<Character> stack = new java.util.Stack<>();
 
     for (char c : infix.toCharArray()) {
-        // Nếu là toán hạng, thêm vào chuỗi kết quả
+        // If operand, add to result string
         if (Character.isLetterOrDigit(c)) {
             postfix.append(c);
         }
-        // Nếu là dấu mở ngoặc, đẩy vào stack
+        // If opening parenthesis, push to stack
         else if (c == '(') {
             stack.push(c);
         }
-        // Nếu là dấu đóng ngoặc, lấy từ stack đến khi gặp dấu mở ngoặc
+        // If closing parenthesis, pop from stack until opening parenthesis
         else if (c == ')') {
             while (!stack.isEmpty() && stack.peek() != '(') {
                 postfix.append(stack.pop());
             }
-            stack.pop(); // Loại bỏ '('
+            stack.pop(); // Remove '('
         }
-        // Nếu là toán tử, so sánh độ ưu tiên với toán tử ở đỉnh stack
+        // If operator, compare precedence with operator at top of stack
         else {
             while (!stack.isEmpty() && precedence(c) <= precedence(stack.peek())) {
                 postfix.append(stack.pop());
@@ -214,7 +214,7 @@ public String infixToPostfix(String infix) {
         }
     }
 
-    // Đẩy các toán tử còn lại trong stack vào chuỗi kết quả
+    // Pop remaining operators in stack to result string
     while (!stack.isEmpty()) {
         postfix.append(stack.pop());
     }
@@ -222,7 +222,7 @@ public String infixToPostfix(String infix) {
     return postfix.toString();
 }
 
-// Xác định độ ưu tiên toán tử
+// Determine operator precedence
 private int precedence(char ch) {
     switch (ch) {
         case '+':
@@ -238,14 +238,14 @@ private int precedence(char ch) {
 }
 ```
 
-## 🧑‍🏫 Bài 2: Hàng đợi (Queue)
+## 🧑‍🏫 Lesson 2: Queue
 
-### Khái niệm về Queue
+### Concept of Queue
 
-- Queue là cấu trúc dữ liệu dạng FIFO (First In First Out) - Vào trước, ra trước
-- Các thao tác cơ bản: enqueue (thêm vào cuối), dequeue (lấy từ đầu), peek (xem đầu)
+- Queue is a FIFO (First In First Out) data structure.
+- Basic operations: enqueue (add to rear), dequeue (remove from front), peek (view front).
 
-### Cài đặt Queue sử dụng mảng (Queue vòng)
+### Queue Implementation using Array (Circular Queue)
 
 ```java
 public class CircularQueue {
@@ -263,22 +263,22 @@ public class CircularQueue {
         nItems = 0;
     }
 
-    // Thêm vào cuối queue
+    // Add to rear of queue
     public void enqueue(int value) {
         if (isFull()) {
-            System.out.println("Queue đầy!");
+            System.out.println("Queue is full!");
             return;
         }
-        // Tăng rear và quay vòng nếu cần
+        // Increment rear and wrap around if needed
         rear = (rear + 1) % maxSize;
         queueArray[rear] = value;
         nItems++;
     }
 
-    // Lấy từ đầu queue
+    // Remove from front of queue
     public int dequeue() {
         if (isEmpty()) {
-            System.out.println("Queue trống!");
+            System.out.println("Queue is empty!");
             return -1;
         }
         int temp = queueArray[front];
@@ -287,33 +287,33 @@ public class CircularQueue {
         return temp;
     }
 
-    // Xem phần tử đầu queue
+    // View element at front of queue
     public int peek() {
         if (isEmpty()) {
-            System.out.println("Queue trống!");
+            System.out.println("Queue is empty!");
             return -1;
         }
         return queueArray[front];
     }
 
-    // Kiểm tra queue có trống không
+    // Check if queue is empty
     public boolean isEmpty() {
         return (nItems == 0);
     }
 
-    // Kiểm tra queue có đầy không
+    // Check if queue is full
     public boolean isFull() {
         return (nItems == maxSize);
     }
 
-    // Kích thước hiện tại của queue
+    // Current size of queue
     public int size() {
         return nItems;
     }
 }
 ```
 
-### Cài đặt Queue sử dụng danh sách liên kết
+### Queue Implementation using Linked List
 
 ```java
 public class LinkedQueue {
@@ -335,36 +335,36 @@ public class LinkedQueue {
         rear = null;
     }
 
-    // Thêm vào cuối queue
+    // Add to rear of queue
     public void enqueue(int value) {
         Node newNode = new Node(value);
 
-        // Nếu queue trống
+        // If queue is empty
         if (rear == null) {
             front = newNode;
             rear = newNode;
             return;
         }
 
-        // Thêm vào sau rear và cập nhật rear
+        // Add after rear and update rear
         rear.next = newNode;
         rear = newNode;
     }
 
-    // Lấy từ đầu queue
+    // Remove from front of queue
     public int dequeue() {
         if (isEmpty()) {
-            System.out.println("Queue trống!");
+            System.out.println("Queue is empty!");
             return -1;
         }
 
-        // Lưu giá trị cần trả về
+        // Store value to return
         int value = front.data;
 
-        // Di chuyển front
+        // Move front
         front = front.next;
 
-        // Nếu front trở thành null, cập nhật cả rear
+        // If front becomes null, update rear as well
         if (front == null) {
             rear = null;
         }
@@ -372,45 +372,45 @@ public class LinkedQueue {
         return value;
     }
 
-    // Xem phần tử đầu queue
+    // View element at front of queue
     public int peek() {
         if (isEmpty()) {
-            System.out.println("Queue trống!");
+            System.out.println("Queue is empty!");
             return -1;
         }
         return front.data;
     }
 
-    // Kiểm tra queue có trống không
+    // Check if queue is empty
     public boolean isEmpty() {
         return front == null;
     }
 }
 ```
 
-### Ứng dụng của Queue
+### Applications of Queue
 
-#### Thuật toán BFS (Breadth-First Search)
+#### BFS Algorithm (Breadth-First Search)
 
 ```java
 public void BFS(Graph graph, int startVertex) {
-    // Đánh dấu tất cả các đỉnh chưa thăm
+    // Mark all vertices as not visited
     boolean[] visited = new boolean[graph.getVertexCount()];
 
-    // Tạo queue
+    // Create queue
     LinkedQueue queue = new LinkedQueue();
 
-    // Đánh dấu đỉnh hiện tại đã thăm
+    // Mark current vertex as visited
     visited[startVertex] = true;
     queue.enqueue(startVertex);
 
     while (!queue.isEmpty()) {
-        // Lấy một đỉnh từ queue và in ra
+        // Dequeue a vertex and print it
         int vertex = queue.dequeue();
         System.out.print(vertex + " ");
 
-        // Lấy tất cả các đỉnh kề của đỉnh lấy ra
-        // Nếu đỉnh kề chưa được thăm, đánh dấu đã thăm và thêm vào queue
+        // Get all adjacent vertices of the dequeued vertex
+        // If adjacent has not been visited, mark it visited and enqueue it
         for (int adjVertex : graph.getAdjVertices(vertex)) {
             if (!visited[adjVertex]) {
                 visited[adjVertex] = true;
@@ -421,7 +421,7 @@ public void BFS(Graph graph, int startVertex) {
 }
 ```
 
-#### Mô phỏng hàng đợi dịch vụ
+#### Service Queue Simulation
 
 ```java
 public class CustomerService {
@@ -433,34 +433,34 @@ public class CustomerService {
         maxWaitTime = 0;
     }
 
-    // Khách hàng mới đến
+    // New customer arrival
     public void customerArrival(int customerId, int arrivalTime) {
-        System.out.println("Khách hàng " + customerId + " đến lúc " + arrivalTime);
+        System.out.println("Customer " + customerId + " arrived at " + arrivalTime);
         queue.enqueue(customerId);
     }
 
-    // Phục vụ khách hàng
+    // Serve customer
     public void serveCustomer(int currentTime) {
         if (!queue.isEmpty()) {
             int customerId = queue.dequeue();
             int waitTime = currentTime - customerId;
             maxWaitTime = Math.max(maxWaitTime, waitTime);
 
-            System.out.println("Phục vụ khách hàng " + customerId + " lúc " + currentTime);
-            System.out.println("Thời gian chờ: " + waitTime);
+            System.out.println("Serving customer " + customerId + " at " + currentTime);
+            System.out.println("Wait time: " + waitTime);
         } else {
-            System.out.println("Không có khách hàng chờ.");
+            System.out.println("No customers waiting.");
         }
     }
 
-    // Lấy thời gian chờ tối đa
+    // Get max wait time
     public int getMaxWaitTime() {
         return maxWaitTime;
     }
 }
 ```
 
-#### Level-order traversal trong cây nhị phân
+#### Level-order traversal in Binary Tree
 
 ```java
 public void levelOrderTraversal(Node root) {
@@ -486,12 +486,12 @@ public void levelOrderTraversal(Node root) {
 }
 ```
 
-## 🧑‍🏫 Bài 3: Danh sách liên kết đôi và vòng
+## 🧑‍🏫 Lesson 3: Doubly and Circular Linked Lists
 
-### Danh sách liên kết đôi (Doubly Linked List)
+### Doubly Linked List
 
-- Mỗi nút chứa dữ liệu và hai con trỏ: một trỏ đến nút trước, một trỏ đến nút sau
-- Cho phép duyệt theo hai hướng
+- Each node contains data and two pointers: one to previous node, one to next node.
+- Allows traversal in both directions.
 
 ```java
 public class DoublyLinkedList {
@@ -515,11 +515,11 @@ public class DoublyLinkedList {
         tail = null;
     }
 
-    // Thêm vào đầu danh sách
+    // Insert at front
     public void insertAtFront(int data) {
         Node newNode = new Node(data);
 
-        // Nếu danh sách trống
+        // If list is empty
         if (head == null) {
             head = newNode;
             tail = newNode;
@@ -530,11 +530,11 @@ public class DoublyLinkedList {
         }
     }
 
-    // Thêm vào cuối danh sách
+    // Insert at end
     public void insertAtEnd(int data) {
         Node newNode = new Node(data);
 
-        // Nếu danh sách trống
+        // If list is empty
         if (tail == null) {
             head = newNode;
             tail = newNode;
@@ -545,16 +545,16 @@ public class DoublyLinkedList {
         }
     }
 
-    // Xóa nút từ đầu danh sách
+    // Remove from front
     public int removeFromFront() {
         if (head == null) {
-            System.out.println("Danh sách trống!");
+            System.out.println("List is empty!");
             return -1;
         }
 
         int data = head.data;
 
-        // Nếu chỉ có một nút
+        // If only one node
         if (head == tail) {
             head = null;
             tail = null;
@@ -566,16 +566,16 @@ public class DoublyLinkedList {
         return data;
     }
 
-    // Xóa nút từ cuối danh sách
+    // Remove from end
     public int removeFromEnd() {
         if (tail == null) {
-            System.out.println("Danh sách trống!");
+            System.out.println("List is empty!");
             return -1;
         }
 
         int data = tail.data;
 
-        // Nếu chỉ có một nút
+        // If only one node
         if (head == tail) {
             head = null;
             tail = null;
@@ -587,7 +587,7 @@ public class DoublyLinkedList {
         return data;
     }
 
-    // In danh sách từ đầu đến cuối
+    // Display list from front to end
     public void displayForward() {
         Node current = head;
         System.out.print("null <-> ");
@@ -598,7 +598,7 @@ public class DoublyLinkedList {
         System.out.println("null");
     }
 
-    // In danh sách từ cuối đến đầu
+    // Display list from end to front
     public void displayBackward() {
         Node current = tail;
         System.out.print("null <-> ");
@@ -611,10 +611,10 @@ public class DoublyLinkedList {
 }
 ```
 
-### Danh sách liên kết vòng (Circular Linked List)
+### Circular Linked List
 
-- Nút cuối trỏ về nút đầu, tạo thành vòng
-- Hữu ích cho các ứng dụng cần duyệt liên tục
+- Last node points to first node, forming a circle.
+- Useful for applications needing continuous traversal.
 
 ```java
 public class CircularLinkedList {
@@ -636,61 +636,61 @@ public class CircularLinkedList {
         tail = null;
     }
 
-    // Thêm vào đầu danh sách
+    // Insert at front
     public void insertAtFront(int data) {
         Node newNode = new Node(data);
 
         if (head == null) {
             head = newNode;
             tail = newNode;
-            tail.next = head; // Tạo liên kết vòng
+            tail.next = head; // Create circular link
         } else {
             newNode.next = head;
             head = newNode;
-            tail.next = head; // Cập nhật liên kết vòng
+            tail.next = head; // Update circular link
         }
     }
 
-    // Thêm vào cuối danh sách
+    // Insert at end
     public void insertAtEnd(int data) {
         Node newNode = new Node(data);
 
         if (tail == null) {
             head = newNode;
             tail = newNode;
-            tail.next = head; // Tạo liên kết vòng
+            tail.next = head; // Create circular link
         } else {
             tail.next = newNode;
             tail = newNode;
-            tail.next = head; // Cập nhật liên kết vòng
+            tail.next = head; // Update circular link
         }
     }
 
-    // Xóa từ đầu danh sách
+    // Remove from front
     public int removeFromFront() {
         if (head == null) {
-            System.out.println("Danh sách trống!");
+            System.out.println("List is empty!");
             return -1;
         }
 
         int data = head.data;
 
-        // Nếu chỉ có một nút
+        // If only one node
         if (head == tail) {
             head = null;
             tail = null;
         } else {
             head = head.next;
-            tail.next = head; // Cập nhật liên kết vòng
+            tail.next = head; // Update circular link
         }
 
         return data;
     }
 
-    // In danh sách
+    // Display list
     public void display() {
         if (head == null) {
-            System.out.println("Danh sách trống!");
+            System.out.println("List is empty!");
             return;
         }
 
@@ -700,14 +700,14 @@ public class CircularLinkedList {
             current = current.next;
         } while (current != head);
 
-        System.out.println(" (quay lại " + head.data + ")");
+        System.out.println(" (back to " + head.data + ")");
     }
 }
 ```
 
-### Ứng dụng của danh sách liên kết đôi và vòng
+### Applications of Doubly and Circular Linked Lists
 
-#### Browser History (Danh sách liên kết đôi)
+#### Browser History (Doubly Linked List)
 
 ```java
 public class BrowserHistory {
@@ -730,39 +730,39 @@ public class BrowserHistory {
         currentPage = new Node(homepage);
     }
 
-    // Truy cập trang mới
+    // Visit new page
     public void visit(String url) {
         Node newPage = new Node(url);
         newPage.prev = currentPage;
         currentPage.next = newPage;
         currentPage = newPage;
 
-        System.out.println("Đã truy cập: " + url);
+        System.out.println("Visited: " + url);
     }
 
-    // Quay lại trang trước
+    // Go back
     public String back() {
         if (currentPage.prev != null) {
             currentPage = currentPage.prev;
             return currentPage.url;
         } else {
-            return currentPage.url; // Không thể quay lại
+            return currentPage.url; // Cannot go back
         }
     }
 
-    // Đi tới trang sau
+    // Go forward
     public String forward() {
         if (currentPage.next != null) {
             currentPage = currentPage.next;
             return currentPage.url;
         } else {
-            return currentPage.url; // Không thể đi tiếp
+            return currentPage.url; // Cannot go forward
         }
     }
 }
 ```
 
-#### Round Robin Scheduling (Danh sách liên kết vòng)
+#### Round Robin Scheduling (Circular Linked List)
 
 ```java
 public class RoundRobinScheduler {
@@ -772,27 +772,27 @@ public class RoundRobinScheduler {
         processes = new CircularLinkedList();
     }
 
-    // Thêm tiến trình mới
+    // Add new process
     public void addProcess(int processId) {
         processes.insertAtEnd(processId);
-        System.out.println("Đã thêm tiến trình " + processId);
+        System.out.println("Added process " + processId);
     }
 
-    // Chạy lập lịch round robin
+    // Run round robin scheduling
     public void run(int timeQuantum) {
-        System.out.println("Bắt đầu lập lịch Round-Robin với quantum thời gian = " + timeQuantum);
+        System.out.println("Starting Round-Robin scheduling with time quantum = " + timeQuantum);
 
-        // Mô phỏng 10 chu kỳ lập lịch
+        // Simulate 10 scheduling cycles
         for (int i = 0; i < 10; i++) {
             int processId = processes.removeFromFront();
-            System.out.println("Chạy tiến trình " + processId + " trong " + timeQuantum + "ms");
+            System.out.println("Running process " + processId + " for " + timeQuantum + "ms");
 
-            // Sau khi chạy, đưa tiến trình lại cuối hàng đợi
+            // After running, put process back to end of queue
             processes.insertAtEnd(processId);
 
-            // Mô phỏng thời gian chạy
+            // Simulate running time
             try {
-                Thread.sleep(timeQuantum * 10); // Mô phỏng chậm
+                Thread.sleep(timeQuantum * 10); // Simulate slow
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -801,17 +801,17 @@ public class RoundRobinScheduler {
 }
 ```
 
-## 🧑‍🏫 Bài 4: Cây nhị phân
+## 🧑‍🏫 Lesson 4: Binary Tree
 
-### Khái niệm về cây
+### Concept of Tree
 
-- Cây là cấu trúc dữ liệu phân cấp, gồm các nút (node) và cạnh (edge)
-- Cây nhị phân: mỗi nút có tối đa 2 nút con (trái và phải)
+- Tree is a hierarchical data structure, consisting of nodes and edges.
+- Binary Tree: each node has at most 2 children (left and right).
 
-### Cây nhị phân tìm kiếm (Binary Search Tree - BST)
+### Binary Search Tree (BST)
 
-- Với mọi nút: tất cả các giá trị trong cây con trái < giá trị nút, tất cả các giá trị trong cây con phải > giá trị nút
-- Cho phép tìm kiếm nhanh: O(log n) nếu cân bằng, O(n) trong trường hợp xấu nhất
+- For every node: all values in left subtree < node value, all values in right subtree > node value.
+- Allows fast search: O(log n) if balanced, O(n) in worst case.
 
 ```java
 public class BinarySearchTree {
@@ -833,18 +833,18 @@ public class BinarySearchTree {
         root = null;
     }
 
-    // Thêm một giá trị vào BST
+    // Insert a value into BST
     public void insert(int value) {
         root = insertRec(root, value);
     }
 
     private Node insertRec(Node root, int value) {
-        // Nếu cây rỗng, trả về nút mới
+        // If tree is empty, return new node
         if (root == null) {
             return new Node(value);
         }
 
-        // Nếu không, đệ quy xuống cây
+        // Otherwise, recur down the tree
         if (value < root.data) {
             root.left = insertRec(root.left, value);
         } else if (value > root.data) {
@@ -854,13 +854,13 @@ public class BinarySearchTree {
         return root;
     }
 
-    // Tìm kiếm một giá trị trong BST
+    // Search a value in BST
     public boolean search(int value) {
         return searchRec(root, value);
     }
 
     private boolean searchRec(Node root, int value) {
-        // Điều kiện cơ sở: cây rỗng hoặc tìm thấy giá trị
+        // Base condition: tree is empty or value found
         if (root == null) {
             return false;
         }
@@ -869,43 +869,43 @@ public class BinarySearchTree {
             return true;
         }
 
-        // Giá trị nhỏ hơn -> tìm kiếm cây con bên trái
+        // Value is smaller -> search left subtree
         if (value < root.data) {
             return searchRec(root.left, value);
         }
 
-        // Ngược lại, tìm kiếm cây con bên phải
+        // Otherwise, search right subtree
         return searchRec(root.right, value);
     }
 
-    // Xóa một giá trị khỏi BST
+    // Delete a value from BST
     public void delete(int value) {
         root = deleteRec(root, value);
     }
 
     private Node deleteRec(Node root, int value) {
-        // Điều kiện cơ sở
+        // Base condition
         if (root == null) {
             return root;
         }
 
-        // Tìm nút cần xóa
+        // Find node to delete
         if (value < root.data) {
             root.left = deleteRec(root.left, value);
         } else if (value > root.data) {
             root.right = deleteRec(root.right, value);
         } else {
-            // Nút có một hoặc không có con
+            // Node with only one child or no child
             if (root.left == null) {
                 return root.right;
             } else if (root.right == null) {
                 return root.left;
             }
 
-            // Nút có hai con: tìm phần tử nhỏ nhất của cây con bên phải
+            // Node with two children: Get the inorder successor (smallest in the right subtree)
             root.data = minValue(root.right);
 
-            // Xóa phần tử nhỏ nhất của cây con bên phải
+            // Delete the inorder successor
             root.right = deleteRec(root.right, root.data);
         }
 
@@ -921,7 +921,7 @@ public class BinarySearchTree {
         return minValue;
     }
 
-    // Duyệt cây theo thứ tự trung (Inorder traversal): trái -> gốc -> phải
+    // Inorder traversal: left -> root -> right
     public void inorder() {
         inorderRec(root);
         System.out.println();
@@ -935,7 +935,7 @@ public class BinarySearchTree {
         }
     }
 
-    // Duyệt cây theo thứ tự trước (Preorder traversal): gốc -> trái -> phải
+    // Preorder traversal: root -> left -> right
     public void preorder() {
         preorderRec(root);
         System.out.println();
@@ -949,7 +949,7 @@ public class BinarySearchTree {
         }
     }
 
-    // Duyệt cây theo thứ tự sau (Postorder traversal): trái -> phải -> gốc
+    // Postorder traversal: left -> right -> root
     public void postorder() {
         postorderRec(root);
         System.out.println();
@@ -965,48 +965,48 @@ public class BinarySearchTree {
 }
 ```
 
-### Cân bằng cây nhị phân (chúng ta sẽ học về các loại cây cân bằng trong phần sau)
+### Balancing Binary Tree (we will learn about balanced trees in later part)
 
-- Cây nhị phân cân bằng có chiều cao ~log(n)
-- Các loại cây cân bằng: AVL, Red-Black Tree, B-Tree
+- Balanced binary tree has height ~log(n).
+- Types of balanced trees: AVL, Red-Black Tree, B-Tree.
 
-## Ứng dụng của cây nhị phân
+## Applications of Binary Tree
 
-1. Từ điển và bảng ký hiệu
-2. Hệ thống tập tin
-3. Đánh giá biểu thức
-4. Mã hóa Huffman
-5. Thuật toán tìm kiếm và sắp xếp
+1. Dictionaries and symbol tables.
+2. File systems.
+3. Expression evaluation.
+4. Huffman coding.
+5. Search and sort algorithms.
 
-## 🧑‍🏫 Bài 5: Bảng băm (Hash Table)
+## 🧑‍🏫 Lesson 5: Hash Table
 
-### Khái niệm về bảng băm
+### Concept of Hash Table
 
-- Bảng băm là cấu trúc dữ liệu lưu trữ theo cặp khóa-giá trị (key-value)
-- Sử dụng hàm băm (hash function) để chuyển đổi khóa thành chỉ số trong mảng
-- Cho phép thêm, xóa, tìm kiếm với độ phức tạp O(1) trong trường hợp trung bình
+- Hash table is a data structure that stores key-value pairs.
+- Uses a hash function to convert key into an index in an array.
+- Allows insert, delete, search with O(1) complexity in average case.
 
-### Hàm băm (Hash Function)
+### Hash Function
 
-- Chuyển đổi khóa thành chỉ số trong mảng
-- Tính chất của hàm băm tốt:
-  - Nhanh chóng tính toán
-  - Phân phối đều các khóa trên phạm vi của bảng
-  - Tối thiểu hóa va chạm (collision)
+- Converts key to index in array.
+- Properties of a good hash function:
+  - Fast computation.
+  - Uniform distribution of keys across table range.
+  - Minimize collisions.
 
-### Xử lý va chạm (Collision Resolution)
+### Collision Resolution
 
-#### Chuỗi liên kết (Chaining)
+#### Chaining
 
-- Mỗi vị trí trong bảng chứa danh sách liên kết các phần tử có cùng mã băm
+- Each position in the table contains a linked list of elements with the same hash code.
 
-#### Địa chỉ mở (Open Addressing)
+#### Open Addressing
 
-- Linear Probing: Tìm vị trí tiếp theo trong bảng
-- Quadratic Probing: Tìm vị trí theo bình phương khoảng cách
-- Double Hashing: Sử dụng hàm băm thứ hai để tính khoảng cách
+- Linear Probing: Find next position in table.
+- Quadratic Probing: Find position by squared distance.
+- Double Hashing: Use second hash function to calculate distance.
 
-### Cài đặt bảng băm sử dụng chuỗi liên kết
+### Hash Table Implementation using Chaining
 
 ```java
 public class HashTable {
@@ -1036,29 +1036,29 @@ public class HashTable {
         size = 0;
     }
 
-    // Hàm băm
+    // Hash function
     private int hashFunction(String key) {
         int hashCode = key.hashCode();
         return Math.abs(hashCode) % numBuckets;
     }
 
-    // Kích thước bảng băm
+    // Hash table size
     public int size() {
         return size;
     }
 
-    // Kiểm tra bảng băm có trống không
+    // Check if hash table is empty
     public boolean isEmpty() {
         return size() == 0;
     }
 
-    // Thêm phần tử vào bảng băm
+    // Add element to hash table
     public void put(String key, int value) {
-        // Tìm chỉ số bucket từ khóa
+        // Find bucket index from key
         int bucketIndex = hashFunction(key);
         HashNode head = buckets[bucketIndex];
 
-        // Kiểm tra nếu khóa đã tồn tại, thì cập nhật giá trị
+        // Check if key already exists, then update value
         while (head != null) {
             if (head.key.equals(key)) {
                 head.value = value;
@@ -1067,7 +1067,7 @@ public class HashTable {
             head = head.next;
         }
 
-        // Thêm nút mới vào đầu danh sách liên kết
+        // Add new node to head of linked list
         size++;
         head = buckets[bucketIndex];
         HashNode newNode = new HashNode(key, value);
@@ -1075,13 +1075,13 @@ public class HashTable {
         buckets[bucketIndex] = newNode;
     }
 
-    // Lấy giá trị từ khóa
+    // Get value from key
     public int get(String key) {
-        // Tìm chỉ số bucket từ khóa
+        // Find bucket index from key
         int bucketIndex = hashFunction(key);
         HashNode head = buckets[bucketIndex];
 
-        // Tìm kiếm khóa trong danh sách liên kết
+        // Search key in linked list
         while (head != null) {
             if (head.key.equals(key)) {
                 return head.value;
@@ -1089,18 +1089,18 @@ public class HashTable {
             head = head.next;
         }
 
-        // Khóa không tồn tại
+        // Key not found
         return -1;
     }
 
-    // Xóa phần tử với khóa cụ thể
+    // Remove element with specific key
     public int remove(String key) {
-        // Tìm chỉ số bucket từ khóa
+        // Find bucket index from key
         int bucketIndex = hashFunction(key);
         HashNode head = buckets[bucketIndex];
         HashNode prev = null;
 
-        // Tìm kiếm khóa trong danh sách liên kết
+        // Search key in linked list
         while (head != null) {
             if (head.key.equals(key)) {
                 break;
@@ -1109,15 +1109,15 @@ public class HashTable {
             head = head.next;
         }
 
-        // Nếu khóa không tồn tại
+        // If key not found
         if (head == null) {
             return -1;
         }
 
-        // Giảm kích thước
+        // Decrease size
         size--;
 
-        // Xóa nút
+        // Remove node
         if (prev != null) {
             prev.next = head.next;
         } else {
@@ -1127,7 +1127,7 @@ public class HashTable {
         return head.value;
     }
 
-    // In bảng băm
+    // Display hash table
     public void display() {
         for (int i = 0; i < numBuckets; i++) {
             System.out.print("Bucket " + i + ": ");
@@ -1142,16 +1142,16 @@ public class HashTable {
 }
 ```
 
-### Ứng dụng của bảng băm
+### Applications of Hash Table
 
-1. Từ điển và bộ nhớ cache
-2. Bảng ký hiệu trong trình biên dịch
-3. Bảng tìm kiếm trong cơ sở dữ liệu
-4. Cài đặt các tập hợp (Set) và bảng ánh xạ (Map)
-5. Lưu trữ và tìm kiếm các tệp
+1. Dictionaries and caches.
+2. Symbol tables in compilers.
+3. Database indexing.
+4. Implementing Sets and Maps.
+5. File storage and retrieval.
 
 ```java
-// Ví dụ sử dụng bảng băm làm từ điển
+// Example using hash table as dictionary
 public class Dictionary {
     private HashTable hashTable;
 
@@ -1159,75 +1159,75 @@ public class Dictionary {
         hashTable = new HashTable(100);
     }
 
-    // Thêm từ vào từ điển
+    // Add word to dictionary
     public void addWord(String word, int meaning) {
         hashTable.put(word, meaning);
-        System.out.println("Đã thêm từ \"" + word + "\" vào từ điển.");
+        System.out.println("Added word \"" + word + "\" to dictionary.");
     }
 
-    // Tra cứu từ
+    // Lookup word
     public void lookupWord(String word) {
         int meaning = hashTable.get(word);
         if (meaning != -1) {
-            System.out.println("Nghĩa của \"" + word + "\": " + meaning);
+            System.out.println("Meaning of \"" + word + "\": " + meaning);
         } else {
-            System.out.println("Từ \"" + word + "\" không có trong từ điển.");
+            System.out.println("Word \"" + word + "\" not found in dictionary.");
         }
     }
 
-    // Xóa từ
+    // Remove word
     public void removeWord(String word) {
         int result = hashTable.remove(word);
         if (result != -1) {
-            System.out.println("Đã xóa từ \"" + word + "\" khỏi từ điển.");
+            System.out.println("Removed word \"" + word + "\" from dictionary.");
         } else {
-            System.out.println("Từ \"" + word + "\" không có trong từ điển.");
+            System.out.println("Word \"" + word + "\" not found in dictionary.");
         }
     }
 
-    // Hiển thị tất cả các từ
+    // Display all words
     public void displayDictionary() {
-        System.out.println("Từ điển:");
+        System.out.println("Dictionary:");
         hashTable.display();
     }
 }
 ```
 
-## 🧪 BÀI TẬP LỚN CUỐI PHẦN: Bộ đánh giá biểu thức số học
+## 🧪 FINAL PROJECT: Arithmetic Expression Evaluator
 
-### Mô tả bài toán
+### Problem Description
 
-Viết chương trình cho phép người dùng:
+Write a program that allows users to:
 
-- Nhập một biểu thức số học dưới dạng chuỗi (ví dụ: "3 + 4 \* 2 - (6 / 3)")
-- Chuyển đổi biểu thức từ dạng trung tố (infix) sang hậu tố (postfix)
-- Đánh giá biểu thức và trả về kết quả
-- Xử lý ngoại lệ như lỗi cú pháp, chia cho 0, v.v.
-- Cho phép sử dụng các toán tử +, -, \*, /, ^, (), với các số nguyên
+- Input an arithmetic expression as a string (e.g., "3 + 4 \* 2 - (6 / 3)")
+- Convert expression from infix to postfix notation
+- Evaluate expression and return result
+- Handle exceptions like syntax errors, division by zero, etc.
+- Support operators +, -, \*, /, ^, (), with integers
 
-### Kết quả chạy chương trình (Ví dụ)
+### Program Output (Example)
 
 ```text
-BỘ ĐÁNH GIÁ BIỂU THỨC SỐ HỌC
+ARITHMETIC EXPRESSION EVALUATOR
 -----------------------------------
-Nhập biểu thức (nhập 'exit' để thoát): 3 + 4 * 2 - (6 / 3)
+Enter expression (type 'exit' to quit): 3 + 4 * 2 - (6 / 3)
 
-Biểu thức trung tố: 3 + 4 * 2 - (6 / 3)
-Biểu thức hậu tố: 3 4 2 * + 6 3 / -
-Kết quả: 9
+Infix Expression: 3 + 4 * 2 - (6 / 3)
+Postfix Expression: 3 4 2 * + 6 3 / -
+Result: 9
 
-Nhập biểu thức (nhập 'exit' để thoát): 5 * (3 + 2) - 4 ^ 2
+Enter expression (type 'exit' to quit): 5 * (3 + 2) - 4 ^ 2
 
-Biểu thức trung tố: 5 * (3 + 2) - 4 ^ 2
-Biểu thức hậu tố: 5 3 2 + * 4 2 ^ -
-Kết quả: 9
+Infix Expression: 5 * (3 + 2) - 4 ^ 2
+Postfix Expression: 5 3 2 + * 4 2 ^ -
+Result: 9
 
-Nhập biểu thức (nhập 'exit' để thoát): 10 / (3 - 3)
+Enter expression (type 'exit' to quit): 10 / (3 - 3)
 
-Biểu thức trung tố: 10 / (3 - 3)
-Biểu thức hậu tố: 10 3 3 - /
-Lỗi: Chia cho 0!
+Infix Expression: 10 / (3 - 3)
+Postfix Expression: 10 3 3 - /
+Error: Division by zero!
 
-Nhập biểu thức (nhập 'exit' để thoát): exit
-Cảm ơn bạn đã sử dụng chương trình!
+Enter expression (type 'exit' to quit): exit
+Thank you for using the program!
 ```

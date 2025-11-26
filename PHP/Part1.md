@@ -1,119 +1,119 @@
 ---
 prev:
-  text: '⚙️ Framework & Công Cụ'
+  text: '⚙️ Frameworks & Tools'
   link: '/WEB/Part4'
 next:
-  text: '🧩 OOP với PHP'
+  text: '🧩 OOP with PHP'
   link: '/PHP/Part2'
 ---
 
-# 📘 PHẦN 1: NHẬP MÔN PHP
+# 📘 PART 1: INTRODUCTION TO PHP
 
-## 🎯 Mục tiêu tổng quát
+## 🎯 General Objectives
 
-- Hiểu được khái niệm cơ bản về PHP và cách PHP hoạt động với web
-- Nắm vững cú pháp PHP, biến, hàm và cấu trúc điều khiển
-- Biết cách kết hợp PHP với HTML để tạo trang web động
-- Xây dựng được ứng dụng web đơn giản với PHP
+- Understand the basic concepts of PHP and how PHP works with the web.
+- Master PHP syntax, variables, functions, and control structures.
+- Know how to combine PHP with HTML to create dynamic web pages.
+- Build a simple web application with PHP.
 
-## 🧑‍🏫 Bài 1: Giới thiệu PHP
+## 🧑‍🏫 Lesson 1: Introduction to PHP
 
-### PHP là gì?
+### What is PHP?
 
-- PHP (PHP: Hypertext Preprocessor) là ngôn ngữ lập trình kịch bản phía server
-- Được thiết kế dành riêng cho phát triển web
-- Mã PHP được thực thi trên server và kết quả được trả về client dưới dạng HTML
-- Có thể nhúng PHP vào trong HTML
+- PHP (PHP: Hypertext Preprocessor) is a server-side scripting language.
+- It is designed specifically for web development.
+- PHP code is executed on the server, and the result is returned to the client as HTML.
+- PHP can be embedded within HTML.
 
-### File PHP đầu tiên
+### First PHP File
 
 ```php
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Trang PHP đầu tiên</title>
+    <title>First PHP Page</title>
 </head>
 <body>
     <h1>Hello PHP</h1>
     
     <?php
-        // Đây là comment một dòng
+        // This is a single-line comment
         
-        /* Đây là comment
-        nhiều dòng */
+        /* This is a
+        multi-line comment */
         
         echo "Hello, World!";
         
-        // In ra với thông tin
-        echo "<p>Hôm nay là " . date("d/m/Y") . "</p>";
+        // Print with information
+        echo "<p>Today is " . date("d/m/Y") . "</p>";
     ?>
 </body>
 </html>
 ```
 
-Tạo file `index.php` và mở terminal chạy lệnh sau:
+Create an `index.php` file and open your terminal to run the following command:
 
 ```bash
 php -S localhost:8000
 ```
 
-Truy cập vào `http://localhost:8000` để xem kết quả.
+Access `http://localhost:8000` to see the result.
 
-### Cú pháp PHP cơ bản
+### Basic PHP Syntax
 
-- PHP bắt đầu với `<?php` và kết thúc với `?>`
-- Mỗi câu lệnh kết thúc bằng dấu chấm phẩy (;)
-- PHP phân biệt chữ hoa và chữ thường trong tên biến
-- Có thể nhúng nhiều block PHP trong một trang HTML
+- PHP starts with `<?php` and ends with `?>`.
+- Each statement ends with a semicolon (;).
+- PHP is case-sensitive for variable names.
+- You can embed multiple PHP blocks within a single HTML page.
 
-## 🧑‍🏫 Bài 2: Biến và kiểu dữ liệu trong PHP
+## 🧑‍🏫 Lesson 2: Variables and Data Types in PHP
 
-### Biến trong PHP
+### Variables in PHP
 
-- Biến bắt đầu với ký tự `$`
-- Tên biến phải bắt đầu bằng một chữ cái hoặc dấu gạch dưới
-- Tên biến không được bắt đầu bằng số
-- PHP là ngôn ngữ có kiểu dữ liệu động (không cần khai báo kiểu)
+- Variables start with the `$` sign.
+- Variable names must start with a letter or an underscore.
+- Variable names cannot start with a number.
+- PHP is a loosely typed language (no need to declare types).
 
 ```php
 <?php
-    // Khai báo và gán giá trị cho biến
-    $name = "Nguyễn Văn A";
+    // Declare and assign values to variables
+    $name = "John Doe";
     $age = 25;
     $isStudent = true;
     
-    // In ra giá trị biến
-    echo "Tên: " . $name . "<br>";
-    echo "Tuổi: " . $age . "<br>";
-    echo "Là sinh viên: " . ($isStudent ? "Có" : "Không");
+    // Print variable values
+    echo "Name: " . $name . "<br>";
+    echo "Age: " . $age . "<br>";
+    echo "Is Student: " . ($isStudent ? "Yes" : "No");
 ?>
 ```
 
-### Kiểu dữ liệu cơ bản
+### Basic Data Types
 
 ```php
 <?php
-    // Kiểu chuỗi (String)
+    // String
     $str = "Hello PHP";
     echo gettype($str) . ": " . $str . "<br>";
     
-    // Kiểu số nguyên (Integer)
+    // Integer
     $int = 42;
     echo gettype($int) . ": " . $int . "<br>";
     
-    // Kiểu số thực (Float/Double)
+    // Float/Double
     $float = 3.14;
     echo gettype($float) . ": " . $float . "<br>";
     
-    // Kiểu boolean
+    // Boolean
     $bool = true;
     echo gettype($bool) . ": " . ($bool ? "true" : "false") . "<br>";
     
-    // Kiểu null
+    // Null
     $null = null;
     echo gettype($null) . ": null<br>";
     
-    // Kiểm tra kiểu dữ liệu
+    // Check data type
     var_dump($str);
     echo "<br>";
     var_dump($int);
@@ -122,20 +122,20 @@ Truy cập vào `http://localhost:8000` để xem kết quả.
 ?>
 ```
 
-### Hằng số
+### Constants
 
 ```php
 <?php
-    // Định nghĩa hằng
+    // Define a constant
     define("PI", 3.14159);
     define("APP_NAME", "My PHP Application");
     define("DEBUG_MODE", true);
     
-    // Sử dụng hằng
+    // Use constants
     echo "PI = " . PI . "<br>";
-    echo "Tên ứng dụng: " . APP_NAME . "<br>";
+    echo "App Name: " . APP_NAME . "<br>";
     
-    // Hằng số từ PHP 7.0
+    // Constants since PHP 7.0
     const DATABASE = "mysql";
     const DB_HOST = "localhost";
     
@@ -143,115 +143,115 @@ Truy cập vào `http://localhost:8000` để xem kết quả.
 ?>
 ```
 
-## 🧑‍🏫 Bài 3: Toán tử và cấu trúc điều khiển
+## 🧑‍🏫 Lesson 3: Operators and Control Structures
 
-### Các toán tử trong PHP
+### Operators in PHP
 
 ```php
 <?php
-    // Toán tử số học
+    // Arithmetic Operators
     $a = 10;
     $b = 3;
-    echo "Cộng: " . ($a + $b) . "<br>";        // 13
-    echo "Trừ: " . ($a - $b) . "<br>";         // 7
-    echo "Nhân: " . ($a * $b) . "<br>";        // 30
-    echo "Chia: " . ($a / $b) . "<br>";        // 3.3333...
-    echo "Chia lấy dư: " . ($a % $b) . "<br>"; // 1
-    echo "Lũy thừa: " . ($a ** $b) . "<br>";   // 10^3 = 1000
+    echo "Addition: " . ($a + $b) . "<br>";        // 13
+    echo "Subtraction: " . ($a - $b) . "<br>";     // 7
+    echo "Multiplication: " . ($a * $b) . "<br>";  // 30
+    echo "Division: " . ($a / $b) . "<br>";        // 3.3333...
+    echo "Modulus: " . ($a % $b) . "<br>";         // 1
+    echo "Exponentiation: " . ($a ** $b) . "<br>"; // 10^3 = 1000
     
-    // Toán tử gán
+    // Assignment Operators
     $x = 5;
     $x += 3;  // $x = $x + 3
     echo "x = " . $x . "<br>";  // 8
     
-    // Toán tử so sánh
+    // Comparison Operators
     $p = 5;
     $q = "5";
-    echo "p == q: " . ($p == $q ? "true" : "false") . "<br>";   // true (so sánh giá trị)
-    echo "p === q: " . ($p === $q ? "true" : "false") . "<br>"; // false (so sánh giá trị và kiểu)
+    echo "p == q: " . ($p == $q ? "true" : "false") . "<br>";   // true (value comparison)
+    echo "p === q: " . ($p === $q ? "true" : "false") . "<br>"; // false (value and type comparison)
     
-    // Toán tử tăng/giảm
+    // Increment/Decrement Operators
     $i = 5;
-    echo "i++ = " . $i++ . "<br>"; // 5 (dùng rồi mới tăng)
+    echo "i++ = " . $i++ . "<br>"; // 5 (use then increment)
     echo "i = " . $i . "<br>";     // 6
-    echo "++i = " . ++$i . "<br>"; // 7 (tăng trước rồi mới dùng)
+    echo "++i = " . ++$i . "<br>"; // 7 (increment then use)
     
-    // Toán tử chuỗi
-    $firstName = "Nguyễn";
-    $lastName = "Văn A";
+    // String Operators
+    $firstName = "John";
+    $lastName = "Doe";
     $fullName = $firstName . " " . $lastName;
-    echo "Họ tên: " . $fullName;
+    echo "Full Name: " . $fullName;
 ?>
 ```
 
-### Cấu trúc điều kiện
+### Conditional Structures
 
 ```php
 <?php
     $score = 75;
     
-    // Câu lệnh if-else
+    // if-else statement
     if ($score >= 90) {
-        echo "Xuất sắc";
+        echo "Excellent";
     } elseif ($score >= 80) {
-        echo "Giỏi";
+        echo "Good";
     } elseif ($score >= 70) {
-        echo "Khá";
+        echo "Fair";
     } elseif ($score >= 60) {
-        echo "Trung bình";
+        echo "Average";
     } else {
-        echo "Yếu";
+        echo "Poor";
     }
     echo "<br>";
     
-    // Cú pháp viết tắt if-else
-    echo ($score >= 60) ? "Đạt" : "Không đạt";
+    // Ternary Operator
+    echo ($score >= 60) ? "Passed" : "Failed";
     echo "<br>";
     
     // Switch-case
     $day = 3;
     switch ($day) {
         case 1:
-            echo "Chủ nhật";
+            echo "Sunday";
             break;
         case 2:
-            echo "Thứ hai";
+            echo "Monday";
             break;
         case 3:
-            echo "Thứ ba";
+            echo "Tuesday";
             break;
         case 4:
-            echo "Thứ tư";
+            echo "Wednesday";
             break;
         case 5:
-            echo "Thứ năm";
+            echo "Thursday";
             break;
         case 6:
-            echo "Thứ sáu";
+            echo "Friday";
             break;
         case 7:
-            echo "Thứ bảy";
+            echo "Saturday";
             break;
         default:
-            echo "Ngày không hợp lệ";
+            echo "Invalid day";
     }
 ?>
 ```
 
-### Vòng lặp
+### Loops
 
 ```php
 <?php
-    // Vòng lặp for
-    echo "<h3>Vòng lặp for</h3>";
+    // For loop
+    echo "<h3>For Loop</h3>";
     echo "<ul>";
     for ($i = 1; $i <= 5; $i++) {
         echo "<li>Item $i</li>";
     }
     echo "</ul>";
     
-    // Vòng lặp while
-    echo "<h3>Vòng lặp while</h3>";
+    // While loop
+    echo "<h3>While Loop</h3>";
     $count = 1;
     echo "<ul>";
     while ($count <= 5) {
@@ -260,8 +260,8 @@ Truy cập vào `http://localhost:8000` để xem kết quả.
     }
     echo "</ul>";
     
-    // Vòng lặp do-while
-    echo "<h3>Vòng lặp do-while</h3>";
+    // Do-while loop
+    echo "<h3>Do-while Loop</h3>";
     $num = 1;
     echo "<ul>";
     do {
@@ -270,57 +270,57 @@ Truy cập vào `http://localhost:8000` để xem kết quả.
     } while ($num <= 5);
     echo "</ul>";
     
-    // Lệnh break và continue
-    echo "<h3>Break và Continue</h3>";
-    echo "<p>Các số lẻ từ 1-10:</p>";
+    // Break and Continue
+    echo "<h3>Break and Continue</h3>";
+    echo "<p>Odd numbers from 1-10:</p>";
     for ($i = 1; $i <= 10; $i++) {
         if ($i % 2 == 0) {
-            continue; // Bỏ qua số chẵn
+            continue; // Skip even numbers
         }
         echo "$i ";
         
         if ($i == 7) {
-            break; // Dừng khi gặp số 7
+            break; // Stop when hitting 7
         }
     }
 ?>
 ```
 
-## 🧑‍🏫 Bài 4: Hàm và Array trong PHP
+## 🧑‍🏫 Lesson 4: Functions and Arrays in PHP
 
-### Hàm trong PHP
+### Functions in PHP
 
 ```php
 <?php
-    // Hàm không có tham số
+    // Function without parameters
     function sayHello() {
         echo "Hello from PHP function! <br>";
     }
     
-    // Gọi hàm
+    // Call function
     sayHello();
     
-    // Hàm có tham số
+    // Function with parameters
     function greet($name) {
-        echo "Xin chào, $name! <br>";
+        echo "Hello, $name! <br>";
     }
     
-    greet("Nguyễn Văn A");
+    greet("John Doe");
     
-    // Hàm với tham số mặc định
+    // Function with default parameters
     function calculateTotal($price, $taxRate = 0.1) {
         $tax = $price * $taxRate;
         $total = $price + $tax;
         return $total;
     }
     
-    $amount = calculateTotal(100);  // Sử dụng tax rate mặc định
-    echo "Tổng: $amount <br>";
+    $amount = calculateTotal(100);  // Use default tax rate
+    echo "Total: $amount <br>";
     
-    $amount2 = calculateTotal(100, 0.05);  // Chỉ định tax rate
-    echo "Tổng với thuế 5%: $amount2 <br>";
+    $amount2 = calculateTotal(100, 0.05);  // Specify tax rate
+    echo "Total with 5% tax: $amount2 <br>";
     
-    // Hàm với nhiều giá trị trả về (sử dụng array)
+    // Function returning multiple values (using array)
     function getMinMax($numbers) {
         return [
             'min' => min($numbers),
@@ -333,77 +333,77 @@ Truy cập vào `http://localhost:8000` để xem kết quả.
 ?>
 ```
 
-### Array trong PHP
+### Arrays in PHP
 
 ```php
 <?php
-    // Mảng số nguyên (indexed array)
+    // Indexed array
     $numbers = [1, 2, 3, 4, 5];
-    // hoặc: $numbers = array(1, 2, 3, 4, 5);
+    // or: $numbers = array(1, 2, 3, 4, 5);
     
-    echo "Phần tử thứ 3: " . $numbers[2] . "<br>"; // Index bắt đầu từ 0
+    echo "Element at index 2: " . $numbers[2] . "<br>"; // Index starts at 0
     
-    // Duyệt mảng với for
-    echo "Duyệt mảng với for: ";
+    // Iterate array with for
+    echo "Iterate with for: ";
     for ($i = 0; $i < count($numbers); $i++) {
         echo $numbers[$i] . " ";
     }
     echo "<br>";
     
-    // Duyệt mảng với foreach
-    echo "Duyệt mảng với foreach: ";
+    // Iterate array with foreach
+    echo "Iterate with foreach: ";
     foreach ($numbers as $value) {
         echo $value . " ";
     }
     echo "<br>";
     
-    // Mảng kết hợp (associative array)
+    // Associative array
     $student = [
-        'name' => 'Nguyễn Văn A',
+        'name' => 'John Doe',
         'age' => 20,
         'major' => 'Computer Science',
         'gpa' => 3.8
     ];
     
-    echo "Tên sinh viên: " . $student['name'] . "<br>";
-    echo "Chuyên ngành: " . $student['major'] . "<br>";
+    echo "Student Name: " . $student['name'] . "<br>";
+    echo "Major: " . $student['major'] . "<br>";
     
-    // Duyệt mảng kết hợp
-    echo "<h3>Thông tin sinh viên:</h3>";
+    // Iterate associative array
+    echo "<h3>Student Info:</h3>";
     echo "<ul>";
     foreach ($student as $key => $value) {
         echo "<li>$key: $value</li>";
     }
     echo "</ul>";
     
-    // Mảng đa chiều
+    // Multidimensional array
     $students = [
         [
-            'name' => 'Nguyễn Văn A',
+            'name' => 'John Doe',
             'age' => 20,
             'scores' => [85, 90, 78]
         ],
         [
-            'name' => 'Trần Thị B',
+            'name' => 'Jane Smith',
             'age' => 21,
             'scores' => [92, 88, 95]
         ],
         [
-            'name' => 'Lê Văn C',
+            'name' => 'Bob Wilson',
             'age' => 22,
             'scores' => [75, 80, 82]
         ]
     ];
     
-    // Truy cập mảng đa chiều
-    echo "Sinh viên thứ 2: " . $students[1]['name'] . "<br>";
-    echo "Điểm môn thứ 3 của sinh viên thứ 2: " . $students[1]['scores'][2] . "<br>";
+    // Access multidimensional array
+    echo "Second student: " . $students[1]['name'] . "<br>";
+    echo "Third score of second student: " . $students[1]['scores'][2] . "<br>";
     
-    // Duyệt mảng đa chiều
-    echo "<h3>Danh sách sinh viên:</h3>";
+    // Iterate multidimensional array
+    echo "<h3>Student List:</h3>";
     foreach ($students as $student) {
-        echo "<p><strong>" . $student['name'] . "</strong>, " . $student['age'] . " tuổi</p>";
-        echo "<p>Điểm: ";
+        echo "<p><strong>" . $student['name'] . "</strong>, " . $student['age'] . " years old</p>";
+        echo "<p>Scores: ";
         foreach ($student['scores'] as $score) {
             echo $score . " ";
         }
@@ -411,48 +411,48 @@ Truy cập vào `http://localhost:8000` để xem kết quả.
         echo "<hr>";
     }
     
-    // Một số hàm xử lý mảng
+    // Some array functions
     $fruits = ['apple', 'banana', 'orange', 'grape'];
     
-    echo "Số phần tử: " . count($fruits) . "<br>";
+    echo "Count: " . count($fruits) . "<br>";
     
-    // Thêm phần tử vào mảng
+    // Add element to array
     $fruits[] = 'mango';
     array_push($fruits, 'strawberry', 'kiwi');
     
-    // Sắp xếp mảng
+    // Sort array
     sort($fruits);
-    echo "Mảng sau khi sắp xếp: ";
+    echo "Sorted array: ";
     print_r($fruits);
     echo "<br>";
     
-    // Đảo ngược mảng
+    // Reverse array
     $reversed = array_reverse($fruits);
-    echo "Mảng sau khi đảo ngược: ";
+    echo "Reversed array: ";
     print_r($reversed);
     echo "<br>";
     
-    // Chuyển mảng thành chuỗi
+    // Convert array to string
     $fruitString = implode(", ", $fruits);
-    echo "Chuỗi từ mảng: " . $fruitString . "<br>";
+    echo "String from array: " . $fruitString . "<br>";
     
-    // Chuyển chuỗi thành mảng
+    // Convert string to array
     $colors = "red,green,blue,yellow";
     $colorArray = explode(",", $colors);
-    echo "Mảng từ chuỗi: ";
+    echo "Array from string: ";
     print_r($colorArray);
 ?>
 ```
 
-## 🧑‍🏫 Bài 5: PHP và HTML
+## 🧑‍🏫 Lesson 5: PHP and HTML
 
-### Kết hợp PHP với HTML
+### Combining PHP with HTML
 
 ```php
 <!DOCTYPE html>
 <html>
 <head>
-    <title>PHP và HTML</title>
+    <title>PHP and HTML</title>
     <style>
         table {
             border-collapse: collapse;
@@ -472,10 +472,10 @@ Truy cập vào `http://localhost:8000` để xem kết quả.
     </style>
 </head>
 <body>
-    <h1>Danh sách sản phẩm</h1>
+    <h1>Product List</h1>
     
     <?php
-    // Dữ liệu sản phẩm (thường sẽ lấy từ database)
+    // Product data (usually fetched from a database)
     $products = [
         [
             'id' => 1,
@@ -503,10 +503,10 @@ Truy cập vào `http://localhost:8000` để xem kết quả.
         ],
     ];
     
-    // Hiển thị dữ liệu trong bảng HTML
+    // Display data in HTML table
     if (count($products) > 0) {
         echo '<table>';
-        echo '<tr><th>ID</th><th>Tên sản phẩm</th><th>Giá</th><th>Tồn kho</th><th>Trạng thái</th></tr>';
+        echo '<tr><th>ID</th><th>Product Name</th><th>Price</th><th>Stock</th><th>Status</th></tr>';
         
         foreach ($products as $product) {
             echo '<tr>';
@@ -515,13 +515,13 @@ Truy cập vào `http://localhost:8000` để xem kết quả.
             echo '<td>$' . number_format($product['price'], 2) . '</td>';
             echo '<td>' . $product['stock'] . '</td>';
             
-            // Biểu thức điều kiện để hiển thị trạng thái
+            // Conditional expression to display status
             if ($product['stock'] > 10) {
-                echo '<td style="color: green;">Còn nhiều</td>';
+                echo '<td style="color: green;">In Stock</td>';
             } elseif ($product['stock'] > 0) {
-                echo '<td style="color: orange;">Sắp hết</td>';
+                echo '<td style="color: orange;">Low Stock</td>';
             } else {
-                echo '<td style="color: red;">Hết hàng</td>';
+                echo '<td style="color: red;">Out of Stock</td>';
             }
             
             echo '</tr>';
@@ -529,43 +529,43 @@ Truy cập vào `http://localhost:8000` để xem kết quả.
         
         echo '</table>';
     } else {
-        echo '<p>Không có sản phẩm nào.</p>';
+        echo '<p>No products available.</p>';
     }
     ?>
     
-    <h2>Form thêm sản phẩm</h2>
+    <h2>Add Product Form</h2>
     <form method="post" action="">
         <div>
-            <label for="name">Tên sản phẩm:</label>
+            <label for="name">Product Name:</label>
             <input type="text" id="name" name="name" required>
         </div>
         <div>
-            <label for="price">Giá:</label>
+            <label for="price">Price:</label>
             <input type="number" id="price" name="price" step="0.01" required>
         </div>
         <div>
-            <label for="stock">Tồn kho:</label>
+            <label for="stock">Stock:</label>
             <input type="number" id="stock" name="stock" required>
         </div>
         <div>
-            <button type="submit">Thêm sản phẩm</button>
+            <button type="submit">Add Product</button>
         </div>
     </form>
     
     <?php
-    // Xử lý form khi submit
+    // Handle form submission
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (isset($_POST["name"]) && isset($_POST["price"]) && isset($_POST["stock"])) {
             $name = $_POST["name"];
             $price = $_POST["price"];
             $stock = $_POST["stock"];
             
-            echo "<h3>Sản phẩm vừa thêm:</h3>";
-            echo "<p>Tên: $name</p>";
-            echo "<p>Giá: $price</p>";
-            echo "<p>Tồn kho: $stock</p>";
+            echo "<h3>Product Added:</h3>";
+            echo "<p>Name: $name</p>";
+            echo "<p>Price: $price</p>";
+            echo "<p>Stock: $stock</p>";
             
-            // Trong thực tế, tại đây sẽ thêm dữ liệu vào database
+            // In reality, you would add data to the database here
         }
     }
     ?>
@@ -573,13 +573,13 @@ Truy cập vào `http://localhost:8000` để xem kết quả.
 </html>
 ```
 
-### Xử lý form với PHP
+### Form Handling with PHP
 
 ```php
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Xử lý Form với PHP</title>
+    <title>Form Handling with PHP</title>
     <style>
         .error { color: red; }
         .success { color: green; }
@@ -588,68 +588,68 @@ Truy cập vào `http://localhost:8000` để xem kết quả.
     </style>
 </head>
 <body>
-    <h1>Đăng ký tài khoản</h1>
+    <h1>Register Account</h1>
     
     <?php
-    // Khởi tạo biến lỗi và biến lưu dữ liệu
+    // Initialize error variables and data variables
     $nameErr = $emailErr = $passwordErr = "";
     $name = $email = $password = "";
     $formValid = true;
     
-    // Kiểm tra xem form đã được submit chưa
+    // Check if form is submitted
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        // Kiểm tra và lấy giá trị tên
+        // Check and retrieve name
         if (empty($_POST["name"])) {
-            $nameErr = "Họ tên không được để trống";
+            $nameErr = "Name is required";
             $formValid = false;
         } else {
             $name = test_input($_POST["name"]);
-            // Kiểm tra tên chỉ chứa chữ và khoảng trắng
+            // Check if name only contains letters and whitespace
             if (!preg_match("/^[a-zA-Z ]*$/", $name)) {
-                $nameErr = "Họ tên chỉ được chứa chữ cái và khoảng trắng";
+                $nameErr = "Only letters and white space allowed";
                 $formValid = false;
             }
         }
         
-        // Kiểm tra và lấy giá trị email
+        // Check and retrieve email
         if (empty($_POST["email"])) {
-            $emailErr = "Email không được để trống";
+            $emailErr = "Email is required";
             $formValid = false;
         } else {
             $email = test_input($_POST["email"]);
-            // Kiểm tra định dạng email hợp lệ
+            // Check if e-mail address is well-formed
             if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                $emailErr = "Định dạng email không hợp lệ";
+                $emailErr = "Invalid email format";
                 $formValid = false;
             }
         }
         
-        // Kiểm tra và lấy giá trị mật khẩu
+        // Check and retrieve password
         if (empty($_POST["password"])) {
-            $passwordErr = "Mật khẩu không được để trống";
+            $passwordErr = "Password is required";
             $formValid = false;
         } else {
             $password = test_input($_POST["password"]);
-            // Kiểm tra độ dài mật khẩu
+            // Check password length
             if (strlen($password) < 6) {
-                $passwordErr = "Mật khẩu phải có ít nhất 6 ký tự";
+                $passwordErr = "Password must be at least 6 characters";
                 $formValid = false;
             }
         }
         
-        // Nếu form hợp lệ, hiển thị thông tin
+        // If form is valid, display info
         if ($formValid) {
             echo '<div class="success">';
-            echo '<h3>Đăng ký thành công!</h3>';
-            echo '<p>Họ tên: ' . $name . '</p>';
+            echo '<h3>Registration Successful!</h3>';
+            echo '<p>Name: ' . $name . '</p>';
             echo '<p>Email: ' . $email . '</p>';
             echo '</div>';
             
-            // Trong thực tế, tại đây sẽ lưu dữ liệu vào database
+            // In reality, you would save data to the database here
         }
     }
     
-    // Hàm xử lý và làm sạch dữ liệu đầu vào
+    // Function to sanitize input data
     function test_input($data) {
         $data = trim($data);
         $data = stripslashes($data);
@@ -660,7 +660,7 @@ Truy cập vào `http://localhost:8000` để xem kết quả.
     
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
         <div>
-            <label for="name">Họ tên:</label>
+            <label for="name">Full Name:</label>
             <input type="text" id="name" name="name" value="<?php echo $name; ?>">
             <span class="error"><?php echo $nameErr; ?></span>
         </div>
@@ -672,34 +672,34 @@ Truy cập vào `http://localhost:8000` để xem kết quả.
         </div>
         
         <div>
-            <label for="password">Mật khẩu:</label>
+            <label for="password">Password:</label>
             <input type="password" id="password" name="password">
             <span class="error"><?php echo $passwordErr; ?></span>
         </div>
         
         <div style="margin-top: 20px;">
-            <input type="submit" value="Đăng ký">
+            <input type="submit" value="Register">
         </div>
     </form>
 </body>
 </html>
 ```
 
-## 🧪 BÀI TẬP LỚN CUỐI PHẦN: Tạo trang quản lý sản phẩm đơn giản
+## 🧪 FINAL PROJECT: Simple Product Management Page
 
-### Mô tả bài toán
+### Project Description
 
-Xây dựng trang web đơn giản cho phép:
+Build a simple webpage that allows:
 
-- Hiển thị danh sách sản phẩm
-- Thêm sản phẩm mới
-- Tìm kiếm sản phẩm theo tên
-- Lọc sản phẩm theo giá
+- Displaying a list of products
+- Adding a new product
+- Searching for products by name
+- Filtering products by price
 
-### Yêu cầu
+### Requirements
 
-- Tạo cấu trúc dữ liệu lưu trữ sản phẩm (mảng PHP)
-- Thiết kế giao diện hiển thị danh sách sản phẩm (bảng)
-- Tạo form thêm sản phẩm mới với các trường: tên, mô tả, giá, số lượng
-- Xây dựng chức năng tìm kiếm và lọc sản phẩm
-- Tổ chức code theo cấu trúc rõ ràng, dễ bảo trì
+- Create a data structure to store products (PHP array).
+- Design a UI to display the product list (table).
+- Create a form to add a new product with fields: name, description, price, quantity.
+- Implement search and filter functionality.
+- Organize code in a clear, maintainable structure.

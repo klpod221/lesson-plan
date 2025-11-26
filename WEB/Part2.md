@@ -1,38 +1,38 @@
 ---
 prev:
-  text: '📝 Nhập Môn HTML'
+  text: '📝 Introduction to HTML'
   link: '/WEB/Part1'
 next:
   text: '🔄 JavaScript'
   link: '/WEB/Part3'
 ---
 
-# 📘 PHẦN 2: CSS - ĐỊNH DẠNG TRANG WEB
+# 📘 PART 2: CSS - WEB STYLING
 
-## 🎯 Mục tiêu tổng quát
+## 🎯 General Objectives
 
-- Hiểu về CSS và vai trò của nó trong phát triển web
-- Thành thạo các cách áp dụng CSS vào HTML
-- Nắm vững các thuộc tính CSS cơ bản và cách sử dụng
+- Understand CSS and its role in web development.
+- Master different ways to apply CSS to HTML.
+- Master basic CSS properties and their usage.
 
-## 🧑‍🏫 Bài 1: Giới thiệu CSS
+## 🧑‍🏫 Lesson 1: Introduction to CSS
 
-### CSS là gì?
+### What is CSS?
 
-- CSS là viết tắt của Cascading Style Sheets
-- Được sử dụng để định dạng và trình bày nội dung HTML
-- Giúp phân tách nội dung (HTML) và hình thức trình bày (CSS)
-- Cho phép áp dụng nhiều style khác nhau trên cùng một trang web
+- CSS stands for Cascading Style Sheets.
+- Used to format and present HTML content.
+- Helps separate content (HTML) and presentation (CSS).
+- Allows applying multiple different styles to the same webpage.
 
-### Cách thêm CSS vào HTML
+### How to Add CSS to HTML
 
-1. **Inline CSS**: Sử dụng thuộc tính `style` trực tiếp trên thẻ HTML (không được khuyến khích)
+1. **Inline CSS**: Using the `style` attribute directly on HTML tags (not recommended).
 
    ```html
-   <p style="color: blue; font-size: 16px;">Đây là đoạn văn màu xanh.</p>
+   <p style="color: blue; font-size: 16px;">This is a blue paragraph.</p>
    ```
 
-2. **Internal CSS**: Sử dụng thẻ `<style>` trong phần `<head>` (không được khuyến khích cho trang lớn)
+2. **Internal CSS**: Using the `<style>` tag inside the `<head>` section (not recommended for large sites).
 
    ```html
    <head>
@@ -45,7 +45,7 @@ next:
    </head>
    ```
 
-3. **External CSS**: Tạo file CSS riêng và liên kết vào HTML
+3. **External CSS**: Creating a separate CSS file and linking it to HTML.
 
    ```html
    <head>
@@ -53,7 +53,7 @@ next:
    </head>
    ```
 
-Nội dung file styles.css:
+Content of styles.css file:
 
 ```css
 p {
@@ -62,17 +62,17 @@ p {
 }
 ```
 
-### Ưu và nhược điểm từng loại
+### Pros and Cons of Each Type
 
-| Loại CSS | Ưu điểm                                             | Nhược điểm                                   |
+| CSS Type | Pros | Cons |
 | -------- | --------------------------------------------------- | -------------------------------------------- |
-| Inline   | Ưu tiên cao nhất, sẽ ghi đè các thuộc tính css khác | Khó bảo trì, code lặp lại nhiều              |
-| Internal | Áp dụng cho một trang, không cần file riêng         | Phải copy khi dùng cho trang khác            |
-| External | Dễ bảo trì, tái sử dụng trên nhiều trang            | Trang có thể hiển thị trước khi CSS được tải |
+| Inline | Highest priority, overrides other css properties | Hard to maintain, repetitive code |
+| Internal | Applies to one page, no separate file needed | Must copy when using on other pages |
+| External | Easy to maintain, reusable across multiple pages | Page might display before CSS loads |
 
-## 🧑‍🏫 Bài 2: CSS Selectors (Bộ chọn)
+## 🧑‍🏫 Lesson 2: CSS Selectors
 
-### Cú pháp CSS
+### CSS Syntax
 
 ```css
 selector {
@@ -81,7 +81,7 @@ selector {
 }
 ```
 
-### Các loại selector cơ bản
+### Basic Selector Types
 
 ```css
 /* Element Selector */
@@ -121,25 +121,25 @@ p::first-letter {
 }
 ```
 
-### Selector kết hợp
+### Combined Selectors
 
 ```css
-/* Descendant Selector (con cháu) */
+/* Descendant Selector */
 article p {
   font-style: italic;
 }
 
-/* Child Selector (con trực tiếp) */
+/* Child Selector (direct child) */
 ul > li {
   list-style-type: square;
 }
 
-/* Adjacent Sibling Selector (anh em liền kề) */
+/* Adjacent Sibling Selector */
 h2 + p {
   font-weight: bold;
 }
 
-/* General Sibling Selector (anh em chung) */
+/* General Sibling Selector */
 h2 ~ p {
   color: gray;
 }
@@ -152,9 +152,9 @@ h3 {
 }
 ```
 
-### Độ ưu tiên (Specificity) trong CSS
+### Specificity in CSS
 
-1. `!important` (cao nhất)
+1. `!important` (highest)
 2. Inline CSS
 3. ID selector
 4. Class selector, Attribute selector, Pseudo-class
@@ -162,7 +162,7 @@ h3 {
 6. Universal selector (`*`)
 
 ```css
-/* Ví dụ độ ưu tiên */
+/* Specificity Example */
 p {
   color: blue;
 } /* Specificity: 0,0,0,1 */
@@ -176,66 +176,66 @@ p.intro {
   color: purple;
 } /* Specificity: 0,0,1,1 */
 
-/* !important ghi đè mọi quy tắc khác */
+/* !important overrides all other rules */
 p {
   color: yellow !important;
-} /* Cao nhất */
+} /* Highest */
 ```
 
 ### Box Model
 
-- Đây là mô hình hộp trong CSS mô tả không gian chiếm bởi một phần tử HTML
+- This is the box model in CSS describing the space occupied by an HTML element.
 
 ```css
 div {
-  width: 300px; /* Chiều rộng nội dung */
-  height: 200px; /* Chiều cao nội dung */
+  width: 300px; /* Content width */
+  height: 200px; /* Content height */
 
-  padding: 20px; /* Khoảng cách từ nội dung đến viền */
-  border: 5px solid black; /* Viền */
-  margin: 30px; /* Khoảng cách từ viền đến phần tử khác */
+  padding: 20px; /* Distance from content to border */
+  border: 5px solid black; /* Border */
+  margin: 30px; /* Distance from border to other elements */
 }
 ```
 
-### Chi tiết Box Model
+### Box Model Details
 
-- **Content**: Vùng hiển thị nội dung thực tế (`width`, `height`)
-- **Padding**: Khoảng cách giữa nội dung và border (`padding`)
-- **Border**: Viền bao quanh padding và nội dung (`border`)
-- **Margin**: Khoảng cách giữa border và phần tử lân cận (`margin`)
+- **Content**: The area displaying the actual content (`width`, `height`).
+- **Padding**: The space between content and border (`padding`).
+- **Border**: The border surrounding padding and content (`border`).
+- **Margin**: The space between the border and adjacent elements (`margin`).
 
 ### Box-sizing
 
 ```css
 /* Standard box model */
-box-sizing: content-box; /* Mặc định */
+box-sizing: content-box; /* Default */
 
 /* Alternative box model */
-box-sizing: border-box; /* width/height bao gồm cả padding và border */
+box-sizing: border-box; /* width/height includes padding and border */
 
-/* Áp dụng border-box cho tất cả phần tử */
+/* Apply border-box to all elements */
 * {
   box-sizing: border-box;
 }
 ```
 
-### Margin, Padding và Border
+### Margin, Padding, and Border
 
 ```css
-/* Cách viết đầy đủ */
+/* Longhand */
 margin-top: 10px;
 margin-right: 20px;
 margin-bottom: 10px;
 margin-left: 20px;
 
-/* Cách viết tắt theo chiều kim đồng hồ (top, right, bottom, left) */
+/* Shorthand clockwise (top, right, bottom, left) */
 margin: 10px 20px 10px 20px;
 
-/* Cách viết tắt khi đối xứng */
+/* Shorthand symmetric */
 margin: 10px 20px; /* top/bottom 10px, left/right 20px */
-margin: 10px; /* tất cả 4 phía đều 10px */
+margin: 10px; /* all 4 sides 10px */
 
-/* Tương tự cho padding */
+/* Similar for padding */
 padding: 10px 20px 15px 25px;
 
 /* Border */
@@ -243,57 +243,57 @@ border-width: 2px;
 border-style: solid;
 border-color: black;
 
-/* Cách viết tắt */
+/* Shorthand */
 border: 2px solid black;
 
-/* Border cho từng cạnh */
+/* Border per side */
 border-top: 2px solid red;
 border-right: 2px dashed blue;
 border-bottom: 2px dotted green;
 border-left: 2px double orange;
 ```
 
-## 🧑‍🏫 Bài 4: Typography và màu sắc
+## 🧑‍🏫 Lesson 4: Typography and Colors
 
-### Typography (kiểu chữ)
+### Typography
 
 ```css
 p {
   /* Font family */
   font-family: Arial, Helvetica, sans-serif;
 
-  /* Kích thước chữ */
+  /* Font size */
   font-size: 16px; /* px - pixel */
-  font-size: 1.2em; /* em - tương đối với phần tử cha */
-  font-size: 1.2rem; /* rem - tương đối với phần tử gốc (html) */
+  font-size: 1.2em; /* em - relative to parent element */
+  font-size: 1.2rem; /* rem - relative to root element (html) */
 
-  /* Kiểu chữ */
+  /* Font style */
   font-style: normal; /* normal, italic, oblique */
 
-  /* Độ đậm */
+  /* Font weight */
   font-weight: bold; /* normal, bold, 100-900 */
 
-  /* Khoảng cách giữa các dòng */
+  /* Line height */
   line-height: 1.5;
 
-  /* Căn chỉnh văn bản */
+  /* Text align */
   text-align: center; /* left, right, center, justify */
 
-  /* Trang trí văn bản */
+  /* Text decoration */
   text-decoration: underline; /* none, underline, line-through, overline */
 
-  /* Chuyển đổi văn bản */
+  /* Text transform */
   text-transform: uppercase; /* none, capitalize, uppercase, lowercase */
 
-  /* Khoảng cách giữa các chữ */
+  /* Letter spacing */
   letter-spacing: 2px;
 
-  /* Khoảng cách giữa các từ */
+  /* Word spacing */
   word-spacing: 5px;
 }
 ```
 
-### Sử dụng Google Fonts (hoặc font từ các nguồn online khác)
+### Using Google Fonts (or online fonts)
 
 ```html
 <head>
@@ -310,7 +310,7 @@ body {
 }
 ```
 
-### Sử dụng font từ file cục bộ
+### Using Local Fonts
 
 ```css
 @font-face {
@@ -327,37 +327,37 @@ body {
 }
 ```
 
-### Màu sắc
+### Colors
 
 ```css
-/* Tên màu */
+/* Color names */
 color: red;
 background-color: yellow;
 
-/* Mã hex */
-color: #ff0000; /* Đỏ */
-color: #00ff00; /* Xanh lá */
-color: #0000ff; /* Xanh dương */
+/* Hex codes */
+color: #ff0000; /* Red */
+color: #00ff00; /* Green */
+color: #0000ff; /* Blue */
 
-/* RGB và RGBA */
-color: rgb(255, 0, 0); /* Đỏ */
-color: rgba(255, 0, 0, 0.5); /* Đỏ với độ trong suốt 50% */
+/* RGB and RGBA */
+color: rgb(255, 0, 0); /* Red */
+color: rgba(255, 0, 0, 0.5); /* Red with 50% opacity */
 
-/* HSL và HSLA (Hue, Saturation, Lightness) */
-color: hsl(0, 100%, 50%); /* Đỏ */
-color: hsla(0, 100%, 50%, 0.5); /* Đỏ với độ trong suốt 50% */
+/* HSL and HSLA (Hue, Saturation, Lightness) */
+color: hsl(0, 100%, 50%); /* Red */
+color: hsla(0, 100%, 50%, 0.5); /* Red with 50% opacity */
 ```
 
-## 🧑‍🏫 Bài 5: Layout và Positioning
+## 🧑‍🏫 Lesson 5: Layout and Positioning
 
 ### Display Property
 
 ```css
-/* Các giá trị phổ biến của display */
-display: block; /* Phần tử block chiếm toàn bộ chiều rộng */
-display: inline; /* Phần tử inline chiếm đủ không gian cần thiết */
-display: inline-block; /* Kết hợp tính chất của inline và block */
-display: none; /* Ẩn phần tử khỏi trang */
+/* Common display values */
+display: block; /* Block element takes up full width */
+display: inline; /* Inline element takes only necessary space */
+display: inline-block; /* Combines inline and block properties */
+display: none; /* Hides element from page */
 display: flex; /* Flexible Box Layout */
 display: grid; /* Grid Layout */
 ```
@@ -365,47 +365,47 @@ display: grid; /* Grid Layout */
 ### Position Property
 
 ```css
-/* Static (mặc định) */
+/* Static (default) */
 position: static;
 
-/* Relative - tương đối so với vị trí ban đầu */
+/* Relative - relative to original position */
 position: relative;
 top: 10px;
 left: 20px;
 
-/* Absolute - tương đối so với phần tử cha gần nhất có position khác static */
+/* Absolute - relative to nearest non-static ancestor */
 position: absolute;
 top: 0;
 right: 0;
 
-/* Fixed - tương đối so với viewport */
+/* Fixed - relative to viewport */
 position: fixed;
 bottom: 20px;
 right: 20px;
 
-/* Sticky - kết hợp relative và fixed */
+/* Sticky - combines relative and fixed */
 position: sticky;
 top: 0;
 ```
 
-### Float và Clear
+### Float and Clear
 
 ```css
 /* Float */
-float: left; /* Phần tử nổi về bên trái */
-float: right; /* Phần tử nổi về bên phải */
-float: none; /* Không nổi (mặc định) */
+float: left; /* Element floats left */
+float: right; /* Element floats right */
+float: none; /* No float (default) */
 
-/* Clear - ngăn các phần tử nổi xung quanh */
-clear: left; /* Không cho phần tử nổi bên trái */
-clear: right; /* Không cho phần tử nổi bên phải */
-clear: both; /* Không cho phần tử nổi cả hai bên */
+/* Clear - prevent elements from floating around */
+clear: left; /* No floating elements on left */
+clear: right; /* No floating elements on right */
+clear: both; /* No floating elements on either side */
 ```
 
-### Z-index - Xếp lớp phần tử
+### Z-index - Stacking Order
 
 ```css
-/* Phần tử có z-index cao hơn sẽ hiển thị phía trên */
+/* Element with higher z-index appears on top */
 .background {
   position: relative;
   z-index: 1;
@@ -413,61 +413,61 @@ clear: both; /* Không cho phần tử nổi cả hai bên */
 
 .foreground {
   position: relative;
-  z-index: 2; /* Hiển thị phía trên .background */
+  z-index: 2; /* Displays above .background */
 }
 ```
 
-## 🧑‍🏫 Bài 6: Flexbox Layout
+## 🧑‍🏫 Lesson 6: Flexbox Layout
 
 ### Flexbox
 
-- Đây là một mô hình layout một chiều giúp bố trí các phần tử trong container linh hoạt
+- This is a one-dimensional layout model helping to distribute elements in a container flexibly.
 
 ```css
 .container {
-  display: flex; /* Kích hoạt flexbox */
+  display: flex; /* Activate flexbox */
 
-  /* Hướng của main axis */
-  flex-direction: row; /* row (mặc định), row-reverse, column, column-reverse */
+  /* Main axis direction */
+  flex-direction: row; /* row (default), row-reverse, column, column-reverse */
 
-  /* Xử lý khi phần tử tràn ra khỏi container */
-  flex-wrap: wrap; /* nowrap (mặc định), wrap, wrap-reverse */
+  /* Wrapping */
+  flex-wrap: wrap; /* nowrap (default), wrap, wrap-reverse */
 
-  /* Kết hợp direction và wrap */
+  /* Combine direction and wrap */
   flex-flow: row wrap;
 
-  /* Căn chỉnh phần tử theo main axis */
+  /* Align items along main axis */
   justify-content: center; /* flex-start, flex-end, center, space-between, space-around, space-evenly */
 
-  /* Căn chỉnh phần tử theo cross axis */
+  /* Align items along cross axis */
   align-items: center; /* stretch, flex-start, flex-end, center, baseline */
 
-  /* Căn chỉnh các hàng/cột trong container */
+  /* Align lines/columns in container */
   align-content: space-between; /* stretch, flex-start, flex-end, center, space-between, space-around */
 }
 
 .item {
-  /* Thứ tự hiển thị */
+  /* Display order */
   order: 2;
 
-  /* Khả năng co giãn (tăng kích thước) */
+  /* Ability to grow */
   flex-grow: 1;
 
-  /* Khả năng co lại (giảm kích thước) */
+  /* Ability to shrink */
   flex-shrink: 1;
 
-  /* Kích thước ban đầu */
+  /* Initial size */
   flex-basis: 200px;
 
-  /* Kết hợp grow, shrink và basis */
+  /* Combine grow, shrink, and basis */
   flex: 1 1 200px;
 
-  /* Ghi đè align-items cho từng phần tử */
+  /* Override align-items for individual item */
   align-self: flex-end;
 }
 ```
 
-### Ví dụ ứng dụng Flexbox
+### Flexbox Examples
 
 ```css
 /* Navigation bar */
@@ -506,29 +506,29 @@ clear: both; /* Không cho phần tử nổi cả hai bên */
 }
 ```
 
-## 🧑‍🏫 Bài 7: Grid Layout
+## 🧑‍🏫 Lesson 7: Grid Layout
 
 ### Grid Layout
 
-- Đây là một hệ thống layout hai chiều, giúp bố trí phần tử theo cả hàng và cột
+- This is a two-dimensional layout system, helping arrange elements in both rows and columns.
 
 ```css
 .container {
   display: grid;
 
-  /* Định nghĩa các cột */
+  /* Define columns */
   grid-template-columns: 1fr 2fr 1fr;
   grid-template-columns: repeat(3, 1fr);
 
-  /* Định nghĩa các hàng */
+  /* Define rows */
   grid-template-rows: 100px auto 100px;
 
-  /* Định nghĩa khoảng cách giữa các phần tử */
+  /* Define gap between elements */
   gap: 20px;
   column-gap: 10px;
   row-gap: 15px;
 
-  /* Đặt tên cho các vùng và xác định cấu trúc grid */
+  /* Name areas and define grid structure */
   grid-template-areas:
     "header header header"
     "sidebar content content"
@@ -536,42 +536,42 @@ clear: both; /* Không cho phần tử nổi cả hai bên */
 }
 
 .item {
-  /* Vị trí phần tử theo cột (start / end) */
+  /* Item position by column (start / end) */
   grid-column: 1 / 3;
   grid-column: 1 / span 2;
 
-  /* Vị trí phần tử theo hàng (start / end) */
+  /* Item position by row (start / end) */
   grid-row: 2 / 4;
   grid-row: 2 / span 2;
 
-  /* Kết hợp cả hàng và cột */
+  /* Combine row and column */
   grid-area: 2 / 1 / 4 / 3;
 
-  /* Sử dụng tên grid-area đã định nghĩa */
+  /* Use defined grid-area name */
   grid-area: header;
 }
 
-/* Căn chỉnh phần tử trong ô grid */
+/* Align items inside grid cell */
 .item {
   justify-self: center; /* start, end, center, stretch */
   align-self: center; /* start, end, center, stretch */
 }
 
 .container {
-  /* Căn chỉnh tất cả phần tử trong grid */
+  /* Align all items in grid */
   justify-items: center;
   align-items: center;
 
-  /* Căn chỉnh toàn bộ grid trong container */
+  /* Align entire grid within container */
   justify-content: space-between;
   align-content: space-around;
 }
 ```
 
-### Ví dụ ứng dụng Grid
+### Grid Examples
 
 ```css
-/* Layout trang web */
+/* Webpage layout */
 .page-container {
   display: grid;
   grid-template-areas:
@@ -608,30 +608,30 @@ clear: both; /* Không cho phần tử nổi cả hai bên */
 }
 ```
 
-## 🧑‍🏫 Bài 8: Responsive Web Design
+## 🧑‍🏫 Lesson 8: Responsive Web Design
 
 ### Responsive Web Design
 
-- Giúp trang web hiển thị phù hợp trên nhiều thiết bị với kích thước màn hình khác nhau
+- Helps web pages display appropriately on multiple devices with different screen sizes.
 
 ### Media Queries
 
 ```css
-/* Breakpoint: thiết bị nhỏ (điện thoại) */
+/* Breakpoint: small devices (phones) */
 @media (max-width: 576px) {
   .container {
     width: 100%;
   }
 }
 
-/* Breakpoint: thiết bị trung bình (tablet) */
+/* Breakpoint: medium devices (tablets) */
 @media (min-width: 577px) and (max-width: 992px) {
   .container {
     width: 90%;
   }
 }
 
-/* Breakpoint: thiết bị lớn (desktop) */
+/* Breakpoint: large devices (desktops) */
 @media (min-width: 993px) {
   .container {
     width: 80%;
@@ -639,18 +639,18 @@ clear: both; /* Không cho phần tử nổi cả hai bên */
   }
 }
 
-/* Media query theo hướng màn hình */
+/* Media query by orientation */
 @media (orientation: landscape) {
-  /* CSS khi màn hình ngang */
+  /* CSS for landscape */
 }
 
 @media (orientation: portrait) {
-  /* CSS khi màn hình dọc */
+  /* CSS for portrait */
 }
 
-/* Media query kết hợp */
+/* Combined media query */
 @media (min-width: 768px) and (orientation: landscape) {
-  /* CSS khi màn hình ngang và rộng tối thiểu 768px */
+  /* CSS for landscape wide screens */
 }
 ```
 
@@ -663,31 +663,31 @@ clear: both; /* Không cho phần tử nổi cả hai bên */
 ### Responsive Units
 
 ```css
-/* Đơn vị tương đối */
+/* Relative units */
 .container {
-  width: 80%; /* % dựa trên phần tử cha */
-  font-size: 1.2em; /* em dựa trên font-size của phần tử cha */
-  font-size: 1.2rem; /* rem dựa trên font-size của phần tử html */
+  width: 80%; /* % based on parent element */
+  font-size: 1.2em; /* em based on parent font-size */
+  font-size: 1.2rem; /* rem based on root html font-size */
 
-  width: 100vw; /* vw - 1% chiều rộng viewport */
-  height: 100vh; /* vh - 1% chiều cao viewport */
+  width: 100vw; /* vw - 1% of viewport width */
+  height: 100vh; /* vh - 1% of viewport height */
 
-  min-height: 50vh; /* tối thiểu 50% chiều cao viewport */
-  max-width: 1200px; /* tối đa 1200px */
+  min-height: 50vh; /* minimum 50% of viewport height */
+  max-width: 1200px; /* max 1200px */
 }
 ```
 
 ### Mobile-first Approach
 
-- Thiết kế giao diện cho thiết bị di động trước, sau đó mở rộng cho các thiết bị lớn hơn
+- Design for mobile devices first, then expand for larger devices.
 
 ```css
-/* Styles mặc định cho thiết bị di động */
+/* Default styles for mobile */
 .container {
   width: 100%;
 }
 
-/* Sau đó mở rộng cho màn hình lớn hơn */
+/* Then expand for larger screens */
 @media (min-width: 768px) {
   .container {
     width: 750px;
@@ -724,22 +724,22 @@ img {
 </picture>
 ```
 
-## 🧑‍🏫 Bài 9: CSS Transitions và Animations
+## 🧑‍🏫 Lesson 9: CSS Transitions and Animations
 
-### Transitions (Hiệu ứng chuyển đổi)
+### Transitions
 
 ```css
 .button {
   background-color: blue;
   color: white;
 
-  /* Thuộc tính, thời gian, timing function, delay */
+  /* Property, duration, timing function, delay */
   transition: background-color 0.3s ease 0.1s;
 
-  /* Nhiều thuộc tính */
+  /* Multiple properties */
   transition: background-color 0.3s ease, transform 0.2s ease-in;
 
-  /* Tất cả thuộc tính */
+  /* All properties */
   transition: all 0.3s ease;
 }
 
@@ -749,10 +749,10 @@ img {
 }
 ```
 
-### Animations (Hoạt hình)
+### Animations
 
 ```css
-/* Định nghĩa animation với @keyframes */
+/* Define animation with @keyframes */
 @keyframes slideIn {
   from {
     transform: translateX(-100%);
@@ -776,12 +776,12 @@ img {
   }
 }
 
-/* Áp dụng animation */
+/* Apply animation */
 .element {
-  /* tên, thời gian, timing function, delay, số lần lặp, direction, fill-mode */
+  /* name, duration, timing function, delay, iteration count, direction, fill-mode */
   animation: slideIn 1s ease-out 0.5s forwards;
 
-  /* Nhiều animation */
+  /* Multiple animations */
   animation: slideIn 1s ease-out, pulse 2s infinite;
 }
 ```
@@ -794,7 +794,7 @@ img {
   animation-duration: 1s;
   animation-timing-function: ease-out;
   animation-delay: 0.5s;
-  animation-iteration-count: 3; /* số nguyên hoặc infinite */
+  animation-iteration-count: 3; /* integer or infinite */
   animation-direction: alternate; /* normal, reverse, alternate, alternate-reverse */
   animation-fill-mode: forwards; /* none, forwards, backwards, both */
   animation-play-state: running; /* running, paused */
@@ -805,53 +805,53 @@ img {
 
 ```css
 .element {
-  /* Xoay */
+  /* Rotate */
   transform: rotate(45deg);
   transform: rotateX(45deg);
   transform: rotateY(45deg);
 
-  /* Tỷ lệ */
+  /* Scale */
   transform: scale(1.5);
   transform: scaleX(1.5);
   transform: scaleY(0.5);
 
-  /* Dịch chuyển */
+  /* Translate */
   transform: translate(50px, 20px);
   transform: translateX(50px);
   transform: translateY(20px);
 
-  /* Nghiêng */
+  /* Skew */
   transform: skew(20deg, 10deg);
   transform: skewX(20deg);
   transform: skewY(10deg);
 
-  /* Kết hợp */
+  /* Combined */
   transform: rotate(45deg) scale(1.5) translateX(50px);
 }
 ```
 
-## 🧪 BÀI TẬP LỚN CUỐI PHẦN: Xây dựng giao diện trang web Portfolio sử dụng CSS
+## 🧪 FINAL PROJECT: Building a Portfolio Website Interface Using CSS
 
-### Mô tả bài toán
+### Project Description
 
-Tiếp tục từ bài tập HTML ở phần 1, bạn sẽ thiết kế và định dạng trang Hồ sơ cá nhân với CSS để tạo ra một portfolio chuyên nghiệp. Bạn có thể tham khảo trang [Portfolio](https://klpod221.com) của mình để lấy ý tưởng.
+Continuing from the HTML project in Part 1, you will design and style your Personal Profile page with CSS to create a professional portfolio. You can refer to my [Portfolio](https://klpod221.com) for ideas.
 
-### Yêu cầu
+### Requirements
 
-1. Sử dụng external CSS
-2. Tạo layout responsive:
-   - Hiển thị tốt trên điện thoại (< 576px)
-   - Hiển thị tốt trên tablet (< 992px)
-   - Hiển thị tốt trên desktop (≥ 992px)
-3. Áp dụng Flexbox hoặc Grid cho layout chính
-4. Tạo navigation menu có responsive
-5. Thiết kế các phần:
-   - Kỹ năng: hiển thị mức độ thành thạo dưới dạng thanh progress
-   - Dự án: hiển thị dưới dạng grid cards có hover effect
-   - Form liên hệ: có styling và validation hiển thị
-6. Sử dụng ít nhất 2 animation/transition cho các phần tử
+1. Use external CSS.
+2. Create a responsive layout:
+   - Display well on phones (< 576px).
+   - Display well on tablets (< 992px).
+   - Display well on desktops (≥ 992px).
+3. Apply Flexbox or Grid for main layout.
+4. Create a responsive navigation menu.
+5. Design sections:
+   - Skills: display proficiency as progress bars.
+   - Projects: display as grid cards with hover effects.
+   - Contact form: styling and visible validation.
+6. Use at least 2 animations/transitions for elements.
 
-### Gợi ý thiết kế
+### Design Hints
 
 ```css
 /* Reset CSS */
@@ -861,7 +861,7 @@ Tiếp tục từ bài tập HTML ở phần 1, bạn sẽ thiết kế và đ�
   box-sizing: border-box;
 }
 
-/* Layout chính */
+/* Main Layout */
 body {
   font-family: "Roboto", sans-serif;
   line-height: 1.6;
@@ -887,7 +887,7 @@ nav {
   background-color: #34495e;
 }
 
-/* Ví dụ animation */
+/* Animation Example */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -915,6 +915,6 @@ nav {
 }
 ```
 
-### Kết quả mong đợi
+### Expected Result
 
-Một trang portfolio hoàn chỉnh với giao diện hấp dẫn, layout responsive, các hiệu ứng tương tác và hoạt ảnh phù hợp để thu hút người xem.
+A complete portfolio website with an attractive interface, responsive layout, interactive effects, and appropriate animations to engage viewers.

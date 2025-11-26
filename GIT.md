@@ -1,127 +1,127 @@
 ---
 prev:
-  text: '🛠️ Cài Đặt Môi Trường'
+  text: '🛠️ Environment Setup'
   link: '/INSTALL'
 next:
-  text: '🔍 Module 1: Tìm Kiếm Thông Tin'
+  text: '🔍 Module 1: Information Search'
   link: '/SELF-LEARNING/Part1'
 ---
 
-# 📘 GIT VÀ GITHUB CƠ BẢN
+# 📘 GIT AND GITHUB BASICS
 
-- [📘 GIT VÀ GITHUB CƠ BẢN](#-git-và-github-cơ-bản)
-  - [🎯 Mục tiêu tổng quát](#-mục-tiêu-tổng-quát)
-  - [🧑‍🏫 Bài 1: Giới thiệu về Git và GitHub](#-bài-1-giới-thiệu-về-git-và-github)
-    - [Git là gì?](#git-là-gì)
-    - [Lợi ích của Git](#lợi-ích-của-git)
-    - [GitHub là gì?](#github-là-gì)
-    - [Các khái niệm cơ bản trong Git](#các-khái-niệm-cơ-bản-trong-git)
-    - [Sơ đồ hoạt động của Git](#sơ-đồ-hoạt-động-của-git)
-  - [🧑‍🏫 Bài 2: Các lệnh Git cơ bản](#-bài-2-các-lệnh-git-cơ-bản)
-    - [Khởi tạo repository](#khởi-tạo-repository)
-    - [Xem trạng thái và lịch sử](#xem-trạng-thái-và-lịch-sử)
-    - [Quản lý thay đổi](#quản-lý-thay-đổi)
-    - [Hoàn tác thay đổi](#hoàn-tác-thay-đổi)
-    - [Làm việc với remote repository](#làm-việc-với-remote-repository)
-    - [File .gitignore](#file-gitignore)
-  - [🧑‍🏫 Bài 3: Làm việc với GitHub](#-bài-3-làm-việc-với-github)
-    - [Tạo tài khoản và repository](#tạo-tài-khoản-và-repository)
-    - [Liên kết repository local với GitHub](#liên-kết-repository-local-với-github)
-    - [Sử dụng SSH với GitHub](#sử-dụng-ssh-với-github)
+- [📘 GIT AND GITHUB BASICS](#-git-and-github-basics)
+  - [🎯 General Objectives](#-general-objectives)
+  - [🧑‍🏫 Lesson 1: Introduction to Git and GitHub](#-lesson-1-introduction-to-git-and-github)
+    - [What is Git?](#what-is-git)
+    - [Benefits of Git](#benefits-of-git)
+    - [What is GitHub?](#what-is-github)
+    - [Basic Concepts in Git](#basic-concepts-in-git)
+    - [Git Workflow Diagram](#git-workflow-diagram)
+  - [🧑‍🏫 Lesson 2: Basic Git Commands](#-lesson-2-basic-git-commands)
+    - [Initialize Repository](#initialize-repository)
+    - [View Status and History](#view-status-and-history)
+    - [Manage Changes](#manage-changes)
+    - [Undo Changes](#undo-changes)
+    - [Working with Remote Repository](#working-with-remote-repository)
+    - [.gitignore File](#gitignore-file)
+  - [🧑‍🏫 Lesson 3: Working with GitHub](#-lesson-3-working-with-github)
+    - [Create Account and Repository](#create-account-and-repository)
+    - [Link Local Repository with GitHub](#link-local-repository-with-github)
+    - [Using SSH with GitHub](#using-ssh-with-github)
     - [GitHub Pages](#github-pages)
     - [GitHub Actions](#github-actions)
-  - [🧑‍🏫 Bài 4: Branching và Merging](#-bài-4-branching-và-merging)
-    - [Quản lý branch](#quản-lý-branch)
-    - [Merge branch](#merge-branch)
+  - [🧑‍🏫 Lesson 4: Branching and Merging](#-lesson-4-branching-and-merging)
+    - [Manage Branches](#manage-branches)
+    - [Merge Branches](#merge-branches)
     - [Rebasing](#rebasing)
     - [Fast-forward vs. No-fast-forward](#fast-forward-vs-no-fast-forward)
     - [Stashing](#stashing)
-  - [🧑‍🏫 Bài 5: Làm việc nhóm và giải quyết xung đột](#-bài-5-làm-việc-nhóm-và-giải-quyết-xung-đột)
+  - [🧑‍🏫 Lesson 5: Teamwork and Conflict Resolution](#-lesson-5-teamwork-and-conflict-resolution)
     - [Pull Request (PR)](#pull-request-pr)
-    - [Review code](#review-code)
-    - [Giải quyết xung đột (Conflict)](#giải-quyết-xung-đột-conflict)
-    - [Best practices làm việc nhóm](#best-practices-làm-việc-nhóm)
-  - [🧑‍🏫 Bài 6: Git Flow và quy trình phát triển](#-bài-6-git-flow-và-quy-trình-phát-triển)
-    - [Git Flow là gì?](#git-flow-là-gì)
-    - [Các loại branch trong Git Flow](#các-loại-branch-trong-git-flow)
-    - [Quy trình Git Flow](#quy-trình-git-flow)
-    - [Mở rộng và biến thể](#mở-rộng-và-biến-thể)
-  - [🧑‍🏫 Bài 7: Kỹ thuật Git nâng cao](#-bài-7-kỹ-thuật-git-nâng-cao)
+    - [Code Review](#code-review)
+    - [Resolving Conflicts](#resolving-conflicts)
+    - [Teamwork Best Practices](#teamwork-best-practices)
+  - [🧑‍🏫 Lesson 6: Git Flow and Development Workflow](#-lesson-6-git-flow-and-development-workflow)
+    - [What is Git Flow?](#what-is-git-flow)
+    - [Branch Types in Git Flow](#branch-types-in-git-flow)
+    - [Git Flow Workflow](#git-flow-workflow)
+    - [Extensions and Variants](#extensions-and-variants)
+  - [🧑‍🏫 Lesson 7: Advanced Git Techniques](#-lesson-7-advanced-git-techniques)
     - [Tagging](#tagging)
     - [Cherry-picking](#cherry-picking)
-    - [Interactive rebase](#interactive-rebase)
-    - [Reflog - khôi phục lịch sử](#reflog---khôi-phục-lịch-sử)
-    - [Git hooks](#git-hooks)
-    - [Submodule và Subtree](#submodule-và-subtree)
-    - [Git bisect](#git-bisect)
-    - [Git aliases](#git-aliases)
-  - [🧪 BÀI TẬP LỚN CUỐI PHẦN: tạo và quản lý code mà bạn sẽ thực hiện trong các phần sau của khóa học bằng Git và GitHub](#-bài-tập-lớn-cuối-phần-tạo-và-quản-lý-code-mà-bạn-sẽ-thực-hiện-trong-các-phần-sau-của-khóa-học-bằng-git-và-github)
+    - [Interactive Rebase](#interactive-rebase)
+    - [Reflog - Recovering History](#reflog---recovering-history)
+    - [Git Hooks](#git-hooks)
+    - [Submodule and Subtree](#submodule-and-subtree)
+    - [Git Bisect](#git-bisect)
+    - [Git Aliases](#git-aliases)
+  - [🧪 FINAL PROJECT: Create and Manage Code for Future Course Sections Using Git and GitHub](#-final-project-create-and-manage-code-for-future-course-sections-using-git-and-github)
 
-## 🎯 Mục tiêu tổng quát
+## 🎯 General Objectives
 
-- Làm quen với Git và GitHub, các lệnh cơ bản để quản lý mã nguồn.
-- Biết cách tạo và quản lý repository trên GitHub.
-- Thực hành các thao tác như commit, push, pull, branch và merge.
-- Hiểu cách làm việc nhóm với Git và GitHub, giải quyết xung đột mã nguồn.
-- Nắm vững quy trình phát triển phần mềm với Git Flow.
-- Thực hành các kỹ thuật quản lý mã nguồn như tag, rebase và cherry-pick.
+- Get familiar with Git and GitHub, basic commands for source code management.
+- Know how to create and manage repositories on GitHub.
+- Practice operations like commit, push, pull, branch and merge.
+- Understand how to work in teams with Git and GitHub, resolve source code conflicts.
+- Master software development workflow with Git Flow.
+- Practice source code management techniques like tag, rebase and cherry-pick.
 
-## 🧑‍🏫 Bài 1: Giới thiệu về Git và GitHub
+## 🧑‍🏫 Lesson 1: Introduction to Git and GitHub
 
-### Git là gì?
+### What is Git?
 
-Git là hệ thống quản lý phiên bản phân tán (DVCS - Distributed Version Control System) được phát triển bởi Linus Torvalds vào năm 2005. Git cho phép theo dõi thay đổi của mã nguồn, phối hợp làm việc nhóm, và dễ dàng quay lại phiên bản trước khi cần.
+Git is a Distributed Version Control System (DVCS) developed by Linus Torvalds in 2005. Git allows tracking source code changes, coordinating teamwork, and easily reverting to previous versions when needed.
 
-### Lợi ích của Git
+### Benefits of Git
 
-- **Làm việc offline**: Có thể commit và xem lịch sử ngay cả khi không có kết nối mạng
-- **Phân tán**: Mỗi người có một bản sao đầy đủ của repository
-- **Nhanh chóng**: Thao tác trên repository cục bộ nhanh hơn so với hệ thống tập trung
-- **Phân nhánh mạnh mẽ**: Dễ dàng tạo, hợp nhất và quản lý các branch
-- **Bảo đảm tính toàn vẹn**: Sử dụng mã hash để đảm bảo tính toàn vẹn của dữ liệu
+- **Work offline**: Can commit and view history even without network connection
+- **Distributed**: Everyone has a complete copy of the repository
+- **Fast**: Operations on local repository are faster than centralized systems
+- **Powerful branching**: Easy to create, merge and manage branches
+- **Ensure integrity**: Uses hash codes to ensure data integrity
 
-### GitHub là gì?
+### What is GitHub?
 
-GitHub là dịch vụ lưu trữ Git trên cloud, cung cấp giao diện web để quản lý các Git repository, cùng với nhiều tính năng bổ sung như:
+GitHub is a cloud-based Git hosting service, providing a web interface to manage Git repositories, along with many additional features such as:
 
 - Issue tracking
 - Pull requests
 - Code review
 - Project management
 - CI/CD integration
-- Wiki và documentation
+- Wiki and documentation
 
-### Các khái niệm cơ bản trong Git
+### Basic Concepts in Git
 
-1. **Repository (Repo)**: Kho lưu trữ mã nguồn và lịch sử thay đổi
+1. **Repository (Repo)**: Storage for source code and change history
 
-   - **Local repository**: Repo trên máy tính cá nhân
-   - **Remote repository**: Repo trên server (như GitHub)
+   - **Local repository**: Repo on personal computer
+   - **Remote repository**: Repo on server (like GitHub)
 
-2. **Commit**: Lưu trạng thái hiện tại của mã nguồn với một mã định danh (hash) duy nhất
+2. **Commit**: Save current state of source code with a unique identifier (hash)
 
-3. **Branch**: Nhánh phát triển độc lập của mã nguồn
+3. **Branch**: Independent development branch of source code
 
-   - **master/main**: Branch chính, chứa code ổn định
-   - **feature branches**: Các nhánh phát triển tính năng mới
+   - **master/main**: Main branch, contains stable code
+   - **feature branches**: Branches for developing new features
 
-4. **Merge**: Hợp nhất các thay đổi từ branch này sang branch khác
+4. **Merge**: Combine changes from one branch to another
 
-5. **Clone**: Tạo bản sao của repository từ remote về local
+5. **Clone**: Create a copy of repository from remote to local
 
-6. **Pull**: Lấy các thay đổi từ remote repository về local repository
+6. **Pull**: Fetch changes from remote repository to local repository
 
-7. **Push**: Đẩy các thay đổi từ local repository lên remote repository
+7. **Push**: Push changes from local repository to remote repository
 
-8. **Working Directory**: Thư mục làm việc chứa các file của dự án
+8. **Working Directory**: Working directory containing project files
 
-9. **Staging Area (Index)**: Khu vực trung gian nơi các thay đổi được chuẩn bị trước khi commit
+9. **Staging Area (Index)**: Intermediate area where changes are prepared before commit
 
-### Sơ đồ hoạt động của Git
+### Git Workflow Diagram
 
 ```text
 +------------+    git add     +-------------+    git commit    +----------------+
-| Working    | -------------> | Staging     | ---------------> | Local          |
+| Working    | -------------> | Staging     | --------------> | Local          |
 | Directory  |                | Area        |                  | Repository     |
 +------------+                +-------------+                  +----------------+
        ^                                                              |
@@ -130,124 +130,124 @@ GitHub là dịch vụ lưu trữ Git trên cloud, cung cấp giao diện web đ
        |                                                              |
        |                                                              V
        |                  git pull                     +----------------+
-       +-----------------------------------------------| Remote         |
+       +-----------------------------------------------|  Remote        |
                                                        | Repository     |
                                                        +----------------+
 ```
 
-## 🧑‍🏫 Bài 2: Các lệnh Git cơ bản
+## 🧑‍🏫 Lesson 2: Basic Git Commands
 
-### Khởi tạo repository
+### Initialize Repository
 
 ```bash
-# Tạo repository mới
+# Create new repository
 git init
 
-# Clone repository có sẵn
+# Clone existing repository
 git clone https://github.com/username/repository.git
 ```
 
-### Xem trạng thái và lịch sử
+### View Status and History
 
 ```bash
-# Xem trạng thái hiện tại
+# View current status
 git status
 
-# Xem lịch sử commit
+# View commit history
 git log
 
-# Xem lịch sử rút gọn trên một dòng
+# View compact history on one line
 git log --oneline
 
-# Xem thay đổi chi tiết
+# View detailed changes
 git diff
 ```
 
-### Quản lý thay đổi
+### Manage Changes
 
 ```bash
-# Thêm file vào staging area
+# Add file to staging area
 git add filename.txt
 
-# Thêm tất cả các file đã thay đổi
+# Add all changed files
 git add .
 
-# Commit các thay đổi trong staging area
-git commit -m "Mô tả về thay đổi"
+# Commit changes in staging area
+git commit -m "Description of changes"
 
-# Thêm và commit cùng lúc (chỉ với file đã được theo dõi)
-git commit -am "Mô tả về thay đổi"
+# Add and commit simultaneously (only for tracked files)
+git commit -am "Description of changes"
 ```
 
-### Hoàn tác thay đổi
+### Undo Changes
 
 ```bash
-# Hủy thay đổi trong working directory (chưa add)
+# Discard changes in working directory (not yet added)
 git checkout -- filename.txt
 
-# Hủy thay đổi đã add vào staging area
+# Unstage changes already added to staging area
 git reset HEAD filename.txt
 
-# Hoàn tác commit gần nhất (vẫn giữ thay đổi trong working directory)
+# Undo last commit (keep changes in working directory)
 git reset --soft HEAD~1
 
-# Hoàn tác hoàn toàn commit gần nhất (xóa cả thay đổi)
+# Completely undo last commit (delete changes too)
 git reset --hard HEAD~1
 ```
 
-### Làm việc với remote repository
+### Working with Remote Repository
 
 ```bash
-# Xem danh sách remote
+# View list of remotes
 git remote -v
 
-# Thêm remote
+# Add remote
 git remote add origin https://github.com/username/repository.git
 
-# Lấy thay đổi từ remote (không merge)
+# Fetch changes from remote (without merge)
 git fetch origin
 
-# Lấy thay đổi và merge vào branch hiện tại
+# Fetch changes and merge into current branch
 git pull origin main
 
-# Đẩy thay đổi lên remote
+# Push changes to remote
 git push origin main
 ```
 
-### File .gitignore
+### .gitignore File
 
-File `.gitignore` liệt kê các file và thư mục mà Git sẽ bỏ qua khi theo dõi thay đổi:
+The `.gitignore` file lists files and directories that Git will ignore when tracking changes:
 
 ```text
-# Ví dụ về file .gitignore
+# Example .gitignore file
 node_modules/
 .env
 *.log
 .DS_Store
 ```
 
-Các mẫu phổ biến cho `.gitignore` theo ngôn ngữ có sẵn tại: [github.com/github/gitignore](https://github.com/github/gitignore)
+Common `.gitignore` templates by language available at: [github.com/github/gitignore](https://github.com/github/gitignore)
 
-## 🧑‍🏫 Bài 3: Làm việc với GitHub
+## 🧑‍🏫 Lesson 3: Working with GitHub
 
-### Tạo tài khoản và repository
+### Create Account and Repository
 
-1. Đăng ký tại [github.com](https://github.com)
-2. Tạo repository mới:
-   - Click "New" từ trang chủ GitHub
-   - Điền tên, mô tả, chọn quyền truy cập (public/private)
-   - Chọn khởi tạo với README nếu cần
+1. Register at [github.com](https://github.com)
+2. Create new repository:
+   - Click "New" from GitHub homepage
+   - Fill in name, description, choose access rights (public/private)
+   - Choose to initialize with README if needed
    - Click "Create repository"
 
-### Liên kết repository local với GitHub
+### Link Local Repository with GitHub
 
 ```bash
-# Với repository mới tạo trên GitHub
+# With new repository created on GitHub
 git remote add origin https://github.com/username/repository.git
 git branch -M main
 git push -u origin main
 
-# Với repository đã tồn tại trên local
+# With existing repository on local
 cd existing-project
 git init
 git add .
@@ -256,27 +256,27 @@ git remote add origin https://github.com/username/repository.git
 git push -u origin main
 ```
 
-### Sử dụng SSH với GitHub
+### Using SSH with GitHub
 
-1. **Tạo SSH key**:
+1. **Generate SSH key**:
 
    ```bash
    ssh-keygen -t ed25519 -C "your_email@example.com"
    ```
 
-2. **Thêm SSH key vào SSH agent**:
+2. **Add SSH key to SSH agent**:
 
    ```bash
    eval "$(ssh-agent -s)"
    ssh-add ~/.ssh/id_ed25519
    ```
 
-3. **Thêm SSH key vào tài khoản GitHub**:
+3. **Add SSH key to GitHub account**:
 
    - Copy key: `cat ~/.ssh/id_ed25519.pub`
-   - Thêm vào GitHub: Settings > SSH and GPG keys > New SSH key
+   - Add to GitHub: Settings > SSH and GPG keys > New SSH key
 
-4. **Kiểm tra kết nối**:
+4. **Test connection**:
 
    ```bash
    ssh -T git@github.com
@@ -284,19 +284,19 @@ git push -u origin main
 
 ### GitHub Pages
 
-GitHub Pages là dịch vụ hosting tĩnh miễn phí của GitHub:
+GitHub Pages is GitHub's free static hosting service:
 
-1. Tạo repository tên là `username.github.io`
-2. Clone repository về local
-3. Thêm mã HTML, CSS, JavaScript
-4. Push lên GitHub
-5. Truy cập `https://username.github.io`
+1. Create repository named `username.github.io`
+2. Clone repository to local
+3. Add HTML, CSS, JavaScript code
+4. Push to GitHub
+5. Access `https://username.github.io`
 
 ### GitHub Actions
 
-GitHub Actions là dịch vụ CI/CD tích hợp của GitHub:
+GitHub Actions is GitHub's integrated CI/CD service:
 
-1. Tạo file `.github/workflows/main.yml`:
+1. Create file `.github/workflows/main.yml`:
 
    ```yaml
    name: CI
@@ -318,70 +318,70 @@ GitHub Actions là dịch vụ CI/CD tích hợp của GitHub:
              npm test
    ```
 
-2. Push lên GitHub
-3. Xem kết quả trong tab "Actions"
+2. Push to GitHub
+3. View results in "Actions" tab
 
-## 🧑‍🏫 Bài 4: Branching và Merging
+## 🧑‍🏫 Lesson 4: Branching and Merging
 
-### Quản lý branch
+### Manage Branches
 
 ```bash
-# Liệt kê tất cả branch
+# List all branches
 git branch
 
-# Tạo branch mới
+# Create new branch
 git branch feature-login
 
-# Chuyển sang branch khác
+# Switch to another branch
 git checkout feature-login
 
-# Tạo và chuyển sang branch mới cùng lúc
+# Create and switch to new branch simultaneously
 git checkout -b feature-register
 
-# Xóa branch
+# Delete branch
 git branch -d feature-login
 
-# Xóa branch đã được push lên remote
+# Delete branch pushed to remote
 git push origin --delete feature-login
 ```
 
-### Merge branch
+### Merge Branches
 
 ```bash
-# Chuyển về branch đích (thường là main)
+# Switch to destination branch (usually main)
 git checkout main
 
-# Merge branch khác vào branch hiện tại
+# Merge another branch into current branch
 git merge feature-login
 
-# Merge và tạo commit merge mới (không fast-forward)
+# Merge and create new merge commit (no fast-forward)
 git merge --no-ff feature-login
 ```
 
 ### Rebasing
 
-Rebase là cách tái sắp xếp commit để có lịch sử tuyến tính:
+Rebase is a way to reorganize commits for linear history:
 
 ```bash
-# Trong branch feature
+# In feature branch
 git rebase main
 
-# Nếu có xung đột, giải quyết và tiếp tục
+# If conflicts occur, resolve and continue
 git rebase --continue
 
-# Hoặc hủy rebase
+# Or abort rebase
 git rebase --abort
 ```
 
 ### Fast-forward vs. No-fast-forward
 
 ```text
-# Fast-forward merge (mặc định khi có thể)
+# Fast-forward merge (default when possible)
 A---B---C (main)
          \
           D---E (feature)
 
-Sau khi merge:
+After merge:
 A---B---C---D---E (main, feature)
 
 # No-fast-forward merge (git merge --no-ff)
@@ -389,7 +389,7 @@ A---B---C (main)
          \
           D---E (feature)
 
-Sau khi merge:
+After merge:
 A---B---C---F (main)
          \   /
           D---E (feature)
@@ -397,104 +397,104 @@ A---B---C---F (main)
 
 ### Stashing
 
-Stash lưu tạm các thay đổi chưa commit:
+Stash temporarily saves uncommitted changes:
 
 ```bash
-# Lưu tạm thay đổi hiện tại
+# Save current changes temporarily
 git stash
 
-# Xem danh sách stash
+# View stash list
 git stash list
 
-# Áp dụng stash gần nhất và giữ trong stash list
+# Apply latest stash and keep in stash list
 git stash apply
 
-# Áp dụng stash gần nhất và xóa khỏi stash list
+# Apply latest stash and remove from stash list
 git stash pop
 
-# Xóa stash
+# Delete stash
 git stash drop stash@{0}
 
-# Xóa tất cả stash
+# Delete all stashes
 git stash clear
 ```
 
-## 🧑‍🏫 Bài 5: Làm việc nhóm và giải quyết xung đột
+## 🧑‍🏫 Lesson 5: Teamwork and Conflict Resolution
 
 ### Pull Request (PR)
 
-Pull Request là cách đề xuất thay đổi trong GitHub:
+Pull Request is a way to propose changes in GitHub:
 
-1. Fork repository (nếu không có quyền trực tiếp)
-2. Tạo branch mới cho tính năng
-3. Commit thay đổi
-4. Push branch lên GitHub
-5. Tạo Pull Request từ branch này vào main
-6. Đợi review và approval
+1. Fork repository (if no direct access)
+2. Create new branch for feature
+3. Commit changes
+4. Push branch to GitHub
+5. Create Pull Request from this branch to main
+6. Wait for review and approval
 7. Merge PR
 
-### Review code
+### Code Review
 
-1. Xem PR trong GitHub
-2. Xem các thay đổi (Files changed)
-3. Thêm comment vào từng dòng code nếu cần
-4. Approve hoặc Request changes
+1. View PR in GitHub
+2. View changes (Files changed)
+3. Add comments to individual code lines if needed
+4. Approve or Request changes
 5. Submit review
 
-### Giải quyết xung đột (Conflict)
+### Resolving Conflicts
 
-Xung đột xảy ra khi cùng thay đổi một phần của file:
+Conflicts occur when the same part of a file is changed:
 
 ```bash
-# Khi merge hoặc pull gây xung đột
+# When merge or pull causes conflict
 Auto-merging file.txt
 CONFLICT (content): Merge conflict in file.txt
 Automatic merge failed; fix conflicts and then commit the result.
 ```
 
-Các bước giải quyết:
+Resolution steps:
 
-1. **Mở file có xung đột, tìm phần được đánh dấu:**
+1. **Open conflicted file, find marked sections:**
 
    ```text
    <<<<<<< HEAD
-   Thay đổi từ branch hiện tại
+   Changes from current branch
    =======
-   Thay đổi từ branch đang merge vào
+   Changes from branch being merged
    >>>>>>> feature-branch
    ```
 
-2. **Chỉnh sửa để giữ thay đổi mong muốn (xóa các dấu hiệu xung đột)**
+2. **Edit to keep desired changes (remove conflict markers)**
 
-3. **Đánh dấu đã giải quyết xong**:
+3. **Mark as resolved**:
 
    ```bash
    git add file.txt
    ```
 
-4. **Hoàn tất merge**:
+4. **Complete merge**:
 
    ```bash
    git commit -m "Resolved merge conflict in file.txt"
    ```
 
-### Best practices làm việc nhóm
+### Teamwork Best Practices
 
-1. **Pull thường xuyên**: Lấy thay đổi mới nhất trước khi bắt đầu làm việc
-2. **Commit nhỏ và thường xuyên**: Dễ review và debug
-3. **Mô tả commit rõ ràng**: Giúp hiểu được mục đích thay đổi
-4. **Một branch cho một tính năng**: Tránh trộn lẫn nhiều tính năng trong một branch
-5. **Code review**: Luôn có người khác review code trước khi merge
-6. **Test trước khi push**: Đảm bảo code hoạt động đúng
-7. **Cập nhật documentation**: Đảm bảo tài liệu luôn mới nhất
+1. **Pull frequently**: Get latest changes before starting work
+2. **Commit small and often**: Easy to review and debug
+3. **Clear commit descriptions**: Help understand purpose of changes
+4. **One branch per feature**: Avoid mixing multiple features in one branch
+5. **Code review**: Always have someone else review code before merge
+6. **Test before push**: Ensure code works correctly
+7. **Update documentation**: Ensure documentation is always up-to-date
 
-## 🧑‍🏫 Bài 6: Git Flow và quy trình phát triển
+## 🧑‍🏫 Lesson 6: Git Flow and Development Workflow
 
-### Git Flow là gì?
+### What is Git Flow?
 
-Git Flow là một mô hình phân nhánh giúp quản lý dự án phần mềm. Nó định nghĩa các loại branch cụ thể và cách chúng tương tác với nhau.
+Git Flow is a branching model that helps manage software projects. It defines specific branch types and how they interact with each other.
 
-### Các loại branch trong Git Flow
+### Branch Types in Git Flow
 
 ```text
                     +----------------------+
@@ -530,40 +530,40 @@ Git Flow là một mô hình phân nhánh giúp quản lý dự án phần mềm
                        +----------------+
 ```
 
-1. **master/main**: Branch chính, chứa code sản phẩm
-2. **develop**: Branch phát triển, tích hợp các tính năng mới
-3. **feature/**: Các branch cho tính năng cụ thể
-4. **release/**: Branch chuẩn bị cho phiên bản mới
-5. **hotfix/**: Branch sửa lỗi khẩn cấp trên production
+1. **master/main**: Main branch, contains production code
+2. **develop**: Development branch, integrates new features
+3. **feature/**: Branches for specific features
+4. **release/**: Branch preparing for new version
+5. **hotfix/**: Branch for urgent fixes on production
 
-### Quy trình Git Flow
+### Git Flow Workflow
 
 1. **Feature development**:
 
    ```bash
-   # Tạo feature branch từ develop
+   # Create feature branch from develop
    git checkout -b feature/login develop
 
-   # Làm việc, commit...
+   # Work, commit...
 
-   # Khi hoàn thành, merge về develop
+   # When complete, merge back to develop
    git checkout develop
    git merge --no-ff feature/login
    git push origin develop
 
-   # Xóa feature branch (tùy chọn)
+   # Delete feature branch (optional)
    git branch -d feature/login
    ```
 
 2. **Release preparation**:
 
    ```bash
-   # Tạo release branch từ develop
+   # Create release branch from develop
    git checkout -b release/1.0.0 develop
 
-   # Sửa lỗi nhỏ, cập nhật version, etc.
+   # Fix minor bugs, update version, etc.
 
-   # Merge vào master và develop
+   # Merge to master and develop
    git checkout master
    git merge --no-ff release/1.0.0
    git tag -a v1.0.0 -m "Version 1.0.0"
@@ -571,19 +571,19 @@ Git Flow là một mô hình phân nhánh giúp quản lý dự án phần mềm
    git checkout develop
    git merge --no-ff release/1.0.0
 
-   # Xóa release branch
+   # Delete release branch
    git branch -d release/1.0.0
    ```
 
 3. **Hotfix**:
 
    ```bash
-   # Tạo hotfix branch từ master
+   # Create hotfix branch from master
    git checkout -b hotfix/1.0.1 master
 
-   # Sửa lỗi
+   # Fix bug
 
-   # Merge vào master và develop
+   # Merge to master and develop
    git checkout master
    git merge --no-ff hotfix/1.0.1
    git tag -a v1.0.1 -m "Version 1.0.1"
@@ -591,95 +591,95 @@ Git Flow là một mô hình phân nhánh giúp quản lý dự án phần mềm
    git checkout develop
    git merge --no-ff hotfix/1.0.1
 
-   # Xóa hotfix branch
+   # Delete hotfix branch
    git branch -d hotfix/1.0.1
    ```
 
-### Mở rộng và biến thể
+### Extensions and Variants
 
-- **GitHub Flow**: Đơn giản hóa với chỉ main và feature branches
-- **GitLab Flow**: Thêm các environment branches (production, staging)
-- **Trunk-based Development**: Phát triển chủ yếu trên branch chính, branch tính năng ngắn
+- **GitHub Flow**: Simplified with only main and feature branches
+- **GitLab Flow**: Add environment branches (production, staging)
+- **Trunk-based Development**: Develop mainly on main branch, short feature branches
 
-## 🧑‍🏫 Bài 7: Kỹ thuật Git nâng cao
+## 🧑‍🏫 Lesson 7: Advanced Git Techniques
 
 ### Tagging
 
-Tag đánh dấu các phiên bản quan trọng trong lịch sử:
+Tags mark important versions in history:
 
 ```bash
-# Tạo tag có chú thích
+# Create annotated tag
 git tag -a v1.0.0 -m "Version 1.0.0"
 
-# Liệt kê tags
+# List tags
 git tag
 
-# Push tags lên remote
+# Push tags to remote
 git push origin v1.0.0
-# Hoặc push tất cả tags
+# Or push all tags
 git push origin --tags
 
-# Checkout về một tag
+# Checkout to a tag
 git checkout v1.0.0
 ```
 
 ### Cherry-picking
 
-Cherry-pick áp dụng commit cụ thể vào branch hiện tại:
+Cherry-pick applies specific commit to current branch:
 
 ```bash
-# Xem các commit trên branch khác
+# View commits on another branch
 git log feature-branch
 
-# Cherry-pick một commit
+# Cherry-pick one commit
 git cherry-pick abc123def
 
-# Cherry-pick nhiều commit
+# Cherry-pick multiple commits
 git cherry-pick abc123def..ghi456jkl
 ```
 
-### Interactive rebase
+### Interactive Rebase
 
-Rebase tương tác cho phép điều chỉnh lịch sử commit:
+Interactive rebase allows adjusting commit history:
 
 ```bash
-# Rebase tương tác 3 commit gần nhất
+# Interactive rebase last 3 commits
 git rebase -i HEAD~3
 ```
 
-Các lệnh trong rebase tương tác:
+Commands in interactive rebase:
 
-- `pick`: Giữ commit
-- `reword`: Sửa message commit
-- `edit`: Dừng để sửa commit
-- `squash`: Gộp commit với commit trước đó
-- `fixup`: Gộp commit nhưng bỏ qua message
-- `drop`: Xóa commit
+- `pick`: Keep commit
+- `reword`: Edit commit message
+- `edit`: Stop to edit commit
+- `squash`: Combine commit with previous commit
+- `fixup`: Combine commit but drop message
+- `drop`: Delete commit
 
-### Reflog - khôi phục lịch sử
+### Reflog - Recovering History
 
-Reflog lưu mọi thay đổi trên repository local:
+Reflog saves all changes on local repository:
 
 ```bash
-# Xem reflog
+# View reflog
 git reflog
 
-# Khôi phục về trạng thái trước đó
+# Recover to previous state
 git reset --hard HEAD@{2}
 ```
 
-### Git hooks
+### Git Hooks
 
-Git hooks là script tự động chạy trước/sau các hành động Git:
+Git hooks are scripts that automatically run before/after Git actions:
 
 1. **Pre-commit hook**: `.git/hooks/pre-commit`
 
    ```bash
    #!/bin/sh
-   # Chạy linter trước khi commit
+   # Run linter before commit
    npm run lint
 
-   # Nếu lỗi, ngăn commit
+   # If error, prevent commit
    if [ $? -ne 0 ]; then
      echo "Linting failed!"
      exit 1
@@ -690,68 +690,68 @@ Git hooks là script tự động chạy trước/sau các hành động Git:
 
    ```bash
    #!/bin/sh
-   # Chạy test trước khi push
+   # Run test before push
    npm test
 
-   # Nếu test fail, ngăn push
+   # If test fails, prevent push
    if [ $? -ne 0 ]; then
      echo "Tests failed!"
      exit 1
    fi
    ```
 
-### Submodule và Subtree
+### Submodule and Subtree
 
-1. **Submodule**: Nhúng repository khác như một thư mục con:
+1. **Submodule**: Embed another repository as a subdirectory:
 
    ```bash
-   # Thêm submodule
+   # Add submodule
    git submodule add https://github.com/user/repo.git libs/repo
 
-   # Cập nhật submodule
+   # Update submodule
    git submodule update --remote
    ```
 
-2. **Subtree**: Tích hợp repository khác vào dự án:
+2. **Subtree**: Integrate another repository into project:
 
    ```bash
-   # Thêm subtree
+   # Add subtree
    git subtree add --prefix=libs/repo https://github.com/user/repo.git main
 
-   # Cập nhật subtree
+   # Update subtree
    git subtree pull --prefix=libs/repo https://github.com/user/repo.git main
    ```
 
-### Git bisect
+### Git Bisect
 
-Git bisect giúp tìm commit gây ra lỗi:
+Git bisect helps find the commit that caused a bug:
 
 ```bash
-# Bắt đầu bisect
+# Start bisect
 git bisect start
 
-# Đánh dấu commit hiện tại có lỗi
+# Mark current commit as bad
 git bisect bad
 
-# Đánh dấu commit cũ không có lỗi
+# Mark old commit as good
 git bisect good v1.0.0
 
-# Git sẽ checkout các commit để test
-# Sau mỗi commit checkout, test và đánh dấu:
-git bisect good  # Nếu không có lỗi
-# hoặc
-git bisect bad   # Nếu có lỗi
+# Git will checkout commits to test
+# After each checkout, test and mark:
+git bisect good  # If no bug
+# or
+git bisect bad   # If bug exists
 
-# Kết thúc bisect khi tìm ra commit gây lỗi
+# End bisect when bug-causing commit is found
 git bisect reset
 ```
 
-### Git aliases
+### Git Aliases
 
-Tạo lệnh tắt cho các lệnh Git phức tạp:
+Create shortcuts for complex Git commands:
 
 ```bash
-# Tạo alias
+# Create alias
 git config --global alias.st status
 git config --global alias.co checkout
 git config --global alias.br branch
@@ -759,16 +759,16 @@ git config --global alias.last 'log -1 HEAD'
 git config --global alias.visual '!gitk'
 ```
 
-## 🧪 BÀI TẬP LỚN CUỐI PHẦN: tạo và quản lý code mà bạn sẽ thực hiện trong các phần sau của khóa học bằng Git và GitHub
+## 🧪 FINAL PROJECT: Create and Manage Code for Future Course Sections Using Git and GitHub
 
-1. Đăng ký và đăng nhập vào tài khoản GitHub.
-2. Tạo một repository mới với tên tùy chọn (VD: `sefl-learning`).
-3. Tạo một folder mới trên máy tính của bạn với tên tương tự.
-4. Tạo các folder con trong folder này cho từng phần của khóa học.
-5. Sử dụng lệnh `git init` để khởi tạo Git trong folder này.
-6. Sử dụng lệnh `git add .` để thêm tất cả các file vào staging area.
-7. Sử dụng lệnh `git commit -m "Initial commit"` để commit các thay đổi.
-8. Sử dụng lệnh `git remote add origin <repository-url>` để liên kết với repository trên GitHub.
-9. Sử dụng lệnh `git push -u origin main` để đẩy các thay đổi lên GitHub.
-10. Tiếp tục thực hiện các phần của khóa học và commit các thay đổi thường xuyên.
-11. Khi hoàn thành một phần, tạo một branch mới cho phần tiếp theo và lặp lại quy trình commit và push.
+1. Register and login to GitHub account.
+2. Create a new repository with a name of your choice (e.g., `self-learning`).
+3. Create a new folder on your computer with a similar name.
+4. Create subfolders within this folder for each section of the course.
+5. Use `git init` command to initialize Git in this folder.
+6. Use `git add .` command to add all files to staging area.
+7. Use `git commit -m "Initial commit"` command to commit changes.
+8. Use `git remote add origin <repository-url>` command to link with GitHub repository.
+9. Use `git push -u origin main` command to push changes to GitHub.
+10. Continue working on course sections and commit changes frequently.
+11. When completing a section, create a new branch for the next section and repeat the commit and push process.

@@ -2,18 +2,18 @@
 layout: home
 
 hero:
-  name: "Tài Liệu Học Lập Trình"
-  text: "Cơ Bản Đến Nâng Cao"
-  tagline: Java, SQL, DSA, Web Development và nhiều công nghệ khác
+  name: "Programming Learning Resources"
+  text: "From Basic To Advanced"
+  tagline: Java, SQL, DSA, Web Development and many other technologies
   image:
     src: /logo.png
-    alt: Tài Liệu Lập Trình
+    alt: Programming Resources
   actions:
     - theme: brand
-      text: Bắt Đầu Học
+      text: Start Learning
       link: /INTRODUCTION
     - theme: alt
-      text: Cài Đặt Môi Trường
+      text: Environment Setup
       link: /INSTALL
     - theme: alt
       text: GitHub
@@ -21,269 +21,245 @@ hero:
 
 features:
   - icon: 🎯
-    title: Lộ Trình Rõ Ràng
-    details: Học theo lộ trình được thiết kế từ cơ bản đến nâng cao, giúp bạn tiến bộ từng bước một cách logic.
+    title: Clear Roadmap
+    details: Learn following a specially designed roadmap from basic to advanced, helping you progress step by step logically.
 
   - icon: 📚
-    title: Nội Dung Toàn Diện
-    details: Tổng hợp tài liệu về Java, SQL, DSA, Web, PHP, DevOps và nhiều công nghệ khác với hàng trăm bài học.
+    title: Comprehensive Content
+    details: Collection of materials on Java, SQL, DSA, Web, PHP, DevOps and many other technologies with hundreds of lessons.
 
   - icon: 💡
-    title: Thực Hành Thực Tế
-    details: Mỗi phần đều có bài tập và dự án thực tế để áp dụng kiến thức ngay lập tức.
+    title: Practical Experience
+    details: Each section has exercises and real projects to apply knowledge immediately.
 
   - icon: 🚀
-    title: Cập Nhật Thường Xuyên
-    details: Nội dung được cập nhật với xu hướng và công nghệ mới nhất trong ngành.
+    title: Regular Updates
+    details: Content is updated with the latest trends and technologies in the industry.
 
   - icon: 🌐
-    title: Miễn Phí & Mã Nguồn Mở
-    details: Tất cả tài liệu miễn phí, mã nguồn mở, truy cập mọi lúc mọi nơi.
+    title: Free & Open Source
+    details: All materials are free, open source, accessible anytime, anywhere.
 
   - icon: 🤝
-    title: Cộng Đồng Hỗ Trợ
-    details: Tham gia cộng đồng để trao đổi kinh nghiệm và nhận hỗ trợ khi cần.
+    title: Community Support
+    details: Join the community to exchange experiences and receive support when needed.
 ---
 
-## 🎓 Lộ Trình Học Khuyến Nghị
+## 🎓 Recommended Learning Roadmap
 
-### 🌟 Giai đoạn 1: Nền Tảng (Foundation)
+### 🌟 Phase 1: Foundation
 
-**Mục tiêu:** Xây dựng tư duy lập trình và kỹ năng cơ bản
+**Goal:** Build programming mindset and basic skills
 
-#### 📚 Module 1: Tổng Quan & Kỹ Năng Học Tập
+#### 📚 Module 1: Overview & Learning Skills
 
-Làm quen với lập trình, hiểu cách thức hoạt động của máy tính và phát triển kỹ năng tự học.
+Get familiar with programming, understand how computers work and develop self-learning skills.
 
-- **Nội dung:**
-  - Giới thiệu về lập trình và ngôn ngữ lập trình
-  - Kiến trúc máy tính, hệ điều hành và mạng cơ bản
-  - Kỹ năng tìm kiếm thông tin và tự học hiệu quả
-  - Cài đặt môi trường phát triển
-- **Thời lượng:** 1-2 tuần
+- **Content:**
+  - Introduction to programming and programming languages
+  - Computer architecture, operating systems and basic networking
+  - Effective information search and self-learning skills
+  - Development environment setup
+- **Duration:** 1-2 weeks
 
-[Bắt đầu →](/INTRODUCTION) | [Kỹ năng tự học →](/SELF-LEARNING/Part1)
+[Get started →](/INTRODUCTION) | [Self-learning skills →](/SELF-LEARNING/Part1)
 
-#### 📚 Module 2: Lập Trình Cơ Bản với Java
+#### 📚 Module 2: Basic Programming with Java
 
-Học ngôn ngữ lập trình đầu tiên với Java - ngôn ngữ phổ biến, cú pháp rõ ràng và hỗ trợ OOP tốt.
+Learn your first programming language with Java - a popular language with clear syntax and good OOP support.
 
-- **Nội dung:**
-  - Cú pháp cơ bản: biến, kiểu dữ liệu, toán tử
-  - Cấu trúc điều khiển: if-else, switch, vòng lặp
-  - Mảng và chuỗi
-  - Hàm/phương thức
-- **Thời lượng:** 3-4 tuần
-- **Tiên quyết:** Module 1
+- **Content:**
+  - Basic syntax: variables, data types, operators
+  - Control structures: if-else, switch, loops
+  - Arrays and strings
+  - Functions/methods
+- **Duration:** 3-4 weeks
+- **Prerequisites:** Module 1
 
-[Học Java cơ bản →](/JAVA/Part1)
+[Learn Java basics →](/JAVA/Part1)
 
-#### 📚 Module 3: Lập Trình Hướng Đối Tượng (OOP)
+#### 📚 Module 3: Object-Oriented Programming (OOP)
 
-Nắm vững tư duy OOP - nền tảng quan trọng của lập trình hiện đại.
+Master OOP mindset - an important foundation of modern programming.
 
-- **Nội dung:**
-  - Class và Object
-  - Tính đóng gói, kế thừa, đa hình, trừu tượng
-  - Interface và Abstract class
+- **Content:**
+  - Class and Object
+  - Encapsulation, inheritance, polymorphism, abstraction
+  - Interface and Abstract class
   - Exception handling
-- **Thời lượng:** 2-3 tuần
-- **Tiên quyết:** Module 2
+- **Duration:** 2-3 weeks
+- **Prerequisites:** Module 2
 
-[Học OOP →](/JAVA/Part2)
+[Learn OOP →](/JAVA/Part2)
 
-### 🚀 Giai đoạn 2: Phát Triển (Development)
+### 🚀 Phase 2: Development
 
-**Mục tiêu:** Xây dựng ứng dụng thực tế với database và web
+**Goal:** Build real applications with database and web
 
-#### 📚 Module 4: Cơ Sở Dữ Liệu & SQL
+#### 📚 Module 4: Database & SQL
 
-Làm việc với database - thành phần không thể thiếu trong hầu hết ứng dụng.
+Work with databases - an indispensable component in most applications.
 
-- **Nội dung:**
-  - Thiết kế database và mô hình quan hệ
-  - Truy vấn dữ liệu: SELECT, JOIN, Subquery
-  - Thao tác dữ liệu: INSERT, UPDATE, DELETE
+- **Content:**
+  - Database design and relational model
+  - Data queries: SELECT, JOIN, Subquery
+  - Data manipulation: INSERT, UPDATE, DELETE
   - Stored procedures, triggers, views
-- **Thời lượng:** 3-4 tuần
-- **Tiên quyết:** Module 3
+- **Duration:** 3-4 weeks
+- **Prerequisites:** Module 3
 
-[Học SQL →](/SQL/Part1)
+[Learn SQL →](/SQL/Part1)
 
-#### 📚 Module 5: Cấu Trúc Dữ Liệu & Giải Thuật
+#### 📚 Module 5: Data Structures & Algorithms
 
-Tối ưu hóa code và giải quyết bài toán phức tạp hiệu quả.
+Optimize code and solve complex problems efficiently.
 
-- **Nội dung:**
+- **Content:**
   - Array, Linked List, Stack, Queue
   - Tree, Graph, Hash Table
-  - Thuật toán sắp xếp và tìm kiếm
-  - Độ phức tạp thuật toán (Big O)
-- **Thời lượng:** 4-5 tuần
-- **Tiên quyết:** Module 2-3
+  - Sorting and searching algorithms
+  - Algorithm complexity (Big O)
+- **Duration:** 4-5 weeks
+- **Prerequisites:** Module 2-3
 
-[Học DSA →](/DSA/Part1)
+[Learn DSA →](/DSA/Part1)
 
-#### 📚 Module 6: Phát Triển Web Frontend
+#### 📚 Module 6: Web Frontend Development
 
-Xây dựng giao diện người dùng cho ứng dụng web.
+Build user interfaces for web applications.
 
-- **Nội dung:**
-  - HTML5: cấu trúc trang web
-  - CSS3: styling và responsive design
-  - JavaScript: tương tác và xử lý sự kiện
-  - DOM manipulation và AJAX
-- **Thời lượng:** 4-5 tuần
-- **Tiên quyết:** Module 2 (nên có)
+- **Content:**
+  - HTML5: web page structure
+  - CSS3: styling and responsive design
+  - JavaScript: interaction and event handling
+  - DOM manipulation and AJAX
+- **Duration:** 4-5 weeks
+- **Prerequisites:** Module 2 (recommended)
 
-[Học Web →](/WEB/Part1)
+[Learn Web →](/WEB/Part1)
 
-### 💼 Giai đoạn 3: Chuyên Sâu (Specialization)
+### 💼 Phase 3: Specialization
 
-**Mục tiêu:** Chuyên sâu vào lĩnh vực cụ thể
+**Goal:** Dive deep into specific fields
 
 #### 📚 Module 7: Backend Development
 
-Chọn một trong các hướng backend phổ biến:
+Choose one of the popular backend directions:
 
 ##### Option A: Java Backend
 
 - Spring Framework, REST API, JDBC
-- [Học Java nâng cao →](/JAVA/Part3)
+- [Learn advanced Java →](/JAVA/Part3)
 
 ##### Option B: PHP Backend
 
-- PHP cơ bản, Laravel framework
-- [Học PHP →](/PHP/Part1)
+- PHP basics, Laravel framework
+- [Learn PHP →](/PHP/Part1)
 
-**Thời lượng:** 5-6 tuần | **Tiên quyết:** Module 4, 6
+**Duration:** 5-6 weeks | **Prerequisites:** Module 4, 6
 
 #### 📚 Module 8: DevOps & Deployment
 
-Triển khai và vận hành ứng dụng trên môi trường thực tế.
+Deploy and operate applications in real environments.
 
-- **Nội dung:**
+- **Content:**
   - Docker: containerization
-  - Git workflow và CI/CD
+  - Git workflow and CI/CD
   - Linux server basics
-  - Kubernetes (tùy chọn nâng cao)
-- **Thời lượng:** 3-4 tuần
-- **Tiên quyết:** Module 7
+  - Kubernetes (optional advanced)
+- **Duration:** 3-4 weeks
+- **Prerequisites:** Module 7
 
-[Học DevOps →](/DEVOPS/Docker1)
+[Learn DevOps →](/DEVOPS/Docker1)
 
-## 🎨 Tài Liệu Bổ Sung & Nâng Cao
+## 🎨 Additional & Advanced Materials
 
-### Ngôn Ngữ Lập Trình
+### Programming Languages
 
-Mở rộng kiến thức với các ngôn ngữ khác phục vụ mục đích cụ thể:
+Expand knowledge with other languages serving specific purposes:
 
-- **[C/C++](/C-CPP/Part1)** - Lập trình hệ thống, game, embedded systems
+- **[C/C++](/C-CPP/Part1)** - System programming, games, embedded systems
 - **[Python](/PYTHON/Part1)** - Data Science, Machine Learning, automation
-- **[Rust](/RUST/Part1)** - Lập trình hệ thống an toàn và hiệu năng cao
+- **[Rust](/RUST/Part1)** - Safe and high-performance system programming
 
 ### Frontend Frameworks
 
-Nâng cao kỹ năng frontend với các framework hiện đại:
+Enhance frontend skills with modern frameworks:
 
-- **[React.js](/REACT/Part1)** - Thư viện UI phổ biến nhất từ Facebook
-- **[Vue.js](/VUE/Part1)** - Progressive framework dễ học, linh hoạt
+- **[React.js](/REACT/Part1)** - Most popular UI library from Facebook
+- **[Vue.js](/VUE/Part1)** - Easy to learn, flexible progressive framework
 
-### Lưu Ý Quan Trọng
+### Important Note
 
-::: warning Không nhất thiết học tất cả
-Bạn **không cần** học hết tất cả các tài liệu. Hãy tập trung vào lộ trình chính (Module 1-8) trước, sau đó chọn lĩnh vực chuyên sâu phù hợp với mục tiêu nghề nghiệp.
+::: warning Not necessary to learn everything
+You **do not need** to learn all materials. Focus on the main roadmap (Module 1-8) first, then choose a specialization that fits your career goals.
 :::
 
-## 📊 Lộ Trình Tóm Tắt
+**Estimated time:** 6-9 months (full-time study) or 12-18 months (part-time study)
 
-```mermaid
-graph TD
-    A[Module 1: Tổng Quan] --> B[Module 2: Java Cơ Bản]
-    B --> C[Module 3: OOP]
-    C --> D[Module 4: SQL]
-    C --> E[Module 5: DSA]
-    D --> F[Module 6: Web Frontend]
-    E --> F
-    F --> G[Module 7: Backend]
-    D --> G
-    G --> H[Module 8: DevOps]
-    
-    style A fill:#e1f5ff
-    style B fill:#e1f5ff
-    style C fill:#e1f5ff
-    style D fill:#fff4e1
-    style E fill:#fff4e1
-    style F fill:#fff4e1
-    style G fill:#ffe1e1
-    style H fill:#ffe1e1
-```
+## 💡 Advice For Learners
 
-**Ước tính thời gian:** 6-9 tháng (học toàn thời gian) hoặc 12-18 tháng (học bán thời gian)
+### 🎯 Effective learning principles
 
-## 💡 Lời Khuyên Cho Người Học
-
-### 🎯 Nguyên tắc học tập hiệu quả
-
-::: tip Học theo thứ tự
-Tuân thủ lộ trình đề xuất. Mỗi module xây dựng dựa trên kiến thức của module trước. Việc bỏ qua các bước cơ bản sẽ gây khó khăn sau này.
+::: tip Learn in order
+Follow the suggested roadmap. Each module builds on the knowledge from previous modules. Skipping basic steps will cause difficulties later.
 :::
 
-::: tip Thực hành là chìa khóa
-Dành ít nhất **70% thời gian** để viết code thực tế. Đọc tài liệu chỉ chiếm **30%**. Không có con đường tắt trong lập trình - chỉ có thực hành đều đặn.
+::: tip Practice is the key
+Spend at least **70% of time** writing actual code. Reading materials only takes **30%**. There are no shortcuts in programming - only consistent practice.
 :::
 
-::: tip Làm project
-Sau mỗi module, hãy xây dựng một project nhỏ kết hợp kiến thức đã học. Đây là cách tốt nhất để củng cố và áp dụng kiến thức.
+::: tip Do projects
+After each module, build a small project combining what you've learned. This is the best way to consolidate and apply knowledge.
 :::
 
-::: tip Đừng chạy theo công nghệ mới
-Tập trung vào **nền tảng** trước. Một khi đã nắm vững cơ bản, việc học công nghệ mới sẽ dễ dàng hơn rất nhiều.
+::: tip Don't chase new technologies
+Focus on **fundamentals** first. Once you master the basics, learning new technologies will be much easier.
 :::
 
-### 📚 Phương pháp học tập
+### 📚 Learning method
 
-1. **Đọc và hiểu lý thuyết** - Dành 20-30 phút
-2. **Thực hành ngay lập tức** - Code theo ví dụ
-3. **Thử nghiệm và điều chỉnh** - Thay đổi code, xem điều gì xảy ra
-4. **Làm bài tập** - Áp dụng kiến thức mới học
-5. **Xây dựng project nhỏ** - Kết hợp nhiều kiến thức
+1. **Read and understand theory** - Spend 20-30 minutes
+2. **Practice immediately** - Code along with examples
+3. **Experiment and adjust** - Change code, see what happens
+4. **Do exercises** - Apply newly learned knowledge
+5. **Build small projects** - Combine multiple concepts
 
-### 🔄 Khi gặp khó khăn
+### 🔄 When facing difficulties
 
-1. **Đọc lại tài liệu** - Đôi khi bạn bỏ sót chi tiết quan trọng
-2. **Tìm kiếm trên Google** - Sử dụng kỹ năng tìm kiếm đã học
-3. **Kiểm tra lại code** - Debug từng bước
-4. **Hỏi cộng đồng** - Stack Overflow, Reddit, Discord
-5. **Nghỉ ngơi và quay lại** - Đôi khi não cần thời gian để xử lý thông tin
+1. **Re-read materials** - Sometimes you miss important details
+2. **Search on Google** - Use the search skills you've learned
+3. **Check code again** - Debug step by step
+4. **Ask the community** - Stack Overflow, Reddit, Discord
+5. **Rest and come back** - Sometimes the brain needs time to process information
 
-### ⏱️ Quản lý thời gian
+### ⏱️ Time management
 
-- **Học toàn thời gian:** 6-8 giờ/ngày, 5-6 ngày/tuần
-- **Học bán thời gian:** 2-3 giờ/ngày, có thể kéo dài thời gian học
+- **Full-time study:** 6-8 hours/day, 5-6 days/week
+- **Part-time study:** 2-3 hours/day, may extend study duration
 
-::: warning Chất lượng quan trọng hơn số lượng
-2 giờ tập trung tuyệt đối tốt hơn 5 giờ học lơ là. Tắt thông báo, tìm nơi yên tĩnh và tập trung 100%.
+::: warning Quality over quantity
+2 hours of absolute focus is better than 5 hours of distracted study. Turn off notifications, find a quiet place and focus 100%.
 :::
 
-## 📞 Liên Hệ & Hỗ Trợ
+## 📞 Contact & Support
 
-Nếu bạn có câu hỏi hoặc cần hỗ trợ trong quá trình học:
+If you have questions or need support during the learning process:
 
 - **Website:** [klpod221.com](https://klpod221.com)
-- **GitHub:** [klpod221](https://github.com/klpod221) - Mở issue cho câu hỏi hoặc góp ý
+- **GitHub:** [klpod221](https://github.com/klpod221) - Open issues for questions or suggestions
 - **Email:** <klpod221@gmail.com>
 
-### 🤝 Đóng góp
+### 🤝 Contributing
 
-Tài liệu này là mã nguồn mở và luôn được cải thiện. Nếu bạn phát hiện lỗi, có đề xuất nội dung mới hoặc muốn đóng góp:
+This material is open source and always being improved. If you find errors, have new content suggestions or want to contribute:
 
-1. Fork repository
-2. Tạo branch mới cho thay đổi của bạn
-3. Gửi Pull Request
+1. Fork the repository
+2. Create a new branch for your changes
+3. Submit a Pull Request
 
-Mọi đóng góp đều được đánh giá cao! 🙏
+All contributions are greatly appreciated! 🙏
 
 ---
 
-_Chúc bạn học tập hiệu quả và thành công trên con đường trở thành lập trình viên!_ 🚀
+_Wishing you effective study and success on your path to becoming a programmer!_ 🚀

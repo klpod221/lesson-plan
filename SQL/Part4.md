@@ -1,37 +1,37 @@
 ---
 prev:
-  text: '🔄 SQL và Ứng Dụng'
+  text: '🔄 SQL and Applications'
   link: '/SQL/Part3'
 next:
-  text: '🏆 Bài Tập Lớn SQL'
+  text: '🏆 SQL Final Project'
   link: '/SQL/FINAL'
 ---
 
-# 📘 PHẦN 4: SQL CHUYÊN SÂU VÀ HIỆU SUẤT
+# 📘 PART 4: EXPERT SQL AND PERFORMANCE
 
-## 🎯 Mục tiêu tổng quát
+## 🎯 General Objectives
 
-- Tối ưu hóa hiệu suất truy vấn và cấu trúc dữ liệu
-- Xử lý dữ liệu lớn một cách hiệu quả
-- Triển khai giải pháp dữ liệu phức tạp
+- Optimize query performance and data structure.
+- Handle large data efficiently.
+- Implement complex data solutions.
 
-## 🧑‍🏫 Bài 1: Tối ưu hiệu suất
+## 🧑‍🏫 Lesson 1: Performance Optimization
 
-### Kế hoạch thực thi truy vấn và cách phân tích
+### Query Execution Plan and Analysis
 
 ```sql
--- Sử dụng EXPLAIN để phân tích kế hoạch thực thi truy vấn
+-- Use EXPLAIN to analyze query execution plan
 EXPLAIN SELECT s.student_id, s.first_name, s.last_name, c.course_name
 FROM Students s
 JOIN Enrollments e ON s.student_id = e.student_id
 JOIN Courses c ON e.course_id = c.course_id
 WHERE c.department = 'Computer Science';
 
--- Phân tích chi tiết với EXPLAIN FORMAT=JSON
+-- Detailed analysis with EXPLAIN FORMAT=JSON
 EXPLAIN FORMAT=JSON
 SELECT * FROM Students WHERE last_name LIKE 'Nguy%';
 
--- Phân tích chi tiết hơn với ANALYZE (PostgreSQL/MySQL 8.0+)
+-- More detailed analysis with ANALYZE (PostgreSQL/MySQL 8.0+)
 EXPLAIN ANALYZE
 SELECT s.student_id, AVG(e.grade) as avg_grade
 FROM Students s
@@ -40,33 +40,33 @@ GROUP BY s.student_id
 HAVING AVG(e.grade) > 8.0;
 ```
 
-### Chỉ mục nâng cao (Composite, Covering, Filtered)
+### Advanced Indexing (Composite, Covering, Filtered)
 
 ```sql
--- Chỉ mục Composite (đa cột)
+-- Composite Index (multi-column)
 CREATE INDEX idx_student_name ON Students(last_name, first_name);
 
--- Chỉ mục Covering (bao gồm tất cả cột trong truy vấn)
+-- Covering Index (includes all columns in query)
 CREATE INDEX idx_enrollment_covering ON Enrollments(student_id, course_id, grade, enrollment_date);
 
--- Truy vấn sử dụng covering index (không cần truy cập bảng)
+-- Query using covering index (no table access needed)
 SELECT student_id, course_id, grade FROM Enrollments WHERE student_id = 1001;
 
--- Chỉ mục Filtered (SQL Server)
+-- Filtered Index (SQL Server)
 -- CREATE INDEX idx_active_students ON Students(student_id) WHERE is_active = 1;
 
--- Chỉ mục Full-Text (cho tìm kiếm văn bản)
+-- Full-Text Index (for text search)
 CREATE FULLTEXT INDEX ON Articles(content);
 
--- Tìm kiếm với Full-Text
+-- Search with Full-Text
 SELECT * FROM Articles
 WHERE MATCH(content) AGAINST('machine learning AI' IN NATURAL LANGUAGE MODE);
 ```
 
-### Chiến lược phân vùng dữ liệu
+### Data Partitioning Strategies
 
 ```sql
--- Phân vùng theo phạm vi (MySQL)
+-- Range Partitioning (MySQL)
 CREATE TABLE Sales (
     sale_id INT NOT NULL,
     sale_date DATE NOT NULL,
@@ -82,7 +82,7 @@ PARTITION BY RANGE (YEAR(sale_date)) (
     PARTITION pMax VALUES LESS THAN MAXVALUE
 );
 
--- Phân vùng theo danh sách
+-- List Partitioning
 CREATE TABLE RegionalSales (
     sale_id INT NOT NULL,
     region VARCHAR(20) NOT NULL,
@@ -96,7 +96,7 @@ PARTITION BY LIST (region) (
     PARTITION pOthers VALUES IN ('International', 'Unknown')
 );
 
--- Phân vùng theo hàm băm (Hash)
+-- Hash Partitioning
 CREATE TABLE UserActivity (
     user_id INT NOT NULL,
     activity_date DATE,
@@ -106,40 +106,40 @@ CREATE TABLE UserActivity (
 PARTITION BY HASH (user_id) PARTITIONS 8;
 ```
 
-### Điều chỉnh cấu hình máy chủ cơ sở dữ liệu
+### Database Server Configuration Tuning
 
 ```sql
--- Xem các biến cấu hình hiện tại
+-- View current configuration variables
 SHOW VARIABLES LIKE 'innodb_buffer_pool_size';
 SHOW VARIABLES LIKE 'max_connections';
 SHOW VARIABLES LIKE 'query_cache%';
 
--- Thiết lập cấu hình tạm thời
+-- Set temporary configuration
 SET GLOBAL innodb_buffer_pool_size = 4294967296; -- 4GB
 
--- Theo dõi performance
+-- Monitor performance
 SHOW STATUS LIKE 'Threads_connected';
 SHOW STATUS LIKE 'Slow_queries';
 
--- Thiết lập slow query log
+-- Set slow query log
 SET GLOBAL slow_query_log = 'ON';
-SET GLOBAL long_query_time = 2.0; -- Log các truy vấn chạy > 2 giây
+SET GLOBAL long_query_time = 2.0; -- Log queries running > 2 seconds
 ```
 
-**Ví dụ cài đặt trong file cấu hình my.cnf (MySQL)**:
+**Example settings in my.cnf (MySQL)**:
 
 ```ini
 [mysqld]
-# Bộ nhớ cache cho InnoDB (50-70% RAM)
+# InnoDB Buffer Pool (50-70% RAM)
 innodb_buffer_pool_size=4G
 
-# Kích thước file log
+# Log file size
 innodb_log_file_size=512M
 
-# Thời gian tối đa để kiểm soát các giao dịch treo
+# Lock wait timeout
 innodb_lock_wait_timeout=50
 
-# Bộ nhớ cache cho truy vấn
+# Query cache
 query_cache_type=1
 query_cache_size=128M
 
@@ -149,28 +149,28 @@ slow_query_log_file=/var/log/mysql/mysql-slow.log
 long_query_time=2
 ```
 
-## 🧑‍🏫 Bài 2: Xử lý dữ liệu lớn
+## 🧑‍🏫 Lesson 2: Handling Large Data
 
-### Kỹ thuật thao tác với bảng có hàng triệu dòng
+### Techniques for Manipulating Tables with Millions of Rows
 
 ```sql
--- Phân trang dữ liệu (thay vì lấy tất cả)
+-- Pagination (instead of fetching all)
 SELECT * FROM LargeTable
 ORDER BY id
 LIMIT 1000 OFFSET 10000;
 
--- Sử dụng truy theo batch để xử lý dữ liệu lớn
+-- Use batch query to process large data
 -- Batch 1:
 SELECT * FROM LargeTable WHERE id BETWEEN 1 AND 10000;
 -- Batch 2:
 SELECT * FROM LargeTable WHERE id BETWEEN 10001 AND 20000;
 
--- UPDATE theo batch để tránh khóa bảng lâu
+-- Batch UPDATE to avoid long table locks
 UPDATE LargeTable SET status = 'archived'
 WHERE create_date < '2022-01-01'
 LIMIT 10000;
 
--- Sử dụng biến số để theo dõi tiến trình xử lý
+-- Use variables to track processing progress
 SET @batch_size = 5000;
 SET @total_processed = 0;
 
@@ -181,20 +181,20 @@ prepare_batch:
 
     SET @total_processed = @total_processed + ROW_COUNT();
 
-    -- Tiếp tục cho đến khi không còn bản ghi nào được xử lý
+    -- Continue until no records processed
     IF ROW_COUNT() > 0 THEN
-        -- Logic xử lý ở đây
-        SELECT CONCAT('Đã xử lý ', @total_processed, ' bản ghi') AS progress;
-        -- Chờ một chút để giảm tải DB
+        -- Processing logic here
+        SELECT CONCAT('Processed ', @total_processed, ' records') AS progress;
+        -- Wait a bit to reduce DB load
         DO SLEEP(1);
         GOTO prepare_batch;
     END IF;
 ```
 
-### Phân tích dữ liệu với các hàm window nâng cao
+### Data Analysis with Advanced Window Functions
 
 ```sql
--- Tính thứ hạng điểm số cho từng sinh viên trong mỗi khóa học
+-- Calculate grade rank for each student in each course
 SELECT
     e.student_id,
     s.first_name,
@@ -207,7 +207,7 @@ FROM Enrollments e
 JOIN Students s ON e.student_id = s.student_id
 JOIN Courses c ON e.course_id = c.course_id;
 
--- Tính trung bình động (rolling average)
+-- Calculate rolling average
 SELECT
     sale_date,
     amount,
@@ -218,7 +218,7 @@ SELECT
 FROM Sales
 ORDER BY sale_date;
 
--- Tính tổng tích lũy (cumulative sum)
+-- Calculate cumulative sum
 SELECT
     sale_date,
     amount,
@@ -229,7 +229,7 @@ SELECT
 FROM Sales
 ORDER BY sale_date;
 
--- So sánh với giá trị trước đó và tiếp theo
+-- Compare with previous and next values
 SELECT
     sale_date,
     amount,
@@ -240,40 +240,40 @@ FROM Sales
 ORDER BY sale_date;
 ```
 
-### Chiến lược sao lưu và phục hồi dữ liệu lớn
+### Backup and Recovery Strategy for Large Data
 
 ```bash
-# Sao lưu toàn bộ cơ sở dữ liệu
+# Backup entire database
 mysqldump -u root -p --single-transaction --routines --triggers --events SchoolDB > schooldb_full_backup.sql
 
-# Sao lưu chỉ cấu trúc
+# Backup schema only
 mysqldump -u root -p --no-data SchoolDB > schooldb_schema.sql
 
-# Sao lưu dữ liệu của từng bảng riêng biệt
+# Backup specific tables
 mysqldump -u root -p SchoolDB Students > students_backup.sql
 mysqldump -u root -p SchoolDB Enrollments > enrollments_backup.sql
 
-# Sao lưu theo lịch (sử dụng crontab)
+# Scheduled backup (using crontab)
 # 0 2 * * * mysqldump -u root -p'password' --single-transaction SchoolDB > /backup/schooldb_$(date +\%Y\%m\%d).sql
 
-# Phục hồi từ bản sao lưu
+# Restore from backup
 mysql -u root -p SchoolDB < schooldb_full_backup.sql
 
-# Sao lưu bằng công cụ Percona XtraBackup (cho MySQL/MariaDB)
+# Backup using Percona XtraBackup (for MySQL/MariaDB)
 # xtrabackup --backup --target-dir=/backup/mysql/full
 
-# Sao lưu tăng dần (incremental)
+# Incremental backup
 # xtrabackup --backup --target-dir=/backup/mysql/inc1 --incremental-basedir=/backup/mysql/full
 ```
 
-### Truy vấn dữ liệu phân tán
+### Distributed Data Querying
 
 ```sql
--- Ví dụ với MySQL Cluster: truy vấn dữ liệu phân tán như bình thường
+-- Example with MySQL Cluster: query distributed data as normal
 SELECT * FROM distributed_table WHERE partition_key = 123;
 
--- Sử dụng Sharding trên ứng dụng (ví dụ truy vấn trên cơ sở dữ liệu cụ thể)
--- Trong ứng dụng:
+-- Using Sharding on application (e.g., query on specific database)
+-- In application:
 /*
 if (user_id < 1000000) {
     // Connect to Shard 1
@@ -286,7 +286,7 @@ $stmt = $db->prepare("SELECT * FROM Users WHERE user_id = ?");
 $stmt->execute([$user_id]);
 */
 
--- Trong MariaDB với Spider Storage Engine
+-- In MariaDB with Spider Storage Engine
 /*
 CREATE TABLE global_users (
     user_id INT,
@@ -299,17 +299,17 @@ PARTITION BY RANGE (user_id) (
     PARTITION p1 COMMENT = 'srv "shard2"' VALUES LESS THAN MAXVALUE
 );
 
--- Sau đó truy vấn như bình thường
+-- Then query as normal
 SELECT * FROM global_users WHERE user_id = 1500000;
 */
 ```
 
-## 🧑‍🏫 Bài 3: Thiết kế cơ sở dữ liệu nâng cao
+## 🧑‍🏫 Lesson 3: Advanced Database Design
 
-### Mô hình hóa dữ liệu phức tạp
+### Complex Data Modeling
 
 ```sql
--- Mô hình hóa cây phân cấp (Nested Set Model)
+-- Nested Set Model for Hierarchy
 CREATE TABLE Categories (
     category_id INT PRIMARY KEY,
     name VARCHAR(100),
@@ -319,7 +319,7 @@ CREATE TABLE Categories (
     INDEX (lft, rgt)
 );
 
--- Tìm tất cả danh mục con của một danh mục
+-- Find all subcategories of a category
 SELECT child.*
 FROM Categories AS node,
      Categories AS child
@@ -327,7 +327,7 @@ WHERE child.lft BETWEEN node.lft AND node.rgt
 AND node.category_id = 5
 ORDER BY child.lft;
 
--- Tìm cây phân cấp đến gốc
+-- Find hierarchy path to root
 SELECT parent.*
 FROM Categories AS node,
      Categories AS parent
@@ -335,7 +335,7 @@ WHERE node.lft BETWEEN parent.lft AND parent.rgt
 AND node.category_id = 15
 ORDER BY parent.lft;
 
--- Mô hình hóa quan hệ nhiều-nhiều với bảng trung gian có thuộc tính bổ sung
+-- Many-to-Many Relationship with intermediate table having additional attributes
 CREATE TABLE Students (
     student_id INT PRIMARY KEY,
     name VARCHAR(100)
@@ -358,10 +358,10 @@ CREATE TABLE Enrollments (
 );
 ```
 
-### Thiết kế kiến trúc microservices với cơ sở dữ liệu
+### Microservices Architecture with Database
 
 ```sql
--- Ví dụ bảng cho service Quản lý Người dùng
+-- Example table for User Management Service
 CREATE TABLE User_Service.Users (
     user_id UUID PRIMARY KEY,
     email VARCHAR(100) UNIQUE,
@@ -371,7 +371,7 @@ CREATE TABLE User_Service.Users (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Ví dụ bảng cho service Quản lý Sản phẩm
+-- Example table for Product Management Service
 CREATE TABLE Product_Service.Products (
     product_id UUID PRIMARY KEY,
     name VARCHAR(200),
@@ -381,10 +381,10 @@ CREATE TABLE Product_Service.Products (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Ví dụ bảng cho service Quản lý Đơn hàng
+-- Example table for Order Management Service
 CREATE TABLE Order_Service.Orders (
     order_id UUID PRIMARY KEY,
-    user_id UUID, -- Chỉ lưu ID, không phải foreign key thực thụ
+    user_id UUID, -- Store ID only, not a real foreign key
     status VARCHAR(50),
     total_amount DECIMAL(10,2),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
@@ -393,21 +393,21 @@ CREATE TABLE Order_Service.Orders (
 CREATE TABLE Order_Service.OrderItems (
     order_item_id UUID PRIMARY KEY,
     order_id UUID,
-    product_id UUID, -- Chỉ lưu ID, không phải foreign key thực thụ
+    product_id UUID, -- Store ID only, not a real foreign key
     quantity INT,
     unit_price DECIMAL(10,2),
     FOREIGN KEY (order_id) REFERENCES Order_Service.Orders(order_id)
 );
 ```
 
-### Cơ sở dữ liệu đa hình thái (Polyglot Persistence)
+### Polyglot Persistence
 
-**Ví dụ mô hình đa hình thái:**
+**Example Polyglot Model:**
 
-1. **Dữ liệu giao dịch**: MySQL/PostgreSQL
+1. **Transactional Data**: MySQL/PostgreSQL
 
    ```sql
-   -- Lưu trữ dữ liệu giao dịch tài chính trong PostgreSQL
+   -- Store financial transaction data in PostgreSQL
    CREATE TABLE transactions (
        transaction_id UUID PRIMARY KEY,
        user_id UUID NOT NULL,
@@ -418,7 +418,7 @@ CREATE TABLE Order_Service.OrderItems (
    );
    ```
 
-2. **Dữ liệu thời gian thực** (nhật ký/log): Cassandra (CQL)
+2. **Real-time Data** (logs): Cassandra (CQL)
 
    ```sql
    -- Cassandra CQL
@@ -432,7 +432,7 @@ CREATE TABLE Order_Service.OrderItems (
    ) WITH CLUSTERING ORDER BY (timestamp DESC);
    ```
 
-3. **Dữ liệu văn bản, tìm kiếm**: Elasticsearch
+3. **Text/Search Data**: Elasticsearch
 
    ```json
    // Elasticsearch mapping
@@ -450,15 +450,15 @@ CREATE TABLE Order_Service.OrderItems (
    }
    ```
 
-4. **Dữ liệu cache**: Redis
+4. **Cache Data**: Redis
 
    ```bash
-   # Ví dụ lệnh Redis
+   # Example Redis commands
    SET session:1234 "{user_id: 5678, permissions: ['read', 'write']}" EX 3600
    GET session:1234
    ```
 
-5. **Dữ liệu biến đổi/document**: MongoDB
+5. **Variable/Document Data**: MongoDB
 
    ```javascript
    // MongoDB schema
@@ -477,14 +477,14 @@ CREATE TABLE Order_Service.OrderItems (
    });
    ```
 
-### Cơ sở dữ liệu NoSQL và SQL
+### NoSQL vs SQL
 
-**So sánh truy vấn giữa SQL và NoSQL:**
+**Comparison of queries between SQL and NoSQL:**
 
 **SQL (MySQL):**
 
 ```sql
--- Tìm người dùng và đơn hàng của họ
+-- Find user and their orders
 SELECT u.user_id, u.username, o.order_id, o.total
 FROM Users u
 LEFT JOIN Orders o ON u.user_id = o.user_id
@@ -494,14 +494,14 @@ WHERE u.user_id = 12345;
 **MongoDB:**
 
 ```javascript
-// Phương pháp 1: Lưu trữ tách biệt
+// Method 1: Separate storage
 db.users.findOne({ user_id: 12345 });
 db.orders.find({ user_id: 12345 });
 
-// Phương pháp 2: Embedded document
+// Method 2: Embedded document
 db.users.findOne({ user_id: 12345 }, { username: 1, orders: 1 });
 
-// Phương pháp 3: Sử dụng aggregation
+// Method 3: Using aggregation
 db.users.aggregate([
   { $match: { user_id: 12345 } },
   {
@@ -518,52 +518,52 @@ db.users.aggregate([
 **Redis:**
 
 ```bash
-# Lưu cache cho thông tin người dùng
+# Cache user info
 HMSET user:12345 username "john_doe" email "john@example.com" status "active"
 HGETALL user:12345
 
-# Sử dụng sorted sets cho bảng xếp hạng
+# Use sorted sets for leaderboard
 ZADD leaderboard 1000 "user:12345"
 ZADD leaderboard 2500 "user:67890"
 ZREVRANGE leaderboard 0 9 WITHSCORES  # Top 10 users
 ```
 
-## 🧑‍🏫 Bài 4: SQL và dữ liệu thực tế
+## 🧑‍🏫 Lesson 4: SQL and Real-World Data
 
-### Xử lý dữ liệu không đồng nhất
+### Handling Heterogeneous Data
 
 ```sql
--- Chuẩn hóa dữ liệu email
+-- Standardize email data
 UPDATE Customers
 SET email = LOWER(TRIM(email))
 WHERE email IS NOT NULL;
 
--- Xử lý giá trị NULL
+-- Handle NULL values
 SELECT
     COALESCE(phone_number, email, 'No contact') AS contact_method
 FROM Customers;
 
--- Chuyển đổi kiểu dữ liệu
+-- Convert data types
 SELECT
     customer_id,
     CAST(registration_date AS DATE) AS reg_date
 FROM Customers;
 
--- Xử lý ngày tháng không đồng nhất
+-- Handle inconsistent dates
 UPDATE Orders
 SET order_date = STR_TO_DATE(order_date_string, '%d/%m/%Y')
 WHERE order_date IS NULL AND order_date_string IS NOT NULL;
 
--- Tìm và sửa các giá trị ngoài phạm vi hợp lệ
+-- Find and fix out-of-range values
 UPDATE Products
 SET price = DEFAULT_PRICE
 WHERE price <= 0 OR price > 10000;
 ```
 
-### Cleaning và chuyển đổi dữ liệu
+### Data Cleaning and Transformation
 
 ```sql
--- Xử lý dữ liệu trùng lặp
+-- Handle duplicate data
 WITH DuplicateEmails AS (
     SELECT
         email,
@@ -575,7 +575,7 @@ WHERE email IN (
     SELECT email FROM DuplicateEmails WHERE rn > 1
 );
 
--- Phát hiện outliers (giá trị ngoại lai)
+-- Detect outliers
 SELECT *
 FROM Orders
 WHERE amount > (
@@ -583,25 +583,25 @@ WHERE amount > (
     FROM Orders
 );
 
--- Chuẩn hóa văn bản
+-- Normalize text
 UPDATE Products
 SET
-    name = INITCAP(name),  -- Viết hoa chữ cái đầu mỗi từ (PostgreSQL)
-    description = REGEXP_REPLACE(description, '\s+', ' ')  -- Loại bỏ khoảng trắng thừa
+    name = INITCAP(name),  -- Capitalize first letter of each word (PostgreSQL)
+    description = REGEXP_REPLACE(description, '\s+', ' ')  -- Remove extra spaces
 WHERE category = 'Electronics';
 
--- Tạo dữ liệu mẫu
+-- Generate sample data
 INSERT INTO TestData (random_value)
 SELECT FLOOR(RAND() * 100)
 FROM information_schema.columns
 LIMIT 1000;
 ```
 
-### ETL và data warehouse
+### ETL and Data Warehouse
 
 ```sql
--- Ví dụ về Extract trong ETL
--- Trích xuất dữ liệu từ DB nguồn và lưu vào staging
+-- Example Extract in ETL
+-- Extract data from source DB and save to staging
 CREATE TABLE staging.daily_sales AS
 SELECT
     DATE(order_date) AS sale_date,
@@ -613,12 +613,12 @@ JOIN source_db.order_items oi ON o.order_id = oi.order_id
 WHERE order_date >= CURRENT_DATE - INTERVAL 1 DAY
 GROUP BY DATE(order_date), product_id;
 
--- Transform: Làm sạch và chuyển đổi dữ liệu staging
+-- Transform: Clean and transform staging data
 UPDATE staging.daily_sales
 SET total_revenue = 0
-WHERE total_revenue < 0;  -- Sửa các giá trị không hợp lệ
+WHERE total_revenue < 0;  -- Fix invalid values
 
--- Load: Tải dữ liệu vào Data Warehouse
+-- Load: Load data into Data Warehouse
 INSERT INTO datawarehouse.fact_sales (date_key, product_key, quantity_sold, revenue)
 SELECT
     d.date_key,
@@ -629,7 +629,7 @@ FROM staging.daily_sales s
 JOIN datawarehouse.dim_date d ON s.sale_date = d.full_date
 JOIN datawarehouse.dim_product p ON s.product_id = p.source_product_id;
 
--- Ví dụ truy vấn Data Warehouse
+-- Example Data Warehouse Query
 SELECT
     d.year,
     d.quarter,
@@ -643,10 +643,10 @@ GROUP BY d.year, d.quarter, p.category
 ORDER BY d.year, d.quarter, total_revenue DESC;
 ```
 
-### Data mining với SQL
+### Data Mining with SQL
 
 ```sql
--- Phân tích RFM (Recency, Frequency, Monetary)
+-- RFM Analysis (Recency, Frequency, Monetary)
 WITH customer_rfm AS (
     SELECT
         customer_id,
@@ -671,7 +671,7 @@ SELECT
     CONCAT(r_score, f_score, m_score) AS rfm_segment
 FROM rfm_scores;
 
--- Phân tích Basket (Market Basket Analysis)
+-- Market Basket Analysis
 WITH product_pairs AS (
     SELECT
         o1.order_id,
@@ -693,7 +693,7 @@ GROUP BY product1_name, product2_name
 HAVING COUNT(*) > 10
 ORDER BY pair_count DESC;
 
--- Phát hiện bất thường (Anomaly Detection)
+-- Anomaly Detection
 SELECT
     transaction_id,
     customer_id,
@@ -706,8 +706,8 @@ WHERE amount > (
     WHERE customer_id = Transactions.customer_id
 );
 
--- Phân cụm dữ liệu (Clustering) bằng SQL
--- Ví dụ: K-means đơn giản cho 3 nhóm dựa trên recency và frequency
+-- Data Clustering with SQL
+-- Example: Simple K-means for 3 groups based on recency and frequency
 WITH customer_metrics AS (
     SELECT
         customer_id,
@@ -743,26 +743,26 @@ SELECT
 FROM normalized_metrics;
 ```
 
-## 🧑‍🏫 Bài 5: Quản trị và giám sát
+## 🧑‍🏫 Lesson 5: Administration and Monitoring
 
-### Công cụ giám sát và phân tích
+### Monitoring and Analysis Tools
 
 ```sql
--- Xem các biến trạng thái hệ thống
+-- View system status variables
 SHOW STATUS WHERE Variable_name LIKE 'Com_%'
 OR Variable_name LIKE 'Connections'
 OR Variable_name LIKE 'Threads_%'
 OR Variable_name LIKE 'Questions';
 
--- Theo dõi các kết nối hiện tại
+-- Monitor current connections
 SHOW PROCESSLIST;
 
--- Tìm các truy vấn đang chạy lâu (> 5 giây)
+-- Find long-running queries (> 5 seconds)
 SELECT * FROM information_schema.PROCESSLIST
 WHERE COMMAND != 'Sleep' AND TIME > 5
 ORDER BY TIME DESC;
 
--- Thông tin về các bảng
+-- Table information
 SELECT
     table_name,
     table_rows,
@@ -773,10 +773,10 @@ FROM information_schema.TABLES
 WHERE table_schema = 'your_database'
 ORDER BY (data_length + index_length) DESC;
 
--- Phân tích sử dụng chỉ mục
+-- Analyze index usage
 SHOW INDEX FROM your_table;
 
--- Phân tích bản ghi INFORMATION_SCHEMA
+-- Analyze INFORMATION_SCHEMA records
 SELECT
     t.TABLE_NAME,
     t.TABLE_ROWS,
@@ -789,49 +789,49 @@ ORDER BY total_size_mb DESC
 LIMIT 10;
 ```
 
-### Xử lý sự cố hiệu suất
+### Performance Troubleshooting
 
 ```sql
--- Xác định truy vấn chậm từ slow query log
--- Kiểm tra xem slow query log có được kích hoạt không
+-- Identify slow queries from slow query log
+-- Check if slow query log is enabled
 SHOW VARIABLES LIKE 'slow_query%';
 SHOW VARIABLES LIKE 'long_query_time';
 
--- Bật slow query log
+-- Enable slow query log
 SET GLOBAL slow_query_log = 'ON';
-SET GLOBAL long_query_time = 1.0; -- Log truy vấn chạy > 1 giây
+SET GLOBAL long_query_time = 1.0; -- Log queries running > 1 second
 
--- Xóa cache để kiểm tra hiệu suất thực sự
+-- Clear cache to test real performance
 FLUSH TABLES;
-FLUSH QUERY CACHE;  -- Cho MySQL < 8.0
+FLUSH QUERY CACHE;  -- For MySQL < 8.0
 
--- Tìm deadlock gần đây
+-- Find recent deadlocks
 SHOW ENGINE INNODB STATUS;
 
--- Thống kê hệ thống
--- Số lượng kết nối và thread
+-- System statistics
+-- Number of connections and threads
 SHOW STATUS LIKE 'Threads_connected';
 SHOW STATUS LIKE 'Threads_running';
 
--- Tỉ lệ cache hit
+-- Cache hit ratio
 SHOW STATUS LIKE 'Qcache_hits';
 SHOW STATUS LIKE 'Qcache_inserts';
 SHOW STATUS LIKE 'Innodb_buffer_pool_read_requests';
 SHOW STATUS LIKE 'Innodb_buffer_pool_reads';
 
--- Kiểm tra tình trạng khóa
+-- Check lock status
 SELECT * FROM performance_schema.data_locks;
 ```
 
-### Tự động hóa quản trị cơ sở dữ liệu
+### Automating Database Administration
 
 ```sql
--- Tạo event scheduler để thực hiện tác vụ định kỳ
--- Kiểm tra event scheduler có đang chạy không
+-- Create event scheduler for periodic tasks
+-- Check if event scheduler is running
 SHOW VARIABLES LIKE 'event_scheduler';
 SET GLOBAL event_scheduler = ON;
 
--- Ví dụ: tự động xóa dữ liệu cũ hàng ngày
+-- Example: automatically delete old data daily
 DELIMITER //
 CREATE EVENT clean_old_logs
 ON SCHEDULE EVERY 1 DAY
@@ -843,14 +843,14 @@ BEGIN
 END //
 DELIMITER ;
 
--- Tạo stored procedure để tối ưu bảng
+-- Create stored procedure to optimize tables
 DELIMITER //
 CREATE PROCEDURE optimize_tables()
 BEGIN
     DECLARE done INT DEFAULT FALSE;
     DECLARE tbl_name VARCHAR(255);
 
-    -- Tạo cursor để lặp qua các bảng
+    -- Create cursor to loop through tables
     DECLARE cur CURSOR FOR
         SELECT table_name FROM information_schema.TABLES
         WHERE table_schema = DATABASE() AND table_type = 'BASE TABLE';
@@ -875,61 +875,61 @@ BEGIN
 END //
 DELIMITER ;
 
--- Tự động sao lưu (thực hiện bằng script bên ngoài hoặc crontab)
+-- Automatic backup (executed by external script or crontab)
 /*
 #!/bin/bash
 DATE=$(date +"%Y%m%d")
 BACKUP_DIR="/backup/mysql"
 
-# Sao lưu toàn bộ
+# Full backup
 mysqldump -u root -p --all-databases --triggers --routines --events > "$BACKUP_DIR/full_backup_$DATE.sql"
 
-# Nén
+# Compress
 gzip "$BACKUP_DIR/full_backup_$DATE.sql"
 
-# Xóa bản sao lưu cũ hơn 30 ngày
+# Delete backups older than 30 days
 find $BACKUP_DIR -name "full_backup_*.sql.gz" -mtime +30 -delete
 */
 ```
 
-### Chiến lược mở rộng và nâng cấp
+### Scaling and Upgrade Strategy
 
 ```sql
--- Kiểm tra phiên bản MySQL hiện tại
+-- Check current MySQL version
 SELECT VERSION();
 
--- Chiến lược Scale-up: nâng cấp cấu hình server
--- Kiểm tra các giới hạn quan trọng
+-- Scale-up Strategy: upgrade server configuration
+-- Check critical limits
 SHOW VARIABLES LIKE 'max_connections';
 SHOW VARIABLES LIKE 'innodb_buffer_pool_size';
 SHOW VARIABLES LIKE 'tmp_table_size';
 SHOW VARIABLES LIKE 'max_heap_table_size';
 
--- Chiến lược Scale-out: thiết lập read replicas
--- Cấu hình Primary server
--- [mysqld] section trong my.cnf
+-- Scale-out Strategy: setup read replicas
+-- Configure Primary server
+-- [mysqld] section in my.cnf
 /*
 server-id = 1
 log_bin = mysql-bin
 binlog_format = ROW
 */
 
--- Cấu hình Replica server
--- [mysqld] section trong my.cnf
+-- Configure Replica server
+-- [mysqld] section in my.cnf
 /*
 server-id = 2
 relay-log = relay-bin
 read_only = ON
 */
 
--- Thiết lập tham số replikasi
--- Trên Primary:
+-- Setup replication parameters
+-- On Primary:
 /*
 CREATE USER 'replication_user'@'replica_ip' IDENTIFIED BY 'password';
 GRANT REPLICATION SLAVE ON *.* TO 'replication_user'@'replica_ip';
 */
 
--- Trên Replica:
+-- On Replica:
 /*
 CHANGE MASTER TO
   MASTER_HOST='primary_ip',
@@ -942,7 +942,7 @@ START SLAVE;
 SHOW SLAVE STATUS\G
 */
 
--- Partitioning để cải thiện hiệu suất
+-- Partitioning to improve performance
 ALTER TABLE large_table
 PARTITION BY RANGE (YEAR(created_date)) (
     PARTITION p2021 VALUES LESS THAN (2022),
@@ -951,8 +951,8 @@ PARTITION BY RANGE (YEAR(created_date)) (
     PARTITION p9999 VALUES LESS THAN MAXVALUE
 );
 
--- Vertical partitioning (chia bảng thành các bảng nhỏ hơn theo các cột)
--- Ví dụ: tách bảng products thành product_core và product_details
+-- Vertical partitioning (split table into smaller tables by columns)
+-- Example: split products table into product_core and product_details
 CREATE TABLE product_core (
     product_id INT PRIMARY KEY,
     name VARCHAR(100),
@@ -969,25 +969,25 @@ CREATE TABLE product_details (
 );
 ```
 
-## 🧪 BÀI TẬP LỚN CUỐI PHẦN: Hệ thống quản lý đăng ký môn học
+## 🧪 FINAL PROJECT: Course Registration Management System
 
-### Đề bài
+### Problem
 
-Xây dựng cơ sở dữ liệu quản lý đăng ký môn học:
+Build a course registration management database:
 
-- `students`: thông tin sinh viên
-- `courses`: thông tin khóa học
-- `enrollments`: đăng ký khóa học
-- `course_schedules`: lịch học
+- `students`: student information
+- `courses`: course information
+- `enrollments`: course registration
+- `course_schedules`: class schedule
 
-### Yêu cầu
+### Requirements
 
-- Thiết kế cơ sở dữ liệu đầy đủ với các ràng buộc
-- Tạo các stored procedure để:
-  - Đăng ký khóa học (kiểm tra số lượng, đủ điều kiện)
-  - Hủy đăng ký
-  - Thay đổi lớp
-- Triển khai xử lý transaction để đảm bảo tính toàn vẹn dữ liệu khi nhiều sinh viên cùng đăng ký một lớp (giới hạn số lượng)
-- Tạo view và function để:
-  - Hiển thị thời khóa biểu cho sinh viên
-  - Kiểm tra xung đột lịch học khi đăng ký
+- Design full database with constraints.
+- Create stored procedures to:
+  - Register course (check quantity, eligibility).
+  - Cancel registration.
+  - Change class.
+- Implement transaction handling to ensure data integrity when multiple students register for the same class (limit quantity).
+- Create views and functions to:
+  - Display schedule for students.
+  - Check schedule conflicts when registering.

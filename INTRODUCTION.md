@@ -1,165 +1,165 @@
 ---
 prev:
-  text: '🏠 Trang Chủ'
+  text: '🏠 Home'
   link: '/'
 next:
-  text: '🛠️ Cài Đặt Môi Trường'
+  text: '🛠️ Environment Setup'
   link: '/INSTALL'
 ---
 
-# 📘 TỔNG QUAN VỀ LẬP TRÌNH
+# 📘 PROGRAMMING OVERVIEW
 
-## 🎯 Mục tiêu tổng quát
+## 🎯 General Objectives
 
-- Hiểu rõ về lập trình, ngôn ngữ lập trình và các khái niệm cơ bản trong lập trình.
-- Nắm vững các khái niệm cơ bản về máy tính, hệ điều hành và mạng máy tính.
-- Làm quen với các công cụ lập trình và môi trường phát triển.
-- Biết cách tổ chức mã nguồn và quản lý dự án lập trình.
+- Clearly understand programming, programming languages and basic concepts in programming.
+- Master basic concepts about computers, operating systems and computer networks.
+- Get familiar with programming tools and development environments.
+- Know how to organize source code and manage programming projects.
 
-## 🧑‍🏫 Bài 1: Giới thiệu về lập trình và ngôn ngữ lập trình
+## 🧑‍🏫 Lesson 1: Introduction to Programming and Programming Languages
 
-### Lập trình là gì?
+### What is Programming?
 
-Lập trình là quá trình viết, kiểm thử, sửa lỗi và bảo trì mã nguồn của các chương trình máy tính. Đây là một quy trình sáng tạo giúp máy tính thực hiện các tác vụ cụ thể bằng cách sử dụng các ngôn ngữ lập trình.
+Programming is the process of writing, testing, debugging and maintaining source code of computer programs. This is a creative process that helps computers perform specific tasks using programming languages.
 
-> 💡 **Minh họa:** Lập trình giống như việc viết công thức nấu ăn chi tiết cho máy tính. Máy tính sẽ tuân theo chính xác từng bước trong công thức mà không có khả năng tự suy luận hay đưa ra quyết định sáng tạo.
+> 💡 **Illustration:** Programming is like writing a detailed cooking recipe for a computer. The computer will follow exactly each step in the recipe without the ability to reason or make creative decisions.
 
-### Các khái niệm cơ bản trong lập trình
+### Basic Concepts in Programming
 
-1. **Thuật toán (Algorithm)**: Là tập hợp các bước logic, có thứ tự để giải quyết một vấn đề cụ thể.
+1. **Algorithm**: A set of logical, ordered steps to solve a specific problem.
 
-   - Ví dụ: Thuật toán sắp xếp, tìm kiếm, xử lý dữ liệu
+   - Example: Sorting algorithm, searching, data processing
 
    ```text
-   Thuật toán sắp xếp nổi bọt (Bubble Sort):
-   1. Duyệt qua mảng từ đầu đến cuối
-   2. So sánh các phần tử liền kề
-   3. Hoán đổi vị trí nếu phần tử trước lớn hơn phần tử sau
-   4. Lặp lại quá trình cho đến khi không còn hoán đổi nào nữa
+   Bubble Sort Algorithm:
+   1. Traverse through the array from start to end
+   2. Compare adjacent elements
+   3. Swap positions if the previous element is larger than the next one
+   4. Repeat the process until no more swaps
 
-   Mảng ban đầu: [5, 3, 8, 4, 2]
+   Initial array: [5, 3, 8, 4, 2]
 
-   Vòng lặp ngoài 1:
-      [5, 3, 8, 4, 2] → So sánh 5 và 3 → Hoán đổi → [3, 5, 8, 4, 2]
-      [3, 5, 8, 4, 2] → So sánh 5 và 8 → Không đổi → [3, 5, 8, 4, 2]
-      [3, 5, 8, 4, 2] → So sánh 8 và 4 → Hoán đổi → [3, 5, 4, 8, 2]
-      [3, 5, 4, 8, 2] → So sánh 8 và 2 → Hoán đổi → [3, 5, 4, 2, 8]
+   Outer loop 1:
+      [5, 3, 8, 4, 2] → Compare 5 and 3 → Swap → [3, 5, 8, 4, 2]
+      [3, 5, 8, 4, 2] → Compare 5 and 8 → No swap → [3, 5, 8, 4, 2]
+      [3, 5, 8, 4, 2] → Compare 8 and 4 → Swap → [3, 5, 4, 8, 2]
+      [3, 5, 4, 8, 2] → Compare 8 and 2 → Swap → [3, 5, 4, 2, 8]
 
-   Kết thúc vòng 1: [3, 5, 4, 2, 8] (Phần tử lớn nhất 8 đã ở vị trí cuối cùng)
+   End of round 1: [3, 5, 4, 2, 8] (Largest element 8 is at the last position)
 
-   Vòng lặp ngoài 2:
-      [3, 5, 4, 2, 8] → So sánh 3 và 5 → Không đổi → [3, 5, 4, 2, 8]
-      [3, 5, 4, 2, 8] → So sánh 5 và 4 → Hoán đổi → [3, 4, 5, 2, 8]
-      [3, 4, 5, 2, 8] → So sánh 5 và 2 → Hoán đổi → [3, 4, 2, 5, 8]
+   Outer loop 2:
+      [3, 5, 4, 2, 8] → Compare 3 and 5 → No swap → [3, 5, 4, 2, 8]
+      [3, 5, 4, 2, 8] → Compare 5 and 4 → Swap → [3, 4, 5, 2, 8]
+      [3, 4, 5, 2, 8] → Compare 5 and 2 → Swap → [3, 4, 2, 5, 8]
 
-   Kết thúc vòng 2: [3, 4, 2, 5, 8] (Phần tử lớn thứ 2 là 5 đã ở đúng vị trí)
+   End of round 2: [3, 4, 2, 5, 8] (Second largest element 5 is in correct position)
 
-   Vòng lặp ngoài 3:
-      [3, 4, 2, 5, 8] → So sánh 3 và 4 → Không đổi → [3, 4, 2, 5, 8]
-      [3, 4, 2, 5, 8] → So sánh 4 và 2 → Hoán đổi → [3, 2, 4, 5, 8]
+   Outer loop 3:
+      [3, 4, 2, 5, 8] → Compare 3 and 4 → No swap → [3, 4, 2, 5, 8]
+      [3, 4, 2, 5, 8] → Compare 4 and 2 → Swap → [3, 2, 4, 5, 8]
 
-   Kết thúc vòng 3: [3, 2, 4, 5, 8] (Phần tử lớn thứ 3 là 4 đã ở đúng vị trí)
+   End of round 3: [3, 2, 4, 5, 8] (Third largest element 4 is in correct position)
 
-   Vòng lặp ngoài 4:
-      [3, 2, 4, 5, 8] → So sánh 3 và 2 → Hoán đổi → [2, 3, 4, 5, 8]
+   Outer loop 4:
+      [3, 2, 4, 5, 8] → Compare 3 and 2 → Swap → [2, 3, 4, 5, 8]
 
-   Kết thúc vòng 4: [2, 3, 4, 5, 8] (Mảng đã được sắp xếp)
+   End of round 4: [2, 3, 4, 5, 8] (Array is sorted)
    ```
 
-2. **Biến (Variable)**: Là nơi lưu trữ dữ liệu trong chương trình.
+2. **Variable**: A place to store data in the program.
 
-   - Ví dụ:
+   - Example:
 
      ```javascript
      // JavaScript
-     let age = 25; // Biến age lưu giá trị số nguyên 25
-     const name = "Alice"; // Biến name lưu chuỗi "Alice"
-     var isStudent = true; // Biến isStudent lưu giá trị boolean true
+     let age = 25; // Variable age stores integer value 25
+     const name = "Alice"; // Variable name stores string "Alice"
+     var isStudent = true; // Variable isStudent stores boolean value true
      ```
 
-3. **Kiểu dữ liệu (Data Type)**: Xác định loại dữ liệu được lưu trữ trong biến.
+3. **Data Type**: Determines the type of data stored in a variable.
 
-   - Cơ bản:
+   - Basic:
 
-     - integer (số nguyên): `42`, `-7`, `0`
-     - float (số thực): `3.14`, `-0.001`, `2.0`
-     - string (chuỗi): `"Hello"`, `'World'`, `"123"`
+     - integer: `42`, `-7`, `0`
+     - float: `3.14`, `-0.001`, `2.0`
+     - string: `"Hello"`, `'World'`, `"123"`
      - boolean (true/false): `true`, `false`
 
-   - Phức tạp:
-     - array (mảng): `[1, 2, 3]`, `["apple", "orange", "banana"]`
-     - object (đối tượng): `{name: "John", age: 30}`
-     - class (lớp): Mẫu để tạo ra đối tượng
+   - Complex:
+     - array: `[1, 2, 3]`, `["apple", "orange", "banana"]`
+     - object: `{name: "John", age: 30}`
+     - class: Template to create objects
 
-4. **Cấu trúc điều khiển (Control Structure)**:
+4. **Control Structure**:
 
-   - Rẽ nhánh:
+   - Branching:
 
      ```python
      # Python
      if age >= 18:
-         print("Bạn đã đủ tuổi bầu cử")
+         print("You are eligible to vote")
      else:
-         print("Bạn chưa đủ tuổi bầu cử")
+         print("You are not eligible to vote")
      ```
 
-   - Vòng lặp:
+   - Loops:
 
      ```cpp
      // C++
      for(int i = 0; i < 5; i++) {
-         cout << i << " ";  // Kết quả: 0 1 2 3 4
+         cout << i << " ";  // Output: 0 1 2 3 4
      }
 
      int j = 0;
      while(j < 5) {
-         cout << j << " ";  // Kết quả: 0 1 2 3 4
+         cout << j << " ";  // Output: 0 1 2 3 4
          j++;
      }
      ```
 
-5. **Hàm (Function)**: Khối mã thực hiện một nhiệm vụ cụ thể và có thể tái sử dụng.
+5. **Function**: A block of code that performs a specific task and can be reused.
 
    ```java
    // JAVA
    public int sum(int a, int b) {
-       return a + b;  // Hàm cộng hai số
+       return a + b;  // Function adds two numbers
    }
 
-   // Gọi hàm
+   // Call function
    int result = sum(5, 3);  // result = 8
    ```
 
-### Ngôn ngữ lập trình
+### Programming Languages
 
-1. **Phân loại theo cấp độ:**
+1. **Classification by level:**
 
-   - **Ngôn ngữ bậc thấp**: Assembly, Machine Language - gần với ngôn ngữ máy tính
+   - **Low-level languages**: Assembly, Machine Language - close to computer language
 
      ```assembly
-     ; Assembly - Cộng hai số
-     MOV AL, 5    ; Gán giá trị 5 cho thanh ghi AL
-     MOV BL, 3    ; Gán giá trị 3 cho thanh ghi BL
-     ADD AL, BL   ; Cộng BL vào AL (AL = AL + BL)
+     ; Assembly - Add two numbers
+     MOV AL, 5    ; Assign value 5 to register AL
+     MOV BL, 3    ; Assign value 3 to register BL
+     ADD AL, BL   ; Add BL to AL (AL = AL + BL)
      ```
 
-   - **Ngôn ngữ bậc trung**: C, C++ - kết hợp giữa bậc cao và bậc thấp
+   - **Mid-level languages**: C, C++ - combination of high and low level
 
      ```c
-     // C - Cộng hai số
+     // C - Add two numbers
      int sum = 5 + 3;
      ```
 
-   - **Ngôn ngữ bậc cao**: Python, JAVA, JavaScript - gần với ngôn ngữ tự nhiên
+   - **High-level languages**: Python, JAVA, JavaScript - close to natural language
 
      ```python
-     # Python - Cộng hai số
+     # Python - Add two numbers
      sum = 5 + 3
      ```
 
-2. **Phân loại theo mẫu hình lập trình:**
+2. **Classification by programming paradigm:**
 
-   - **Hướng thủ tục (Procedural)**: C, Pascal
+   - **Procedural**: C, Pascal
 
      ```c
      // C - Procedural
@@ -169,7 +169,7 @@ Lập trình là quá trình viết, kiểm thử, sửa lỗi và bảo trì m�
      }
      ```
 
-   - **Hướng đối tượng (Object-Oriented)**: JAVA, C++, C#, Python
+   - **Object-Oriented**: JAVA, C++, C#, Python
 
      ```java
      // JAVA - OOP
@@ -184,7 +184,7 @@ Lập trình là quá trình viết, kiểm thử, sửa lỗi và bảo trì m�
      }
      ```
 
-   - **Hướng hàm (Functional)**: Haskell, Scala, JavaScript (một phần)
+   - **Functional**: Haskell, Scala, JavaScript (partial)
 
      ```javascript
      // JavaScript - Functional
@@ -192,7 +192,7 @@ Lập trình là quá trình viết, kiểm thử, sửa lỗi và bảo trì m�
      const doubled = numbers.map((n) => n * 2); // [2, 4, 6, 8, 10]
      ```
 
-   - **Logic (Logic)**: Prolog
+   - **Logic**: Prolog
 
      ```prolog
      /* Prolog - Logic */
@@ -203,118 +203,118 @@ Lập trình là quá trình viết, kiểm thử, sửa lỗi và bảo trì m�
      sibling(X, Y) :- parent(Z, X), parent(Z, Y), X \= Y.
      ```
 
-3. **Phân loại theo cách thực thi:**
-   - **Biên dịch (Compiled)**: C, C++, Rust - chuyển đổi toàn bộ mã nguồn thành mã máy trước khi chạy
-   - **Thông dịch (Interpreted)**: Python, JavaScript - dịch và thực thi từng dòng lệnh
-   - **Kết hợp (Hybrid)**: JAVA, C# - biên dịch thành bytecode, sau đó thông dịch bởi máy ảo
+3. **Classification by execution method:**
+   - **Compiled**: C, C++, Rust - converts entire source code to machine code before execution
+   - **Interpreted**: Python, JavaScript - translates and executes line by line
+   - **Hybrid**: JAVA, C# - compiles to bytecode, then interpreted by virtual machine
 
-### Quy trình phát triển phần mềm cơ bản
+### Basic Software Development Process
 
-1. **Phân tích yêu cầu**: Hiểu rõ vấn đề cần giải quyết
+1. **Requirements Analysis**: Clearly understand the problem to be solved
 
-   - Ví dụ: Xác định rằng hệ thống cần có chức năng đăng nhập, quản lý người dùng, và báo cáo.
+   - Example: Determine that the system needs login functionality, user management, and reporting.
 
-2. **Thiết kế**: Xây dựng cấu trúc chương trình và thuật toán
+2. **Design**: Build program structure and algorithms
 
-   - Ví dụ: Thiết kế cơ sở dữ liệu, giao diện người dùng, và các module chức năng.
+   - Example: Design database, user interface, and functional modules.
 
-3. **Lập trình**: Viết mã nguồn
+3. **Programming**: Write source code
 
-   - Ví dụ: Lập trình các chức năng theo thiết kế đã xác định.
+   - Example: Program functions according to confirmed design.
 
-4. **Kiểm thử**: Tìm và sửa lỗi
+4. **Testing**: Find and fix bugs
 
-   - Ví dụ: Kiểm tra xem chức năng đăng nhập có hoạt động chính xác không.
+   - Example: Check if login functionality works correctly.
 
-5. **Triển khai**: Đưa phần mềm vào sử dụng
+5. **Deployment**: Put software into use
 
-   - Ví dụ: Cài đặt phần mềm lên product server và cung cấp cho người dùng.
+   - Example: Install software on production server and provide to users.
 
-6. **Bảo trì**: Cập nhật, sửa lỗi và nâng cấp chương trình
-   - Ví dụ: Thêm tính năng mới hoặc sửa lỗi sau khi phát hiện.
+6. **Maintenance**: Update, fix bugs and upgrade the program
+   - Example: Add new features or fix bugs after discovery.
 
-## 🧑‍🏫 Bài 2: Cơ bản về máy tính, hệ điều hành và mạng máy tính
+## 🧑‍🏫 Lesson 2: Computer Basics, Operating Systems and Computer Networks
 
-### Kiến trúc máy tính cơ bản
+### Basic Computer Architecture
 
 ```text
-Máy tính
+Computer
 |
-|-- Phần cứng
-|   |-- CPU (Đơn vị xử lý trung tâm)
-|   |   |-- ALU (Đơn vị tính toán số học)
-|   |   |-- CU (Đơn vị điều khiển)
-|   |   |-- Thanh ghi
-|   |   |-- Bộ nhớ đệm (Cache)
+|-- Hardware
+|   |-- CPU (Central Processing Unit)
+|   |   |-- ALU (Arithmetic Logic Unit)
+|   |   |-- CU (Control Unit)
+|   |   |-- Registers
+|   |   |-- Cache
 |   |
-|   |-- Bộ nhớ
-|   |   |-- RAM (Bộ nhớ truy cập ngẫu nhiên)
-|   |   |-- ROM (Bộ nhớ chỉ đọc)
+|   |-- Memory
+|   |   |-- RAM (Random Access Memory)
+|   |   |-- ROM (Read-Only Memory)
 |   |
-|   |-- Thiết bị lưu trữ
-|   |   |-- Ổ cứng HDD
-|   |   |-- Ổ cứng SSD
-|   |   |-- USB/Thiết bị lưu trữ di động
+|   |-- Storage Devices
+|   |   |-- HDD Hard Drive
+|   |   |-- SSD Solid State Drive
+|   |   |-- USB/Portable Storage
 |   |
-|   |-- Thiết bị vào/ra
-|       |-- Thiết bị nhập
-|       |   |-- Bàn phím
-|       |   |-- Chuột
-|       |   |-- Máy quét
+|   |-- Input/Output Devices
+|       |-- Input Devices
+|       |   |-- Keyboard
+|       |   |-- Mouse
+|       |   |-- Scanner
 |       |   |-- Microphone
 |       |
-|       |-- Thiết bị xuất
-|           |-- Màn hình
-|           |-- Máy in
-|           |-- Loa
+|       |-- Output Devices
+|           |-- Monitor
+|           |-- Printer
+|           |-- Speakers
 |
-|-- Phần mềm
-    |-- Hệ điều hành
-    |-- Phần mềm ứng dụng
+|-- Software
+    |-- Operating System
+    |-- Application Software
 ```
 
-1. **Phần cứng (Hardware)**:
+1. **Hardware**:
 
-   - **CPU (Central Processing Unit)**: Đơn vị xử lý trung tâm - "bộ não" của máy tính
-   - **RAM (Random Access Memory)**: Bộ nhớ truy cập ngẫu nhiên - lưu trữ tạm thời
-   - **ROM (Read-Only Memory)**: Bộ nhớ chỉ đọc - lưu trữ firmware
-   - **Thiết bị lưu trữ**: HDD, SSD - lưu trữ dài hạn
-   - **Thiết bị vào/ra**: Bàn phím, chuột, màn hình, loa
+   - **CPU (Central Processing Unit)**: Central processing unit - the "brain" of the computer
+   - **RAM (Random Access Memory)**: Temporary storage
+   - **ROM (Read-Only Memory)**: Stores firmware
+   - **Storage Devices**: HDD, SSD - long-term storage
+   - **Input/Output Devices**: Keyboard, mouse, monitor, speakers
 
-2. **Đơn vị đo thông tin**:
-   - Bit: Đơn vị nhỏ nhất (0 hoặc 1)
+2. **Information Units**:
+   - Bit: Smallest unit (0 or 1)
    - Byte: 8 bits
    - KB (Kilobyte): 1,024 bytes
    - MB (Megabyte): 1,024 KB
    - GB (Gigabyte): 1,024 MB
    - TB (Terabyte): 1,024 GB
 
-### Hệ điều hành (Operating System)
+### Operating System
 
-Hệ điều hành là phần mềm quản lý phần cứng và phần mềm của máy tính, cung cấp giao diện cho người dùng và các ứng dụng.
+An operating system is software that manages computer hardware and software, providing an interface for users and applications.
 
 ```text
-Hệ điều hành
+Operating System
 |
-|-- Kernel (Nhân)
-|   |-- Quản lý quy trình
-|   |-- Quản lý bộ nhớ
-|   |-- Driver thiết bị
-|   |-- Bảo mật
-|   |-- Stack mạng
+|-- Kernel
+|   |-- Process Management
+|   |-- Memory Management
+|   |-- Device Drivers
+|   |-- Security
+|   |-- Network Stack
 |
-|-- Shell (Vỏ)
-|   |-- Giao diện dòng lệnh
-|   |-- Trình thông dịch script
+|-- Shell
+|   |-- Command Line Interface
+|   |-- Script Interpreter
 |
-|-- Hệ thống tập tin
-|   |-- Cấu trúc thư mục/file
-|   |-- Quyền truy cập
-|   |-- Quản lý không gian lưu trữ
+|-- File System
+|   |-- Directory/File Structure
+|   |-- Access Permissions
+|   |-- Storage Space Management
 |
-|-- Giao diện đồ họa
+|-- Graphical Interface
 |
-|-- Phân loại hệ điều hành:
+|-- Operating System Categories:
     |-- Windows
     |-- Linux
     |-- macOS
@@ -322,64 +322,64 @@ Hệ điều hành
     |-- iOS
 ```
 
-1. **Chức năng của hệ điều hành**:
+1. **Operating System Functions**:
 
-   - Quản lý phần cứng và phần mềm
-   - Quản lý quy trình và tài nguyên
-   - Cung cấp giao diện người dùng
-   - Quản lý file và bảo mật
+   - Manage hardware and software
+   - Manage processes and resources
+   - Provide user interface
+   - File management and security
 
-2. **Các hệ điều hành phổ biến**:
+2. **Common Operating Systems**:
 
-   - **Windows**: Phổ biến trong môi trường người dùng cá nhân và doanh nghiệp
-   - **macOS**: Hệ điều hành của Apple dành cho máy tính Mac
-   - **Linux**: Hệ điều hành mã nguồn mở, phổ biến cho máy chủ và developer
-   - **Android**: Cho thiết bị di động, dựa trên Linux kernel
-   - **iOS**: Hệ điều hành cho thiết bị di động của Apple
+   - **Windows**: Popular in personal and enterprise environments
+   - **macOS**: Apple's operating system for Mac computers
+   - **Linux**: Open source operating system, popular for servers and developers
+   - **Android**: For mobile devices, based on Linux kernel
+   - **iOS**: Operating system for Apple mobile devices
 
-3. **Giao diện dòng lệnh (Command Line Interface)**:
+3. **Command Line Interface**:
    - **Windows**: Command Prompt, PowerShell
    - **macOS/Linux**: Terminal, Bash, Zsh
 
-### Mạng máy tính
+### Computer Networks
 
-Mạng máy tính là tập hợp các thiết bị kết nối với nhau để chia sẻ tài nguyên và thông tin. Như vậy, internet thực chất là một mạng máy tính kết nối hàng tỷ thiết bị trên toàn cầu. Hoặc khi bạn kết nối 2 máy tính với nhau để chia sẻ dữ liệu, bạn đã tạo ra một mạng máy tính nhỏ.
+A computer network is a collection of connected devices to share resources and information. Thus, the internet is essentially a computer network connecting billions of devices worldwide. Or when you connect 2 computers together to share data, you've created a small computer network.
 
 ```text
-Mạng máy tính
+Computer Network
 |
-|-- Mô hình mạng
-|   |-- Mô hình OSI - 7 tầng
-|   |   |-- 1. Physical (Vật lý)
-|   |   |-- 2. Data Link (Liên kết dữ liệu)
-|   |   |-- 3. Network (Mạng)
-|   |   |-- 4. Transport (Giao vận)
-|   |   |-- 5. Session (Phiên)
-|   |   |-- 6. Presentation (Trình diễn)
-|   |   |-- 7. Application (Ứng dụng)
+|-- Network Models
+|   |-- OSI Model - 7 Layers
+|   |   |-- 1. Physical
+|   |   |-- 2. Data Link
+|   |   |-- 3. Network
+|   |   |-- 4. Transport
+|   |   |-- 5. Session
+|   |   |-- 6. Presentation
+|   |   |-- 7. Application
 |   |
-|   |-- Mô hình TCP/IP - 4 tầng
-|       |-- 1. Link Layer (Tầng liên kết)
-|       |-- 2. Internet Layer (Tầng Internet)
-|       |-- 3. Transport Layer (Tầng giao vận)
-|       |-- 4. Application Layer (Tầng ứng dụng)
+|   |-- TCP/IP Model - 4 Layers
+|       |-- 1. Link Layer
+|       |-- 2. Internet Layer
+|       |-- 3. Transport Layer
+|       |-- 4. Application Layer
 |
-|-- Thành phần mạng
+|-- Network Components
 |   |-- Router
 |   |-- Switch
 |   |-- Hub
 |   |-- Modem
-|   |-- Card mạng
-|   |-- Cáp mạng
+|   |-- Network Card
+|   |-- Network Cable
 |
-|-- Loại mạng
-|   |-- LAN (Mạng cục bộ)
-|   |-- WAN (Mạng diện rộng)
-|   |-- MAN (Mạng đô thị)
-|   |-- PAN (Mạng cá nhân)
-|   |-- Internet (Mạng toàn cầu)
+|-- Network Types
+|   |-- LAN (Local Area Network)
+|   |-- WAN (Wide Area Network)
+|   |-- MAN (Metropolitan Area Network)
+|   |-- PAN (Personal Area Network)
+|   |-- Internet (Global Network)
 |
-|-- Giao thức
+|-- Protocols
     |-- IP (Internet Protocol)
     |-- TCP (Transmission Control Protocol)
     |-- UDP (User Datagram Protocol)
@@ -388,83 +388,83 @@ Mạng máy tính
     |-- DHCP (Dynamic Host Configuration Protocol)
 ```
 
-1. **Mô hình OSI và TCP/IP**:
+1. **OSI and TCP/IP Models**:
 
-   - **Mô hình OSI**: 7 tầng (Physical, Data Link, Network, Transport, Session, Presentation, Application)
-   - **Mô hình TCP/IP**: 4 tầng (Link, Internet, Transport, Application)
+   - **OSI Model**: 7 layers (Physical, Data Link, Network, Transport, Session, Presentation, Application)
+   - **TCP/IP Model**: 4 layers (Link, Internet, Transport, Application)
 
-2. **Các khái niệm cơ bản**:
+2. **Basic Concepts**:
 
-   - **IP (Internet Protocol)**: Định danh cho thiết bị trong mạng
-   - **DNS (Domain Name System)**: Chuyển đổi tên miền thành địa chỉ IP
-   - **HTTP/HTTPS**: Giao thức truyền tải siêu văn bản
-   - **Client-Server**: Mô hình kết nối phổ biến trong mạng
+   - **IP (Internet Protocol)**: Identifier for devices in network
+   - **DNS (Domain Name System)**: Converts domain names to IP addresses
+   - **HTTP/HTTPS**: Hypertext transfer protocol
+   - **Client-Server**: Common connection model in networks
 
-3. **Loại mạng**:
-   - **LAN (Local Area Network)**: Mạng cục bộ trong phạm vi nhỏ
-   - **WAN (Wide Area Network)**: Mạng diện rộng kết nối nhiều LAN
-   - **Internet**: Mạng toàn cầu kết nối hàng tỷ thiết bị
+3. **Network Types**:
+   - **LAN (Local Area Network)**: Local network in small scope
+   - **WAN (Wide Area Network)**: Wide area network connecting multiple LANs
+   - **Internet**: Global network connecting billions of devices
 
-## 🧑‍🏫 Bài 3: Công cụ lập trình và môi trường phát triển
+## 🧑‍🏫 Lesson 3: Programming Tools and Development Environment
 
-### Môi trường phát triển tích hợp (IDE - Integrated Development Environment)
+### Integrated Development Environment (IDE)
 
-1. **Các IDE phổ biến**:
+1. **Popular IDEs**:
 
-   - **Visual Studio Code**: Thực tế đây là một Code Editor nhẹ nhưng rất mạnh mẽ, đa nền tảng, hỗ trợ nhiều ngôn ngữ, và có thể mở rộng bằng các tiện ích mở rộng (extensions)
-   - **IntelliJ IDEA**: Mạnh mẽ cho JAVA, Kotlin, và các ngôn ngữ JVM khác
-   - **Eclipse**: Phổ biến cho JAVA, có nhiều plug-in
-   - **Visual Studio**: Mạnh mẽ cho C#, .NET và phát triển Windows
-   - **PyCharm**: Chuyên biệt cho Python
+   - **Visual Studio Code**: Actually a lightweight but very powerful code editor, cross-platform, supports many languages, and can be extended with extensions
+   - **IntelliJ IDEA**: Powerful for JAVA, Kotlin, and other JVM languages
+   - **Eclipse**: Popular for JAVA, has many plugins
+   - **Visual Studio**: Powerful for C#, .NET and Windows development
+   - **PyCharm**: Specialized for Python
 
-2. **Tính năng chính của IDE**:
-   - Soạn thảo mã (Code Editor) với tính năng syntax highlighting (tô màu cú pháp)
-   - Trình gỡ lỗi (Debugger)
-   - Hoàn thành mã (Code Completion)
-   - Tích hợp với hệ thống quản lý phiên bản
-   - Công cụ build và run
+2. **Main IDE Features**:
+   - Code Editor with syntax highlighting
+   - Debugger
+   - Code Completion
+   - Integration with version control systems
+   - Build and run tools
 
-### Trình biên dịch và thông dịch (Compilers & Interpreters)
+### Compilers & Interpreters
 
-1. **Trình biên dịch (Compiler)**:
+1. **Compiler**:
 
-   - Chuyển đổi toàn bộ mã nguồn thành mã máy trước khi thực thi
-   - Ví dụ: GCC cho C/C++, javac cho JAVA
+   - Converts entire source code to machine code before execution
+   - Examples: GCC for C/C++, javac for JAVA
 
-2. **Trình thông dịch (Interpreter)**:
-   - Đọc và thực thi mã nguồn trực tiếp, từng dòng một
-   - Ví dụ: Python interpreter, Node.js cho JavaScript
+2. **Interpreter**:
+   - Reads and executes source code directly, line by line
+   - Examples: Python interpreter, Node.js for JavaScript
 
-### Hệ thống quản lý phiên bản (Version Control System)
+### Version Control System
 
-1. **Chức năng**:
+1. **Functions**:
 
-   - Theo dõi thay đổi trong mã nguồn
-   - Phối hợp làm việc nhóm
-   - Quay lại phiên bản trước khi cần
+   - Track changes in source code
+   - Coordinate teamwork
+   - Revert to previous versions when needed
 
-2. **Các hệ thống phổ biến**:
+2. **Common Systems**:
 
-   - **Git**: Phân tán, phổ biến nhất hiện nay
-   - **SVN (Subversion)**: Tập trung, cũ hơn
-   - **Mercurial**: Phân tán, tương tự Git
+   - **Git**: Distributed, most popular currently
+   - **SVN (Subversion)**: Centralized, older
+   - **Mercurial**: Distributed, similar to Git
 
-3. **Nền tảng lưu trữ mã nguồn**:
-   - **GitHub**: Phổ biến nhất, hỗ trợ nhiều tính năng cộng tác
-   - **GitLab**: Có phiên bản tự host
-   - **Bitbucket**: Tích hợp tốt với sản phẩm Atlassian khác
+3. **Source Code Hosting Platforms**:
+   - **GitHub**: Most popular, supports many collaboration features
+   - **GitLab**: Has self-hosted version
+   - **Bitbucket**: Integrates well with other Atlassian products
 
-### Công cụ hỗ trợ phát triển khác
+### Other Development Support Tools
 
 1. **Package Manager**:
 
-   - **npm** cho JavaScript
-   - **pip** cho Python
-   - **Maven/Gradle** cho JAVA
-   - **Composer** cho PHP
-   - **NuGet** cho .NET
+   - **npm** for JavaScript
+   - **pip** for Python
+   - **Maven/Gradle** for JAVA
+   - **Composer** for PHP
+   - **NuGet** for .NET
 
-2. **Công cụ kiểm thử**:
+2. **Testing Tools**:
 
    - Unit testing frameworks
    - Integration testing tools
@@ -476,86 +476,86 @@ Mạng máy tính
    - **GitLab CI/CD**
    - **Travis CI**
 
-## 🧑‍🏫 Bài 4: Tổ chức mã nguồn và quản lý dự án lập trình
+## 🧑‍🏫 Lesson 4: Source Code Organization and Programming Project Management
 
-### Cấu trúc dự án
+### Project Structure
 
-1. **Tổ chức thư mục**: (ví dụ, có thể khác tùy theo ngôn ngữ và framework)
+1. **Directory Organization**: (example, may vary by language and framework)
 
    ```plaintext
-   ├── src/        # Code chính
-   ├── build/      # Tập tin biên dịch (nếu có)
-   ├── tests/      # Tập tin kiểm thử
-   ├── docs/       # Tài liệu
-   ├── .gitignore  # Tập tin để loại trừ các file không cần thiết khỏi git
-   ├── README.md   # Tài liệu giới thiệu dự án
-   ├── LICENSE     # Giấy phép sử dụng
-   └── .env        # Tập tin cấu hình môi trường (nếu có)
+   ├── src/        # Main code
+   ├── build/      # Compiled files (if any)
+   ├── tests/      # Test files
+   ├── docs/       # Documentation
+   ├── .gitignore  # File to exclude unnecessary files from git
+   ├── README.md   # Project introduction documentation
+   ├── LICENSE     # License
+   └── .env        # Environment configuration file (if any)
    ```
 
-2. **Tách biệt mối quan tâm (Separation of Concerns)**:
+2. **Separation of Concerns**:
 
-   - Mỗi file/module chỉ giải quyết một vấn đề
-   - Chia dự án thành các lớp logic (UI, business logic, data access)
+   - Each file/module solves only one problem
+   - Divide project into logical layers (UI, business logic, data access)
 
-### Quy ước đặt tên và coding style
+### Naming Conventions and Coding Style
 
-1. **Các quy ước đặt tên**:
+1. **Naming Conventions**:
 
-   - **camelCase**: Thường dùng cho biến và hàm (JavaScript, JAVA)
-   - **PascalCase**: Thường dùng cho class (JAVA, C#)
-   - **snake_case**: Thường dùng cho biến (Python)
-   - **kebab-case**: Thường dùng cho folder và URL
+   - **camelCase**: Commonly used for variables and functions (JavaScript, JAVA)
+   - **PascalCase**: Commonly used for classes (JAVA, C#)
+   - **snake_case**: Commonly used for variables (Python)
+   - **kebab-case**: Commonly used for folders and URLs
 
 2. **Coding Style Guides**:
    - Google Style Guides
-   - PEP 8 cho Python
+   - PEP 8 for Python
    - Airbnb JavaScript Style Guide
-   - PSR cho PHP
+   - PSR for PHP
 
-### Quản lý dự án lập trình
+### Programming Project Management
 
-1. **Phương pháp phát triển phần mềm**:
+1. **Software Development Methodologies**:
 
-   - **Agile**: Linh hoạt, thích ứng với thay đổi
-   - **Scrum**: Sprint ngắn (2-4 tuần), daily meetings
-   - **Kanban**: Quản lý luồng công việc liên tục
-   - **Waterfall**: Tuần tự, ít thay đổi khi đã xác định yêu cầu
+   - **Agile**: Flexible, adapt to changes
+   - **Scrum**: Short sprints (2-4 weeks), daily meetings
+   - **Kanban**: Continuous workflow management
+   - **Waterfall**: Sequential, few changes once requirements confirmed
 
-2. **Công cụ quản lý dự án**:
+2. **Project Management Tools**:
 
-   - **Jira**: Quản lý task, bug, và sprint
-   - **Trello**: Bảng Kanban đơn giản
-   - **Asana**: Quản lý task và timeline
-   - **GitHub Projects/Issues**: Tích hợp với mã nguồn
+   - **Jira**: Manage tasks, bugs, and sprints
+   - **Trello**: Simple Kanban board
+   - **Asana**: Task and timeline management
+   - **GitHub Projects/Issues**: Integrated with source code
 
-3. **Tài liệu hóa (Documentation)**:
-   - **README**: Giới thiệu dự án, hướng dẫn cài đặt và sử dụng
+3. **Documentation**:
+   - **README**: Project introduction, installation and usage guide
    - **API Documentation**: Swagger, OpenAPI
-   - **Code Comments**: Giải thích các phần phức tạp (nên dùng cách code rõ ràng sao cho tự các dòng code có thể giải thích được chính nó thay vì phải dùng comment)
-   - **Wiki**: Tài liệu chi tiết và hướng dẫn sử dụng
+   - **Code Comments**: Explain complex parts (should use clear code that can explain itself instead of relying on comments)
+   - **Wiki**: Detailed documentation and usage guide
 
-### Bảo mật và chất lượng mã nguồn
+### Security and Code Quality
 
-1. **Kiểm thử**:
+1. **Testing**:
 
-   - **Unit Testing**: Kiểm tra từng đơn vị nhỏ của mã
-   - **Integration Testing**: Kiểm tra sự tương tác giữa các thành phần
-   - **E2E Testing**: Kiểm tra toàn bộ quy trình
+   - **Unit Testing**: Test individual small code units
+   - **Integration Testing**: Test interaction between components
+   - **E2E Testing**: Test entire process
 
 2. **Code Review**:
 
-   - Quy trình đánh giá mã nguồn trước khi merge
-   - Phát hiện lỗi, cải thiện chất lượng mã
-   - Chia sẻ kiến thức trong team
+   - Code review process before merge
+   - Discover bugs, improve code quality
+   - Share knowledge in team
 
-3. **Bảo mật cơ bản**:
-   - Không lưu thông tin nhạy cảm trong mã nguồn
-   - Sử dụng environment variables cho thông tin cấu hình
-   - Tránh các lỗi bảo mật phổ biến (SQL Injection, XSS)
+3. **Basic Security**:
+   - Don't store sensitive information in source code
+   - Use environment variables for configuration information
+   - Avoid common security vulnerabilities (SQL Injection, XSS)
 
 ---
 
-Như vậy, bạn đã được trang bị cái nhìn tổng quan về thế giới lập trình: từ các ngôn ngữ và khái niệm cơ bản, kiến trúc máy tính và hệ điều hành, đến mạng máy tính, công cụ phát triển, và phương pháp quản lý dự án. Đây chính là nền móng vững chắc để bạn tiếp tục hành trình học tập và phát triển kỹ năng lập trình của mình.
+Thus, you have been equipped with an overview of the programming world: from languages and basic concepts, computer architecture and operating systems, to computer networks, development tools, and project management methods. This is the solid foundation to continue your learning journey and develop your programming skills.
 
-Tiếp theo chúng ta sẽ chính thức bắt đầu với ngôn ngữ lập trình JAVA, một trong những ngôn ngữ phổ biến và mạnh mẽ nhất hiện nay. Hãy cùng khám phá!
+Next we will officially start with start setting up the environment for learning.

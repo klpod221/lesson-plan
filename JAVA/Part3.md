@@ -1,249 +1,245 @@
 ---
 prev:
-  text: '📊 Mảng, Chuỗi và Hàm'
+  text: '📊 Arrays, Strings and Functions'
   link: '/JAVA/Part2'
 next:
-  text: '📁 File I/O và Collections'
+  text: '📁 File I/O and Collections'
   link: '/JAVA/Part4'
 ---
 
-# 📘 PHẦN 3: LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG (OOP)
+# 📘 PART 3: OBJECT-ORIENTED PROGRAMMING (OOP)
 
-## 🎯 Mục tiêu tổng quát
+## 🎯 General Objectives
 
-- Hiểu và áp dụng các nguyên lý của lập trình hướng đối tượng trong JAVA.
-- Làm việc với các lớp, đối tượng, kế thừa, đóng gói, và đa hình.
+- Understand and apply Object-Oriented Programming principles in Java.
+- Work with classes, objects, inheritance, encapsulation, and polymorphism.
 
-## 🧑‍🏫 Bài 1: Giới thiệu về OOP
+## 🧑‍🏫 Lesson 1: Introduction to OOP
 
-Lập trình hướng đối tượng (Object-Oriented Programming - OOP) là một mô hình lập trình phổ biến dựa trên khái niệm "đối tượng", giúp tổ chức mã nguồn một cách hiệu quả và trực quan. Mô hình này không chỉ thể hiện ở trong Java mà còn có mặt trong nhiều ngôn ngữ lập trình khác như C++, Python, C#, Ruby, v.v. Vì vậy, việc nắm vững OOP là rất quan trọng cho bất kỳ lập trình viên nào.
+Object-Oriented Programming (OOP) is a popular programming paradigm based on the concept of "objects", helping to organize source code efficiently and intuitively. This model is not only present in Java but also in many other programming languages like C++, Python, C#, Ruby, etc. Therefore, mastering OOP is crucial for any programmer.
 
-### Các khái niệm cơ bản trong OOP
+### Basic Concepts in OOP
 
-#### Lớp (Class)
+#### Class
 
-- Là bản thiết kế hoặc khuôn mẫu cho các đối tượng
-- Định nghĩa các thuộc tính (dữ liệu) và phương thức (hành vi)
-- Ví dụ: Lớp `Car` có thuộc tính như `color`, `brand`, `model` và phương thức như `start()`, `stop()`, `accelerate()`
+- Is a blueprint or template for objects
+- Defines attributes (data) and methods (behavior)
+- Example: Class `Car` has attributes like `color`, `brand`, `model` and methods like `start()`, `stop()`, `accelerate()`
 
 ```java
 public class Car {
-    // Thuộc tính
+    // Attributes
     private String color;
     private String brand;
     private String model;
 
-    // Phương thức
+    // Methods
     public void start() {
-        System.out.println("Xe đang khởi động");
+        System.out.println("Car is starting");
     }
 
     public void stop() {
-        System.out.println("Xe đã dừng");
+        System.out.println("Car has stopped");
     }
 }
 ```
 
-#### Đối tượng (Object)
+#### Object
 
-- Là thể hiện cụ thể của một lớp
-- Mỗi đối tượng có trạng thái (giá trị thuộc tính) và hành vi (phương thức) riêng
-- Ví dụ: `myCar` là một đối tượng của lớp `Car`
+- Is a specific instance of a class
+- Each object has its own state (attribute values) and behavior (methods)
+- Example: `myCar` is an object of class `Car`
 
 ```java
-Car myCar = new Car();  // Tạo đối tượng từ lớp Car
-myCar.start();          // Gọi phương thức của đối tượng
+Car myCar = new Car();  // Create object from Car class
+myCar.start();          // Call object's method
 ```
 
-#### Bốn trụ cột của OOP (Các bạn sẽ được tìm hiểu chi tiết qua các ví dụ trong phần bên dưới)
+#### Four Pillars of OOP (You will learn in detail through examples below)
 
-- **Đóng gói (Encapsulation):**
+- **Encapsulation:**
 
-  - Đóng gói dữ liệu và phương thức xử lý dữ liệu vào một đơn vị
-  - Sử dụng các mức độ truy cập để kiểm soát việc truy cập dữ liệu
-  - Bảo vệ dữ liệu bằng cách sử dụng getter và setter
+  - Bundles data and methods that operate on that data into a single unit
+  - Uses access modifiers to control data access
+  - Protects data by using getters and setters
 
     ```java
     public class BankAccount {
-            private double balance;  // Thuộc tính private - bảo vệ dữ liệu
+            private double balance;  // Private attribute - protects data
 
             public double getBalance() {
-                return balance;     // Getter - cho phép đọc dữ liệu
+                return balance;     // Getter - allows reading data
             }
 
             public void deposit(double amount) {
-                if (amount > 0) {   // Kiểm soát dữ liệu đầu vào
+                if (amount > 0) {   // Control input data
                     balance += amount;
                 }
             }
     }
     ```
 
-- **Kế thừa (Inheritance):**
+- **Inheritance:**
 
-  - Cho phép tạo lớp mới kế thừa thuộc tính và phương thức từ lớp đã có
-  - Tái sử dụng mã và tạo mối quan hệ phân cấp giữa các lớp
-  - Sử dụng từ khóa `extends` để kế thừa và `@Override` để ghi đè phương thức
+  - Allows creating a new class that inherits attributes and methods from an existing class
+  - Reuses code and creates hierarchical relationships between classes
+  - Uses `extends` keyword to inherit and `@Override` to override methods
 
     ```java
     public class ElectricCar extends Car {
             private int batteryCapacity;
 
             public void charge() {
-                System.out.println("Đang sạc pin...");
+                System.out.println("Charging battery...");
             }
 
             @Override
             public void start() {
-                System.out.println("Xe điện khởi động không một tiếng động");
+                System.out.println("Electric car starts silently");
             }
     }
     ```
 
-- **Đa hình (Polymorphism):**
+- **Polymorphism:**
 
-  - Cho phép đối tượng có nhiều "hình thái" khác nhau
-  - Có thể xử lý đối tượng của lớp con như đối tượng của lớp cha
-  - Bao gồm đa hình thời gian biên dịch (nạp chồng phương thức) và đa hình thời gian chạy (ghi đè phương thức)
+  - Allows objects to take on many "forms"
+  - Can treat objects of a subclass as objects of the superclass
+  - Includes compile-time polymorphism (method overloading) and runtime polymorphism (method overriding)
 
     ```java
-    // Đa hình thời gian chạy (Runtime polymorphism)
-    Car vehicle = new ElectricCar();  // Biến cha tham chiếu đến đối tượng con
+    // Runtime polymorphism
+    Car vehicle = new ElectricCar();  // Parent variable references child object
 
-    vehicle.start();  // Gọi phương thức đã ghi đè của ElectricCar
+    vehicle.start();  // Calls overridden method of ElectricCar
 
-    // Đa hình thời gian biên dịch (Compile-time polymorphism)
+    // Compile-time polymorphism
     public class Calculator {
             public int add(int a, int b) { return a + b; }
-            public double add(double a, double b) { return a + b; }  // Nạp chồng phương thức
+            public double add(double a, double b) { return a + b; }  // Method overloading
     }
     ```
 
-- **Trừu tượng (Abstraction):**
+- **Abstraction:**
 
-  - Tập trung vào các đặc điểm quan trọng, ẩn đi chi tiết phức tạp
-  - Sử dụng lớp trừu tượng (abstract class) và giao diện (interface)
-  - Giúp giảm độ phức tạp và tăng khả năng tái sử dụng
+  - Focuses on essential features, hiding complex details
+  - Uses abstract classes and interfaces
+  - Helps reduce complexity and increase reusability
 
     ```java
     abstract class Vehicle {
-            abstract void start();  // Phương thức trừu tượng, không có thân hàm
+            abstract void start();  // Abstract method, no body
 
-            public void stop() {    // Phương thức cụ thể
-                System.out.println("Phương tiện đã dừng");
+            public void stop() {    // Concrete method
+                System.out.println("Vehicle has stopped");
             }
     }
 
     interface Drivable {
-            void drive();           // Tất cả phương thức trong interface đều là trừu tượng
+            void drive();           // All methods in interface are abstract
     }
     ```
 
-### Tại sao OOP quan trọng?
+### Why is OOP Important?
 
-1. **Mô hình hóa thế giới thực**:
+1. **Real-world Modeling**:
+   - OOP allows representing real-world entities intuitively
+   - Concepts like classes and objects map easily to real entities
 
-   - OOP cho phép biểu diễn các thực thể trong thế giới thực một cách trực quan
-   - Các khái niệm như lớp và đối tượng dễ dàng ánh xạ với các thực thể thực tế
+2. **Efficient Code Organization**:
+   - Source code is organized into small, manageable units
+   - Makes dividing work for development teams easier
 
-2. **Tổ chức mã nguồn hiệu quả**:
+3. **Code Reusability**:
+   - Through inheritance and encapsulation, code can be reused
+   - Reduces code duplication, saving time and effort
 
-   - Mã nguồn được tổ chức thành các đơn vị nhỏ, dễ quản lý
-   - Giúp phân chia công việc cho nhóm phát triển dễ dàng hơn
+4. **Maintainability and Extensibility**:
+   - Easy to update or extend classes without affecting the rest
+   - Internal implementation can be changed without affecting user interface
 
-3. **Tái sử dụng mã**:
+5. **Security and Stability**:
+   - Encapsulation helps protect data and ensure integrity
+   - Reduces impact of errors and increases application stability
 
-   - Thông qua kế thừa và đóng gói, mã có thể được tái sử dụng
-   - Giảm thiểu lặp lại mã, tiết kiệm thời gian và công sức
+### Comparing OOP with Procedural Programming
 
-4. **Dễ bảo trì và mở rộng**:
+| Criteria | Object-Oriented Programming | Procedural Programming |
+| -------- | --------------------------- | ---------------------- |
+| Organization | Based on objects | Based on functions and procedures |
+| Modularity | High | Low |
+| Code Reuse | Easy through inheritance | Difficult, often requires copying code |
+| Data Security | High thanks to encapsulation | Low, data often accessed globally |
+| Complexity | Higher initially, more complex design | Simpler for small applications |
+| Extensibility | Easy to extend | Hard to extend when application grows |
 
-   - Dễ dàng cập nhật hoặc mở rộng các lớp mà không ảnh hưởng đến phần còn lại
-   - Thay đổi được cách triển khai nội bộ mà không ảnh hưởng đến giao diện người dùng
+## 🧑‍🏫 Lesson 2: Classes and Objects
 
-5. **Bảo mật và ổn định**:
-   - Đóng gói giúp bảo vệ dữ liệu và đảm bảo tính toàn vẹn
-   - Giảm thiểu ảnh hưởng của lỗi và tăng tính ổn định của ứng dụng
-
-### So sánh OOP với lập trình thủ tục
-
-| Tiêu chí        | Lập trình hướng đối tượng              | Lập trình thủ tục                           |
-| --------------- | -------------------------------------- | ------------------------------------------- |
-| Tổ chức         | Dựa trên các đối tượng                 | Dựa trên các hàm và quy trình               |
-| Tính Module     | Cao                                    | Thấp                                        |
-| Tái sử dụng mã  | Dễ dàng thông qua kế thừa              | Khó khăn, thường phải sao chép mã           |
-| Bảo mật dữ liệu | Cao nhờ đóng gói                       | Thấp, dữ liệu thường được truy cập toàn cục |
-| Phức tạp        | Ban đầu cao hơn, thiết kế phức tạp hơn | Đơn giản hơn cho ứng dụng nhỏ               |
-| Mở rộng         | Dễ dàng mở rộng                        | Khó mở rộng khi ứng dụng lớn                |
-
-## 🧑‍🏫 Bài 2: Lớp và Đối tượng
-
-### Khai báo lớp và tạo đối tượng
+### Declaring Classes and Creating Objects
 
 ```java
 // Person.java
-// Khai báo lớp Person
+// Declare Person class
 public class Person {
-    // Thuộc tính (attributes)
+    // Attributes
     String name;
     int age;
     String address;
 
-    // Phương thức khởi tạo không tham số (default constructor)
+    // No-argument constructor (default constructor)
     public Person() {
-        name = "Chưa xác định";
+        name = "Unknown";
         age = 0;
-        address = "Chưa xác định";
+        address = "Unknown";
     }
 
-    // Phương thức khởi tạo có tham số (parameterized constructor)
+    // Parameterized constructor
     public Person(String name, int age, String address) {
         this.name = name;
         this.age = age;
         this.address = address;
     }
 
-    // Phương thức (methods)
+    // Methods
     public void displayInfo() {
-        System.out.println("Tên: " + name);
-        System.out.println("Tuổi: " + age);
-        System.out.println("Địa chỉ: " + address);
+        System.out.println("Name: " + name);
+        System.out.println("Age: " + age);
+        System.out.println("Address: " + address);
     }
 }
 ```
 
-### Tạo và sử dụng đối tượng
+### Creating and Using Objects
 
 ```java
 // PersonDemo.java
 public class PersonDemo {
     public static void main(String[] args) {
-        // Tạo đối tượng sử dụng constructor không tham số
+        // Create object using no-argument constructor
         Person person1 = new Person();
-        System.out.println("Thông tin person1:");
+        System.out.println("Info person1:");
         person1.displayInfo();
 
-        // Tạo đối tượng sử dụng constructor có tham số
-        Person person2 = new Person("Nguyễn Văn A", 30, "Hà Nội");
-        System.out.println("\nThông tin person2:");
+        // Create object using parameterized constructor
+        Person person2 = new Person("Nguyen Van A", 30, "Hanoi");
+        System.out.println("\nInfo person2:");
         person2.displayInfo();
 
-        // Thay đổi thuộc tính của đối tượng
-        person1.name = "Trần Thị B";
+        // Change object attributes
+        person1.name = "Tran Thi B";
         person1.age = 25;
-        person1.address = "Hồ Chí Minh";
+        person1.address = "Ho Chi Minh";
 
-        System.out.println("\nThông tin person1 sau khi cập nhật:");
+        System.out.println("\nInfo person1 after update:");
         person1.displayInfo();
     }
 }
 ```
 
-### Ví dụ thực tế - Lớp quản lý sản phẩm
+### Real-world Example - Product Management Class
 
 ```java
 public class Product {
-    // Thuộc tính
+    // Attributes
     private String id;
     private String name;
     private double price;
@@ -257,7 +253,7 @@ public class Product {
         this.quantity = quantity;
     }
 
-    // Các phương thức
+    // Methods
     public double calculateTotal() {
         return price * quantity;
     }
@@ -275,48 +271,48 @@ public class Product {
     }
 
     public void displayProductInfo() {
-        System.out.println("Mã sản phẩm: " + id);
-        System.out.println("Tên sản phẩm: " + name);
-        System.out.println("Giá: " + price);
-        System.out.println("Số lượng: " + quantity);
-        System.out.println("Tổng giá trị: " + calculateTotal());
+        System.out.println("Product ID: " + id);
+        System.out.println("Product Name: " + name);
+        System.out.println("Price: " + price);
+        System.out.println("Quantity: " + quantity);
+        System.out.println("Total Value: " + calculateTotal());
     }
 }
 
 public class ProductDemo {
     public static void main(String[] args) {
-        // Tạo các đối tượng sản phẩm
+        // Create product objects
         Product product1 = new Product("SP001", "Laptop Dell XPS", 25000000, 5);
-        Product product2 = new Product("SP002", "Điện thoại iPhone 13", 20000000, 10);
+        Product product2 = new Product("SP002", "iPhone 13", 20000000, 10);
 
-        // Hiển thị thông tin sản phẩm
-        System.out.println("Thông tin sản phẩm 1:");
+        // Display product info
+        System.out.println("Product 1 Info:");
         product1.displayProductInfo();
 
-        System.out.println("\nThông tin sản phẩm 2:");
+        System.out.println("\nProduct 2 Info:");
         product2.displayProductInfo();
 
-        // Điều chỉnh số lượng
+        // Adjust quantity
         product1.increaseQuantity(3);
         product2.decreaseQuantity(2);
 
-        System.out.println("\nThông tin sau khi cập nhật số lượng:");
-        System.out.println("Sản phẩm 1:");
+        System.out.println("\nInfo after quantity update:");
+        System.out.println("Product 1:");
         product1.displayProductInfo();
 
-        System.out.println("\nSản phẩm 2:");
+        System.out.println("\nProduct 2:");
         product2.displayProductInfo();
     }
 }
 ```
 
-## 🧑‍🏫 Bài 3: Kế thừa
+## 🧑‍🏫 Lesson 3: Inheritance
 
-### Cơ bản về kế thừa
+### Inheritance Basics
 
 ```java
 // Animal.java
-// Lớp cha (parent class)
+// Parent class
 public class Animal {
     protected String name;
     protected int age;
@@ -327,68 +323,68 @@ public class Animal {
     }
 
     public void eat() {
-        System.out.println(name + " đang ăn.");
+        System.out.println(name + " is eating.");
     }
 
     public void sleep() {
-        System.out.println(name + " đang ngủ.");
+        System.out.println(name + " is sleeping.");
     }
 
     public void makeSound() {
-        System.out.println("Âm thanh của động vật");
+        System.out.println("Animal sound");
     }
 }
 
 // Dog.java
-// Lớp con (child class) kế thừa từ lớp Animal
+// Child class inheriting from Animal
 public class Dog extends Animal {
     private String breed;
 
     public Dog(String name, int age, String breed) {
-        super(name, age); // Gọi constructor của lớp cha
+        super(name, age); // Call parent constructor
         this.breed = breed;
     }
 
-    // Ghi đè (override) phương thức makeSound
+    // Override makeSound method
     @Override
     public void makeSound() {
-        System.out.println(name + " sủa: Gâu gâu!");
+        System.out.println(name + " barks: Woof woof!");
     }
 
-    // Thêm phương thức mới
+    // Add new method
     public void fetch() {
-        System.out.println(name + " đang đuổi theo bóng!");
+        System.out.println(name + " is fetching the ball!");
     }
 }
 ```
 
-### Sử dụng kế thừa
+### Using Inheritance
 
 ```java
 // InheritanceDemo.java
 public class InheritanceDemo {
     public static void main(String[] args) {
-        // Tạo đối tượng từ lớp cha
-        Animal animal = new Animal("Động vật", 5);
+        // Create object from parent class
+        Animal animal = new Animal("Animal", 5);
         animal.eat();
         animal.sleep();
         animal.makeSound();
 
         System.out.println("------------------------");
 
-        // Tạo đối tượng từ lớp con
+        // Create object from child class
         Dog myDog = new Dog("Buddy", 3, "Labrador");
-        myDog.eat();        // Được kế thừa từ lớp Animal
-        myDog.sleep();      // Được kế thừa từ lớp Animal
-        myDog.makeSound();  // Được ghi đè trong lớp Dog
-        myDog.fetch();      // Phương thức mới trong lớp Dog
+        myDog.eat();        // Inherited from Animal
+        myDog.sleep();      // Inherited from Animal
+        myDog.makeSound();  // Overridden in Dog
+        myDog.fetch();      // New method in Dog
     }
 }
 ```
 
-### Từ khóa super trong kế thừa
+### Super Keyword in Inheritance
 
-- `super` được sử dụng để gọi constructor của lớp cha
+- `super` is used to call the parent class constructor
 
   ```java
   // Cat.java
@@ -402,127 +398,127 @@ public class InheritanceDemo {
 
       @Override
       public void makeSound() {
-          System.out.println(name + " kêu: Meo meo!");
+          System.out.println(name + " meows: Meow meow!");
       }
 
       @Override
       public void eat() {
-          // Gọi phương thức eat của lớp cha
+          // Call parent eat method
           super.eat();
-          System.out.println(name + " thích ăn cá.");
+          System.out.println(name + " likes eating fish.");
       }
 
       public void scratch() {
-          System.out.println(name + " đang cào đồ vật.");
+          System.out.println(name + " is scratching objects.");
       }
   }
   ```
 
-  ### Ví dụ thực tế - Hệ thống quản lý nhân viên
+### Real-world Example - Employee Management System
 
-  ```java
-  // Lớp Employee (lớp cha)
-  public class Employee {
-      protected String id;
-      protected String name;
-      protected double baseSalary;
+```java
+// Employee class (parent)
+public class Employee {
+    protected String id;
+    protected String name;
+    protected double baseSalary;
 
-      public Employee(String id, String name, double baseSalary) {
-          this.id = id;
-          this.name = name;
-          this.baseSalary = baseSalary;
-      }
+    public Employee(String id, String name, double baseSalary) {
+        this.id = id;
+        this.name = name;
+        this.baseSalary = baseSalary;
+    }
 
-      public double calculateSalary() {
-          return baseSalary;
-      }
+    public double calculateSalary() {
+        return baseSalary;
+    }
 
-      public void displayInfo() {
-          System.out.println("Mã nhân viên: " + id);
-          System.out.println("Tên nhân viên: " + name);
-          System.out.println("Lương cơ bản: " + baseSalary);
-          System.out.println("Tổng lương: " + calculateSalary());
-      }
-  }
+    public void displayInfo() {
+        System.out.println("Employee ID: " + id);
+        System.out.println("Employee Name: " + name);
+        System.out.println("Base Salary: " + baseSalary);
+        System.out.println("Total Salary: " + calculateSalary());
+    }
+}
 
-  // Lớp Manager kế thừa từ Employee
-  public class Manager extends Employee {
-      private double bonusRate;
+// Manager class inherits from Employee
+public class Manager extends Employee {
+    private double bonusRate;
 
-      public Manager(String id, String name, double baseSalary, double bonusRate) {
-          super(id, name, baseSalary);
-          this.bonusRate = bonusRate;
-      }
+    public Manager(String id, String name, double baseSalary, double bonusRate) {
+        super(id, name, baseSalary);
+        this.bonusRate = bonusRate;
+    }
 
-      @Override
-      public double calculateSalary() {
-          return baseSalary + (baseSalary * bonusRate);
-      }
+    @Override
+    public double calculateSalary() {
+        return baseSalary + (baseSalary * bonusRate);
+    }
 
-      @Override
-      public void displayInfo() {
-          super.displayInfo();
-          System.out.println("Tỷ lệ thưởng: " + (bonusRate * 100) + "%");
-      }
-  }
+    @Override
+    public void displayInfo() {
+        super.displayInfo();
+        System.out.println("Bonus Rate: " + (bonusRate * 100) + "%");
+    }
+}
 
-  // Lớp Developer kế thừa từ Employee
-  public class Developer extends Employee {
-      private int overtimeHours;
-      private double hourlyRate;
+// Developer class inherits from Employee
+public class Developer extends Employee {
+    private int overtimeHours;
+    private double hourlyRate;
 
-      public Developer(String id, String name, double baseSalary, int overtimeHours, double hourlyRate) {
-          super(id, name, baseSalary);
-          this.overtimeHours = overtimeHours;
-          this.hourlyRate = hourlyRate;
-      }
+    public Developer(String id, String name, double baseSalary, int overtimeHours, double hourlyRate) {
+        super(id, name, baseSalary);
+        this.overtimeHours = overtimeHours;
+        this.hourlyRate = hourlyRate;
+    }
 
-      @Override
-      public double calculateSalary() {
-          return baseSalary + (overtimeHours * hourlyRate);
-      }
+    @Override
+    public double calculateSalary() {
+        return baseSalary + (overtimeHours * hourlyRate);
+    }
 
-      @Override
-      public void displayInfo() {
-          super.displayInfo();
-          System.out.println("Số giờ làm thêm: " + overtimeHours);
-          System.out.println("Lương theo giờ làm thêm: " + hourlyRate);
-      }
-  }
+    @Override
+    public void displayInfo() {
+        super.displayInfo();
+        System.out.println("Overtime Hours: " + overtimeHours);
+        System.out.println("Overtime Rate: " + hourlyRate);
+    }
+}
 
-  // Demo sử dụng các lớp
-  public class EmployeeDemo {
-      public static void main(String[] args) {
-          // Tạo đối tượng nhân viên thông thường
-          Employee emp = new Employee("E001", "Nguyễn Văn A", 10000000);
+// Demo using classes
+public class EmployeeDemo {
+    public static void main(String[] args) {
+        // Create regular employee
+        Employee emp = new Employee("E001", "Nguyen Van A", 10000000);
 
-          // Tạo đối tượng quản lý
-          Manager manager = new Manager("M001", "Trần Thị B", 20000000, 0.2);
+        // Create manager
+        Manager manager = new Manager("M001", "Tran Thi B", 20000000, 0.2);
 
-          // Tạo đối tượng lập trình viên
-          Developer dev = new Developer("D001", "Lê Văn C", 15000000, 30, 200000);
+        // Create developer
+        Developer dev = new Developer("D001", "Le Van C", 15000000, 30, 200000);
 
-          // Hiển thị thông tin
-          System.out.println("Thông tin nhân viên:");
-          emp.displayInfo();
+        // Display info
+        System.out.println("Employee Info:");
+        emp.displayInfo();
 
-          System.out.println("\nThông tin quản lý:");
-          manager.displayInfo();
+        System.out.println("\nManager Info:");
+        manager.displayInfo();
 
-          System.out.println("\nThông tin lập trình viên:");
-          dev.displayInfo();
-      }
-  }
-  ```
+        System.out.println("\nDeveloper Info:");
+        dev.displayInfo();
+    }
+}
+```
 
-## 🧑‍🏫 Bài 4: Đóng gói (Encapsulation)
+## 🧑‍🏫 Lesson 4: Encapsulation
 
-### Đóng gói dữ liệu
+### Data Encapsulation
 
 ```java
 // BankAccount.java
 public class BankAccount {
-    // Thuộc tính private - không thể truy cập trực tiếp từ bên ngoài
+    // Private attributes - cannot be accessed directly from outside
     private String accountNumber;
     private String accountName;
     private double balance;
@@ -538,7 +534,7 @@ public class BankAccount {
         }
     }
 
-    // Getter methods - cho phép đọc dữ liệu
+    // Getter methods - allow reading data
     public String getAccountNumber() {
         return accountNumber;
     }
@@ -551,128 +547,128 @@ public class BankAccount {
         return balance;
     }
 
-    // Setter method - cho phép thay đổi dữ liệu có kiểm soát
+    // Setter method - allow controlled data modification
     public void setAccountName(String accountName) {
         if (accountName != null && !accountName.isEmpty()) {
             this.accountName = accountName;
         }
     }
 
-    // Không có setter cho accountNumber vì không muốn thay đổi sau khi tạo
-    // Không có setter trực tiếp cho balance, thay vào đó sử dụng các phương thức nghiệp vụ
+    // No setter for accountNumber as we don't want it changed after creation
+    // No direct setter for balance, use business methods instead
 
-    // Các phương thức nghiệp vụ
+    // Business methods
     public void deposit(double amount) {
         if (amount > 0) {
             balance += amount;
-            System.out.println("Nạp " + amount + " vào tài khoản thành công.");
+            System.out.println("Deposited " + amount + " successfully.");
         } else {
-            System.out.println("Số tiền nạp không hợp lệ.");
+            System.out.println("Invalid deposit amount.");
         }
     }
 
     public void withdraw(double amount) {
         if (amount > 0 && amount <= balance) {
             balance -= amount;
-            System.out.println("Rút " + amount + " từ tài khoản thành công.");
+            System.out.println("Withdrew " + amount + " successfully.");
         } else {
-            System.out.println("Số tiền rút không hợp lệ hoặc vượt quá số dư.");
+            System.out.println("Invalid withdrawal amount or insufficient balance.");
         }
     }
 
     public void displayAccountInfo() {
-        System.out.println("Số tài khoản: " + accountNumber);
-        System.out.println("Tên tài khoản: " + accountName);
-        System.out.println("Số dư: " + balance);
+        System.out.println("Account Number: " + accountNumber);
+        System.out.println("Account Name: " + accountName);
+        System.out.println("Balance: " + balance);
     }
 }
 ```
 
-### Sử dụng lớp đã đóng gói
+### Using Encapsulated Class
 
 ```java
 // BankDemo.java
 public class BankDemo {
     public static void main(String[] args) {
-        // Tạo tài khoản mới
-        BankAccount account = new BankAccount("123456789", "Nguyễn Văn A", 1000000);
+        // Create new account
+        BankAccount account = new BankAccount("123456789", "Nguyen Van A", 1000000);
 
-        // Hiển thị thông tin tài khoản
-        System.out.println("Thông tin tài khoản ban đầu:");
+        // Display account info
+        System.out.println("Initial account info:");
         account.displayAccountInfo();
 
-        // Thử thay đổi tên tài khoản
-        account.setAccountName("Nguyễn Văn B");
+        // Try changing account name
+        account.setAccountName("Nguyen Van B");
 
-        // Thực hiện các giao dịch
+        // Perform transactions
         account.deposit(500000);
         account.withdraw(200000);
 
-        // Hiển thị thông tin tài khoản sau khi thực hiện giao dịch
-        System.out.println("\nThông tin tài khoản sau khi cập nhật:");
+        // Display account info after transactions
+        System.out.println("\nAccount info after updates:");
         account.displayAccountInfo();
 
-        // Không thể truy cập trực tiếp vào balance:
-        // account.balance = 10000000; // Lỗi biên dịch
+        // Cannot access balance directly:
+        // account.balance = 10000000; // Compile error
 
-        // Không thể thay đổi số tài khoản sau khi tạo
-        // account.accountNumber = "987654321"; // Lỗi biên dịch
+        // Cannot change account number after creation
+        // account.accountNumber = "987654321"; // Compile error
     }
 }
 ```
 
-### Các mức độ truy cập trong JAVA
+### Access Modifiers in Java
 
-| Mức độ truy cập | Truy cập trong cùng lớp | Truy cập trong cùng package | Truy cập từ lớp con (khác package) | Truy cập từ bất kỳ đâu |
-| --------------- | ----------------------- | --------------------------- | ---------------------------------- | ---------------------- |
-| private         | ✅                      | ❌                          | ❌                                 | ❌                     |
-| default         | ✅                      | ✅                          | ❌                                 | ❌                     |
-| protected       | ✅                      | ✅                          | ✅                                 | ❌                     |
-| public          | ✅                      | ✅                          | ✅                                 | ✅                     |
+| Access Modifier | Same Class | Same Package | Subclass (diff package) | Everywhere |
+| --------------- | ---------- | ------------ | ----------------------- | ---------- |
+| private         | ✅         | ❌           | ❌                      | ❌         |
+| default         | ✅         | ✅           | ❌                      | ❌         |
+| protected       | ✅         | ✅           | ✅                      | ❌         |
+| public          | ✅         | ✅           | ✅                      | ✅         |
 
 ```java
 // AccessModifierDemo.java
 public class AccessModifierDemo {
-    // public: truy cập từ bất kỳ đâu
-    public String publicVar = "Public - truy cập từ mọi nơi";
+    // public: accessible from everywhere
+    public String publicVar = "Public - accessible everywhere";
 
-    // protected: truy cập trong cùng package và các lớp con kế thừa
-    protected String protectedVar = "Protected - truy cập trong package và lớp con";
+    // protected: accessible in same package and subclasses
+    protected String protectedVar = "Protected - accessible in package and subclasses";
 
-    // default (không có modifier): truy cập trong cùng package
-    String defaultVar = "Default - truy cập trong cùng package";
+    // default (no modifier): accessible in same package
+    String defaultVar = "Default - accessible in same package";
 
-    // private: chỉ truy cập trong cùng lớp
-    private String privateVar = "Private - chỉ truy cập trong lớp này";
+    // private: accessible only in this class
+    private String privateVar = "Private - accessible only in this class";
 
-    // Phương thức public
+    // Public method
     public void publicMethod() {
-        System.out.println("Phương thức public");
-        // Có thể truy cập tất cả các biến từ bên trong lớp
+        System.out.println("Public method");
+        // Can access all variables from inside the class
         System.out.println(publicVar);
         System.out.println(protectedVar);
         System.out.println(defaultVar);
         System.out.println(privateVar);
     }
 
-    // Phương thức protected
+    // Protected method
     protected void protectedMethod() {
-        System.out.println("Phương thức protected");
+        System.out.println("Protected method");
     }
 
-    // Phương thức default
+    // Default method
     void defaultMethod() {
-        System.out.println("Phương thức default");
+        System.out.println("Default method");
     }
 
-    // Phương thức private
+    // Private method
     private void privateMethod() {
-        System.out.println("Phương thức private");
+        System.out.println("Private method");
     }
 }
 ```
 
-### Ví dụ thực tế - Lớp Student với đóng gói
+### Real-world Example - Student Class with Encapsulation
 
 ```java
 public class Student {
@@ -684,7 +680,7 @@ public class Student {
     public Student(String id, String name, int age) {
         this.id = id;
         this.name = name;
-        setAge(age); // Sử dụng setter để kiểm tra tính hợp lệ
+        setAge(age); // Use setter to validate
         this.scores = new double[0];
     }
 
@@ -702,7 +698,7 @@ public class Student {
     }
 
     public double[] getScores() {
-        // Trả về bản sao của mảng để tránh thay đổi trực tiếp
+        // Return copy of array to avoid direct modification
         return scores.clone();
     }
 
@@ -717,30 +713,30 @@ public class Student {
         if (age > 0 && age < 100) {
             this.age = age;
         } else {
-            System.out.println("Tuổi không hợp lệ.");
+            System.out.println("Invalid age.");
         }
     }
 
-    // ID không có setter vì không muốn thay đổi sau khi tạo
+    // ID has no setter as we don't want it changed after creation
 
-    // Các phương thức nghiệp vụ
+    // Business methods
     public void addScore(double score) {
         if (score >= 0 && score <= 10) {
-            // Tạo mảng mới lớn hơn 1 phần tử
+            // Create new array larger by 1 element
             double[] newScores = new double[scores.length + 1];
 
-            // Sao chép các phần tử từ mảng cũ
+            // Copy elements from old array
             for (int i = 0; i < scores.length; i++) {
                 newScores[i] = scores[i];
             }
 
-            // Thêm điểm mới vào cuối
+            // Add new score to end
             newScores[scores.length] = score;
 
-            // Gán mảng mới cho scores
+            // Assign new array to scores
             scores = newScores;
         } else {
-            System.out.println("Điểm không hợp lệ. Điểm phải từ 0 đến 10.");
+            System.out.println("Invalid score. Score must be between 0 and 10.");
         }
     }
 
@@ -758,58 +754,58 @@ public class Student {
     }
 
     public void displayInfo() {
-        System.out.println("Mã sinh viên: " + id);
-        System.out.println("Tên sinh viên: " + name);
-        System.out.println("Tuổi: " + age);
-        System.out.println("Điểm số: ");
+        System.out.println("Student ID: " + id);
+        System.out.println("Student Name: " + name);
+        System.out.println("Age: " + age);
+        System.out.println("Scores: ");
 
         if (scores.length == 0) {
-            System.out.println("Chưa có điểm");
+            System.out.println("No scores yet");
         } else {
             for (int i = 0; i < scores.length; i++) {
-                System.out.println("  Môn " + (i + 1) + ": " + scores[i]);
+                System.out.println("  Subject " + (i + 1) + ": " + scores[i]);
             }
-            System.out.println("Điểm trung bình: " + calculateAverage());
+            System.out.println("Average Score: " + calculateAverage());
         }
     }
 }
 
 public class StudentDemo {
     public static void main(String[] args) {
-        // Tạo sinh viên mới
-        Student student = new Student("SV001", "Nguyễn Văn A", 20);
+        // Create new student
+        Student student = new Student("SV001", "Nguyen Van A", 20);
 
-        // Thêm điểm
+        // Add scores
         student.addScore(8.5);
         student.addScore(7.5);
         student.addScore(9.0);
 
-        // Hiển thị thông tin
+        // Display info
         student.displayInfo();
 
-        // Thử thêm điểm không hợp lệ
-        student.addScore(11.0); // Sẽ hiển thị thông báo lỗi
+        // Try adding invalid score
+        student.addScore(11.0); // Will show error message
 
-        // Thử đặt tuổi không hợp lệ
-        student.setAge(-5); // Sẽ hiển thị thông báo lỗi
+        // Try setting invalid age
+        student.setAge(-5); // Will show error message
 
-        // Thay đổi tên
-        student.setName("Nguyễn Văn B");
+        // Change name
+        student.setName("Nguyen Van B");
 
-        System.out.println("\nThông tin sau khi cập nhật:");
+        System.out.println("\nInfo after update:");
         student.displayInfo();
     }
 }
 ```
 
-## 🧑‍🏫 Bài 5: Đa hình (Polymorphism)
+## 🧑‍🏫 Lesson 5: Polymorphism
 
-### Đa hình với nạp chồng phương thức (Method Overloading)
+### Polymorphism with Method Overloading
 
 ```java
 // Calculator.java
 public class Calculator {
-    // Nạp chồng phương thức add với các tham số khác nhau
+    // Overload add method with different parameters
     public int add(int a, int b) {
         return a + b;
     }
@@ -823,7 +819,7 @@ public class Calculator {
     }
 
     public String add(String a, String b) {
-        return a + b; // Nối chuỗi
+        return a + b; // String concatenation
     }
 }
 
@@ -840,10 +836,10 @@ public class OverloadingDemo {
 }
 ```
 
-### Đa hình với ghi đè phương thức (Method Overriding)
+### Polymorphism with Method Overriding
 
 ```java
-// Lớp cha
+// Parent class
 class Shape {
     protected String name;
 
@@ -852,21 +848,21 @@ class Shape {
     }
 
     public double calculateArea() {
-        return 0.0; // Phương thức mặc định
+        return 0.0; // Default method
     }
 
     public void display() {
-        System.out.println("Đây là hình " + name);
-        System.out.println("Diện tích: " + calculateArea());
+        System.out.println("This is a " + name);
+        System.out.println("Area: " + calculateArea());
     }
 }
 
-// Lớp con: Circle
+// Child class: Circle
 class Circle extends Shape {
     private double radius;
 
     public Circle(double radius) {
-        super("tròn");
+        super("circle");
         this.radius = radius;
     }
 
@@ -876,13 +872,13 @@ class Circle extends Shape {
     }
 }
 
-// Lớp con: Rectangle
+// Child class: Rectangle
 class Rectangle extends Shape {
     private double length;
     private double width;
 
     public Rectangle(double length, double width) {
-        super("chữ nhật");
+        super("rectangle");
         this.length = length;
         this.width = width;
     }
@@ -893,13 +889,13 @@ class Rectangle extends Shape {
     }
 }
 
-// Lớp con: Triangle
+// Child class: Triangle
 class Triangle extends Shape {
     private double base;
     private double height;
 
     public Triangle(double base, double height) {
-        super("tam giác");
+        super("triangle");
         this.base = base;
         this.height = height;
     }
@@ -912,18 +908,18 @@ class Triangle extends Shape {
 
 public class OverridingDemo {
     public static void main(String[] args) {
-        // Tạo các đối tượng
+        // Create objects
         Shape circle = new Circle(5.0);
         Shape rectangle = new Rectangle(4.0, 6.0);
         Shape triangle = new Triangle(3.0, 8.0);
 
-        // Gọi phương thức display (sẽ sử dụng calculateArea đã ghi đè)
+        // Call display method (will use overridden calculateArea)
         circle.display();
         rectangle.display();
         triangle.display();
 
-        // Dùng mảng để minh họa đa hình
-        System.out.println("\n--- Sử dụng mảng đối tượng ---");
+        // Use array to demonstrate polymorphism
+        System.out.println("\n--- Using Object Array ---");
         Shape[] shapes = {circle, rectangle, triangle};
 
         for (Shape shape : shapes) {
@@ -934,11 +930,11 @@ public class OverridingDemo {
 }
 ```
 
-### Đa hình với lớp trừu tượng (Abstract Class)
+### Polymorphism with Abstract Class
 
 ```java
 // Animal.java
-// Lớp trừu tượng
+// Abstract class
 abstract class Animal {
     protected String name;
 
@@ -946,12 +942,12 @@ abstract class Animal {
         this.name = name;
     }
 
-    // Phương thức trừu tượng - không có thân hàm
+    // Abstract method - no body
     public abstract void makeSound();
 
-    // Phương thức thông thường
+    // Regular method
     public void sleep() {
-        System.out.println(name + " đang ngủ.");
+        System.out.println(name + " is sleeping.");
     }
 }
 
@@ -963,11 +959,11 @@ class Dog extends Animal {
 
     @Override
     public void makeSound() {
-        System.out.println(name + " sủa: Gâu gâu!");
+        System.out.println(name + " barks: Woof woof!");
     }
 
     public void fetch() {
-        System.out.println(name + " đang đuổi theo bóng!");
+        System.out.println(name + " is fetching the ball!");
     }
 }
 
@@ -979,36 +975,36 @@ class Cat extends Animal {
 
     @Override
     public void makeSound() {
-        System.out.println(name + " kêu: Meo meo!");
+        System.out.println(name + " meows: Meow meow!");
     }
 
     public void scratch() {
-        System.out.println(name + " đang cào đồ vật.");
+        System.out.println(name + " is scratching objects.");
     }
 }
 
 // AbstractClassDemo.java
 public class AbstractClassDemo {
     public static void main(String[] args) {
-        // Animal animal = new Animal("Động vật"); // Lỗi: không thể tạo đối tượng từ lớp trừu tượng
+        // Animal animal = new Animal("Animal"); // Error: cannot instantiate abstract class
 
-        // Tạo các đối tượng từ lớp con
+        // Create objects from child classes
         Animal dog = new Dog("Buddy");
         Animal cat = new Cat("Whiskers");
 
-        // Gọi phương thức
+        // Call methods
         dog.makeSound();
         dog.sleep();
 
         cat.makeSound();
         cat.sleep();
 
-        // Cần ép kiểu để gọi phương thức đặc thù của lớp con
+        // Need casting to call subclass-specific methods
         ((Dog) dog).fetch();
         ((Cat) cat).scratch();
 
-        // Minh họa đa hình
-        System.out.println("\n--- Đa hình với mảng ---");
+        // Demonstrate polymorphism
+        System.out.println("\n--- Polymorphism with Array ---");
         Animal[] animals = {dog, cat};
 
         for (Animal animal : animals) {
@@ -1020,10 +1016,10 @@ public class AbstractClassDemo {
 }
 ```
 
-### Ví dụ thực tế - Hệ thống thanh toán
+### Real-world Example - Payment System
 
 ```java
-// Lớp trừu tượng cho phương thức thanh toán
+// Abstract class for payment method
 abstract class PaymentMethod {
     protected String name;
     protected String description;
@@ -1033,24 +1029,24 @@ abstract class PaymentMethod {
         this.description = description;
     }
 
-    // Phương thức trừu tượng
+    // Abstract method
     public abstract boolean processPayment(double amount);
 
-    // Phương thức thông thường
+    // Regular method
     public void displayInfo() {
-        System.out.println("Phương thức thanh toán: " + name);
-        System.out.println("Mô tả: " + description);
+        System.out.println("Payment Method: " + name);
+        System.out.println("Description: " + description);
     }
 }
 
-// Lớp con: CreditCardPayment
+// Child class: CreditCardPayment
 class CreditCardPayment extends PaymentMethod {
     private String cardNumber;
     private String cardHolderName;
     private String expiryDate;
 
     public CreditCardPayment(String cardNumber, String cardHolderName, String expiryDate) {
-        super("Thẻ tín dụng", "Thanh toán bằng thẻ tín dụng");
+        super("Credit Card", "Payment via Credit Card");
         this.cardNumber = cardNumber;
         this.cardHolderName = cardHolderName;
         this.expiryDate = expiryDate;
@@ -1058,53 +1054,53 @@ class CreditCardPayment extends PaymentMethod {
 
     @Override
     public boolean processPayment(double amount) {
-        // Giả lập xử lý thanh toán thẻ tín dụng
-        System.out.println("Đang xử lý thanh toán " + amount + " bằng thẻ tín dụng...");
-        System.out.println("Thông tin thẻ: " + maskCardNumber() + ", " + cardHolderName);
-        return true; // Giả sử luôn thành công
+        // Simulate credit card payment processing
+        System.out.println("Processing payment of " + amount + " via Credit Card...");
+        System.out.println("Card Info: " + maskCardNumber() + ", " + cardHolderName);
+        return true; // Assume success
     }
 
     private String maskCardNumber() {
-        // Che giấu số thẻ, chỉ hiển thị 4 số cuối
+        // Mask card number, show only last 4 digits
         return "XXXX-XXXX-XXXX-" + cardNumber.substring(cardNumber.length() - 4);
     }
 
     @Override
     public void displayInfo() {
         super.displayInfo();
-        System.out.println("Số thẻ: " + maskCardNumber());
-        System.out.println("Chủ thẻ: " + cardHolderName);
+        System.out.println("Card Number: " + maskCardNumber());
+        System.out.println("Card Holder: " + cardHolderName);
     }
 }
 
-// Lớp con: BankTransferPayment
+// Child class: BankTransferPayment
 class BankTransferPayment extends PaymentMethod {
     private String accountNumber;
     private String bankName;
 
     public BankTransferPayment(String accountNumber, String bankName) {
-        super("Chuyển khoản ngân hàng", "Thanh toán bằng chuyển khoản ngân hàng");
+        super("Bank Transfer", "Payment via Bank Transfer");
         this.accountNumber = accountNumber;
         this.bankName = bankName;
     }
 
     @Override
     public boolean processPayment(double amount) {
-        // Giả lập xử lý thanh toán chuyển khoản
-        System.out.println("Đang xử lý chuyển khoản " + amount + "...");
-        System.out.println("Thông tin tài khoản: " + accountNumber + ", " + bankName);
-        return true; // Giả sử luôn thành công
+        // Simulate bank transfer processing
+        System.out.println("Processing transfer of " + amount + "...");
+        System.out.println("Account Info: " + accountNumber + ", " + bankName);
+        return true; // Assume success
     }
 
     @Override
     public void displayInfo() {
         super.displayInfo();
-        System.out.println("Số tài khoản: " + accountNumber);
-        System.out.println("Ngân hàng: " + bankName);
+        System.out.println("Account Number: " + accountNumber);
+        System.out.println("Bank: " + bankName);
     }
 }
 
-// Lớp xử lý đơn hàng
+// Order processing class
 class Order {
     private String orderId;
     private double amount;
@@ -1121,20 +1117,20 @@ class Order {
 
     public boolean checkout() {
         if (paymentMethod == null) {
-            System.out.println("Vui lòng chọn phương thức thanh toán!");
+            System.out.println("Please select a payment method!");
             return false;
         }
 
-        System.out.println("Xử lý đơn hàng: " + orderId);
-        System.out.println("Số tiền: " + amount);
+        System.out.println("Processing Order: " + orderId);
+        System.out.println("Amount: " + amount);
 
-        // Gọi phương thức thanh toán - thể hiện tính đa hình
+        // Call payment method - demonstrating polymorphism
         boolean success = paymentMethod.processPayment(amount);
 
         if (success) {
-            System.out.println("Thanh toán thành công!");
+            System.out.println("Payment Successful!");
         } else {
-            System.out.println("Thanh toán thất bại!");
+            System.out.println("Payment Failed!");
         }
 
         return success;
@@ -1143,64 +1139,64 @@ class Order {
 
 public class PaymentSystemDemo {
     public static void main(String[] args) {
-        // Tạo đơn hàng
+        // Create order
         Order order1 = new Order("ORD001", 1500000);
 
-        // Tạo phương thức thanh toán thẻ tín dụng
-        PaymentMethod creditCard = new CreditCardPayment("1234567890123456", "Nguyễn Văn A", "12/25");
+        // Create credit card payment method
+        PaymentMethod creditCard = new CreditCardPayment("1234567890123456", "Nguyen Van A", "12/25");
 
-        // Đặt phương thức thanh toán cho đơn hàng
+        // Set payment method for order
         order1.setPaymentMethod(creditCard);
 
-        // Xử lý thanh toán
+        // Process payment
         order1.checkout();
 
-        System.out.println("\n--- Đơn hàng thứ hai ---");
+        System.out.println("\n--- Second Order ---");
 
-        // Tạo đơn hàng khác
+        // Create another order
         Order order2 = new Order("ORD002", 2500000);
 
-        // Tạo phương thức thanh toán chuyển khoản
-        PaymentMethod bankTransfer = new BankTransferPayment("9876543210", "Ngân hàng ABC");
+        // Create bank transfer payment method
+        PaymentMethod bankTransfer = new BankTransferPayment("9876543210", "ABC Bank");
 
-        // Đặt phương thức thanh toán cho đơn hàng
+        // Set payment method for order
         order2.setPaymentMethod(bankTransfer);
 
-        // Xử lý thanh toán
+        // Process payment
         order2.checkout();
     }
 }
 ```
 
-## 🧑‍🏫 Bài 6: Interface và Abstract Class
+## 🧑‍🏫 Lesson 6: Interface and Abstract Class
 
-### Interface trong JAVA
+### Interface in Java
 
-- Interface là một kiểu dữ liệu đặc biệt trong JAVA, cho phép định nghĩa các phương thức mà không có thân hàm. Các lớp khác có thể triển khai interface này và cung cấp thân hàm cho các phương thức đã định nghĩa.
+- Interface is a special data type in Java, allowing definition of methods without body. Other classes can implement this interface and provide body for defined methods.
 
   ```java
   // Drawable.java
-  // Khai báo interface
+  // Declare interface
   interface Drawable {
-     // Các constant (mặc định là public static final)
-     String TOOL = "Bút vẽ";
+     // Constants (default public static final)
+     String TOOL = "Drawing Tool";
 
-     // Các phương thức trừu tượng (mặc định là public abstract)
+     // Abstract methods (default public abstract)
      void draw();
 
-     // JAVA 8 trở lên: default method
+     // Java 8+: default method
      default void displayInfo() {
-         System.out.println("Đang vẽ bằng " + TOOL);
+         System.out.println("Drawing with " + TOOL);
      }
 
-     // JAVA 8 trở lên: static method
+     // Java 8+: static method
      static void description() {
-         System.out.println("Interface cho các đối tượng có thể vẽ được");
+         System.out.println("Interface for drawable objects");
      }
   }
 
   // Circle.java
-  // Triển khai interface
+  // Implement interface
   class Circle implements Drawable {
      private double radius;
 
@@ -1210,7 +1206,7 @@ public class PaymentSystemDemo {
 
      @Override
      public void draw() {
-         System.out.println("Vẽ hình tròn với bán kính " + radius);
+         System.out.println("Drawing circle with radius " + radius);
      }
   }
 
@@ -1226,37 +1222,37 @@ public class PaymentSystemDemo {
 
      @Override
      public void draw() {
-         System.out.println("Vẽ hình chữ nhật với chiều dài " + length + " và chiều rộng " + width);
+         System.out.println("Drawing rectangle with length " + length + " and width " + width);
      }
 
-     // Ghi đè phương thức default
+     // Override default method
      @Override
      public void displayInfo() {
-         System.out.println("Hình chữ nhật đang được vẽ với công cụ đặc biệt");
+         System.out.println("Rectangle is being drawn with special tool");
      }
   }
 
   // InterfaceDemo.java
   public class InterfaceDemo {
      public static void main(String[] args) {
-         // Sử dụng static method của interface
+         // Use static method of interface
          Drawable.description();
 
-         // Tạo đối tượng
+         // Create objects
          Drawable circle = new Circle(5.0);
          Drawable rectangle = new Rectangle(4.0, 6.0);
 
-         // Gọi phương thức draw
+         // Call draw method
          circle.draw();
-         circle.displayInfo(); // Sử dụng default method
+         circle.displayInfo(); // Use default method
 
          rectangle.draw();
-         rectangle.displayInfo(); // Sử dụng phương thức đã ghi đè
+         rectangle.displayInfo(); // Use overridden method
 
-         // Sử dụng interface để tạo mảng đa hình
+         // Use interface to create polymorphic array
          Drawable[] shapes = {circle, rectangle};
 
-         System.out.println("\n--- Sử dụng mảng interface ---");
+         System.out.println("\n--- Using Interface Array ---");
          for (Drawable shape : shapes) {
              shape.draw();
          }
@@ -1264,7 +1260,7 @@ public class PaymentSystemDemo {
   }
   ```
 
-### Multiple Interface
+### Multiple Interfaces
 
 ```java
 // Flyable.java
@@ -1278,7 +1274,7 @@ interface Swimmable {
 }
 
 // Duck.java
-// Lớp triển khai nhiều interface
+// Class implementing multiple interfaces
 class Duck implements Flyable, Swimmable {
     private String name;
 
@@ -1288,17 +1284,17 @@ class Duck implements Flyable, Swimmable {
 
     @Override
     public void fly() {
-        System.out.println(name + " đang bay.");
+        System.out.println(name + " is flying.");
     }
 
     @Override
     public void swim() {
-        System.out.println(name + " đang bơi.");
+        System.out.println(name + " is swimming.");
     }
 }
 
 // Airplane.java
-// Lớp chỉ triển khai một interface
+// Class implementing one interface
 class Airplane implements Flyable {
     private String model;
 
@@ -1308,12 +1304,12 @@ class Airplane implements Flyable {
 
     @Override
     public void fly() {
-        System.out.println("Máy bay " + model + " đang bay ở độ cao lớn.");
+        System.out.println("Airplane " + model + " is flying at high altitude.");
     }
 }
 
 // Fish.java
-// Lớp chỉ triển khai một interface
+// Class implementing one interface
 class Fish implements Swimmable {
     private String species;
 
@@ -1323,18 +1319,18 @@ class Fish implements Swimmable {
 
     @Override
     public void swim() {
-        System.out.println("Cá " + species + " đang bơi.");
+        System.out.println("Fish " + species + " is swimming.");
     }
 }
 
 // MultipleInterfaceDemo.java
 public class MultipleInterfaceDemo {
     public static void main(String[] args) {
-        Duck duck = new Duck("Vịt Donald");
+        Duck duck = new Duck("Donald Duck");
         Airplane airplane = new Airplane("Boeing 747");
-        Fish fish = new Fish("Cá vàng");
+        Fish fish = new Fish("Goldfish");
 
-        // Gọi phương thức
+        // Call methods
         duck.fly();
         duck.swim();
 
@@ -1342,14 +1338,14 @@ public class MultipleInterfaceDemo {
 
         fish.swim();
 
-        // Sử dụng interface để phân loại
-        System.out.println("\n--- Đối tượng có thể bay ---");
+        // Use interface for classification
+        System.out.println("\n--- Flyable Objects ---");
         Flyable[] flyingObjects = {duck, airplane};
         for (Flyable obj : flyingObjects) {
             obj.fly();
         }
 
-        System.out.println("\n--- Đối tượng có thể bơi ---");
+        System.out.println("\n--- Swimmable Objects ---");
         Swimmable[] swimmingObjects = {duck, fish};
         for (Swimmable obj : swimmingObjects) {
             obj.swim();
@@ -1360,9 +1356,9 @@ public class MultipleInterfaceDemo {
 
 ### Abstract Class vs Interface
 
-- Có thể có cả phương thức trừu tượng và phương thức không trừu tượng.
-- Có thể có thuộc tính (fields).
-- Chỉ có thể kế thừa một lớp trừu tượng (single inheritance).
+- Can have both abstract and non-abstract methods.
+- Can have attributes (fields).
+- Can only inherit one abstract class (single inheritance).
 
   ```java
   // Animal.java
@@ -1375,12 +1371,12 @@ public class MultipleInterfaceDemo {
           this.name = name;
       }
 
-      // Phương thức trừu tượng
+      // Abstract method
       public abstract void makeSound();
 
-      // Phương thức non-abstract
+      // Non-abstract method
       public void sleep() {
-          System.out.println(name + " đang ngủ.");
+          System.out.println(name + " is sleeping.");
       }
   }
 
@@ -1392,7 +1388,7 @@ public class MultipleInterfaceDemo {
   }
 
   // Dog.java
-  // Lớp kế thừa abstract class và triển khai interface
+  // Class inheriting abstract class and implementing interface
   class Dog extends Animal implements Pet {
       private String breed;
 
@@ -1403,55 +1399,55 @@ public class MultipleInterfaceDemo {
 
       @Override
       public void makeSound() {
-          System.out.println(name + " sủa: Gâu gâu!");
+          System.out.println(name + " barks: Woof woof!");
       }
 
       @Override
       public void play() {
-          System.out.println(name + " đang chơi đùa với chủ.");
+          System.out.println(name + " is playing with owner.");
       }
 
       @Override
       public void beGroomed() {
-          System.out.println(name + " đang được tắm và chải lông.");
+          System.out.println(name + " is being bathed and groomed.");
       }
   }
 
   // AbstractVsInterfaceDemo.java
   public class AbstractVsInterfaceDemo {
       public static void main(String[] args) {
-          // Tạo đối tượng Dog
+          // Create Dog object
           Dog dog = new Dog("Buddy", "Labrador");
 
-          // Sử dụng phương thức từ abstract class
+          // Use methods from abstract class
           dog.makeSound();
           dog.sleep();
 
-          // Sử dụng phương thức từ interface
+          // Use methods from interface
           dog.play();
           dog.beGroomed();
 
-          // Sử dụng tính đa hình với abstract class
+          // Use polymorphism with abstract class
           Animal animal = dog;
           animal.makeSound();
 
-          // Sử dụng tính đa hình với interface
+          // Use polymorphism with interface
           Pet pet = dog;
           pet.play();
       }
   }
   ```
 
-### Ví dụ thực tế - Hệ thống thông báo
+### Real-world Example - Notification System
 
 ```java
-// Interface cho các dịch vụ thông báo
+// Interface for notification services
 interface NotificationService {
     void sendNotification(String message);
     boolean isServiceAvailable();
 }
 
-// Lớp trừu tượng cho thông báo
+// Abstract class for notification
 abstract class Notification {
     protected String sender;
     protected String content;
@@ -1461,31 +1457,31 @@ abstract class Notification {
         this.content = content;
     }
 
-    // Phương thức trừu tượng
+    // Abstract method
     public abstract void display();
 
-    // Phương thức thông thường
+    // Regular method
     public String getSummary() {
-        return "Thông báo từ " + sender + ": " + content.substring(0, Math.min(content.length(), 20)) + "...";
+        return "Notification from " + sender + ": " + content.substring(0, Math.min(content.length(), 20)) + "...";
     }
 }
 
-// Triển khai interface
+// Implement interface
 class EmailService implements NotificationService {
     private String smtpServer;
     private boolean online;
 
     public EmailService(String smtpServer) {
         this.smtpServer = smtpServer;
-        this.online = true; // Giả sử luôn online
+        this.online = true; // Assume always online
     }
 
     @Override
     public void sendNotification(String message) {
         if (isServiceAvailable()) {
-            System.out.println("Gửi email thông qua " + smtpServer + ": " + message);
+            System.out.println("Sending email via " + smtpServer + ": " + message);
         } else {
-            System.out.println("Dịch vụ email không khả dụng!");
+            System.out.println("Email service unavailable!");
         }
     }
 
@@ -1505,15 +1501,15 @@ class SMSService implements NotificationService {
 
     public SMSService(String providerName) {
         this.providerName = providerName;
-        this.active = true; // Giả sử luôn hoạt động
+        this.active = true; // Assume always active
     }
 
     @Override
     public void sendNotification(String message) {
         if (isServiceAvailable()) {
-            System.out.println("Gửi SMS qua " + providerName + ": " + message);
+            System.out.println("Sending SMS via " + providerName + ": " + message);
         } else {
-            System.out.println("Dịch vụ SMS không khả dụng!");
+            System.out.println("SMS service unavailable!");
         }
     }
 
@@ -1527,7 +1523,7 @@ class SMSService implements NotificationService {
     }
 }
 
-// Kế thừa lớp trừu tượng
+// Inherit abstract class
 class EmailNotification extends Notification {
     private String recipientEmail;
 
@@ -1539,9 +1535,9 @@ class EmailNotification extends Notification {
     @Override
     public void display() {
         System.out.println("Email Notification");
-        System.out.println("Từ: " + sender);
-        System.out.println("Đến: " + recipientEmail);
-        System.out.println("Nội dung: " + content);
+        System.out.println("From: " + sender);
+        System.out.println("To: " + recipientEmail);
+        System.out.println("Content: " + content);
     }
 }
 
@@ -1556,13 +1552,13 @@ class SMSNotification extends Notification {
     @Override
     public void display() {
         System.out.println("SMS Notification");
-        System.out.println("Từ: " + sender);
-        System.out.println("Đến: " + phoneNumber);
-        System.out.println("Nội dung: " + content);
+        System.out.println("From: " + sender);
+        System.out.println("To: " + phoneNumber);
+        System.out.println("Content: " + content);
     }
 }
 
-// Lớp quản lý thông báo
+// Notification manager class
 class NotificationManager {
     private NotificationService[] services;
 
@@ -1588,54 +1584,54 @@ class NotificationManager {
 
 public class NotificationSystemDemo {
     public static void main(String[] args) {
-        // Tạo các dịch vụ thông báo
+        // Create notification services
         EmailService emailService = new EmailService("smtp.gmail.com");
         SMSService smsService = new SMSService("Viettel");
 
-        // Tạo mảng dịch vụ thông báo
+        // Create notification service array
         NotificationService[] services = {emailService, smsService};
 
-        // Tạo quản lý thông báo
+        // Create notification manager
         NotificationManager manager = new NotificationManager(services);
 
-        // Gửi thông báo qua tất cả dịch vụ khả dụng
-        manager.sendNotificationToAll("Hệ thống sẽ bảo trì vào 22:00 tối nay.");
+        // Send notification via all available services
+        manager.sendNotificationToAll("System maintenance at 22:00 tonight.");
 
-        // Đánh dấu dịch vụ email là không khả dụng
+        // Mark email service as unavailable
         emailService.setOnlineStatus(false);
 
-        // Gửi lại thông báo
-        System.out.println("\n--- Sau khi dịch vụ email bị ngắt ---");
-        manager.sendNotificationToAll("Thông báo khẩn: Bảo trì hệ thống bị hoãn đến 23:00.");
+        // Resend notification
+        System.out.println("\n--- After email service down ---");
+        manager.sendNotificationToAll("Urgent: Maintenance postponed to 23:00.");
 
-        // Tạo các thông báo cụ thể
+        // Create specific notifications
         Notification[] notifications = {
-            new EmailNotification("admin@system.com", "Báo cáo hàng tháng đã sẵn sàng.", "user@example.com"),
-            new SMSNotification("System", "Mã OTP của bạn là 123456.", "+84987654321")
+            new EmailNotification("admin@system.com", "Monthly report ready.", "user@example.com"),
+            new SMSNotification("System", "Your OTP is 123456.", "+84987654321")
         };
 
-        // Hiển thị thông báo
-        System.out.println("\n--- Các thông báo trong hệ thống ---");
+        // Display notifications
+        System.out.println("\n--- System Notifications ---");
         manager.displayNotifications(notifications);
     }
 }
 ```
 
-## 🧪 BÀI TẬP LỚN CUỐI PHẦN: Quản lý sinh viên, giảng viên và khóa học
+## 🧪 FINAL PROJECT: Student, Teacher and Course Management
 
-### Mô tả bài toán
+### Problem Description
 
-Viết chương trình:
+Write a program:
 
-- Tạo lớp `Person` với các thuộc tính chung như tên, tuổi.
-- Tạo lớp `Student` và `Teacher` kế thừa từ lớp `Person` với các đặc điểm riêng.
-- Tạo lớp `Course` để quản lý các khóa học.
-- Mỗi `Student` và `Teacher` có thể tham gia vào nhiều khóa học.
-- Cung cấp phương thức để đăng ký, hủy đăng ký khóa học.
+- Create `Person` class with common attributes like name, age.
+- Create `Student` and `Teacher` classes inheriting from `Person` with specific characteristics.
+- Create `Course` class to manage courses.
+- Each `Student` and `Teacher` can participate in multiple courses.
+- Provide methods to register, unregister courses.
 
-### Các chức năng cần có
+### Features to Implement
 
-- Lớp `Person` với các thuộc tính cơ bản (tên, tuổi).
-- Lớp `Student` và `Teacher` kế thừa từ `Person`, với phương thức đặc thù.
-- Lớp `Course` quản lý các thông tin khóa học và người tham gia.
-- Phương thức đăng ký và hủy khóa học trong lớp `Student`.
+- `Person` class with basic attributes (name, age).
+- `Student` and `Teacher` classes inheriting from `Person`, with specific methods.
+- `Course` class managing course info and participants.
+- Course registration and unregistration methods in `Student` class.

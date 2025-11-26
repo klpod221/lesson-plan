@@ -1,30 +1,30 @@
 ---
 prev:
-  text: '🔍 Cấu Trúc Dữ Liệu Chuyên Biệt'
+  text: '🔍 Specialized Data Structures'
   link: '/DSA/Part4'
 next:
-  text: '📝 Module 6: Nhập Môn HTML'
+  text: '📝 Module 6: Introduction to HTML'
   link: '/WEB/Part1'
 ---
 
-# 📘 PHẦN 5: THUẬT TOÁN ỨNG DỤNG VÀ TỐI ƯU HÓA
+# 📘 PART 5: APPLIED ALGORITHMS AND OPTIMIZATION
 
-## 🎯 Mục tiêu tổng quát
+## 🎯 General Objectives
 
-- Nắm vững các thuật toán xử lý chuỗi và ứng dụng trong các bài toán thực tế
-- Hiểu và áp dụng thành thạo kỹ thuật hai con trỏ và cửa sổ trượt
-- Làm chủ phương pháp chia để trị và áp dụng giải quyết các bài toán phức tạp
-- Nắm vững các kỹ thuật tìm kiếm trong không gian trạng thái
-- Biết cách phân tích và tối ưu hóa thuật toán hiệu quả
-- Xây dựng được ứng dụng thực tế sử dụng các thuật toán đồ thị
+- Master string processing algorithms and their applications in real-world problems.
+- Understand and proficiently apply Two Pointers and Sliding Window techniques.
+- Master the Divide and Conquer method and apply it to solve complex problems.
+- Master search techniques within a state space.
+- Learn how to analyze and optimize algorithms effectively.
+- Build a practical application using graph algorithms.
 
-## 🧑‍🏫 Bài 1: Thuật toán xử lý chuỗi
+## 🧑‍🏫 Lesson 1: String Processing Algorithms
 
-### 1. Tìm kiếm chuỗi con (String Matching)
+### 1. String Matching
 
-#### a. Thuật toán Brute Force
+#### a. Brute Force Algorithm
 
-Phương pháp đơn giản nhất để tìm kiếm một chuỗi con trong chuỗi chính.
+The simplest method to find a substring within a main string.
 
 ```java
 public static int bruteForceSearch(String text, String pattern) {
@@ -39,29 +39,29 @@ public static int bruteForceSearch(String text, String pattern) {
             }
         }
         if (j == m) {
-            return i; // Tìm thấy pattern tại vị trí i
+            return i; // Pattern found at position i
         }
     }
-    return -1; // Không tìm thấy
+    return -1; // Not found
 }
 ```
 
-- **Độ phức tạp**: O(n\*m) trong đó n là độ dài của chuỗi chính, m là độ dài của chuỗi mẫu
+- **Complexity**: O(n\*m) where n is the length of the main text, m is the length of the pattern.
 
-#### b. Thuật toán Knuth-Morris-Pratt (KMP)
+#### b. Knuth-Morris-Pratt (KMP) Algorithm
 
-KMP là thuật toán tìm kiếm chuỗi hiệu quả hơn bằng cách tận dụng thông tin từ các lần so khớp trước đó.
+KMP is a more efficient string search algorithm that utilizes information from previous matches.
 
 ```java
 public static int KMPSearch(String text, String pattern) {
     int n = text.length();
     int m = pattern.length();
 
-    // Tạo bảng lps[] để lưu prefix dài nhất cũng là suffix
+    // Create lps[] to store the longest prefix which is also a suffix
     int[] lps = computeLPSArray(pattern);
 
-    int i = 0; // chỉ số cho text[]
-    int j = 0; // chỉ số cho pattern[]
+    int i = 0; // index for text[]
+    int j = 0; // index for pattern[]
 
     while (i < n) {
         if (pattern.charAt(j) == text.charAt(i)) {
@@ -70,7 +70,7 @@ public static int KMPSearch(String text, String pattern) {
         }
 
         if (j == m) {
-            return i - j; // Tìm thấy pattern
+            return i - j; // Pattern found
         } else if (i < n && pattern.charAt(j) != text.charAt(i)) {
             if (j != 0) {
                 j = lps[j - 1];
@@ -79,15 +79,15 @@ public static int KMPSearch(String text, String pattern) {
             }
         }
     }
-    return -1; // Không tìm thấy
+    return -1; // Not found
 }
 
-// Hàm tính bảng lps (longest prefix suffix)
+// Function to compute the lps (longest prefix suffix) array
 public static int[] computeLPSArray(String pattern) {
     int m = pattern.length();
     int[] lps = new int[m];
 
-    int len = 0; // độ dài của chuỗi tiền tố-hậu tố trước đó
+    int len = 0; // length of the previous longest prefix suffix
     int i = 1;
 
     while (i < m) {
@@ -108,39 +108,39 @@ public static int[] computeLPSArray(String pattern) {
 }
 ```
 
-- **Độ phức tạp**: O(n+m) trong trường hợp tốt nhất và trung bình
+- **Complexity**: O(n+m) in the best and average cases.
 
-#### c. Thuật toán Boyer-Moore
+#### c. Boyer-Moore Algorithm
 
-Thuật toán tìm kiếm chuỗi hiệu quả, đặc biệt khi mẫu tìm kiếm dài.
+An efficient string search algorithm, especially when the search pattern is long.
 
 ```java
 public static int boyerMooreSearch(String text, String pattern) {
     int n = text.length();
     int m = pattern.length();
 
-    // Tạo bảng bad character
+    // Create bad character table
     Map<Character, Integer> badChar = new HashMap<>();
 
-    // Khởi tạo bảng bad character
+    // Initialize bad character table
     for (int i = 0; i < m; i++) {
         badChar.put(pattern.charAt(i), i);
     }
 
-    int s = 0; // s là vị trí dịch của pattern so với text
+    int s = 0; // s is the shift of the pattern with respect to text
 
     while (s <= (n - m)) {
         int j = m - 1;
 
-        // Kiểm tra từ phải sang trái
+        // Check from right to left
         while (j >= 0 && pattern.charAt(j) == text.charAt(s + j)) {
             j--;
         }
 
         if (j < 0) {
-            return s; // Tìm thấy
+            return s; // Found
         } else {
-            // Dịch chuyển mẫu dựa trên quy tắc bad character
+            // Shift the pattern based on the bad character rule
             char badCharacter = text.charAt(s + j);
             int shift = badChar.containsKey(badCharacter) ?
                         Math.max(1, j - badChar.get(badCharacter)) : j + 1;
@@ -148,41 +148,41 @@ public static int boyerMooreSearch(String text, String pattern) {
         }
     }
 
-    return -1; // Không tìm thấy
+    return -1; // Not found
 }
 ```
 
-- **Độ phức tạp**: O(n\*m) trong trường hợp xấu nhất, nhưng thường nhanh hơn trong thực tế
+- **Complexity**: O(n\*m) in the worst case, but typically much faster in practice.
 
-#### d. Thuật toán Rabin-Karp
+#### d. Rabin-Karp Algorithm
 
-Sử dụng hàm băm để so sánh các chuỗi một cách hiệu quả.
+Uses hashing to compare strings efficiently.
 
 ```java
 public static int rabinKarpSearch(String text, String pattern) {
     int n = text.length();
     int m = pattern.length();
-    int d = 256; // Số ký tự có thể có
-    int q = 101; // Một số nguyên tố
+    int d = 256; // Number of characters in the input alphabet
+    int q = 101; // A prime number
 
-    int p = 0; // Giá trị hash của pattern
-    int t = 0; // Giá trị hash của đoạn text hiện tại
+    int p = 0; // Hash value for pattern
+    int t = 0; // Hash value for text
     int h = 1;
 
-    // Tính h = d^(m-1) % q
+    // The value of h would be "pow(d, m-1)%q"
     for (int i = 0; i < m - 1; i++) {
         h = (h * d) % q;
     }
 
-    // Tính giá trị hash ban đầu của pattern và đoạn text đầu tiên
+    // Calculate the hash value of pattern and first window of text
     for (int i = 0; i < m; i++) {
         p = (d * p + pattern.charAt(i)) % q;
         t = (d * t + text.charAt(i)) % q;
     }
 
-    // Duyệt qua text
+    // Slide the pattern over text one by one
     for (int i = 0; i <= n - m; i++) {
-        // Nếu hash trùng nhau, kiểm tra từng ký tự
+        // If the hash values match then only check for characters one by one
         if (p == t) {
             boolean isMatch = true;
             for (int j = 0; j < m; j++) {
@@ -196,24 +196,24 @@ public static int rabinKarpSearch(String text, String pattern) {
             }
         }
 
-        // Tính hash cho đoạn text tiếp theo
+        // Calculate hash value for next window of text: Remove leading digit, add trailing digit
         if (i < n - m) {
             t = (d * (t - text.charAt(i) * h) + text.charAt(i + m)) % q;
             if (t < 0) t += q;
         }
     }
 
-    return -1; // Không tìm thấy
+    return -1; // Not found
 }
 ```
 
-- **Độ phức tạp**: O(n+m) trong trường hợp tốt nhất và trung bình, O(n\*m) trong trường hợp xấu nhất
+- **Complexity**: O(n+m) in best and average cases, O(n\*m) in worst case.
 
-### 2. Xử lý chuỗi nâng cao
+### 2. Advanced String Processing
 
-#### a. Thuật toán Z
+#### a. Z Algorithm
 
-Thuật toán Z tìm tất cả các lần xuất hiện của một mẫu trong văn bản bằng cách xây dựng mảng Z.
+The Z algorithm finds all occurrences of a pattern in a text by constructing a Z-array.
 
 ```java
 public static int[] computeZArray(String str) {
@@ -246,7 +246,7 @@ public static int[] computeZArray(String str) {
     return Z;
 }
 
-// Tìm tất cả các lần xuất hiện của pattern trong text
+// Find all occurrences of pattern in text
 public static List<Integer> findAllOccurrences(String text, String pattern) {
     String concat = pattern + "$" + text;
     int[] Z = computeZArray(concat);
@@ -262,15 +262,15 @@ public static List<Integer> findAllOccurrences(String text, String pattern) {
 }
 ```
 
-- **Độ phức tạp**: O(n+m) trong đó n là độ dài text, m là độ dài pattern
+- **Complexity**: O(n+m) where n is text length, m is pattern length.
 
-#### b. Thuật toán Manacher (tìm chuỗi đối xứng)
+#### b. Manacher's Algorithm (Longest Palindromic Substring)
 
-Thuật toán Manacher dùng để tìm chuỗi đối xứng dài nhất trong một chuỗi với độ phức tạp tuyến tính.
+Manacher's algorithm finds the longest palindromic substring in linear time.
 
 ```java
 public static String longestPalindrome(String s) {
-    // Xử lý chuỗi bằng cách thêm các ký tự # vào giữa
+    // Process string by adding '#' characters between letters
     StringBuilder sb = new StringBuilder();
     sb.append('#');
     for (char c : s.toCharArray()) {
@@ -279,30 +279,30 @@ public static String longestPalindrome(String s) {
     String t = sb.toString();
 
     int n = t.length();
-    int[] p = new int[n]; // p[i] là độ dài palindrome tính từ vị trí i
+    int[] p = new int[n]; // p[i] is the radius of the palindrome at center i
 
-    int c = 0, r = 0; // c là tâm của palindrome, r là biên phải
+    int c = 0, r = 0; // c is the center, r is the right boundary
     int maxLen = 0, centerIndex = 0;
 
     for (int i = 0; i < n; i++) {
-        // Tận dụng tính đối xứng
+        // Exploit symmetry
         if (r > i) {
             p[i] = Math.min(r - i, p[2 * c - i]);
         }
 
-        // Mở rộng palindrome
+        // Expand palindrome
         while (i + p[i] + 1 < n && i - p[i] - 1 >= 0 &&
                t.charAt(i + p[i] + 1) == t.charAt(i - p[i] - 1)) {
             p[i]++;
         }
 
-        // Cập nhật tâm và biên phải
+        // Update center and right boundary
         if (i + p[i] > r) {
             c = i;
             r = i + p[i];
         }
 
-        // Cập nhật kết quả
+        // Update result
         if (p[i] > maxLen) {
             maxLen = p[i];
             centerIndex = i;
@@ -314,11 +314,11 @@ public static String longestPalindrome(String s) {
 }
 ```
 
-- **Độ phức tạp**: O(n) trong đó n là độ dài của chuỗi
+- **Complexity**: O(n) where n is the length of the string.
 
-#### c. Thuật toán Suffix Array và LCP Array
+#### c. Suffix Array and LCP Array
 
-Suffix Array là mảng các hậu tố của một chuỗi được sắp xếp theo thứ tự từ điển. LCP Array (Longest Common Prefix) lưu trữ độ dài tiền tố chung dài nhất giữa các hậu tố liên tiếp trong suffix array.
+Suffix Array is a sorted array of all suffixes of a string. LCP Array (Longest Common Prefix) stores the length of the longest common prefix between consecutive suffixes in the suffix array.
 
 ```java
 public class SuffixArray {
@@ -326,15 +326,15 @@ public class SuffixArray {
         int n = s.length();
         Suffix[] suffixes = new Suffix[n];
 
-        // Lưu trữ các hậu tố và vị trí
+        // Store suffixes and their indexes
         for (int i = 0; i < n; i++) {
             suffixes[i] = new Suffix(i, s.substring(i));
         }
 
-        // Sắp xếp các hậu tố
+        // Sort suffixes
         Arrays.sort(suffixes);
 
-        // Lưu trữ chỉ số của các hậu tố đã sắp xếp
+        // Store indexes of sorted suffixes
         int[] suffixArr = new int[n];
         for (int i = 0; i < n; i++) {
             suffixArr[i] = suffixes[i].index;
@@ -343,18 +343,18 @@ public class SuffixArray {
         return suffixArr;
     }
 
-    // Xây dựng LCP Array
+    // Build LCP Array
     public static int[] buildLCPArray(String s, int[] suffixArr) {
         int n = s.length();
         int[] lcp = new int[n];
 
-        // Mảng rank để lưu vị trí của mỗi hậu tố trong suffix array
+        // Rank array to store the rank of each suffix in suffix array
         int[] rank = new int[n];
         for (int i = 0; i < n; i++) {
             rank[suffixArr[i]] = i;
         }
 
-        int h = 0; // độ dài LCP hiện tại
+        int h = 0; // Current LCP length
         for (int i = 0; i < n; i++) {
             if (rank[i] > 0) {
                 int j = suffixArr[rank[i] - 1];
@@ -386,15 +386,15 @@ public class SuffixArray {
 }
 ```
 
-- **Độ phức tạp**: O(n log n) cho việc xây dựng suffix array, O(n) cho LCP array
+- **Complexity**: O(n log n) for building suffix array, O(n) for LCP array.
 
-### 3. Ứng dụng của thuật toán xử lý chuỗi
+### 3. Applications of String Algorithms
 
-#### a. Tìm kiếm mẫu trong văn bản và DNA
+#### a. Pattern Matching in Text and DNA
 
 ```java
 public static List<Integer> findPatternInDNA(String dnaSequence, String pattern) {
-    // Sử dụng KMP để tìm tất cả các lần xuất hiện
+    // Use KMP to find all occurrences
     List<Integer> occurrences = new ArrayList<>();
 
     int[] lps = computeLPSArray(pattern);
@@ -422,7 +422,7 @@ public static List<Integer> findPatternInDNA(String dnaSequence, String pattern)
 }
 ```
 
-#### b. Tìm chuỗi con chung dài nhất (Longest Common Substring)
+#### b. Longest Common Substring
 
 ```java
 public static String longestCommonSubstring(String s1, String s2) {
@@ -430,7 +430,7 @@ public static String longestCommonSubstring(String s1, String s2) {
     int n = s2.length();
     int[][] dp = new int[m + 1][n + 1];
 
-    // Biến để theo dõi độ dài tối đa và vị trí kết thúc
+    // Variables to track max length and ending position
     int maxLength = 0;
     int endIndex = 0;
 
@@ -447,14 +447,14 @@ public static String longestCommonSubstring(String s1, String s2) {
         }
     }
 
-    // Trích xuất chuỗi con
+    // Extract substring
     return s1.substring(endIndex - maxLength + 1, endIndex + 1);
 }
 ```
 
-- **Độ phức tạp**: O(m \* n) trong đó m, n là độ dài của hai chuỗi
+- **Complexity**: O(m \* n) where m, n are lengths of the two strings.
 
-#### c. Tìm chuỗi con chung dài nhất cho nhiều chuỗi
+#### c. Longest Common Substring for Multiple Strings
 
 ```java
 public static String longestCommonSubstring(String[] strings) {
@@ -472,7 +472,7 @@ public static String longestCommonSubstring(String[] strings) {
 }
 ```
 
-#### d. Nén chuỗi (Run-Length Encoding)
+#### d. Run-Length Encoding
 
 ```java
 public static String compress(String s) {
@@ -495,7 +495,7 @@ public static String compress(String s) {
         }
     }
 
-    // Xử lý phần cuối cùng
+    // Handle the last part
     compressed.append(currentChar);
     if (count > 1) {
         compressed.append(count);
@@ -505,34 +505,34 @@ public static String compress(String s) {
 }
 ```
 
-### 4. So sánh các thuật toán tìm kiếm chuỗi
+### 4. Comparison of String Search Algorithms
 
-| Thuật toán  | Tiền xử lý      | Tìm kiếm          | Trường hợp tốt nhất | Ưu điểm                   | Nhược điểm                    |
-| ----------- | --------------- | ----------------- | ------------------- | ------------------------- | ----------------------------- |
-| Brute Force | Không cần       | O(n\*m)           | O(n)                | Đơn giản, dễ cài đặt      | Chậm với mẫu và chuỗi dài     |
-| KMP         | O(m)            | O(n)              | O(n)                | Hiệu quả với mọi loại mẫu | Phức tạp để cài đặt chính xác |
-| Boyer-Moore | O(m + alphabet) | O(n/m) -> O(n\*m) | O(n/m)              | Rất nhanh trong thực tế   | Phức tạp, cần bộ nhớ cho bảng |
-| Rabin-Karp  | O(m)            | O(n\*m) -> O(n+m) | O(n+m)              | Tốt cho tìm nhiều mẫu     | Có thể có va chạm hash        |
+| Algorithm | Preprocessing | Searching | Best Case | Pros | Cons |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| Brute Force | None | O(n\*m) | O(n) | Simple, easy to implement | Slow with long patterns/text |
+| KMP | O(m) | O(n) | O(n) | Efficient for all pattern types | Complex to implement correctly |
+| Boyer-Moore | O(m + alphabet) | O(n/m) -> O(n\*m) | O(n/m) | Very fast in practice | Complex, requires memory for tables |
+| Rabin-Karp | O(m) | O(n\*m) -> O(n+m) | O(n+m) | Good for multiple pattern search | Potential hash collisions |
 
-Với n là độ dài chuỗi chính và m là độ dài mẫu tìm kiếm.
+Where n is the length of the main text and m is the length of the search pattern.
 
-## 🧑‍🏫 Bài 2: Kỹ thuật hai con trỏ và cửa sổ trượt
+## 🧑‍🏫 Lesson 2: Two Pointers and Sliding Window Techniques
 
-### 1. Kỹ thuật hai con trỏ (Two Pointers)
+### 1. Two Pointers Technique
 
-Kỹ thuật hai con trỏ là phương pháp sử dụng hai con trỏ (hoặc chỉ số) để duyệt qua một cấu trúc dữ liệu, thường là mảng hoặc danh sách liên kết.
+The Two Pointers technique involves using two pointers (or indices) to traverse a data structure, typically an array or a linked list.
 
-#### a. Hai con trỏ cùng hướng (Same Direction)
+#### a. Same Direction
 
-Hai con trỏ cùng di chuyển theo một hướng, nhưng với tốc độ khác nhau.
+Two pointers move in the same direction, but at different speeds.
 
-Ví dụ 1: Xóa các phần tử trùng lặp trong mảng đã sắp xếp
+Example 1: Remove duplicates from sorted array
 
 ```java
 public static int removeDuplicates(int[] nums) {
     if (nums.length == 0) return 0;
 
-    int slow = 0; // Con trỏ chậm (vị trí để ghi)
+    int slow = 0; // Slow pointer (write position)
 
     for (int fast = 1; fast < nums.length; fast++) {
         if (nums[fast] != nums[slow]) {
@@ -541,41 +541,41 @@ public static int removeDuplicates(int[] nums) {
         }
     }
 
-    return slow + 1; // Độ dài mảng mới
+    return slow + 1; // New array length
 }
 ```
 
-- **Độ phức tạp thời gian**: O(n)
-- **Độ phức tạp không gian**: O(1)
+- **Time Complexity**: O(n)
+- **Space Complexity**: O(1)
 
-Ví dụ 2: Tìm phần tử không bằng 0 trong mảng
+Example 2: Move Zeroes to the end
 
 ```java
 public static void moveZeroes(int[] nums) {
     int nonZeroPtr = 0;
 
-    // Di chuyển tất cả phần tử khác 0 lên đầu mảng
+    // Move all non-zero elements to the start
     for (int i = 0; i < nums.length; i++) {
         if (nums[i] != 0) {
             nums[nonZeroPtr++] = nums[i];
         }
     }
 
-    // Điền 0 vào các vị trí còn lại
+    // Fill remaining positions with 0
     while (nonZeroPtr < nums.length) {
         nums[nonZeroPtr++] = 0;
     }
 }
 ```
 
-- **Độ phức tạp thời gian**: O(n)
-- **Độ phức tạp không gian**: O(1)
+- **Time Complexity**: O(n)
+- **Space Complexity**: O(1)
 
-#### b. Hai con trỏ ngược hướng (Opposite Direction)
+#### b. Opposite Direction
 
-Một con trỏ bắt đầu từ đầu mảng, con trỏ kia bắt đầu từ cuối mảng.
+One pointer starts from the beginning, the other starts from the end.
 
-Ví dụ 1: Đảo ngược mảng
+Example 1: Reverse Array
 
 ```java
 public static void reverseArray(int[] nums) {
@@ -583,22 +583,22 @@ public static void reverseArray(int[] nums) {
     int right = nums.length - 1;
 
     while (left < right) {
-        // Đổi chỗ phần tử ở hai đầu
+        // Swap elements at both ends
         int temp = nums[left];
         nums[left] = nums[right];
         nums[right] = temp;
 
-        // Di chuyển hai con trỏ
+        // Move pointers
         left++;
         right--;
     }
 }
 ```
 
-- **Độ phức tạp thời gian**: O(n)
-- **Độ phức tạp không gian**: O(1)
+- **Time Complexity**: O(n)
+- **Space Complexity**: O(1)
 
-Ví dụ 2: Tìm cặp số có tổng bằng một giá trị cho trước (trong mảng đã sắp xếp)
+Example 2: Two Sum - Input array is sorted
 
 ```java
 public static boolean hasPairWithSum(int[] nums, int target) {
@@ -609,26 +609,26 @@ public static boolean hasPairWithSum(int[] nums, int target) {
         int sum = nums[left] + nums[right];
 
         if (sum == target) {
-            return true; // Tìm thấy cặp số
+            return true; // Pair found
         } else if (sum < target) {
-            left++; // Tăng tổng bằng cách di chuyển con trỏ trái
+            left++; // Increase sum by moving left pointer
         } else {
-            right--; // Giảm tổng bằng cách di chuyển con trỏ phải
+            right--; // Decrease sum by moving right pointer
         }
     }
 
-    return false; // Không tìm thấy cặp số nào
+    return false; // No pair found
 }
 ```
 
-- **Độ phức tạp thời gian**: O(n)
-- **Độ phức tạp không gian**: O(1)
+- **Time Complexity**: O(n)
+- **Space Complexity**: O(1)
 
-Ví dụ 3: Kiểm tra chuỗi palindrome
+Example 3: Valid Palindrome
 
 ```java
 public static boolean isPalindrome(String s) {
-    // Loại bỏ kí tự không phải chữ cái và số, chuyển thành chữ thường
+    // Remove non-alphanumeric characters, convert to lowercase
     String cleaned = s.replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
 
     int left = 0;
@@ -646,14 +646,14 @@ public static boolean isPalindrome(String s) {
 }
 ```
 
-- **Độ phức tạp thời gian**: O(n)
-- **Độ phức tạp không gian**: O(n) do tạo chuỗi mới
+- **Time Complexity**: O(n)
+- **Space Complexity**: O(n) due to creating a new string
 
-#### c. Hai con trỏ trên hai mảng
+#### c. Two Pointers on Two Arrays
 
-Mỗi con trỏ duyệt một mảng khác nhau.
+Each pointer traverses a different array.
 
-Ví dụ: Hợp nhất hai mảng đã sắp xếp
+Example: Merge Sorted Arrays
 
 ```java
 public static int[] mergeSortedArrays(int[] nums1, int[] nums2) {
@@ -671,7 +671,7 @@ public static int[] mergeSortedArrays(int[] nums1, int[] nums2) {
         }
     }
 
-    // Sao chép phần còn lại nếu có
+    // Copy remaining elements if any
     while (i < n) {
         result[k++] = nums1[i++];
     }
@@ -684,26 +684,26 @@ public static int[] mergeSortedArrays(int[] nums1, int[] nums2) {
 }
 ```
 
-- **Độ phức tạp thời gian**: O(n+m)
-- **Độ phức tạp không gian**: O(n+m)
+- **Time Complexity**: O(n+m)
+- **Space Complexity**: O(n+m)
 
-### 2. Kỹ thuật cửa sổ trượt (Sliding Window)
+### 2. Sliding Window Technique
 
-Kỹ thuật cửa sổ trượt là phương pháp duy trì một "cửa sổ" các phần tử trong một mảng hoặc chuỗi và trượt cửa sổ này qua dữ liệu.
+The sliding window technique involves maintaining a "window" of elements in an array or string and sliding this window over the data.
 
-#### a. Cửa sổ cố định (Fixed Size Window)
+#### a. Fixed Size Window
 
-Kích thước cửa sổ không thay đổi trong quá trình duyệt.
+The window size remains constant during traversal.
 
-Ví dụ 1: Tìm tổng lớn nhất của cửa sổ kích thước k
+Example 1: Max Sum Subarray of size K
 
 ```java
 public static int maxSumSubarrayOfSizeK(int[] arr, int k) {
     if (arr.length < k) {
-        return -1; // Mảng nhỏ hơn kích thước cửa sổ
+        return -1; // Array smaller than window size
     }
 
-    // Tính tổng của k phần tử đầu tiên
+    // Calculate sum of first k elements
     int windowSum = 0;
     for (int i = 0; i < k; i++) {
         windowSum += arr[i];
@@ -711,7 +711,7 @@ public static int maxSumSubarrayOfSizeK(int[] arr, int k) {
 
     int maxSum = windowSum;
 
-    // Trượt cửa sổ và cập nhật tổng
+    // Slide window and update sum
     for (int i = k; i < arr.length; i++) {
         windowSum = windowSum + arr[i] - arr[i - k];
         maxSum = Math.max(maxSum, windowSum);
@@ -721,10 +721,10 @@ public static int maxSumSubarrayOfSizeK(int[] arr, int k) {
 }
 ```
 
-- **Độ phức tạp thời gian**: O(n)
-- **Độ phức tạp không gian**: O(1)
+- **Time Complexity**: O(n)
+- **Space Complexity**: O(1)
 
-Ví dụ 2: Tìm giá trị trung bình của tất cả các cửa sổ kích thước k
+Example 2: Averages of Subarrays of Size K
 
 ```java
 public static double[] findAverages(int[] arr, int k) {
@@ -734,13 +734,13 @@ public static double[] findAverages(int[] arr, int k) {
     int windowStart = 0;
 
     for (int windowEnd = 0; windowEnd < arr.length; windowEnd++) {
-        windowSum += arr[windowEnd]; // Thêm vào cửa sổ
+        windowSum += arr[windowEnd]; // Add to window
 
-        // Khi đã đủ kích thước k
+        // When size k is reached
         if (windowEnd >= k - 1) {
-            result[windowStart] = windowSum / k; // Tính trung bình
-            windowSum -= arr[windowStart]; // Loại bỏ phần tử đầu tiên
-            windowStart++; // Di chuyển cửa sổ
+            result[windowStart] = windowSum / k; // Calculate average
+            windowSum -= arr[windowStart]; // Remove first element
+            windowStart++; // Slide window
         }
     }
 
@@ -748,14 +748,14 @@ public static double[] findAverages(int[] arr, int k) {
 }
 ```
 
-- **Độ phức tạp thời gian**: O(n)
-- **Độ phức tạp không gian**: O(n-k+1) cho mảng kết quả
+- **Time Complexity**: O(n)
+- **Space Complexity**: O(n-k+1) for result array
 
-#### b. Cửa sổ thay đổi kích thước (Variable Size Window)
+#### b. Variable Size Window
 
-Kích thước cửa sổ thay đổi động theo điều kiện nào đó.
+The window size changes dynamically based on certain conditions.
 
-Ví dụ 1: Tìm dãy con ngắn nhất có tổng >= S
+Example 1: Smallest Subarray with a given sum
 
 ```java
 public static int smallestSubarrayWithSum(int[] arr, int targetSum) {
@@ -764,9 +764,9 @@ public static int smallestSubarrayWithSum(int[] arr, int targetSum) {
     int minLength = Integer.MAX_VALUE;
 
     for (int windowEnd = 0; windowEnd < arr.length; windowEnd++) {
-        windowSum += arr[windowEnd]; // Thêm vào cửa sổ
+        windowSum += arr[windowEnd]; // Add to window
 
-        // Thu nhỏ cửa sổ khi tổng >= targetSum
+        // Shrink window while sum >= targetSum
         while (windowSum >= targetSum) {
             minLength = Math.min(minLength, windowEnd - windowStart + 1);
             windowSum -= arr[windowStart];
@@ -778,15 +778,15 @@ public static int smallestSubarrayWithSum(int[] arr, int targetSum) {
 }
 ```
 
-- **Độ phức tạp thời gian**: O(n)
-- **Độ phức tạp không gian**: O(1)
+- **Time Complexity**: O(n)
+- **Space Complexity**: O(1)
 
-Ví dụ 2: Chuỗi con dài nhất không có ký tự lặp lại
+Example 2: Longest Substring Without Repeating Characters
 
 ```java
 public static int lengthOfLongestSubstring(String s) {
-    int[] charIndex = new int[128]; // Lưu chỉ số của ký tự
-    Arrays.fill(charIndex, -1); // Khởi tạo tất cả là -1
+    int[] charIndex = new int[128]; // Store character indices
+    Arrays.fill(charIndex, -1); // Initialize all to -1
 
     int maxLength = 0;
     int windowStart = 0;
@@ -794,16 +794,16 @@ public static int lengthOfLongestSubstring(String s) {
     for (int windowEnd = 0; windowEnd < s.length(); windowEnd++) {
         char rightChar = s.charAt(windowEnd);
 
-        // Nếu ký tự đã xuất hiện sau điểm bắt đầu cửa sổ hiện tại
+        // If char already appeared after current window start
         if (charIndex[rightChar] >= windowStart) {
-            // Di chuyển cửa sổ bắt đầu sau vị trí ký tự đã xuất hiện
+            // Move window start to after the character's last position
             windowStart = charIndex[rightChar] + 1;
         }
 
-        // Cập nhật vị trí của ký tự
+        // Update character position
         charIndex[rightChar] = windowEnd;
 
-        // Cập nhật độ dài tối đa
+        // Update max length
         maxLength = Math.max(maxLength, windowEnd - windowStart + 1);
     }
 
@@ -811,10 +811,10 @@ public static int lengthOfLongestSubstring(String s) {
 }
 ```
 
-- **Độ phức tạp thời gian**: O(n)
-- **Độ phức tạp không gian**: O(1) nếu giả sử bảng mã ASCII cố định
+- **Time Complexity**: O(n)
+- **Space Complexity**: O(1) assuming fixed ASCII charset
 
-Ví dụ 3: Chuỗi con dài nhất với không quá k ký tự khác nhau
+Example 3: Longest Substring with K Distinct Characters
 
 ```java
 public static int lengthOfLongestSubstringKDistinct(String s, int k) {
@@ -830,7 +830,7 @@ public static int lengthOfLongestSubstringKDistinct(String s, int k) {
         char rightChar = s.charAt(windowEnd);
         charFrequency.put(rightChar, charFrequency.getOrDefault(rightChar, 0) + 1);
 
-        // Thu nhỏ cửa sổ khi có quá k ký tự khác nhau
+        // Shrink window when distinct characters > k
         while (charFrequency.size() > k) {
             char leftChar = s.charAt(windowStart);
             charFrequency.put(leftChar, charFrequency.get(leftChar) - 1);
@@ -847,12 +847,12 @@ public static int lengthOfLongestSubstringKDistinct(String s, int k) {
 }
 ```
 
-- **Độ phức tạp thời gian**: O(n)
-- **Độ phức tạp không gian**: O(k)
+- **Time Complexity**: O(n)
+- **Space Complexity**: O(k)
 
-### 3. Ứng dụng và bài toán thực tế
+### 3. Applications and Real-world Problems
 
-#### a. Tìm tập con có tổng bằng một giá trị cho trước
+#### a. Partition Equal Subset Sum
 
 ```java
 public static boolean canPartitionArray(int[] nums) {
@@ -861,7 +861,7 @@ public static boolean canPartitionArray(int[] nums) {
         totalSum += num;
     }
 
-    // Nếu tổng lẻ, không thể chia thành 2 phần bằng nhau
+    // If sum is odd, cannot be divided into 2 equal parts
     if (totalSum % 2 != 0) {
         return false;
     }
@@ -880,10 +880,10 @@ public static boolean canPartitionArray(int[] nums) {
 }
 ```
 
-- **Độ phức tạp thời gian**: O(n \* sum/2)
-- **Độ phức tạp không gian**: O(sum/2)
+- **Time Complexity**: O(n \* sum/2)
+- **Space Complexity**: O(sum/2)
 
-#### b. Tìm ba số có tổng bằng 0
+#### b. 3Sum (Find three numbers that sum to 0)
 
 ```java
 public static List<List<Integer>> threeSum(int[] nums) {
@@ -893,7 +893,7 @@ public static List<List<Integer>> threeSum(int[] nums) {
     Arrays.sort(nums);
 
     for (int i = 0; i < nums.length - 2; i++) {
-        // Bỏ qua các giá trị trùng lặp
+        // Skip duplicates
         if (i > 0 && nums[i] == nums[i - 1]) continue;
 
         int left = i + 1;
@@ -907,10 +907,10 @@ public static List<List<Integer>> threeSum(int[] nums) {
             } else if (sum > 0) {
                 right--;
             } else {
-                // Tìm thấy bộ ba
+                // Triplet found
                 result.add(Arrays.asList(nums[i], nums[left], nums[right]));
 
-                // Bỏ qua các giá trị trùng lặp
+                // Skip duplicates
                 while (left < right && nums[left] == nums[left + 1]) left++;
                 while (left < right && nums[right] == nums[right - 1]) right--;
 
@@ -924,51 +924,51 @@ public static List<List<Integer>> threeSum(int[] nums) {
 }
 ```
 
-- **Độ phức tạp thời gian**: O(n²)
-- **Độ phức tạp không gian**: O(n) cho danh sách kết quả
+- **Time Complexity**: O(n²)
+- **Space Complexity**: O(n) for result list
 
-#### c. Tìm tất cả các anagram trong chuỗi
+#### c. Find All Anagrams in a String
 
 ```java
 public static List<Integer> findAnagrams(String s, String p) {
     List<Integer> result = new ArrayList<>();
     if (s.length() < p.length()) return result;
 
-    int[] charCount = new int[26]; // Đếm số lần xuất hiện của các ký tự trong p
+    int[] charCount = new int[26]; // Count chars in p
     for (char c : p.toCharArray()) {
         charCount[c - 'a']++;
     }
 
     int windowStart = 0;
-    int matched = 0; // Số ký tự đã khớp
+    int matched = 0; // Number of matched characters
 
     for (int windowEnd = 0; windowEnd < s.length(); windowEnd++) {
         char rightChar = s.charAt(windowEnd);
 
-        // Giảm số đếm của ký tự vào cửa sổ
+        // Decrease count for char entering window
         charCount[rightChar - 'a']--;
 
-        // Nếu số đếm >= 0, đã khớp một ký tự từ p
+        // If count >= 0, it matched a character from p
         if (charCount[rightChar - 'a'] >= 0) {
             matched++;
         }
 
-        // Nếu khớp tất cả ký tự
+        // If all characters matched
         if (matched == p.length()) {
             result.add(windowStart);
         }
 
-        // Khi cửa sổ đạt kích thước p.length()
+        // When window reaches size p.length()
         if (windowEnd >= p.length() - 1) {
             char leftChar = s.charAt(windowStart);
             windowStart++;
 
-            // Nếu ký tự rời khỏi cửa sổ là ký tự khớp
+            // If character leaving window was a match
             if (charCount[leftChar - 'a'] >= 0) {
                 matched--;
             }
 
-            // Tăng số đếm khi ký tự rời khỏi cửa sổ
+            // Increase count as char leaves window
             charCount[leftChar - 'a']++;
         }
     }
@@ -977,31 +977,31 @@ public static List<Integer> findAnagrams(String s, String p) {
 }
 ```
 
-- **Độ phức tạp thời gian**: O(n)
-- **Độ phức tạp không gian**: O(1) vì chúng ta chỉ sử dụng một mảng cố định 26 phần tử
+- **Time Complexity**: O(n)
+- **Space Complexity**: O(1) since we use a fixed array of size 26
 
-### 4. So sánh hai kỹ thuật
+### 4. Comparison of Two Techniques
 
-| Tiêu chí             | Kỹ thuật hai con trỏ                  | Kỹ thuật cửa sổ trượt                          |
-| -------------------- | ------------------------------------- | ---------------------------------------------- |
-| **Ứng dụng chính**   | Tìm cặp phần tử, đảo ngược mảng/chuỗi | Tìm dãy con liên tiếp thỏa mãn điều kiện       |
-| **Cách tiếp cận**    | Sử dụng hai chỉ số riêng biệt         | Sử dụng hai chỉ số xác định đầu và cuối cửa sổ |
-| **Di chuyển**        | Có thể cùng hướng hoặc ngược hướng    | Luôn theo một hướng                            |
-| **Kích thước**       | Không duy trì kích thước cố định      | Có thể cố định hoặc thay đổi                   |
-| **Độ phức tạp**      | Thường là O(n)                        | Thường là O(n)                                 |
-| **Bài toán phù hợp** | Mảng đã sắp xếp, tìm tổng...          | Dãy con liên tiếp, chuỗi con...                |
+| Criteria | Two Pointers | Sliding Window |
+| :--- | :--- | :--- |
+| **Main Application** | Find pairs, reverse array/string | Find contiguous subarrays satisfying a condition |
+| **Approach** | Uses two distinct indices | Uses two indices defining start and end of a window |
+| **Movement** | Can be same or opposite direction | Always one direction (forward) |
+| **Size** | Does not maintain fixed size | Can be fixed or variable |
+| **Complexity** | Typically O(n) | Typically O(n) |
+| **Suitable Problems** | Sorted arrays, sum search... | Contiguous subarrays, substrings... |
 
-## 🧑‍🏫 Bài 3: Thuật toán chia để trị
+## 🧑‍🏫 Lesson 3: Divide and Conquer Algorithms
 
-### 1. Nguyên lý chia để trị
+### 1. Divide and Conquer Principle
 
-Chia để trị là một phương pháp thiết kế thuật toán dựa trên việc:
+Divide and Conquer is an algorithm design paradigm based on:
 
-1. **Chia (Divide)**: Chia bài toán thành các bài toán con nhỏ hơn cùng dạng
-2. **Trị (Conquer)**: Giải quyết các bài toán con một cách đệ quy
-3. **Kết hợp (Combine)**: Kết hợp lời giải của các bài toán con để tạo lời giải cho bài toán ban đầu
+1.  **Divide**: Break the problem into smaller sub-problems of the same type.
+2.  **Conquer**: Solve the sub-problems recursively.
+3.  **Combine**: Merge the solutions of sub-problems to create the solution for the original problem.
 
-#### Cấu trúc chung của thuật toán chia để trị
+#### General Structure of Divide and Conquer Algorithm
 
 ```java
 public Type divideAndConquer(Problem problem) {
@@ -1009,59 +1009,59 @@ public Type divideAndConquer(Problem problem) {
         return solveDirectly(problem);
     }
 
-    // Chia thành các bài toán con
+    // Divide into sub-problems
     Problem[] subproblems = divideIntoParts(problem);
 
-    // Giải quyết từng bài toán con
+    // Solve each sub-problem
     Type[] subresults = new Type[subproblems.length];
     for (int i = 0; i < subproblems.length; i++) {
         subresults[i] = divideAndConquer(subproblems[i]);
     }
 
-    // Kết hợp kết quả
+    // Combine results
     return combineResults(subresults);
 }
 ```
 
-### 2. Các thuật toán chia để trị cơ bản
+### 2. Basic Divide and Conquer Algorithms
 
 #### a. Merge Sort
 
-Thuật toán sắp xếp trộn chia mảng thành hai nửa, sắp xếp từng nửa và sau đó trộn chúng lại.
+Merge Sort divides the array into two halves, sorts each half, and then merges them back together.
 
 ```java
 public static void mergeSort(int[] arr, int left, int right) {
     if (left < right) {
-        // Tìm điểm giữa
+        // Find the middle point
         int mid = left + (right - left) / 2;
 
-        // Sắp xếp nửa đầu
+        // Sort first half
         mergeSort(arr, left, mid);
 
-        // Sắp xếp nửa sau
+        // Sort second half
         mergeSort(arr, mid + 1, right);
 
-        // Trộn hai nửa đã sắp xếp
+        // Merge the sorted halves
         merge(arr, left, mid, right);
     }
 }
 
 private static void merge(int[] arr, int left, int mid, int right) {
-    // Kích thước của hai mảng con
+    // Sizes of two subarrays
     int n1 = mid - left + 1;
     int n2 = right - mid;
 
-    // Tạo mảng tạm
+    // Create temp arrays
     int[] L = new int[n1];
     int[] R = new int[n2];
 
-    // Sao chép dữ liệu vào mảng tạm
+    // Copy data to temp arrays
     for (int i = 0; i < n1; i++)
         L[i] = arr[left + i];
     for (int j = 0; j < n2; j++)
         R[j] = arr[mid + 1 + j];
 
-    // Trộn mảng
+    // Merge arrays
     int i = 0, j = 0;
     int k = left;
 
@@ -1076,14 +1076,14 @@ private static void merge(int[] arr, int left, int mid, int right) {
         k++;
     }
 
-    // Sao chép phần còn lại của L[] nếu có
+    // Copy remaining elements of L[] if any
     while (i < n1) {
         arr[k] = L[i];
         i++;
         k++;
     }
 
-    // Sao chép phần còn lại của R[] nếu có
+    // Copy remaining elements of R[] if any
     while (j < n2) {
         arr[k] = R[j];
         j++;
@@ -1092,56 +1092,56 @@ private static void merge(int[] arr, int left, int mid, int right) {
 }
 ```
 
-- **Độ phức tạp thời gian**: O(n log n)
-- **Độ phức tạp không gian**: O(n)
+- **Time Complexity**: O(n log n)
+- **Space Complexity**: O(n)
 
 #### b. Quick Sort
 
-Thuật toán sắp xếp nhanh chọn một phần tử là "pivot" và phân vùng mảng sao cho các phần tử nhỏ hơn pivot nằm bên trái và các phần tử lớn hơn pivot nằm bên phải.
+Quick Sort picks an element as a "pivot" and partitions the array around the picked pivot so that elements smaller than the pivot are on the left and elements greater are on the right.
 
 ```java
 public static void quickSort(int[] arr, int low, int high) {
     if (low < high) {
-        // Lấy vị trí chốt sau khi sắp xếp
+        // Get pivot index after partitioning
         int pi = partition(arr, low, high);
 
-        // Sắp xếp các phần tử trước và sau chốt
+        // Sort elements before and after pivot
         quickSort(arr, low, pi - 1);
         quickSort(arr, pi + 1, high);
     }
 }
 
 private static int partition(int[] arr, int low, int high) {
-    int pivot = arr[high]; // Chọn phần tử cuối làm pivot
-    int i = low - 1; // Chỉ số của phần tử nhỏ hơn
+    int pivot = arr[high]; // Choose last element as pivot
+    int i = low - 1; // Index of smaller element
 
     for (int j = low; j < high; j++) {
-        // Nếu phần tử hiện tại nhỏ hơn hoặc bằng pivot
+        // If current element is smaller than or equal to pivot
         if (arr[j] <= pivot) {
             i++;
 
-            // Đổi chỗ arr[i] và arr[j]
+            // Swap arr[i] and arr[j]
             int temp = arr[i];
             arr[i] = arr[j];
             arr[j] = temp;
         }
     }
 
-    // Đổi chỗ arr[i+1] và arr[high] (pivot)
+    // Swap arr[i+1] and arr[high] (pivot)
     int temp = arr[i + 1];
     arr[i + 1] = arr[high];
     arr[high] = temp;
 
-    return i + 1; // Trả về vị trí chốt
+    return i + 1; // Return pivot index
 }
 ```
 
-- **Độ phức tạp thời gian**: Trung bình O(n log n), xấu nhất O(n²)
-- **Độ phức tạp không gian**: O(log n) cho stack đệ quy
+- **Time Complexity**: Average O(n log n), Worst case O(n²)
+- **Space Complexity**: O(log n) for recursion stack
 
 #### c. Binary Search
 
-Tìm kiếm nhị phân hiệu quả trên mảng đã sắp xếp bằng cách liên tục chia đôi phạm vi tìm kiếm.
+Efficiently searches a sorted array by repeatedly dividing the search interval in half.
 
 ```java
 public static int binarySearch(int[] arr, int target) {
@@ -1150,34 +1150,34 @@ public static int binarySearch(int[] arr, int target) {
 
 private static int binarySearchRecursive(int[] arr, int target, int left, int right) {
     if (left > right) {
-        return -1; // Không tìm thấy
+        return -1; // Not found
     }
 
     int mid = left + (right - left) / 2;
 
-    // Nếu phần tử ở giữa là giá trị cần tìm
+    // If element is present at the middle itself
     if (arr[mid] == target) {
         return mid;
     }
 
-    // Nếu phần tử nhỏ hơn giá trị cần tìm, tìm ở nửa bên phải
+    // If element is smaller than mid, then it can only be present in left subarray
     if (arr[mid] < target) {
         return binarySearchRecursive(arr, target, mid + 1, right);
     }
 
-    // Ngược lại, tìm ở nửa bên trái
+    // Else the element can only be present in right subarray
     return binarySearchRecursive(arr, target, left, mid - 1);
 }
 ```
 
-- **Độ phức tạp thời gian**: O(log n)
-- **Độ phức tạp không gian**: O(log n) cho stack đệ quy (hoặc O(1) nếu cài đặt lặp)
+- **Time Complexity**: O(log n)
+- **Space Complexity**: O(log n) for recursion stack (or O(1) if iterative)
 
-### 3. Thuật toán chia để trị nâng cao
+### 3. Advanced Divide and Conquer
 
-#### a. Bài toán tìm số đa số (Majority Element)
+#### a. Majority Element
 
-Tìm phần tử xuất hiện nhiều hơn n/2 lần trong mảng dùng thuật toán Boyer-Moore Majority Vote.
+Finding an element that appears more than n/2 times in an array (using D&C approach).
 
 ```java
 public static int majorityElement(int[] nums) {
@@ -1185,22 +1185,22 @@ public static int majorityElement(int[] nums) {
 }
 
 private static int majorityElementRec(int[] nums, int lo, int hi) {
-    // Trường hợp cơ sở: chỉ một phần tử
+    // Base case: only one element
     if (lo == hi) {
         return nums[lo];
     }
 
-    // Chia mảng làm hai
+    // Divide array into two halves
     int mid = lo + (hi - lo) / 2;
     int left = majorityElementRec(nums, lo, mid);
     int right = majorityElementRec(nums, mid + 1, hi);
 
-    // Nếu hai nửa có cùng phần tử đa số
+    // If two halves agree on the majority element
     if (left == right) {
         return left;
     }
 
-    // Đếm số lần xuất hiện của left và right
+    // Count occurrences of left and right candidates
     int leftCount = countInRange(nums, left, lo, hi);
     int rightCount = countInRange(nums, right, lo, hi);
 
@@ -1218,12 +1218,12 @@ private static int countInRange(int[] nums, int num, int lo, int hi) {
 }
 ```
 
-- **Độ phức tạp thời gian**: O(n log n)
-- **Độ phức tạp không gian**: O(log n) cho stack đệ quy
+- **Time Complexity**: O(n log n)
+- **Space Complexity**: O(log n) for recursion stack
 
-#### b. Bài toán tìm cặp điểm gần nhất (Closest Pair of Points)
+#### b. Closest Pair of Points
 
-Tìm cặp điểm có khoảng cách gần nhất trong một tập hợp điểm 2D.
+Finding the pair of points with the smallest distance in a set of 2D points.
 
 ```java
 public static class Point {
@@ -1240,30 +1240,30 @@ public static class Point {
 }
 
 public static double closestPair(Point[] points) {
-    // Sắp xếp điểm theo tọa độ x
+    // Sort points by x-coordinate
     Arrays.sort(points, Comparator.comparingDouble(p -> p.x));
 
     return closestPairRec(points, 0, points.length - 1);
 }
 
 private static double closestPairRec(Point[] points, int start, int end) {
-    // Nếu có ít hơn 4 điểm, sử dụng brute force
+    // If fewer than 4 points, use brute force
     if (end - start <= 3) {
         return bruteForceClosest(points, start, end);
     }
 
-    // Tìm điểm giữa
+    // Find middle point
     int mid = start + (end - start) / 2;
     Point midPoint = points[mid];
 
-    // Tìm khoảng cách nhỏ nhất ở nửa trái và nửa phải
+    // Find smallest distance in left and right halves
     double dl = closestPairRec(points, start, mid);
     double dr = closestPairRec(points, mid + 1, end);
 
-    // Lấy khoảng cách nhỏ nhất
+    // Get the minimum distance
     double d = Math.min(dl, dr);
 
-    // Tạo dải điểm có khoảng cách x đến đường phân chia <= d
+    // Create a strip of points where |x - mid.x| < d
     List<Point> strip = new ArrayList<>();
     for (int i = start; i <= end; i++) {
         if (Math.abs(points[i].x - midPoint.x) < d) {
@@ -1271,10 +1271,10 @@ private static double closestPairRec(Point[] points, int start, int end) {
         }
     }
 
-    // Sắp xếp dải điểm theo y
+    // Sort strip points by y
     strip.sort(Comparator.comparingDouble(p -> p.y));
 
-    // Tìm điểm gần nhất trong dải
+    // Find closest points in strip
     double stripMin = d;
     for (int i = 0; i < strip.size(); i++) {
         for (int j = i + 1; j < strip.size() && (strip.get(j).y - strip.get(i).y) < d; j++) {
@@ -1299,25 +1299,25 @@ private static double bruteForceClosest(Point[] points, int start, int end) {
 }
 ```
 
-- **Độ phức tạp thời gian**: O(n log² n)
-- **Độ phức tạp không gian**: O(n)
+- **Time Complexity**: O(n log² n)
+- **Space Complexity**: O(n)
 
-#### c. Thuật toán Strassen nhân ma trận
+#### c. Strassen Matrix Multiplication
 
-Cải tiến nhân ma trận từ O(n³) xuống O(n^log₂7) ≈ O(n^2.81) bằng cách giảm số phép nhân cần thực hiện.
+An improvement over standard matrix multiplication, reducing complexity from O(n³) to O(n^log₂7) ≈ O(n^2.81) by reducing the number of multiplications.
 
 ```java
 public static int[][] strassenMatrixMultiply(int[][] A, int[][] B) {
     int n = A.length;
     int[][] result = new int[n][n];
 
-    // Trường hợp cơ sở
+    // Base case
     if (n == 1) {
         result[0][0] = A[0][0] * B[0][0];
         return result;
     }
 
-    // Chia ma trận thành 4 phần
+    // Divide matrices into 4 parts
     int mid = n / 2;
     int[][] A11 = new int[mid][mid];
     int[][] A12 = new int[mid][mid];
@@ -1328,11 +1328,11 @@ public static int[][] strassenMatrixMultiply(int[][] A, int[][] B) {
     int[][] B21 = new int[mid][mid];
     int[][] B22 = new int[mid][mid];
 
-    // Chia ma trận A và B
+    // Split matrices A and B
     splitMatrix(A, A11, A12, A21, A22);
     splitMatrix(B, B11, B12, B21, B22);
 
-    // Bước 1: Tính 7 ma trận tích P1 đến P7
+    // Step 1: Calculate 7 product matrices P1 to P7
     int[][] P1 = strassenMatrixMultiply(addMatrices(A11, A22), addMatrices(B11, B22));
     int[][] P2 = strassenMatrixMultiply(addMatrices(A21, A22), B11);
     int[][] P3 = strassenMatrixMultiply(A11, subtractMatrices(B12, B22));
@@ -1341,19 +1341,19 @@ public static int[][] strassenMatrixMultiply(int[][] A, int[][] B) {
     int[][] P6 = strassenMatrixMultiply(subtractMatrices(A21, A11), addMatrices(B11, B12));
     int[][] P7 = strassenMatrixMultiply(subtractMatrices(A12, A22), addMatrices(B21, B22));
 
-    // Bước 2: Tính các phần của ma trận kết quả
+    // Step 2: Calculate parts of result matrix
     int[][] C11 = addMatrices(subtractMatrices(addMatrices(P1, P4), P5), P7);
     int[][] C12 = addMatrices(P3, P5);
     int[][] C21 = addMatrices(P2, P4);
     int[][] C22 = addMatrices(subtractMatrices(addMatrices(P1, P3), P2), P6);
 
-    // Bước 3: Kết hợp các phần của ma trận kết quả
+    // Step 3: Combine parts into result matrix
     combineMatrices(result, C11, C12, C21, C22);
 
     return result;
 }
 
-// Phương thức hỗ trợ để chia ma trận
+// Helper method to split matrix
 private static void splitMatrix(int[][] A, int[][] A11, int[][] A12, int[][] A21, int[][] A22) {
     int n = A.length / 2;
 
@@ -1367,7 +1367,7 @@ private static void splitMatrix(int[][] A, int[][] A11, int[][] A12, int[][] A21
     }
 }
 
-// Phương thức hỗ trợ để kết hợp ma trận
+// Helper method to combine matrix
 private static void combineMatrices(int[][] C, int[][] C11, int[][] C12, int[][] C21, int[][] C22) {
     int n = C11.length;
 
@@ -1381,7 +1381,7 @@ private static void combineMatrices(int[][] C, int[][] C11, int[][] C12, int[][]
     }
 }
 
-// Phương thức hỗ trợ để cộng hai ma trận
+// Helper method to add two matrices
 private static int[][] addMatrices(int[][] A, int[][] B) {
     int n = A.length;
     int[][] result = new int[n][n];
@@ -1395,7 +1395,7 @@ private static int[][] addMatrices(int[][] A, int[][] B) {
     return result;
 }
 
-// Phương thức hỗ trợ để trừ hai ma trận
+// Helper method to subtract two matrices
 private static int[][] subtractMatrices(int[][] A, int[][] B) {
     int n = A.length;
     int[][] result = new int[n][n];
@@ -1408,22 +1408,20 @@ private static int[][] subtractMatrices(int[][] A, int[][] B) {
 
     return result;
 }
-
-
 ```
 
-## 🧑‍🏫 Bài 4: Tìm kiếm theo không gian trạng thái
+## 🧑‍🏫 Lesson 4: State Space Search
 
-### 1. Giới thiệu về không gian trạng thái
+### 1. Introduction to State Space
 
-Không gian trạng thái là tập hợp tất cả các trạng thái có thể của một bài toán, trong đó:
+State space is the set of all possible states of a problem, where:
 
-- Mỗi nút đại diện cho một trạng thái
-- Các cạnh đại diện cho các hành động chuyển từ trạng thái này sang trạng thái khác
+- Each node represents a state.
+- Edges represent actions transitioning from one state to another.
 
-### 2. Tìm kiếm không thông báo (Uninformed Search)
+### 2. Uninformed Search
 
-#### a. Tìm kiếm theo chiều rộng (BFS)
+#### a. Breadth-First Search (BFS)
 
 ```java
 public static <T> List<T> breadthFirstSearch(Graph<T> graph, T start, T goal) {
@@ -1443,26 +1441,28 @@ public static <T> List<T> breadthFirstSearch(Graph<T> graph, T start, T goal) {
         }
 
         for (T neighbor : graph.getNeighbors(currentState)) {
-            if (!visited.contains(neig
+            if (!visited.contains(neighbor)) {
+                visited.add(neighbor);
                 parent.put(neighbor, currentState);
                 queue.add(new Node<>(neighbor, currentState));
             }
         }
     }
 
-    return null; // Không tìm thấy đường đi
+    return null; // Path not found
 }
 ```
 
-- **Độ phức tạp thời gian**: O(b^d), với b là số nhánh trung bình và d là độ sâu của đích
-- **Độ phức tạp không gian**: O(b^d)
-- **Tính chất**: Tìm đường đi ngắn nhất, đầy đủ nếu b hữu hạn
+- **Time Complexity**: O(b^d), where b is average branching factor and d is depth of goal.
+- **Space Complexity**: O(b^d).
+- **Properties**: Finds the shortest path, complete if b is finite.
 
-#### b. Tìm kiếm theo chiều sâu (DFS)
+#### b. Depth-First Search (DFS)
 
 ```java
 public static <T> List<T> depthFirstSearch(Graph<T> graph, T start, T goal) {
     Set<T> visited = new HashSet<>();
+    Map<T, T> parent = new HashMap<>();
 
     boolean found = dfsRecursive(graph, start, goal, visited, parent);
 
@@ -1470,7 +1470,7 @@ public static <T> List<T> depthFirstSearch(Graph<T> graph, T start, T goal) {
         return reconstructPath(start, goal, parent);
     }
 
-    return null; // Không tìm thấy đường đi
+    return null; // Path not found
 }
 
 private static <T> boolean dfsRecursive(Graph<T> graph, T current, T goal,
@@ -1495,15 +1495,16 @@ private static <T> boolean dfsRecursive(Graph<T> graph, T current, T goal,
 }
 ```
 
-- **Độ phức tạp thời gian**: O(b^m), với b là số nhánh trung bình và m là độ sâu tối đa
-- **Độ phức tạp không gian**: O(bm)
-- **Tính chất**: Không đảm bảo tìm đường đi ngắn nhất, đầy đủ nếu không gian trạng thái hữu hạn
+- **Time Complexity**: O(b^m), where b is average branching factor and m is maximum depth.
+- **Space Complexity**: O(bm).
+- **Properties**: Does not guarantee shortest path, complete if state space is finite.
 
-#### c. Tìm kiếm theo chiều sâu có giới hạn (Depth-Limited Search)
+#### c. Depth-Limited Search
 
 ```java
 public static <T> List<T> depthLimitedSearch(Graph<T> graph, T start, T goal, int depthLimit) {
     Set<T> visited = new HashSet<>();
+    Map<T, T> parent = new HashMap<>();
 
     Result result = dfsLimited(graph, start, goal, depthLimit, visited, parent);
 
@@ -1511,7 +1512,7 @@ public static <T> List<T> depthLimitedSearch(Graph<T> graph, T start, T goal, in
         return reconstructPath(start, goal, parent);
     }
 
-    return null; // Không tìm thấy hoặc cắt bỏ
+    return null; // Not found or cutoff
 }
 
 enum Result { FOUND, NOT_FOUND, CUTOFF }
@@ -1549,11 +1550,11 @@ private static <T> Result dfsLimited(Graph<T> graph, T current, T goal, int limi
 }
 ```
 
-- **Độ phức tạp thời gian**: O(b^L), với b là số nhánh trung bình và L là giới hạn độ sâu
-- **Độ phức tạp không gian**: O(bL)
-- **Tính chất**: Không đảm bảo tìm đường đi ngắn nhất, đầy đủ nếu đích nằm trong giới hạn độ sâu
+- **Time Complexity**: O(b^L), where b is branching factor and L is depth limit.
+- **Space Complexity**: O(bL).
+- **Properties**: Does not guarantee shortest path, complete if goal is within depth limit.
 
-#### d. Tìm kiếm theo chiều sâu lặp (Iterative Deepening DFS)
+#### d. Iterative Deepening DFS
 
 ```java
 public static <T> List<T> iterativeDeepeningSearch(Graph<T> graph, T start, T goal, int maxDepth) {
@@ -1568,17 +1569,17 @@ public static <T> List<T> iterativeDeepeningSearch(Graph<T> graph, T start, T go
         }
     }
 
-    return null; // Không tìm thấy trong giới hạn độ sâu tối đa
+    return null; // Not found within max depth limit
 }
 ```
 
-- **Độ phức tạp thời gian**: O(b^d), với b là số nhánh trung bình và d là độ sâu của đích
-- **Độ phức tạp không gian**: O(bd)
-- **Tính chất**: Kết hợp ưu điểm của DFS (tiết kiệm bộ nhớ) và BFS (tìm đường đi ngắn nhất)
+- **Time Complexity**: O(b^d), where b is branching factor and d is depth of goal.
+- **Space Complexity**: O(bd).
+- **Properties**: Combines advantages of DFS (memory efficiency) and BFS (shortest path).
 
-### 3. Các thuật toán tìm kiếm được thông báo (Informed Search)
+### 3. Informed Search Algorithms
 
-#### a. Tìm kiếm tốt nhất đầu tiên (Best-First Search)
+#### a. Best-First Search
 
 ```java
 public static <T> List<T> bestFirstSearch(Graph<T> graph, T start, T goal, Heuristic<T> heuristic) {
@@ -1613,28 +1614,27 @@ public static <T> List<T> bestFirstSearch(Graph<T> graph, T start, T goal, Heuri
         }
     }
 
-    return null; // Không tìm thấy đường đi
-
+    return null; // Path not found
 }
 
 interface Heuristic<T> {
-double estimate(T current, T goal);
+    double estimate(T current, T goal);
 }
 ```
 
-- **Độ phức tạp thời gian**: O(b^m), với b là số nhánh trung bình và m là độ sâu tối đa
-- **Tính chất**: Không đảm bảo tìm đường đi ngắn nhất, nhưng thường nhanh hơn các phương pháp không được thông báo
+- **Time Complexity**: O(b^m), where b is branching factor and m is max depth.
+- **Properties**: Does not guarantee shortest path, but usually faster than uninformed methods.
 
-#### b. Thuật toán A\* Search
+#### b. A\* Search Algorithm
 
 ```java
-public static <T> List<T> aStarSearch(Graph<T> graph, T start, T goal,
+public static <T> List<T> aStarSearch(Graph<T> graph, T start, T goal, Heuristic<T> heuristic, CostFunction<T> costFn) {
     PriorityQueue<Node<T>> openSet = new PriorityQueue<>(
         Comparator.comparingDouble(node -> node.priority)
     );
     Set<T> closedSet = new HashSet<>();
     Map<T, T> parent = new HashMap<>();
-    Map<T, Double> gScore = new HashMap<>(); // Chi phí từ start đến node hiện tại
+    Map<T, Double> gScore = new HashMap<>(); // Cost from start to current node
 
     gScore.put(start, 0.0);
     openSet.add(new Node<>(start, null, heuristic.estimate(start, goal)));
@@ -1654,25 +1654,25 @@ public static <T> List<T> aStarSearch(Graph<T> graph, T start, T goal,
                 continue;
             }
 
-            // Tính chi phí từ start đến neighbor qua currentState
+            // Calculate cost from start to neighbor via currentState
             double tentativeGScore = gScore.get(currentState) +
                                      costFn.getCost(currentState, neighbor);
 
             if (!gScore.containsKey(neighbor) || tentativeGScore < gScore.get(neighbor)) {
-                // Tìm thấy đường đi tốt hơn
+                // Found a better path
                 parent.put(neighbor, currentState);
                 gScore.put(neighbor, tentativeGScore);
 
                 // f(n) = g(n) + h(n)
                 double fScore = tentativeGScore + heuristic.estimate(neighbor, goal);
 
-                // Cập nhật hoặc thêm vào openSet
+                // Update or add to openSet
                 openSet.add(new Node<>(neighbor, currentState, fScore));
             }
         }
     }
 
-    return null; // Không tìm thấy đường đi
+    return null; // Path not found
 }
 
 interface CostFunction<T> {
@@ -1680,23 +1680,24 @@ interface CostFunction<T> {
 }
 ```
 
-- **Độ phức tạp thời gian**: O(b^d), với b là số nhánh trung bình và d là độ sâu của đích
-- **Tính chất**: Đảm bảo tìm đường đi ngắn nhất nếu heuristic là admissible (không bao giờ ước lượng quá chi phí thực tế đến đích)
+- **Time Complexity**: O(b^d), where b is branching factor and d is depth of goal.
+- **Properties**: Guarantees shortest path if heuristic is admissible (never overestimates the cost to reach the goal).
 
-### 4. Các chiến lược heuristic phổ biến
+### 4. Common Heuristic Strategies
 
-#### a. Khoảng cách Manhattan
+#### a. Manhattan Distance
 
-Dùng cho các bài toán di chuyển trên lưới với 4 hướng (lên, xuống, trái, phải)
+Used for grid movement with 4 directions (up, down, left, right).
 
 ```java
+public static int manhattanDistance(Point p1, Point p2) {
     return Math.abs(p1.x - p2.x) + Math.abs(p1.y - p2.y);
 }
 ```
 
-#### b. Khoảng cách Euclidean
+#### b. Euclidean Distance
 
-Dùng cho các bài toán di chuyển trên không gian 2D hoặc 3D
+Used for movement in 2D or 3D space.
 
 ```java
 public static double euclideanDistance(Point p1, Point p2) {
@@ -1704,7 +1705,7 @@ public static double euclideanDistance(Point p1, Point p2) {
 }
 ```
 
-#### c. Số ô sai vị trí (cho bài toán N-puzzle)
+#### c. Misplaced Tiles (for N-puzzle)
 
 ```java
 public static int misplacedTiles(int[][] currentState, int[][] goalState, int n) {
@@ -1722,9 +1723,9 @@ public static int misplacedTiles(int[][] currentState, int[][] goalState, int n)
 }
 ```
 
-### 5. Ứng dụng trong các bài toán thực tế
+### 5. Real-world Applications
 
-#### a. Bài toán 8-puzzle (8-sliding puzzle)
+#### a. 8-Puzzle Problem (Sliding Puzzle)
 
 ```java
 public class EightPuzzle {
@@ -1737,7 +1738,7 @@ public class EightPuzzle {
 
     private static class PuzzleState {
         int[][] board;
-        int zeroRow, zeroCol; // Vị trí của ô trống (giá trị 0)
+        int zeroRow, zeroCol; // Position of empty tile (value 0)
 
         PuzzleState(int[][] board) {
             this.board = new int[N][N];
@@ -1752,7 +1753,7 @@ public class EightPuzzle {
             }
         }
 
-        // Các di chuyển hợp lệ
+        // Valid moves
         List<PuzzleState> getNeighbors() {
             List<PuzzleState> neighbors = new ArrayList<>();
             int[][] dirs = { {-1, 0}, {1, 0}, {0, -1}, {0, 1} }; // Up, Down, Left, Right
@@ -1762,7 +1763,7 @@ public class EightPuzzle {
                 int newCol = zeroCol + dir[1];
 
                 if (newRow >= 0 && newRow < N && newCol >= 0 && newCol < N) {
-                    // Tạo trạng thái mới bằng cách đổi chỗ
+                    // Create new state by swapping
                     int[][] newBoard = cloneBoard(board);
                     newBoard[zeroRow][zeroCol] = newBoard[newRow][newCol];
                     newBoard[newRow][newCol] = 0;
@@ -1811,11 +1812,11 @@ public class EightPuzzle {
             for (int j = 0; j < N; j++) {
                 int value = state.board[i][j];
                 if (value != 0) {
-                    // Tính vị trí đích của số này
+                    // Calculate goal position of this number
                     int goalRow = (value - 1) / N;
                     int goalCol = (value - 1) % N;
 
-                    // Cộng khoảng cách Manhattan
+                    // Add Manhattan distance
                     distance += Math.abs(i - goalRow) + Math.abs(j - goalCol);
                 }
             }
@@ -1826,6 +1827,10 @@ public class EightPuzzle {
     public static List<PuzzleState> solvePuzzle(int[][] initialBoard) {
         PuzzleState initialState = new PuzzleState(initialBoard);
         PuzzleState goalState = new PuzzleState(GOAL_STATE);
+        
+        PriorityQueue<Node> openSet = new PriorityQueue<>(
+            Comparator.comparingInt(n -> n.fScore)
+        );
 
         Set<PuzzleState> closedSet = new HashSet<>();
         Map<PuzzleState, PuzzleState> parent = new HashMap<>();
@@ -1849,7 +1854,7 @@ public class EightPuzzle {
                     continue;
                 }
 
-                int tentativeGScore = gScore.get(current) + 1; // Mỗi bước có chi phí 1
+                int tentativeGScore = gScore.get(current) + 1; // Each step costs 1
 
                 if (!gScore.containsKey(neighbor) || tentativeGScore < gScore.get(neighbor)) {
                     parent.put(neighbor, current);
@@ -1861,7 +1866,7 @@ public class EightPuzzle {
             }
         }
 
-        return null; // Không tìm thấy lời giải
+        return null; // Solution not found
     }
 
     private static class Node {
@@ -1891,7 +1896,7 @@ public class EightPuzzle {
 }
 ```
 
-#### b. Bài toán tìm đường đi trong mê cung
+#### b. Maze Solving
 
 ```java
 public class MazeSolver {
@@ -1923,28 +1928,28 @@ public class MazeSolver {
         int rows = maze.length;
         int cols = maze[0].length;
 
-        // Kiểm tra đầu vào hợp lệ
-        if (start.x < 0 || start.x >= rows || start.y < 0 || start.y >= col
+        // Check for valid input
+        if (start.x < 0 || start.x >= rows || start.y < 0 || start.y >= cols ||
             maze[start.x][start.y] == 1 || maze[goal.x][goal.y] == 1) {
-            return null; // Điểm bắt đầu hoặc kết thúc không hợp lệ
+            return null; // Invalid start or end point
         }
 
-        // Hàng đợi ưu tiên cho A*
+        // Priority Queue for A*
         PriorityQueue<Node> openSet = new PriorityQueue<>(
             Comparator.comparingDouble(node -> node.fScore)
         );
 
-        // Tập đã thăm
+        // Visited set
         Set<Point> closedSet = new HashSet<>();
 
-        // Lưu trữ đường đi
+        // Store path
         Map<Point, Point> parent = new HashMap<>();
 
-        // Chi phí từ điểm bắt đầu đến điểm hiện tại
+        // Cost from start to current point
         Map<Point, Double> gScore = new HashMap<>();
         gScore.put(start, 0.0);
 
-        // Thêm điểm bắt đầu vào hàng đợi
+        // Add start point to queue
         openSet.add(new Node(start, manhattanDistance(start, goal)));
 
         while (!openSet.isEmpty()) {
@@ -1957,19 +1962,19 @@ public class MazeSolver {
 
             closedSet.add(currentPos);
 
-            // Xét tất cả các hướng di chuyển
+            // Check all movement directions
             for (int[] dir : DIRECTIONS) {
                 int newX = currentPos.x + dir[0];
                 int newY = currentPos.y + dir[1];
                 Point neighborPos = new Point(newX, newY);
 
-                // Kiểm tra tính hợp lệ
+                // Check validity
                 if (newX < 0 || newX >= rows || newY < 0 || newY >= cols ||
                     maze[newX][newY] == 1 || closedSet.contains(neighborPos)) {
                     continue;
                 }
 
-                double tentativeGScore = gScore.get(currentPos) + 1; // Mỗi bước có chi phí 1
+                double tentativeGScore = gScore.get(currentPos) + 1; // Each step costs 1
 
                 if (!gScore.containsKey(neighborPos) || tentativeGScore < gScore.get(neighborPos)) {
                     parent.put(neighborPos, currentPos);
@@ -1981,7 +1986,7 @@ public class MazeSolver {
             }
         }
 
-        return null; // Không tìm thấy đường đi
+        return null; // Path not found
     }
 
     private static double manhattanDistance(Point p1, Point p2) {
@@ -2014,18 +2019,18 @@ public class MazeSolver {
 }
 ```
 
-## 🧑‍🏫 Bài 5: Phân tích và tối ưu hóa thuật toán
+## 🧑‍🏫 Lesson 5: Algorithm Analysis and Optimization
 
-### 1. Phân tích độ phức tạp thuật toán
+### 1. Algorithm Complexity Analysis
 
-#### a. Các ký hiệu tiệm cận (Asymptotic notation)
+#### a. Asymptotic Notation
 
-- **Big O (O)**: Giới hạn trên của độ phức tạp
-- **Big Omega (Ω)**: Giới hạn dưới của độ phức tạp
-- **Big Theta (Θ)**: Giới hạn chặt (cả trên và dưới) của độ phức tạp
+- **Big O (O)**: Upper bound of complexity.
+- **Big Omega (Ω)**: Lower bound of complexity.
+- **Big Theta (Θ)**: Tight bound (both upper and lower) of complexity.
 
 ```java
-// O(1) - Thời gian hằng số
+// O(1) - Constant Time
 public static int getFirstElement(int[] array) {
     return array[0];
 }
@@ -2086,10 +2091,10 @@ public static int fibonacci(int n) {
 }
 ```
 
-#### b. Phân tích trường hợp tốt nhất, trung bình và xấu nhất
+#### b. Best, Average, and Worst Case Analysis
 
 ```java
-// Ví dụ: Tìm kiếm tuyến tính
+// Example: Linear Search
 public static int linearSearch(int[] array, int key) {
     for (int i = 0; i < array.length; i++) {
         if (array[i] == key) {
@@ -2100,14 +2105,14 @@ public static int linearSearch(int[] array, int key) {
 }
 ```
 
-- **Trường hợp tốt nhất**: O(1) - phần tử ở vị trí đầu tiên
-- **Trường hợp trung bình**: O(n/2) ~ O(n) - phần tử ở giữa mảng
-- **Trường hợp xấu nhất**: O(n) - phần tử ở cuối mảng hoặc không tồn tại
+- **Best Case**: O(1) - element is at the first position.
+- **Average Case**: O(n/2) ~ O(n) - element is in the middle.
+- **Worst Case**: O(n) - element is at the end or not present.
 
-#### c. Phân tích không gian và thời gian
+#### c. Space and Time Analysis
 
 ```java
-// Phân tích thời gian và không gian cho thuật toán đệ quy
+// Time and Space analysis for recursive algorithm
 public static int factorialIterative(int n) {
     int result = 1;
     for (int i = 2; i <= n; i++) {
@@ -2123,26 +2128,25 @@ public static int factorialRecursive(int n) {
 ```
 
 - **factorialIterative**:
-
-  - Độ phức tạp thời gian: O(n)
-  - Độ phức tạp không gian: O(1)
+  - Time Complexity: O(n)
+  - Space Complexity: O(1)
 
 - **factorialRecursive**:
-  - Độ phức tạp thời gian: O(n)
-  - Độ phức tạp không gian: O(n) do stack đệ quy
+  - Time Complexity: O(n)
+  - Space Complexity: O(n) due to recursion stack
 
-### 2. Các kỹ thuật tối ưu hóa thuật toán
+### 2. Algorithm Optimization Techniques
 
-#### a. Memoization và Dynamic Programming
+#### a. Memoization and Dynamic Programming
 
 ```java
-// Fibonacci không tối ưu
+// Naive Fibonacci
 public static int fibNaive(int n) {
     if (n <= 1) return n;
     return fibNaive(n - 1) + fibNaive(n - 2);
 }
 
-// Fibonacci với memoization
+// Fibonacci with Memoization
 public static int fibMemoization(int n) {
     int[] memo = new int[n + 1];
     Arrays.fill(memo, -1);
@@ -2158,7 +2162,7 @@ private static int fibMemoHelper(int n, int[] memo) {
     return memo[n];
 }
 
-// Fibonacci với dynamic programming (bottom-up)
+// Fibonacci with Dynamic Programming (bottom-up)
 public static int fibDP(int n) {
     if (n <= 1) return n;
 
@@ -2174,14 +2178,14 @@ public static int fibDP(int n) {
 }
 ```
 
-- **fibNaive**: O(2^n) thời gian, O(n) không gian
-- **fibMemoization**: O(n) thời gian, O(n) không gian
-- **fibDP**: O(n) thời gian, O(n) không gian
+- **fibNaive**: O(2^n) time, O(n) space.
+- **fibMemoization**: O(n) time, O(n) space.
+- **fibDP**: O(n) time, O(n) space.
 
-#### b. Tối ưu hóa vòng lặp và điều kiện
+#### b. Loop and Condition Optimization
 
 ```java
-// Trước khi tối ưu
+// Before optimization
 public static boolean containsDuplicate(int[] nums) {
     for (int i = 0; i < nums.length; i++) {
         for (int j = 0; j < nums.length; j++) {
@@ -2193,7 +2197,7 @@ public static boolean containsDuplicate(int[] nums) {
     return false;
 }
 
-// Sau khi tối ưu
+// After optimization
 public static boolean containsDuplicateOptimized(int[] nums) {
     Set<Integer> seen = new HashSet<>();
     for (int num : nums) {
@@ -2206,13 +2210,13 @@ public static boolean containsDuplicateOptimized(int[] nums) {
 }
 ```
 
-- **containsDuplicate**: O(n²) thời gian, O(1) không gian
-- **containsDuplicateOptimized**: O(n) thời gian, O(n) không gian
+- **containsDuplicate**: O(n²) time, O(1) space.
+- **containsDuplicateOptimized**: O(n) time, O(n) space.
 
-#### c. Sử dụng cấu trúc dữ liệu thích hợp
+#### c. Using Appropriate Data Structures
 
 ```java
-// Không tối ưu: Tìm kiếm phần tử trong danh sách
+// Not optimized: Search in List
 public static boolean containsElement(List<Integer> list, int target) {
     for (int num : list) {
         if (num == target) {
@@ -2220,19 +2224,22 @@ public static boolean containsElement(List<Integer> list, int target) {
         }
     }
     return false;
-    }
+}
+
+// Optimized: Search in HashSet
+public static boolean containsElementOptimized(Set<Integer> set, int target) {
     return set.contains(target);
 }
 ```
 
-- **containsElement**: O(n) thời gian
-- **containsElementOptimized**: O(1) thời gian trung bình (với HashSet)
+- **containsElement**: O(n) time.
+- **containsElementOptimized**: O(1) average time.
 
-#### d. Trao đổi giữa thời gian và không gian
+#### d. Time-Space Trade-off
 
 ```java
-// Tính tổng các số từ 1 đến n
-// Cách 1: O(n) thời gian, O(1) không gian
+// Sum of numbers from 1 to n
+// Approach 1: O(n) time, O(1) space
 public static int sumToN(int n) {
     int sum = 0;
     for (int i = 1; i <= n; i++) {
@@ -2241,15 +2248,15 @@ public static int sumToN(int n) {
     return sum;
 }
 
-// Cách 2: O(1) thời gian, O(1) không gian (công thức toán học)
+// Approach 2: O(1) time, O(1) space (Mathematical formula)
 public static int sumToNFormula(int n) {
     return n * (n + 1) / 2;
 }
 ```
 
-### 3. Kỹ thuật profile và benchmark
+### 3. Profiling and Benchmarking Techniques
 
-#### a. Đo thời gian thực thi
+#### a. Measuring Execution Time
 
 ```java
 public static void benchmarkAlgorithm(Runnable algorithm, String name, int iterations) {
@@ -2258,7 +2265,7 @@ public static void benchmarkAlgorithm(Runnable algorithm, String name, int itera
         algorithm.run();
     }
 
-    // Đo thời gian thực thi
+    // Measure execution time
     long startTime = System.nanoTime();
 
     for (int i = 0; i < iterations; i++) {
@@ -2272,26 +2279,26 @@ public static void benchmarkAlgorithm(Runnable algorithm, String name, int itera
 }
 ```
 
-#### b. Đo lường sử dụng bộ nhớ
+#### b. Measuring Memory Usage
 
 ```java
 public static void measureMemory(Supplier<?> factory, String name) {
-    // Gọi garbage collector
+    // Call garbage collector
     System.gc();
 
     long beforeMemory = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
 
-    // Tạo đối tượng
+    // Create object
     Object obj = factory.get();
 
-    // Đo lại bộ nhớ
+    // Measure memory again
     long afterMemory = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
 
     System.out.printf("%s: ~%d bytes%n", name, afterMemory - beforeMemory);
 }
 ```
 
-#### c. Xác định bottlenecks
+#### c. Identifying Bottlenecks
 
 ```java
 public static void identifyBottlenecks(int[] sizes, Consumer<Integer> algorithm) {
@@ -2305,18 +2312,18 @@ public static void identifyBottlenecks(int[] sizes, Consumer<Integer> algorithm)
 }
 ```
 
-### 4. Các nguyên tắc tối ưu hóa thuật toán
+### 4. Algorithm Optimization Principles
 
-#### a. Nguyên tắc "profile trước khi tối ưu"
+#### a. "Profile Before Optimization" Principle
 
-- Xác định thực sự phần nào của thuật toán cần tối ưu
-- Tập trung vào các phần chiếm nhiều tài nguyên nhất
-- Sử dụng công cụ profiling để phân tích
+- Identify which part of the algorithm actually needs optimization.
+- Focus on parts consuming the most resources.
+- Use profiling tools for analysis.
 
-#### b. Cân nhắc giữa khả năng đọc và hiệu suất
+#### b. Balance Between Readability and Performance
 
 ```java
-// Phiên bản dễ đọc
+// Readable version
 public static Map<Character, Integer> countCharacters(String text) {
     Map<Character, Integer> charCount = new HashMap<>();
     for (char c : text.toCharArray()) {
@@ -2328,12 +2335,11 @@ public static Map<Character, Integer> countCharacters(String text) {
     }
 
     return charCount;
-
 }
 
-// Phiên bản hiệu suất cao hơn nhưng ít dễ đọc hơn
+// Higher performance but less readable version
 public static Map<Character, Integer> countCharactersOptimized(String text) {
-Map<Character, Integer> charCount = new HashMap<>();
+    Map<Character, Integer> charCount = new HashMap<>();
 
     for (int i = 0; i < text.length(); i++) {
         char c = text.charAt(i);
@@ -2341,34 +2347,30 @@ Map<Character, Integer> charCount = new HashMap<>();
     }
 
     return charCount;
-
 }
-
 ```
 
-#### c. Tránh tối ưu hóa quá sớm
+#### c. Avoid Premature Optimization
 
-- Viết code đúng và dễ đọc trước
-- Xác định yêu cầu hiệu suất cụ thể
-- Chỉ tối ưu khi cần thiết
+- Write correct and readable code first.
+- Define specific performance requirements.
+- Only optimize when necessary.
 
-#### d. Tối ưu theo trường hợp sử dụng thực tế
+#### d. Optimize Based on Real-World Use Cases
 
-- Hiểu rõ phân phối dữ liệu đầu vào
-- Tối ưu cho trường hợp phổ biến nhất
-- Cân nhắc các trường hợp biên và xấu nhất
+- Understand input data distribution.
+- Optimize for the most common cases.
+- Consider edge cases and worst-case scenarios.
 
-Xây dựng một ứng dụng tìm đường đi ngắn nhất giữa các địa điểm trên bản đồ, sử dụng thuật toán Dijkstra hoặc A\* để xác định lộ trình tối ưu.
+## 🧑‍💻 Final Project: Build a Simple GPS Application Based on Graph Algorithms
 
-## 🧑‍💻 Bài tập lớn: Xây dựng ứng dụng GPS đơn giản dựa trên thuật toán đồ thị
+### 1. Project Description
 
-### 1. Mô tả dự án
+Build an application to find the shortest path between locations on a map using Dijkstra's or A\* algorithm to determine the optimal route.
 
-Xây dựng một ứng dụng tìm đường đi ngắn nhất giữa các địa điểm trên bản đồ, sử dụng thuật toán Dijkstra hoặc A\* để xác định lộ trình tối ưu.
+### 2. Main Components
 
-### 2. Các thành phần chính
-
-#### a. Mô hình hóa bản đồ thành đồ thị
+#### a. Modeling the Map as a Graph
 
 ```java
 public class MapGraph {
@@ -2380,29 +2382,29 @@ public class MapGraph {
         this.locations = new HashMap<>();
     }
 
-    // Thêm một địa điểm mới vào bản đồ
+    // Add a new location to the map
     public void addLocation(String name, double latitude, double longitude) {
         Location location = new Location(name, latitude, longitude);
         locations.put(name, location);
         adjacencyList.putIfAbsent(name, new HashMap<>());
     }
 
-    // Thêm đường đi giữa hai địa điểm
+    // Add a road between two locations
     public void addRoad(String from, String to, double distance) {
         if (!adjacencyList.containsKey(from) || !adjacencyList.containsKey(to))
             throw new IllegalArgumentException("Locations do not exist");
 
-        // Đồ thị vô hướng - thêm cạnh hai chiều
+        // Undirected graph - add edge both ways
         adjacencyList.get(from).put(to, distance);
         adjacencyList.get(to).put(from, distance);
     }
 
-    // Lấy tất cả các địa điểm kề
+    // Get all adjacent locations
     public Map<String, Double> getNeighbors(String location) {
         return adjacencyList.getOrDefault(location, Collections.emptyMap());
     }
 
-    // Tính khoảng cách Haversine giữa hai địa điểm (heuristic cho A*)
+    // Calculate Haversine distance between two locations (heuristic for A*)
     public double calculateDistance(String from, String to) {
         Location loc1 = locations.get(from);
         Location loc2 = locations.get(to);
@@ -2412,7 +2414,7 @@ public class MapGraph {
     }
 
     private double haversineDistance(double lat1, double lon1, double lat2, double lon2) {
-        // Bán kính trái đất (km)
+        // Earth radius (km)
         final double R = 6371.0;
 
         double dLat = Math.toRadians(lat2 - lat1);
@@ -2429,7 +2431,7 @@ public class MapGraph {
 }
 ```
 
-#### b. Thuật toán tìm đường đi ngắn nhất
+#### b. Shortest Path Algorithms
 
 ```java
 public class RouteFinder {
@@ -2439,9 +2441,9 @@ public class RouteFinder {
         this.map = map;
     }
 
-    // Thuật toán Dijkstra
+    // Dijkstra Algorithm
     public List<String> findShortestPath(String start, String destination) {
-        // Priority queue để lưu các điểm với khoảng cách nhỏ nhất
+        // Priority queue to store nodes with smallest distance
         PriorityQueue<Node> queue = new PriorityQueue<>(
             Comparator.comparingDouble(node -> node.distance)
         );
@@ -2450,7 +2452,7 @@ public class RouteFinder {
         Map<String, String> previousNodes = new HashMap<>();
         Set<String> visited = new HashSet<>();
 
-        // Khởi tạo
+        // Initialize
         distances.put(start, 0.0);
         queue.add(new Node(start, 0.0));
 
@@ -2465,7 +2467,7 @@ public class RouteFinder {
             if (visited.contains(currentLocation)) continue;
             visited.add(currentLocation);
 
-            // Xét tất cả các địa điểm kề
+            // Visit all adjacent locations
             for (Map.Entry<String, Double> neighbor : map.getNeighbors(currentLocation).entrySet()) {
                 String nextLocation = neighbor.getKey();
                 double edgeWeight = neighbor.getValue();
@@ -2482,14 +2484,14 @@ public class RouteFinder {
             }
         }
 
-        // Không tìm thấy đường đi
+        // Path not found
         if (!previousNodes.containsKey(destination)) return null;
 
-        // Xây dựng đường đi
+        // Reconstruct path
         return reconstructPath(start, destination, previousNodes);
     }
 
-    // Thuật toán A*
+    // A* Algorithm
     public List<String> findShortestPathAStar(String start, String destination) {
         PriorityQueue<Node> openSet = new PriorityQueue<>(
             Comparator.comparingDouble(node -> node.fScore)
@@ -2500,7 +2502,7 @@ public class RouteFinder {
         Map<String, String> previousNodes = new HashMap<>();
         Set<String> closedSet = new HashSet<>();
 
-        // Khởi tạo
+        // Initialize
         gScore.put(start, 0.0);
         fScore.put(start, map.calculateDistance(start, destination));
         openSet.add(new Node(start, 0.0, fScore.get(start)));
@@ -2530,7 +2532,7 @@ public class RouteFinder {
                     double hScore = map.calculateDistance(nextLocation, destination);
                     fScore.put(nextLocation, tentativeGScore + hScore);
 
-                    // Kiểm tra xem đã có trong openSet chưa
+                    // Check if already in openSet
                     boolean inOpenSet = false;
                     for (Node node : openSet) {
                         if (node.location.equals(nextLocation)) {
@@ -2546,7 +2548,7 @@ public class RouteFinder {
             }
         }
 
-        return null; // Không tìm thấy đường đi
+        return null; // Path not found
     }
 
     private List<String> reconstructPath(String start, String destination, Map<String, String> previousNodes) {
@@ -2565,7 +2567,7 @@ public class RouteFinder {
 }
 ```
 
-#### c. Giao diện người dùng đơn giản
+#### c. Simple User Interface
 
 ```java
 public class GPSApplication {
@@ -2578,19 +2580,19 @@ public class GPSApplication {
         this.routeFinder = new RouteFinder(map);
         this.scanner = new Scanner(System.in);
 
-        // Khởi tạo dữ liệu bản đồ mẫu
+        // Initialize sample map data
         initializeMap();
     }
 
     private void initializeMap() {
-        // Thêm các địa điểm
-        map.addLocation("A", 10.762622, 106.660172); // TP.HCM
-        map.addLocation("B", 21.028511, 105.804817); // Hà Nội
-        map.addLocation("C", 16.047079, 108.206230); // Đà Nẵng
+        // Add locations
+        map.addLocation("A", 10.762622, 106.660172); // Ho Chi Minh City
+        map.addLocation("B", 21.028511, 105.804817); // Hanoi
+        map.addLocation("C", 16.047079, 108.206230); // Da Nang
         map.addLocation("D", 12.248430, 109.192932); // Nha Trang
-        map.addLocation("E", 11.935642, 108.442329); // Đà Lạt
+        map.addLocation("E", 11.935642, 108.442329); // Da Lat
 
-        // Thêm các đường đi
+        // Add roads
         map.addRoad("A", "C", 850.0);
         map.addRoad("A", "D", 450.0);
         map.addRoad("A", "E", 300.0);
@@ -2601,25 +2603,25 @@ public class GPSApplication {
     }
 
     public void start() {
-        System.out.println("---- Ứng dụng GPS đơn giản ----");
+        System.out.println("---- Simple GPS Application ----");
 
         while (true) {
-            System.out.println("\nCác địa điểm có sẵn: A, B, C, D, E");
+            System.out.println("\nAvailable locations: A, B, C, D, E");
 
-            System.out.print("Nhập điểm xuất phát (hoặc 'thoat' để kết thúc): ");
+            System.out.print("Enter start location (or 'exit' to finish): ");
             String start = scanner.nextLine().trim().toUpperCase();
 
-            if (start.equalsIgnoreCase("thoat")) {
+            if (start.equalsIgnoreCase("exit")) {
                 break;
             }
 
-            System.out.print("Nhập điểm đến: ");
+            System.out.print("Enter destination: ");
             String destination = scanner.nextLine().trim().toUpperCase();
 
-            System.out.println("Chọn thuật toán:");
+            System.out.println("Choose algorithm:");
             System.out.println("1. Dijkstra");
             System.out.println("2. A*");
-            System.out.print("Lựa chọn của bạn: ");
+            System.out.print("Your choice: ");
             int choice = Integer.parseInt(scanner.nextLine().trim());
 
             List<String> path;
@@ -2630,18 +2632,18 @@ public class GPSApplication {
             }
 
             if (path == null || path.isEmpty()) {
-                System.out.println("Không tìm thấy đường đi từ " + start + " đến " + destination);
+                System.out.println("No path found from " + start + " to " + destination);
             } else {
-                System.out.println("Đường đi ngắn nhất từ " + start + " đến " + destination + ":");
+                System.out.println("Shortest path from " + start + " to " + destination + ":");
                 System.out.println(String.join(" -> ", path));
 
-                // Tính tổng khoảng cách
+                // Calculate total distance
                 double totalDistance = calculatePathDistance(path);
-                System.out.printf("Tổng khoảng cách: %.2f km\n", totalDistance);
+                System.out.printf("Total distance: %.2f km\n", totalDistance);
             }
         }
 
-        System.out.println("Cảm ơn bạn đã sử dụng ứng dụng!");
+        System.out.println("Thank you for using the application!");
         scanner.close();
     }
 
@@ -2659,10 +2661,10 @@ public class GPSApplication {
 }
 ```
 
-### 3. Các cải tiến và mở rộng
+### 3. Improvements and Extensions
 
-- Thêm dữ liệu về thời gian di chuyển và giao thông
-- Cho phép người dùng thêm địa điểm mới
-- Tích hợp với bản đồ thực tế (OpenStreetMap API)
-- Xây dựng giao diện đồ họa
-- Tối ưu hóa tính toán với các cấu trúc dữ liệu nâng cao
+- Add travel time and traffic data.
+- Allow users to add new locations.
+- Integrate with real maps (OpenStreetMap API).
+- Build a graphical user interface (GUI).
+- Optimize calculations with advanced data structures.

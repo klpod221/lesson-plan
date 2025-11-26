@@ -1,96 +1,96 @@
 ---
 prev:
-  text: '🧵 Luồng, Đa Luồng và JDBC'
+  text: '🧵 Threads, Multithreading and JDBC'
   link: '/JAVA/Part5'
 next:
-  text: '💾 Module 4: Nhập Môn SQL'
-  link: '/SQL/Part1'
+  text: '🧮 Module 5: Introduction to DSA'
+  link: '/DSA/Part1'
 ---
 
-# 🧪 BÀI TẬP LỚN (JAVA)
+# 🧪 FINAL PROJECT (JAVA)
 
-## **Đề bài: Xây dựng ứng dụng Quản lý Thư viện**
+## **Project: Library Management Application**
 
-Thiết kế và triển khai ứng dụng Java console hoàn chỉnh cho hệ thống quản lý thư viện, tích hợp với cơ sở dữ liệu SQL đã thiết kế trong phần SQL:
+Design and implement a complete Java console application for a library management system, integrating with the SQL database designed in the SQL section:
 
-### Yêu cầu ứng dụng
+### Application Requirements
 
-- Ứng dụng dòng lệnh (console-based application)
-- Kết nối cơ sở dữ liệu thông qua JDBC
-- Áp dụng các nguyên lý OOP đã học trong Part 3
-- Sử dụng Collections Framework để quản lý dữ liệu
-- Xử lý ngoại lệ để đảm bảo tính ổn định của chương trình
+- Console-based application
+- Database connection through JDBC
+- Apply OOP principles learned in Part 3
+- Use Collections Framework for data management
+- Exception handling to ensure program stability
 
-### Chức năng cần triển khai
+### Features to Implement
 
-1. **Quản lý sách**:
-   - Thêm, sửa, xóa thông tin sách
-   - Tìm kiếm sách theo nhiều tiêu chí (tên, tác giả, thể loại)
-   - Hiển thị thông tin chi tiết sách
-   - Hiển thị danh sách sách
+1. **Book Management**:
+   - Add, edit, delete book information
+   - Search books by multiple criteria (title, author, genre)
+   - Display detailed book information
+   - Display book list
 
-2. **Quản lý độc giả**:
-   - Đăng ký độc giả mới
-   - Cập nhật thông tin độc giả
-   - Tìm kiếm độc giả theo mã hoặc tên
-   - Hiển thị lịch sử mượn sách của độc giả
+2. **Reader Management**:
+   - Register new readers
+   - Update reader information
+   - Search readers by ID or name
+   - Display reader's borrowing history
 
-3. **Quản lý mượn trả**:
-   - Xử lý mượn sách
-   - Xử lý trả sách
-   - Tính tiền phạt nếu trả muộn
-   - Hiển thị danh sách sách đang được mượn
+3. **Borrowing Management**:
+   - Process book borrowing
+   - Process book returns
+   - Calculate late fees for overdue returns
+   - Display list of currently borrowed books
 
-4. **Báo cáo và thống kê**:
-   - Thống kê sách mượn nhiều nhất
-   - Thống kê độc giả mượn sách thường xuyên
-   - Thống kê sách quá hạn chưa trả
-   - Xuất báo cáo dưới dạng file văn bản
+4. **Reports and Statistics**:
+   - Statistics on most borrowed books
+   - Statistics on frequent borrowers
+   - Statistics on overdue unreturned books
+   - Export reports as text files
 
-### Yêu cầu kỹ thuật
+### Technical Requirements
 
-1. **Kiến trúc phần mềm**:
-   - Áp dụng mô hình phân tầng (3-tier architecture)
-   - Sử dụng các nguyên tắc SOLID
-   - Thiết kế các lớp đối tượng tuân theo nguyên tắc OOP
+1. **Software Architecture**:
+   - Apply 3-tier architecture model
+   - Use SOLID principles
+   - Design object classes following OOP principles
 
-2. **Tương tác CSDL**:
-   - Sử dụng JDBC để kết nối với cơ sở dữ liệu SQL đã thiết kế
-   - Xử lý transaction khi thực hiện các thao tác quan trọng
-   - Sử dụng PreparedStatement để ngăn SQL Injection
+2. **Database Interaction**:
+   - Use JDBC to connect to the SQL database designed earlier
+   - Handle transactions for critical operations
+   - Use PreparedStatement to prevent SQL Injection
 
-3. **Xử lý dữ liệu**:
-   - Sử dụng Collections Framework (List, Set, Map) để quản lý dữ liệu trong bộ nhớ
-   - Xử lý luồng với I/O Streams để đọc/ghi file khi cần
-   - Sử dụng đa luồng để xử lý các tác vụ độc lập như sao lưu dữ liệu
+3. **Data Processing**:
+   - Use Collections Framework (List, Set, Map) to manage in-memory data
+   - Handle streams with I/O Streams for file read/write
+   - Use multithreading to handle independent tasks like data backup
 
-4. **Giao diện console**:
-   - Thiết kế menu điều hướng rõ ràng, dễ sử dụng
-   - Hiển thị thông tin được định dạng đẹp mắt
-   - Xử lý nhập liệu từ người dùng với kiểm tra hợp lệ
+4. **Console Interface**:
+   - Design clear, user-friendly navigation menu
+   - Display beautifully formatted information
+   - Handle user input with validation
 
-5. **Xử lý ngoại lệ**:
-   - Xử lý tất cả các ngoại lệ có thể xảy ra
-   - Hiển thị thông báo lỗi thân thiện với người dùng
-   - Đảm bảo tính ổn định của ứng dụng khi có lỗi xảy ra
+5. **Exception Handling**:
+   - Handle all potential exceptions
+   - Display user-friendly error messages
+   - Ensure application stability when errors occur
 
-### Hướng dẫn triển khai
+### Implementation Guide
 
-1. **Thiết kế cơ sở dữ liệu**:
-   - Sử dụng cơ sở dữ liệu đã thiết kế trong phần SQL/FINAL.md
-   - Tạo kết nối JDBC đến cơ sở dữ liệu
+1. **Database Design**:
+   - Use the database designed in SQL/FINAL.md
+   - Create JDBC connection to database
 
-2. **Thiết kế các lớp đối tượng**:
-   - Xây dựng các lớp Entity: Book, User, Transaction
-   - Xây dựng các lớp DAO (Data Access Object) để thao tác với CSDL
-   - Xây dựng các lớp Service xử lý logic nghiệp vụ
+2. **Object Class Design**:
+   - Build Entity classes: Book, User, Transaction
+   - Build DAO (Data Access Object) classes for database operations
+   - Build Service classes for business logic processing
 
-3. **Xây dựng giao diện console**:
-   - Thiết kế menu chính và các menu con
-   - Xử lý nhập liệu và hiển thị kết quả
+3. **Console Interface Development**:
+   - Design main menu and submenus
+   - Handle input and display results
 
-4. **Kiểm thử**:
-   - Kiểm thử các chức năng chính
-   - Xử lý các trường hợp ngoại lệ
+4. **Testing**:
+   - Test main features
+   - Handle exception cases
 
-Bài tập này sẽ kết hợp với bài tập SQL để tạo thành một ứng dụng hoàn chỉnh, trong đó phần JAVA sẽ tạo logic nghiệp vụ và giao diện dòng lệnh, còn phần SQL sẽ đảm nhiệm việc lưu trữ và xử lý dữ liệu.
+This project will be combined with the SQL project to create a complete application, where the Java part creates business logic and command-line interface, while the SQL part handles data storage and processing.

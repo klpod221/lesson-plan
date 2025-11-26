@@ -1,53 +1,53 @@
 ---
 prev:
-  text: '☕ Nhập Môn Java'
+  text: '☕ Introduction to Java'
   link: '/JAVA/Part1'
 next:
-  text: '🧩 Module 3: Lập Trình Hướng Đối Tượng'
+  text: '🧩 Module 3: Object-Oriented Programming'
   link: '/JAVA/Part3'
 ---
 
-# 📘 PHẦN 2: MẢNG, CHUỖI VÀ HÀM
+# 📘 PART 2: ARRAYS, STRINGS AND FUNCTIONS
 
-## 🎯 Mục tiêu tổng quát
+## 🎯 General Objectives
 
-- Làm quen với việc sử dụng mảng để lưu trữ và xử lý tập hợp dữ liệu.
-- Hiểu và làm việc với chuỗi trong JAVA.
-- Tạo và sử dụng hàm để tách chương trình thành các khối logic độc lập.
+- Get familiar with using arrays to store and process data collections.
+- Understand and work with strings in Java.
+- Create and use functions to divide programs into independent logical blocks.
 
-## 🧑‍🏫 Bài 1: Mảng trong JAVA
+## 🧑‍🏫 Lesson 1: Arrays in Java
 
-### Khái niệm về mảng
+### Array concept
 
-- **Mảng (Array)** là một cấu trúc dữ liệu dùng để lưu trữ nhiều giá trị cùng kiểu dữ liệu trong một biến duy nhất.
-- Đặc điểm của mảng:
-  - Kích thước cố định sau khi khởi tạo
-  - Các phần tử được lưu trữ liên tiếp trong bộ nhớ
-  - Có thể truy cập phần tử thông qua chỉ số (index), bắt đầu từ 0
-  - Có thể là mảng một chiều hoặc đa chiều
+- **Array** is a data structure used to store multiple values of the same data type in a single variable.
+- Array characteristics:
+  - Fixed size after initialization
+  - Elements are stored consecutively in memory
+  - Elements can be accessed through index, starting from 0
+  - Can be one-dimensional or multi-dimensional arrays
 
-### Khai báo và khởi tạo mảng
+### Array declaration and initialization
 
 ```java
-// Khai báo mảng
-int[] numbers;              // Cách 1: kiểu_dữ_liệu[] tên_mảng;
-int scores[];               // Cách 2: kiểu_dữ_liệu tên_mảng[];
+// Array declaration
+int[] numbers;              // Method 1: data_type[] array_name;
+int scores[];               // Method 2: data_type array_name[];
 
-// Khởi tạo mảng
-numbers = new int[5];       // Khởi tạo mảng với 5 phần tử, mặc định là 0
-scores = new int[]{90, 85, 75, 80, 95}; // Khởi tạo và gán giá trị
+// Array initialization
+numbers = new int[5];       // Initialize array with 5 elements, default is 0
+scores = new int[]{90, 85, 75, 80, 95}; // Initialize and assign values
 
-// Khai báo và khởi tạo cùng lúc
-int[] grades = {92, 88, 78, 85, 90};  // Cách viết tắt
+// Declare and initialize together
+int[] grades = {92, 88, 78, 85, 90};  // Shorthand notation
 ```
 
-### Mảng đa chiều
+### Multi-dimensional arrays
 
 ```java
-// Mảng 2 chiều
-int[][] matrix = new int[3][4]; // Mảng 3 hàng, 4 cột
+// 2D array
+int[][] matrix = new int[3][4]; // 3 rows, 4 columns array
 
-// Khởi tạo với giá trị
+// Initialize with values
 int[][] grid = {
     {1, 2, 3},
     {4, 5, 6},
@@ -55,20 +55,20 @@ int[][] grid = {
 };
 ```
 
-### Cách lưu mảng trong bộ nhớ
+### Array storage in memory
 
-1. **Mảng 1 chiều**:
+1. **One-dimensional array**:
 
    ```java
    int[] numbers = {10, 20, 30, 40, 50};
    ```
 
    ```text
-   Biến numbers  →  [ Địa chỉ ] → [ 10 | 20 | 30 | 40 | 50 ]
-   (Tham chiếu)      (Heap)        [0]  [1]  [2]  [3]  [4]  (index)
+   Variable numbers  →  [ Address ] → [ 10 | 20 | 30 | 40 | 50 ]
+   (Reference)          (Heap)        [0]  [1]  [2]  [3]  [4]  (index)
    ```
 
-2. **Mảng hai chiều**:
+2. **Two-dimensional array**:
 
    ```java
    int[][] matrix = {
@@ -79,34 +79,34 @@ int[][] grid = {
    ```
 
    ```text
-   Biến matrix    →  [ Địa chỉ ] → [ Địa chỉ hàng 0 ] → [ 1 | 2 | 3 ]
-   (Tham chiếu)      (Heap)        [ Địa chỉ hàng 1 ] → [ 4 | 5 | 6 ]
-                                   [ Địa chỉ hàng 2 ] → [ 7 | 8 | 9 ]
+   Variable matrix    →  [ Address ] → [ Address row 0 ] → [ 1 | 2 | 3 ]
+   (Reference)           (Heap)        [ Address row 1 ] → [ 4 | 5 | 6 ]
+                                       [ Address row 2 ] → [ 7 | 8 | 9 ]
    ```
 
-### Truy cập và sửa đổi phần tử
+### Accessing and modifying elements
 
 ```java
 int[] numbers = {10, 20, 30, 40, 50};
 
-// Truy cập phần tử
-System.out.println("Phần tử thứ 3: " + numbers[2]); // Kết quả: 30
+// Access element
+System.out.println("3rd element: " + numbers[2]); // Result: 30
 
-// Sửa đổi phần tử
-numbers[1] = 25; // Thay đổi giá trị phần tử thứ 2 thành 25
+// Modify element
+numbers[1] = 25; // Change value of 2nd element to 25
 
-// Duyệt mảng
+// Iterate array
 for (int i = 0; i < numbers.length; i++) {
-    System.out.println("Phần tử " + i + ": " + numbers[i]);
+    System.out.println("Element " + i + ": " + numbers[i]);
 }
 
-// Duyệt mảng bằng for-each
+// Iterate array using for-each
 for (int num : numbers) {
     System.out.println(num);
 }
 ```
 
-### Ví dụ thực tế - Tính điểm trung bình
+### Real-world example - Calculate average score
 
 ```java
 public class AverageCalculator {
@@ -119,96 +119,96 @@ public class AverageCalculator {
         }
 
         double average = sum / grades.length;
-        System.out.println("Điểm trung bình: " + average);
+        System.out.println("Average score: " + average);
     }
 }
 ```
 
-## 🧑‍🏫 Bài 2: Chuỗi trong JAVA
+## 🧑‍🏫 Lesson 2: Strings in Java
 
-- Chuỗi là một đối tượng trong JAVA, không phải kiểu dữ liệu nguyên thủy.
-- Chuỗi là một mảng các ký tự (char).
-- Các chuỗi trong JAVA là bất biến (immutable), nghĩa là không thể thay đổi nội dung của chuỗi sau khi đã tạo.
+- Strings are objects in Java, not primitive data types.
+- A string is an array of characters (char).
+- Strings in Java are immutable, meaning the content of a string cannot be changed after creation.
 
-### Khai báo và khởi tạo chuỗi
+### String declaration and initialization
 
    ```java
-   // Khai báo chuỗi sử dụng literal
-   String greeting = "Xin chào JAVA";
+   // String declaration using literal
+   String greeting = "Hello JAVA";
 
-   // Khai báo chuỗi sử dụng constructor
-   String message = new String("Học JAVA thật vui");
+   // String declaration using constructor
+   String message = new String("Learning JAVA is fun");
    ```
 
-### Các phương thức phổ biến của String
+### Common String methods
 
    ```java
-   String text = "Học lập trình JAVA";
+   String text = "Learn JAVA programming";
 
-   // Độ dài chuỗi
-   int length = text.length();  // length = 18
+   // String length
+   int length = text.length();  // length = 22
 
-   // Lấy ký tự tại vị trí
-   char firstChar = text.charAt(0);  // 'H'
+   // Get character at position
+   char firstChar = text.charAt(0);  // 'L'
 
-   // Cắt chuỗi con
-   String subText = text.substring(4, 13);  // lấy từ vị trí 4 đến 12 => "lập trình"
-    String subText2 = text.substring(4);     // lấy từ vị trí 4 đến hết => "lập trình JAVA"
+   // Substring extraction
+   String subText = text.substring(6, 10);  // from position 6 to 9 => "JAVA"
+    String subText2 = text.substring(6);     // from position 6 to end => "JAVA programming"
 
-   // Tìm vị trí xuất hiện
-   int position = text.indexOf("JAVA");  // 14
+   // Find position of occurrence
+   int position = text.indexOf("JAVA");  // 6
 
-   // Chuyển đổi chữ hoa/thường
-   String upperCase = text.toUpperCase();  // "HỌC LẬP TRÌNH JAVA"
-   String lowerCase = text.toLowerCase();  // "học lập trình java"
+   // Convert to uppercase/lowercase
+   String upperCase = text.toUpperCase();  // "LEARN JAVA PROGRAMMING"
+   String lowerCase = text.toLowerCase();  // "learn java programming"
 
-   // Nối chuỗi
-   String newText = text.concat(" cơ bản");  // "Học lập trình JAVA cơ bản"
+   // Concatenate strings
+   String newText = text.concat(" basics");  // "Learn JAVA programming basics"
 
-   // Thay thế chuỗi
-   String replaced = text.replace("JAVA", "Python");  // "Học lập trình Python"
+   // Replace string
+   String replaced = text.replace("JAVA", "Python");  // "Learn Python programming"
 
-   // Kiểm tra bắt đầu/kết thúc
-   boolean startsWith = text.startsWith("Học");  // true
-   boolean endsWith = text.endsWith("JAVA");    // true
+   // Check starts/ends with
+   boolean startsWith = text.startsWith("Learn");  // true
+   boolean endsWith = text.endsWith("programming");    // true
 
-   // Loại bỏ khoảng trắng đầu/cuối
+   // Remove leading/trailing whitespace
    String trimmed = "  Hello  ".trim();  // "Hello"
 
-   // Kiểm tra chuỗi rỗng
+   // Check if string is empty
    boolean empty = "".isEmpty();  // true
    ```
 
-### So sánh chuỗi
+### String comparison
 
    ```java
    String str1 = "Hello";
    String str2 = "Hello";
    String str3 = new String("Hello");
 
-   // So sánh tham chiếu (vị trí trong bộ nhớ)
-   System.out.println(str1 == str2);  // true (cùng tham chiếu trong String pool)
-   System.out.println(str1 == str3);  // false (khác tham chiếu)
+   // Compare reference (memory location)
+   System.out.println(str1 == str2);  // true (same reference in String pool)
+   System.out.println(str1 == str3);  // false (different reference)
 
-   // So sánh giá trị (nội dung)
+   // Compare value (content)
    System.out.println(str1.equals(str2));  // true
    System.out.println(str1.equals(str3));  // true
 
-   // So sánh không phân biệt hoa/thường
+   // Compare ignoring case
    System.out.println("hello".equalsIgnoreCase("HELLO"));  // true
    ```
 
-### Ví dụ thực tế - Đếm từ trong chuỗi
+### Real-world example - Count words in string
 
    ```java
    public class WordCounter {
        public static void main(String[] args) {
-           String sentence = "JAVA là ngôn ngữ lập trình hướng đối tượng phổ biến";
+           String sentence = "JAVA is a popular object-oriented programming language";
            String[] words = sentence.split(" ");
 
-           System.out.println("Số từ trong câu: " + words.length);
+           System.out.println("Number of words in sentence: " + words.length);
 
-           // In ra các từ
+           // Print words
            for (String word : words) {
                System.out.println(word);
            }
@@ -216,11 +216,11 @@ public class AverageCalculator {
    }
    ```
 
-## 🧑‍🏫 Bài 3: Hàm trong JAVA
+## 🧑‍🏫 Lesson 3: Functions in Java
 
-- Hàm (hay phương thức) là một khối mã lệnh có thể được gọi và thực thi nhiều lần trong chương trình. Giúp tổ chức mã lệnh, tái sử dụng và làm cho chương trình dễ đọc hơn.
+- Functions (or methods) are code blocks that can be called and executed multiple times in a program. They help organize code, enable reusability, and make programs more readable.
 
-### Cú pháp khai báo hàm
+### Function declaration syntax
 
    ```java
    [modifier] [return_type] [method_name]([parameter_list]) {
@@ -229,7 +229,7 @@ public class AverageCalculator {
    }
    ```
 
-   Ví dụ:
+   Example:
 
    ```java
    public static int sum(int a, int b) {
@@ -237,164 +237,164 @@ public class AverageCalculator {
    }
    ```
 
-### Các loại hàm
+### Types of functions
 
    ```java
-   // Hàm không có giá trị trả về (void)
+   // Function with no return value (void)
    public static void sayHello() {
-       System.out.println("Xin chào!");
+       System.out.println("Hello!");
    }
 
-   // Hàm trả về kiểu nguyên thủy
+   // Function returning primitive type
    public static int square(int number) {
        return number * number;
    }
 
-   // Hàm trả về đối tượng
+   // Function returning object
    public static String formatName(String firstName, String lastName) {
        return lastName + " " + firstName;
    }
 
-   // Hàm có nhiều tham số
+   // Function with multiple parameters
    public static double average(double a, double b, double c) {
        return (a + b + c) / 3;
    }
    ```
 
-### Tham số và đối số
+### Parameters and arguments
 
    ```java
    public class ParameterExample {
        public static void main(String[] args) {
-           // value1, value2 là đối số
-           int result = add(5, 3);  // 5, 3 là arguments - đối số
-           System.out.println("Tổng: " + result);
+           // value1, value2 are arguments
+           int result = add(5, 3);  // 5, 3 are arguments
+           System.out.println("Sum: " + result);
        }
 
-       // a, b là tham số
-       public static int add(int a, int b) {  // a, b là parameters - tham số
+       // a, b are parameters
+       public static int add(int a, int b) {  // a, b are parameters
            return a + b;
        }
    }
    ```
 
-### Phạm vi biến
+### Variable scope
 
    ```java
    public class ScopeExample {
-       // Biến toàn cục (class/instance variable)
+       // Global variable (class/instance variable)
        static int globalVar = 10;
 
        public static void main(String[] args) {
-           // Biến cục bộ của main
+           // Local variable of main
            int localVar = 5;
 
-           System.out.println(globalVar);  // Có thể truy cập
-           System.out.println(localVar);   // Có thể truy cập
+           System.out.println(globalVar);  // Can access
+           System.out.println(localVar);   // Can access
 
-           // Gọi hàm và truyền tham số
+           // Call function and pass parameter
            testScope(20);
        }
 
        public static void testScope(int paramVar) {
-           // paramVar là tham số
+           // paramVar is a parameter
            int anotherLocal = 15;
 
-           System.out.println(globalVar);     // Có thể truy cập
-           System.out.println(paramVar);      // Có thể truy cập
-           System.out.println(anotherLocal);  // Có thể truy cập
+           System.out.println(globalVar);     // Can access
+           System.out.println(paramVar);      // Can access
+           System.out.println(anotherLocal);  // Can access
 
-           // System.out.println(localVar);  // Lỗi! Không thể truy cập biến localVar từ main
+           // System.out.println(localVar);  // Error! Cannot access localVar from main
        }
    }
    ```
 
-### Ví dụ thực tế - Tính tiền lãi ngân hàng
+### Real-world example - Calculate bank interest
 
    ```java
    public class BankInterestCalculator {
        public static void main(String[] args) {
-           double principal = 10000000;  // 10 triệu VND
-           double rate = 0.06;          // 6% lãi suất năm
-           int years = 5;               // 5 năm
+           double principal = 10000000;  // 10 million VND
+           double rate = 0.06;          // 6% annual interest rate
+           int years = 5;               // 5 years
 
            double result = calculateInterest(principal, rate, years);
-           System.out.printf("Sau %d năm, số tiền là: %.2f VND\n", years, result);
+           System.out.printf("After %d years, the amount is: %.2f VND\n", years, result);
        }
 
-       // Hàm tính lãi kép
+       // Function to calculate compound interest
        public static double calculateInterest(double principal, double rate, int years) {
-           // Công thức lãi kép: A = P(1 + r)^t
+           // Compound interest formula: A = P(1 + r)^t
            return principal * Math.pow(1 + rate, years);
        }
    }
    ```
 
-## 🧑‍🏫 Bài 4: Cách sử dụng mảng và chuỗi kết hợp
+## 🧑‍🏫 Lesson 4: Using arrays and strings together
 
-### Khai báo và khởi tạo mảng chuỗi
+### Declaring and initializing string arrays
 
    ```java
-   // Khai báo mảng chuỗi
+   // Declare string array
    String[] names;
 
-   // Khởi tạo mảng
+   // Initialize array
    names = new String[5];
 
-   // Gán giá trị
-   names[0] = "Nguyễn Văn A";
-   names[1] = "Trần Thị B";
-   names[2] = "Lê Văn C";
-   names[3] = "Phạm Thị D";
-   names[4] = "Hoàng Văn E";
+   // Assign values
+   names[0] = "Nguyen Van A";
+   names[1] = "Tran Thi B";
+   names[2] = "Le Van C";
+   names[3] = "Pham Thi D";
+   names[4] = "Hoang Van E";
 
-   // Khai báo và khởi tạo cùng lúc
-   String[] fruits = {"Táo", "Chuối", "Cam", "Xoài", "Dưa hấu"};
+   // Declare and initialize together
+   String[] fruits = {"Apple", "Banana", "Orange", "Mango", "Watermelon"};
    ```
 
-### Tìm kiếm trong mảng chuỗi
+### Searching in string arrays
 
    ```java
    public class StringArraySearch {
        public static void main(String[] args) {
-           String[] fruits = {"Táo", "Chuối", "Cam", "Xoài", "Dưa hấu"};
-           String searchFor = "Cam";
+           String[] fruits = {"Apple", "Banana", "Orange", "Mango", "Watermelon"};
+           String searchFor = "Orange";
 
-           // Tìm kiếm tuyến tính
+           // Linear search
            boolean found = false;
            for (int i = 0; i < fruits.length; i++) {
                if (fruits[i].equals(searchFor)) {
-                   System.out.println("Tìm thấy '" + searchFor + "' tại vị trí " + i);
+                   System.out.println("Found '" + searchFor + "' at position " + i);
                    found = true;
                    break;
                }
            }
 
            if (!found) {
-               System.out.println("Không tìm thấy '" + searchFor + "' trong mảng");
+               System.out.println("'" + searchFor + "' not found in array");
            }
        }
    }
    ```
 
-### Sắp xếp mảng chuỗi
+### Sorting string arrays
 
    ```java
    import java.util.Arrays;
 
    public class StringArraySort {
        public static void main(String[] args) {
-           String[] names = {"Nam", "An", "Hoa", "Bình", "Mai"};
+           String[] names = {"Nam", "An", "Hoa", "Binh", "Mai"};
 
-           System.out.println("Mảng ban đầu:");
+           System.out.println("Original array:");
            for (String name : names) {
                System.out.print(name + " ");
            }
 
-           // Sắp xếp mảng (theo thứ tự từ điển)
+           // Sort array (alphabetically)
            Arrays.sort(names);
 
-           System.out.println("\nMảng sau khi sắp xếp:");
+           System.out.println("\nSorted array:");
            for (String name : names) {
                System.out.print(name + " ");
            }
@@ -402,29 +402,29 @@ public class AverageCalculator {
    }
    ```
 
-### Xử lý chuỗi trong mảng
+### Processing strings in arrays
 
    ```java
    public class StringArrayProcessing {
        public static void main(String[] args) {
            String[] sentences = {
-               "JAVA là ngôn ngữ lập trình",
-               "Python rất phổ biến hiện nay",
-               "JavaScript dùng cho web",
-               "JAVA có thể làm nhiều ứng dụng"
+               "JAVA is a programming language",
+               "Python is very popular nowadays",
+               "JavaScript is used for web",
+               "JAVA can build many applications"
            };
 
-           // Đếm số câu chứa từ "JAVA"
+           // Count sentences containing "JAVA"
            int javaCount = 0;
            for (String sentence : sentences) {
                if (sentence.contains("JAVA")) {
                    javaCount++;
                }
            }
-           System.out.println("Số câu chứa từ 'JAVA': " + javaCount);
+           System.out.println("Number of sentences containing 'JAVA': " + javaCount);
 
-           // Chuyển tất cả câu sang chữ hoa
-           System.out.println("\nCâu chuyển sang chữ hoa:");
+           // Convert all sentences to uppercase
+           System.out.println("\nSentences converted to uppercase:");
            for (int i = 0; i < sentences.length; i++) {
                sentences[i] = sentences[i].toUpperCase();
                System.out.println(sentences[i]);
@@ -433,21 +433,21 @@ public class AverageCalculator {
    }
    ```
 
-### Ví dụ thực tế - Phân tích danh sách học sinh
+### Real-world example - Student list analysis
 
    ```java
    public class StudentAnalysis {
        public static void main(String[] args) {
-           // Danh sách học sinh với định dạng: "Tên:Điểm"
+           // Student list with format: "Name:Score"
            String[] students = {
-               "Nguyễn Văn An:8.5",
-               "Trần Thị Bình:9.0",
-               "Lê Văn Cường:7.5",
-               "Phạm Thị Diệp:6.5",
-               "Hoàng Văn Em:5.0"
+               "Nguyen Van An:8.5",
+               "Tran Thi Binh:9.0",
+               "Le Van Cuong:7.5",
+               "Pham Thi Diep:6.5",
+               "Hoang Van Em:5.0"
            };
 
-           // Tách thông tin tên và điểm
+           // Separate name and score information
            String[] names = new String[students.length];
            double[] scores = new double[students.length];
 
@@ -457,14 +457,14 @@ public class AverageCalculator {
                scores[i] = Double.parseDouble(parts[1]);
            }
 
-           // Tính điểm trung bình
+           // Calculate average score
            double sum = 0;
            for (double score : scores) {
                sum += score;
            }
            double average = sum / scores.length;
 
-           // Tìm học sinh có điểm cao nhất
+           // Find student with highest score
            double maxScore = scores[0];
            int maxIndex = 0;
 
@@ -475,34 +475,34 @@ public class AverageCalculator {
                }
            }
 
-           // Hiển thị kết quả
-           System.out.printf("Điểm trung bình của lớp: %.2f\n", average);
-           System.out.println("Học sinh có điểm cao nhất: " + names[maxIndex] +
-                              " với điểm " + scores[maxIndex]);
+           // Display results
+           System.out.printf("Class average score: %.2f\n", average);
+           System.out.println("Student with highest score: " + names[maxIndex] +
+                              " with score " + scores[maxIndex]);
        }
    }
    ```
 
-## 🧑‍🏫 Bài 5: Hàm và mảng
+## 🧑‍🏫 Lesson 5: Functions and arrays
 
-### Truyền mảng vào hàm
+### Passing arrays to functions
 
    ```java
    public class ArrayAsParameter {
        public static void main(String[] args) {
            int[] numbers = {5, 10, 15, 20, 25};
 
-           // Gọi hàm và truyền mảng làm tham số
+           // Call function and pass array as parameter
            printArray(numbers);
 
-           // Mảng là tham chiếu, nên thay đổi trong hàm sẽ ảnh hưởng đến mảng gốc
+           // Arrays are references, so changes in function will affect original array
            modifyArray(numbers);
 
-           System.out.println("\nMảng sau khi thay đổi:");
+           System.out.println("\nArray after modification:");
            printArray(numbers);
        }
 
-       // Hàm in mảng
+       // Function to print array
        public static void printArray(int[] arr) {
            for (int num : arr) {
                System.out.print(num + " ");
@@ -510,20 +510,20 @@ public class AverageCalculator {
            System.out.println();
        }
 
-       // Hàm thay đổi mảng
+       // Function to modify array
        public static void modifyArray(int[] arr) {
            for (int i = 0; i < arr.length; i++) {
-               arr[i] *= 2; // Nhân đôi mỗi phần tử
+               arr[i] *= 2; // Double each element
            }
        }
    }
    ```
 
-### Các hàm xử lý mảng phổ biến
+### Common array processing functions
 
    ```java
    public class ArrayHelperFunctions {
-       // Hàm tính tổng mảng
+       // Function to calculate array sum
        public static int sum(int[] arr) {
            int total = 0;
            for (int num : arr) {
@@ -532,10 +532,10 @@ public class AverageCalculator {
            return total;
        }
 
-       // Hàm tìm giá trị lớn nhất
+       // Function to find maximum value
        public static int findMax(int[] arr) {
            if (arr.length == 0) {
-               throw new IllegalArgumentException("Mảng rỗng");
+               throw new IllegalArgumentException("Empty array");
            }
 
            int max = arr[0];
@@ -547,10 +547,10 @@ public class AverageCalculator {
            return max;
        }
 
-       // Hàm tìm giá trị nhỏ nhất
+       // Function to find minimum value
        public static int findMin(int[] arr) {
            if (arr.length == 0) {
-               throw new IllegalArgumentException("Mảng rỗng");
+               throw new IllegalArgumentException("Empty array");
            }
 
            int min = arr[0];
@@ -562,16 +562,16 @@ public class AverageCalculator {
            return min;
        }
 
-       // Hàm tính giá trị trung bình
+       // Function to calculate average
        public static double average(int[] arr) {
            if (arr.length == 0) {
-               throw new IllegalArgumentException("Mảng rỗng");
+               throw new IllegalArgumentException("Empty array");
            }
 
            return (double) sum(arr) / arr.length;
        }
 
-       // Hàm sắp xếp mảng (sử dụng thuật toán Bubble Sort)
+       // Function to sort array (using Bubble Sort algorithm)
        public static void bubbleSort(int[] arr) {
            int n = arr.length;
            boolean swapped;
@@ -581,7 +581,7 @@ public class AverageCalculator {
 
                for (int j = 0; j < n - i - 1; j++) {
                    if (arr[j] > arr[j + 1]) {
-                       // Hoán đổi arr[j] và arr[j+1]
+                       // Swap arr[j] and arr[j+1]
                        int temp = arr[j];
                        arr[j] = arr[j + 1];
                        arr[j + 1] = temp;
@@ -589,7 +589,7 @@ public class AverageCalculator {
                    }
                }
 
-               // Nếu không có phần tử nào được hoán đổi, mảng đã sắp xếp
+               // If no elements were swapped, array is sorted
                if (!swapped) {
                    break;
                }
@@ -598,27 +598,27 @@ public class AverageCalculator {
    }
    ```
 
-### Ví dụ thực tế - Phân tích dữ liệu bán hàng
+### Real-world example - Sales data analysis
 
    ```java
    public class SalesAnalysis {
        public static void main(String[] args) {
-           // Dữ liệu bán hàng theo tháng (triệu đồng)
+           // Monthly sales data (in millions)
            double[] monthlySales = {120.5, 115.2, 130.8, 140.3, 175.2, 168.7,
                                     155.4, 160.1, 190.3, 185.6, 178.4, 220.5};
 
-           System.out.printf("Tổng doanh số năm: %.2f triệu đồng\n", sumSales(monthlySales));
-           System.out.printf("Doanh số trung bình mỗi tháng: %.2f triệu đồng\n", averageSales(monthlySales));
-           System.out.printf("Tháng có doanh số cao nhất: %d với %.2f triệu đồng\n",
+           System.out.printf("Total annual sales: %.2f million\n", sumSales(monthlySales));
+           System.out.printf("Average monthly sales: %.2f million\n", averageSales(monthlySales));
+           System.out.printf("Highest sales month: %d with %.2f million\n",
                            findHighestMonth(monthlySales) + 1, monthlySales[findHighestMonth(monthlySales)]);
-           System.out.printf("Tháng có doanh số thấp nhất: %d với %.2f triệu đồng\n",
+           System.out.printf("Lowest sales month: %d with %.2f million\n",
                            findLowestMonth(monthlySales) + 1, monthlySales[findLowestMonth(monthlySales)]);
 
-           // Phân tích xu hướng
+           // Trend analysis
            analyzeTrend(monthlySales);
        }
 
-       // Tính tổng doanh số
+       // Calculate total sales
        public static double sumSales(double[] sales) {
            double total = 0;
            for (double sale : sales) {
@@ -627,12 +627,12 @@ public class AverageCalculator {
            return total;
        }
 
-       // Tính doanh số trung bình
+       // Calculate average sales
        public static double averageSales(double[] sales) {
            return sumSales(sales) / sales.length;
        }
 
-       // Tìm tháng có doanh số cao nhất
+       // Find highest sales month
        public static int findHighestMonth(double[] sales) {
            int highestMonth = 0;
            for (int i = 1; i < sales.length; i++) {
@@ -643,7 +643,7 @@ public class AverageCalculator {
            return highestMonth;
        }
 
-       // Tìm tháng có doanh số thấp nhất
+       // Find lowest sales month
        public static int findLowestMonth(double[] sales) {
            int lowestMonth = 0;
            for (int i = 1; i < sales.length; i++) {
@@ -654,68 +654,68 @@ public class AverageCalculator {
            return lowestMonth;
        }
 
-       // Phân tích xu hướng
+       // Analyze trend
        public static void analyzeTrend(double[] sales) {
-           // Tính sự thay đổi giữa các tháng
-           System.out.println("\nPhân tích xu hướng doanh số:");
+           // Calculate change between months
+           System.out.println("\nSales trend analysis:");
 
            for (int i = 1; i < sales.length; i++) {
                double change = sales[i] - sales[i-1];
                double percentChange = (change / sales[i-1]) * 100;
 
-               System.out.printf("Tháng %d đến tháng %d: %.2f%% ", i, i+1, percentChange);
+               System.out.printf("Month %d to month %d: %.2f%% ", i, i+1, percentChange);
 
                if (change > 0) {
-                   System.out.println("(Tăng)");
+                   System.out.println("(Increase)");
                } else if (change < 0) {
-                   System.out.println("(Giảm)");
+                   System.out.println("(Decrease)");
                } else {
-                   System.out.println("(Không đổi)");
+                   System.out.println("(No change)");
                }
            }
        }
    }
    ```
 
-## 🧪 BÀI TẬP LỚN CUỐI PHẦN: Quản lý điểm sinh viên với mảng
+## 🧪 FINAL PROJECT: Student grade management with arrays
 
-### Mô tả bài toán
+### Problem Description
 
-Viết chương trình:
+Write a program that:
 
-- Khai báo một mảng chứa thông tin điểm của sinh viên (3 môn học: Toán, Lý, Hóa).
-- Tính toán điểm trung bình của từng sinh viên và xếp loại học lực.
-- Hiển thị danh sách sinh viên và điểm trung bình của họ.
+- Declares an array containing student score information (3 subjects: Math, Physics, Chemistry).
+- Calculates each student's average score and classifies academic performance.
+- Displays the student list and their average scores.
 
-Các chức năng cần có:
+Required functions:
 
-- Hàm nhập điểm cho các sinh viên và lưu vào mảng.
-- Hàm tính điểm trung bình của sinh viên.
-- Hàm xếp loại học lực dựa trên điểm trung bình.
-- Hàm hiển thị kết quả cho tất cả sinh viên.
+- Function to input scores for students and store in array.
+- Function to calculate student's average score.
+- Function to classify academic performance based on average score.
+- Function to display results for all students.
 
-### Kết quả chạy chương trình (Ví dụ)
+### Program Output (Example)
 
 ```text
-Nhập số lượng sinh viên: 3
-Nhập tên sinh viên 1: Nguyễn Văn A
-Nhập điểm Toán: 8.5
-Nhập điểm Lý: 7.5
-Nhập điểm Hóa: 9.0
+Enter number of students: 3
+Enter student 1 name: Nguyen Van A
+Enter Math score: 8.5
+Enter Physics score: 7.5
+Enter Chemistry score: 9.0
 
-Nhập tên sinh viên 2: Trần Thị B
-Nhập điểm Toán: 6.5
-Nhập điểm Lý: 7.0
-Nhập điểm Hóa: 8.0
+Enter student 2 name: Tran Thi B
+Enter Math score: 6.5
+Enter Physics score: 7.0
+Enter Chemistry score: 8.0
 
-Nhập tên sinh viên 3: Lê Văn C
-Nhập điểm Toán: 5.0
-Nhập điểm Lý: 6.0
-Nhập điểm Hóa: 7.0
+Enter student 3 name: Le Van C
+Enter Math score: 5.0
+Enter Physics score: 6.0
+Enter Chemistry score: 7.0
 
 -----------------------------------
-Danh sách sinh viên và điểm trung bình:
-Nguyễn Văn A - Điểm trung bình: 8.67 - Xếp loại: Giỏi
-Trần Thị B - Điểm trung bình: 7.17 - Xếp loại: Khá
-Lê Văn C - Điểm trung bình: 6.00 - Xếp loại: Trung bình
+Student list and average scores:
+Nguyen Van A - Average score: 8.67 - Classification: Excellent
+Tran Thi B - Average score: 7.17 - Classification: Very Good
+Le Van C - Average score: 6.00 - Classification: Average
 ```

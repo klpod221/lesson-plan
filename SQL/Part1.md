@@ -1,153 +1,150 @@
 ---
 prev:
-  text: '🏆 Bài Tập Lớn Java'
-  link: '/JAVA/FINAL'
+  text: '📁 File I/O and Collections'
+  link: '/JAVA/Part4'
 next:
-  text: '📊 SQL Nâng Cao'
+  text: '📊 Advanced SQL'
   link: '/SQL/Part2'
 ---
 
-# 📘 PHẦN 1: NHẬP MÔN SQL
+# 📘 PART 1: INTRODUCTION TO SQL
 
-## 🎯 Mục tiêu tổng quát
+## 🎯 General Objectives
 
-- Làm quen với cú pháp và cách sử dụng ngôn ngữ truy vấn SQL
-- Biết cách tạo cơ sở dữ liệu, bảng và thao tác dữ liệu
-- Hiểu được các câu lệnh truy vấn và kết hợp dữ liệu
+- Get familiar with SQL syntax and usage.
+- Know how to create databases, tables, and manipulate data.
+- Understand query statements and data joining.
 
-## 🧑‍🏫 Bài 1: Giới thiệu về SQL và CSDL
+## 🧑‍🏫 Lesson 1: Introduction to SQL and Databases
 
-### Khái niệm cơ sở dữ liệu quan hệ
+### Relational Database Concepts
 
-- Cơ sở dữ liệu quan hệ (RDBMS) là hệ thống lưu trữ dữ liệu theo bảng (table) với các cột và hàng.
-- Mỗi bảng sẽ có các cột (column) đại diện cho các thuộc tính và các hàng (row) đại diện cho các bản ghi dữ liệu.
-- Các bảng có thể liên kết với nhau thông qua khóa chính (primary key) và khóa ngoại (foreign key).
+- A Relational Database Management System (RDBMS) is a system that stores data in tables with columns and rows.
+- Each table has columns representing attributes and rows representing data records.
+- Tables can be linked to each other via primary keys and foreign keys.
 
-### Các hệ quản trị CSDL phổ biến
+### Common RDBMS
 
-| Hệ quản trị | Ưu điểm                                      | Nhược điểm                                   |
+| System      | Pros                                         | Cons                                         |
 | ----------- | -------------------------------------------- | -------------------------------------------- |
-| MySQL       | Miễn phí, phổ biến, dễ sử dụng               | Hiệu suất thấp hơn so với một số DBMS khác   |
-| PostgreSQL  | Mạnh mẽ, nhiều tính năng nâng cao            | Phức tạp hơn để cấu hình                     |
-| SQL Server  | Tích hợp tốt với các sản phẩm Microsoft      | Chi phí giấy phép cao                        |
-| Oracle      | Độ ổn định cao, nhiều tính năng doanh nghiệp | Rất đắt và phức tạp                          |
-| SQLite      | Nhẹ, không cần máy chủ, nhúng được           | Không phù hợp cho ứng dụng đa người dùng lớn |
+| MySQL       | Free, popular, easy to use                   | Lower performance compared to some other DBMS|
+| PostgreSQL  | Powerful, many advanced features             | More complex to configure                    |
+| SQL Server  | Good integration with Microsoft products     | High licensing cost                          |
+| Oracle      | High stability, many enterprise features     | Very expensive and complex                   |
+| SQLite      | Lightweight, serverless, embeddable          | Not suitable for large multi-user apps       |
 
-### Công cụ quản lý
+### Management Tools
 
-- [MySQL Workbench](https://www.mysql.com/products/workbench/): Công cụ chính thức của MySQL, hỗ trợ thiết kế và quản lý cơ sở dữ liệu
-- [phpMyAdmin](https://www.phpmyadmin.net/): Công cụ quản lý MySQL qua web, dễ sử dụng cho người mới (khuyên dùng)
-- [HeidiSQL](https://www.heidisql.com/): Công cụ quản lý MySQL miễn phí trên Windows, giao diện thân thiện
-- [DBeaver](https://dbeaver.io/): Công cụ quản lý CSDL đa nền tảng, hỗ trợ nhiều loại CSDL khác nhau
-- [DataGrip](https://www.jetbrains.com/datagrip/): Công cụ quản lý CSDL của JetBrains, hỗ trợ nhiều loại CSDL, có phí
-- [Navicat](https://www.navicat.com/en/products/navicat-for-mysql): Công cụ quản lý CSDL thương mại, giao diện đẹp và nhiều tính năng mạnh mẽ
+- [MySQL Workbench](https://www.mysql.com/products/workbench/): Official tool from MySQL, supports database design and management.
+- [phpMyAdmin](https://www.phpmyadmin.net/): Web-based MySQL management tool, easy to use for beginners (recommended).
+- [HeidiSQL](https://www.heidisql.com/): Free MySQL management tool on Windows, friendly interface.
+- [DBeaver](https://dbeaver.io/): Cross-platform DB management tool, supports many different DBs.
+- [DataGrip](https://www.jetbrains.com/datagrip/): DB management tool from JetBrains, supports many DBs, paid.
+- [Navicat](https://www.navicat.com/products/navicat-for-mysql): Commercial DB management tool, beautiful interface and powerful features.
 
-### Sử dụng phpMyAdmin để quản lý cơ sở dữ liệu
+### Using phpMyAdmin to Manage Databases
 
-- phpMyAdmin là công cụ quản lý MySQL/MariaDB được viết bằng PHP, cho phép bạn quản lý cơ sở dữ liệu qua trình duyệt web. Đây là công cụ rất phổ biến, đặc biệt với người mới bắt đầu vì giao diện trực quan và dễ sử dụng.
-- Tôi đã hướng dẫn cài đặt phpMyAdmin trong phần [cài đặt môi trường học tập](../INSTALL.md). Bạn có thể tham khảo lại để biết cách cài đặt và cấu hình.
+- phpMyAdmin is a MySQL/MariaDB management tool written in PHP, allowing you to manage databases via a web browser. It is very popular, especially for beginners due to its intuitive and easy-to-use interface.
+- I have guided the installation of phpMyAdmin in the [learning environment setup](../INSTALL.md) section. You can refer back to it for installation and configuration instructions.
 
-#### Sử dụng phpMyAdmin
+#### Using phpMyAdmin
 
-1. **Đăng nhập**:
+1. **Login**:
+   - Username: usually "root"
+   - Password: the password you set for MySQL
 
-   - Username: thường là "root"
-   - Password: mật khẩu bạn đã thiết lập cho MySQL
+2. **Main Interface**:
+   - Left side: List of databases
+   - Right side: Options and information
 
-2. **Giao diện chính**:
+3. **Basic Features**:
+   - Create new database: Click "New" or "Database"
+   - Create table: Select a database, click "Create table"
+   - Execute queries: Click the "SQL" tab to enter and run SQL commands
+   - Manage data: Click on a table name to view, add, edit, delete data
+   - Export/Import data: Use the "Export" and "Import" options
 
-   - Bên trái: Danh sách các cơ sở dữ liệu
-   - Bên phải: Các tùy chọn và thông tin
+4. **Pros of phpMyAdmin**:
+   - Intuitive, easy-to-use interface
+   - No need to install separate software (just a browser)
+   - Supports many advanced features like user management, access rights
+   - Can perform complex operations without writing SQL
 
-3. **Các tính năng cơ bản**:
+### Using VSCode Extension to Connect to DB
 
-   - Tạo cơ sở dữ liệu mới: Nhấp vào "New" hoặc "Database"
-   - Tạo bảng: Chọn cơ sở dữ liệu, nhấp vào "Create table"
-   - Thực hiện truy vấn: Nhấp vào tab "SQL" để nhập và chạy các câu lệnh SQL
-   - Quản lý dữ liệu: Nhấp vào tên bảng để xem, thêm, sửa, xóa dữ liệu
-   - Xuất/nhập dữ liệu: Sử dụng các tùy chọn "Export" và "Import"
+- As mentioned in the [VSCode section](../INSTALL.md#installing-necessary-extensions) of the environment setup guide, you can use the [MySQL](https://marketplace.visualstudio.com/items?itemName=cweijan.vscode-mysql-client2) extension to connect and manage databases right within VSCode. The steps are as follows:
 
-4. **Ưu điểm của phpMyAdmin**:
-   - Giao diện trực quan, dễ sử dụng
-   - Không cần cài đặt phần mềm riêng (chỉ cần trình duyệt)
-   - Hỗ trợ nhiều tính năng nâng cao như quản lý người dùng, quyền truy cập
-   - Có thể thực hiện các thao tác phức tạp mà không cần viết SQL
-
-### Sử dụng VSCode extension để kết nối CSDL
-
-- Như đã đề cập đến trong phần [về VSCode](../INSTALL.md#cài-đặt-các-extension-cần-thiết) của bài cài đặt môi trường học tập, bạn có thể sử dụng extension [MySQL](https://marketplace.visualstudio.com/items?itemName=cweijan.vscode-mysql-client2) để kết nối và quản lý cơ sở dữ liệu ngay trong VSCode. Các bước thực hiện như sau:
-
-  1. Cài đặt extension MySQL từ VS Code Marketplace
-  2. Sau khi cài đặt xong, bạn sẽ thấy biểu tượng MySQL xuất hiện trong thanh bên trái của VS Code
-  3. Nhấp vào biểu tượng MySQL, sau đó nhấn vào biểu tượng "+" để tạo kết nối mới
-  4. Nhập thông tin kết nối:
-     - **Connection name**: Tên kết nối (tự đặt)
-     - **Select Type**: Chọn loại kết nối (MySQL hoặc MariaDB)
-     - **Host**: Địa chỉ máy chủ (thường là localhost)
-     - **Port**: Cổng kết nối (mặc định là 3306)
-     - **Username**: Tên người dùng (thường là root)
-     - **Password**: Mật khẩu của người dùng
-     - **Database**: Tên cơ sở dữ liệu (có thể để trống để hiển thị tất cả cơ sở dữ liệu)
-  5. Nhấn nút "Connect" để kiểm tra kết nối
-     - Nếu kết nối thành công, bạn sẽ thấy danh sách các cơ sở dữ liệu và bảng trong thanh bên trái
-     - Nếu không thành công, hãy kiểm tra lại thông tin kết nối và đảm bảo rằng MySQL server đang chạy
-  6. Nhấn "Save" để lưu kết nối
-  7. Sau khi kết nối thành công, bạn có thể:
-     - Xem tất cả cơ sở dữ liệu trong hệ thống
-     - Mở rộng cơ sở dữ liệu để xem các bảng, view, procedure, và các thành phần khác
-     - Nhấp chuột phải vào các thành phần để thực hiện các thao tác như chỉnh sửa dữ liệu, xuất dữ liệu, v.v.
-     - Tạo file SQL và chạy các câu lệnh trực tiếp từ VS Code
+  1. Install the MySQL extension from VS Code Marketplace.
+  2. After installation, you will see the MySQL icon in the left sidebar of VS Code.
+  3. Click the MySQL icon, then click the "+" icon to create a new connection.
+  4. Enter connection information:
+     - **Connection name**: Name of the connection (custom)
+     - **Select Type**: Select connection type (MySQL or MariaDB)
+     - **Host**: Server address (usually localhost)
+     - **Port**: Connection port (default is 3306)
+     - **Username**: Username (usually root)
+     - **Password**: User's password
+     - **Database**: Database name (can be left empty to show all databases)
+  5. Click "Connect" to test the connection.
+     - If successful, you will see a list of databases and tables in the left sidebar.
+     - If unsuccessful, check the connection info and ensure the MySQL server is running.
+  6. Click "Save" to save the connection.
+  7. After connecting successfully, you can:
+     - View all databases in the system.
+     - Expand databases to view tables, views, procedures, and other components.
+     - Right-click on components to perform actions like editing data, exporting data, etc.
+     - Create SQL files and run commands directly from VS Code.
 
   ```sql
   -- test.sql
-  SHOW DATABASES; -- Hiển thị danh sách các cơ sở dữ liệu
+  SHOW DATABASES; -- Show list of databases
   ```
 
-## 🧑‍🏫 Bài 2: Tạo và quản lý cơ sở dữ liệu
+## 🧑‍🏫 Lesson 2: Creating and Managing Databases
 
-### Tạo và quản lý cơ sở dữ liệu
+### Creating and Managing Databases
 
 ```sql
--- Tạo cơ sở dữ liệu mới
+-- Create a new database
 CREATE DATABASE school_management;
 
--- Sử dụng cơ sở dữ liệu
+-- Use the database
 USE school_management;
 
--- Xóa cơ sở dữ liệu (cẩn thận với lệnh này)
+-- Delete database (be careful with this command)
 DROP DATABASE school_management;
 ```
 
-### Các kiểu dữ liệu cơ bản trong SQL
+### Basic Data Types in SQL
 
-- Giống như các ngôn ngữ lập trình khác, SQL cũng có các kiểu dữ liệu để lưu trữ thông tin. Dưới đây là một số kiểu dữ liệu phổ biến trong SQL:
+- Like other programming languages, SQL has data types to store information. Here are some common data types in SQL:
 
-  | Kiểu dữ liệu | Mô tả                                            | Ví dụ                 |
+  | Data Type    | Description                                      | Example               |
   | ------------ | ------------------------------------------------ | --------------------- |
-  | INT          | Số nguyên                                        | 10, -5, 0             |
-  | DECIMAL(p,s) | Số thập phân với p chữ số, s chữ số sau dấu phẩy | 123.45                |
-  | VARCHAR(n)   | Chuỗi có độ dài thay đổi, tối đa n ký tự         | 'Hello'               |
-  | CHAR(n)      | Chuỗi có độ dài cố định n ký tự                  | 'ABC'                 |
-  | TEXT         | Chuỗi văn bản dài                                | Đoạn văn dài          |
-  | DATE         | Ngày (YYYY-MM-DD)                                | '2023-05-25'          |
-  | DATETIME     | Ngày và giờ                                      | '2023-05-25 10:30:00' |
-  | BOOLEAN      | Giá trị logic (TRUE/FALSE)                       | TRUE, FALSE           |
-  | BLOB         | Dữ liệu nhị phân lớn                             | Hình ảnh, tệp         |
+  | INT          | Integer                                          | 10, -5, 0             |
+  | DECIMAL(p,s) | Decimal number with p digits, s digits after dot | 123.45                |
+  | VARCHAR(n)   | Variable length string, max n characters         | 'Hello'               |
+  | CHAR(n)      | Fixed length string of n characters              | 'ABC'                 |
+  | TEXT         | Long text string                                 | Long paragraph        |
+  | DATE         | Date (YYYY-MM-DD)                                | '2023-05-25'          |
+  | DATETIME     | Date and time                                    | '2023-05-25 10:30:00' |
+  | BOOLEAN      | Logical value (TRUE/FALSE)                       | TRUE, FALSE           |
+  | BLOB         | Large binary data                                | Images, files         |
 
-### Một số ràng buộc trong SQL
+### Some Constraints in SQL
 
-- `PRIMARY KEY`: Khóa chính, đảm bảo tính duy nhất cho mỗi bản ghi
-- `AUTO_INCREMENT`: Tự động tăng giá trị cho cột (thường dùng cho khóa chính)
-- `FOREIGN KEY`: Khóa ngoại, liên kết với khóa chính của bảng khác
-- `NOT NULL`: Bắt buộc phải có giá trị
-- `UNIQUE`: Đảm bảo giá trị là duy nhất trong cột
-- `DEFAULT`: Xác định giá trị mặc định
-- `CHECK`: Thêm điều kiện hợp lệ cho giá trị
+- `PRIMARY KEY`: Ensures uniqueness for each record.
+- `AUTO_INCREMENT`: Automatically increments value for a column (usually for primary key).
+- `FOREIGN KEY`: Links to a primary key in another table.
+- `NOT NULL`: Must have a value.
+- `UNIQUE`: Ensures value is unique in the column.
+- `DEFAULT`: Defines a default value.
+- `CHECK`: Adds a validity condition for the value.
 
-### Tạo bảng và ràng buộc
+### Creating Tables and Constraints
 
 ```sql
--- Tạo bảng students
+-- Create students table
 CREATE TABLE students (
     student_id INT PRIMARY KEY AUTO_INCREMENT,
     first_name VARCHAR(50) NOT NULL,
@@ -159,7 +156,7 @@ CREATE TABLE students (
     is_active BOOLEAN DEFAULT TRUE
 );
 
--- Tạo bảng courses
+-- Create courses table
 CREATE TABLE courses (
     course_id INT PRIMARY KEY AUTO_INCREMENT,
     course_name VARCHAR(100) NOT NULL,
@@ -167,7 +164,7 @@ CREATE TABLE courses (
     department VARCHAR(50)
 );
 
--- Tạo bảng enrollments với khóa ngoại
+-- Create enrollments table with foreign keys
 CREATE TABLE enrollments (
     enrollment_id INT PRIMARY KEY AUTO_INCREMENT,
     student_id INT,
@@ -176,12 +173,11 @@ CREATE TABLE enrollments (
     grade DECIMAL(4,1),
     FOREIGN KEY (student_id) REFERENCES students(student_id),
     FOREIGN KEY (course_id) REFERENCES courses(course_id),
-    UNIQUE (student_id, course_id) -- Không cho phép học sinh đăng ký 1 khóa học 2 lần
+    UNIQUE (student_id, course_id) -- Do not allow a student to register for the same course twice
 );
-
 ```
 
-### Sơ đồ quan hệ của cơ sở dữ liệu
+### Database Relationship Diagram
 
 ```text
 +----------------+        +-----------------+        +-------------+
@@ -198,209 +194,208 @@ CREATE TABLE enrollments (
 +----------------+
 ```
 
-- Giải thích mối quan hệ:
+- Relationship explanation:
+  - A student (`students`) can register for multiple courses → 1-n relationship with `enrollments`.
+  - A course (`courses`) can be registered by multiple students → 1-n relationship with `enrollments`.
+  - The `enrollments` table is an intermediate table creating an n-n relationship between students and courses.
 
-  - Một sinh viên (`students`) có thể đăng ký nhiều khóa học → Mối quan hệ 1-n với `enrollments`
-  - Một khóa học (`courses`) có thể được nhiều sinh viên đăng ký → Mối quan hệ 1-n với `enrollments`
-  - Bảng `enrollments` là bảng trung gian tạo mối quan hệ n-n giữa sinh viên và khóa học
+## 🧑‍🏫 Lesson 3: Data Manipulation
 
-## 🧑‍🏫 Bài 3: Thao tác dữ liệu
-
-### Thêm dữ liệu với INSERT INTO
+### Adding Data with INSERT INTO
 
 ```sql
--- Thêm một bản ghi
+-- Add a single record
 INSERT INTO students (first_name, last_name, email, date_of_birth, gender)
-VALUES ('Văn', 'Nguyễn', 'van.nguyen@example.com', '2000-05-15', 'M');
+VALUES ('Van', 'Nguyen', 'van.nguyen@example.com', '2000-05-15', 'M');
 
--- Thêm nhiều bản ghi
+-- Add multiple records
 INSERT INTO students (first_name, last_name, email, date_of_birth, gender)
 VALUES
-    ('Thị', 'Lê', 'thi.le@example.com', '2001-03-21', 'F'),
-    ('Minh', 'Trần', 'minh.tran@example.com', '1999-11-08', 'M'),
-    ('Hoa', 'Phạm', 'hoa.pham@example.com', '2002-07-30', 'F');
+    ('Thi', 'Le', 'thi.le@example.com', '2001-03-21', 'F'),
+    ('Minh', 'Tran', 'minh.tran@example.com', '1999-11-08', 'M'),
+    ('Hoa', 'Pham', 'hoa.pham@example.com', '2002-07-30', 'F');
 
--- Thêm dữ liệu từ một bảng khác (sao chép dữ liệu)
+-- Add data from another table (copy data)
 INSERT INTO archived_students (student_id, first_name, last_name, email)
 SELECT student_id, first_name, last_name, email
 FROM students
 WHERE admission_date < '2022-01-01';
 ```
 
-### Cập nhật dữ liệu với UPDATE
+### Updating Data with UPDATE
 
 ```sql
--- Cập nhật một cột cho tất cả bản ghi
+-- Update a column for all records
 UPDATE students SET is_active = TRUE;
 
--- Cập nhật một bản ghi cụ thể
+-- Update a specific record
 UPDATE students SET email = 'new.email@example.com'
 WHERE student_id = 5;
 
--- Cập nhật nhiều cột
+-- Update multiple columns
 UPDATE students
 SET
-    first_name = 'Thành',
-    last_name = 'Hoàng',
+    first_name = 'Thanh',
+    last_name = 'Hoang',
     is_active = FALSE
 WHERE student_id = 10;
 
--- Cập nhật dựa trên điều kiện phức tạp
+-- Update based on complex condition
 UPDATE enrollments
 SET grade = grade + 0.5
 WHERE grade < 5.0 AND course_id IN (SELECT course_id FROM courses WHERE department = 'Math');
 
--- Lưu ý: Luôn cẩn thận khi UPDATE không có WHERE (sẽ cập nhật tất cả bản ghi)
+-- Note: Always be careful when UPDATE without WHERE (it will update all records)
 ```
 
-### Xóa dữ liệu với DELETE
+### Deleting Data with DELETE
 
 ```sql
--- Xóa một bản ghi cụ thể
+-- Delete a specific record
 DELETE FROM students WHERE student_id = 15;
 
--- Xóa nhiều bản ghi theo điều kiện
+-- Delete multiple records based on condition
 DELETE FROM students WHERE is_active = FALSE;
 
--- Xóa dữ liệu dựa trên subquery
+-- Delete data based on subquery
 DELETE FROM enrollments
 WHERE student_id IN (SELECT student_id FROM students WHERE is_active = FALSE);
 
--- Xóa tất cả dữ liệu trong bảng (THẬN TRỌNG!)
+-- Delete all data in table (CAUTION!)
 DELETE FROM enrollments;
 
--- Hoặc nhanh hơn (reset cả auto-increment)
+-- Or faster (resets auto-increment too)
 TRUNCATE TABLE enrollments;
 ```
 
-### Thay đổi cấu trúc bảng với ALTER TABLE
+### Changing Table Structure with ALTER TABLE
 
 ```sql
--- Thêm cột mới
+-- Add new column
 ALTER TABLE students ADD COLUMN phone VARCHAR(20);
 
--- Thêm cột với giá trị mặc định
+-- Add column with default value
 ALTER TABLE students ADD COLUMN nationality VARCHAR(50) DEFAULT 'Vietnam';
 
--- Đổi tên cột
+-- Rename column
 ALTER TABLE students CHANGE first_name given_name VARCHAR(50);
--- Hoặc (tùy DBMS)
+-- Or (depending on DBMS)
 ALTER TABLE students RENAME COLUMN first_name TO given_name;
 
--- Thay đổi kiểu dữ liệu của cột
+-- Change column data type
 ALTER TABLE students MODIFY email VARCHAR(150);
 
--- Xóa cột
+-- Drop column
 ALTER TABLE students DROP COLUMN phone;
 
--- Thêm khóa chính (nếu chưa có)
+-- Add primary key (if not exists)
 ALTER TABLE students ADD PRIMARY KEY (student_id);
 
--- Thêm khóa ngoại
+-- Add foreign key
 ALTER TABLE enrollments ADD CONSTRAINT fk_student
 FOREIGN KEY (student_id) REFERENCES students(student_id);
 
--- Xóa khóa ngoại
+-- Drop foreign key
 ALTER TABLE enrollments DROP FOREIGN KEY fk_student;
 
--- Đổi tên bảng
+-- Rename table
 ALTER TABLE students RENAME TO student_records;
 ```
 
-## 🧑‍🏫 Bài 4: Truy vấn dữ liệu
+## 🧑‍🏫 Lesson 4: Data Querying
 
-### Truy vấn cơ bản với SELECT
+### Basic Query with SELECT
 
 ```sql
--- Lấy tất cả dữ liệu từ bảng students
+-- Get all data from students table
 SELECT * FROM students;
 
--- Lấy các cột cụ thể
+-- Get specific columns
 SELECT first_name, last_name, email FROM students;
 
--- Đổi tên cột khi hiển thị kết quả
+-- Rename columns in result
 SELECT
-    first_name AS 'Tên',
-    last_name AS 'Họ',
-    date_of_birth AS 'Ngày sinh'
+    first_name AS 'First Name',
+    last_name AS 'Last Name',
+    date_of_birth AS 'Date of Birth'
 FROM students;
 
--- Kết hợp các cột
+-- Combine columns
 SELECT
-    CONCAT(first_name, ' ', last_name) AS 'Họ và tên',
+    CONCAT(first_name, ' ', last_name) AS 'Full Name',
     email
 FROM students;
 ```
 
-### Lọc dữ liệu với WHERE
+### Filtering Data with WHERE
 
 ```sql
--- Lọc theo điều kiện
+-- Filter by condition
 SELECT * FROM students WHERE gender = 'F';
 
--- Nhiều điều kiện với AND và OR
+-- Multiple conditions with AND and OR
 SELECT * FROM students
 WHERE gender = 'M' AND is_active = TRUE;
 
 SELECT * FROM students
 WHERE gender = 'F' OR date_of_birth > '2000-01-01';
 
--- Kiểm tra giá trị NULL
+-- Check for NULL values
 SELECT * FROM students WHERE email IS NULL;
 SELECT * FROM students WHERE email IS NOT NULL;
 
--- Tìm kiếm với LIKE
-SELECT * FROM students WHERE last_name LIKE 'Nguy%'; -- Bắt đầu bằng "Nguy"
-SELECT * FROM students WHERE email LIKE '%@gmail.com'; -- Kết thúc bằng "@gmail.com"
-SELECT * FROM students WHERE first_name LIKE '_an'; -- Có 3 ký tự, kết thúc bằng "an"
+-- Search with LIKE
+SELECT * FROM students WHERE last_name LIKE 'Nguy%'; -- Starts with "Nguy"
+SELECT * FROM students WHERE email LIKE '%@gmail.com'; -- Ends with "@gmail.com"
+SELECT * FROM students WHERE first_name LIKE '_an'; -- 3 characters, ends with "an"
 
--- Kiểm tra giá trị trong tập hợp
+-- Check value in set
 SELECT * FROM courses WHERE department IN ('IT', 'Math', 'Physics');
 
--- Kiểm tra giá trị trong khoảng
+-- Check value in range
 SELECT * FROM enrollments WHERE grade BETWEEN 8.0 AND 10.0;
 ```
 
-### Sắp xếp kết quả với ORDER BY
+### Sorting Results with ORDER BY
 
 ```sql
--- Sắp xếp tăng dần theo họ
+-- Sort ascending by last name
 SELECT * FROM students ORDER BY last_name ASC;
 
--- Sắp xếp giảm dần theo ngày sinh
+-- Sort descending by date of birth
 SELECT * FROM students ORDER BY date_of_birth DESC;
 
--- Sắp xếp theo nhiều cột
+-- Sort by multiple columns
 SELECT * FROM students ORDER BY gender, last_name, first_name;
 
--- Sắp xếp kết hợp tăng/giảm dần
+-- Combined sort ascending/descending
 SELECT * FROM enrollments ORDER BY course_id ASC, grade DESC;
 ```
 
-### Giới hạn kết quả với LIMIT (MySQL, PostgreSQL) hoặc TOP (SQL Server)
+### Limiting Results with LIMIT (MySQL, PostgreSQL) or TOP (SQL Server)
 
-- Thường được dùng để giới hạn số lượng bản ghi trả về trong truy vấn. Giúp phân trang dữ liệu hoặc lấy một số bản ghi đầu tiên.
+- Usually used to limit the number of records returned in a query. Helps with data pagination or getting the first few records.
 
 ```sql
--- MySQL/PostgreSQL: Lấy 5 học sinh đầu tiên
+-- MySQL/PostgreSQL: Get first 5 students
 SELECT * FROM students LIMIT 5;
 
--- MySQL/PostgreSQL: Lấy 5 học sinh từ vị trí thứ 10
+-- MySQL/PostgreSQL: Get 5 students starting from 10th position
 SELECT * FROM students LIMIT 5 OFFSET 10;
 
--- SQL Server: Lấy 5 học sinh đầu tiên
+-- SQL Server: Get first 5 students
 SELECT TOP 5 * FROM students;
 
--- Kết hợp ORDER BY và LIMIT để lấy top 3 điểm cao nhất
+-- Combine ORDER BY and LIMIT to get top 3 highest grades
 SELECT * FROM enrollments ORDER BY grade DESC LIMIT 3;
 ```
 
-## 🧑‍🏫 Bài 5: Kết hợp dữ liệu
+## 🧑‍🏫 Lesson 5: Joining Data
 
-### Kết hợp bảng với JOIN
+### Joining Tables with JOIN
 
 ```sql
--- INNER JOIN: chỉ lấy dữ liệu khớp ở cả hai bảng
+-- INNER JOIN: only get matching data in both tables
 SELECT
     s.student_id,
     CONCAT(s.first_name, ' ', s.last_name) AS student_name,
@@ -410,7 +405,7 @@ FROM students s
 INNER JOIN enrollments e ON s.student_id = e.student_id
 INNER JOIN courses c ON e.course_id = c.course_id;
 
--- LEFT JOIN: lấy tất cả dữ liệu từ bảng bên trái, và dữ liệu khớp từ bảng bên phải
+-- LEFT JOIN: get all data from left table, and matching data from right table
 SELECT
     s.student_id,
     CONCAT(s.first_name, ' ', s.last_name) AS student_name,
@@ -419,7 +414,7 @@ FROM students s
 LEFT JOIN enrollments e ON s.student_id = e.student_id
 GROUP BY s.student_id, student_name;
 
--- RIGHT JOIN: lấy tất cả dữ liệu từ bảng bên phải, và dữ liệu khớp từ bảng bên trái
+-- RIGHT JOIN: get all data from right table, and matching data from left table
 SELECT
     c.course_id,
     c.course_name,
@@ -428,14 +423,14 @@ FROM enrollments e
 RIGHT JOIN courses c ON e.course_id = c.course_id
 GROUP BY c.course_id, c.course_name;
 
--- FULL JOIN (không hỗ trợ trực tiếp trong MySQL)
+-- FULL JOIN (not directly supported in MySQL)
 -- PostgreSQL:
 SELECT s.student_id, c.course_id
 FROM students s
 FULL JOIN enrollments e ON s.student_id = e.student_id
 FULL JOIN courses c ON e.course_id = c.course_id;
 
--- Thay thế FULL JOIN trong MySQL
+-- Replace FULL JOIN in MySQL
 SELECT s.student_id, c.course_id
 FROM students s
 LEFT JOIN enrollments e ON s.student_id = e.student_id
@@ -447,17 +442,17 @@ RIGHT JOIN enrollments e ON s.student_id = e.student_id
 RIGHT JOIN courses c ON e.course_id = c.course_id;
 ```
 
-### Nhóm dữ liệu với GROUP BY
+### Grouping Data with GROUP BY
 
 ```sql
--- Đếm số sinh viên theo giới tính
+-- Count students by gender
 SELECT
     gender,
     COUNT(*) AS student_count
 FROM students
 GROUP BY gender;
 
--- Tính điểm trung bình của mỗi môn học
+-- Calculate average grade for each course
 SELECT
     c.course_id,
     c.course_name,
@@ -466,7 +461,7 @@ FROM courses c
 JOIN enrollments e ON c.course_id = e.course_id
 GROUP BY c.course_id, c.course_name;
 
--- Nhóm theo nhiều cột
+-- Group by multiple columns
 SELECT
     c.department,
     s.gender,
@@ -477,26 +472,26 @@ JOIN students s ON e.student_id = s.student_id
 GROUP BY c.department, s.gender;
 ```
 
-### Hàm tổng hợp
+### Aggregate Functions
 
 ```sql
--- COUNT: đếm số lượng bản ghi
+-- COUNT: count number of records
 SELECT COUNT(*) AS total_students FROM students;
-SELECT COUNT(email) AS students_with_email FROM students; -- Không đếm NULL
+SELECT COUNT(email) AS students_with_email FROM students; -- Does not count NULL
 
--- SUM: tính tổng
+-- SUM: calculate sum
 SELECT SUM(credits) AS total_credits FROM courses;
 
--- AVG: tính trung bình
+-- AVG: calculate average
 SELECT AVG(grade) AS average_grade FROM enrollments;
 
--- MAX, MIN: tìm giá trị lớn nhất, nhỏ nhất
+-- MAX, MIN: find max, min values
 SELECT
     MAX(grade) AS highest_grade,
     MIN(grade) AS lowest_grade
 FROM enrollments;
 
--- Kết hợp nhiều hàm tổng hợp
+-- Combine multiple aggregate functions
 SELECT
     COUNT(*) AS enrollment_count,
     AVG(grade) AS average_grade,
@@ -506,10 +501,10 @@ SELECT
 FROM enrollments;
 ```
 
-### Lọc nhóm dữ liệu với HAVING
+### Filtering Grouped Data with HAVING
 
 ```sql
--- Tìm các khóa học có hơn 10 học sinh đăng ký
+-- Find courses with more than 10 students enrolled
 SELECT
     c.course_id,
     c.course_name,
@@ -519,7 +514,7 @@ JOIN enrollments e ON c.course_id = e.course_id
 GROUP BY c.course_id, c.course_name
 HAVING student_count > 10;
 
--- Tìm học sinh có điểm trung bình trên 8.0
+-- Find students with average grade above 8.0
 SELECT
     s.student_id,
     CONCAT(s.first_name, ' ', s.last_name) AS student_name,
@@ -530,58 +525,58 @@ GROUP BY s.student_id, student_name
 HAVING average_grade > 8.0
 ORDER BY average_grade DESC;
 
--- Lưu ý sự khác biệt giữa WHERE và HAVING:
--- WHERE lọc dữ liệu trước khi nhóm
--- HAVING lọc dữ liệu sau khi nhóm
+-- Note the difference between WHERE and HAVING:
+-- WHERE filters data before grouping
+-- HAVING filters data after grouping
 SELECT
     c.department,
     COUNT(*) AS course_count,
     AVG(credits) AS average_credits
 FROM courses c
-WHERE credits > 2 -- Lọc trước khi nhóm
+WHERE credits > 2 -- Filter before grouping
 GROUP BY c.department
-HAVING average_credits > 3 -- Lọc sau khi nhóm
+HAVING average_credits > 3 -- Filter after grouping
 ORDER BY course_count DESC;
 ```
 
-## 🧪 BÀI TẬP LỚN CUỐI PHẦN: Quản lý sinh viên
+## 🧪 FINAL PROJECT: Student Management
 
-### Mô tả bài toán
+### Problem Description
 
-Xây dựng cơ sở dữ liệu để lưu trữ và quản lý điểm sinh viên:
+Build a database to store and manage student grades:
 
-- Tạo cơ sở dữ liệu `student_management`
-- Thiết kế bảng `students` với các trường:
-  - `student_id` (khóa chính)
+- Create database `student_management`
+- Design `students` table with fields:
+  - `student_id` (primary key)
   - `full_name`
   - `math_score`
   - `physics_score`
   - `chemistry_score`
-  - `average_score` (có thể tính toán)
-  - `classification` (xếp loại học lực)
+  - `average_score` (can be calculated)
+  - `classification` (academic classification)
 
-### Yêu cầu
+### Requirements
 
-- Viết lệnh SQL để tạo cơ sở dữ liệu và bảng
-- Thêm dữ liệu mẫu cho 5 sinh viên
-- Viết truy vấn tính điểm trung bình cho mỗi sinh viên
-- Viết truy vấn cập nhật xếp loại học lực dựa trên điểm trung bình:
-  - TB >= 8.0 → Giỏi
-  - 6.5 <= TB < 8.0 → Khá
-  - 5.0 <= TB < 6.5 → Trung bình
-  - < 5.0 → Yếu
-- Hiển thị danh sách sinh viên kèm điểm trung bình và xếp loại
+- Write SQL commands to create database and table.
+- Add sample data for 5 students.
+- Write query to calculate average score for each student.
+- Write query to update academic classification based on average score:
+  - Avg >= 8.0 → Excellent (Giỏi)
+  - 6.5 <= Avg < 8.0 → Good (Khá)
+  - 5.0 <= Avg < 6.5 → Average (Trung bình)
+  - < 5.0 → Weak (Yếu)
+- Display list of students with average score and classification.
 
-### Kết quả chạy chương trình (Ví dụ)
+### Program Output (Example)
 
 ```text
 +------------+---------------+------------+---------------+-----------------+---------------+----------------+
 | student_id | full_name     | math_score | physics_score | chemistry_score | average_score | classification |
 +------------+---------------+------------+---------------+-----------------+---------------+----------------+
-|          4 | Phạm Thị D    |        9.0 |           8.5 |             8.0 |          8.50 | Giỏi           |
-|          1 | Nguyễn Văn A  |        8.5 |           7.5 |             9.0 |          8.33 | Giỏi           |
-|          2 | Trần Thị B    |        6.5 |           7.0 |             8.0 |          7.17 | Khá            |
-|          3 | Lê Văn C      |        5.0 |           6.0 |             7.0 |          6.00 | Trung bình     |
-|          5 | Hoàng Văn E   |        4.0 |           5.0 |             4.5 |          4.50 | Yếu            |
+|          4 | Pham Thi D    |        9.0 |           8.5 |             8.0 |          8.50 | Excellent      |
+|          1 | Nguyen Van A  |        8.5 |           7.5 |             9.0 |          8.33 | Excellent      |
+|          2 | Tran Thi B    |        6.5 |           7.0 |             8.0 |          7.17 | Good           |
+|          3 | Le Van C      |        5.0 |           6.0 |             7.0 |          6.00 | Average        |
+|          5 | Hoang Van E   |        4.0 |           5.0 |             4.5 |          4.50 | Weak           |
 +------------+---------------+------------+---------------+-----------------+---------------+----------------+
 ```
